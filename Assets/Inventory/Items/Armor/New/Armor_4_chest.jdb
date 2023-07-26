@@ -1,0 +1,89 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "DURABILITY_MAXIMUM": 6000,
+    "DURABILITY_INITIALVALUE": 6000,
+    "DURABILITY_CHANGERATE": 0
+  },
+  "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityProto",
+  "Id": "736a94ff-4067-4583-bcff-745e2e21f00f",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/ArmorBody",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitArmorTier4",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "a965fd94-9dfb-4875-ba35-0a54d6fffdfe"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [],
+    "ItemsOnFullBreak": []
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "Value": 130
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "Value": 130
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "Value": 130
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "4aac84eb-7eae-47f6-b500-0a3d9e14147e",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "HitMaterial": "/UtilPrefabs/HitMaterials/Chitin",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 1
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/AdaptantCuirass",
+  "BigIcon": "Assets/UI/UISprites/Items/AdaptantCuirassBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Armor/BioCrab/armorBioCrab_cuirass",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Armor/BioCrab/armorBioCrab_cuirass_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4240"
+  },
+  "DescriptionLs": {
+    "Key": "Инженер Радов позаимствовал этот принцип наложения бронепластин у сильнейших представителей фауны Кеплера. Для ремонта требуется набор для ремонта брони IV"
+  }
+}

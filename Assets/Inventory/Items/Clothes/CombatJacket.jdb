@@ -1,0 +1,79 @@
+{
+  "$type": "ItemResource",
+  "Id": "041e5d8e-4202-48a2-905b-0f8fdb71321c",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id" : "2da022b4-c24b-4509-9ffd-88cdfcdb2cb0",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/HullFragment",
+        "Count": 1
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/HullFragment",
+        "Count": 1
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 2,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearBody",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1000,
+      "DURABILITY_INITIALVALUE": 700,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "1b94c604-8c36-4601-957a-ea88dd7ebfdd"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "HitMaterial": "/UtilPrefabs/HitMaterials/Metal"
+  },
+  "HideBodyParts": [
+  ],
+  "Icon": "Assets/UI/UISprites/Items/CombatJacket",
+  "BigIcon": "Assets/UI/UISprites/Items/CombatJacketBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/CombatSuit/CombatSuit_jacket",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/CombatSuit/CombatSuit_jacket_female"
+  },
+}

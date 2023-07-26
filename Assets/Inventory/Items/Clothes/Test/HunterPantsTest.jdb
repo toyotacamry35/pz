@@ -1,0 +1,65 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "DURABILITY_MAXIMUM": 10,
+    "DURABILITY_INITIALVALUE": 10,
+    "DURABILITY_CHANGERATE": 0
+  },
+  "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityProto",
+  "Id": "c06bc5c2-c020-4acc-adc8-fbfca72bb1a5",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearLeg",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMax",
+        "Value": 4
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ComfortTemperatureMaxMore",
+        "Value": 4
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartLegs"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/Hunter'sPants",
+  "BigIcon": "Assets/UI/UISprites/Items/Hunter'sPantsBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/Hunter/suitHunter_pants",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/Hunter/suitHunter_pants_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4278"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4279"
+  }
+}

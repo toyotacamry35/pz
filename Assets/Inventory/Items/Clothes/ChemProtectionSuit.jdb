@@ -1,0 +1,69 @@
+{
+  "$type": "DollItemResource",
+  "Id": "358bb214-d316-4a1c-9ca3-49fef80cd4db",
+  "MaxStack": 1,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearBody",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "DEFAULT_ACTION": "/Inventory/Items/Actions/Destroy",
+      "CHANCE_TO_KEEP": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/NegativeFactors/ToxicResistance",
+        "Value": 0.75
+      }
+    ]
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          {
+            "$type": "SpellDef",
+            "Words": []
+          }
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n3565"
+        }
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartFeet",
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartPalms",
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartHair",
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartFaceHair",
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartTorso",
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartLegs"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/ChemicalProtectionSuitSlots",
+  "BigIcon": "Assets/UI/UISprites/Items/ChemicalProtectionSuitSlotsBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/Antitoxic/suitAntitoxic",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/Antitoxic/suitAntitoxic_female"
+  },
+  "PackDef": {
+    "BlockSlots": [
+      "/UtilPrefabs/Slots/WearFoot",
+      "/UtilPrefabs/Slots/WearHand",
+      "/UtilPrefabs/Slots/WearHead",
+      "/UtilPrefabs/Slots/WearLeg"
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n231"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n232"
+  }
+}

@@ -1,0 +1,1148 @@
+{
+  "$type": "EntityVersionsSnapshot",
+  "EntityVersions": {
+    "$type": "StrHashItemDictionary",
+    "AccountEntity": {
+      "$type": "HashItem",
+      "Hash": "BBC2120997F8B62BAA9339AD4E1216A5784B25AB",
+      "TypeDescriptor": {
+        "$type": "TypeDescriptor",
+        "Type": "GeneratedCode.DeltaObjects.AccountEntity",
+        "CustomSerializer": null,
+        "Members": [
+          {
+            "Key": "_chainCalls",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Collections.Concurrent.ConcurrentDictionary<System.Guid,SharedCode.EntitySystem.ChainCalls.EntityMethodsCallsChain>",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "_id",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Guid",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "AccountId__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.String",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Characters__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Entities.IAccountCharacter>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Entities.IAccountCharacter>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          }
+        ]
+      }
+    },
+    "BuildingAnchor": {
+      "$type": "HashItem",
+      "Hash": "78320C86AAA99790C89AF6740330A33C950B73B4",
+      "TypeDescriptor": {
+        "$type": "TypeDescriptor",
+        "Type": "GeneratedCode.DeltaObjects.BuildingAnchor",
+        "CustomSerializer": null,
+        "Members": [
+          {
+            "Key": "_chainCalls",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Collections.Concurrent.ConcurrentDictionary<System.Guid,SharedCode.EntitySystem.ChainCalls.EntityMethodsCallsChain>",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "_id",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Guid",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Character__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.OuterRef<SharedCode.Entities.IWorldCharacter>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.BsonOuterRefSerializer<SharedCode.Entities.IWorldCharacter>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "Place__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.OuterRef<SharedCode.Entities.Building.IBuildingPlace>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.BsonOuterRefSerializer<SharedCode.Entities.Building.IBuildingPlace>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          }
+        ]
+      }
+    },
+    "BuildingEngine": {
+      "$type": "HashItem",
+      "Hash": "3C3C35C7B5951A3F495EBB25DF8EC611753573C7",
+      "TypeDescriptor": {
+        "$type": "TypeDescriptor",
+        "Type": "GeneratedCode.DeltaObjects.BuildingEngine",
+        "CustomSerializer": null,
+        "Members": [
+          {
+            "Key": "_chainCalls",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Collections.Concurrent.ConcurrentDictionary<System.Guid,SharedCode.EntitySystem.ChainCalls.EntityMethodsCallsChain>",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "_id",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Guid",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Owner__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.OuterRef<SharedCode.EntitySystem.IEntity>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.BsonOuterRefSerializer<SharedCode.EntitySystem.IEntity>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          }
+        ]
+      }
+    },
+    "CraftEngine": {
+      "$type": "HashItem",
+      "Hash": "28EB01807E957844AA11598B6CDDC95D9F7F68CE",
+      "TypeDescriptor": {
+        "$type": "TypeDescriptor",
+        "Type": "GeneratedCode.DeltaObjects.CraftEngine",
+        "CustomSerializer": null,
+        "Members": [
+          {
+            "Key": "_chainCalls",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Collections.Concurrent.ConcurrentDictionary<System.Guid,SharedCode.EntitySystem.ChainCalls.EntityMethodsCallsChain>",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "_id",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Guid",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "CraftingQueue__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<System.Int32,SharedCode.Entities.Engine.ICraftingQueueItem>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<System.Int32,SharedCode.Entities.Engine.ICraftingQueueItem>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "CraftRecipesLastUsageTimes__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.ColonyShared.SharedCode.Aspects.Craft.CraftRecipeDef,System.Int64>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<Assets.ColonyShared.SharedCode.Aspects.Craft.CraftRecipeDef,System.Int64>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "CraftRecipesUsageStats__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.ColonyShared.SharedCode.Aspects.Craft.CraftRecipeDef,System.Int32>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<Assets.ColonyShared.SharedCode.Aspects.Craft.CraftRecipeDef,System.Int32>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "CraftScheduleCancellation__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.EntitySystem.ChainCalls.ChainCancellationToken>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.EntitySystem.ChainCalls.ChainCancellationToken>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "CurrentWorkbenchType__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Aspects.Item.Templates.WorkbenchTypeDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Aspects.Item.Templates.WorkbenchTypeDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "FuelContainerAddress__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.PropertyAddress",
+              "CustomSerializer": null,
+              "Members": [
+                {
+                  "Key": "Address",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Collections.Generic.List<System.Int32>",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                },
+                {
+                  "Key": "EntityId",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Guid",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                },
+                {
+                  "Key": "EntityTypeId",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Int32",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Key": "FuelScheduleCancellation__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.EntitySystem.ChainCalls.ChainCancellationToken>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.EntitySystem.ChainCalls.ChainCancellationToken>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "FuelTimeAlreadyInUse__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Int64",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "IntermediateCraftContainer__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.DeltaObjects.IContainer",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "IntermediateFuelContainer__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.DeltaObjects.IContainer",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Inventory__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.DeltaObjects.IContainer",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Owner__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.OuterRef<SharedCode.EntitySystem.IEntity>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.BsonOuterRefSerializer<SharedCode.EntitySystem.IEntity>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "ResultContainerAddress__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.PropertyAddress",
+              "CustomSerializer": null,
+              "Members": [
+                {
+                  "Key": "Address",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Collections.Generic.List<System.Int32>",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                },
+                {
+                  "Key": "EntityId",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Guid",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                },
+                {
+                  "Key": "EntityTypeId",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Int32",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Key": "StartCraftingTimeUTC0InMilliseconds__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Int64",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "StartFuelTimeUTC0InMilliseconds__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Int64",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          }
+        ]
+      }
+    },
+    "KnowledgeEngine": {
+      "$type": "HashItem",
+      "Hash": "51AB2D8E700A28B9EAB7BF54A53B337E0C3C82F1",
+      "TypeDescriptor": {
+        "$type": "TypeDescriptor",
+        "Type": "GeneratedCode.DeltaObjects.KnowledgeEngine",
+        "CustomSerializer": null,
+        "Members": [
+          {
+            "Key": "_chainCalls",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Collections.Concurrent.ConcurrentDictionary<System.Guid,SharedCode.EntitySystem.ChainCalls.EntityMethodsCallsChain>",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "_id",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Guid",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "BlockedKnowledges__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Aspects.Science.KnowledgeDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Aspects.Science.KnowledgeDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "BlockedRecipes__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<Assets.ColonyShared.SharedCode.Aspects.BaseRecipeDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<Assets.ColonyShared.SharedCode.Aspects.BaseRecipeDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "BlockedSciences__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Aspects.Science.ScienceDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Aspects.Science.ScienceDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "BlockedTechnologies__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Aspects.Science.TechnologyDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Aspects.Science.TechnologyDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "KnownKnowledges__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Aspects.Science.KnowledgeDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Aspects.Science.KnowledgeDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "KnownRecipes__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<Assets.ColonyShared.SharedCode.Aspects.BaseRecipeDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<Assets.ColonyShared.SharedCode.Aspects.BaseRecipeDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "KnownTechnologies__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Aspects.Science.TechnologyDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Aspects.Science.TechnologyDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "Sciences__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<SharedCode.Aspects.Science.ScienceDef,System.Int32>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<SharedCode.Aspects.Science.ScienceDef,System.Int32>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "TechPoints__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<SharedCode.Aspects.Science.TechPointDef,System.Int32>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<SharedCode.Aspects.Science.TechPointDef,System.Int32>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          }
+        ]
+      }
+    },
+    "WorldCharacter": {
+      "$type": "HashItem",
+      "Hash": "37947470E99475633BD6843F8D410A4417723977",
+      "TypeDescriptor": {
+        "$type": "TypeDescriptor",
+        "Type": "GeneratedCode.DeltaObjects.WorldCharacter",
+        "CustomSerializer": null,
+        "Members": [
+          {
+            "Key": "__SyncMovementStateReliable__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.MovementSync.CharacterMovementStateFrame",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonCharacterMovementStateFrameSerializer",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "_chainCalls",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Collections.Concurrent.ConcurrentDictionary<System.Guid,SharedCode.EntitySystem.ChainCalls.EntityMethodsCallsChain>",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "_id",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Guid",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "ActiveTraumas__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<System.String,Src.Aspects.Impl.Stats.ITraumaGiver>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<System.String,Src.Aspects.Impl.Stats.ITraumaGiver>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "ActiveWeaponDamageType__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.ColonyShared.SharedCode.Aspects.Damage.Templates.DamageTypeDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.ColonyShared.SharedCode.Aspects.Damage.Templates.DamageTypeDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "AllowedSpawnPoint__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Entities.GameObjectEntities.SpawnPointTypeDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<SharedCode.Entities.GameObjectEntities.SpawnPointTypeDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "AllowedTimeMutationChange__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Int64",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "AllTraumas__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.Src.Aspects.Impl.Traumas.Template.TraumasDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.Src.Aspects.Impl.Traumas.Template.TraumasDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "BackwardDamageMultiplier__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Single",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Bakens__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<System.Guid>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<System.Guid>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "BotBrainDef__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.Src.Aspects.Doings.BotActionsSequenceDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.Src.Aspects.Doings.BotActionsSequenceDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "BuildingAnchors__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Refs.EntityRef<SharedCode.Entities.Building.IBuildingAnchor>>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Refs.EntityRef<SharedCode.Entities.Building.IBuildingAnchor>>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "BuildingEngine__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Refs.EntityRef<SharedCode.Entities.Engine.IBuildingEngine>",
+              "CustomSerializer": null,
+              "Members": [
+                {
+                  "Key": "_id",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Guid",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Key": "CraftEngine__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Refs.EntityRef<SharedCode.Entities.Engine.ICraftEngine>",
+              "CustomSerializer": null,
+              "Members": [
+                {
+                  "Key": "_id",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Guid",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Key": "Def__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Entities.GameObjectEntities.IEntityObjectDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<SharedCode.Entities.GameObjectEntities.IEntityObjectDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "DefaultStats__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.ColonyShared.SharedCode.Aspects.Damage.Templates.ItemSpecificStats",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.ColonyShared.SharedCode.Aspects.Damage.Templates.ItemSpecificStats>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "Doll__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.DeltaObjects.ICharacterDoll",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Faction__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.Src.Aspects.Impl.Factions.Template.FactionDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.Src.Aspects.Impl.Factions.Template.FactionDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "FactionsDef__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.Src.Aspects.Impl.Factions.Template.FactionsDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.Src.Aspects.Impl.Factions.Template.FactionsDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "ForwardDamageMultiplier__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Single",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "HasActiveWeapon__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Boolean",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Health__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Entities.Engine.IHealthEngine",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Inventory__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.DeltaObjects.IContainer",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "IsAlive__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Boolean",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "KnowledgeEngine__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Refs.EntityRef<SharedCode.Entities.Engine.IKnowledgeEngine>",
+              "CustomSerializer": null,
+              "Members": [
+                {
+                  "Key": "_id",
+                  "Value": {
+                    "$type": "TypeDescriptor",
+                    "Type": "System.Guid",
+                    "CustomSerializer": null,
+                    "Members": null
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Key": "LastResurrectTime__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Int64",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "LootProbability__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType,SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType,SharedCode.EntitySystem.Delta.IDeltaDictionary<SharedCode.Aspects.Item.Templates.ItemResource,System.Single>>>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType,SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType,SharedCode.EntitySystem.Delta.IDeltaDictionary<SharedCode.Aspects.Item.Templates.ItemResource,System.Single>>>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "MaxMiningDistance__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Single",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Mutation__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Single",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Name__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.String",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "NewFaction__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.Src.Aspects.Impl.Factions.Template.FactionDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.Src.Aspects.Impl.Factions.Template.FactionDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "NewStage__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.Src.Aspects.Impl.Factions.Template.MutationStageDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.Src.Aspects.Impl.Factions.Template.MutationStageDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "ObjectType__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "OnSceneObjectNetId__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Entities.OnSceneObjectNetId",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonOnSceneObjectNetIdSerializer",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "PerksLootTable__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.ColonyShared.SharedCode.Aspects.Statistic.PerksLootTableDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.ColonyShared.SharedCode.Aspects.Statistic.PerksLootTableDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "PermanentPerks__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.DeltaObjects.IPermanentPerks",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "PointMarkers__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<System.Guid,Assets.ColonyShared.SharedCode.Aspects.WorldObjects.PointMarker>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<System.Guid,Assets.ColonyShared.SharedCode.Aspects.WorldObjects.PointMarker>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "PointsOfInterest__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<Assets.ColonyShared.SharedCode.Aspects.WorldObjects.PointOfInterestDef>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<Assets.ColonyShared.SharedCode.Aspects.WorldObjects.PointOfInterestDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "Prefab__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.String",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "Quest__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Entities.Engine.IQuestEngine",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "RecalculateStatsChainToken__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.ChainCalls.ChainCancellationToken",
+              "CustomSerializer": null,
+              "Members": []
+            }
+          },
+          {
+            "Key": "Regions__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaList<SharedCode.Entities.Regions.IInsideRegion>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaListSerializer<SharedCode.Entities.Regions.IInsideRegion>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "SavedPerks__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.DeltaObjects.ISavedPerks",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "SideDamageMultiplier__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "System.Single",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "SimpleStupidStats__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.Src.Aspects.Impl.Stats.StatResource,System.Single>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<Assets.Src.Aspects.Impl.Stats.StatResource,System.Single>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "SomeUnknownResourceThatMayBeUseful__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.Src.ResourcesSystem.Base.IResource",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.Src.ResourcesSystem.Base.IResource>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "Stage__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "Assets.Src.Aspects.Impl.Factions.Template.MutationStageDef",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.Utils.BsonSerialization.BsonIResourceSerializer<Assets.Src.Aspects.Impl.Factions.Template.MutationStageDef>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "Statistics__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType,SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType,System.Single>>",
+              "CustomSerializer": {
+                "$type": "SerializerDescriptor",
+                "Type": "SharedCode.EntitySystem.Delta.BsonDeltaDictionarySerializer<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType,SharedCode.EntitySystem.Delta.IDeltaDictionary<Assets.ColonyShared.SharedCode.Aspects.Statictic.StatisticType,System.Single>>",
+                "Version": 1
+              },
+              "Members": null
+            }
+          },
+          {
+            "Key": "Stats__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.Entities.Engine.IStatsEngine",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "TemporaryPerks__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.DeltaObjects.ITemporaryPerks",
+              "CustomSerializer": null,
+              "Members": null
+            }
+          },
+          {
+            "Key": "ZeroHealthDelayChancelation__Serialized",
+            "Value": {
+              "$type": "TypeDescriptor",
+              "Type": "SharedCode.EntitySystem.ChainCalls.ChainCancellationToken",
+              "CustomSerializer": null,
+              "Members": []
+            }
+          }
+        ]
+      }
+    }
+  }
+}

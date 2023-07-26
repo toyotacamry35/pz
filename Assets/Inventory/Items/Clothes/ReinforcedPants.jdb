@@ -1,0 +1,82 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "DURABILITY_MAXIMUM": 1000,
+    "DURABILITY_INITIALVALUE": 1000,
+    "DURABILITY_CHANGERATE": 0
+  },
+  "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityProto",
+  "Id": "0f6ee4ed-a990-4466-b1af-cee217dc0c7f",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "739e5a29-6fea-47d2-b777-726d0f6d45cc",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/RawThinLeather",
+        "Count": 1
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/RawThinLeather",
+        "Count": 2
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 2,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearLeg",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.95
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+       "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.95
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartLegs"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/ReinforcedPantsV2",
+  "BigIcon": "Assets/UI/UISprites/Items/ReinforcedPantsBigV2",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/Reinforced/suitReinforced_pants",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/Reinforced/suitReinforced_pants_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n261"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n262"
+  }
+}

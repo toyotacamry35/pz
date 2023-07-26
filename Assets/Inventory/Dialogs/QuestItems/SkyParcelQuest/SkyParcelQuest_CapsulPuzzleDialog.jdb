@@ -1,0 +1,252 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n3930"
+  }, //Система восстановления доступа для механиков с куриными мозгами запущена. Удачи, здоровяк.
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n3933" //Далее
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n3932" //Шаг 1: Р.О.Б.О.Т. равняется 58387. Назовите 385.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3935" //Б.О.Р.
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n3934" //Шаг 2: К.О.Р.А.Б.Л.Ь. равняется 7143269. Назовите 71623.
+              },
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n3937" //Б.О.К.А.Л.
+                  },
+                  "Dialog": {
+                    "$type": "DialogDef",
+                    "Phrase": {
+                      "Key": "#l10n3936" //Ошибка ввода. Активируйте сброс настроек и попробуйте еще раз.
+                    },
+                    "Next": [
+                      {
+                        "Answer1": {
+                          "Key": "#l10n3961" //Сбросить восстановление пароля.
+                        },
+                        "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Answer1": {
+                    "Key": "#l10n3939" //К.О.Б.Р.А.
+                  },
+                  "Dialog": {
+                    "$type": "DialogDef",
+                    "Phrase": {
+                      "Key": "#l10n3938" //Ошибка ввода. Активируйте сброс настроек и попробуйте еще раз.
+                    },
+                    "Next": [
+                      {
+                        "Answer1": {
+                          "Key": "#l10n3961" //Сбросить восстановление пароля.
+                        },
+                        "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Answer1": {
+                    "Key": "#l10n3941" //К.О.Л.Б.А.
+                  },
+                  "Dialog": {
+                    "$type": "DialogDef",
+                    "Phrase": {
+                      "Key": "#l10n3940" //Шаг 3: А.Р.Т.Е.М.И.Д.А. равняется 97145829. Назовите 2895417.
+                    },
+                    "Next": [
+                      {
+                        "Answer1": {
+                          "Key": "#l10n3943" //Д.И.А.М.Е.Т.Р.
+                        },
+                        "Dialog": {
+                          "$type": "DialogDef",
+                          "Phrase": {
+                            "Key": "#l10n3942" //Шаг 4: В.О.С.С.Т.А.Н.И.Е. равняется 820046735. Назовите  46370482.
+                          },
+                          "Next": [
+                            {
+                              "Answer1": {
+                                "Key": "#l10n3945" //Т.И.С.Н.Е.Н.И.Е.
+                              },
+                              "Dialog": {
+                                "$type": "DialogDef",
+                                "Phrase": {
+                                  "Key": "#l10n3944" //Ошибка ввода. Активируйте сброс настроек и попробуйте еще раз.
+                                },
+                                "Next": [
+                                  {
+                                    "Answer1": {
+                                      "Key": "#l10n3961" //Сбросить восстановление пароля.
+                                    },
+                                    "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Answer1": {
+                                "Key": "#l10n3947" //Т.А.И.Н.С.Т.В.О.
+                              },
+                              "Dialog": {
+                                "$type": "DialogDef",
+                                "Phrase": {
+                                  "Key": "#l10n3946" //Пароль восстановлен, замок открыт. Молодчина, Стьюи, развивай мозги! P.S. Скучаю по тебе. Заходи к нам почаще, а?
+                                },
+                                "Next": [
+                                  {
+                                    "Answer1": {
+                                      "Key": "#l10n3949" //Открыть капсулу.
+                                    },
+                                    "Dialog": {
+                                      "$type": "DialogDef",
+                                      "Phrase": {
+                                        "Key": "#l10n3948" //С тихим шипением дверь капсулы открывается. Тело человека внутри изрезано осколками обшивки и приборов - бедняга явно не пережил падения.
+                                      },
+                                      "Next": [
+                                        {
+                                          "Answer1": {
+                                            "Key": "#l10n3950" //Обыскать капсулу.
+                                          },
+                                          "Dialog": {
+                                            "$type": "DialogDef",
+                                            "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_CapsulOpen"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Answer1": {
+                                "Key": "#l10n3952" //Н.Е.С.Е.Н.И.Е.
+                              },
+                              "Dialog": {
+                                "$type": "DialogDef",
+                                "Phrase": {
+                                  "Key": "#l10n3951" //Ошибка ввода. Активируйте сброс настроек и попробуйте еще раз.
+                                },
+                                "Next": [
+                                  {
+                                    "Answer1": {
+                                      "Key": "#l10n3961" //Сбросить восстановление пароля.
+                                    },
+                                    "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "Answer1": {
+                          "Key": "#l10n3954" //Д.И.А.Д.Е.М.А.
+                        },
+                        "Dialog": {
+                          "$type": "DialogDef",
+                          "Phrase": {
+                            "Key": "#l10n3953" //Ошибка ввода. Активируйте сброс настроек и попробуйте еще раз.
+                          },
+                          "Next": [
+                            {
+                              "Answer1": {
+                                "Key": "#l10n3961" //Сбросить восстановление пароля.
+                              },
+                              "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "Answer1": {
+                          "Key": "#l10n3956" //Д.А.М.М.А.Р.А.
+                        },
+                        "Dialog": {
+                          "$type": "DialogDef",
+                          "Phrase": {
+                            "Key": "#l10n3955" //Ошибка ввода. Активируйте сброс настроек и попробуйте еще раз.
+                          },
+                          "Next": [
+                            {
+                              "Answer1": {
+                                "Key": "#l10n3961" //Сбросить восстановление пароля.
+                              },
+                              "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Answer1": {
+              "Key": "#l10n3958" //Б.О.Б.
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n3957" //Ошибка ввода. Активируйте сброс настроек и попробуйте еще раз.
+              },
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n3961" //Сбросить восстановление пароля.
+                  },
+                  "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+                }
+              ]
+            }
+          },
+          {
+            "Answer1": {
+              "Key": "#l10n3960" //Б.О.Т.
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n3959" //Ошибка ввода. Активируйте сброс настроек и попробуйте еще раз.
+              },
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n3961" //Сбросить восстановление пароля.
+                  },
+                  "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3961" //Сбросить восстановление пароля.
+      }
+    }
+  ]
+}

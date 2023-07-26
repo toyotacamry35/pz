@@ -1,0 +1,76 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "DURABILITY_MAXIMUM": 1000,
+    "DURABILITY_INITIALVALUE": 1000,
+    "DURABILITY_CHANGERATE": 0
+  },
+  "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityProto",
+  "Id": "01c4898d-1b55-4cac-81ed-f3f196ffd294",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "a7113d36-d0e4-4339-a45c-d61fc89e7fed",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier2",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/TannedThinLeather",
+        "Count": 1
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/TannedThinLeather",
+        "Count": 1
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 3,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearBody",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.85
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+       "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.85
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartTorso"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/IconMissing",
+  "BigIcon": "Assets/UI/UISprites/Items/IconMissingBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/LeatherSuit/LeatherSuit_jacket",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/LeatherSuit/LeatherSuit_jacket_female"
+  }
+}

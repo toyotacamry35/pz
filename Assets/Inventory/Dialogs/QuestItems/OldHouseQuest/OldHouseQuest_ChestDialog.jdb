@@ -1,0 +1,110 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n3907"
+  }, //Грубый сундук сделан из пластин инопланетных грибов и закрыт на амбарный замок. Части замка подогнаны криво, будто кто-то собирал их из разных кусков металла.
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n3910" //Открыть сундук
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_CheckKey",
+        "Phrase": {
+          "Key": "#l10n3909" //Ржавый ключ без труда входит в замочную скважину, начинает проворачиваться... и застревает. Только навалившись всем весом вам удается провернуть его до конца.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3911" //Забрать содержимое и уйти
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_Reward"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3913" //Попытаться открыть замок
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": {
+          "$type": "SpellDef",
+          "Words": [
+            {
+              "$type": "PredicateCheckItemDef",
+              "Inversed": true,
+              "Item": "/Inventory/Items/Quest/OldHouseQuest/OldHouseQuestChestKey",
+              "Count": 1
+            }
+          ]
+        },
+        "Phrase": {
+          "Key": "#l10n3912" //Сколько бы вы ни пытались открыть замок, тот не поддается. Бесполезно. Похоже, без ключа не обойтись.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3908" //Оставить в покое
+            },
+            "Dialog": "/Inventory/Dialogs/QuestItems/OldHouseQuest/OldHouseQuest_ChestDialog"
+          }
+        ]
+      }
+    },
+    //ЕСТЬ молот в инвентаре
+    {
+      "Answer1": {
+        "Key": "#l10n3915" //Сбить замок
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_HammerCheck",
+        "Phrase": {
+          "Key": "#l10n3914" //От первого же удара молота замок проминается, после второго и третьего металл разлетается с оглушительным лязгом. Сундук открыт.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3916" //Забрать содержимое и уйти
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_Reward"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3918" //Сбить замок
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_HammerCheckNO",
+        "Phrase": {
+          "Key": "#l10n3917" //От ваших ударов на замке образуются вмятины и царапины, но металл никак не поддается. Видимо, придется найти что-то потяжелее.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3908" //Оставить в покое
+            },
+            "Dialog": "/Inventory/Dialogs/QuestItems/OldHouseQuest/OldHouseQuest_ChestDialog"
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3919" //Уйти
+      }
+    }
+  ]
+}

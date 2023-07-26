@@ -1,0 +1,90 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "DURABILITY_MAXIMUM": 4000,
+    "DURABILITY_INITIALVALUE": 4000,
+    "DURABILITY_CHANGERATE": 0
+  },
+  "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityProto",
+  "Id": "6f4a5170-f410-4c89-b91a-07386470e759",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/ArmorHead",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitArmorTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "088cd045-c493-4413-b989-80b4f5572ac0"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [],
+    "ItemsOnFullBreak": []
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 1
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartHair"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/new_SahrimScaleHelmet",
+  "BigIcon": "Assets/UI/UISprites/Items/new_SahrimScaleHelmetBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Armor/SahrimScale/armorSahrimScaleh_helmet",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Armor/SahrimScale/armorSahrimScaleh_helmet_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4220"
+  },
+  "DescriptionLs": {
+    "Key": "Часть кустарной брони, защищающей от легких повреждений. Для ремонта требуется набор для ремонта брони I"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$type": "ItemResource",
+  "Id": "1af4d5c1-0ebe-430c-90be-0bc163835174",
+  "MaxStack": 1,
+  "Weight": 0,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearBackpack",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "Icon": "Assets/UI/UISprites/Items/new_BackpackT4Vegan",
+  "BigIcon": "Assets/UI/UISprites/Items/new_BackpackT4VeganBig",
+  "Visual": "Assets/Content/Characters/Gear/backpackVeganT02.prefab",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight",
+        "Value": 55
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "PackDef": {
+    "UnblockSlots": [
+      "/UtilPrefabs/Slots/HotSlot1",
+      "/UtilPrefabs/Slots/HotSlot2"
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4254"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4255"
+  }
+}

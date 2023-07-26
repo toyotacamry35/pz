@@ -1,0 +1,31 @@
+{
+  "$type": "SpellDef",
+  "Words": [
+    {
+      "$type": "PredicateCheckItemDef",
+      "Inversed": true,
+      "Item": "/Inventory/Items/Consumables/Teleport",
+      "Count": 1
+    },
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/DropZone/DialogTutorialQuest1KW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/CaptainDialog/DialogSecond_KW"
+        }
+      ]
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Consumables/Teleport"
+      ],
+      "Count": 1
+    }
+  ]
+}

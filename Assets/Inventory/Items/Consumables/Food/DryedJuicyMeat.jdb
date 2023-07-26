@@ -1,0 +1,53 @@
+{
+  "$type": "ItemResource",
+  "Id": "f3af70d6-f793-4088-918c-ddab83a7a616",
+  "MaxStack": 100,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "Icon": "Assets/UI/UISprites/Items/new_JerkedJuicyMeat",
+  "BigIcon": "Assets/UI/UISprites/Items/new_JerkedJuicyMeatBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/DryedJuicyMeatSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n350"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/FoodMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HungerOnConsumeLess",
+        "Value": 400
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4330"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4331"
+  }
+}

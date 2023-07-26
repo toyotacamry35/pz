@@ -1,0 +1,98 @@
+{
+  "$type": "ObeliskDef",
+  "Id": "cadb4411-99aa-4994-9732-951a7e4bad5f",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "99b1438d-48d1-4d65-8a6c-d4c2fb050699",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": 0,
+        "LimitMaxDefault": 1000,
+        "InitialValue": 1000,
+        "IsBroadcasted": true
+      },
+      {
+        "$type": "AccumulatedStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Opened",
+        "InitialValue": 0.0,
+        "LimitMinDefault": -0.1,
+        "IsBroadcasted": true
+      },
+    ]
+  },
+  "InitialSpells": [],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "aa68b67c-b139-4d0d-8df7-d62798ef3c36",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Id": "bcb4afad-8f51-4a7b-8f41-2c188d97c593",
+    "Title": "Obelisk"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  "ReactionHandlers": {
+    "$type": "ReactionsDef",
+    "Reactions": {
+      "/UtilPrefabs/Reactions/Burn": {
+        "$type": "ReactionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Reactions/ObeliskBurn",
+      },
+    }
+  },
+  "Prefab": "Assets/Content/Construction/Tier02/builderFenceGateT02_Animated_Obelisk",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Id": "895240f9-afae-4d84-ac1d-7da679d0e884",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      },
+      {
+        "$type": "MortalObjectComponentDef"
+      },
+      {
+        "$type": "VisualEventProxy",
+        "Events": {
+          "$type": "FXEvents",
+          "FXEvents": [
+            {
+              "$type": "TriggerFXRule",
+              "EventType": "/Character/Events/ObeliskBurnFXEvent",
+              "OnEvent": {
+                "Caster": [
+                  {
+                    "$type": "PlaceUnparentedFX",
+                    "RelativeToGameObject": true,
+                    "Shift": {
+                      "y": 1.2,
+                    },
+                    "FX": "Assets/InteractiveObjects/Obelisks/FX/ObeliskBurn_FX"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "DeathResurrectHandlerDef",
+        "PlayAnimation": "Death"
+      }
+    ]
+  },
+  "LegionType": "/AI/Defs/Legions/Obelisks/SimpleObelisk_Legion"
+}

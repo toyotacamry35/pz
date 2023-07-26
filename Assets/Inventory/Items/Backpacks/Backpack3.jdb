@@ -1,0 +1,42 @@
+{
+  "$type": "ItemResource",
+  "Id": "34f5d3e7-fb4e-4434-8358-8a5c0125272f",
+  "MaxStack": 1,
+  "Weight": 0,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearBackpack",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/BackpackBase",
+  "BigIcon": "Assets/UI/UISprites/Items/BackpackBaseBig",
+  "Visual": "Assets/Content/Characters/Gear/Backpack",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight",
+        "Value": 20
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "PackDef": {
+    "UnblockSlots": [
+      "/UtilPrefabs/Slots/HotSlot1"
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n197"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n198"
+  }
+}

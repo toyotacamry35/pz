@@ -1,0 +1,46 @@
+{
+  "$type": "ItemResource",
+  "Id": "0af0b6da-a0d7-4c43-abc5-a85efab2bbdd",
+  "MaxStack": 100,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food", 
+  "Icon": "Assets/UI/UISprites/Items/new_beauty_meat",
+  "BigIcon": "Assets/UI/UISprites/Items/new_beauty_meatBig",
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/RawJuicyMeatSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n326"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/FoodMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HungerOnConsumeLess",
+        "Value": 150
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ToxicOnConsumeMore",
+        "Value": 300
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4314"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4315"
+  }
+}

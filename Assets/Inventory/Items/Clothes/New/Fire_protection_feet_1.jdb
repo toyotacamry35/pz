@@ -1,0 +1,92 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "DURABILITY_MAXIMUM": 3000,
+    "DURABILITY_INITIALVALUE": 3000,
+    "DURABILITY_CHANGERATE": 0
+  },
+  "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityProto",
+  "Id": "2d67e3a9-8b01-4964-9613-ed9e7da79608",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearFoot",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitArmorTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "267633e2-47ed-473a-92e7-79879e144321"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [],
+    "ItemsOnFullBreak": []
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/NegativeFactors/BootsEquipped",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ComfortTemperatureMaxMore",
+        "Value": 4
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMax",
+        "Value": 4
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartFeet"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/Hunter'sBoots",
+  "BigIcon": "Assets/UI/UISprites/Items/Hunter'sBootsBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/Hunter/suitHunter_boots",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/Hunter/suitHunter_boots_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4272"
+  },
+  "DescriptionLs": {
+    "Key": "На вид это примитивный костюм из обрезков кожи, но благодаря брактусовой пропитке он способен незначительно понижать температуру тела носителя. Для ремонта требуется набор для ремонта брони I"
+  }
+}

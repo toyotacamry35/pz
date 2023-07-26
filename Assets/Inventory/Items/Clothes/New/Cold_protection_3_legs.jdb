@@ -1,0 +1,101 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "DURABILITY_MAXIMUM": 3000,
+    "DURABILITY_INITIALVALUE": 3000,
+    "DURABILITY_CHANGERATE": 0
+  },
+  "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityProto",
+  "Id": "5a258a3e-a5c8-47ca-b6cf-e10321e2cfcd",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearLeg",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitArmorTier3",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "167d042b-0e77-4e88-9a45-73759f3a4f5e"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [],
+    "ItemsOnFullBreak": []
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "Value": 10
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "Value": 10
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "Value": 10
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ComfortTemperatureMinLess",
+        "Value": 10
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMin",
+        "Value": -10
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ComfortTemperatureMaxLess",
+        "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMax",
+        "Value": -2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartLegs"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/new_warm_suite_pants",
+  "BigIcon": "Assets/UI/UISprites/Items/new_warm_suite_pantsBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/HeatingSuit/suitHeating_pants",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/HeatingSuit/suitHeating_pants_female"
+  },
+  "PackDef": {
+    "BlockSlots": [
+      "/UtilPrefabs/Slots/ArmorLeg"
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4268"
+  },
+  "DescriptionLs": {
+    "Key": "Превосходно защищает от холода и урона. Нельзя надеть с броней. Для ремонта требуется набор для ремонта брони III"
+  }
+}

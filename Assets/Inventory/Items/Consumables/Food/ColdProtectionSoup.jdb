@@ -1,0 +1,61 @@
+{
+  "$type": "ItemResource",
+  "Id": "66f0356a-cbe4-4c4d-9dc0-f9a19b9fbb8d",
+  "MaxStack": 100,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "Icon": "Assets/UI/UISprites/Items/XenoBractusSoup",
+  "BigIcon": "Assets/UI/UISprites/Items/XenoBractusSoupBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/ColdProtectionSoupSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n350"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/FoodMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HungerOnConsumeLess",
+        "Value": 300
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ComfortTemperatureMinLess",
+        "Value": 30
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/BonusDurationMin",
+        "Value": 15
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4328"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4329"
+  }
+}

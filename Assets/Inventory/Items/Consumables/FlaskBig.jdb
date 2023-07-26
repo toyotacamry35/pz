@@ -1,0 +1,50 @@
+{
+  "$type": "ItemResource",
+  "Id": "09d90e60-c053-4867-9e19-5831554113f7",
+  "MaxStack": 1,
+  "Weight": 0.2,
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "InnerContainerSize": 1,
+  "ApplicableInnerItems": [
+    "/Inventory/Items/Res/CleanWater",
+    "/Inventory/Items/Res/ToxicWater"
+  ],
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "Icon": "Assets/UI/UISprites/Items/Bottle",
+  "BigIcon": "Assets/UI/UISprites/Items/BottleBig",
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/FlaskOfCleanWaterSpell",
+          "/UtilPrefabs/Spells/Consumables/FlaskOfToxicWaterSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n2587"
+        }
+      },
+      {
+        "DontRemoveWhenUse": true,
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/EmptyFlaskCleanWaterSpell",
+          "/UtilPrefabs/Spells/Consumables/EmptyFlaskToxicWaterSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n2588"
+        }
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "MaxInnerStack": 20,
+    "ContainerUsage": "InnerContainer"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n2427"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n2428"
+  }
+}

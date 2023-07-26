@@ -1,0 +1,46 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "DURABILITY_MAXIMUM": 3000,
+    "DURABILITY_INITIALVALUE": 3000,
+    "DURABILITY_CHANGERATE": 0
+  },
+  "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityProto",
+  "Id": "0e5ce3fe-0fc8-451d-9b84-cbbf50be8bff",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearMask",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/NegativeFactors/ToxicResistance",
+        "Value": 180
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/RespiratoryMask",
+  "BigIcon": "Assets/UI/UISprites/Items/RespiratoryMaskBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Armor/Respiratory_mask/maskRespiratory",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Armor/Respiratory_mask/maskRespiratory_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4282"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4283"
+  }
+}

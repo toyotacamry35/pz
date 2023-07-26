@@ -1,0 +1,81 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n3520"
+  },
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n504253"
+      }, // Несколько вариантов ответов игрока, ведущие к одному ответу
+// },
+// {
+//   "Key": "Давай уже сюда свое задание."
+// },
+// {
+//   "Key": "А у меня есть выбор?"
+      "Dialog": {// Ответ NPC
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n504254"
+        },
+        "Spell": {// Спел выдачи квеста. Тут может быть ссылка
+          "$type": "SpellDef",
+          "Words": [
+            //Если:
+            {
+              "$type": "PredicateHasQuestEngine",
+              "Target": {
+                "$type": "SpellCaster"
+              }
+            },
+            {
+              "$type": "PredicateQuestPhaseDef",
+              "Inversed": true,
+              "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_Rootstick",
+              "Type": "Less",
+              "Phases": 0
+            },
+            {
+              "$type": "PredicateQuestPhaseDef",
+              "Inversed": true,
+              "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_Rootstick"
+            }
+            , //То:
+            {
+              "$type": "ImpactActivateQuestDef", //выдаёт квест, указанный ниже
+              "Target": {
+                "$type": "SpellCaster"
+              },
+              "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_Rootstick"//ссылка на файл с этим квестом. его заведём в п.2 и сюда вставим
+            }
+          ]
+        }
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n504255"
+      }, // Разблокируется когда выполнено условие квеста.
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_Rootstick/GrindQuest_Rootstick_Complete", //Спел завершение квеста
+        "Phrase": {
+          "Key": "#l10n504256"
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504257"
+            }// Выход из диалога
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n504258"
+      }// Выход из диалога
+    }
+  ]
+}

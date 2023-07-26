@@ -1,0 +1,53 @@
+{
+  "$type": "ItemResource",
+  "Id": "4e399709-1fba-41a4-8393-67d511d3b98d",
+  "MaxStack": 100,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "Icon": "Assets/UI/UISprites/Items/RoastedGerophit",
+  "BigIcon": "Assets/UI/UISprites/Items/RoastedGerophitBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/RoastedGerophitSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n341"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/FoodMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HungerOnConsumeLess",
+        "Value": 250
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4340"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4341"
+  }
+}

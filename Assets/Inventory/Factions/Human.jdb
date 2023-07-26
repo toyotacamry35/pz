@@ -1,0 +1,104 @@
+{
+  "$type": "MutatingFaction",
+  "Id": "0b7b3d1d-fd46-483a-b3b2-a025bdebc61f",
+  "MutationOnDeath": -7,
+  "MaxMutation": 100,
+  "Stages": [
+    // Фракция обязана иметь хотя бы одну Стадию; 
+    // Граница максимальной Стадии должна равняться максимальной границе Фракции (MaxMutation =  максимальное из Boundary); 
+    // Стадий должны быть расположены в порядке возрастания (по возрастанию Boundary).
+    {
+      "$type": "TransitionMutationStageDef",
+      "Id": "D26E86AC-1191-4C02-9ABB-A155C56AE704",
+      "Boundary": 0,
+      "ToFaction": "/Inventory/Factions/Host"
+    },
+    "/Inventory/Factions/Stages/HalfHuman",
+    "/Inventory/Factions/Stages/FullHuman"
+  ],
+  "NameLs": {
+    "Key": "#l10n141"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n142"
+  },
+  "Permadeath": {
+    "$type": "PredicateIsHardcore"
+  },
+  "CorpsesVisibleOnlyForOwner": {
+    "$type": "PredicateIsPvE"
+  },
+  "RelationshipRules": {
+    "$type": "RelationshipRulesDef",
+    "IncomingDamageMultiplier": { // ThisEntity - атакуемый представитель данной фракции, OtherEntity - атакующий 
+      "$type": "DamageMultiplier",
+      "Id": "5B998FA7-9762-410F-AC83-735DCD81E660",
+      "Calcer": {
+        "$type": "CalcerPiecewise",
+        "Ranges": [
+          {
+            "Condition": {
+                "$type": "PredicateAnd",
+                "Predicates": [
+                  "/UtilPrefabs/Utils/PvEPredicate",
+                  {
+                    "$type": "PredicateOr",
+                    "Predicates": [
+                      "/UtilPrefabs/Utils/SameFactionPredicate",
+                      "/UtilPrefabs/Utils/OtherEntityIsHostPredicate"
+                    ]
+                  }
+                ]
+            },
+            "Value": 0 // 0 - полностью отключает нанесение урона и всех сопуствующих воздействий  
+          }
+        ],
+        "Else": 1
+      }
+    },
+    "CorpseAccessPredicate": { // ThisEntity - ТРУП представителя данной фракции который пытаются полутать, OtherEntity - тот, кто хочет полутать
+      "$type": "AccessPredicate",
+      "Id": "816366C0-4513-4020-8888-E9CDD0625993",
+      "Predicate": {
+        "$type": "PredicateOr",
+        "Predicates": [
+          "/UtilPrefabs/Utils/NotPvEPredicate",
+          "/UtilPrefabs/Utils/OtherEntityIsOwnerPredicate"
+        ]
+      }
+    },
+    "ChestAccessPredicate": { // ThisEntity - СУНДУК представителя данной фракции который пытаются открыть, OtherEntity - тот, кто хочет открыть
+      "$type": "AccessPredicate",
+      "Id": "5950A3AF-A19A-4E54-A5A7-A9063B4F147A",
+      "Predicate": {
+        "$type": "PredicateOr",
+        "Predicates": [
+          "/UtilPrefabs/Utils/NotPvEPredicate",
+          "/UtilPrefabs/Utils/OtherEntityIsOwnerPredicate"
+        ]
+      }
+    },
+    "ChestIncomingDamageMultiplier": { // ThisEntity - СУНДУК представителя данной фракции который бьют, OtherEntity - тот, кто по сундуку бъёт
+      "$type": "DamageMultiplier",
+      "$id": "ChestIncomingDamageMultiplier",
+      "Id": "B34FC744-87B6-4EE0-B8FD-B1D87AED117B",
+      "Calcer": {
+        "$type": "CalcerPiecewise",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateOr",
+              "Predicates": [
+                "/UtilPrefabs/Utils/NotPvEPredicate",
+                "/UtilPrefabs/Utils/OtherEntityIsOwnerPredicate"
+              ]
+            },
+            "Value": 1
+          }
+        ],
+        "Else": 0 // 0 - полностью отключает нанесение урона и всех сопуствующих воздействий
+      }
+    },
+    "BakenIncomingDamageMultiplier": "$ChestIncomingDamageMultiplier"
+  }
+}

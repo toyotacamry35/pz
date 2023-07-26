@@ -1,0 +1,83 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n504245"
+  }, // Первая фраза NPC появляющаяся при старте диалога
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n504246"
+      }, // Ответ игрока, на фразу NPC выше.
+      "Dialog": {// Dialog, Это спел переводящий диалог на следующий уровень. 
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n504247"
+        },
+        "Spell": {// Спелы работают как и раньше, но теперь их нельзя вешать на Answer.
+          "$type": "SpellDef",
+          "Duration": 1,
+          "Words": [
+            {
+              "$type": "ImpactAddItemsDef",
+              "Items": [
+                "/Inventory/Items/Res/DatapadCaptain"
+              ],
+              "Count": 1,
+              "Target": {
+                "$type": "SpellCaster"
+              },
+              "WhenToApply": "OnSuccess"
+            },
+            {
+              "$type": "PredicateQuestPhaseDef", // Предиката на квест
+              "Inversed": true,
+              "Quest": "/Inventory/Quest/FactionQuest"
+            }
+          ]
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504248"
+            }, // Оба Answer'a ведут в начало диалога
+// },
+// {
+//   "Key": "Давай забудем обовсем"
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n504249"
+              },
+              "Spell": {
+                "$type": "SpellDef",
+                "Words": [
+                  {
+                    "$type": "PredicateCheckItemDef",
+                    "Item": "/Inventory/Items/Res/DatapadCaptain",
+                    "Count": 3
+                  }
+                ]
+              },
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n504250"
+                  },
+                  "OverwritePhrase": {
+                    "Key": "#l10n504251"
+                  },
+                  "Dialog": "/Inventory/Dialogs/TestDialog/Dialog1"
+                }
+              ]
+            }
+          },
+          {
+            "Answer1": {
+              "Key": "#l10n504252"
+            }// Два Answer'a видущие в конец диалога. Каждый ансвер занимает свою строку.
+          }
+        ]
+      }
+    }
+  ]
+}

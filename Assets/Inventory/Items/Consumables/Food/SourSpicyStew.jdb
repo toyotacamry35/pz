@@ -1,0 +1,53 @@
+{
+  "$type": "ItemResource",
+  "Id": "cf3b9e93-f4a5-4f9e-a894-631027e70932",
+  "MaxStack": 100,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "Icon": "Assets/UI/UISprites/Items/XenoMashedBractus",
+  "BigIcon": "Assets/UI/UISprites/Items/XenoMashedBractusBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/XenoMashedBractusSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n2462"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/FoodMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HungerOnConsumeLess",
+        "Value": 600
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4348"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4349"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$type": "Faction",
+  "Id": "83E9099E-CB5C-4A13-B3CD-C160E3C760F6",
+  "NameLs": {
+    "Key": "NPCs Faction"
+  },
+  "DescriptionLs": {
+    "Key": "NPCs Faction"
+  },
+  "UnbreakableItems": true,
+  "RelationshipRules": { 
+    "$type": "RelationshipRulesDef",
+    "IncomingDamageMultiplier": { // ThisEntity - атакуемый представитель данной фракции, OtherEntity - атакующий 
+      "$type": "DamageMultiplier",
+      "Id": "6A4BCDAE-4EC4-4205-A629-A62BBE16B8F1",
+      "Calcer": {
+        "$type": "CalcerPiecewise",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                "/UtilPrefabs/Utils/SameFactionPredicate",
+                "/UtilPrefabs/Utils/SameSquadPredicate"
+              ]
+            },
+            "Value": 0 // 0 - полностью отключает нанесение урона и всех сопуствующих воздействий  
+          }
+        ],
+        "Else": 1
+      }
+    }
+  }
+}

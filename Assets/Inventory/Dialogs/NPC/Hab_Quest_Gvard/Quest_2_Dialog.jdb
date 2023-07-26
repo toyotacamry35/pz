@@ -1,0 +1,23 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n503174" //Ты, это... тут неподалеку другие корни есть, штук пять. Из них тоже жижу принеси. Только не из одного, из разных.
+  },
+  "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/GvardTook/GvardTookQuest3_start_dialog",
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n503176" //*Согласиться*
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/GvardTook/GvardTookQuest3"
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n503177" //*Уйти*
+      }
+    }
+  ]
+}

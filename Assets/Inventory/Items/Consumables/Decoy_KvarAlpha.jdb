@@ -1,0 +1,39 @@
+{
+  "$type": "ItemResource",
+  "Id": "9ae601f8-ae51-4090-a3fa-f3627d285511",
+  "MaxStack": 100,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Icon": "Assets/UI/UISprites/Items/new_Kvars_bait",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Kvars_baitBig",
+  "ConsumableData": {
+    "$type": "Consum",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          {
+            "$type": "SpellDef",
+            "Name": "Spawn obelisk",
+            "Duration": 2,
+            "Words": [
+              {
+                "$type": "ImpactSpawnObelisk",
+                "Obelisk": "/SpawnSystem/Objects/Decoy_KvarAlpha"
+              }
+            ]
+          }
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n3270"
+        }
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n3271"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3272"
+  }
+}

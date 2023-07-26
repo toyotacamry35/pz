@@ -1,0 +1,46 @@
+{
+  "$type": "ItemResource",
+  "Id": "66b1872b-d8b2-4b98-a60b-45cf4fbe4722",
+  "MaxStack": 100,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "Icon": "Assets/UI/UISprites/Items/ScifopodGlands",
+  "BigIcon": "Assets/UI/UISprites/Items/ScifopodGlandsBig",
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/RawJuicyMeatSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n326"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/FoodMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HungerOnConsumeLess",
+        "Value": 400
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ToxicOnConsumeMore",
+        "Value": 400
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4312"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4313"
+  }
+}

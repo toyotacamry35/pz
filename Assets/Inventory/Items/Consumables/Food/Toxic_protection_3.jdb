@@ -1,0 +1,49 @@
+{
+  "$type": "ItemResource",
+  "Id": "68f01d3b-e9e8-44e0-baea-f3b19b6eebe8",
+  "MaxStack": 100,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "Icon": "Assets/UI/UISprites/Items/XenoHorseshoeRatatouille",
+  "BigIcon": "Assets/UI/UISprites/Items/XenoHorseshoeRatatouilleBig",
+  "ConsumableData": "/Inventory/Items/Consumables/XenoHorseshoeRatatouille-Component-Consumable",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/FoodMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HungerOnConsumeLess",
+        "Value": 400
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ToxicProtectionMore",
+        "Value": 60
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/BonusDurationMin",
+        "Value": 15
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4350"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4351"
+  }
+}

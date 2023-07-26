@@ -1,0 +1,314 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n504121"
+  }, // Да?
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n4916"
+      }, // Как я могу помочь?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/Key01Quest/Key01Quest_Start",
+        "Phrase": {
+          "Key": "#l10n4917"
+        }, // О! Так, отлично... Надо бы пройтись тут по округе и образцов с войдов набрать.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4918"
+            }, // Что??
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n4919"
+              }, // Образцы тканей. Ну для исследований. Так, понятно. В общем: мы каждое утро собираем с трупов войдов, которые с ночи остались, образцы тканей и исследуем их. Всячески. Может лекарство получится найти, может увидим новое что-то... В общем, дело важное!
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n4920"
+                  }// Ммм.. Хорошо
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4921"
+      }, // Как я могу помочь?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/Alt_Key01Quest/Alt_Key01Quest_Start",
+        "Phrase": {
+          "Key": "#l10n4922"
+        }, // О, привет! Ну давай как обычно. Соберешь образцы с войдов?
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4923"
+            }// Да, без проблем
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4924"
+      }, // Где мне взять образцы тканей войдов?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n4925"
+        }, // Поищи тела войдов, после ночи они обычно есть тут, рядом с Хабом. Я тебе на карте пометил, где их обычно находят. Всегда они там есть, уж не знаю почему. Просто принеси мне их... ээм, фрагменты.
+        "Spell": "/UtilPrefabs/Spells/Quests/Key01Quest/Key01Quest_Hint",
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504127"
+            }// Хорошо, поищу ещё.
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4926"
+      }, // Я принес образцы тканей войдов.
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/Key01Quest/Key01Quest_Complete",
+        "Phrase": {
+          "Key": "#l10n4927"
+        }, // А, да. Спасибо. Передам их в лабораторию.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4928"
+            }, // Что нибудь еще нужно?
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/Key02Quest/Key02Quest_StartNoCheck",
+              "Phrase": {
+                "Key": "#l10n4929"
+              }, // Да, нужен еще торий для реактора и запасы мяса кончаются. Охотиться умеешь?
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n4930"
+                  }// Да уж приходилось. Понятно, значит, торий и мясо.
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n504133"
+      }, // Что дальше?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/Key02Quest/Key02Quest_Start",
+        "Phrase": {
+          "Key": "#l10n4931"
+        }, // Нам нужен торий для реактора и запасы мяса кончаются. Охотиться умеешь?
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4932"
+            }// Да уж приходилось. Понятно, значит, торий и мясо.
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4933"
+      }, // А где найти торий?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n4934"
+        }, // Месторождения тория находятся в пустыне, на карте тебе помечу самые жирные.
+        "Spell": "/UtilPrefabs/Spells/Quests/Key02Quest/Key02Quest_Hint",
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504138"
+            }// Теперь понятно. Пойду в пустыню.
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4935"
+      }, // Вот торий для реактора.
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/Key02Quest/Key02Quest_Complete",
+        "Phrase": {
+          "Key": "#l10n504140"
+        }, // Неплохо. Надеюсь, остальные тоже постараются, и нам хватит.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504141"
+            }, // Хорошо бы, если так!
+            "OverwritePhrase": {
+              "Key": "#l10n504142"
+            }, // Ты что-то хотел?
+            "Dialog": "./Kulibin_DialogNew"
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4936"
+      }, // Где мне взять мясо?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n4937"
+        }, // Ну понятное дело где: найти и убить какое-нибудь животное, и желательно не йутта, хехе! Гастронома тут пока не построили, видишь ли. Приходится как-то так, варварскими методами добывать пропитание.
+        "Spell": "/UtilPrefabs/Spells/Quests/Key03Quest/Key03Quest_Hint",
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4938"
+            }// Понятно.
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4939"
+      }, // Вот мясо. Надеюсь, этого хватит.
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/Key03Quest/Key03Quest_Complete",
+        "Phrase": {
+          "Key": "#l10n4940"
+        }, // О, солидно. Умеешь ты охотиться, смотрю!
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4941"
+            }, // Спасибо.
+            "OverwritePhrase": {
+              "Key": "#l10n504149"
+            }, // Ты что-то хотел?
+            "Dialog": "./Kulibin_DialogNew"
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4942"
+      }, // Моя помощь еще требуется?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/Key03Quest/Key02-03Quest_Complete",
+        "Phrase": {
+          "Key": "#l10n4943"
+        }, // Да нет, ты итак уже хорошо помог. Иди, готовь себе капсулу на ночь, удачи!
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4944"
+            }// Да точно. Капусула. 
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4211"
+      }, // Могу я воспользоваться прессом?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/BenchQuest/PressUnlockQuest_Complete",
+        "Phrase": {
+          "Key": "#l10n4212"
+        }, // Так: камни, палки, сангвира... Да, этого вполне достаточно - можешь работать на прессе, когда захочешь.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4213"
+            }// Спасибо!
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4945"
+      }, // Могу я воспользоваться прессом?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/BenchQuest/AnvilUnlockQuest_Complete",
+        "Phrase": {
+          "Key": "#l10n4946"
+        }, // Материалы принес? М, так... Нормально. Можешь пользоваться.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4947"
+            }// Хорошо.
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4948"
+      }, // Мне нужно воспользоваться бойлером.
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/BenchQuest/BoilerUnlockQuest_Complete",
+        "Phrase": {
+          "Key": "#l10n4949"
+        }, // Ага, вижу, материалы принес. Пользуйся на здоровье.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4950"
+            }// Ну, я пойду.
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n4951"
+      }, // Мне нужна перегонная установка.
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/BenchQuest/ChemLabUnlockQuest_Complete",
+        "Phrase": {
+          "Key": "#l10n4952"
+        }, // Так, что там у тебя... Да, этого хватит.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n4953"
+            }// До встречи.
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n504153"
+      }// Мне нужно идти
+    }
+  ]
+}

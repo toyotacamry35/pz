@@ -1,0 +1,2581 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SSR
+  m_Shaders:
+  - first: {fileID: 4800000, guid: 778e2b6e13c09be4e950a2c198a47f1c, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: DIRECTIONAL
+        passType: 0
+      - keywords: POINT
+        passType: 0
+      - keywords: DIRECTIONAL SHADOWS_SCREEN
+        passType: 0
+      - keywords: DIRECTIONAL UNITY_HDR_ON
+        passType: 0
+      - keywords: POINT UNITY_HDR_ON
+        passType: 0
+      - keywords: DIRECTIONAL SHADOWS_SCREEN UNITY_HDR_ON
+        passType: 0
+      - keywords: POINT SHADOWS_CUBE SHADOWS_SOFT UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: ce8a251dc626ff8489d8d3effba3d99f, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 19, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 67, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHAPREMULTIPLY_ON
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _SPECGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL _EMISSION _NORMALMAP _SPECGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION _NORMALMAP _SPECGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _NORMALMAP _PARALLAXMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION _NORMALMAP _PARALLAXMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL _ALPHAPREMULTIPLY_ON
+        passType: 5
+      - keywords: DIRECTIONAL _SPECGLOSSMAP
+        passType: 5
+      - keywords: DIRECTIONAL _NORMALMAP _SPECGLOSSMAP
+        passType: 5
+      - keywords: DIRECTIONAL _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 5
+      - keywords: DIRECTIONAL _NORMALMAP _PARALLAXMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _SPECGLOSSMAP
+        passType: 8
+      - keywords: SHADOWS_DEPTH _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 8
+      - keywords: SHADOWS_DEPTH _PARALLAXMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 8
+      - keywords: LIGHTPROBE_SH _EMISSION _NORMALMAP _SPECGLOSSMAP
+        passType: 10
+  - first: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL INSTANCING_ON LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL INSTANCING_ON LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _EMISSION _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHATEST_ON _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHABLEND_ON
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHABLEND_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _ALPHABLEND_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHAPREMULTIPLY_ON
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _ALPHAPREMULTIPLY_ON
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION _METALLICGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _EMISSION _METALLICGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _METALLICGLOSSMAP _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION _METALLICGLOSSMAP _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _DETAIL_MULX2 _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: DIRECTIONAL _NORMALMAP
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2 _NORMALMAP
+        passType: 5
+      - keywords: DIRECTIONAL _ALPHATEST_ON
+        passType: 5
+      - keywords: DIRECTIONAL _ALPHATEST_ON _NORMALMAP
+        passType: 5
+      - keywords: DIRECTIONAL _ALPHABLEND_ON
+        passType: 5
+      - keywords: FOG_EXP2 POINT _ALPHABLEND_ON
+        passType: 5
+      - keywords: DIRECTIONAL _ALPHAPREMULTIPLY_ON
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2 _ALPHAPREMULTIPLY_ON
+        passType: 5
+      - keywords: DIRECTIONAL _METALLICGLOSSMAP
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2 _METALLICGLOSSMAP
+        passType: 5
+      - keywords: DIRECTIONAL _METALLICGLOSSMAP _NORMALMAP
+        passType: 5
+      - keywords: DIRECTIONAL _DETAIL_MULX2 _NORMALMAP
+        passType: 5
+      - keywords: DIRECTIONAL _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_CUBE
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_CUBE
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _METALLICGLOSSMAP
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH _METALLICGLOSSMAP
+        passType: 8
+      - keywords: SHADOWS_DEPTH _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 8
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH _EMISSION
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON _EMISSION
+        passType: 10
+      - keywords: INSTANCING_ON LIGHTPROBE_SH
+        passType: 10
+      - keywords: INSTANCING_ON LIGHTPROBE_SH _EMISSION
+        passType: 10
+      - keywords: INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _EMISSION
+        passType: 10
+      - keywords: INSTANCING_ON LIGHTPROBE_SH _EMISSION _METALLICGLOSSMAP _NORMALMAP
+        passType: 10
+      - keywords: INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _EMISSION _METALLICGLOSSMAP
+          _NORMALMAP
+        passType: 10
+      - keywords: 
+        passType: 11
+      - keywords: _EMISSION
+        passType: 11
+  - first: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHAPREMULTIPLY_ON _NORMALMAP _SPECGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _METALLICGLOSSMAP _NORMALMAP _SPECGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL _ALPHAPREMULTIPLY_ON _NORMALMAP _SPECGLOSSMAP
+        passType: 5
+      - keywords: DIRECTIONAL _METALLICGLOSSMAP _NORMALMAP _SPECGLOSSMAP
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _METALLICGLOSSMAP
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON _SPECGLOSSMAP
+        passType: 8
+      - keywords: SHADOWS_DEPTH _METALLICGLOSSMAP _SPECGLOSSMAP
+        passType: 8
+  - first: {fileID: 64, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_SPLIT_SPHERES
+        passType: 0
+  - first: {fileID: 75, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: 
+        passType: 12
+  - first: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+  - first: {fileID: 2, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+  - first: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+  - first: {fileID: 10, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+  - first: {fileID: 11, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+  - first: {fileID: 12, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+  - first: {fileID: 24, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: 
+        passType: 1
+      - keywords: FOG_EXP2
+        passType: 1
+  - first: {fileID: 20, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+  - first: {fileID: 26, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: 
+        passType: 1
+  - first: {fileID: 22, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+  - first: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+  - first: {fileID: 102, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 101, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 103, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 105, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: _SUNDISK_NONE
+        passType: 0
+      - keywords: _SUNDISK_SIMPLE
+        passType: 0
+  - first: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: SOFTPARTICLES_ON
+        passType: 0
+  - first: {fileID: 202, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: SOFTPARTICLES_ON
+        passType: 0
+  - first: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: SOFTPARTICLES_ON
+        passType: 0
+      - keywords: FOG_EXP2 SOFTPARTICLES_ON
+        passType: 0
+  - first: {fileID: 205, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: SOFTPARTICLES_ON
+        passType: 0
+  - first: {fileID: 207, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: SOFTPARTICLES_ON
+        passType: 0
+  - first: {fileID: 210, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+  - first: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: _ALPHABLEND_ON
+        passType: 4
+      - keywords: FOG_EXP2 _ALPHABLEND_ON
+        passType: 4
+      - keywords: SOFTPARTICLES_ON _ALPHABLEND_ON
+        passType: 4
+      - keywords: FOG_EXP2 SOFTPARTICLES_ON _ALPHABLEND_ON
+        passType: 4
+      - keywords: _COLOROVERLAY_ON _EMISSION
+        passType: 4
+      - keywords: SOFTPARTICLES_ON _COLOROVERLAY_ON _EMISSION
+        passType: 4
+      - keywords: _ALPHATEST_ON _COLOROVERLAY_ON _EMISSION
+        passType: 4
+      - keywords: SOFTPARTICLES_ON _ALPHATEST_ON _COLOROVERLAY_ON _EMISSION
+        passType: 4
+      - keywords: _COLORADDSUBDIFF_ON _EMISSION
+        passType: 4
+      - keywords: SOFTPARTICLES_ON _COLORADDSUBDIFF_ON _EMISSION
+        passType: 4
+      - keywords: _ALPHAPREMULTIPLY_ON _FADING_ON
+        passType: 4
+      - keywords: FOG_EXP2 _ALPHAPREMULTIPLY_ON _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _EMISSION _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _COLORADDSUBDIFF_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _NORMALMAP _REQUIRE_UV2
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _COLOROVERLAY_ON _EMISSION _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP FOG_EXP2 _ALPHABLEND_ON _COLOROVERLAY_ON _EMISSION
+          _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHABLEND_ON _COLOROVERLAY_ON _EMISSION
+          _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP FOG_EXP2 SOFTPARTICLES_ON _ALPHABLEND_ON _COLOROVERLAY_ON
+          _EMISSION _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON _EMISSION _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON
+          _EMISSION _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHAMODULATE_ON _COLOROVERLAY_ON _EMISSION _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHAMODULATE_ON _COLOROVERLAY_ON
+          _EMISSION _FADING_ON
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON _EMISSION _FADING_ON
+          _REQUIRE_UV2
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON
+          _EMISSION _FADING_ON _REQUIRE_UV2
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _EMISSION _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _COLOROVERLAY_ON _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _COLOROVERLAY_ON _EMISSION _FADING_ON
+          _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHABLEND_ON _COLOROVERLAY_ON _FADING_ON
+          _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHABLEND_ON _COLOROVERLAY_ON _EMISSION
+          _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON _EMISSION _FADING_ON
+          _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON
+          _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON
+          _EMISSION _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _COLORADDSUBDIFF_ON _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _COLORADDSUBDIFF_ON _EMISSION _FADING_ON
+          _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHABLEND_ON _COLORADDSUBDIFF_ON
+          _EMISSION _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHAPREMULTIPLY_ON _COLORADDSUBDIFF_ON _EMISSION
+          _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHAPREMULTIPLY_ON _COLORADDSUBDIFF_ON
+          _EMISSION _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _COLOROVERLAY_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHATEST_ON _COLOROVERLAY_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHABLEND_ON _COLOROVERLAY_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHAMODULATE_ON _COLOROVERLAY_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _COLORADDSUBDIFF_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _COLORADDSUBDIFF_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHABLEND_ON _COLORADDSUBDIFF_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON _COLORADDSUBDIFF_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHABLEND_ON _REQUIRE_UV2
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON _COLOROVERLAY_ON
+          _REQUIRE_UV2
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: _ALPHATEST_ON
+        passType: 13
+      - keywords: _REQUIRE_UV2
+        passType: 13
+  - first: {fileID: 10501, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 10502, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9004, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9006, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10509, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 1
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 10511, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 1
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 10601, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 10604, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 10605, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 10624, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: LIGHTPROBE_SH _NORMALMAP
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON _NORMALMAP
+        passType: 10
+  - first: {fileID: 10625, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+  - first: {fileID: 10626, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10623, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _NORMALMAP
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN _NORMALMAP
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_DEPTH _NORMALMAP
+        passType: 8
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: LIGHTPROBE_SH _NORMALMAP
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON _NORMALMAP
+        passType: 10
+      - keywords: 
+        passType: 13
+  - first: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+  - first: {fileID: 10704, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+  - first: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+  - first: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+  - first: {fileID: 10751, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+  - first: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: ETC1_EXTERNAL_ALPHA
+        passType: 0
+  - first: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_CLIP_RECT
+        passType: 0
+      - keywords: UNITY_UI_ALPHACLIP
+        passType: 0
+  - first: {fileID: 14000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL GEOM_TYPE_FROND LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL GEOM_TYPE_FROND LIGHTPROBE_SH LOD_FADE_PERCENTAGE
+        passType: 4
+      - keywords: DIRECTIONAL GEOM_TYPE_MESH LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL GEOM_TYPE_MESH LIGHTPROBE_SH LOD_FADE_PERCENTAGE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_HUE_VARIATION GEOM_TYPE_FROND LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_HUE_VARIATION GEOM_TYPE_FROND LIGHTPROBE_SH
+          LOD_FADE_PERCENTAGE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_FROND LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_FROND LIGHTPROBE_SH
+          LOD_FADE_PERCENTAGE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_MESH LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_MESH LIGHTPROBE_SH
+          LOD_FADE_PERCENTAGE
+        passType: 4
+      - keywords: DIRECTIONAL GEOM_TYPE_FROND
+        passType: 5
+      - keywords: DIRECTIONAL GEOM_TYPE_FROND LOD_FADE_PERCENTAGE
+        passType: 5
+      - keywords: DIRECTIONAL GEOM_TYPE_MESH
+        passType: 5
+      - keywords: DIRECTIONAL GEOM_TYPE_MESH LOD_FADE_PERCENTAGE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_HUE_VARIATION GEOM_TYPE_FROND
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_HUE_VARIATION GEOM_TYPE_FROND LOD_FADE_PERCENTAGE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_FROND
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_FROND LOD_FADE_PERCENTAGE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_MESH
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_MESH LOD_FADE_PERCENTAGE
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_BRANCH SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_BRANCH INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_BRANCH LOD_FADE_PERCENTAGE SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_BRANCH INSTANCING_ON LOD_FADE_PERCENTAGE SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_FROND SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_FROND INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_FROND LOD_FADE_PERCENTAGE SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_FROND INSTANCING_ON LOD_FADE_PERCENTAGE SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_MESH SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_MESH INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_MESH LOD_FADE_PERCENTAGE SHADOWS_DEPTH
+        passType: 8
+      - keywords: GEOM_TYPE_MESH INSTANCING_ON LOD_FADE_PERCENTAGE SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 15104, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 15105, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 15106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 5b34ef975c671984fb9c93adc7042982, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 0b22f8fded590d94195b677fe530b06d, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF LIGHTPROBE_SH
+          SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF
+        passType: 5
+  - first: {fileID: 4800000, guid: 0b47d27971ed4b1418e10f8a7b877a57, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: POINT
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: FOG_EXP2 POINT
+        passType: 5
+  - first: {fileID: 4800000, guid: 0e2dfb515a8f3784c8229cdd862b38f8, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+  - first: {fileID: 4800000, guid: 0ef78d24e85a44f4da9d5b5eaa00e50b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 12c5a1911ed698d45920f1c6fa4d6d57, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EFFECT_BUMP
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH _EMISSION
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH VERTEXLIGHT_ON
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHABLEND_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHAPREMULTIPLY_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _ALPHAPREMULTIPLY_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHAPREMULTIPLY_ON
+          _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON _ALPHAPREMULTIPLY_ON
+          _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _DETAIL_MULX2 _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _DETAIL_MULX2 _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _DETAIL_MULX2 _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _DETAIL_MULX2 _EMISSION
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH _DETAIL_MULX2
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _EMISSION_TOD_TOGGLE _RIM_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _EMISSION_TOD_TOGGLE _RIM_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _DISSOLVE_ON
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHATEST_ON _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON _DISSOLVE_ON
+          _EMISSION_TOD_TOGGLE
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: EFFECT_BUMP FOG_EXP2 POINT _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHABLEND_ON _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHATEST_ON _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHAPREMULTIPLY_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHAPREMULTIPLY_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _DETAIL_MULX2 _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _DISSOLVE_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _DISSOLVE_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHATEST_ON _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_CUBE
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_CUBE
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _DISSOLVE_ON
+        passType: 8
+      - keywords: SHADOWS_CUBE _DISSOLVE_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHATEST_ON _DISSOLVE_ON
+        passType: 8
+      - keywords: SHADOWS_CUBE _ALPHATEST_ON _DISSOLVE_ON
+        passType: 8
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _EMISSION
+          _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON _EMISSION
+          _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON
+          _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _DETAIL_MULX2 _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _DETAIL_MULX2 _EMISSION _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _DETAIL_MULX2 _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _DETAIL_MULX2 _EMISSION
+          _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _DETAIL_MULX2 _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _DETAIL_MULX2
+          _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _DECAL_ON _EMISSION _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _DECAL_ON _EMISSION _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _EMISSION_TOD_TOGGLE _RIM_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _EMISSION_TOD_TOGGLE _RIM_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _DISSOLVE_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _DISSOLVE_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _DISSOLVE_ON _EMISSION_TOD_TOGGLE
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON _DISSOLVE_ON
+          _EMISSION_TOD_TOGGLE
+        passType: 10
+  - first: {fileID: 4800000, guid: 184e30ff9c2ebb045bea3a59fdd23100, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: FOG_EXP2 SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 187092ff52f5f9e4fb0591eab61399a5, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EFFECT_BUMP
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _SPECULARHIGHLIGHTS_OFF
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _SPECULARHIGHLIGHTS_OFF
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _SPECULARHIGHLIGHTS_OFF
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _SPECULARHIGHLIGHTS_OFF
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _EMISSION _WETNESS_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _EMISSION _WETNESS_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _EMISSION _WETNESS_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _SPECULARHIGHLIGHTS_OFF
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _SPECULARHIGHLIGHTS_OFF
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _DISSOLVE_ON
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_CUBE
+        passType: 8
+      - keywords: SHADOWS_DEPTH _DISSOLVE_ON
+        passType: 8
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _CLAMPEDDECAL_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _CLAMPEDDECAL_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _CLAMPEDDECAL_ON _EMISSION _WETNESS_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _CLAMPEDDECAL_ON _EMISSION
+          _WETNESS_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: 1c2fd79e6b34cc14295c4453bc0acd5e, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EMISSION_GRASS FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          GRASS_MOTION LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          GRASS_MOTION LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON USE_PIVOT_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          GRASS_MOTION LIGHTPROBE_SH MULTI_PIVOTS_ON PROCEDURAL_INSTANCING_ON USE_PIVOT_ON
+        passType: 4
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION LIGHTPROBE_SH
+          PROCEDURAL_INSTANCING_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION LIGHTPROBE_SH
+          PROCEDURAL_INSTANCING_ON UNITY_HDR_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION LIGHTPROBE_SH
+          PROCEDURAL_INSTANCING_ON USE_PIVOT_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION LIGHTPROBE_SH
+          PROCEDURAL_INSTANCING_ON UNITY_HDR_ON USE_PIVOT_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION LIGHTPROBE_SH
+          MULTI_PIVOTS_ON PROCEDURAL_INSTANCING_ON USE_PIVOT_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION LIGHTPROBE_SH
+          MULTI_PIVOTS_ON PROCEDURAL_INSTANCING_ON UNITY_HDR_ON USE_PIVOT_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: 1ccecd9b89b8a4f14bfb64f29ddfcc81, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON
+        passType: 10
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: 
+        passType: 11
+  - first: {fileID: 4800000, guid: 1ce7e7286a957c64ebccbaa59b77fc4c, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 1dd7fba7a56d4624eaf2d3ba608be056, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 1e6fda27c1a81844c84a2827875567da, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 1ef2434320e12a8448662dafe7812a85, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 4
+  - first: {fileID: 4800000, guid: 22dde474f9dc55f439f7f6ef6fa75756, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 279c4df36b8b5e7419791a196f754101, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EMISSION_GRASS FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          GRASS_MOTION INSTANCING_ON LIGHTPROBE_SH USE_PIVOT_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          GRASS_MOTION INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON USE_PIVOT_ON
+        passType: 4
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          SHADOWS_DEPTH
+        passType: 8
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          SHADOWS_DEPTH USE_PIVOT_ON
+        passType: 8
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          MULTI_PIVOTS_ON SHADOWS_DEPTH USE_PIVOT_ON
+        passType: 8
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          LIGHTPROBE_SH
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          LIGHTPROBE_SH USE_PIVOT_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          LIGHTPROBE_SH UNITY_HDR_ON USE_PIVOT_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          LIGHTPROBE_SH MULTI_PIVOTS_ON USE_PIVOT_ON
+        passType: 10
+      - keywords: EMISSION_GRASS FAR_CULL_ON GPU_FRUSTUM_ON GRASS_MOTION INSTANCING_ON
+          LIGHTPROBE_SH MULTI_PIVOTS_ON UNITY_HDR_ON USE_PIVOT_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: 27d83044d20c5de4e9d57d35e4fda368, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 2e0c34b3774c93542a711016b97aeb1f, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 4
+      - keywords: ATMO_ON
+        passType: 4
+  - first: {fileID: 4800000, guid: 33c2a12e22751ea4c8930026cda8dd61, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+  - first: {fileID: 4800000, guid: 349649fc616c9a24da8b8219cc33aa64, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: 35e778fba8b2b49a198d8d7cfced67eb, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 382151503e2a43a4ebb7366d1632731d, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FINALPASS
+        passType: 0
+      - keywords: COLOR_GRADING_HDR_3D FINALPASS VIGNETTE
+        passType: 0
+      - keywords: BLOOM COLOR_GRADING_HDR_3D FINALPASS VIGNETTE
+        passType: 0
+  - first: {fileID: 4800000, guid: 3c16a5d9f74861749a5d9dd180c7b4ef, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 4045ac846492e944680cea98f614d429, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: DS_HAZE_APPLY_FOG_EXTINCTION DS_HAZE_APPLY_FOG_RADIANCE DS_HAZE_APPLY_MIE
+          DS_HAZE_APPLY_RAYLEIGH
+        passType: 0
+  - first: {fileID: 4800000, guid: 4117fce9491711c4094d33a048e36e73, type: 3}
+    second:
+      variants:
+      - keywords: FOG_EXP2
+        passType: 0
+  - first: {fileID: 4800000, guid: 41cefd05045aa574594fe6159a71bc92, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 441e6e87c69bf804cb44d673488e1f18, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+  - first: {fileID: 4800000, guid: 4473aa8e0f7894e4e9007ccf62ddde3f, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_ALPHACLIP
+        passType: 0
+  - first: {fileID: 4800000, guid: 44a25746c408e294798fbba0db332085, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON
+          _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHATEST_ON
+        passType: 5
+      - keywords: SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_CUBE _ALPHATEST_ON
+        passType: 8
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON
+          _EMISSION
+        passType: 10
+  - first: {fileID: 4800000, guid: 45d0c9045cf6b7f44b2550a667173c5f, type: 3}
+    second:
+      variants:
+      - keywords: INSTANCING_ON
+        passType: 0
+      - keywords: INSTANCING_ON UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 4628aac0342cb5c44b3341305eb68d40, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+  - first: {fileID: 4800000, guid: 48d63f702b2ac574fa1988df5d8a0dff, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 4a113e75fd13ca840855749134da4d5a, type: 3}
+    second:
+      variants:
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: FOG_EXP2 SOFTPARTICLES_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 4bf4cff0d0bac3d43894e2e8839feb40, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 4f29be92954ba6f4bb866de299ea5a9b, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _DISSOLVE_ON
+        passType: 5
+      - keywords: SHADOWS_DEPTH _DISSOLVE_ON
+        passType: 8
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _DISSOLVE_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: 51bcf79c50dc92e47ba87821b61100c3, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 52aecea11c10a724292cb2883488c56a, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 5361598d440824a48a54b32008e45e84, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: SHADOWS_DEPTH UNITY_PASS_SHADOWCASTER
+        passType: 8
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: 571b6f2d9a0d02c408da5bdb0a8cfbc2, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 582ab6c109f22334ba5257f8c933ecc8, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL _ALPHATEST_ON
+        passType: 5
+      - keywords: DIRECTIONAL SHADOWS_SCREEN _ALPHATEST_ON
+        passType: 5
+      - keywords: SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+  - first: {fileID: 4800000, guid: 5a3f539c9e87d564f94a31e7c2e7de25, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 5bb6ef6f3e1b20348b4fdb01e4c404e2, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 638fe385de256f647b307b7ed9649e18, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+  - first: {fileID: 4800000, guid: 67f9497810829eb4791ec19e95781e51, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: APPLY_FORWARD_FOG FOG_EXP2
+        passType: 0
+  - first: {fileID: 4800000, guid: 69e47e2dc7f984448a95310785a01e1a, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 6c0f62167d730a649a84309f22cd0c02, type: 3}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _EMISSION_TOD_TOGGLE _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _EMISSION_TOD_TOGGLE _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _EMISSION_TOD_TOGGLE _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _EMISSION _EMISSION_TOD_TOGGLE
+          _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _EMISSION_TOD_TOGGLE
+          _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _EMISSION
+          _EMISSION_TOD_TOGGLE _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE
+          _BLEND_TERRAIN_TEMPLATE _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE
+          _BLEND_TERRAIN_TEMPLATE _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE
+          _BLEND_TERRAIN_TEMPLATE _BLEND_TERRAIN_TRIPLANAR _EMISSION _EMISSION_TOD_TOGGLE
+          _MESH_BLENDING _MESH_BLENDING_USE_COATING _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING _NORMALMAP
+          _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE
+          _BLEND_TERRAIN_TEMPLATE _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE
+          _BLEND_TERRAIN_TEMPLATE _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE
+          _BLEND_TERRAIN_TEMPLATE _BLEND_TERRAIN_TRIPLANAR _EMISSION _EMISSION_TOD_TOGGLE
+          _MESH_BLENDING _MESH_BLENDING_USE_COATING _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _DETAIL_MULX2 _EMISSION_TOD_TOGGLE
+          _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE
+          _BLEND_TERRAIN_TEMPLATE _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE
+          _BLEND_TERRAIN_TEMPLATE _DETAIL_MULX2 _EMISSION _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _NORMALMAP
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING _MESH_BLENDING_USE_COATING
+          _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _BLEND_TERRAIN_DOUBLE _BLEND_TERRAIN_TEMPLATE
+          _BLEND_TERRAIN_TRIPLANAR _DETAIL_MULX2 _EMISSION_TOD_TOGGLE _MESH_BLENDING
+          _MESH_BLENDING_USE_COATING _NORMALMAP _SIMPLE_SETTINGS
+        passType: 10
+  - first: {fileID: 4800000, guid: 6f9231b021a545742a013c4754dd6c9e, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 6fabe8ed8c3df1143b294e4b9cc33233, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: POINT
+        passType: 5
+      - keywords: FOG_EXP2 POINT
+        passType: 5
+      - keywords: SHADOWS_DEPTH UNITY_PASS_SHADOWCASTER
+        passType: 8
+  - first: {fileID: 4800000, guid: 77539d43a2d18a04892bb1becca7c78b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 7797e7d16d54a3844879bba03e0eed63, type: 3}
+    second:
+      variants:
+      - keywords: EFFECT_HUE_VARIATION GEOM_TYPE_BRANCH GEOM_TYPE_FROND
+        passType: 1
+      - keywords: EFFECT_HUE_VARIATION FOG_EXP2 GEOM_TYPE_BRANCH GEOM_TYPE_FROND
+        passType: 1
+      - keywords: EFFECT_HUE_VARIATION FOG_EXP2 GEOM_TYPE_BRANCH GEOM_TYPE_FROND
+          SOFTPARTICLES_ON
+        passType: 1
+      - keywords: EFFECT_HUE_VARIATION FOG_EXP2 GEOM_TYPE_BRANCH GEOM_TYPE_BRANCH_DETAIL
+          GEOM_TYPE_FROND GEOM_TYPE_MESH
+        passType: 1
+      - keywords: EFFECT_HUE_VARIATION FOG_EXP2 GEOM_TYPE_BRANCH GEOM_TYPE_BRANCH_DETAIL
+          GEOM_TYPE_FROND GEOM_TYPE_MESH SOFTPARTICLES_ON
+        passType: 1
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 85d0290e7772e5b4c86a0860a7366d34, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: 86212504c7e9f468db2300dc5932dc17, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 86957e3d8101f7b43b3f39c9b6b4c8c9, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+  - first: {fileID: 4800000, guid: 9a6b5f5417cfe6e479f1ba26f0240126, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON WIND_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          LIGHTPROBE_SH MULTI_PIVOTS_ON NORMAL_MAP_ON PROCEDURAL_INSTANCING_ON WIND_ON
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 GPU_FRUSTUM_ON LIGHTPROBE_SH NORMAL_ON PROCEDURAL_INSTANCING_ON
+        passType: 4
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON SHADOWS_DEPTH
+          WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON PROCEDURAL_INSTANCING_ON
+          SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON PROCEDURAL_INSTANCING_ON
+          SHADOWS_CUBE WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON NORMAL_MAP_ON
+          SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON MULTI_PIVOTS_ON PROCEDURAL_INSTANCING_ON
+          SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON MULTI_PIVOTS_ON PROCEDURAL_INSTANCING_ON
+          SHADOWS_CUBE WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          NORMAL_MAP_ON SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON MULTI_PIVOTS_ON NORMAL_MAP_ON
+          PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON MULTI_PIVOTS_ON NORMAL_MAP_ON
+          PROCEDURAL_INSTANCING_ON SHADOWS_CUBE WIND_ON
+        passType: 8
+      - keywords: GPU_FRUSTUM_ON INSTANCING_ON NORMAL_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: GPU_FRUSTUM_ON NORMAL_ON PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
+          WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
+          UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON LIGHTPROBE_SH NORMAL_MAP_ON
+          PROCEDURAL_INSTANCING_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          PROCEDURAL_INSTANCING_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          PROCEDURAL_INSTANCING_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          NORMAL_MAP_ON PROCEDURAL_INSTANCING_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          NORMAL_MAP_ON PROCEDURAL_INSTANCING_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: GPU_FRUSTUM_ON LIGHTPROBE_SH NORMAL_ON PROCEDURAL_INSTANCING_ON
+        passType: 10
+      - keywords: GPU_FRUSTUM_ON LIGHTPROBE_SH NORMAL_ON PROCEDURAL_INSTANCING_ON
+          UNITY_HDR_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: a4470eaf12f6ddd4693a852732ddcb36, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SHADOWS_SCREEN VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: POINT
+        passType: 5
+      - keywords: DIRECTIONAL SHADOWS_SCREEN
+        passType: 5
+      - keywords: POINT SHADOWS_CUBE SHADOWS_SOFT
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_CUBE
+        passType: 8
+  - first: {fileID: 4800000, guid: a48ea85d17e79ad44b9ab050400fc04f, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+  - first: {fileID: 4800000, guid: a5b11bdb9da17cf46a6a82a0074c37fc, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: a61f2c63e6086b9449de82e2e34f1623, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: aaf4efc54c6c1684b86ac604657fdcbc, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: afbb1d8a9ff99304691b993b80fbc309, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: POINT
+        passType: 5
+  - first: {fileID: 4800000, guid: b309c58441bf1dd4dad9e121de52fa56, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF
+          LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF
+          LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF SHADOWS_DEPTH
+        passType: 8
+      - keywords: DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: b4461cb4597907746a44d25a01c41dc5, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: SHADOWS_DEPTH UNITY_PASS_SHADOWCASTER
+        passType: 8
+      - keywords: 
+        passType: 10
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: b550bb5bcea4c294abfa3715ed02f721, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: b5ef981d0e1545c48982cfd65c8cd826, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: b8cbd5f3b42484c96b747fba91803c56, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: baf399be1fcfe6b42ad36bfd96829d85, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FOG_EXP2 GPU_FRUSTUM_ON INSTANCING_ON
+          LIGHTPROBE_SH MULTI_PIVOTS_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          INSTANCING_ON LIGHTPROBE_SH WIND_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON WIND_ON
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          NORMAL_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          LIGHTPROBE_SH MULTI_PIVOTS_ON NORMAL_MAP_ON NORMAL_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FOG_EXP2 GPU_FRUSTUM_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON NORMAL_MAP_ON NORMAL_ON WIND_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FOG_EXP2 GPU_FRUSTUM_ON INSTANCING_ON
+          LIGHTPROBE_SH MULTI_PIVOTS_ON NORMAL_MAP_ON NORMAL_ON WIND_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON NORMAL_MAP_ON NORMAL_ON WIND_ON
+        passType: 4
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FAR_CULL_ON FOG_EXP2 GPU_FRUSTUM_ON
+          MULTI_PIVOTS_ON NORMAL_MAP_ON NORMAL_ON
+        passType: 5
+      - keywords: DIRECTIONAL EMISSION_GRASS_ON FOG_EXP2 GPU_FRUSTUM_ON MULTI_PIVOTS_ON
+          NORMAL_MAP_ON NORMAL_ON WIND_ON
+        passType: 5
+      - keywords: INSTANCING_ON SHADOWS_CUBE
+        passType: 8
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          SHADOWS_DEPTH
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON MULTI_PIVOTS_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          SHADOWS_DEPTH
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON MULTI_PIVOTS_ON PROCEDURAL_INSTANCING_ON
+          SHADOWS_DEPTH
+        passType: 8
+      - keywords: FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON NORMAL_MAP_ON
+          SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON SHADOWS_DEPTH
+          WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          NORMAL_MAP_ON SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: GPU_FRUSTUM_ON INSTANCING_ON NORMAL_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON NORMAL_MAP_ON
+          NORMAL_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON MULTI_PIVOTS_ON NORMAL_MAP_ON
+          NORMAL_ON PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH
+        passType: 8
+      - keywords: FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON NORMAL_MAP_ON
+          NORMAL_ON SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON NORMAL_MAP_ON NORMAL_ON
+          SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          NORMAL_MAP_ON NORMAL_ON SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON MULTI_PIVOTS_ON NORMAL_MAP_ON
+          NORMAL_ON PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          NORMAL_MAP_ON NORMAL_ON SHADOWS_DEPTH WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON MULTI_PIVOTS_ON
+          NORMAL_MAP_ON NORMAL_ON SHADOWS_CUBE WIND_ON
+        passType: 8
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          UNITY_HDR_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          UNITY_HDR_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON UNITY_HDR_ON
+        passType: 10
+      - keywords: FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          NORMAL_MAP_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON NORMAL_MAP_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON NORMAL_MAP_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH NORMAL_ON
+        passType: 10
+      - keywords: GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH NORMAL_ON UNITY_HDR_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          NORMAL_MAP_ON NORMAL_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          NORMAL_MAP_ON NORMAL_ON UNITY_HDR_ON
+        passType: 10
+      - keywords: FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          NORMAL_MAP_ON NORMAL_ON WIND_ON
+        passType: 10
+      - keywords: FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          NORMAL_MAP_ON NORMAL_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH NORMAL_MAP_ON
+          NORMAL_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH NORMAL_MAP_ON
+          NORMAL_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          NORMAL_MAP_ON NORMAL_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH MULTI_PIVOTS_ON
+          NORMAL_MAP_ON NORMAL_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON NORMAL_MAP_ON NORMAL_ON WIND_ON
+        passType: 10
+      - keywords: EMISSION_GRASS_ON FAR_CULL_ON GPU_FRUSTUM_ON INSTANCING_ON LIGHTPROBE_SH
+          MULTI_PIVOTS_ON NORMAL_MAP_ON NORMAL_ON UNITY_HDR_ON WIND_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: bb01a56a4c80b904e869b09aa3421d30, type: 3}
+    second:
+      variants:
+      - keywords: INSTANCING_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: bd0ba2caf9437e64a9557237deee993b, type: 3}
+    second:
+      variants:
+      - keywords: HORIZONFADE STARS
+        passType: 0
+  - first: {fileID: 4800000, guid: c1e1d3119c6fd4646aea0b4b74cacc1a, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: c26db15b9a2ed4b2ebefefd26ce85ae1, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: c84d57d423a2042eb92da86f9fa670a3, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: cdbdb71de5f9c454b980f6d0e87f0afb, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: cf190d0679e3b524783ba46db6be7e79, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+  - first: {fileID: 4800000, guid: cfa7edf01005f4e338d973cea2f6eab3, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d18f3b1a7e19fb24d9fed9d0065aca88, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+  - first: {fileID: 4800000, guid: d66dd9da4ee35b64796c694310138bdd, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF
+          LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF
+          LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: FOG_EXP2 POINT
+        passType: 5
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF
+        passType: 5
+      - keywords: DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF POINT
+        passType: 5
+      - keywords: DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: dca26082f9cb439469295791d9f76fe5, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: de7f3ac52268a194383c7d62c2a343c1, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: e0fa4bec7f0938242be29a150ee99dae, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: e0fe315836e9015468fdd34fe589e8a9, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: f0129fc614c2fa2409b89a9fdbd495bd, type: 3}
+    second:
+      variants:
+      - keywords: PIXELSNAP_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: f6b7a039721f8a340b2fb1325c2672ff, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF
+          LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF
+          LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRECTIONAL DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF
+        passType: 5
+      - keywords: DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 LIGHTMAP_OFF POINT
+        passType: 5
+      - keywords: DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LIGHTMAP_OFF SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: f803dafa50aab304591a199bfd70ae9a, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: f997a3dc9254c44459323cced085150c, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: f9acad7f6eeac624981af38cfde6f66f, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+  - first: {fileID: 4800000, guid: fa6f86ae89913bd46ad3a28c622d0028, type: 3}
+    second:
+      variants:
+      - keywords: INSTANCING_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: fbb4081eebb667f4e8715a93d992afa9, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 4
+      - keywords: FOG_EXP2
+        passType: 4
+      - keywords: 
+        passType: 10
+      - keywords: UNITY_HDR_ON
+        passType: 10
+  - first: {fileID: 4800000, guid: fc7fde43ebf43ad4fa1aa3799ffe08ea, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHATEST_ON _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON _DISSOLVE_ON
+        passType: 4
+      - keywords: DIRECTIONAL EFFECT_BUMP
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _DISSOLVE_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _DISSOLVE_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP _ALPHATEST_ON _DISSOLVE_ON
+        passType: 5
+      - keywords: DIRECTIONAL EFFECT_BUMP FOG_EXP2 _ALPHATEST_ON _DISSOLVE_ON
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_CUBE _ALPHATEST_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _DISSOLVE_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHATEST_ON _DISSOLVE_ON
+        passType: 8
+      - keywords: SHADOWS_CUBE _ALPHATEST_ON _DISSOLVE_ON
+        passType: 8
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON _EMISSION
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 10
+      - keywords: EFFECT_BUMP INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _DISSOLVE_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _DISSOLVE_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH _ALPHATEST_ON _DISSOLVE_ON
+        passType: 10
+      - keywords: EFFECT_BUMP LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON _DISSOLVE_ON
+        passType: 10
+  - first: {fileID: 9007, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 771fecacc0b8f744aaa45fc87eaf62f1, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH VERTEXLIGHT_ON
+        passType: 4
+      - keywords: DIRECTIONAL _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: DIRECTIONAL _ALPHATEST_ON
+        passType: 5
+      - keywords: DIRECTIONAL FOG_EXP2 _ALPHATEST_ON
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_CUBE
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _METALLICGLOSSMAP
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_DEPTH _METALLICGLOSSMAP
+        passType: 8
+      - keywords: LIGHTPROBE_SH
+        passType: 10
+      - keywords: LIGHTPROBE_SH _EMISSION
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON _EMISSION
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON _NORMALMAP
+        passType: 10
+      - keywords: LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 10
+      - keywords: LIGHTPROBE_SH UNITY_HDR_ON _ALPHATEST_ON
+        passType: 10
+      - keywords: INSTANCING_ON LIGHTPROBE_SH UNITY_HDR_ON _EMISSION _METALLICGLOSSMAP
+          _NORMALMAP
+        passType: 10
+  - first: {fileID: 4800000, guid: 73c4a1ad57e54df4986e7c27c17f020b, type: 3}
+    second:
+      variants:
+      - keywords: _ALPHABLEND_ON
+        passType: 4
+      - keywords: FOG_EXP2 _ALPHABLEND_ON
+        passType: 4
+      - keywords: SOFTPARTICLES_ON _ALPHABLEND_ON
+        passType: 4
+      - keywords: FOG_EXP2 SOFTPARTICLES_ON _ALPHABLEND_ON
+        passType: 4
+      - keywords: _COLORADDSUBDIFF_ON _EMISSION
+        passType: 4
+      - keywords: SOFTPARTICLES_ON _COLORADDSUBDIFF_ON _EMISSION
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _EMISSION _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHABLEND_ON _EMISSION _FADING_ON
+          _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP _ALPHABLEND_ON _COLOROVERLAY_ON _EMISSION _FADING_ON
+          _NORMALMAP
+        passType: 4
+      - keywords: EFFECT_BUMP SOFTPARTICLES_ON _ALPHABLEND_ON _COLOROVERLAY_ON _EMISSION
+          _FADING_ON _NORMALMAP
+        passType: 4
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON _COLOROVERLAY_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHABLEND_ON _COLOROVERLAY_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _COLORADDSUBDIFF_ON
+        passType: 8
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _COLORADDSUBDIFF_ON
+        passType: 8
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: fd80704cf07a2b547b48c5d7b5af2d1f, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _ALPHATEST_ON
+        passType: 4
+      - keywords: PROCEDURAL_INSTANCING_ON SHADOWS_DEPTH _ALPHATEST_ON
+        passType: 8
+  - first: {fileID: 4800000, guid: 89d0938e1f3ee6145a9c781ed151d058, type: 3}
+    second:
+      variants:
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: SOFTPARTICLES_ON
+        passType: 0
+      - keywords: FOG_EXP2 SOFTPARTICLES_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 88311cba07fa4b24cb5d4016f6c63b0c, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+  - first: {fileID: 4800000, guid: 9bfc098f659eb7b408f4070cfa8e37e7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0

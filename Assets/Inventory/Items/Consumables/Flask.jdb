@@ -1,0 +1,66 @@
+{
+  "$type": "ItemResource",
+  "Id": "2d04e11c-05bd-4665-917a-6d105ed4c4bf",
+  "MaxStack": 1,
+  "Weight":1,
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "InnerContainerSize": 1,
+  "ApplicableInnerItems": [
+    "/Inventory/Items/Res/CleanWater",
+    "/Inventory/Items/Res/ToxicWater"
+  ],
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "Icon": "Assets/UI/UISprites/Items/PhialotFlask",
+  "BigIcon": "Assets/UI/UISprites/Items/PhialotFlaskBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/FlaskOfCleanWaterSpell",
+          "/UtilPrefabs/Spells/Consumables/FlaskOfToxicWaterSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n2585"
+        }
+      },
+      {
+        "DontRemoveWhenUse": true,
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/EmptyFlaskCleanWaterSpell",
+          "/UtilPrefabs/Spells/Consumables/EmptyFlaskToxicWaterSpell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n2586"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "MaxInnerStack": 30,
+    "ContainerUsage": "InnerContainer"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4298"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4299"
+  }
+}

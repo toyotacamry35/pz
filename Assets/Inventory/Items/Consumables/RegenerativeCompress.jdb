@@ -1,0 +1,41 @@
+{
+  "$type": "ItemResource",
+  "Id": "d335e38b-3b71-4985-8b72-3e765470b22c",
+  "MaxStack": 100,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Medicine",
+  "Icon": "Assets/UI/UISprites/Items/RegenerativeCompress",
+  "BigIcon": "Assets/UI/UISprites/Items/RegenerativeCompressBig",
+  "ConsumableData": "/Inventory/Items/Consumables/RegenerativeCompress-Component-Consumable",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ConsumablesMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HealthCurrentMore",
+        "Value": 300
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4320"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4321"
+  }
+}

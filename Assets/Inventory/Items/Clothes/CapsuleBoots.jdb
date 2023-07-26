@@ -1,0 +1,53 @@
+{
+  "$type": "ItemResource",
+  "Id": "3f1b9d11-b3b9-4980-8829-6f34aa7ea9be",
+  "MaxStack": 1,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearFoot",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1000,
+      "DURABILITY_INITIALVALUE": 700,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "0040f743-e12b-4f1e-9762-00fc58301419"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/NegativeFactors/BootsEquipped",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartFeet"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/HibernationBoots",
+  "BigIcon": "Assets/UI/UISprites/Items/HibernationBootsBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/CapsuleSuit/CapsuleSuit_boots",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/CapsuleSuit/CapsuleSuit_boots_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n505102"
+  }, //Colonist boots
+  "DescriptionLs": {
+    "Key": "#l10n505103"
+  }//Standard Artemis colonist uniform
+}

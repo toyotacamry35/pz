@@ -1,0 +1,101 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n3474"
+  }, //Потертый от пыли рюкзак.
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n3489" //Осмотреть сумку внимательней
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n3488" //Внутри сумки ты видишь небольшой, но в тоже время надежный сейф. На его дисплее одиноко мигает консоль ввода
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3475" // *Спросить о чем то другом*
+            },
+            "Dialog": "/Inventory/Dialogs/NPC/QuestItems/Steppe/LongSearchQuest/BackPackDialog"
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3477" //Ввести случайную фразу
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n3476" //Пароль не верен.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3478"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n503647" //Ввести пароль “рыба-меч”.
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n3479" //Неверный пароль
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3481" //Уйти
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n503648" //Ввести пароль “серебряный пегас”
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LongSearchQuest/LongSearchQuest_UnlockTainik",
+        "Phrase": {
+          "Key": "#l10n3482" //Замок гудит и замолкает. Дисплей гаснет.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3485" //Открыть контейнер
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LongSearchQuest/LongSearchQuest_Complete",
+              "Phrase": {
+                "Key": "#l10n3484" //С легким скрипом крышка поддается. Внутри контейнера лежат нехитрые припасы колониста.
+              },
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n3486" //Забрать содержимое и уйти.
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3487" //Уйти
+      }
+    }
+  ]
+}

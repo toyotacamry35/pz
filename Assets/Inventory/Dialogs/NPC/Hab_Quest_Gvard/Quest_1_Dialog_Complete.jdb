@@ -1,0 +1,60 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n503164" //Чё, ещё нашёл?
+  },
+  "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/GvardTook/GvardTookQuest2_complete_dialog",
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n503167" //*Отдать жизненную эссенцию*
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/GvardTook/GvardTookQuest2complete",
+        "Phrase": {
+          "Key": "#l10n503166" //Так... что-то мало... ладно, сойдет. Возьми вот... спрячь, спрячь быстрее! Никому не показывай, ясно?
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n503169" //*Спросить есть ли еще работа*
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n503168" //Так, это... тут неподалеку другие корни есть, штук пять. Из них тоже жижу принеси. Только не из одного, из разных.
+              },
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n503170" //*Согласиться*
+                  },
+                  "Dialog": {
+                    "$type": "DialogDef",
+                    "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/HubQuest3StartSpell"
+                  }
+                },
+                {
+                  "Answer1": {
+                    "Key": "#l10n503171" //*Отказаться*
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Answer1": {
+              "Key": "#l10n503172" //*Уйти*
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n503173" //*Уйти*
+      }
+    }
+  ]
+}

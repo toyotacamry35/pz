@@ -1,0 +1,54 @@
+{
+  "$type": "ItemResource",
+  "Id": "5b1e0456-23c6-49fa-a92f-510672c49a12",
+  "MaxStack": 100,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "Icon": "Assets/UI/UISprites/Items/XenoStaminaPotion",
+  "BigIcon": "Assets/UI/UISprites/Items/XenoStaminaPotionBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "DontRemoveWhenUse": true,
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/BattlePotion4Spell"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n287"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/OutgoingDamageMore",
+        "Value": 0.30
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/BonusDurationMin",
+        "Value": 10
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4292"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4293"
+  }
+}

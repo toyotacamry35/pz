@@ -1,0 +1,302 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n3490"
+  }, //Давно не видел новых лиц в нашем захолустье. Ну, здравствуй.
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n3562"//Кто ты такой?
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n3561"//Я Ральф, дозорный Корпуса рейнджеров. Считай, глаза и уши Хаба. Сижу на одном месте, записываю, что видел, у других рейнджеров отчеты собираю. Работа непростая, но нужная. Ну, знаешь, чтобы не нагрянула внезапно сотня кваров к вам на порог.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n503216"// *Спросить о чем то другом*
+            },
+            "Dialog": "./RangerRalph_Dialog"
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3554"//Я нашел твой геологический журнал в рюкзаке на дне озера.
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LostPackageQuest/LostPackageQuest_Lock",
+        "Phrase": {
+          "Key": "#l10n3553"//Да быть не может! Дай-ка посмотреть поближе. Глазам не верю, это и правда мои старые записи! Они еще с Земли, я их с собой на Кеплер взял. Как они не сгорели во время аварии на “Артемиде”? И как попали в озеро?
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3556"//Случайность?
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LostPackageQuest/LostPackageQuest_Complete",
+              "Phrase": {
+                "Key": "#l10n3555"//Скорее уж чудо. Толку от этих записей никакого, но зато память с Земли. Славное было время! Я геологом работал. Вот точно так же сидел у костра в Колорадо, как теперь на Кеплере. Тогда казалось, что звезды так далеко... Спасибо, в общем.
+              },
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n504217"
+                  }, //Спасибо, рад был помочь.
+                  "Dialog": {
+                    "$type": "DialogDef",
+                    "Phrase": {
+                      "Key": "#l10n504218"
+                    }, //Стой погоди, ты меня выручил и за мной не заржавеет. У меня есть пара заданий, для которых требуются опытные люди. Уверен, ты справишься.
+                    "Next": [
+                      {
+                        "Answer1": {
+                          "Key": "#l10n504219"
+                        }//Я подумаю, удачи.
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {//Сайд квест 2 Получение
+      "Answer1": {
+        "Key": "#l10n504220"
+      }, //Ты что-то говорил про задания?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_Unlocked",
+        "Phrase": {
+          "Key": "#l10n504221"
+        }, //Да. Да, точно! Есть одно дело. Недавно со стороны ущелья сильно громыхнуло, и земля затряслась. Ты сходи, проверь, что там. Я бы и сам прогулялся, но пост, ты же понимаешь.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504222"
+            }, //Ладно.
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_Start",
+              "Phrase": {
+                "Key": "#l10n504223"
+              }, //Спасибо. Как узнаешь, что там, возвращайся ко мне, заполню с твоих слов отчет. Но только между нами, если там что-то ценное, можешь не говорить. Я же понимаю, что тебе нужнее. 
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n504224"
+                  }//Спасибо. Я посмотрю, в чем дело.
+                }
+              ]
+            }
+          },
+          {
+            "Answer1": {
+              "Key": "#l10n504225"
+            }, //Не хочу в это лезть.
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n504226"
+              }, //Ну, как хочешь. Но вообще там может быть что-то ценное.
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n504227"
+                  }//Увидимся, Ральф.
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {//Сдача сайд квеста 2
+      "Answer1": {
+        "Key": "#l10n504228"
+      }, //Помнишь ты говорил про грохот? Я выяснил, в чем дело.
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": {
+          "$type": "SpellDef",
+          "Words": [
+            {
+              "$type": "PredicateKnowledgeDef",
+              "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulOpenKW"
+            },
+            {
+              "$type": "PredicateQuestPhaseDef",
+              "Quest": "/Inventory/Quest/SkyParcelQuest/SkyParcelQuest",
+              "Type": "More",
+              "Phases": -1
+            }
+          ]
+        },
+        "Phrase": {
+          "Key": "#l10n504229"
+        }, //Отлично. Только скажи сразу, это ведь не какая-нибудь инопланетная дрянь к нам прилетела? А то дряни на Кеплере и без того хватает.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504230"
+            }, //Нет, не волнуйся. Просто упала капсула с оборудованием. При падении приборы начали взрываться.
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n504231"
+              }, //В капсуле что-нибудь уцелело? Может, какая-то важная информация?
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n504232"
+                  }, //В капсуле был человек, и он не выжил. Из оборудования уцелело только это.
+                  "Dialog": {
+                    "$type": "DialogDef",
+                    "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_Reward_Big",
+                    "Phrase": {
+                      "Key": "#l10n504233"
+                    }, //Человек, говоришь? Да уж, жуткая смерть. Зато ты нашел микросхемы, хоть что-то хорошее. Я передам их в Хаб, там придумают, как их использовать.
+                    "Next": [
+                      {
+                        "Answer1": {
+                          "Key": "#l10n3813"//Бывай.
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {//Выдача автовзломщика
+      "Answer1": {
+        "Key": "#l10n3821"//Слушай, как вскрыть электронный замок, если забыл пароль?
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": {
+          "$type": "SpellDef",
+          "Words": [
+            {
+              "$type": "PredicateKnowledgeDef",
+              "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulKW"
+            },
+            {
+              "$type": "PredicateKnowledgeDef",
+              "Inversed": true,
+              "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulOpenKW"
+            },
+            {
+              "$type": "PredicateCheckItemDef",
+              "Inversed": true,
+              "Item": "/Inventory/Items/Quest/SkyParcelQuest/SkyParcelQuest_AutoBurglar"
+            }
+          ]
+        },
+        "Phrase": {
+          "Key": "#l10n504234"
+        }, //Нет ничего проще. Я могу предложить вам одноразовый дешифратор электронных замков.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504235"
+            }, //Замечательно. Спасибо, Твинки.
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": {
+                "$type": "SpellDef",
+                "Words": [
+                  {
+                    "$type": "ImpactAddItemsDef",
+                    "Items": [
+                      "/Inventory/Items/Quest/SkyParcelQuest/SkyParcelQuest_AutoBurglar"
+                    ],
+                    "Count": 1
+                  }
+                ]
+              },
+              "Phrase": {
+                "Key": "#l10n504236"
+              }, //Не теряйте бдительности. По моим данным, квар может укусить даже человека с дешифратором.
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n3824"
+                  }//Не волнуйся, я справлюсь.
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {//Квест старый дом
+      "Answer1": {
+        "Key": "#l10n504237"
+      }, //Есть еще работа?
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_Lock",
+        "Phrase": {
+          "Key": "#l10n504238"
+        }, //Да, есть. Но скажу сразу задача невеселая. Далеко на востоке раньше был лагерь экспедиции военных. От них слишком долго нет вестей, похоже, что-то случилось. Ты сходи, проверь в чем дело.
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504239"
+            }, //Да, стоит проверить.
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_Start",
+              "Phrase": {
+                "Key": "#l10n504240"
+              }, //Я, знаешь, чего опасаюсь? Что там теперь рассадник войдов. Так что будь поосторожнее.
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n504241"
+                  }//Я всегда осторожен.
+                }
+              ]
+            }
+          },
+          {
+            "Answer1": {
+              "Key": "#l10n504242"
+            }, //Нет. Пожалуй, откажусь.
+            "Dialog": {
+              "$type": "DialogDef",
+              "Phrase": {
+                "Key": "#l10n504243"
+              }, //Понимаю. Но если передумаешь, дай знать.
+              "Next": [
+                {
+                  "Answer1": {
+                    "Key": "#l10n503284"//Мне пора.
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3560"
+      }
+    }
+  ]
+}

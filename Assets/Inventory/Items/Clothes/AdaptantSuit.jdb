@@ -1,0 +1,66 @@
+{
+  "$type": "DollItemResource",
+  "Id": "9e2a7045-22f2-467b-9a5f-c9fe4b1fd7ff",
+  "MaxStack": 1,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearBody",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "DEFAULT_ACTION": "/Inventory/Items/Actions/Destroy",
+      "CHANCE_TO_KEEP": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Health/HealthMaxCurrent",
+        "Value": 300
+      }
+    ]
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          {
+            "$type": "SpellDef",
+            "Words": []
+          }
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n3564"
+        }
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartFeet",
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartPalms",
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartTorso",
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartLegs"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/XenoSuitSlots",
+  "BigIcon": "Assets/UI/UISprites/Items/XenoSuitSlotsBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Suit/Adaptant/suitAdaptant",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Suit/Adaptant/suitAdaptant_female"
+  },
+  "PackDef": {
+    "BlockSlots": [
+      "/UtilPrefabs/Slots/WearFoot",
+      "/UtilPrefabs/Slots/WearHand",
+      "/UtilPrefabs/Slots/WearLeg"
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n2417"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n2418"
+  }
+}

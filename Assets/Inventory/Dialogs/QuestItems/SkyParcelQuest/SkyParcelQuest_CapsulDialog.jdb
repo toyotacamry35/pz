@@ -1,0 +1,74 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n3920"
+  }, //Капсулу явно потрепало при падении, но электронный замок на двери работает и мигает красным.
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n3923"//Попытаться разблокировать замок.
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n3922"//Вы пробуете несколько стандартных паролей, но все бесполезно. Консоль раз за разом выдает ошибку.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3921"//Попробовать по-другому.
+            },
+            "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulDialog"
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3925"//Запустить систему восстановления пароля.
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n3924"//Привет, Стью. Дай угадаю, ты опять забыл пароль? А ведь сто раз говорили: запиши уже, балда. Я кое-что поменяла в протоколе восстановления доступа - надеюсь, тебе понравится.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n504244"
+            },
+            "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulPuzzleDialog"
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3927"//Использовать автовзломщик.
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_AutoBurglarCheck",
+        "Phrase": {
+          "Key": "#l10n3926"//С тихим шипением дверь капсулы открывается. Тело человека внутри изрезано осколками обшивки и приборов - бедняга явно не пережил падения.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n3928"//Обыскать капсулу.
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_CapsulOpen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n3929"//Уйти.
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$type": "ItemResource",
+  "Id": "77fc266c-3f63-4dbc-9a77-e6533354ddfa",
+  "MaxStack": 100,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Medicine",
+  "Icon": "Assets/UI/UISprites/Items/XenoMiningDamagePotion",
+  "BigIcon": "Assets/UI/UISprites/Items/XenoMiningDamagePotionBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "DontRemoveWhenUse": true,
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/HealingPotionSpellRoot"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n299"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ConsumablesMarker",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/HealthCurrentMore",
+        "Value": 400
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4304"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4305"
+  }
+}

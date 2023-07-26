@@ -1,0 +1,98 @@
+{
+  "$type": "DefaultCharacterDef",
+  "DefaultDoll": {
+    "Size": 22
+  },
+  "DefaultInventory": {
+    "Size": 36
+  },
+  "FirstRunInventory": [],
+  "DefaultTemporaryPerks": {
+    "Size": 15
+  },
+  "DefaultPermanentPerks": {
+    "Size": 5
+  },
+  "DefaultSavedPerks": {
+    "Size": 5
+  },
+  "StartPoints": "/Inventory/TechPoints/PlayerStartPoints",
+  "DefaultBlockedSlots": [
+    "/UtilPrefabs/Slots/HotSlot1",
+    "/UtilPrefabs/Slots/HotSlot2",
+    "/UtilPrefabs/Slots/HotSlot4",
+    "/UtilPrefabs/Slots/HotSlot5",
+    "/UtilPrefabs/Slots/HotSlot6"
+  ],
+  "FirstRunDoll": [
+    {
+      "Slot": "/UtilPrefabs/Slots/WearBody",
+      "Count": 1,
+      "ItemCalcer": {
+        "$type": "CalcerResource",
+        "Value": "/Inventory/Items/Clothes/CapsuleJacket"
+      }
+    },
+    {
+      "Slot": "/UtilPrefabs/Slots/WearLeg",
+      "Count": 1,
+      "ItemCalcer": {
+        "$type": "CalcerResource",
+        "Value": "/Inventory/Items/Clothes/CapsulePants"
+      }
+    },
+    {
+      "Slot": "/UtilPrefabs/Slots/WearFoot",
+      "Count": 1,
+      "ItemCalcer": {
+        "$type": "CalcerResource",
+        "Value": "/Inventory/Items/Clothes/CapsuleBoots"
+      }
+    },
+    {
+      "Slot": "/UtilPrefabs/Slots/WearBackpack",
+      "Count": 1,
+      "ItemCalcer": {
+        "$type": "CalcerSelect<Resource>",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateFounder",
+              "Pack": "commander"
+            },
+            "Value": {
+              "$type": "CalcerResource",
+              "Value": "/Inventory/Items/Backpacks/Backpack3"
+            }
+          },
+          {
+            "Condition": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                {
+                  "$type": "PredicateFounder",
+                  "Pack": "sentinel"
+                },
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateFounder",
+                    "Pack": "commander"
+                  }
+                }
+              ]
+            },
+            "Value": {
+              "$type": "CalcerResource",
+              "Value": "/Inventory/Items/Backpacks/Backpack2"
+            }
+          }
+        ],
+        "Default": {
+          "$type": "CalcerResource",
+          "Value": "/Inventory/Items/Backpacks/Backpack"
+        }
+      }
+    }
+  ]
+}

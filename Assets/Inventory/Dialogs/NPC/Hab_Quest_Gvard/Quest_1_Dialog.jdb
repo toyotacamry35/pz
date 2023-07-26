@@ -1,0 +1,42 @@
+{
+  "$type": "DialogDef",
+  "Phrase": {
+    "Key": "#l10n503157" //Неподалёку из земли торчат большие темно-синие штуки... ну, наверное больше всего похоже на корни. Видел?
+  },
+  "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/GvardTook/GvardTookQuest2",
+  "Next": [
+    {
+      "Answer1": {
+        "Key": "#l10n503160" //*Отрицательно покачать головой и сказать, что никогда не видели нечто подобное*
+      },
+      "Dialog": {
+        "$type": "DialogDef",
+        "Phrase": {
+          "Key": "#l10n503159" //Найдешь. По корням течёт ярко-голубая жидкость - надои ее побольше и тащи сюда. В долгу не останусь.
+        },
+        "Next": [
+          {
+            "Answer1": {
+              "Key": "#l10n503161" //*Согласиться*
+            },
+            "Dialog": {
+              "$type": "DialogDef",
+              "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/HubQuest2StartSpell"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n503158" //*Спросить о чем то другом*
+      },
+      "Dialog": "/Inventory/Dialogs/NPC/Hab_Quest_Gvard/Core_1_Dialog"
+    },
+    {
+      "Answer1": {
+        "Key": "#l10n503162" //*Уйти*
+      }
+    }
+  ]
+}
