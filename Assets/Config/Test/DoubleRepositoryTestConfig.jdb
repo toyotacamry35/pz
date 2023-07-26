@@ -1,0 +1,32 @@
+﻿{
+  "$type": "ContainerConfig",
+  "CollectChainCallHistory": true,
+  "EntitiesRepositories": [
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "InternalBindPort": 31100,
+        "ExternalBindPort": 7800,
+        "ExternalAnnouncePort": 7800,
+        "InternalAnnouncePort": 31100
+      },
+      "ConfigId": "Test1",
+      "ServiceEntities": []
+    },
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "InternalBindPort": 31101,
+        "ExternalBindPort": 7801,
+        "ExternalAnnouncePort": 7801,
+        "InternalAnnouncePort": 31101
+      },
+      "ConfigId": "Test2",
+      "ServiceEntities": []
+    }
+  ]
+}

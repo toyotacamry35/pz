@@ -1,0 +1,14 @@
+{
+  "$type": "EntitiesRepositoryConfig",
+  "ConfigId": "Database",
+  "Ports": "/Config/External/DatabasePortsConfig",
+  "Addresses": "/Config/External/ExternalServicesConfig",
+  "SuppressEntityInitialization": true,
+  "ServiceEntities": [
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IDatabaseServiceEntity",
+      "CustomConfig": "/Config/Databases/MongoDev"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+﻿{
+  "$type": "ContainerConfig",
+  "$vars": {
+    "PORT": {
+      "Type": "int",
+      "Value": 31501
+    },
+    "EXTERNAL_PORT": {
+      "Type": "int",
+      "Value": 7931
+    },
+    "UNITY_PORT": {
+      "Type": "int",
+      "Value": 31506
+    },
+    "UNITY_EXTERNAL_PORT": {
+      "Type": "int",
+      "Value": 7976
+    },
+    "ID": {
+      "Type": "string",
+      "Value": "Unity"
+    }
+  },
+  "EntitiesRepositories": [
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "$overrideVars": {
+        "PORT": "@PORT",
+        "EXTERNAL_PORT": "@EXTERNAL_PORT"
+      },
+      "$proto": "/Config/RepositoryRoles/MapInstance"
+    }
+  ],
+  "ExternalContainers": [
+    {
+      "$type": "ExternalContainerConfig",
+      "$overrideVars": {
+        "PORT": "@UNITY_PORT",
+        "EXTERNAL_PORT": "@UNITY_EXTERNAL_PORT",
+        "ID": "@ID"
+      },
+      "$proto": "/Config/ExternalContainers/Unity"
+    }
+  ]
+}

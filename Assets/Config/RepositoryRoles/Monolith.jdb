@@ -1,0 +1,102 @@
+{
+  "$type": "EntitiesRepositoryConfig",
+  "NotifiesOtherRepositoriesOfIncommingConnections":true,
+  "ConfigId": "Monolith",
+  "Ports": "/Config/External/LoginPortsConfig",
+  "Addresses": "/Config/External/ExternalServicesConfig",
+  "ServiceEntities": [
+
+    // Login
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ILoginServiceEntity",
+      "CustomConfig": {
+        "$type": "LoginNodeServiceEntityConfig",
+        "MaxCCUOnRealm": 5000,
+        "EnableAnonymousLogin": true,
+        "Rules": "/Sessions/GameRuleConfig" ,
+        "RulesQueries": "/Sessions/GameRuleQueriesConfig",
+        "RealmsCollectionId":"965ce767-0310-4714-94e2-2c1c66fe4da9"
+      }
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IRestApiServiceEntity",
+      "CustomConfig": {
+        "$type": "RestApiServiceEntityConfig",
+        "Port": 5008,
+        "AllowedIPs": [
+          "192.168.1.122",
+          "192.168.1.144",
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IContentKeyServiceEntity",
+      "CustomConfig": "/Config/ContentKeys/ContentKeyConfig"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IBankServiceEntity",
+      "CustomConfig": {
+        "$type": "BankerServiceEntityConfig",
+        "BankerGuid": "531b5a60-a2c0-4e46-a290-39004fae9e88" // do not change in the name of the lord!!!
+      }
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ILoginInternalServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IAccountTypeServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IInGameTimeServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IBakenCoordinatorServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ISessionHolderEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ITelemetryServiceEntity"
+    },
+
+    // MapInstance
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ISpawnDaemonsInfoCollector"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IMapHostEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ICheatServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ITimeSyncerEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IContainerServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "INumenServiceEntity"
+    }
+
+
+    
+  ]
+}

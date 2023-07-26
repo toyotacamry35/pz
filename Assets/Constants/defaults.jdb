@@ -1,0 +1,23 @@
+{
+  "$type": "WorldConstantsResource",
+  "ReleaseMapName": "Savannah",
+  "IsRelease": "true",
+  "PlayerHeight": 1.8,
+  "SelectionRadius": 10,
+  "EnableBelowPlayerPositionBoxSpawning": true,
+  "IsCharacterInterestingEnoughtToLogWizardEvents": false,
+  "EnableAIProfiler": false, ///true, ///#PZ-7910(8716): Dbg: Don't forget to off before merge-out
+  "BoxSpawnDistance": 1.5, //расстояние, на котором появляется контейнер, когда игрок выбрасывает вещь из инвентаря (проекция на горизонтальную плоскость между центром персонажа и пивотом контейнера)
+  "BoxInteractDistance": 2, //расстояние, на котором персонаж взаимодействует с любыми (!) объектами (от центра персонажа до пивота объекта)
+  "BuildingInteractDistance": 3, //расстояние, на котором ставим здание (от центра персонажа до пивота здания)	
+  "SpawnMobs": true,
+  "SpawnBots": true,
+  "ShowHPBars": false,
+  "UseMockLocomotion": "None",
+  "ReplicateAnythingToUnity": true,
+  "TechnologyAtlas": "/Inventory/Technology/Atlas/TechnoAtlas",
+  "NullSpell" : "/UtilPrefabs/Spells/EmptySpell",
+  "EnableOutline": false,
+  "CharacterPawnScheduler": "./CharacterPawnScheduler"
+  //"MockFX" : "Assets/Content/FX/MockFX"
+}

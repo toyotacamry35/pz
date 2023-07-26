@@ -1,0 +1,40 @@
+{
+  "$type": "CloudSharedDataConfig",
+  "CloudEntryPoint": {
+    "$type": "CloudEntryPointConfig",
+    "Host": "127.0.0.1",
+    "Port": "31100"
+  },
+  "ClientEntryPoint": {
+    "$type": "CloudEntryPointConfig",
+    "Port": "7800"
+  },
+  "CloudRequirements": [
+    {
+      "$type": "CloudRequirement",
+      "RepositoryId": "Login",
+      "Count": 1
+    },
+    {
+      "$type": "CloudRequirement",
+      "RepositoryId": "WorldCoordinator",
+      "Count": 1
+    },
+    {
+      "$type": "CloudRequirement",
+      "RepositoryId": "MapInstanceContainer",
+      "Count": 1
+    },
+    {
+      "$type": "CloudRequirement",
+      "RepositoryId": "Database",
+      "Count": 1
+    },
+    {
+      "$type": "CloudRequirement",
+      "RepositoryId": "DatabaseMeta",
+      "Count": 1
+    }
+  ],
+  "WebServicesConfig": "/Config/External/ExternalServicesConfig"
+}

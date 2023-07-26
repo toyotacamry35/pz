@@ -1,0 +1,25 @@
+{
+  "$type": "ContainerConfig",
+  "$vars": {
+    "COORD_CONFIG": {
+      "Type": "WorldCoordinatorConfig",
+      "Value": {
+        "$type": "WorldCoordinatorConfig",
+        "PreloadedMaps": []
+      }
+    }
+  },
+  "Name": "LocalServerMonolith",
+  "EntitiesRepositories": [
+    "/Config/RepositoryRoles/Monolith",
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "$overrideVars": {
+        "COORD_CONFIG": "@COORD_CONFIG"
+      },
+      "$proto": "/Config/RepositoryRoles/WorldCoordinator"
+    },
+    "/Config/RepositoryRoles/Database",
+    "/Config/RepositoryRoles/DatabaseMeta"
+  ]
+}

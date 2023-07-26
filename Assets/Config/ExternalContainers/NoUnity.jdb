@@ -1,0 +1,39 @@
+{
+  "$type": "ExternalContainerConfig",
+  "$vars": {
+    "PORT": {
+      "Type": "int",
+      "Value": 31505
+    },
+    "EXTERNAL_PORT": {
+      "Type": "int",
+      "Value": 7975
+    },
+    "ID": {
+      "Type": "string",
+      "Value": "Unity"
+    }
+  },
+  "Container": {
+    "$type": "ContainerConfig",
+    "MockUnityServices": true,
+    "Name" : "UnityMock",
+    "EntitiesRepositories": [
+      {
+        "$type": "EntitiesRepositoryConfig",
+        "$overrideVars": {
+          "PORT": "@PORT",
+          "EXTERNAL_PORT": "@EXTERNAL_PORT",
+          "ID": "@ID"
+        },
+        "$proto": "/Config/RepositoryRoles/Unity"
+      }
+    ]
+  },
+  "Commands": [
+    {
+      "$type": "Command",
+      "Path": "LocalServer.exe"
+    }
+  ]
+}

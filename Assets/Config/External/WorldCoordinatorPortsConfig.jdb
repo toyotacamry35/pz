@@ -1,0 +1,27 @@
+{
+    "$type": "RepositoryPortConfig",
+
+    "$vars": {
+        "COORDINATOR_INTERNAL_BIND_PORT" : {
+            "Type": "int",
+            "Value": 31300
+        },
+        "COORDINATOR_INTERNAL_ANNOUNCE_PORT" : {
+            "Type": "int",
+            "Value": 31300
+        },
+        "COORDINATOR_EXTERNAL_BIND_PORT" : {
+            "Type": "int",
+            "Value": 7900
+        },
+        "COORDINATOR_EXTERNAL_ANNOUNCE_PORT" : {
+            "Type": "int",
+            "Value": 7900
+        }
+    },
+
+    "InternalBindPort": "@COORDINATOR_INTERNAL_BIND_PORT",
+    "InternalAnnouncePort": "@COORDINATOR_INTERNAL_ANNOUNCE_PORT",
+    "ExternalBindPort": "@COORDINATOR_EXTERNAL_BIND_PORT",
+    "ExternalAnnouncePort": "@COORDINATOR_EXTERNAL_ANNOUNCE_PORT"
+  }

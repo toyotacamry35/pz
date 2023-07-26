@@ -1,0 +1,121 @@
+﻿{
+  "$type": "ContainerConfig",
+  "EntitiesRepositories": [
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "ExternalBindPort": 7800,
+        "InternalBindPort": 31100,
+        "ExternalAnnouncePort": 7800,
+        "InternalAnnouncePort": 31100
+      },
+      "ConfigId": "Login",
+      "ServiceEntities": [
+        {
+          "$type": "CloudEntityConfig",
+          "CloudEntityType": "ILoginServiceEntity",
+          "CustomConfig": {
+            "$type": "LoginNodeServiceEntityConfig",
+            "MaxCCUOnRealm": 20,
+            "EnableAnonymousLogin": true
+          }
+        },
+        {
+          "$type": "CloudEntityConfig",
+          "CloudEntityType": "ILoginInternalServiceEntity"
+        },
+        {
+          "$type": "CloudEntityConfig",
+          "CloudEntityType": "IAccountTypeServiceEntity"
+        },
+        {
+          "$type": "CloudEntityConfig",
+          "CloudEntityType": "IInGameTimeServiceEntity"
+        }
+      ]
+    },
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "ExternalBindPort": 7900,
+        "InternalBindPort": 31300,
+        "ExternalAnnouncePort": 7900,
+        "InternalAnnouncePort": 31300
+      },
+      "ConfigId": "WorldCoordinator",
+      "ServiceEntities": [
+        {
+          "$type": "CloudEntityConfig",
+          "CloudEntityType": "IWorldCoordinatorNodeServiceEntity"
+        },
+        {
+          "$type": "CloudEntityConfig",
+          "CloudEntityType": "IClusterAddressResolverServiceEntity"
+        }
+      ]
+    },
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "ExternalBindPort": 7910,
+        "InternalBindPort": 31310,
+        "ExternalAnnouncePort": 7910,
+        "InternalAnnouncePort": 31310
+      },
+      "ConfigId": "PrimaryScene",
+      "ServiceEntities": []
+    },
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "ExternalBindPort": 7940,
+        "InternalBindPort": 31340,
+        "ExternalAnnouncePort": 7940,
+        "InternalAnnouncePort": 31340
+      },
+      "ConfigId": "DatabaseNode",
+      "SuppressEntityInitialization": true,
+      "ServiceEntities": [
+        {
+          "$type": "CloudEntityConfig",
+          "CloudEntityType": "IDatabaseServiceEntity",
+          "CustomConfig": "/Config/Databases/MongoDev"
+        }
+      ]
+    },
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "ExternalBindPort": 7920,
+        "InternalBindPort": 31320,
+        "ExternalAnnouncePort": 7920,
+        "InternalAnnouncePort": 31320
+      },
+      "ConfigId": "SecondaryScene",
+      "ServiceEntities": []
+    },
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "ExternalBindPort": 7930,
+        "InternalBindPort": 31330,
+        "ExternalAnnouncePort": 7930,
+        "InternalAnnouncePort": 31330
+      },
+      "ConfigId": "ThirdScene",
+      "ServiceEntities": []
+    }
+  ]
+}

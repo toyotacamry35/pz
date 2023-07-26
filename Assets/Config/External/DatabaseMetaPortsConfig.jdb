@@ -1,0 +1,25 @@
+{
+    "$type": "RepositoryPortConfig",
+    "$vars": {
+        "META_DB_INTERNAL_BIND_PORT": {
+            "Type": "int",
+            "Value": 31600
+        },
+        "META_DB_INTERNAL_ANNOUNCE_PORT": {
+            "Type": "int",
+            "Value": 31600
+        },
+        "META_DB_EXTERNAL_BIND_PORT": {
+            "Type": "int",
+            "Value": 7940
+        },
+        "META_DB_EXTERNAL_ANNOUNCE_PORT": {
+            "Type": "int",
+            "Value": 7940
+        }
+    },
+    "InternalBindPort": "@META_DB_INTERNAL_BIND_PORT",
+    "InternalAnnouncePort": "@META_DB_INTERNAL_ANNOUNCE_PORT",
+    "ExternalBindPort": "@META_DB_EXTERNAL_BIND_PORT",
+    "ExternalAnnouncePort": "@META_DB_EXTERNAL_ANNOUNCE_PORT"
+}

@@ -1,0 +1,23 @@
+{
+  "$type": "CloudSharedDataConfig",
+  "CloudEntryPoint": {
+    "$type": "CloudEntryPointConfig",
+    "Port": "31100"
+  },
+  "ClientEntryPoint": {
+    "$type": "CloudEntryPointConfig",
+    "Port": "7800"
+  },
+  "CloudRequirements": [
+    {
+      "$type": "CloudRequirement",
+      "RepositoryId": "Test1",
+      "Count": 1
+    },
+    {
+      "$type": "CloudRequirement",
+      "RepositoryId": "Test2",
+      "Count": 1
+    }
+  ]
+}

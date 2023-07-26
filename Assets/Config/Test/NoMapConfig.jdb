@@ -1,0 +1,59 @@
+﻿{
+  "$type": "ContainerConfig",
+  "EntitiesRepositories": [
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "InternalBindPort": 31100,
+        "ExternalBindPort": 7800,
+        "ExternalAnnouncePort": 7800,
+        "InternalAnnouncePort": 31100
+      },
+      "ConfigId": "Login",
+      "ServiceEntities": []
+    },
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "InternalBindPort": 31101,
+        "ExternalBindPort": 7801,
+        "ExternalAnnouncePort": 7801,
+        "InternalAnnouncePort": 31101
+      },
+      "ConfigId": "Login2",
+      "ServiceEntities": []
+    },
+    "/Config/RepositoryRoles/Database",
+    "/Config/RepositoryRoles/DatabaseMeta",
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "InternalBindPort": 31300,
+        "ExternalBindPort": 7900,
+        "ExternalAnnouncePort": 7900,
+        "InternalAnnouncePort": 31300
+      },
+      "ConfigId": "WorldCoordinator",
+      "ServiceEntities": []
+    },
+    {
+      "$type": "EntitiesRepositoryConfig",
+      "Addresses": "/Config/External/ExternalServicesConfig",
+      "Ports": {
+        "$type": "RepositoryPortConfig",
+        "InternalBindPort": 31301,
+        "ExternalBindPort": 7901,
+        "ExternalAnnouncePort": 7901,
+        "InternalAnnouncePort": 31301
+      },
+      "ConfigId": "WorldCoordinator2",
+      "ServiceEntities": []
+    }
+  ]
+}

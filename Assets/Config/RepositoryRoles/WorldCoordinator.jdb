@@ -1,0 +1,26 @@
+{
+  "$type": "EntitiesRepositoryConfig",
+  "$vars": {
+    "COORD_CONFIG": {
+      "Type": "WorldCoordinatorConfig",
+      "Value": {
+        "$type" : "WorldCoordinatorConfig",
+        "PreloadedMaps": []
+      }
+    }
+  },
+  "Ports": "/Config/External/WorldCoordinatorPortsConfig",
+  "Addresses": "/Config/External/ExternalServicesConfig",
+  "ConfigId": "WorldCoordinator",
+  "ServiceEntities": [
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IWorldCoordinatorNodeServiceEntity",
+      "CustomConfig": "@COORD_CONFIG"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IClusterAddressResolverServiceEntity"
+    }
+  ]
+}

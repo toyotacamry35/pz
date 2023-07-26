@@ -1,0 +1,45 @@
+{
+  "$type": "EntitiesRepositoryConfig",
+  "$vars": {
+    "ID": {
+      "Type": "string",
+      "Value": "Unity"
+    },
+    "PORT": {
+      "Type": "int",
+      "Value": 31505
+    },
+    "EXTERNAL_PORT": {
+      "Type": "int",
+      "Value": 7975
+    },
+    "MOCK_UNITY": {
+      "Type": "bool",
+      "Value": false
+    }
+  },
+  "ConfigId": "@ID",
+  "InternalBindPort": "@PORT",
+  "InternalAnnouncePort": "@PORT",
+  "ExternalBindPort": "@EXTERNAL_PORT",
+  "ExternalAnnouncePort": "@EXTERNAL_PORT",
+  "Addresses": "/Config/External/ExternalServicesConfig",
+  "ServiceEntities": [
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IWorldNodeServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IEntityObjects"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IDiagnosticsEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IUnityCheatServiceEntity"
+    }
+  ]
+}

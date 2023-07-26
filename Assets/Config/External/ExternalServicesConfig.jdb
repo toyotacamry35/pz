@@ -1,0 +1,99 @@
+{
+    "$type": "ServerServicesConfigDef",
+    "$vars": {
+        "API_HOSTNAME" : {
+            "Type": "string",
+            "Value": "adminbff.int.enplexgames.com"
+        },
+        "API_AUTH_TOKEN" : {
+            "Type": "string",
+            "Value": "empty"
+        },
+        "API_ENDPOINT" : {
+            "Type": "string",
+            "Value": "http://webbff.int.enplexgames.com"
+        },
+        "API_ENDPOINT_PROFILE_GET": {
+            "Type": "string",
+            "Value": "/api/auth/profile/"
+        },
+        "API_ENDPOINT_EMAIL_PUT": {
+            "Type": "string",
+            "Value": "/api/auth/users/emails"
+        },
+        "API_ENDPOINT_CODE_POST": {
+            "Type": "string",
+            "Value": "/api/guard/accesscodes/activate"
+        },
+        "INTERNAL_ANNOUNCE_ADDRESS": {
+            "Type": "string",
+            "Value": "127.0.0.1"
+        },
+        "EXTERNAL_ANNOUNCE_ADDRESS": {
+            "Type": "string",
+            "Value": "127.0.0.1"
+        },
+        "INTERNAL_BIND_ADDRESS": {
+            "Type": "string",
+            "Value": ""
+        },
+        "EXTERNAL_BIND_ADDRESS": {
+            "Type": "string",
+            "Value": ""
+        },
+        "MONGO_REALM_DB_CONNECTION_STRING": {
+            "Type": "string",
+            "Value": "mongodb://127.0.0.1:27017"
+        },
+        "MONGO_META_DB_CONNECTION_STRING": {
+            "Type": "string",
+            "Value": "mongodb://127.0.0.1:27017"
+        },
+        "MONGO_REALM_DB_NAME": {
+            "Type": "string",
+            "Value": "population_zero"
+        },
+        "MONGO_META_DB_NAME": {
+            "Type": "string",
+            "Value": "population_zero_meta"
+        },
+        "REALM_ID": {
+            "Type": "string",
+            "Value": "d2045c12-54a5-4b50-8015-04bec393c75a"
+        },
+        "PROMETHEUS_ADDRESS": {
+            "Type": "string",
+            "Value": "http://localhost:9091/metrics"
+        }
+    },
+
+    "APIEndpoint": "@API_ENDPOINT",
+    "APIHostname": "@API_HOSTNAME",
+    "APIEndpoint_ProfileGet": "@API_ENDPOINT_PROFILE_GET",
+    "APIEndpoint_EmailPut": "@API_ENDPOINT_EMAIL_PUT",
+    "APIEndpoint_CodePost": "@API_ENDPOINT_CODE_POST",
+    "APIToken": "@API_AUTH_TOKEN",
+    "InternalAnnounceAddress": "@INTERNAL_ANNOUNCE_ADDRESS",
+    "ExternalAnnounceAddress": "@EXTERNAL_ANNOUNCE_ADDRESS",
+    "InternalBindAddress": "@INTERNAL_BIND_ADDRESS",
+    "ExternalBindAddress": "@EXTERNAL_BIND_ADDRESS",
+    "MongoShardConnectionString": "@MONGO_REALM_DB_CONNECTION_STRING",
+    "MongoMetaConnectionString": "@MONGO_META_DB_CONNECTION_STRING",
+    "MongoMetaDataBaseName": "@MONGO_META_DB_NAME",
+    "MongoShardDataBaseName": "@MONGO_REALM_DB_NAME",
+    "RealmId": "@REALM_ID",
+    "Prometheus": { 
+        "$type": "PrometheusConfig",
+        "ServerMetricsEnabled": "true",
+        "ProcessMetricsEnabled": "true",
+        "PushGatewayAddress": "@PROMETHEUS_ADDRESS"
+    },
+    "Elastic": {
+        "$type": "ElasticConfig",
+        "Address": [
+            "http://elastic"
+        ],
+        "Login": "",
+        "Password": ""
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "$type": "RepositoryPortConfig",
+
+    "$vars": {
+        "INSTANCE_INTERNAL_BIND_PORT" : {
+            "Type": "int",
+            "Value": 31500
+        },
+        "INSTANCE_INTERNAL_ANNOUNCE_PORT" : {
+            "Type": "int",
+            "Value": 31500
+        },
+        "INSTANCE_EXTERNAL_BIND_PORT" : {
+            "Type": "int",
+            "Value": 7930
+        },
+        "INSTANCE_EXTERNAL_ANNOUNCE_PORT" : {
+            "Type": "int",
+            "Value": 7930
+        }
+    },
+
+    "InternalBindPort": "@INSTANCE_INTERNAL_BIND_PORT",
+    "InternalAnnouncePort": "@INSTANCE_INTERNAL_ANNOUNCE_PORT",
+    "ExternalBindPort": "@INSTANCE_EXTERNAL_BIND_PORT",
+    "ExternalAnnouncePort": "@INSTANCE_EXTERNAL_ANNOUNCE_PORT"
+  }

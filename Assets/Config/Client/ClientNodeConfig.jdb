@@ -1,0 +1,22 @@
+{
+  "$type": "EntitiesRepositoryConfig",
+  "ConfigId": "UnityClient",
+  "ServiceEntities": [
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IBotCoordinator",
+      "CustomConfig": {
+        "$type": "BotCoordinatorConfig",
+        "BotSpawnPointTypeDef": "/SpawnSystem/SpawnPointTypes/Bot"
+      }
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IWorldNodeServiceEntity",
+      "CustomConfig": {
+        "$type": "WorldNodeServiceEntityConfig",
+        "ClientNode": "true"
+      }
+    }
+  ]
+}

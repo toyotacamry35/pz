@@ -1,0 +1,32 @@
+{
+  "$type": "EntitiesRepositoryConfig",
+  "ConfigId": "MapInstanceContainer",
+  "Ports": "/Config/External/MapInstancePortsConfig",
+  "Addresses": "/Config/External/ExternalServicesConfig",
+  "ServiceEntities": [
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ISpawnDaemonsInfoCollector"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IMapHostEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ICheatServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "ITimeSyncerEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "IContainerServiceEntity"
+    },
+    {
+      "$type": "CloudEntityConfig",
+      "CloudEntityType": "INumenServiceEntity"
+    }
+  ]
+}

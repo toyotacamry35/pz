@@ -1,0 +1,22 @@
+{
+  "$type": "ContainerConfig",
+  "$vars": {
+    "REALM_RULES": {
+      "Type": "RealmRulesQueryDef",
+      "Value": "/Sessions/Queries/SavannahRulesQuery"
+    }
+  },
+  "$overrideVars": {
+    "COORD_CONFIG": {
+      "$type": "WorldCoordinatorConfig",
+      "PreloadedMaps": [
+        {
+          "$type": "MapBootstrapperDef",
+          "MapId": "d2045c12-54a5-4b50-8015-04bec393c75a",
+          "RealmRulesQuery":"@REALM_RULES"
+        }
+      ]
+    }
+  },
+  "$proto": "/Config/Containers/Monolith"
+}

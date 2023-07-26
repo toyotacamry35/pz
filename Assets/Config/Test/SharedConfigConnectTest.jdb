@@ -1,0 +1,30 @@
+{
+    "$type": "CloudSharedDataConfig",
+    "CloudEntryPoint": {
+      "$type": "CloudEntryPointConfig",
+      "Host": "127.0.0.1",
+      "Port": "31100"
+    },
+    "ClientEntryPoint": {
+      "$type": "CloudEntryPointConfig",
+      "Host": "127.0.0.1",
+      "Port": "7800"
+    },
+    "CloudRequirements": [
+      {
+        "$type": "CloudRequirement",
+        "RepositoryId": "Login",
+        "Count": 1
+      },
+      {
+        "$type": "CloudRequirement",
+        "RepositoryId": "PrimaryScene",
+        "Count": 1
+      },
+      {
+        "$type": "CloudRequirement",
+        "RepositoryId": "SecondaryScene",
+        "Count": 1
+      }
+    ]
+  }
