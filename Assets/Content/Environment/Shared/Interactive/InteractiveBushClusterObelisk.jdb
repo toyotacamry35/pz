@@ -1,0 +1,99 @@
+{
+  "$type": "ObeliskDef",
+  "Id": "cdf09f5f-81ce-4ffa-9eb7-467e03e6dde6",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "d1a3116d-653e-44a9-91eb-45b0f0b8aca6",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": 0,
+        "LimitMaxDefault": 1000000,
+        "InitialValue": 1000000,
+        "IsBroadcasted": true
+      },
+    ]
+  },
+  "InitialSpells": [],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "4b6588f4-dca9-409e-8357-7fc51fb09e69",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Id": "acfba370-fb78-4627-8aa3-fb488d2a8fd3",
+    "Title": "Obelisk"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  "ReactionHandlers": {
+    "$type": "ReactionsDef",
+    "Reactions": {
+      "/UtilPrefabs/Reactions/Burn": {
+        "$type": "ReactionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Reactions/ObeliskBurn",
+      },
+    }
+  },
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/InteractiveBushCluster",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Id": "895240f9-afae-4d84-ac1d-7da679d0e884",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      },
+      {
+        "$type": "MortalObjectComponentDef"
+      },
+      {
+        "$type": "VisualEventProxy",
+        "Events": {
+          "$type": "FXEvents",
+          "FXEvents": [
+            {
+              "$type": "TriggerFXRule",
+              "EventType": "/Character/Events/ObeliskBurnFXEvent",
+              "OnEvent": {
+                "Caster": [
+                  {
+                    "$type": "DisableVisual"
+                  },
+                  {
+                    "$type": "PlaceUnparentedFX",
+                    "RelativeToGameObject": true,
+                    "FX": "Assets/Content/Environment/Shared/Interactive/InteractiveBushCluster_BURN_FX",
+                  },
+                  // {
+                  //   "$type": "PlaceUnparentedFX",
+                  //   "RelativeToGameObject": true,
+                  //   "Shift": {
+                  //     "y": 1.2,
+                  //   },
+                  //   "FX": "Assets/InteractiveObjects/Obelisks/FX/ObeliskBurn_FX"
+                  // }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "DeathResurrectHandlerDef",
+        "PlayAnimation": "Death"
+      }
+    ]
+  },
+  "QuerySpatialData": true
+}
