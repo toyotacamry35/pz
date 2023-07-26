@@ -1,0 +1,35 @@
+{
+  "$type": "RealmRulesDef",
+  "Id": "52dba672-7103-4587-8427-53763c9ca41c",
+  "Title": {
+    "Key": "#l10n504857"
+  },
+  "Description": {
+    "Key": "#l10n504858"
+  },
+  "DefaultMap": "/Scenes/_TestScenes/Test_carnage",
+  "ExistenceHours": 168,
+  "CanJoinHours": 24, 
+  "Rules": [
+    {
+      "$type": "RealmGameTime",
+      "SemanticContext": "Info",
+      "DaysCount": 7
+    },
+    {
+      "$type": "RealmPlayersInteraction",
+      "SemanticContext": "Success",
+      "PlayersInteraction": "Hostile"
+    },
+    {
+      "$type": "RealmDeathLimit",
+      "SemanticContext": "Danger",
+      "DeathLimit": "Default"
+    },
+    {
+      "$type": "RealmExp",
+      "SemanticContext": "Info",
+      "ExpReward": "Default"
+    }
+  ]
+}

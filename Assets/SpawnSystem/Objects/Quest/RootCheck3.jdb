@@ -1,0 +1,28 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "209761e6-eb3c-4058-813f-bd561787a827",
+  "Prefab": "Assets/Content/Quest/RootCheck3",
+  "NameLs": {
+    "Key": "#l10n504108"
+  },
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/RootCheck/Root3/InteractWithRootCheck3"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

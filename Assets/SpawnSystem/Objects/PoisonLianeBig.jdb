@@ -1,0 +1,68 @@
+{
+  "$type": "MineableEntityDef",
+  "$overrideVars": {
+    "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Fungi/PS_Fungi_Impact"
+  },
+  "$proto": "./_Prototype_Mineable",
+  "Id": "3f8b8321-fdb8-4028-ade8-4b60e3938eab",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/junPoisonLiane/junPoisonLianeBig",
+  "Health": 5,
+  "NameLs": {
+    "Key": "#l10n504744"
+  },
+  "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+  "FillerResourcePack": {
+    "ItemResource": "/Inventory/Items/Res/PlantScraps",
+    "Count": 0
+  },
+  "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTablePoisonLianeNode",
+  "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+  "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "86afa248-b819-4406-b423-60906bdbb1f7",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 40
+      }
+    ]
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/PoisonLianeKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 45
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/PoisonLianeNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

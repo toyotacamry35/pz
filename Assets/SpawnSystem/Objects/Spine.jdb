@@ -1,0 +1,43 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Spine/SFX_SpinePickUp"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "885bb85b-fb10-4312-88aa-e3937ea1c2e6",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Bush/spine",
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableSpine",
+  "NameLs": {
+    "Key": "#l10n2929"
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/SpineKW",
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/SpineNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

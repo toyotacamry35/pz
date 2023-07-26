@@ -1,0 +1,28 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "c1a89c2e-b0f2-40f8-926c-b1a3dc7e1ccc",
+  "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube_Invisible", // "Prefab": "Assets/Content/Quest/DeadMan02_LivingWaterQuest",    //ТУТ ПРЕФАБ ДРУГОЙ
+  "NameLs": {
+    "Key": "#l10n504111"
+  },
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {//список действий, кот. будут выполняться по клику на объект. порядок действий важен: скрипт побежит вниз по списку и выполнит первое действие, которое вообще может выполнить.
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Dialog/1_RedMoss/LivingWaterQuest/ColonistSosed_DialogStart"// линкуем сюда спелл сдачи квеста из п.3
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

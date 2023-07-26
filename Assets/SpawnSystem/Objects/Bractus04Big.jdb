@@ -1,0 +1,70 @@
+//Пустынный брактус
+{
+  "$type": "MineableEntityDef",
+  "$overrideVars": {
+    "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Bractus/PS_Bractus_Hit"
+  },
+  "$proto": "./_Prototype_Mineable",
+  "Id": "99af009e-b25e-4743-80ba-a838cca71180",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Bracti/bractus04_Big",
+  "NameLs": {
+    "Key": "#l10n2940"
+  },
+  "Health": 5,
+  "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+  "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableDesertBractusBig",
+  "FillerResourcePack": {
+    "ItemResource": "/Inventory/Items/Res/Scraps",
+    "Count": 0
+  },
+  "ObjectType": "/Inventory/Statistic/ObjectType/MineResource", // --- IHasStatsDef: --------------------------------------------
+  "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "db377e42-23bc-4cd8-8e08-dbebf487bc7c",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 5
+      }
+    ]
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/BractiDesertKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 7
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/BractiNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ],
+  "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+}

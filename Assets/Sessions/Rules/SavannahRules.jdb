@@ -1,0 +1,35 @@
+{
+  "$type": "RealmRulesDef",
+  "Id": "4b8d0b34-068a-4513-99fa-3730a414b259",
+  "Title": {
+    "Key": "#l10n504863"
+  },
+  "Description": {
+    "Key": "#l10n504864"
+  },
+  "DefaultMap": "/Scenes/Savannah/Savannah",
+  "ExistenceHours": 168,
+  "CanJoinHours": 24, 
+  "Rules": [
+    {
+      "$type": "RealmGameTime",
+      "SemanticContext": "Info",
+      "DaysCount": 7
+    },
+    {
+      "$type": "RealmPlayersInteraction",
+      "SemanticContext": "Success",
+      "PlayersInteraction": "Hostile"
+    },
+    {
+      "$type": "RealmDeathLimit",
+      "SemanticContext": "Danger",
+      "DeathLimit": "Default"
+    },
+    {
+      "$type": "RealmExp",
+      "SemanticContext": "Info",
+      "ExpReward": "Default"
+    }
+  ]
+}

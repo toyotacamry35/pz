@@ -1,0 +1,36 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "dec10918-820e-47d5-9f54-0a942e408875",
+  "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube_Invisible",
+  "NameLs": {
+    "Key": "#l10n504419"
+  },
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_InteractWithDeadManBeforStart"
+              },
+              "2": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_InteractWithDeadMan"
+              },
+              "3": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_InteractWithDeadManKeyFound"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "8a733c13-0b5c-4250-9de7-e07eed2d6bd8",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube",
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/TestSpells/Test_Spell_tpToTestObj"
+                                //"Spell": "/UtilPrefabs/Spells/TestSpells/Test_Spell_WithRandomChance"
+                            },
+                        },
+                    }
+                }
+            }
+        ]
+    }
+}

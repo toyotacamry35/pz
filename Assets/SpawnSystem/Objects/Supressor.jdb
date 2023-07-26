@@ -1,0 +1,30 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id": "81ef74ff-e068-442c-9073-27a5f9d5ff47",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/deviceScyphopodSupressor",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableSupressor",
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "0": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/Content/Quest/ScyphopodSupressor/SupressorActivateBoxEffect"
+                            },
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/Content/Quest/ScyphopodSupressor/SupressorErrorMessage"
+                            }
+                        }
+                    }
+                },
+                "ReuseExisting": true
+            }
+        ]
+    }
+}

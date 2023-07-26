@@ -1,0 +1,36 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id": "0e49d893-4bc1-41fc-af9b-87bc861ac8e0",
+    "Prefab": "Assets/Content/Quest/QuestStashBox1",
+    "NameLs": {
+        "Key": "#l10n503890"
+    },
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_ChestBeforQuest"
+                            },
+                            "2": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_ChestAfterQuest"
+                            },
+                            "3": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_ChestDialogStart"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

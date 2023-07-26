@@ -1,0 +1,76 @@
+{
+    "$type": "MineableEntityDef",
+    "$overrideVars": {
+        "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/MineableRocks/PS_Rock_Harvest_Dust+Sparks"
+    },
+    "$proto": "./_Prototype_Mineable",
+    "Id": "641c6931-6bfd-464c-bac2-5690905aa8d1",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Rocks/rockSavBreak_snow_02",
+    "Bounds": {
+        "$type": "Capsule",
+        "Radius": 2,
+        "Height": 4,
+        "OffsetY": 0.8
+    },
+    "Health": 10,
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableRockShRock",
+    "DestructionPowerRequired":140,
+    "NameLs": {
+        "Key": "#l10n2945"
+    },
+    "FillerResourcePack": {
+        "ItemResource": "/Inventory/Items/Res/Gravel",
+        "Count": 0
+    },
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    // --- IHasStatsDef: --------------------------------------------
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Id": "2664906a-0b2c-4207-bc42-b91789943c40",
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 5
+            }
+        ]
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/DestructibleRocksKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/DestructibleRocksNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

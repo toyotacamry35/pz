@@ -1,0 +1,29 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "77735669-5924-47c4-ad80-aab2f3405f42",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube",    //префаб объекта, кот. заспавнится
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {       //список действий, кот. будут выполняться по клику на объект. порядок действий важен: скрипт побежит вниз по списку и выполнит первое действие, которое вообще может выполнить.
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/RoastedGerophitQuest/RoastedGerophitQuest_Complete"            // линкуем сюда спелл сдачи квеста из п.3
+                            },
+                            "2": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/RoastedGerophitQuest/RoastedGerophitQuest_Start"              // линкуем сюда спелл выдачи квеста из п.1
+                            },
+                        },
+                    }
+                }
+            }
+        ]
+    }
+}

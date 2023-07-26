@@ -1,0 +1,22 @@
+{
+    "$type": "InteractiveEntityDef",
+    "$vars": {
+        "ON_RESOURCE_PICKUP": {
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Craft&Harvest/ResourcePickUp/PS_ResourcePickUp"
+        },
+        "MAIN_INTERACTION_SPELL": {
+            "Type": "SpellDef",
+            "Value": "/UtilPrefabs/Spells/BasicMoveSet/InteractWithEntity"
+        }
+    },
+    "Id": "b56d13b7-370f-4415-ac63-e2308f288705",
+    "PrefabDef": {
+        "$type": "UnityGameObject",
+        "$overrideVars": {
+            "ON_RESOURCE_PICKUP": "@ON_RESOURCE_PICKUP",
+            "MAIN_INTERACTION_SPELL": "@MAIN_INTERACTION_SPELL"
+        },
+        "$proto": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+    }
+}

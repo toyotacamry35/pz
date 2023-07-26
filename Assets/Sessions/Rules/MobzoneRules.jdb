@@ -1,0 +1,33 @@
+{
+    "$type": "RealmRulesDef",
+    "Id": "ebac619c-b970-4284-8625-96e597883843",
+    "Title": {
+        "Key": "#l10n504851"
+    },
+    "Description": {
+        "Key": "#l10n504852"
+    },
+    "DefaultMap": "/Scenes/_TestScenes/Mobzone",
+    "Rules": [
+        {
+            "$type": "RealmGameTime",
+            "SemanticContext": "Info",
+            "DaysCount": 7
+        },
+        {
+            "$type": "RealmPlayersInteraction",
+            "SemanticContext": "Success",
+            "PlayersInteraction": "Hostile"
+        },
+        {
+            "$type": "RealmDeathLimit",
+            "SemanticContext": "Danger",
+            "DeathLimit": "Default"
+        },
+        {
+            "$type": "RealmExp",
+            "SemanticContext": "Info",
+            "ExpReward": "Default"
+        }
+    ]
+}

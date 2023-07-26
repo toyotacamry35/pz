@@ -1,0 +1,49 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Gerophit/PS_Gerophit_Collect_Fruit"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "989a56c9-88a8-41ba-bf32-7f15d031d1cc",
+  "Prefab": "Assets/Content/Environment/Savannah/Fungi/Floor/sav_fungus_floor_03",
+  "NameLs": {
+    "Key": "#l10n2921"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableHorseshoe",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/HorseshoeKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 15
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/HorseshoeNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

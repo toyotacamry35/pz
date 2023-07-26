@@ -1,0 +1,25 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "93049c5f-b9f1-4152-9aaf-bef862737bd8",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube",
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/GvardTook/GvardTookMeta"
+                            },
+                        },
+                    }
+                }
+            }
+        ]
+    }
+}

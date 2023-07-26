@@ -1,0 +1,49 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Sangvira/PS_SangviraPickUp"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "d712837e-61b9-4dbd-99f6-c8fab8934bf2",
+  "Prefab": "Assets/Content/Environment/Savannah/Terrain/Vegetation/berry/blueberry_02",
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableFoamMoss",
+  "NameLs": {
+    "Key": "#l10n3326"
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/FoamMossKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 5
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/FoamMossNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

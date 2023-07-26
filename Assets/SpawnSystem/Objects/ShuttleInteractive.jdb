@@ -1,0 +1,30 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "06b43214-e6b6-45ac-87ad-cc6665da4f2b",
+    "Prefab": "Assets/Quests/Encounter2Wreckage/ShuttleInteractive",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableShuttle",
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "0": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestInteractWithDropShip"
+                            },
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestInteractWithDropShip"
+                            }
+                        }
+                    }
+                },
+                "ReuseExisting": true
+            }
+        ]
+    }
+}

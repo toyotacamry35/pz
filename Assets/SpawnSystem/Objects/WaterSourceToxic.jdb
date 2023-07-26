@@ -1,0 +1,28 @@
+{
+    "$type": "SpatialTriggerEntity",
+    "Id" : "092dce76-1a5a-4e26-8128-f51d7ad83900",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/sh_watersource",
+    "NameLs": {
+        "Key": "Токсичная вода"
+    },
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "0": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/InteractiveObjects/WatersourceToxicSpell"
+                            }
+                        }
+                    }
+                },
+                "ReuseExisting": true
+            }
+        ]
+    }
+}

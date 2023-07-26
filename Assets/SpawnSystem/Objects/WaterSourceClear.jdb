@@ -1,0 +1,28 @@
+{
+    "$type": "SpatialTriggerEntity",
+    "Id" : "764470b7-dead-4333-8b97-9492e1cdc49b",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/sh_watersource",
+    "NameLs": {
+        "Key": "Чистая вода"
+    },
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "0": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/InteractiveObjects/WatersourceCleanSpell"
+                            }
+                        }
+                    }
+                },
+                "ReuseExisting": true
+            }
+        ]
+    }
+}

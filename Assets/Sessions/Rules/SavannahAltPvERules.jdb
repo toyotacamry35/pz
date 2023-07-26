@@ -1,0 +1,38 @@
+{
+  "$type": "RealmRulesDef",
+  "Id": "5fa5c609-ae18-474b-8481-2a7320fa335d",
+  "Title": {
+    "Key": "#l10n505002"
+  }, //ALTERNATIVE PVE
+  "Description": {
+    "Key": "#l10n505003"
+  } /**/,
+  "DefaultMap": "/Scenes/Savannah/Savannah",
+  "ExpMultiplier": 1.5,
+  "MinLevel": 5, //5
+  "ExistenceHours": 168,
+  "CanJoinHours": 24,
+  "Rules": [
+    {
+      "$type": "RealmGameTime",
+      "SemanticContext": "Info",
+      "DaysCount": 7
+    },
+    {
+      "$type": "RealmPlayersInteraction",
+      "SemanticContext": "Success",
+      "PlayersInteraction": "Friendly"
+    },
+    {
+      "$type": "RealmDeathLimit",
+      "SemanticContext": "Info",
+      "DeathLimit": "Default"
+    },
+    {
+      "$type": "RealmExp",
+      "SemanticContext": "Success",
+      "ExpReward": "Extra50Pct"
+    }
+  ],
+  "CustomRealmRule": 1
+}

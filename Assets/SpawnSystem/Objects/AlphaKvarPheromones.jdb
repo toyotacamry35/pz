@@ -1,0 +1,49 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Sangvira/PS_SangviraPickUp"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "4aeb6472-ce01-44a4-8d45-287127e191d6",
+  "Prefab": "Assets/Content/Craft/kvarBait/kvarPheromone",
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableAlphaKvarPheromones",
+  "NameLs": {
+    "Key": "#l10n3324"
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/AlphaKvarPheromonesKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 3
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/AlphaKvarPheromonesNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

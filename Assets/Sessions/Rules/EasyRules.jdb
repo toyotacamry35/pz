@@ -1,0 +1,33 @@
+{
+  "$type": "RealmRulesDef",
+  "Id": "bff5c527-bde6-47c7-a77a-da630b487bf5",
+  "Title": {
+    "Key": "#l10n504845"
+  },
+  "Description": {
+    "Key": "#l10n504846"
+  },
+  "DefaultMap": "/Scenes/TestObjMap",
+  "Rules": [
+    {
+      "$type": "RealmGameTime",
+      "SemanticContext": "Info",
+      "DaysCount": 7
+    },
+    {
+      "$type": "RealmPlayersInteraction",
+      "SemanticContext": "Success",
+      "PlayersInteraction": "Hostile"
+    },
+    {
+      "$type": "RealmDeathLimit",
+      "SemanticContext": "Danger",
+      "DeathLimit": "Default"
+    },
+    {
+      "$type": "RealmExp",
+      "SemanticContext": "Info",
+      "ExpReward": "Default"
+    }
+  ]
+}

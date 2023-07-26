@@ -1,0 +1,69 @@
+{
+  "$type": "MineableEntityDef",
+  "$overrideVars": {
+    "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Fungi/PS_Fungi_Impact"
+  },
+  "$proto": "./_Prototype_Mineable",
+  "Id": "fc854a74-44a7-4b32-8e77-bcb89a2ed80a",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Fungi/sh_fungus_snow_int_01",
+  "Health": 5,
+  "NameLs": {
+    "Key": "#l10n2942"
+  },
+  "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+  "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableFungusShInt01",
+  "FillerResourcePack": {
+    "ItemResource": "/Inventory/Items/Res/FungalFlake",
+    "Count": 0
+  },
+  "ObjectType": "/Inventory/Statistic/ObjectType/MineResource", // --- IHasStatsDef: --------------------------------------------
+  "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "dfcca895-b84b-4d3c-83cc-0a663416216a",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 25
+      }
+    ]
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/XenofungusKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 15
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/XenofungusNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ],
+  "LegionType": "/AI/Defs/Legions/FoodSources/Fungus"
+}

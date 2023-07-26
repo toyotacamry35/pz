@@ -1,0 +1,42 @@
+{
+    "$type": "FXEvents",
+    "$vars":{
+        "ON_SIMPLE_HIT_FX":{
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Craft&Harvest/Default_Hit"
+        },
+        "ON_RESOURCE_PICKUP":{
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Craft&Harvest/ResourcePickUp/PS_ResourcePickUp"
+        }
+    },
+    "FXEvents": [
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/Character/Events/HitStaticEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFX",
+                        "DestroyDelay": 5,
+                        "Position": { "$type": "ArgRef<Vector3>", "Arg": "/Character/Events/Args/HitPoint" },
+                        "Rotation": { "$type": "ArgRef<Quaternion>", "Arg": "/Character/Events/Args/HitRotation" },
+                        "FX": "@ON_SIMPLE_HIT_FX"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/Character/Events/GatherResourceEvent",
+            "OnEvent": {
+                "Target": [
+                    {
+                        "$type": "SetFXOnDestroy",
+                        "FX": "@ON_RESOURCE_PICKUP"
+                    }
+                ]
+            }
+        }
+    ]
+}

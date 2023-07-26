@@ -1,0 +1,47 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/JewelBerries/PS_JewelBerriesPickUp"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "8e5e09a0-3186-4f98-8857-3c8b24bc4108",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/tranPlantDescent/tranPlantDescentFruitBig",
+  "FillerResourcePack": {
+    "ItemResource": "/Inventory/Items/Res/PlantScraps",
+    "Count": 1
+  },
+  "NameLs": {
+    "Key": "#l10n2915"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableDescentBig",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/PeatKW",
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/PeatNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

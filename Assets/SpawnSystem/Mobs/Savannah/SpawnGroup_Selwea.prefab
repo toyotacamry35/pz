@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1085308903633966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4544222839192530}
+  - component: {fileID: 114188329196493354}
+  - component: {fileID: 6509506923142827997}
+  m_Layer: 0
+  m_Name: SpawnZoneSelwea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4544222839192530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085308903633966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4374887225372054}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114188329196493354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085308903633966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36008b2e3775c184cb0e17f41fd134fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CalculatedMaxObjects: 0
+  CurrentObjectsCount: 0
+  Radius: 5
+  MinRadius: 0.1
+  WeightMod: 1
+  PrecalculatedMaxObjects: 0
+--- !u!114 &6509506923142827997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085308903633966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c940f489ac2204389c7760d9919532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToSpawn: {fileID: 11400000, guid: 39065ade6dca2234baef071fa5bfa9ee, type: 3}
+  JdbLocator: {fileID: 0}
+  _guid: 9142e76f-392e-4daa-aca9-428b61895212
+  TimeToRespawn: 0
+--- !u!1 &1693874681549566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4374887225372054}
+  - component: {fileID: 114690019963189906}
+  - component: {fileID: 114732031700784146}
+  - component: {fileID: 114180860961263876}
+  - component: {fileID: 5681937133037212077}
+  - component: {fileID: 114087298941543852}
+  - component: {fileID: 114773102435775800}
+  - component: {fileID: 114298794824557716}
+  m_Layer: 0
+  m_Name: SpawnGroup_Selwea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4374887225372054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693874681549566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4544222839192530}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114690019963189906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693874681549566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67604e76b06bb8e408700bb53cbb6599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114732031700784146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693874681549566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c49a88d03a7a42489490be3b9e53a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LegionType:
+    Path: 
+  LegionaryType: 
+--- !u!114 &114180860961263876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693874681549566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb405ab8f270654c826cb3d82ca08fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToSpawn: {fileID: 0}
+  JdbLocator: {fileID: 0}
+  _guid: 2a6e3741-5000-4d24-9884-c3468fd78c36
+  TimeToRespawn: 0
+  SpawnDaemonGoals: {fileID: 11400000, guid: 9431e0923a4192c4bba8e40fe242285e, type: 3}
+  TemplatesMap: {fileID: 0}
+  _spawnDaemonName: SpawnDaemon9609320
+  Filter: 
+  Filters: []
+--- !u!114 &5681937133037212077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693874681549566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/EvadePoint
+  Radius: 1
+  Links:
+  - {fileID: 1085308903633966}
+  FoundLinks: []
+  PrefabPOI: {fileID: 0}
+--- !u!114 &114087298941543852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693874681549566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/Watersource
+  Radius: 150
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1857267168877364, guid: a6bf0ebadab1ec947b2b8a8ab30b3251, type: 3}
+--- !u!114 &114773102435775800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693874681549566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/WatersourceDrinkingPoint
+  Radius: 150
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1857267168877364, guid: 28ae3765ea155f747a3838bcb98ea05f, type: 3}
+--- !u!114 &114298794824557716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693874681549566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/Hideouts
+  Radius: 150
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1857267168877364, guid: 24d5de7229d23af4ea9b05c74a61e0f4, type: 3}

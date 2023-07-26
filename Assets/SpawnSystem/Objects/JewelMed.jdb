@@ -1,0 +1,50 @@
+{
+    "$type": "InteractiveEntityDef",
+    "$overrideVars": {
+        "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/JewelBerries/PS_JewelBerriesPickUp"
+    },
+    "$proto": "./_Prototype_Interactive",
+    "Id": "5d41794c-7666-4f44-a949-c51a304979f5",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Kseno_Forest/bushPearl_Med_berry",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableJewelBerries",
+    "NameLs": {
+        "Key": "#l10n2922"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/JewelBerriesKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/JewelBerriesNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ],
+    "LegionType": "/AI/Defs/Legions/FoodSources/Jewel_Berry"
+}

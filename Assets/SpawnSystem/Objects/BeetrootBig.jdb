@@ -1,0 +1,53 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Sangvira/PS_SangviraPickUp"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "f1ceec85-7498-4a1b-9e66-bed7673b005a",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/junBeetroot/junBeetrootBig",
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBeetRoot",
+  "FillerResourcePack": {
+    "ItemResource": "/Inventory/Items/Res/PlantScraps",
+    "Count": 0
+  },
+  "NameLs": {
+    "Key": "#l10n2912"
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/BeetRootKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 45
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/BeetRootNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

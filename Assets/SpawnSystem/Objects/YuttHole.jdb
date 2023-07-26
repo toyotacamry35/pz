@@ -1,0 +1,50 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/UthDen/PS_UthDen_PickUp",
+    "MAIN_INTERACTION_SPELL": "/UtilPrefabs/Spells/BasicMoveSet/InteractWithEntityYuttHole"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "1e823056-3e9f-4186-9962-ec0cba286b4d",
+  "Prefab": "Assets/UtilPrefabs/Prototypes/YuttHole",
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableYuttHole",
+  "NameLs": {
+    "Key": "#l10n2935"
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/YuttEggKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/YuttEggNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

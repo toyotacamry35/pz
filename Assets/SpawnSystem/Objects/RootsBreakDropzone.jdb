@@ -1,0 +1,31 @@
+{
+    "$type": "MineableEntityDef",
+    "$proto": "./_Prototype_Mineable",
+    "Id": "446fb069-c968-42e2-8b54-2efd959602a8",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Roots_break/rootBreakDropzone",
+    "Health": 5,
+    "NameLs": {
+      "Key": "#l10n2951"
+    },
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableRootsBreak",
+    "DestructionPowerRequired": 40,
+    "FillerResourcePack": {
+        "ItemResource": "/Inventory/Items/Weapons/Rootstick",
+        "Count": 0
+    },
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    // --- IHasStatsDef: --------------------------------------------
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    "DefaultStats": {
+      "$type": "ItemSpecificStats",
+      "Id" : "7f369a85-024c-460b-be97-296a09cce606",
+      "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+      "Stats": [
+        {
+          "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+          "Value": 5
+        }
+      ]
+    }
+}

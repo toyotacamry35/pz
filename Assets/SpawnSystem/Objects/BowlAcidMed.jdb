@@ -1,0 +1,68 @@
+{
+  "$type": "MineableEntityDef",
+  "$overrideVars": {
+    "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Fungi/PS_Fungi_Impact"
+  },
+  "$proto": "./_Prototype_Mineable",
+  "Id": "4a686af0-d1f5-433c-a2a0-60c7eb4762aa",
+  "NameLs": {
+    "Key": "#l10n2939"
+  },
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/junBowlAcid/junBowlAcidMed",
+  "Health": 5,
+  "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+  "FillerResourcePack": {
+    "ItemResource": "/Inventory/Items/Res/PlantScraps",
+    "Count": 1
+  },
+  "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableAcidBowl",
+  "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+  "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "c750782a-cf61-47cf-8106-3638297c974f",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 25
+      }
+    ]
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/AcidBowlKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 15
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/AcidBowlNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

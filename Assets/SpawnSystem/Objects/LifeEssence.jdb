@@ -1,0 +1,50 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Gerophit/PS_Gerophit_Collect_Fruit"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "cb19f41b-08ec-4bb6-ac4c-659b856409cd",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/LifeEssence/LifeEssenceRoot",
+  "NameLs": {
+    "Key": "#l10n5157"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableLifeEssenceRoot",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/LifeEssenceKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 16
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/LifeEssenceNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ],
+  "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Fruit"
+}

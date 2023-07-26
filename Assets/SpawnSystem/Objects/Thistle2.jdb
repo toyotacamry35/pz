@@ -1,0 +1,63 @@
+{
+    "$type": "MineableEntityDef",
+    "$overrideVars": {
+        "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Bamboo/PS_Bamboo_Hit"
+    },
+    "$proto": "./_Prototype_Mineable",
+    "Id": "7f935992-4443-4f96-8574-8e446ae6eea4",
+    "Prefab": "Assets/Content/Environment/Savannah/Terrain/Vegetation/decorPlantGiant_02/decorPlantGiant_02",
+    "Health": 5,
+    "NameLs": {
+      "Key": "#l10n2952"
+    },
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableThistle",
+    "FillerResourcePack": {
+        "ItemResource": "/Inventory/Items/Res/PlantScraps",
+        "Count": 1
+    },
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    // --- IHasStatsDef: --------------------------------------------
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Id" : "b9bc830a-d15d-4a63-aac7-05763be2fd39",
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 5
+            }
+        ]
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/ThistleKW",
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW",
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/ThistleNaturExpKW",
+            "RewardPoints": [
+              {
+                "TechPoint": "/Inventory/Currencies/TechPointR1",
+                "Count": 2
+              }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW",
+            }
+        }
+    ]
+}

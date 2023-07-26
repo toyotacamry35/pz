@@ -1,0 +1,34 @@
+{
+  "$type": "MineableEntityDef",
+  "$overrideVars": {
+    "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/MineableRocks/PS_Rock_Harvest_Dust+Sparks"
+  },
+  "$proto": "./_Prototype_Mineable",
+  "Id": "8758ca19-06c5-44a6-8ee5-24a83dd19bec",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Rocks/depositFlint",
+  "Health": 5,
+  "NameLs": {
+    "Key": "#l10n504932"
+  },
+  "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+  "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableRockDepoFlint",
+  "FillerResourcePack": {
+    "ItemResource": "/Inventory/Items/Res/Gravel",
+    "Count": 0
+  },
+  "ObjectType": "/Inventory/Statistic/ObjectType/MineResource", // --- IHasStatsDef: --------------------------------------------
+  "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats", // --- IHasLifespanDef: --------------------------------------------
+// "LifeSpanSec" : 60,
+// "DoOnExpired" : "Destroy",
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "988b5658-08c6-4ac6-95e6-866c0804a082",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 10
+      }
+    ]
+  }
+}

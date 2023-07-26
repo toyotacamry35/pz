@@ -1,0 +1,207 @@
+﻿using UnityEngine;
+using UnityEditor.IMGUI.Controls;
+using System.Collections.Generic;
+using System.Linq;
+using System;
+using UnityEngine.Assertions;
+using Assets.Src.Cartographer.Editor.TreeDataModel;
+
+namespace Assets.Src.Cartographer.Editor
+{
+    class ClassificatorBadTreeView : TreeViewWithTreeModel<BadMultiColumnTreeElement>
+    {
+        const float kRowHeights = 20f;
+        enum Columns
+        {
+            Name,
+        }
+        public enum SortOption
+        {
+            Name,
+        }
+        SortOption[] ColumnSortOptions =
+        {
+            SortOption.Name,
+        };
+
+        public event Action<IList<int>> InternalSelectionChanged;
+
+        public static void TreeToList(TreeViewItem root, IList<TreeViewItem> result)
+        {
+            if (root == null)
+                throw new NullReferenceException("The input 'T root' is null");
+            if (result == null)
+                throw new NullReferenceException("The input 'IList<T> result' list is null"); ;
+
+            result.Clear();
+
+            if (root.children == null)
+                return;
+
+            Stack<TreeViewItem> stack = new Stack<TreeViewItem>();
+            for (int i = root.children.Count - 1; i >= 0; i--)
+                stack.Push(root.children[i]);
+
+            while (stack.Count > 0)
+            {
+                TreeViewItem current = stack.Pop();
+                result.Add(current);
+
+                if (current.hasChildren && current.children[0] != null)
+                {
+                    for (int i = current.children.Count - 1; i >= 0; i--)
+                    {
+                        stack.Push(current.children[i]);
+                    }
+                }
+            }
+        }
+
+        public ClassificatorBadTreeView(TreeViewState state, MultiColumnHeader multicolumnHeader, TreeModel<BadMultiColumnTreeElement> model) : base(state, multicolumnHeader, model)
+        {
+            Assert.AreEqual(ColumnSortOptions.Length, Enum.GetValues(typeof(Columns)).Length, "Ensure number of sort options are in sync with number of MyColumns enum values");
+
+            rowHeight = kRowHeights;
+            columnIndexForTreeFoldouts = 0;
+            multicolumnHeader.sortingChanged += OnSortingChanged;
+
+            Reload();
+        }
+
+        protected override IList<TreeViewItem> BuildRows(TreeViewItem root)
+        {
+            var rows = base.BuildRows(root);
+            SortIfNeeded(root, rows);
+            return rows;
+        }
+
+        void OnSortingChanged(MultiColumnHeader multiColumnHeader)
+        {
+            SortIfNeeded(rootItem, GetRows());
+        }
+
+        void SortIfNeeded(TreeViewItem root, IList<TreeViewItem> rows)
+        {
+            if (rows.Count <= 1)
+                return;
+
+            if (multiColumnHeader.sortedColumnIndex == -1)
+            {
+                return;
+            }
+            SortByMultipleColumns();
+            TreeToList(root, rows);
+            Repaint();
+        }
+
+        void SortByMultipleColumns()
+        {
+            var sortedColumns = multiColumnHeader.state.sortedColumns;
+
+            if (sortedColumns.Length == 0)
+                return;
+
+            var myTypes = rootItem.children.Cast<TreeViewElement<BadMultiColumnTreeElement>>();
+            var orderedQuery = InitialOrder(myTypes, sortedColumns);
+            for (int i = 1; i < sortedColumns.Length; i++)
+            {
+                SortOption sortOption = ColumnSortOptions[sortedColumns[i]];
+                bool ascending = multiColumnHeader.IsSortedAscending(sortedColumns[i]);
+
+                switch (sortOption)
+                {
+                    case SortOption.Name:
+                        orderedQuery = orderedQuery.ThenBy(l => l.data.name, ascending);
+                        break;
+                }
+            }
+            rootItem.children = orderedQuery.Cast<TreeViewItem>().ToList();
+        }
+
+        IOrderedEnumerable<TreeViewElement<BadMultiColumnTreeElement>> InitialOrder(IEnumerable<TreeViewElement<BadMultiColumnTreeElement>> myTypes, int[] history)
+        {
+            SortOption sortOption = ColumnSortOptions[history[0]];
+            bool ascending = multiColumnHeader.IsSortedAscending(history[0]);
+            switch (sortOption)
+            {
+                case SortOption.Name:
+                    return myTypes.Order(l => l.data.name, ascending);
+                default:
+                    Assert.IsTrue(false, "Unhandled enum");
+                    break;
+            }
+
+            // default
+            return myTypes.Order(l => l.data.name, ascending);
+        }
+
+        protected override void RowGUI(RowGUIArgs args)
+        {
+            var item = (TreeViewElement<BadMultiColumnTreeElement>)args.item;
+
+            for (int i = 0; i < args.GetNumVisibleColumns(); ++i)
+            {
+                CellGUI(args.GetCellRect(i), item, (Columns)args.GetColumn(i), ref args);
+            }
+        }
+
+
+        void CellGUI(Rect cellRect, TreeViewElement<BadMultiColumnTreeElement> item, Columns column, ref RowGUIArgs args)
+        {
+            // Center cell rect vertically (makes it easier to place controls, icons etc in the cells)
+            CenterRectUsingSingleLineHeight(ref cellRect);
+
+            switch (column)
+            {
+                case Columns.Name:
+                {
+                    args.rowRect = cellRect;
+                    base.RowGUI(args);
+                }
+                break;
+            }
+        }
+
+        protected override bool CanMultiSelect(TreeViewItem item)
+        {
+            return true;
+        }
+
+        public static MultiColumnHeaderState CreateDefaultMultiColumnHeaderState(float treeViewWidth)
+        {
+            var columns = new[]
+            {
+                new MultiColumnHeaderState.Column
+                {
+                    headerContent = new GUIContent("Name"),
+                    headerTextAlignment = TextAlignment.Left,
+                    sortedAscending = true,
+                    sortingArrowAlignment = TextAlignment.Center,
+                    width = 300,
+                    minWidth = 60,
+                    autoResize = true,
+                    allowToggleVisibility = false
+                },
+            };
+
+            Assert.AreEqual(columns.Length, Enum.GetValues(typeof(Columns)).Length, "Number of columns should match number of enum values: You probably forgot to update one of them.");
+
+            var state = new MultiColumnHeaderState(columns);
+            return state;
+        }
+
+        protected override void SelectionChanged(IList<int> selectedIds)
+        {
+            InternalSelectionChanged?.Invoke(selectedIds);
+        }
+    }
+
+    [Serializable]
+    public class BadMultiColumnTreeElement : TreeElement
+    {
+        public bool enabled;
+
+        public BadMultiColumnTreeElement(string name, int depth, int id) : base(name, depth, id) { }
+    }
+
+}

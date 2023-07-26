@@ -1,0 +1,48 @@
+//Обычный брактус
+{
+    "$type": "InteractiveEntityDef",
+    "$proto": "./_Prototype_Interactive",
+    "Id": "39757073-8c64-46b3-8344-244a078fe7ec",
+    "NameLs": {
+        "Key": "#l10n2940"
+    },
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Bracti/bractus01_Small",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusSmall",
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/BractiKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/BractiNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ],
+    "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+}

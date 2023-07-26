@@ -1,0 +1,277 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1555607784224234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4815785355419364}
+  - component: {fileID: 114197831175936136}
+  - component: {fileID: 8807344143014105819}
+  m_Layer: 0
+  m_Name: SpawnZoneYutt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4815785355419364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555607784224234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4040149723848058}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114197831175936136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555607784224234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36008b2e3775c184cb0e17f41fd134fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CalculatedMaxObjects: 0
+  CurrentObjectsCount: 0
+  Radius: 5
+  MinRadius: 0.1
+  WeightMod: 1
+  PrecalculatedMaxObjects: 0
+--- !u!114 &8807344143014105819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555607784224234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c940f489ac2204389c7760d9919532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToSpawn: {fileID: 11400000, guid: 39065ade6dca2234baef071fa5bfa9ee, type: 3}
+  JdbLocator: {fileID: 0}
+  _guid: 6f360c4d-6c99-46da-9000-77dbf5ea91a3
+  TimeToRespawn: 0
+--- !u!1 &1778840213709928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4040149723848058}
+  - component: {fileID: 114477496344142372}
+  - component: {fileID: 114061729791527982}
+  - component: {fileID: 114857266178206506}
+  - component: {fileID: 7613145766649651928}
+  - component: {fileID: 114894874570389156}
+  - component: {fileID: 114263552056731806}
+  - component: {fileID: 114851731387996576}
+  - component: {fileID: 114214634616113030}
+  - component: {fileID: 114288915986165392}
+  - component: {fileID: 114423248467261686}
+  m_Layer: 0
+  m_Name: SpawnGroup_Yutt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4040149723848058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4815785355419364}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114477496344142372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67604e76b06bb8e408700bb53cbb6599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114061729791527982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c49a88d03a7a42489490be3b9e53a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LegionType:
+    Path: 
+  LegionaryType: 
+--- !u!114 &114857266178206506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb405ab8f270654c826cb3d82ca08fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToSpawn: {fileID: 0}
+  JdbLocator: {fileID: 0}
+  _guid: e8895b7d-8cb0-400f-ac3b-a8ccffbdb72c
+  TimeToRespawn: 0
+  SpawnDaemonGoals: {fileID: 11400000, guid: 53e974dc481cfb343bf8f92622ad59a3, type: 3}
+  TemplatesMap: {fileID: 11400000, guid: d15b6df943931b242a1bfe16d0e7deba, type: 3}
+  _spawnDaemonName: SpawnDaemon9609320
+  Filter: 
+  Filters: []
+--- !u!114 &7613145766649651928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/EvadePoint
+  Radius: 100
+  Links:
+  - {fileID: 1555607784224234}
+  FoundLinks: []
+  PrefabPOI: {fileID: 0}
+--- !u!114 &114894874570389156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/FleeingPoint
+  Radius: 100
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1857267168877364, guid: eff25619849eecb418e12f0bb1bfff6a, type: 3}
+--- !u!114 &114263552056731806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/Hole
+  Radius: 20
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1110335587334124, guid: 555ce4b49edfa334da8be28c696fb6ea, type: 3}
+--- !u!114 &114851731387996576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/ForagingPoint
+  Radius: 150
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1857267168877364, guid: 5cd16574c0e44224b8f3990b558d687d, type: 3}
+--- !u!114 &114214634616113030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/Vexillum
+  Radius: 20
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1857267168877364, guid: c052445a0b0b9144699c7b5ac328a4f4, type: 3}
+--- !u!114 &114288915986165392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/Watersource
+  Radius: 100
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1857267168877364, guid: a6bf0ebadab1ec947b2b8a8ab30b3251, type: 3}
+--- !u!114 &114423248467261686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778840213709928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6edc3037549a3bf7066b8dc946716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: /AI/Defs/Knowledge/WatersourceDrinkingPoint
+  Radius: 100
+  Links: []
+  FoundLinks: []
+  PrefabPOI: {fileID: 1857267168877364, guid: 28ae3765ea155f747a3838bcb98ea05f, type: 3}

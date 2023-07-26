@@ -1,0 +1,29 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "aa0bbbfc-eafa-44b4-abe3-97629da9d04d",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube",    //префаб объекта, кот. заспавнится
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {       //список действий, кот. будут выполняться по клику на объект. порядок действий важен: скрипт побежит вниз по списку и выполнит первое действие, которое вообще может выполнить.
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/2_Desert/DesertRangerQuest/DesertRangerQuest_Start"            // линкуем сюда спелл сдачи квеста из п.3
+                            },
+                            "2": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/2_Desert/DesertRangerQuest/DesertRangerQuestRalph_Reward"            // линкуем сюда спелл сдачи квеста из п.3
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,50 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$overrideVars": {
+    "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Sangvira/PS_SangviraPickUp"
+  },
+  "$proto": "./_Prototype_Interactive",
+  "Id": "91ce44b5-4319-47d5-a926-0d935a21d383",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Sangvira/sh_sangvira_green",
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableSanguira",
+  "NameLs": {
+    "Key": "#l10n2927"
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/SangviraKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/SangviraNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ],
+  "LegionType": "/AI/Defs/Legions/FoodSources/Sangvira"
+}

@@ -1,0 +1,49 @@
+{
+    "$type": "InteractiveEntityDef",
+    "$overrideVars": {
+        "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Stones/PS_Stones_Harvest"
+    },
+    "$proto": "./_Prototype_Interactive",
+    "Id": "d962dca2-7372-4610-9dd6-a96d767d891a",
+    "NameLs": {
+        "Key": "#l10n528"
+    },
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Stones/stoneSavPick",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableStone",
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/StonesKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 1
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/StonesNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

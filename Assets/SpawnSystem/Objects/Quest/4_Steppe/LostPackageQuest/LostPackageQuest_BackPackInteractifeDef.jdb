@@ -1,0 +1,33 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id": "b1330a94-d68b-41cc-a63f-a20f86b72f46",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube_Invisible",
+    "NameLs": {
+        "Key": "#l10n504112"
+    },
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LostPackageQuest/LostPackageQuest_Start"
+                            },
+                            "2": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LostPackageQuest/LostPackageQuest_After_Interact"
+                            }
+                           
+                        }
+                    }
+                }
+            }
+        ]
+    }
+  }

@@ -1,0 +1,29 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "5b8bb2a5-73b1-45ef-97fa-9684a5d77915",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube", //префаб объекта, кот. заспавнится
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": { //список действий, кот. будут выполняться по клику на объект. порядок действий важен: скрипт побежит вниз по списку и выполнит первое действие, которое вообще может выполнить.
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "2": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/PoorFirstAidQuest/PoorFirstAidQuest_Complete" // линкуем сюда спелл сдачи квеста из п.3
+                            },
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Dialog/HubDoc/HubDoc_DialogStart" // линкуем сюда спелл выдачи квеста из п.1
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

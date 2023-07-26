@@ -1,0 +1,35 @@
+{
+  "$type": "RealmRulesDef",
+  "Id": "7f7b3a45-50ad-41af-8bb9-8594e9dd8232",
+  "Title": {
+    "Key": "#l10n504843"
+  },
+  "Description": {
+    "Key": "#l10n504844"
+  },
+  "DefaultMap": "/Scenes/Dropzone/Dropzone",
+  "ExistenceHours": 168,
+  "CanJoinHours": 24, 
+  "Rules": [
+    {
+      "$type": "RealmGameTime",
+      "SemanticContext": "Info",
+      "DaysCount": 7
+    },
+    {
+      "$type": "RealmPlayersInteraction",
+      "SemanticContext": "Success",
+      "PlayersInteraction": "Friendly"
+    },
+    {
+      "$type": "RealmDeathLimit",
+      "SemanticContext": "Danger",
+      "DeathLimit": "Default"
+    },
+    {
+      "$type": "RealmExp",
+      "SemanticContext": "Info",
+      "ExpReward": "Default"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "$type": "ObeliskDef",
+  "Id" : "57a16cab-bbcb-48c2-9a8d-4364418174ca",
+  "NameLs": {
+    "Key": "Газоуловитель"
+  },
+  "Stats": {
+    "$type": "StatsDef",
+    "Id" : "6a26c71c-b2e1-4f9a-b1be-a77a737d2b04",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": -1,
+        "LimitMaxDefault": 1200,
+        "InitialValue": 1200,
+        "IsBroadcasted": true
+      },
+      {
+          "$type": "ProceduralStatDef",
+          "StatResource": "/UtilPrefabs/Stats/Environment/ToxicExternal",
+          "ValueCalcer": {
+              "$type": "CalcerToxicity"
+          }
+      }
+    ]
+  },
+  "InitialSpells": ["/UtilPrefabs/Spells/Consumables/GasStationSpell","/UtilPrefabs/Spells/Consumables/GasStationNotificationSpell"],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Id" : "441e75e0-8de0-41a5-83ba-eaa163700e03",
+    "Title": "GasStation"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  "Prefab": "Assets/Content/Quest/ScyphopodSupressor/deviceScyphopodSupressorInteractive",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      },
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {
+            "$type": "ContextualActionsDef",
+            "SpellsByAction": {
+                "/UtilPrefabs/Input/Actions/Interaction": {
+                    "0": {
+                        "$type": "ContextualActionDef",
+                        "Spell": "/UtilPrefabs/Spells/Consumables/GasStationPickUpSpell"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+    }
+    ]
+  }
+}

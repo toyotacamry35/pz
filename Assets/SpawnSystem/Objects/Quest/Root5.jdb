@@ -1,0 +1,28 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "3d3ab89a-8d43-4d54-b2fd-5bc2d96d2ae9",
+  "Prefab": "Assets/Content/Quest/Root5",
+  "NameLs": {
+    "Key": "#l10n504105"
+  },
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/InteractWithRoot5"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$type": "RealmRulesDef",
+  "Id": "db5d7363-e798-40dd-a1dd-ed3f1c79826f",
+  "Title": {
+    "Key": "#l10n504855"
+  },
+  "Description": {
+    "Key": "#l10n504856"
+  },
+  "DefaultMap": "/Scenes/QAMap",
+  "ExistenceHours": 168,
+  "CanJoinHours": 24, 
+  "Rules": [
+    {
+      "$type": "RealmGameTime",
+      "SemanticContext": "Info",
+      "DaysCount": 7
+    },
+    {
+      "$type": "RealmPlayersInteraction",
+      "SemanticContext": "Success",
+      "PlayersInteraction": "Hostile"
+    },
+    {
+      "$type": "RealmDeathLimit",
+      "SemanticContext": "Danger",
+      "DeathLimit": "Default"
+    },
+    {
+      "$type": "RealmExp",
+      "SemanticContext": "Info",
+      "ExpReward": "Default"
+    }
+  ]
+}

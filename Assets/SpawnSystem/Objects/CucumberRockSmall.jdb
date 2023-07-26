@@ -1,0 +1,68 @@
+{
+    "$type": "MineableEntityDef",
+    "$overrideVars": {
+        "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Fungi/PS_Fungi_Impact"
+    },
+    "$proto": "./_Prototype_Mineable",
+    "Id": "b1256671-7d23-497d-ab83-91b0c285203d",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/junPlantFruitRock/junPlantFruitRockSmall",
+    "Health": 5,
+    "NameLs": {
+        "Key": "#l10n2941"
+    },
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "FillerResourcePack": {
+        "ItemResource": "/Inventory/Items/Res/PlantScraps",
+        "Count": 0
+    },
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableCucumberRockNode",
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Id": "893d9c4f-5f72-4a93-987b-baca71ad342c",
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 40
+            }
+        ]
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/CucumberRockKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 45
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/CucumberRockNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

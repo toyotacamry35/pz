@@ -1,0 +1,68 @@
+{
+    "$type": "MineableEntityDef",
+    "$overrideVars": {
+        "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Fungi/PS_Fungi_Impact"
+    },
+    "$proto": "./_Prototype_Mineable",
+    "Id": "08cb8a91-26fe-4133-a9e5-7fd8c6fdec88",
+    "NameLs": {
+        "Key": "#l10n2939"
+    },
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/junBowlAcid/junBowlAcidSmall",
+    "Health": 5,
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "FillerResourcePack": {
+        "ItemResource": "/Inventory/Items/Res/PlantScraps",
+        "Count": 1
+    },
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableAcidBowl",
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Id": "d1f2c5a6-4529-4bb0-8a00-bdb625e6e63c",
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 25
+            }
+        ]
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/AcidBowlKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 15
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/AcidBowlNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

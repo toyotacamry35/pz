@@ -1,0 +1,71 @@
+//Обычный брактус
+{
+    "$type": "MineableEntityDef",
+    "$overrideVars": {
+        "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Bractus/PS_Bractus_Hit"
+    },
+    "$proto": "./_Prototype_Mineable",
+    "Id": "bb190c60-b65e-4f92-ada6-f1992b60052e",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Bracti/bractus02_Big",
+    "Health": 5,
+    "NameLs": {
+        "Key": "#l10n2940"
+    },
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusBig",
+    "FillerResourcePack": {
+        "ItemResource": "/Inventory/Items/Res/Scraps",
+        "Count": 0
+    },
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    // --- IHasStatsDef: --------------------------------------------
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Id": "98a3f333-9a0b-487c-a79a-424f5a37c7b6",
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 5
+            }
+        ]
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/BractiKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/BractiNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ],
+    "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+}

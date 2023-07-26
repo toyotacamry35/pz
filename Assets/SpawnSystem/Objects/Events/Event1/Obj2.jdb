@@ -1,0 +1,28 @@
+{
+    "$type": "Obelisk",
+    "Id" : "0186ef56-f83d-4d41-ae8e-3b72078bb480",
+    "Prefab": "Assets/Content/Event/Event1/Prefab/rootSphereEvent",
+    "NameLs": {
+        "Key": "Молодой корень"
+    },
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Event/Event1/InteractWithObj2"
+                            },        
+                        },
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$proto": "./_Prototype_Interactive",
+  "Id": "e09383ba-6eb7-4d86-9b5c-a17830e9d180",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Bush/sporeCell",
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableSporeCell",
+  "NameLs": {
+    "Key": "#l10n2930"
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/SporeCellKW",
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/SporeCellNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

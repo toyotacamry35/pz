@@ -1,0 +1,49 @@
+{
+  "$type": "ObeliskDef",
+  "Id" : "b29f40de-b0a8-434e-a880-3c41fbfbc3f8",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id" : "769c4104-9a14-42db-9e38-6d83af0fc684",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": -3,
+        "LimitMaxDefault": 1000,
+        "InitialValue": 1000,
+        "IsBroadcasted": true
+      }
+    ]
+  },
+  "InitialSpells": [],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Id" : "50654ce9-d18f-47f2-9af3-3e1590bceaa7",
+    "Title": "Decoy_KvarAlpha"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  "Prefab": "Assets/Content/Craft/kvarBait/kvarBait",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      }
+    ]
+  },
+  "LegionType": "/AI/Defs/Legions/Obelisks/DecoyKvarAlpha_Obelisk_Legion"
+}

@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1867229987747720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4112681718390522}
+  - component: {fileID: 114355674939513782}
+  - component: {fileID: 114387023404961730}
+  m_Layer: 0
+  m_Name: ZoneSpawn_Spiraleplant
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4112681718390522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867229987747720}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1092.49, y: -4.67, z: -242.55}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114355674939513782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867229987747720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36008b2e3775c184cb0e17f41fd134fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CalculatedMaxObjects: 0
+  CurrentObjectsCount: 0
+  Radius: 10
+  MinRadius: 0.1
+  WeightMod: 1
+  PrecalculatedMaxObjects: 0
+--- !u!114 &114387023404961730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867229987747720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bda5bf8d27fc2d43ba848b5ff0fb2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawnables:
+  - SpawnedObject: {fileID: 1835183036314246, guid: 6d2d12da4fa11f245ae98b5798bdcdb1,
+      type: 3}
+    Weight: 10
+    LimitingObject: {fileID: 0}
+    LimitMin: 0
+    SpawnNear: {fileID: 0}
+    ChanceOfSpawningNear: 1
+  - SpawnedObject: {fileID: 1003498484549440, guid: 1f233d962a5f98c4e9095a7e2523b6f0,
+      type: 3}
+    Weight: 10
+    LimitingObject: {fileID: 0}
+    LimitMin: 0
+    SpawnNear: {fileID: 0}
+    ChanceOfSpawningNear: 1
+  - SpawnedObject: {fileID: 1315134813491256, guid: 21bccb2e8f891394fb5eacc3bed38eb9,
+      type: 3}
+    Weight: 10
+    LimitingObject: {fileID: 0}
+    LimitMin: 0
+    SpawnNear: {fileID: 0}
+    ChanceOfSpawningNear: 1
+  - SpawnedObject: {fileID: 1035686496419276, guid: db61ad0df27f1814585c77d0cac67310,
+      type: 3}
+    Weight: 10
+    LimitingObject: {fileID: 0}
+    LimitMin: 0
+    SpawnNear: {fileID: 0}
+    ChanceOfSpawningNear: 1

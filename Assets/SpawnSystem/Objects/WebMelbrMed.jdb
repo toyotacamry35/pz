@@ -1,0 +1,49 @@
+{
+    "$type": "InteractiveEntityDef",
+    "$overrideVars": {
+      "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Sangvira/PS_SangviraPickUp"
+    },
+    "$proto": "./_Prototype_Interactive",
+    "Id": "5e0f8938-c1b1-46c9-9557-44e10252c802",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/junWebMelbr/junWebMelbrMed",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableWebMelbrNode",
+    "NameLs": {
+      "Key": "#l10n2953"
+    },
+    "KnowledgeSelectors": [
+      {
+        "$type": "KnowledgeSelectorDef",
+        "Knowledge": "/Inventory/Knowledge/WebMelbrKW",
+        "RewardPoints": [
+          {
+            "TechPoint": "/Inventory/Currencies/TechPointR1",
+            "Count": 45
+          }
+        ],
+        "Predicate": {
+          "$type": "PredicateKnowledgeDef",
+          "Caster": {
+            "$type": "SpellCasterDef"
+          },
+          "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+        }
+      },
+      {
+        "$type": "KnowledgeSelectorDef",
+        "Knowledge": "/Inventory/Knowledge/WebMelbrNaturExpKW",
+        "RewardPoints": [
+          {
+            "TechPoint": "/Inventory/Currencies/TechPointR1",
+            "Count": 2
+          }
+        ],
+        "Predicate": {
+          "$type": "PredicateKnowledgeDef",
+          "Caster": {
+            "$type": "SpellCasterDef"
+          },
+          "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+        }
+      }
+    ]
+  }

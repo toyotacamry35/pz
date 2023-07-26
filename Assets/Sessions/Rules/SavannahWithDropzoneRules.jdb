@@ -1,0 +1,37 @@
+{
+  "$type": "RealmRulesDef",
+  "Id": "63bab967-8691-4dca-94cc-d5da4835d076",
+  "Title": {
+    "Key": "#l10n505008"
+  },
+  "Description": {
+    "Key": "#l10n505009"
+  },
+  "DefaultMap": "/Scenes/Savannah/Savannah",
+  "FirstTimeMap": "/Scenes/Dropzone/Dropzone",
+  "MinLevel": 2, //2
+  "ExistenceHours": 168,
+  "CanJoinHours": 24, 
+  "Rules": [
+    {
+      "$type": "RealmGameTime",
+      "SemanticContext": "Info",
+      "DaysCount": 7
+    },
+    {
+      "$type": "RealmPlayersInteraction",
+      "SemanticContext": "Danger",
+      "PlayersInteraction": "Hostile"
+    },
+    {
+      "$type": "RealmDeathLimit",
+      "SemanticContext": "Info",
+      "DeathLimit": "Default"
+    },
+    {
+      "$type": "RealmExp",
+      "SemanticContext": "Info",
+      "ExpReward": "Default"
+    }
+  ]
+}

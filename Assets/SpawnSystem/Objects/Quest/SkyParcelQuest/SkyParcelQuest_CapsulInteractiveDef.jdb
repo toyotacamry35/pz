@@ -1,0 +1,36 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "8560162d-3631-4654-8779-cdcfdf436582",
+  "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube", //префаб объекта, кот. заспавнится
+  "NameLs": {
+    "Key": "#l10n504420"
+  },
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {//список действий, кот. будут выполняться по клику на объект. порядок действий важен: скрипт побежит вниз по списку и выполнит первое действие, которое вообще может выполнить.
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_CapsulClosedInteractive"
+              },
+              "2": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_CapsulDialogStart"
+              },
+              "3": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_CapsulOpenInteractive"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

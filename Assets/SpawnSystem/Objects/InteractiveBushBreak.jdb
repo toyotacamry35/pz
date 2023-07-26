@@ -1,0 +1,118 @@
+{
+  "$type": "ObeliskDef",
+  "Id": "bcbd2a66-6bcd-4518-b140-bd52808cf02f",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "1e1016f0-df36-4c81-be44-68ea2c742571",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        //ideally should be infinite
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": 0,
+        "LimitMaxDefault": 10000000,
+        "InitialValue": 10000000,
+        "IsBroadcasted": true
+      },
+      {
+        "$type": "AccumulatedStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Opened",
+        "IsBroadcasted": true
+      },
+    ],
+  },
+  "InitialSpells": [],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "00afdec2-d738-49a0-ba48-cddcb343e923",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Id": "fd26f5bb-3ff5-4c5d-aeca-c2bf44e3e5f6",
+    "Title": "InteractiveBushBreak"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  "ReactionHandlers": {
+    "$type": "Reactions",
+    "Reactions": {
+      "/UtilPrefabs/Reactions/Burn": {
+        "$type": "ReactionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Reactions/ObeliskBurn",
+      },
+    }
+  },
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/interactiveBush02/InteractiveBush02DryBig",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      },
+      {
+        "$type": "Interactive",
+        "ReuseExisting": true,
+        "ContextualActions": {
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "0": {
+                "$type": "ContextualActionDef",
+                "Spell": {
+                  "$type": "Spell",
+                  "Duration": 1,
+                  "Words": [
+                    {
+                      "$type": "ImpactCastSpell",
+                      "Target": {
+                        "$type": "SpellTarget"
+                      },
+                      "Spell": {
+                        "$type": "Spell",
+                        "Duration": 10,
+                        "Words": [
+                          {
+                            "$type": "EffectChangeAccumulatedStat",
+                            "StatName": "/UtilPrefabs/Stats/Opened",
+                            "Summand": 1
+                          },
+                          {
+                            "$type": "EffectShowText",
+                            "TextLs": {
+                              "Key": "BREEEEAKING"
+                            },
+                            "TextEndLs": {
+                              "Key": "BROKE"
+                            },
+                            "ShowForEveryone": true
+                          },
+                          {
+                            "$type": "ImpactDie",
+                            "Target": {
+                              "$type": "SpellCaster"
+                            },
+                            "WhenToApply": "OnFinish"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+}

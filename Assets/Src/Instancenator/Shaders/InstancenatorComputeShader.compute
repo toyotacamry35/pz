@@ -1,0 +1,180 @@
+//--------------------------------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
+// Pragmas
+//--------------------------------------------------------------------------------------
+
+#pragma kernel CS_Vegetation
+
+//--------------------------------------------------------------------------------------
+// Constants
+//--------------------------------------------------------------------------------------
+
+#define THREAD_GROUP_X 128
+#define INDIRECT_ARGS_SIZE 5
+
+//--------------------------------------------------------------------------------------
+// Structs
+//--------------------------------------------------------------------------------------
+
+struct BlockInfo
+{
+    uint4 LodInstanceCount; // 16
+    float4 LodDistances;     // 16
+    float3 center;          // 12
+    int indirectArgsIndex;  // 4
+    float3 extents;         // 12
+    int lodCount;           // 4
+};
+
+//--------------------------------------------------------------------------------------
+// Constant Buffers
+//--------------------------------------------------------------------------------------
+
+float3 _WorldSpaceCameraPosition;
+float _ThinningCoefficient;
+float4 _FrustumPlanes[6];
+float4 _FrustumPoints[8];
+float _LodBias;
+
+//--------------------------------------------------------------------------------------
+// Structured Buffers
+//--------------------------------------------------------------------------------------
+
+StructuredBuffer<BlockInfo> _BlockInfo;
+RWStructuredBuffer<uint> _IndirectArgs;
+
+//--------------------------------------------------------------------------------------
+// Functions
+//--------------------------------------------------------------------------------------
+
+float DistanceToBox(float3 boxCenter, float3 boxExtents, float3 testPointPosition, out bool outside)
+{
+    float3 delta = testPointPosition - boxCenter;
+    float3 deltaToClip = delta;
+
+    // check collision with AABB box
+    outside = false;
+    // first check special case when center of sphere is inside the box and clip coords along axes
+    if (deltaToClip.x < -boxExtents.x)
+    {
+        outside = true;
+        deltaToClip.x = -boxExtents.x;
+    }
+    else if (deltaToClip.x > boxExtents.x)
+    {
+        outside = true;
+        deltaToClip.x = boxExtents.x;
+    }
+    if (deltaToClip.y < -boxExtents.y)
+    {
+        outside = true;
+        deltaToClip.y = -boxExtents.y;
+    }
+    else if (deltaToClip.y > boxExtents.y)
+    {
+        outside = true;
+        deltaToClip.y = boxExtents.y;
+    }
+    if (deltaToClip.z < -boxExtents.z)
+    {
+        outside = true;
+        deltaToClip.z = -boxExtents.z;
+    }
+    else if (deltaToClip.z > boxExtents.z)
+    {
+        outside = true;
+        deltaToClip.z = boxExtents.z;
+    }
+
+    if (outside)
+    {
+        return distance(delta, deltaToClip);
+    }
+    return 0;
+}
+
+// Taken from https://www.iquilezles.org/www/articles/frustumcorrect/frustumcorrect.htm
+// false if fully outside, true if inside or intersects
+bool BoxInFrustum(float3 boxCenter, float3 boxExtents)
+{
+    float3 minPosition = boxCenter - boxExtents;
+    float3 maxPosition = boxCenter + boxExtents;
+    // check box outside/inside of frustum
+
+    [unroll]
+    for(int i = 0; i < 6; i++)
+    {
+        int outside = 0;
+        outside += ((dot(_FrustumPlanes[i], float4(minPosition.x, minPosition.y, minPosition.z, 1.0f)) < 0.0 ) ? 1 : 0);
+        outside += ((dot(_FrustumPlanes[i], float4(maxPosition.x, minPosition.y, minPosition.z, 1.0f)) < 0.0 ) ? 1 : 0);
+        outside += ((dot(_FrustumPlanes[i], float4(minPosition.x, maxPosition.y, minPosition.z, 1.0f)) < 0.0 ) ? 1 : 0);
+        outside += ((dot(_FrustumPlanes[i], float4(maxPosition.x, maxPosition.y, minPosition.z, 1.0f)) < 0.0 ) ? 1 : 0);
+        outside += ((dot(_FrustumPlanes[i], float4(minPosition.x, minPosition.y, maxPosition.z, 1.0f)) < 0.0 ) ? 1 : 0);
+        outside += ((dot(_FrustumPlanes[i], float4(maxPosition.x, minPosition.y, maxPosition.z, 1.0f)) < 0.0 ) ? 1 : 0);
+        outside += ((dot(_FrustumPlanes[i], float4(minPosition.x, maxPosition.y, maxPosition.z, 1.0f)) < 0.0 ) ? 1 : 0);
+        outside += ((dot(_FrustumPlanes[i], float4(maxPosition.x, maxPosition.y, maxPosition.z, 1.0f)) < 0.0 ) ? 1 : 0);
+        if(outside == 8) return false;
+    }
+
+    // check frustum outside/inside box
+    int outside;
+    outside = 0; for(int i1 = 0; i1 < 8; i1++) outside += ((_FrustumPoints[i1].x > maxPosition.x)?1:0); if(outside == 8) return false;
+    outside = 0; for(int i2 = 0; i2 < 8; i2++) outside += ((_FrustumPoints[i2].x < minPosition.x)?1:0); if(outside == 8) return false;
+    outside = 0; for(int i3 = 0; i3 < 8; i3++) outside += ((_FrustumPoints[i3].y > maxPosition.y)?1:0); if(outside == 8) return false;
+    outside = 0; for(int i4 = 0; i4 < 8; i4++) outside += ((_FrustumPoints[i4].y < minPosition.y)?1:0); if(outside == 8) return false;
+    outside = 0; for(int i5 = 0; i5 < 8; i5++) outside += ((_FrustumPoints[i5].z > maxPosition.z)?1:0); if(outside == 8) return false;
+    outside = 0; for(int i6 = 0; i6 < 8; i6++) outside += ((_FrustumPoints[i6].z < minPosition.z)?1:0); if(outside == 8) return false;
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------
+// Kernels
+//--------------------------------------------------------------------------------------
+
+[numthreads(THREAD_GROUP_X, 1, 1)]
+void CS_Vegetation( // https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/sv-dispatchthreadid
+        in uint3 _dispatchThreadID : SV_DispatchThreadID,   // DispatchThreadID = dot(GroupID, numthreads) + GroupThreadID
+        in uint  _groupIndex       : SV_GroupIndex,         // GroupIndex = dot(GroupThreadID, float3(1, numthreads.x, numthreads.x * numthreads.y))
+        in uint3 _groupID          : SV_GroupID,            // GroupID = index for each dimension inside a ThreadGroupCount
+        in uint3 _groupThreadID    : SV_GroupThreadID       // GroupThreadId = indices for each dimension inside a group of the current thread
+    )
+    // this shader relies on a fact that out-of-bounds access in DirectX 11 is well defined
+    // https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/ld-uav-typed--sm5---asm-
+    //https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/store-structured--sm5---asm-
+{
+    float3 center = _BlockInfo[_dispatchThreadID.x].center;
+    float3 extents = _BlockInfo[_dispatchThreadID.x].extents;
+    bool cameraOutside;
+    bool frustumCulled = !BoxInFrustum(center, extents);
+    float distanceToCamera = DistanceToBox(center, extents, _WorldSpaceCameraPosition, cameraOutside);
+    
+    float maxDistance = _BlockInfo[_dispatchThreadID.x].LodDistances[_BlockInfo[_dispatchThreadID.x].lodCount - 1];
+    float instanceCountFactor = saturate(maxDistance / distanceToCamera * _ThinningCoefficient);
+
+    int indirectArgsStartIndex = _BlockInfo[_dispatchThreadID.x].indirectArgsIndex;
+    // Indirect Arguments:
+    // uint IndexCount;
+    // uint InstancesCount;
+    // uint IndexStart;
+    // uint BaseVertex;
+    // uint InstancesStart;
+
+    int lod = 0;
+    bool lodFound = false;
+    for (lod = 0; lod < _BlockInfo[_dispatchThreadID.x].lodCount; lod++)
+    {
+        if (!frustumCulled && _BlockInfo[_dispatchThreadID.x].LodDistances[lod] * _LodBias > distanceToCamera && !lodFound)
+        {
+            lodFound = true;
+            _IndirectArgs[indirectArgsStartIndex + 1 + lod * INDIRECT_ARGS_SIZE] = round(_BlockInfo[_dispatchThreadID.x].LodInstanceCount[lod] * instanceCountFactor);
+        }
+        else
+        {
+            _IndirectArgs[indirectArgsStartIndex + 1 + lod * INDIRECT_ARGS_SIZE] = 0;
+        }
+    }
+}

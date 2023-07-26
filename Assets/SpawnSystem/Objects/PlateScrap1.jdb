@@ -1,0 +1,46 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$proto": "./_Prototype_Interactive",
+  "Id": "adeed1cf-ffab-4490-bd37-bde3f905fd3f",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Debris/plateScrap/plateScrap",
+  "NameLs": {
+    "Key": "#l10n2925"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTablePlateScrap",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/HullFragmentKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 6
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/HullFragmentNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

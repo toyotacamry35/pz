@@ -1,0 +1,65 @@
+//Обычный брактус
+{
+    "$type": "MineableEntityDef",
+    "$overrideVars": {
+        "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Bractus/PS_Bractus_Hit"
+    },
+    "$proto": "./_Prototype_Mineable",
+    "Id": "43ed7454-586c-40b3-98a7-5e072c2f4a57",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Bracti/bractus01_Med",
+    "Health": 5,
+    "NameLs": {
+        "Key": "#l10n2940"
+    },
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusBig",
+    "FillerResourcePack": {
+        "ItemResource": "/Inventory/Items/Res/Scraps",
+        "Count": 0
+    },
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    // --- IHasStatsDef: --------------------------------------------
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Id": "a68a57b5-58aa-4a79-8422-a8493a48a299",
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 5
+            }
+        ]
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/BractiKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/BractiNaturExpKW",
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ],
+    "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+}

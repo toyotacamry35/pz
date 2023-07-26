@@ -1,0 +1,37 @@
+{
+  "$type": "RealmRulesDef",
+  "Id": "af5d3199-862f-49a3-bff9-790b5f1715a5",
+  "Title": {
+    "Key": "#l10n505004"
+  }, //SAVANNAH IRONMAN PVP
+  "Description": {
+    "Key": "#l10n505005"
+  }/**/,
+  "DefaultMap": "/Scenes/Savannah/Savannah",
+  "ExpMultiplier": 5,
+  "MinLevel": 7, //7
+  "ExistenceHours": 168,
+  "CanJoinHours": 24, 
+  "Rules": [
+    {
+      "$type": "RealmGameTime",
+      "SemanticContext": "Info",
+      "DaysCount": 7
+    },
+    {
+      "$type": "RealmPlayersInteraction",
+      "SemanticContext": "Danger",
+      "PlayersInteraction": "Hostile"
+    },
+    {
+      "$type": "RealmDeathLimit",
+      "SemanticContext": "Danger",
+      "DeathLimit": "Single"
+    },
+    {
+      "$type": "RealmExp",
+      "SemanticContext": "Success",
+      "ExpReward": "Quintuple"
+    }
+  ]
+}

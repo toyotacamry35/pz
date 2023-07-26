@@ -1,0 +1,28 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "fb096f2d-c2b1-4bc8-821c-6b3486ae495f",
+  "Prefab": "Assets/Content/Environment/Shared/Hub/HubYard/Comp_Gray",
+  "NameLs": {
+    "Key": "#l10n504113"
+  },
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/Conspiracy/1/ConspiracyQuest1_Complete"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+    "$type": "InteractiveEntityDef",
+    "$overrideVars": {
+        "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/RootStick/PS_RootStickPickUp"
+    },
+    "$proto": "./_Prototype_Interactive",
+    "Id": "c5b76b11-a850-4899-a1ef-b06cfb503242",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Roots/stickFungus02",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableStickFungus",
+    "NameLs": {
+        "Key": "#l10n2931"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/RootsticksKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 1
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW",
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/RootsticksNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW",
+            }
+        }
+    ]
+}

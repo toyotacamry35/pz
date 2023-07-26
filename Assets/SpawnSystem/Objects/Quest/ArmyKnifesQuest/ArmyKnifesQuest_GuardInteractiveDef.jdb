@@ -1,0 +1,29 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "bc97ead9-25fe-462e-8567-6151b38d265d",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/Cube",    //префаб объекта, кот. заспавнится
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {       //список действий, кот. будут выполняться по клику на объект. порядок действий важен: скрипт побежит вниз по списку и выполнит первое действие, которое вообще может выполнить.
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/ArmyKnifesQuest/ArmyKnifesQuest_Complete"            // линкуем сюда спелл сдачи квеста из п.3
+                            },
+                            "2": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/Quests/ArmyKnifesQuest/ArmyKnifesQuest_Start"              // линкуем сюда спелл выдачи квеста из п.1
+                            },
+                        },
+                    }
+                }
+            }
+        ]
+    }
+}

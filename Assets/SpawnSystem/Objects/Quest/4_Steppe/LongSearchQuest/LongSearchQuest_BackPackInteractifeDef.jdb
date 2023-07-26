@@ -1,0 +1,32 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "6011d3fa-5c00-4ef8-aeb5-0109fe37e773",
+  "Prefab": "Assets/Content/Quest/BackpackT01_LongSearchQuest", //префаб объекта, кот. заспавнится
+  "NameLs": {
+    "Key": "#l10n504112"
+  },
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": { //список действий, кот. будут выполняться по клику на объект. порядок действий важен: скрипт побежит вниз по списку и выполнит первое действие, которое вообще может выполнить.
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Dialog/3_Steppe/LongSearchQuest/LongSearchQuest_BackpackDialogStart" // линкуем сюда спелл выдачи квеста из п.1
+              },
+              "2": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LongSearchQuest/LongSearchQuest_OpenInteractive"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "ce623c2c-9af4-4835-87fe-c2f5710a322e",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/sh_watersource",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableCoal",
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "InteractiveDef",
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "0": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/InteractiveObjects/WatersourceCleanSpell"
+                            }
+                        }
+                    }
+                },
+                "ReuseExisting": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,66 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractWithEntity",
+  "Duration": 0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+  ],
+  "Words": [
+    {
+      "$type": "ImpactGrantLootTableItemDef",
+      "WhenToApply": "OnSuccess"
+    },
+    /*{
+      "$type": "ImpactInShape",
+      "Shape": {
+        "$type": "LinksOfTarget",
+        "LinkType": "./ME_Spawned_Mobs",
+        "Target": {
+          "$type": "SpellTargetLinks",
+          "LinkType": "./ME_Links",
+          "From": {
+            "$type": "SpellTarget"
+          }
+        }
+      },
+      "AppliedSpells": [
+        {
+          "$type": "Spell",
+          "AllowMultiple":true,
+          "Duration": 0.1,
+          "Words": [
+            {
+              "$type": "ImpactSendTargetedEvent",
+              "Caster": {
+                "$type": "SpellCaster"
+              },
+              "EventTarget": {
+                "$type": "SpellTarget"
+              },
+              "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Aggro_Event",
+              "WhenToApply": "OnStart"
+            }
+          ]
+        }
+      ]
+    },*/
+    {
+      "$type": "EffectPostVisualEventOnTarget",
+      "TriggerName": "/Character/Events/GatherResourceEvent"
+    },
+    {
+      "$type": "ImpactDieDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnSuccess"
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1664"
+  }
+}

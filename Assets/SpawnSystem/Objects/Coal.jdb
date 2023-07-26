@@ -1,0 +1,41 @@
+{
+  "$type": "InteractiveEntityDef",
+  "$proto": "./_Prototype_Interactive",
+  "Id": "d94e5a26-de2a-4baa-81ab-75a05bf086a1",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Stones/sh_coal_pick_02",
+  "NameLs": {
+    "Key": "#l10n2914"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableCoal",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/CoalKW",
+      "RewardPoints":[{"TechPoint":"/Inventory/Currencies/TechPointR1","Count":5}],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/CoalNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+    "$type": "MineableEntityDef",
+    "$overrideVars": {
+        "ON_SIMPLE_HIT_FX": "Assets/Content/FX/Craft&Harvest/Fungi/PS_Fungi_Impact"
+    },
+    "$proto": "./_Prototype_Mineable",
+    "Id" : "b089bbfa-bc3c-4404-98dc-da9705d4d74b",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Fungi/sh_fungus_chit_01",
+    "Health": 5,
+    "NameLs": {
+      "Key": "#l10n2942"
+    },
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableFungusShInt01",
+    "FillerResourcePack": {
+        "ItemResource": "/Inventory/Items/Res/FungalFlake",
+        "Count": 0
+    },
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    // --- IHasStatsDef: --------------------------------------------
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Id" : "ab3c3d79-5b30-4bcc-96d1-e8fa1f947ae6",
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 25
+            }
+        ]
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/XenofungusKW",
+            "RewardPoints":[{"TechPoint":"/Inventory/Currencies/TechPointR1","Count":15}],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/XenofungusNaturExpKW",
+            "RewardPoints": [
+              {
+                "TechPoint": "/Inventory/Currencies/TechPointR1",
+                "Count": 2
+              }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ],
+    "LegionType": "/AI/Defs/Legions/FoodSources/Fungus"
+}

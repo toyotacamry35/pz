@@ -1,0 +1,43 @@
+{
+    "$type": "InteractiveEntityDef",
+    "$overrideVars": {
+      "ON_RESOURCE_PICKUP": "Assets/Content/FX/Craft&Harvest/Sangvira/PS_SangviraPickUp"
+    },
+    "$proto": "./_Prototype_Interactive",
+    "Id": "3d31140c-59ec-49c6-ba0b-366f9a02b7fa",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/tranPlantGrid/tranPlantGridMed",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableGridPlantMed",
+    "NameLs": {
+      "Key": "#l10n2943"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/GridPlantKW",
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/GridPlantNaturExpKW",
+            "RewardPoints": [
+              {
+                "TechPoint": "/Inventory/Currencies/TechPointR1",
+                "Count": 2
+              }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+  }

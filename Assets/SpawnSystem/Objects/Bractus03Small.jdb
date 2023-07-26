@@ -1,0 +1,48 @@
+//Джунглевый брактус
+{
+    "$type": "InteractiveEntityDef",
+    "$proto": "./_Prototype_Interactive",
+    "Id": "576090e6-24b9-458b-a9af-9f2107eb5707",
+    "Prefab": "Assets/Content/Environment/Shared/Interactive/Bracti/bractus03_Small",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableJungleBractusSmall",
+    "NameLs": {
+        "Key": "#l10n2940"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/BractiJungleKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 45
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/BractiNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ],
+    "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+}

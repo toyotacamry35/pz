@@ -1,0 +1,113 @@
+{
+  "$type": "MineableEntityDef",
+  "Id": "deb5dbe4-0d2a-4a99-822c-f687dd2c2561",
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/interactiveBush02/InteractiveBush02AliveMed",
+  "Health": 5,
+  "NameLs": {
+    "Key": "#l10n2951"
+  },
+  "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+  "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableRootsBreak",
+  "FillerResourcePack": {
+    "ItemResource": "/Inventory/Items/Res/SpiralSprout",
+    "Count": 0
+  },
+  "ObjectType": "/Inventory/Statistic/ObjectType/MineResource", // --- IHasStatsDef: --------------------------------------------
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "73728cc1-f56a-4327-aca1-b75e115ed142",
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "InitialValue": 0
+      },
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Traumas/Quest/BushStat",
+        "InitialValue": 0
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionCutting",
+        "ValueCalcer": {
+          "$type": "CalcerPiecewise",
+          "$id": "ResistCalcer",
+          "Ranges": [
+            {
+              "Condition": {
+                "$type": "PredicateNot",
+                "Value": {
+                  "$type": "PredicateGreater",
+                  "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Traumas/Quest/BushStat"
+                  },
+                  "Rhs": 0.5
+                }
+              },
+              "Value": 99999
+            }
+          ],
+          "Else": 0
+        }
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCutting",
+        "ValueCalcer": "$ResistCalcer"
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionSlashing",
+        "ValueCalcer": "$ResistCalcer"
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "ValueCalcer": "$ResistCalcer"
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionCrushing",
+        "ValueCalcer": "$ResistCalcer"
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "ValueCalcer": "$ResistCalcer"
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionPiercing",
+        "ValueCalcer": "$ResistCalcer"
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "ValueCalcer": "$ResistCalcer"
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionGeneric",
+        "ValueCalcer": "$ResistCalcer"
+      },
+      {
+        "$type": "ProceduralStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceGeneric",
+        "ValueCalcer": "$ResistCalcer"
+      },
+    ]
+  },
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "5e39abbc-dfd4-4312-bab4-417f1bcf873c",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 5
+      }
+    ]
+  }
+}
