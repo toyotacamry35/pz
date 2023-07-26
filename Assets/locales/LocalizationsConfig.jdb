@@ -1,0 +1,74 @@
+{
+    "$type": "LocalizationConfigDef",
+    "LocalesDirName": "locales",
+    "DevCulture": {
+        "Code": "en-US",
+        "Folder": "dev",
+        "Description": "develop"
+    },
+    "LocalizationCultures": [
+
+        ///#IMPORTANT: !!! SHOULD BE MANUALLY INTER-SYNCRONIZED ALL 4!:
+        /// 1 - LocalizationKeysDef resource jdb: `L10n_Settings_Languages_enum.jdb` !!!
+        /// 2 - `LocalizationsConfig.jdb`
+        /// 3 - enum `LanguageSetting.Languages`
+        /// 4 - dictionary `LanguageSetting.LangToLocalization`
+
+        {
+            "Code": "en-US",
+            "Folder": "en_US",
+            "FallbackCultureFolder": "dev",
+            "Description": "English"
+        },
+        {
+            "Code": "ru-RU",
+            "Folder": "ru_RU",
+            "FallbackCultureFolder": "en_US",
+            "Description": "Русский"
+        },
+        {
+            "Code": "de-DE",
+            "Folder": "de_DE",
+            "FallbackCultureFolder": "en_US",
+            "Description": "Deutsch"
+        },
+        {
+            "Code": "fr-FR",
+            "Folder": "fr_FR",
+            "FallbackCultureFolder": "en_US",
+            "Description": "Français"
+        },
+        {
+            "Code": "it-IT",
+            "Folder": "it_IT",
+            "FallbackCultureFolder": "en_US",
+            "Description": "Italiano"
+        },
+        {
+            "Code": "es-ES",
+            "Folder": "es_ES",
+            "FallbackCultureFolder": "en_US",
+            "Description": "Español (España)"
+        },
+        {
+            "Code": "es-MX",
+            "Folder": "es_MX",
+            "FallbackCultureFolder": "en_US",
+            "Description": "Español (Latinoamérica)"
+        },
+        {
+            "Code": "pt-BR",
+            "Folder": "pt_BR",
+            "FallbackCultureFolder": "en_US",
+            "Description": "Português (Brasil)"
+        }
+    ],
+    "DefaultLocalizationIndex": 0,
+    "LocalizationPipelineIndex1": 1,
+    "LocalizationPipelineIndex2": 0,
+    "DomainFile": "common",
+    "FilenamesForDebug": [
+        //"CaptainRanger_DialogNew"
+    ],
+    "XlsExportConfig": "/locales/XlsExportColumns"
+}

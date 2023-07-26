@@ -1,0 +1,64 @@
+{
+  "$type": "QuestDef",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Counter": {
+        "$type": "CraftCounterDef",
+        "Targets": [
+          "/Inventory/Recipes/Sessions/Armor_3_handsBP",
+          "/Inventory/Recipes/Sessions/Armor_3_chestBP",
+          "/Inventory/Recipes/Sessions/Armor_3_headBP",
+          "/Inventory/Recipes/Sessions/Armor_3_legsBP",
+          "/Inventory/Recipes/Sessions/Backpack_3BP",
+          "/Inventory/Recipes/Sessions/Cold_protection_3_chestBP",
+          "/Inventory/Recipes/Sessions/Cold_protection_3_feetBP",
+          "/Inventory/Recipes/Sessions/Cold_protection_3_handsBP",
+          "/Inventory/Recipes/Sessions/Cold_protection_3_headBP",
+          "/Inventory/Recipes/Sessions/Cold_protection_3_legsBP",
+          "/Inventory/Recipes/Sessions/Heat_protection_3BP",
+          "/Inventory/Recipes/Sessions/Battle_potion_3BP",
+          "/Inventory/Recipes/Sessions/Pickled_meridBP",
+          "/Inventory/Recipes/Sessions/Snow_Kvar_steakBP",
+          "/Inventory/Recipes/Sessions/Toxic_protection_3BP",
+          "/Inventory/Recipes/Sessions/Healing_3BP",
+          "/Inventory/Recipes/Sessions/Chest_3BP",
+          "/Inventory/Recipes/Sessions/Concentrated_life_essenceBP",
+          "/Inventory/Recipes/Sessions/Hardened_fungusBP",
+          "/Inventory/Recipes/Sessions/Pressed_leather_3BP",
+          "/Inventory/Recipes/Sessions/Swamp_decoctBP",
+          "/Inventory/Recipes/Sessions/Knife_3BP",
+          "/Inventory/Recipes/Sessions/Pick_3BP",
+          "/Inventory/Recipes/Sessions/Spear_3BP",
+          "/Inventory/Recipes/Sessions/Sword_3BP",
+          "/Inventory/Recipes/Sessions/WarAxe_3BP",
+          "/Inventory/Recipes/Sessions/WarHammer_3BP",
+          "/Inventory/Recipes/Sessions/GasStationBP"
+        ],
+        "CraftSource": "Any",
+        "Count": 15,
+        "Id": "c761d48a-f7fc-4a17-9301-40d404340b43"
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/CraftAnything_Tier_03"
+        }
+      ],
+      "Id": "1ef21385-8316-4120-a996-01b0ecf24ec7"
+    },
+    {
+      "$type": "PhaseDef",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Time": 1,
+        "Id": "0ec9bd77-f73e-4a68-918f-2f4630d70c92"
+      },
+      "Id": "a45c5e4c-5673-414b-8b78-85abfb7a9188"
+    }
+  ],
+  "Id": "b582ce8d-1bb5-4d75-a559-84538e7917af"
+}

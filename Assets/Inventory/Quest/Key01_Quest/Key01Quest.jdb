@@ -1,0 +1,154 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "ab0acf9c-f702-4caa-ab06-30c6ed62cb8d",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "748335ce-0a1d-4a71-9479-cec22cf5f569",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_01"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_02"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_03"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_04"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_05"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_06"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_07"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_08"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_09"
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "55216fcf-7330-4463-8d40-8c31c9cb74b9",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Quest/Key01Quest/VoidDNA_1",
+        "Count": 10
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_01"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_02"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_03"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_04"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_05"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_06"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_07"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_08"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key01Quest/HostDNaPOI_09"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503582"
+      }, // Собрать образцы тканей войдов
+      "ShortDescriptionLs": {
+        "Key": "#l10n503583"
+      }, // Их нужно извлечь из останков, которые можно найти в областях, отмеченных на карте
+      "DescriptionLs": {
+        "Key": "#l10n504897"
+      }// Выжившие колонисты не теряют надежду избавиться от проклятия мутаций. Они пытаются изучать войдов, каждое утро они собирают новые образцы с умерших ночью войдов и препарируют в самодельной лаборатории, сооруженной из того, что удалось спасти с Андромеды. Результатов, к сожалению, пока не много.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "66ca7257-30f5-41a5-a659-69f4660844c8",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "f7247882-30ec-40e5-b583-6e2041c54219",
+        "Target": "/UtilPrefabs/Spells/Quests/Key01Quest/Key01Quest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "f8aeb632-208b-4a77-b695-c58937e2986c",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Quest/Key01Quest/VoidDNA_1",
+        "Less": true,
+        "Count": 10
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n503585"
+      }, // Отнести образцы инженеру Радову
+      "ShortDescriptionLs": {
+        "Key": "#l10n504898"
+      }, // Его можно найти в Хабе
+      "DescriptionLs": {
+        "Key": "#l10n504899"
+      }// Образцы собраны, теперь нужно отнести их инженеру Радову, он передаст их в лабораторию.
+    }
+  ],
+  "OnSuccess": [{
+    "$type": "ImpactAddPerkDef",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+  }],
+  "NameLs": {
+    "Key": "#l10n504900"
+  }, // Шаги к спасению: Изучение войдов
+  "DescriptionLs": {}
+}

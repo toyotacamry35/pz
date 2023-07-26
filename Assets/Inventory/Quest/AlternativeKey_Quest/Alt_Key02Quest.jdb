@@ -1,0 +1,157 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "afcb4916-bc00-4848-8a82-e7ca4b6b550f",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "c1d0aa86-f4c0-4fc9-96ff-99f5ff5cb98b",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_01"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_02"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_03"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_04"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_05"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "a4bc5eda-98d8-4ee2-8802-bc753a6f2b05",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id" : "b4d0081e-acc1-494a-bca4-5da33a39952b",
+            "Target": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_Point_01KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id" : "eb4d2cf1-432c-4327-8984-ae52efa4d6c5",
+            "Target": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_Point_02KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id" : "4498200b-18e7-48f6-9362-4d315637ed45",
+            "Target": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_Point_03KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id" : "5b203efc-aef6-4dfa-aec7-4ccc1fe44e08",
+            "Target": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_Point_04KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id" : "3e4afcd2-71a1-4baa-bbdd-978e60aa17c4",
+            "Target": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_Point_05KW",
+            "Count": 1
+          }
+        ],
+        "Count": 5
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_01"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_02"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_03"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_04"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_05"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n5009"
+      }, // Осмотреть все месторождения тория
+      "ShortDescriptionLs": {
+        "Key": "#l10n5010"
+      }, // Осмотр тел войдов не дал результатов. Нужно поискать зацепки в тех местах, где вы умирали во время прошлого дневного цикла.
+      "DescriptionLs": {
+        "Key": "#l10n5011"
+      } // Осмотр тел других войдов не дал никаких результатов. Однако, пока вы их осматривали, вам в голову пришла мысль о том, что войдами люди становятся после смерти, когда воскрешаются в коконе, и, может быть, стоит поискать зацепки в тех местах, где вы умирали во время прошлого дневного цикла.\nНо после ночи в капсуле память вернулась лишь частично, и вы не помните, где и как умирали. Можно попытаться восстановить её, посетив заново все возможные места. Ну что же - начнём с Пустыни!
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "8bbced66-0c37-46ff-a393-791dc528686c",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_Alternative"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id" : "ed21b0aa-1a37-4cdb-aae0-e5308b28f7cc",
+        "IsInvisible": true,
+        "Target": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_Point_AlternativeKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_Alternative"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n5012"
+      }, // Найти и осмотреть место своей смерти
+      "ShortDescriptionLs": {
+        "Key": "#l10n5013"
+      }, // Вы вспомнили, что умерли не около месторождения тория, а в другом месте
+      "DescriptionLs": {
+        "Key": "#l10n5014"
+      } // Осмотрев все месторождения тория, вы вспомнили, что ни в одном из них вы не умирали. Однако, в памяти всплыла картина огромного голубого камня, торчащего из земли, увитого странными корнями… Метеорит! Кажется, вы знаете, где это...
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key02Quest/Alt_Key02Quest_Complete"
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key03Quest/Alt_Key03Quest_Start"
+      ]
+    },
+    {
+      "$type": "ImpactAddPerkDef",
+      "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n5015"
+  }, // Шаги к разгадке: Смерть в Пустыне
+  "DescriptionLs": {}
+}

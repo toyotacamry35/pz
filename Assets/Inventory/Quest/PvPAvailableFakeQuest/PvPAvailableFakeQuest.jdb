@@ -1,0 +1,51 @@
+{
+  "$type": "QuestDef",
+  "Id": "43ceb12b-b760-4b3f-91f8-fa24622c5c8c",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "34e703b6-9f4f-45ea-8fb4-4db8113c6125",
+      "Label": "Main",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/PvPAvailableFakeQuest/PvPAvailableFakeQuest_TakenKW"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounter",
+        "Id": "99b122c0-8e8c-4f16-aeda-2cb2e4fd699e",
+        "Target": "/UtilPrefabs/Spells/Quests/PvPAvailableFakeQuest/PvPAvailableFakeQuest_Complete",
+        "IsInvisible": true,
+        "Count": 1
+      },
+      "NameLs": {
+        "Key": "#l10n4884"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4885"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4886"
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/PvPAvailableFakeQuest/PvPAvailableFakeQuest_CompletedKW"
+    },
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n4887"
+  }
+}

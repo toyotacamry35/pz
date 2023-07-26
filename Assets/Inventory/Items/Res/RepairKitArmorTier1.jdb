@@ -1,0 +1,32 @@
+{
+  "$type": "ItemResource",
+  "MaxStack": 100,
+  "Weight": 0,
+  "ItemType": "/UtilPrefabs/ItemGroups/Misc",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/NewRepairArmor1",
+  "BigIcon": "Assets/UI/UISprites/Items/NewRepairArmor1Big",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "Набор для ремонта брони I"
+  },
+  "DescriptionLs": {
+    "Key": "Подходит для ремонта брони из запрессованной кожи и костюма Пустынника"
+  },
+  "Id": "e88b1407-ca72-4b41-b736-3e570c5d9c22"
+}

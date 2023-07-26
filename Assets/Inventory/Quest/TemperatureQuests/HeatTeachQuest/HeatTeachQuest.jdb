@@ -1,0 +1,53 @@
+{
+  "$type": "QuestDef",
+  "Id": "c57d4985-8f07-4b5e-a1bf-b89e7801f6e6",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Сделать 1 противоохлаждающий компресс,
+      "Id": "4c5725cd-18a0-4aac-a3f9-cd5de3c4f1c2",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible":true,
+        "Id": "a1b052ab-713c-4737-8438-584bc0c61f15",
+        "Target": "/Inventory/Knowledge/Quest/TemperatureQuests/HeatTeachQuest/HeatTeachQuest_CompletedKW",
+        "Count": 1
+      },
+      "NameLs": {
+        "Key": "#l10n503971"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504733"
+      }, //Узнай у Тенуша в Хабе, как избавится от теплового удара.
+      "DescriptionLs": {
+        "Key": "#l10n504734"
+      }//Исследуя Саванну, я умудрился перегреться на солнце и получить солнечный удар. Мне необходимо увидится с доктором в Хабе, может он сможет меня вылечить.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+    },
+    {
+      "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+      "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/HeatTeachQuest/HeatTeachQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n503974"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503975"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503976"
+  }
+}

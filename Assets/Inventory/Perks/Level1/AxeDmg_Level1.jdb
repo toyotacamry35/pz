@@ -1,0 +1,33 @@
+{
+  "$type": "PerkResource",
+  "Id": "b4598f0b-85f6-4896-a3e9-8fef119e0532",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateOr",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/AxeAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackStatModifier",
+        "Id": "1b50042c-2d30-4085-9fdc-7d63a1469f11",
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+        "Multiplier": 1.1
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkCommonCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15018"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15019"
+  }
+}

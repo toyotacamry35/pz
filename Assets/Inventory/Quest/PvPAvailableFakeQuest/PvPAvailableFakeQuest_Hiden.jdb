@@ -1,0 +1,61 @@
+{
+    "$type": "QuestDef",
+    "Id" : "24dbe597-e6cb-45a2-bdec-b9255c6bd9f0",
+    "Group": "Hidden",
+    "Phases": [
+      {
+        "$type": "PhaseDef",
+        "Id" : "4bd09ff4-8c89-4779-8e1f-9baafa41403a",
+        "Counter": {
+          "$type": "CombinatorCounterDef",
+          "Id" : "fe65e391-e1d7-43d3-9f50-47a97d14565e",
+          "SubCounters": [
+            {
+              "$type": "KnowledgeCounterDef",
+              "Id" : "37e7509f-3da0-48a7-a39e-6896518fddee",
+              "Target": "/Inventory/Knowledge/Quest/Key01Quest/Key01Quest_CompletedKW",
+              "Count": 1
+            },
+            {
+              "$type": "KnowledgeCounterDef",
+              "Id" : "9c403046-9ff0-4915-b493-ef76782ef7b5",
+              "Target": "/Inventory/Knowledge/Quest/Key02Quest/Key02Quest_CompletedKW",
+              "Count": 1
+            },
+            {
+              "$type": "KnowledgeCounterDef",
+              "Id" : "9ecf398c-34e0-416f-bdbc-1da6b592d1d1",
+              "Target": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_CompletedKW",
+              "Count": 1
+            },
+            {
+              "$type": "KnowledgeCounterDef",
+              "Id" : "4719b9ff-989d-4631-adf0-5667d6e7734f",
+              "Target": "/Inventory/Knowledge/Quest/Key04Quest/Key04Quest_CompletedKW",
+              "Count": 1
+            },
+            {
+              "$type": "KnowledgeCounterDef",
+              "Id" : "d5ffc638-2fd1-4b7d-96e8-98b1518f7764",
+              "Target": "/Inventory/Knowledge/Quest/Key05Quest/Key05Quest_CompletedKW",
+              "Count": 1
+            },
+            {
+              "$type": "KnowledgeCounterDef",
+              "Id" : "9d152c89-c4b8-41ec-81ee-5766e25496c6",
+              "Target": "/Inventory/Knowledge/Quest/Key06Quest/Key06Quest_CompletedKW",
+              "Count": 1
+            }
+          ],
+          "Count": 1
+        },
+        "OnSuccess": [{
+          "$type": "ImpactCastSpell",
+          "Spells": [
+            "/UtilPrefabs/Spells/Quests/PvPAvailableFakeQuest/PvPAvailableFakeQuest_Start"
+          ]
+        }]
+      }
+    ]
+  }
+  

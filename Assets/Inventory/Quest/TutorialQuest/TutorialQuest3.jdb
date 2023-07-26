@@ -1,0 +1,69 @@
+{
+  "$type": "QuestDef",
+  "Id": "0b53863c-4ee1-432c-ac61-143ce7351f51",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //EnterExpeditionArea
+    {
+      "$type": "PhaseDef",
+      "Id": "8f783d0f-6285-4f63-a1ab-c26602f1373f",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "568b854a-de45-46bb-9316-7b662a9e223e",
+        "Target": "/Inventory/Knowledge/FromTechnologies/SimpleConstructionsKW",
+        "Count": 1
+      },
+      "OnFailPhase": "Follow1",
+      "FailCounter": {
+        "$type": "SpellCounterDef",
+        "Id" : "0b293a63-ece7-4b75-9666-fb77882f8320",
+        "Target": "/UtilPrefabs/Spells/Locomotion/JumpReaction",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2820"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2821"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2822"
+      }
+    }, //Построить фундамент
+    {
+      "$type": "PhaseDef",
+      "Id": "6d18df49-0470-466b-9669-6251de066bc1",
+      "OnStart": [],
+      "Counter": {
+        "$type": "BuildCounterDef",
+        "Id": "508889a0-e3c5-4faa-9455-9c6d8e397bd8",
+        "Targets": [
+          "/Building/Tier01/Buildings/builderFloorT01",
+          "/Building/Tier01/Buildings/builderFloorCornerT01"
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2829"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2830"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2831"
+      }
+    },
+  ],
+  "NameLs": {
+    "Key": "#l10n1185"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n1186"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n1187"
+  }
+}

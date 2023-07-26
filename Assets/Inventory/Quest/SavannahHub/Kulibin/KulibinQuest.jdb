@@ -1,0 +1,119 @@
+{
+  "$type": "QuestDef",
+  "Id": "3f6ec0ac-fb28-4d17-bc2d-8c61b5100efc",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //список фаз квеста.
+    {
+      "$type": "PhaseDef", //фаза 1: сбор первого ресурса, который попросил принести NPC. в данном случае, споровые батарейки.
+      "Id": "008fdd52-5596-4bd7-b5e6-5d3153ff9f1c", //отсюда и ниже продолжаем удалять ВСЕ ID
+      "OnStart": [
+        //определяет, что происходит при старте фазы. сюда можно вставить любые спеллы. 
+        {
+          "$type": "ImpactAddKnowledge", //выдаём игроку кновледж о том, что он взял этот квест. С помощью него спелл выдачи квеста не даёт игроку брать квест второй раз.
+          "Knowledge": "/Inventory/Knowledge/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_TakenKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef", //выдаём игроку квест-маркер - чтобы он знал, где искать ресурсы.
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_DesertPOI"//ссылка на файл с квест-маркером. его заведём в п.5 и сюда вставим
+        }
+      ],
+      "Label": "CollectPhase",
+      "Counter": {//каунтер - то, что включает переход на след. фазу квеста. этот считает, сколько предметов указанного типа в инвентаре игрока
+        "$type": "ItemsCounterDef",
+        "Id": "d88b43cc-703b-4a8d-8d3a-7ecdbf54e0fc",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/SporeCell", //что именно таргетит (считает) каунтер. здесь - ссылка на споровые батарейки
+        "Count": 10// количество, которое каунтер должен насчитать, чтобы эта фаза закончилась и началась новая
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3310"
+      }, //название фазы квеста - будет отображаться в журнале и в HUD
+      "ShortDescriptionLs": {
+        "Key": "#l10n3311"
+      }, //короткое описание фазы (журнал, когда квест закрыт, и в HUD). можно пустым оставить, если здесь нечего толкового сказать.
+      "DescriptionLs": {
+        "Key": "#l10n3312"
+      }//полное описание фазы(в журнале когда открыт квест). Это самое логичное место (пока), чтобы полно и обширно весь квест описать.
+    },
+    {
+      "$type": "PhaseDef", //фаза 2: сбор второго ресурса. в данном случае, кремния
+      "Id": "872d37ca-5362-459a-9f2d-9858f61bc91d",
+      "OnStart": [],
+      "Counter": {//каунтер: фаза закончится, когда игрок соберёт 10 кусков кремния
+        "$type": "ItemsCounterDef",
+        "Id": "10451ae7-2d4c-4f60-a7a9-1f9a902fd34a",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/SiliconShard", //ссылка на файл со вторым ресурсом
+        "Count": 10
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "0fcd49a0-8302-429a-9a5d-1f97ced7f40f",
+        "Less":true,
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/SporeCell", 
+        "Count": 10
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3313"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3314"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3315"
+      }
+    },
+    {
+      "$type": "PhaseDef", //фаза 3: возвращение к NPC - квест-гиверу
+      "Id": "aaf783b7-9c26-45e5-89bc-053df0ff4d97", //ты нас всё ещё удаляешь??? 
+      "OnStart": [
+        //маркер на Кулибина
+        {
+          "$type": "ImpactAddPointOfInterestDef", //выдаём квест-маркер - где стоит NPC.
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_KulibinPOI"//ссылка на файл с этим квест-маркером. его заведём в п.5 и сюда вставим
+        }
+      ],
+      "Counter": {//этот каунтер проверяет, сработал ли указанный ниже спелл. когда сработал, фаза заканчивается
+        "$type": "SpellCounterDef",
+        "Id": "98fc5918-0489-4b53-98fc-6bd22c765d81", //ссылка на файл с этим спеллом. его заведём в п.3 и и сюда вставим
+        "Target": "/UtilPrefabs/Spells/Quests/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        //что происходит, если фаза успешно завершена:
+        {
+          "$type": "ImpactRemovePointOfInterestDef", //у игрока пропадает указанный ниже квест маркер
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_KulibinPOI"//ссылка на файл с этим квест-маркером. его заведём в п.5 и и сюда вставим
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3316"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3317"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3318"
+      }// Пока этот дескрипшн - последний, который увидит игрок, и он показывается на видном месте в журнале. Имеет смысл его полнее и понятнее писать.
+    }
+  ],
+  "OnSuccess": [], //Название всего квеста (журнал и в худе)
+  "NameLs": {
+    "Key": "#l10n3319"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3320"
+  }, //Короткое описание квеста (журнал, когда квест закрыт, и в худе). Похоже, пока оно плохо показывается - журнал сжирает его часть. Худ не показывает.
+  "DescriptionLs": {
+    "Key": "#l10n3321"
+  }//Полное описание (в журнале когда открыт квест). Похоже, пока оно не показывается вообще нигде.
+}

@@ -1,0 +1,56 @@
+{
+  "$type": "AltarDef",
+  "Id": "462cc637-c649-4acc-a18a-a1bf1779830e",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "ad759120-aaa7-40a5-af76-d586616d5708",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": 0,
+        "LimitMaxDefault": 1000,
+        "InitialValue": 1000,
+        "IsBroadcasted": true
+      },
+    ]
+  },
+  "InitialSpells": [],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Id": "599bafea-4632-4239-8030-e27672f82653",
+    "Title": "Obelisk"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  "Prefab": "Assets/Content/Construction/Tier02/builderFenceGateT02_Animated_Obelisk",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      },
+      {
+        "$type": "MortalObjectComponentDef"
+      },
+      {
+        "$type": "DeathResurrectHandlerDef",
+        "PlayAnimation": "Death"
+      }
+    ]
+  },
+  "LegionType": "/AI/Defs/Legions/Obelisks/SimpleObelisk_Legion"
+}

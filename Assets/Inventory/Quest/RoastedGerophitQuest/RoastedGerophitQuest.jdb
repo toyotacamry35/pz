@@ -1,0 +1,86 @@
+{
+  "$type": "QuestDef",
+  "Id": "8041d378-ba6b-4824-aaa8-af1e4bcbf810",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "78f43b01-a8dd-4810-934f-6717bca66a22",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "8e2f7dd3-f22b-4ee4-82bb-2a7882728ec0",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Consumables/Food/RoastedGerophit",
+        "Count": 11
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503349"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503948"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503350"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "8b4bc4ab-fd09-4338-ad2c-403ca211bf6b",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "37f08e48-14e2-44b4-a22b-83354d337a25",
+        "Target": "/UtilPrefabs/Spells/Quests/RoastedGerophitQuest/RoastedGerophitQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "7901d210-ca2b-40b2-ad40-93e2fae5275e",
+        "Less": true,
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Consumables/Food/RoastedGerophit",
+        "Count": 11
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/RoastedGerophitQuest/RoastedGerophitQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503351"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503352"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503353"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503354"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503355"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "$type": "QuestDef",
+  "Id": "d6c6d25a-9aed-40a1-93a0-10935e6b78e8",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Изучить технологию: Prtmitive Constructions
+    {
+      "$type": "PhaseDef",
+      "Id": "18417665-0a50-4bcd-8bfd-2365847b8bdb",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "2cf227c4-5673-49ed-8dc1-a87154d1f5e3",
+        "Target": "/Inventory/Knowledge/FromTechnologies/PrimitiveConstructionsKW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2784"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2785"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2786"
+      }
+    }, //Разместить сундук
+    {
+      "$type": "PhaseDef",
+      "Id": "708a4d58-9dd0-4dd0-b6ce-406f8c7be251",
+      "OnStart": [],
+      "Counter": {
+        "$type": "PlaceObjectCounterDef",
+        "Id": "9471d808-2133-415d-abc1-07db8d3f213d",
+        "Target": "/UtilPrefabs/Res/Prototypes/Mounting/SimpleStash_EntityObjectDef"
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2802"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2803"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2804"
+      }
+    },
+    //Изучить технологию: Simple Gear
+    {
+      "$type": "PhaseDef",
+      "Id": "a9262499-a99c-40d2-95af-0c9cc2a82af1",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "0f085bf6-9181-4b3c-b776-e1effd5e89b6",
+        "Target": "/Inventory/Knowledge/FromTechnologies/PrimitiveGearKW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2808"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2809"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2810"
+      }
+    }, //Изучить норы Йуттов
+    {
+      "$type": "PhaseDef",
+      "Id": "6209a1fe-1503-4cb0-b584-d33953b8e19a",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "6828e92b-4160-451b-a042-7751485ae377",
+        "Target": "/Inventory/Knowledge/YuttEggKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactActivateQuestDef",
+          "Target": {
+            "$type": "SpellCaster"
+          },
+          "Quest": "/Inventory/Quest/JourneyQuest"
+        },
+        {
+          "$type": "ImpactAddItemsDef",
+          "Items": [
+            "/Inventory/Items/Quest/MilitaryNotes"
+          ],
+          "Count": 1
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2805"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2806"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2807"
+      }
+    }, //собрать шкуры Йуттов
+    {
+      "$type": "PhaseDef",
+      "Id": "350a41fd-8cb6-47cd-b675-d8cac07c965e",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "SourceType": "Player",
+        "Id": "084ebd16-64bf-4434-8c85-543a851882d3",
+        "Count": 2,
+        "Target": "/Inventory/Items/Res/YuttHide"
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2811"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2812"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2813"
+      }
+    },
+    //Сделать Рюкзак из шкур Йуттов
+    {
+      "$type": "PhaseDef",
+      "Id": "1b598b8d-6b96-473d-8bd4-97be8cbe2dda",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "3294e8a2-aeb8-4fa2-a7dd-67e432601f11",
+        "Count": 1,
+        "Target": "/Inventory/Items/Backpacks/BackpackT1Yutt"
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddKnowledge",
+          "Knowledge": "/UtilPrefabs/Spells/Quests/QuestKnowledge/TutorialQuest2RewardKW"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2817"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2818"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2819"
+      }
+    }
+  ],
+  "OnSuccess": [
+    /*
+  {
+    "$type": "ImpactActivateQuest",
+    "Id": "20478504-a0de-4ea8-a534-579fad5aab22",
+    "Quest": "/Inventory/Quest/TutorialQuest/TutorialQuest3"
+  }
+  */
+  ],
+  "NameLs": {
+    "Key": "#l10n1182"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n1183"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n1184"
+  }
+}

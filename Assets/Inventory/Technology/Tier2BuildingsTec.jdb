@@ -1,0 +1,36 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "fe22c391-4f4f-4248-bf5a-2e04bc3dfaad",
+    "BuildRecipesImage": "Assets/UI/UISprites/Construction/TechnologyImages/TechnoTier2",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 12,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 6,
+                    "Science": "/Inventory/Science/Geology"
+                },
+                {
+                    "Count": 18,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/SimpleConstructionsTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 3,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/Tier2BuildingsKW"
+        ]
+    }
+}

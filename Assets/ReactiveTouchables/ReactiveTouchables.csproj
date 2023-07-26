@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net471</TargetFrameworks>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ColonyShared\GeneratedCode.csproj" />
+    <ProjectReference Include="..\ReactiveProps\ReactiveProps.csproj" />
+    <ProjectReference Include="..\ResourceSystem\ResourceSystem.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.6.5" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <RootNamespace>ReactivePropsNs.Touchables</RootNamespace>
+  </PropertyGroup>
+
+</Project>

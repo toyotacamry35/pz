@@ -1,0 +1,96 @@
+{
+  "$type": "QuestDef",
+  "Id": "d161e5ff-8429-46e9-b8b1-181c2575fab2",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Собрать 12  ягод,
+      "Id": "f4f2a501-12d0-4d0b-9c5b-b3150733d237",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/PoorFirstAidQuest/POIPoorFirstAidQuest_BushOfPearlPOI"
+        }
+      ],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "bb42acfd-0c5a-4ea7-bf01-1f1f03493612",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/JewelBerries",
+        "Count": 12
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/PoorFirstAidQuest/POIPoorFirstAidQuest_BushOfPearlPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503333"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503734"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503740"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "a1d892e5-c00f-48ea-bc07-7f479e33c4ed",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "a90601e8-0eea-4464-a1b0-80d78db6b34e",
+        "Target": "/UtilPrefabs/Spells/Quests/PoorFirstAidQuest/PoorFirstAidQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "47e13042-cbd1-410e-8191-cc52df4660d5",
+        "Less": true,
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/JewelBerries",
+        "Count": 12
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/PoorFirstAidQuest/PoorFirstAidQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503742"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503939"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503338"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503940"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503941"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$type": "ObeliskDef",
+  "$id": "69d6eb18-7b3b-4141-bdb1-a56bef2c20dd",
+  "Stats": {
+    "$type": "StatsDef",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": 0,
+        "LimitMaxDefault": 10000,
+        "InitialValue": 10000,
+        "IsBroadcasted": true
+      }
+    ],
+    "Id": "406015bd-d26a-458a-87c9-c75cc5f38524"
+  },
+  "InitialSpells": [],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Title": "Obelisk",
+    "Id": "75755176-7159-4ee5-bdb2-e624eb2ad9f8"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Test/Board5_Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      },
+      {
+        "$type": "MortalObjectComponentDef"
+      },
+      {
+        "$type": "DeathResurrectHandlerDef",
+        "PlayAnimation": "Death"
+      }
+    ]
+  },
+  "QuerySpatialData": true,
+  "Id": "df8fb4f8-d60a-4dba-a874-c5c3637f8cfc"
+}

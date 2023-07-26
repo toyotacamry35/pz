@@ -1,0 +1,24 @@
+{
+  "$type": "SpellDef",
+  "Name": "StartQuest",
+  "Duration": 1.0,
+  "IsInfinite": false,  
+  "IgnoresDeath": true,
+  "Params": [
+    {
+      "$type": "SpellTarget",
+      "$id": "TargetEntity"
+    }
+  ],
+  "Words": [
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": "$TargetEntity"
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": "$TargetEntity",
+      "Quest": "/Quests/BiomeTestQuest"
+    }
+  ]
+}

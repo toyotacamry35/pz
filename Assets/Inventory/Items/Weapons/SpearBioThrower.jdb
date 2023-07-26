@@ -1,0 +1,103 @@
+{
+  "$type": "ItemResource",
+  "Id": "d1d03e12-69a5-457a-8058-1065cbc4ab4e",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "febbdc75-e761-45cd-ad03-ce6cb74bc4aa",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier2",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [],
+    "ItemsOnFullBreak": []
+  },
+  "MaxStack": 1,
+  "Weight": 2,
+  "Tier": 2,
+  "InnerContainerSize": 1,
+  "ApplicableInnerItems": [
+    "/Inventory/Items/Ammunition/SpearPoison"
+  ],
+  "ItemType": "/UtilPrefabs/ItemGroups/WeaponMassive",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 3000,
+      "DURABILITY_INITIALVALUE": 3000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "DEFAULT_ACTION": "/Inventory/Items/Actions/LeaveAtCharacter"
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "Id": "fb3376fb-7777-4f99-97cd-924dc74206f7"
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "c7b6581a-ea6a-45d2-83d7-4d55f69f8cd8",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 143
+      }
+    ]
+  },
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/Attack": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/SpearBioAttackTmp"
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/Aiming_Spear"
+      },
+      "/UtilPrefabs/Input/Actions/Reload": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/Reload"
+      }
+    }
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "MaxInnerStack": 6,
+    "ContainerUsage": "InnerContainer", //    "ThrowSpeed": 10,
+    //    "UseGravity": true,
+    //    "ExplosionByHit": true,
+    //    "ThrowObject": "Assets/Content/Characters/Weapons/Throw/SpearBio/SpearBio_ThrowObject",
+    //    "ExplosionObject": "Assets/Content/FX/RangedWeapons/SpearBio/PS_SpearBio_Impact",
+    //    "ShotObject": "Assets/Content/FX/RangedWeapons/SpearBio/PS_SpearBio_Shot",
+  },
+  "Icon": "Assets/UI/UISprites/Items/SpearBio",
+  "BigIcon": "Assets/UI/UISprites/Items/SpearBioBig",
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeMelee",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeSpearBio"
+  ],
+  "Visual": "Assets/Content/Characters/Weapons/Throw/SpearBio/SpearBio",
+  "ItemNameLs": {
+    "Key": "#l10n503000"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503001"
+  }
+}

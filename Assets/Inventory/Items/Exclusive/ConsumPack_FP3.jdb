@@ -1,0 +1,33 @@
+{
+  "$type": "ItemResource",
+  "Id": "8b7dbf03-8fdb-4cf9-8dd7-097bab7419bf",
+  "MaxStack": 100,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/new_Pioneer_case_Surival",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Pioneer_case_SurivalBig",
+  "ConsumableData": "/Inventory/Items/Consumables/ConsumPack_FP3-Component-Consumable",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504814"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504815"
+  }
+}

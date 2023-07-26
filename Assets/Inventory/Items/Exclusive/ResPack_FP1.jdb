@@ -1,0 +1,33 @@
+{
+  "$type": "ItemResource",
+  "Id": "b28f559f-46ec-4388-8a23-b054c02681a1",
+  "MaxStack": 100,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/new_Commander_case_craft",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Commander_case_craftBig",
+  "ConsumableData": "/Inventory/Items/Consumables/ResPack_FP1-Component-Consumable",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504818"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504819"
+  }
+}

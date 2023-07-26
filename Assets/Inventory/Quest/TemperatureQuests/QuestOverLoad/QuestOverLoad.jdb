@@ -1,0 +1,87 @@
+{
+  "$type": "QuestDef",
+  "Id": "e2d854e8-e69f-4c40-8958-4e174b737ed7",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Выучить технологию Лечение,
+      "Id": "58c8dd59-6cb9-4f62-8bcd-1afc9f49b4f0",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "954220d7-5115-4229-b78e-5aa6fd59e0b6",
+        "Target": "/Inventory/Knowledge/FromTechnologies/Atlas_Sessions/Chest_1KW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503977"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503978"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503979"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Собрать ресурсы на сундук
+      "Id": "76d3a0ac-6af9-421b-a6d2-1b6ed82331d0",
+      "OnStart": [
+        {
+          "$type": "ImpactAddItemsDef", //выдаём награду
+          "Items": [
+            "/Inventory/Items/Res/FlimsyRope"
+          ],
+          "Count": 5
+        },
+        {
+          "$type": "ImpactAddItemsDef", //выдаём награду
+          "Items": [
+            "/Inventory/Items/Weapons/Rootstick"
+          ],
+          "Count": 5
+        },
+        {
+          "$type": "ImpactAddItemsDef", //выдаём награду
+          "Items": [
+            "/Inventory/Items/Res/PressedThinLeather"
+          ],
+          "Count": 3
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "173f04c7-0ea2-4841-a5b5-170620799820",
+        "Target": "/Inventory/Items/Mounting/SimpleStash",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/QuestOverLoad/QuestOverLoad_Complete"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503980"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504735"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503982"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503983"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503984"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503985"
+  }
+}

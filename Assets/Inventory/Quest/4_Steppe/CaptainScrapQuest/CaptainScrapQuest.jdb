@@ -1,0 +1,83 @@
+{
+  "$type": "QuestDef",
+  "Id": "2c16ceb3-5d15-4e2d-8887-d04e1f36cd6a",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //9 панцирей,
+      "Id": "984c4ed8-9de0-46c8-a90e-3fdc05ea66e2",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "c79919ed-c956-458c-8661-219a9834553d",
+        "Target": "/Inventory/Items/Res/HullFragment",
+        "Count": 7
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3652"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3653"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "d0ff8d86-1674-4e8f-9101-c2d0da4527a2",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_CaptainRangerPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "bb5d01a4-0419-4e95-8244-bda4c4de1207",
+        "Target": "/UtilPrefabs/Spells/Quests/4_Steppe/CaptainScrapQuest/CaptainScrapQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "ec9a6d98-5ac7-4724-a536-2d9b32555fd1",
+        "Less": true,
+        "Target": "/Inventory/Items/Res/HullFragment",
+        "Count": 7
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_CaptainRangerPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/CaptainScrapQuest/CaptainScrapQuest_Reward" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3654"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3655"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3656"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3657"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3658"
+  }
+}

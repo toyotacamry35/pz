@@ -1,0 +1,216 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "SPELL": "/UtilPrefabs/Spells/Combat/Attacks/AttackMiningKnife"
+  },
+  "$proto": "/Inventory/Items/Weapons/_MiningWeaponProto",
+  "Id": "9b4fcbd5-1678-44c2-9187-0631e9bed1b0",
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier4",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "4614b0ac-878b-4b8c-8c4d-f4332b0050f2"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ]
+  },
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 16000,
+      "DURABILITY_INITIALVALUE": 16000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "804988b1-f4ac-475c-ab6c-a2b43a604cc4"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ToolMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Small",
+    "DestructionPower": 130,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/MiningLootMultiplier",
+        "Value": 3
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 10
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "/Inventory/Items/Weapons/_MiningWeaponDefProto",
+    "AttackBoxes": [
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.55,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0.95
+        },
+        "extents": {
+          "x": 0.55,
+          "y": 0.6,
+          "z": 0.5
+        }
+      },
+      {
+        "center": {
+          "x": 0.8,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.55,
+          "y": 0.6,
+          "z": 0.5
+        }
+      },
+      {
+        "center": {
+          "x": 0.85,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 0.7,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": 0.8,
+          "y": 0.85,
+          "z": 0.8
+        },
+        "extents": {
+          "x": 0.6,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.6,
+          "y": 0.6,
+          "z": 0.5
+        }
+      },
+      {
+        "center": {
+          "x": -0.8,
+          "y": 0.85,
+          "z": 0.8
+        },
+        "extents": {
+          "x": 0.6,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": -0.85,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 0.7,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": -0.8,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.55,
+          "y": 0.6,
+          "z": 0.5
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/new_Scypho_knife",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Scypho_knifeBig",
+  "Visual": "Assets/Content/Craft/Weapons_Tools/Melee/Dagger_Scyphopod",
+  "ItemNameLs": {
+    "Key": "#l10n4473"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n505117"
+  }
+}

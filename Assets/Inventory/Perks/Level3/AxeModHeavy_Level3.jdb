@@ -1,0 +1,77 @@
+{
+  "$type": "PerkResource",
+  "Id": "8782f051-f311-4bbd-b535-a2283f1b8515",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level3",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/AxeAttack"
+        },
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/HeavyAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackActionsModifier",
+        "Id": "360f1de9-f60b-4518-a261-999dd8396edc",
+        "Target": "Victim",
+        "AddAction": {
+          "$type": "AttackCastSpell",
+          "When": "Always",
+          "Spell": {
+            "$type": "Spell",
+            "Duration": 0,
+            "AllowMultiple": true,
+            "ClearsSlot": true,
+            "SubSpells": [],
+            "Words": [
+              {
+                "$type": "PredicateCompareStat",
+                "Type": "Less",
+                "Target": {
+                  "$type": "SpellCaster"
+                },
+                "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                "Value": {
+                  "$type": "CalcerMul",
+                  "Multipliers": [
+                    {
+                      "$type": "CalcerStat",
+                      "Stat": "/UtilPrefabs/Stats/Health/HealthMaxCurrent"
+                    },
+                    {
+                      "$type": "CalcerConstant",
+                      "Value": 0.5
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "ImpactDamageObject",
+                "Damage": 100,
+                "Target": {
+                  "$type": "SpellCaster"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkEpicCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15040"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15041"
+  }
+}

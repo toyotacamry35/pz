@@ -1,0 +1,50 @@
+{
+  "$type": "QuestDef",
+  "Id": "659b7cd8-a0fd-455b-93e4-27fafe1d1ef8",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "f3055716-a2b4-4d5a-ad08-9e5652392574",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "32fc45b5-87bc-4699-ad54-a75bbb072e7a",
+        "Targets": [
+          "/UtilPrefabs/Spells/Consumables/BeetRootSpell",
+          "/UtilPrefabs/Spells/Consumables/CucumberRockSpell",
+          "/UtilPrefabs/Spells/Consumables/GerophitSpell",
+          "/UtilPrefabs/Spells/Consumables/MossGreenSpell",
+          "/UtilPrefabs/Spells/Consumables/RawJuicyMeatSpell",
+          "/UtilPrefabs/Spells/Consumables/RawMeridMeatSpell",
+          "/UtilPrefabs/Spells/Consumables/RawToughMeatSpell",
+          "/UtilPrefabs/Spells/Consumables/YuttEggSpell"
+        ],
+        "Count": 2
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactAddPerkDef",
+      "LootTable": {
+        "$type": "LootTableDef",
+        "DefaultPredicate": {
+          "$type": "LootTablePredicatePlayerHaveNotPerkDef"
+        },
+        "LootTable": [
+          {
+            "ItemResRefPack": {
+              "ItemResource": "/Inventory/Perks/Special/Empty",
+              "Count": 0
+            },
+            "WeightCalcer": {
+              "$type": "LootItemChanceWeightCalcerConstantDef",
+              "Value": 90
+            }
+          }  
+        ]
+      }
+    }
+  ]
+}

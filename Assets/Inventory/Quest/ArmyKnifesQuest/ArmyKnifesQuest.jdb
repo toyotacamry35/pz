@@ -1,0 +1,95 @@
+{
+  "$type": "QuestDef",
+  "Id" : "2dfc508c-8f8f-4f89-8846-6b82078d69be",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Собрать 5 яиц ютов,
+      "Id" : "9a4508f7-1cf7-46e0-877a-c752c89440f0",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/ArmyKnifesQuest/POIArmyKnifesQuest_StanokPOI"
+        }
+      ],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "cf145189-6175-4ec8-9310-6597cc59ac91",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Weapons/StoneKnife",
+        "Count": 5
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/ArmyKnifesQuest/POIArmyKnifesQuest_StanokPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503291"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503292"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id" : "8be91b4b-60ec-48ac-a6d1-3fa87d1031d6",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id" : "fb031121-7927-4e7d-a745-82f67e7d4e72",
+        "Target": "/UtilPrefabs/Spells/Quests/ArmyKnifesQuest/ArmyKnifesQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "7f055d38-fdce-4290-a772-3c69c62e394d",
+        "Less":true,
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Weapons/StoneKnife",
+        "Count": 5
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/ArmyKnifesQuest/ArmyKnifesQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503293"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503294"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503295"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503296"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503297"
+  }
+}

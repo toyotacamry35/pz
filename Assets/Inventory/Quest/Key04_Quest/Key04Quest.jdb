@@ -1,0 +1,90 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "d39e70eb-2159-41b4-8de5-132a1f3c363e",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "27bec126-0a67-4e7a-8a96-f5982035c569",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key04Quest/Key04POI"
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "4bfe5352-1160-407a-b61f-667ad770a995",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Quest/Key04Quest/Cryogel",
+        "Count": 30
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key04Quest/Key04POI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503603"
+      }, // Добыть криогель из криоустановки
+      "ShortDescriptionLs": {
+        "Key": "#l10n503604"
+      }, // Криоустановка Андромеды упала к западу от Хаба
+      "DescriptionLs": {
+        "Key": "#l10n504915"
+      }// Для поддержания функций организма в гибернационной капсуле используется криогель, на Андромеде были большие его запасы, однако при крушении отсек, где они находились, отделился и упал к западу от Хаба, образовав вокруг себя область экстремально низких температур. Необходимо пробраться к обломкам отсека и добыть немного криогеля.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "9c1e9e26-641d-418e-9b05-7fe3c304aa31",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "7829c1b6-7af6-4728-8ec6-fa4f6ef20bbb",
+        "Target": "/UtilPrefabs/Spells/Quests/Key04Quest/Key04Quest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "eec84e8f-e3ba-4c29-ba07-4ac2a13a0622",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Quest/Key04Quest/Cryogel",
+        "Less": true,
+        "Count": 30
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n503606"
+      }, // Отнести криогель доктору Тенушу
+      "ShortDescriptionLs": {
+        "Key": "#l10n504916"
+      }, // Его можно найти в Хабе
+      "DescriptionLs": {
+        "Key": "#l10n503607"
+      }// Этого криогеля должно хватить для гибернации в течение 7 дней. Его нужно отнести доктору Тенушу, чтобы он заправил его в капсулу.
+    }
+  ],
+  "OnSuccess": [{
+    "$type": "ImpactAddPerkDef",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+  }],
+  "NameLs": {
+    "Key": "#l10n503608"
+  }, // Шаги к спасению: Криогель для капсулы
+  "DescriptionLs": {}
+}

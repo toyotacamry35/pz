@@ -1,0 +1,32 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "f6d405e5-ba03-42a2-8355-5b72f138ffdf",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 3,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 2,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/FireplaceTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 2,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/PrimitiveGearKW",
+            "/Inventory/Knowledge/FromTechnologies/XenoArmorTier1KW"
+        ]
+    }
+}

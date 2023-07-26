@@ -1,0 +1,35 @@
+{
+    "$type": "TechnologyDef",
+    "Id" : "3acb7142-7652-4a08-abbd-43f7bc7577e7",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 15,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 5,
+                    "Science": "/Inventory/Science/Geology"
+                },
+                {
+                    "Count": 10,
+                    "Science": "/Inventory/Science/Surveying"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/ReinforcedStashTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 4,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/MetalStashKW"
+        ]
+    }
+}

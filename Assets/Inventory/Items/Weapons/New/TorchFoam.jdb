@@ -1,0 +1,174 @@
+{
+  "$type": "ItemResource",
+  "$proto": "/Inventory/Items/Weapons/_TorchProto",
+  "Id": "6d1d743c-8efc-4765-ad82-3bb1239fbf15",
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.75
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 300,
+      "DURABILITY_INITIALVALUE": 300,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "94f056ef-4c09-4715-808c-a19003a6696e"
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "8d3f4902-d611-4a0e-83c5-36bd163e5536",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.75
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 95
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+        "Value": 1
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "/Inventory/Items/Weapons/_MeleeWeaponDefProto",
+    "AttackBoxes": [
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.15
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.25
+        },
+        "extents": {
+          "x": 0.75,
+          "y": 0.6,
+          "z": 0.8
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": 1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0.5
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/FoamTorch",
+  "BigIcon": "Assets/UI/UISprites/Items/FoamTorchBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/torchChem",
+  "ItemNameLs": {
+    "Key": "#l10n4505"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4506"
+  }
+}

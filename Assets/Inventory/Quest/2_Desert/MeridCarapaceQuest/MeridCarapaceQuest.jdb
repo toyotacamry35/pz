@@ -1,0 +1,84 @@
+{
+  "$type": "QuestDef",
+  "Group": "Daily",
+  "Id": "cc272b7b-3f55-4b56-8a5f-c7d9d3bb1b5c",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //9 панцирей,
+      "Id": "3c4c47ca-3276-4932-8e0c-63c3760b3b5f",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "bfeeae6d-ed36-456d-9fe9-3c3030842f7c",
+        "Target": "/Inventory/Items/Res/MeridCarapace",
+        "Count": 9
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3620"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3552"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n35531"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "c798b842-9807-409a-8d5d-59be14dddad2",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "850bfced-d4cf-4934-9df9-6cbbe50fe0fb",
+        "Target": "/UtilPrefabs/Spells/Quests/2_Desert/MeridCarapaceQuest/MeridCarapaceQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "d3447511-dbbf-4740-a9ce-42946411a2e0",
+        "Less": true,
+        "Target": "/Inventory/Items/Res/MeridCarapace",
+        "Count": 9
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/2_Desert/MeridCarapaceQuest/MeridCarapaceQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n35541"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n35551"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3625"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n35561"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3557"
+  }
+}

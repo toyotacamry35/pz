@@ -1,0 +1,98 @@
+{
+  "$type": "QuestDef",
+  "Id" : "d74d9bcd-283f-4de5-93ff-bfdcf581be91",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id" : "c6d5d810-92d8-40bc-a026-7fcd83008175",
+      "Counter": {
+        "$type": "MobKillsCounterDef",
+        "Id" : "a95ed4b6-2f8f-439e-85a9-5b4dfed9d03c",
+        "Targets": [
+          "/AI/Defs/Mobs/HumanoidMob/GladiatorI",
+          "/AI/Defs/Mobs/HumanoidMob/GladiatorII",
+          "/AI/Defs/Mobs/HumanoidMob/HumanoidMob",
+          "/AI/Defs/Mobs/HumanoidMob/RaiderBerserkI",
+          "/AI/Defs/Mobs/HumanoidMob/RaiderLowlifeI",
+          "/AI/Defs/Mobs/HumanoidMob/RaiderMeleeI",
+          "/AI/Defs/Mobs/HumanoidMob/RaiderSpearI",
+          "/AI/Defs/Mobs/HumanoidMob/VoidEnemy_Dropzone",
+          "/AI/Defs/Mobs/HumanoidMob/VoidEnemy",
+          "/AI/Defs/Mobs/Kso_Legionary/Kso_Fawn_Stats",
+          "/AI/Defs/Mobs/Kso_Legionary/Kso_Stats",
+          "/AI/Defs/Mobs/Kvar_Desert_Legionary/Kvar_Desert_Stats",
+          "/AI/Defs/Mobs/Kvar_Ice_Legionary/Kvar_Ice_Stats",
+          "/AI/Defs/Mobs/Kvar_Jungle_Legionary/Kvar_Jungle_Stats",
+          "/AI/Defs/Mobs/Kvar_Legionary/Kvar_Stats",
+          "/AI/Defs/Mobs/Merid_Legionary/Merid_Ice_Stats",
+          "/AI/Defs/Mobs/Merid_Legionary/Merid_Stats",
+          "/AI/Defs/Mobs/Sahrim_Legionary/Sahrim_Baby_Stats",
+          "/AI/Defs/Mobs/Scyphopod_War_Legionary/Scyphopod_War_Stats",
+          "/AI/Defs/Mobs/Scyphopod_Wrk_Legionary/Scyphopod_Wrk_Stats",
+          "/AI/Defs/Mobs/Scyphoria_Legionary/Scyphoria_J_Stats",
+          "/AI/Defs/Mobs/Scyphoria_Legionary/Scyphoria_Stats",
+          "/AI/Defs/Mobs/Selwea_Legionary/Selwea_Dropzone_Stats",
+          "/AI/Defs/Mobs/Selwea_Legionary/Selwea_Stats",
+          "/AI/Defs/Mobs/Yutt_Legionary/Yutt_Dropzone_Stats",
+          "/AI/Defs/Mobs/Yutt_Legionary/Yutt_J_Stats",
+          "/AI/Defs/Mobs/Yutt_Legionary/Yutt_Stats"
+        ],
+        "Count": 100000,
+        "OnEveryCounterChangeImpacts": [
+          {
+            "$type": "ImpactCastSpell",
+            "Spell": {
+              "$type": "SpellDef",
+              "IgnoresDeath": true,
+              "Words": [
+                {
+                  "$type": "ImpactGrantAccountReward",
+                  "Target": {
+                    "$type": "SpellCaster"
+                  },
+                  "Reward": "/Sessions/Rewards/KillMobsReward"
+                },
+                {
+                  "$type": "PredicateLogicalOrDef",
+                  "Predicates": [
+                    {
+                      "$type": "SpellPredicateFromCalcerPredicateDef",
+                      "Predicate": {
+                        "$type": "PredicateIsPvE"
+                      }
+                    },
+                    {
+                      "$type": "SpellPredicateFromCalcerPredicate",
+                      "Predicate": {
+                        "$type": "PredicateEquals<Resource>",
+                        "Lhs": {
+                          "$type": "CalcerFaction",
+                          "Entity": {
+                            "$type": "CalcerSpellParameter<OuterRef>",
+                            "Parameter": {
+                              "$type": "SpellCaster"
+                            }
+                          }
+                        },
+                        "Rhs": {
+                          "$type": "CalcerResource",
+                          "Value": "/Inventory/Factions/Human"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "OnSuccess": []
+    },
+  ],
+  "OnSuccess": [
+    
+  ]
+}

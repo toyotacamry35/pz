@@ -1,0 +1,122 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "01df63f7-bf05-4694-966e-4d0ac5d4efe4",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "705ebe75-0398-4f66-b641-02c06b7ea072",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_01"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_02"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_03"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_04"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_05"
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "06bbf122-90b1-4848-9652-fb388afee7bb",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Quest/Key02Quest/Explosive",
+        "Count": 200
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_01"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_02"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_03"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_04"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_05"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n504901"
+      }, // Добыть торий
+      "ShortDescriptionLs": {
+        "Key": "#l10n504902"
+      }, // Месторождения тория можно найти в Пустыне
+      "DescriptionLs": {
+        "Key": "#l10n504903"
+      }// В качестве топлива в реакторе Хаба используется торий. Выжившим удалось найти месторождения минерала торита, источника тория, на Кеплере - они находятся в экстремально жарком регионе, который колонисты называют Пустыня. Из-за невероятной жары и опасных животных, обитающих в Пустыне, каждая вылазка за торием становится настоящим испытанием.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "0be3e17e-073e-40e5-a0a4-6e1c92489895",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "61a22eb4-2dd9-4848-9a6f-dd880b6f183d",
+        "Target": "/UtilPrefabs/Spells/Quests/Key02Quest/Key02Quest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "7a1629d8-3776-44e7-a942-380069785866",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Quest/Key02Quest/Explosive",
+        "Less": true,
+        "Count": 200
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n504904"
+      }, // Отнести торий инженеру Радову
+      "ShortDescriptionLs": {
+        "Key": "#l10n504905"
+      }, // Его можно найти в Хабе
+      "DescriptionLs": {
+        "Key": "#l10n504906"
+      }// Торий собран, теперь нужно отнести его инженеру Радову.
+    }
+  ],
+  "OnSuccess": [{
+    "$type": "ImpactAddPerkDef",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+  }],
+  "NameLs": {
+    "Key": "#l10n504907"
+  }, // Шаги к спасению: Торий для реактора
+  "DescriptionLs": {}
+}

@@ -1,0 +1,78 @@
+{
+  "$type": "QuestDef",
+  "Id": "32ac1a06-02fa-4e77-b1b9-00eec615aec6",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Выучить технологию Лечение,
+      "Id": "5f3b78b0-793e-4645-8cfe-4da7d88622b5",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "5d4cca89-54d9-4ed9-8a01-514556cedebe",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/JewelBerries",
+        "Count": 3
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504736"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504737"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503988"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Съесть ягоду,
+      "Id" : "dd2fa871-a1b6-4842-959b-41504d94f43b",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id" : "e13667d6-41a4-44fc-a4b1-bd49e73c8dfd",
+        "Targets": [
+          "/UtilPrefabs/Spells/Consumables/JewelBerriesSpell"
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/ToxicTeachQuest/ToxicTeachQuest_Complete"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n504929"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504930"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504931"
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "0c979ebe-9cd2-44b4-ab56-d14bab4c4478",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/JewelBerries",
+        "Less": true,
+        "Count": 3
+      },
+      "OnFailPhase": "CollectPhase"
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503992"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n504738"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503994"
+  }
+}

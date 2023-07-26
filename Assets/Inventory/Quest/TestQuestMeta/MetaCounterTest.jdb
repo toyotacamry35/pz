@@ -1,0 +1,145 @@
+{
+  "$type": "QuestDef",
+  "Id": "ae8eccec-bfbb-49d3-a261-1c338cb4ecc6",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "AfterComplete": "Keep",
+  "Phases": [
+    //Дойти до логова Кваров
+    {
+      "$type": "PhaseDef",
+      "Id": "9e663ade-e610-421d-80bc-f0ed48b523fa",
+      "Label": "FirstPhase",
+      "OnStart": [],
+      "Counter": {
+        "$type": "MobKillsCounterDef",
+        "Id": "1c23d933-d8b7-47c8-9c7b-7a8db4c2214f",
+        "Target": "/AI/Defs/Mobs/Scyphoria_Legionary/Scyphoria_Stats",
+        "Count": 30,
+        "OnEveryCounterChangeImpacts": [
+          {
+            "$type": "ImpactCastSpell",
+            "Spell": "/UtilPrefabs/Spells/TestSpells/Test_Spell_ShowText_And_AddItem"
+          }
+        ]
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpell",
+          "Spell": "/UtilPrefabs/Spells/TestSpells/Test_Spell_ShowText_And_AddItem"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503363"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503364"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4075"
+      }
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "bf35694b-517a-40af-af27-73fcf89a73a2",
+      "OnStart": [],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "1d518475-d6cb-491d-bf73-20064587a492",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounter",
+            "Id": "5e135793-bfc9-4c83-b7c3-c31d6a5e906e",
+            "Target": "/Inventory/Knowledge/RootsticksKW",
+            "Count": 1
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "1c23d931-d8b7-47c8-9c7b-7a8db4c2214f",
+            "SourceType": "PerksSaved",
+            "Target": "/Inventory/Perks/Level1/Speed_Level1",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounter",
+            "Id": "5e135794-bfc9-4c83-b7c3-c31d6a5e906e",
+            "Target": "/Inventory/Knowledge/CoalKW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpell",
+          "Spell": "/UtilPrefabs/Spells/TestSpells/Test_Spell_ShowText_And_AddItem"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503363"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503364"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4076"
+      }
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "9e663ade-e610-421d-81bc-f0ed48b523fa",
+      "OnStart": [],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "1d518485-d6cb-491d-bf73-20064587a492",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "1c23d932-d8b7-47c8-9c7b-7a8db4c2214f",
+            "SourceType": "PerksPermanent",
+            "Target": "/Inventory/Perks/Level1/SprintSpeed_Level1",
+            "Count": 1
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "2f11bbc7-68a6-4996-97a5-6eb1d5f3d01e",
+            "Target": "/Inventory/Items/Res/Coal",
+            "SourceType": "Player",
+            "Count": 3
+          }
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpell",
+          "Spell": "/UtilPrefabs/Spells/TestSpells/Test_Spell_ShowText_And_AddItem"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503363"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503364"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4077"
+      }
+    }
+    //Найти Капсулу в логове Кваров
+  ],
+  "OnSuccess": [
+    //{
+    //  "$type": "ImpactCastSpell",
+    //  "Spell":"/UtilPrefabs/Spells/TestSpells/Test_Spell_Kill"
+    //}
+  ],
+  "NameLs": {
+    "Key": "#l10n2679"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n2680"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n2681"
+  }
+}

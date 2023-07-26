@@ -1,0 +1,40 @@
+{
+  "$type": "ItemResource",
+  "Id": "ff19a8ac-70c3-46eb-b25e-e842c33f1c2a",
+  "MaxStack": 100,
+  "Weight": 0.1,
+  "PrefabId": "Assets/Inventory/Items/Consumables/Omelet",
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+  "Icon": "Assets/UI/UISprites/Items/Omelet",
+  "BigIcon": "Assets/UI/UISprites/Items/OmeletBig",
+  "ConsumableData": {
+    "$type": "Consum",
+    "SpellsGroups": [
+      {
+        "Spells": [
+          {
+            "$type": "SpellDef",
+            "Name": "Spawn obelisk",
+            "Duration": 0.5,
+            "Words": [
+              {
+                "$type": "ImpactSpawnObelisk",
+                "Obelisk": "./QuestDoor"
+              }
+            ]
+          }
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n502749"
+        }
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n502747"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n502748"
+  }
+}

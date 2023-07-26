@@ -1,0 +1,113 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "bcb92d53-de65-4373-8dd2-bd1ee903eacd",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "834dc403-2ca5-42c2-b435-2a2dd2d2ac01",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        },
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_KeyMainQuest/Alt_KeyMainQuest_TakenKW"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "f1c58e6b-fd14-408d-bffc-14a696a8dc47",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "a77625c6-5dbe-4fc1-94f5-8df64aec496c",
+            "Target": "/Inventory/Knowledge/Quest/Alt_Key01Quest/Alt_Key01Quest_RevealedKW",
+            "Count": 1,
+            "IsInvisible": true
+          }
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n5041"
+      }, // Помочь подготовить Хаб к ночи
+      "ShortDescriptionLs": {
+        "Key": "#l10n503625"
+      }, // Для этого нужно выполнить все задания инженера Радова
+      "DescriptionLs": {
+        "Key": "#l10n5042"
+      }// Колонисты используют каждую свободную минуту для того, чтобы подготовиться к предстоящей ночи и пережить её. Они действуют сообща - это единственный способ выжить. Тот же, кто не хочет участвовать в общем деле и работать наравне с остальными, будет изгнан из Хаба и не сможет провести ночь в капсуле гибернации, что на Кеплере означает верную смерть.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "63a57b26-6e4b-43af-96c6-22d979488016",
+      "Label": "CollectPhase",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "f60801c3-a5a4-4d7d-b169-b7d4b130b67e",
+        "Target": "/Inventory/Knowledge/Quest/Alt_Key06Quest/Alt_Key06Quest_CompletedKW",
+        "Count": 1,
+        "IsInvisible": true
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n5043"
+      }, // Разгадать тайну войда
+      "DescriptionLs": {
+        "Key": "#l10n5044"
+      }// Вы случайно нашли тело загадочного войда с такми же шрамом как у вас и решили раскрыть эту тайну во что бы то ни стало. Для этого выполните все задания \"Шаги к разгадке\".
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "c437496f-f482-41f7-81e3-53bea0016a95",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/CapsuleFinalPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "785237b0-892b-44ba-a267-f1ae5727a2ea",
+        "Targets": [
+          "/UtilPrefabs/Spells/Quests/KeyMainQuest/CapsuleFinal"
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/CapsuleFinalPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503630"
+      }, // Лечь в капсулу гибернации
+      "ShortDescriptionLs": {
+        "Key": "#l10n503631"
+      }, // Найти свою персональную капсулу и лечь в нее до наступления ночи
+      "DescriptionLs": {
+        "Key": "#l10n5045"
+      }// Пока вам на ум приходит только одно объяснение случившегося: после вашего падения с высоты кокон или управляющая… возможно, управляющая им сущность сглючила и, в какой-то момент, на Кеплере существовало двое одинаковых вас, один из которых потом стал войдом, а другой, возможно, добрался до капсулы гибернации.\nТогда получается вы не тот же человек, что были до смерти, а просто клон, даже не клон, а клон клона?! Значит смерть на Кеплере это и есть настоящая смерть?\nВы решили никому не рассказывать о своих догадках - неизвестно, как к этому, да и к вам, отнесутся другие колонисты. На самом деле, вы надеетесь, что вообще не будете помнить об этом, когда выберетесь из капсулы следующим утром.
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n5046"
+  }, // Разгадать за 168 часов
+  "ShortDescriptionLs": {
+    "Key": "#l10n5047"
+  }, //Чтобы победить в сессии
+  "DescriptionLs": {}
+}

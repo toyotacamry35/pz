@@ -1,0 +1,84 @@
+{
+  "$type": "QuestDef",
+  "Id": "c19d341f-6a6f-4771-a1f6-df1a93a51678",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "5881fe76-e7f4-4de3-b663-ee449921d373",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "49ee2302-e259-4063-b9cc-86fb9424b827",
+        "Target": "/Inventory/Items/Res/FungalFlake",
+        "Count": 50
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3637"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3558"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3559"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "27680829-e83b-4c0d-8cfa-125192b4d8ef",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "e0dac931-5a83-4b64-bda5-2362f99f3c75",
+        "Target": "/UtilPrefabs/Spells/Quests/2_Desert/RalphNightQuest/RalphNightQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "93a69f7b-49e8-4519-95c5-03caaf73bd9c",
+        "Less": true,
+        "Target": "/Inventory/Items/Res/FungalFlake",
+        "Count": 50
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/2_Desert/RalphNightQuest/RalphNightQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n35601"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4712"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n35611"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3642"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n35621"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503564"
+  }
+}

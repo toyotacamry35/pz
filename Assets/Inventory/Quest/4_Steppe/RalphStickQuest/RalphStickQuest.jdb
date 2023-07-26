@@ -1,0 +1,84 @@
+{
+  "$type": "QuestDef",
+  "Id": "09829315-79ca-4a3a-a824-26cef224d5ab",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //9 панцирей,
+      "Id": "712d9851-9527-4bd5-bf12-5b9637aa5768",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "179f82f3-0fdc-4c25-b5e6-5e3f59340ec3",
+        "Target": "/Inventory/Items/Res/TemperedSpiralStem",
+        "Count": 15
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3694"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4713"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4714"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "2cb35015-a65c-464c-ae63-034b6eeb2e45",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "2933dd74-2c30-4d8e-90f1-206663cadfd0",
+        "Target": "/UtilPrefabs/Spells/Quests/4_Steppe/RalphStickQuest/RalphStickQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "14651ff9-a5db-4106-a8bd-0e16c91eec7b",
+        "Less": true,
+        "Target": "/Inventory/Items/Res/TemperedSpiralStem",
+        "Count": 15
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/RalphStickQuest/RalphStickQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503572"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4715"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503573"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3698"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n4716"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4717"
+  }
+}

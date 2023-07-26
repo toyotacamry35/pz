@@ -1,0 +1,116 @@
+{
+  "$type": "ItemResource",
+  "Id": "4bd89c4a-4347-4490-b6c0-c30d4990b13c",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "448add69-6834-49a8-81a5-17f4e3e3d38f",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier2",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/TemperedSpiralStem",
+        "Count": 3
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/TemperedSpiralStem",
+        "Count": 3
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 4,
+  "Tier": 1,
+  "InnerContainerSize": 1,
+  "ApplicableInnerItems": [
+    "/Inventory/Items/Ammunition/SporeCluster"
+  ],
+  "ItemType": "/UtilPrefabs/ItemGroups/WeaponMassive",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 3000,
+      "DURABILITY_INITIALVALUE": 3000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "cd209e2d-5e7a-4101-a322-d43bf3ed399d"
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "4ef83109-4b3e-4b67-8e73-bf21ac2a5fc5",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 48
+      }
+    ]
+  },
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/Attack": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": {
+          "$type": "Spell",
+          "$overrideVars": {
+            "SHOT_FX": "Assets/Content/Characters/Weapons/Consumables/grenadeBullet",
+            "MUZZLE_FX": "Assets/Content/Characters/Weapons/Consumables/PS_Thorngun_Muzzle",
+            "DISTANCE": 50
+          },
+          "$proto": "/UtilPrefabs/Spells/Combat/RangeAttacks/RangeAttack",
+        "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "DEFAULT_ACTION": "/Inventory/Items/Actions/LeaveAtCharacter"
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  }
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/SporeGrenadeLauncherAiming"
+      },
+      "/UtilPrefabs/Input/Actions/Reload": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/Reload"
+      }
+    }
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "MaxInnerStack": 3,
+    "ContainerUsage": "InnerContainer",
+  },
+  "Icon": "Assets/UI/UISprites/Items/SporeGrenadeLauncher",
+  "BigIcon": "Assets/UI/UISprites/Items/SporeGrenadeLauncherBig",
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeLauncher",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeLauncher"
+  ],
+  "Visual": "Assets/Content/Characters/Weapons/LongRange/grenadeThrower",
+  "ItemNameLs": {
+    "Key": "#l10n503002"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503003"
+  }
+}

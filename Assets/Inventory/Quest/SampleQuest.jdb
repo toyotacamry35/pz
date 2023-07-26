@@ -1,0 +1,130 @@
+{
+  "$type": "QuestDef",
+  "Id": "14152048-d39d-437c-9a3f-aa92119ad743",
+  "Group": "Daily",
+  "AfterComplete": "Keep",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "51b56b6d-79a8-4e6e-adaa-17f5efbc883a",
+      "OnSuccessPhase": "phase_3",
+      "OnFailPhase": "phase_4",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "ff4e72e6-2d58-45fc-8ec0-7ffbf17f3326",
+        "Target": "/Inventory/Items/Res/Stone",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "15690d45-e745-4f3d-97db-a7241f8e059d",
+        "Target": "/Inventory/Items/Res/Coal",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddItemsDef",
+          "Items": [
+            "/Inventory/Items/Res/RaggedWires"
+          ],
+          "Count": 1
+        }
+      ],
+      "OnFail": [
+        {
+          "$type": "ImpactAddItemsDef",
+          "Items": [
+            "/Inventory/Items/Weapons/Rootstick"
+          ],
+          "Count": 1
+        }
+      ],
+      "OnEnd": [
+        {
+          "$type": "ImpactAddItemsDef",
+          "Items": [
+            "/Inventory/Items/Res/SangviraStem"
+          ],
+          "Count": 1
+        }
+      ]
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "fb177974-170d-43b8-bd50-17e0c5009bb4",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "5ac68525-a886-48f6-8c39-0f7901b7cfda",
+        "Target": "/Inventory/Items/Res/Stone",
+        "Count": 100
+      }
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "7b2098c2-f4c5-4d2e-8424-3b7424f612b3",
+      "Label": "phase_3",
+      "OnSuccessPhase": "phase_3",
+      "IsFinalPhase": true,
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "827f55de-660e-40c6-8f4e-40f4917f039b",
+        "Target": "/Inventory/Items/Res/Stone",
+        "Count": 3
+      }
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "5a30bd58-cc31-4e48-ba78-444d2d0169ad",
+      "Label": "phase_4",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "62afb2d7-91ab-4928-a588-1cdc3b3e18d6",
+        "Target": "/Inventory/Items/Res/Stone",
+        "Count": 4
+      }
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "64b3d812-2f48-4678-aae6-4f185e2c6532",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "dc6789b9-9bd1-475e-b352-b99213e15439",
+        "Target": "/Inventory/Items/Res/Stone",
+        "Count": 5
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Res/RaggedWires"
+      ],
+      "Count": 1
+    }
+  ],
+  "OnFail": [
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Weapons/Rootstick"
+      ],
+      "Count": 1
+    }
+  ],
+  "OnEnd": [
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Res/SangviraStem"
+      ],
+      "Count": 1
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n1177"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n1178"
+  }
+}

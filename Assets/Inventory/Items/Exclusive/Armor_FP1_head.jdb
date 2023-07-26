@@ -1,0 +1,68 @@
+{
+  "$type": "ItemResource",
+  "Id": "cc648651-9be9-4180-80e2-9284790103fe",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/ArmorHead",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "0a6e7836-c15b-43fb-81b1-f6716f8e3ad8"
+  },
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 1
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartHair"
+  ],
+  "HideVisualSlots": [
+    "/UtilPrefabs/Slots/WearHead"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/new_Helm_kom",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Helm_komBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Armor/ArmorGladiator/armorGladiator_helmet",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Armor/ArmorGladiator/armorGladiator_helmet_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504802"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504803"
+  }
+}

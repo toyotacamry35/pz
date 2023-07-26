@@ -1,0 +1,36 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "b71f80f4-36c8-4f1b-898a-7116f5676990",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 19,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 8,
+                    "Science": "/Inventory/Science/Geology"
+                },
+                {
+                    "Count": 28,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/SimpleCookingTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 3,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/PrimitiveChemistryKW",
+            "/Inventory/Knowledge/FromTechnologies/XenoCookingSimpleKW"
+        ]
+    }
+}

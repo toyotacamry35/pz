@@ -1,0 +1,177 @@
+{
+  "$type": "QuestDef",
+  "Id": "949311d7-64bb-47f7-aebc-f55fa8dc82f6",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Поговорить с НПС хаба
+    /*
+    {
+      "$type": "PhaseDef",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Target": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+        }
+      ],
+      "NameLs": {
+        "Key": "Узнать подробности(1)"
+      },
+      "ShortDescriptionLs": {
+        "Key": "Поговорите с охранником"
+      },
+      "DescriptionLs": {
+        "Key": "Нужно узнать как можно больше информации, этот охранник может что то рассказать."
+      }
+    },
+    */
+    //Добраться до жаркой зоны
+    {
+      "$type": "PhaseDef",
+      "Id": "8906d313-9868-4b50-8594-b2d2691d0dba",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIRoot"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "173d8a0d-9fba-4dd3-b47a-949beb0c1e95",
+        "Target": "/UtilPrefabs/Spells/Quests/HubQuest/FollowHubQuest5Spell",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n502792"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502793"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502794"
+      }
+    }
+    , //Собрать жизненную эссенцию из кореня сферы
+    {
+      "$type": "PhaseDef",
+      "Id": "cd5980d2-028a-4fc8-87c9-2f962ede7f65",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot1"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot2"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot3"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot4"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot5"
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "e4a426c2-7ecc-4d0b-9930-ae5e0583cb98",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/LifeEssence",
+        "Count": 5
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot1"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot2"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot3"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot4"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot5"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n502795"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502796"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502797"
+      }
+    }
+    , //Вернуться к НПС
+    {
+      "$type": "PhaseDef",
+      "Id": "63536c55-e771-45f3-95bd-d193a784fd2c",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "5ecf64d6-3d9e-4dc4-bdb0-0ee721a48348",
+        "Target": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardCompleteKW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n502798"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502799"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502800"
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+    },
+    {
+      "$type": "ImpactCastSpellDef",
+      "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/Reward/RewardHubQuest2"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n502801"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n502802"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n502803"
+  }
+}

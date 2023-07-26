@@ -1,0 +1,90 @@
+{
+    "$type": "StrategyDef",
+    "Selectors": {
+        "Scis": {
+            "$type": "SelectKnown",
+            "$id": "Scis",
+            "MemoryCategory": "/AI/Defs/Memories/Threat"
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerStat",
+                                    "Stat": "/Quests/Emitter/Stats/EmitterActivating"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 4,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/Quests/Emitter/Stats/EmitterEnergy"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/Quests/Emitter/Spells/EmitterStop"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/Quests/Emitter/Stats/EmitterActivating"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 4,
+                            "Evaluator": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerStat",
+                                    "Stat": "/Quests/Emitter/Stats/EmitterEnergy"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "At": "$Scis",
+                    "Spell": "/Quests/Emitter/Spells/EmitterSciAttack"
+                }
+            }
+        ]
+    }
+}

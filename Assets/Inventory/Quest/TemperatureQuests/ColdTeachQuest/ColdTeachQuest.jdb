@@ -1,0 +1,53 @@
+{
+  "$type": "QuestDef",
+  "Id": "3d0236cf-f4cb-4e94-a6ca-0d7c56b202d5",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Сделать 1 противоохлаждающий компресс,
+      "Id": "a69c0454-f08a-4281-b96f-fb9147f03e8a",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible":true,
+        "Id": "fc624221-0efb-40f5-82c2-484dc3d8cc43",
+        "Target": "/Inventory/Knowledge/Quest/TemperatureQuests/ColdTeachQuest/ColdTeachQuest_CompletedKW",
+        "Count": 1
+      },
+      "NameLs": {
+        "Key": "#l10n503957"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504726"
+      }, //Узнай у Тенуша в Хабе, как избавится от обморожения.
+      "DescriptionLs": {
+        "Key": "#l10n504727"
+      }//Исследуя Саванну, я умудрился сильно замерзнуть и покалечить себя. Мне необходимо увидиться с доктором в Хабе, может он сможет меня вылечить.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+    },
+    {
+      "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+      "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/ColdTeachQuest/ColdTeachQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n503960"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503961"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503962"
+  }
+}

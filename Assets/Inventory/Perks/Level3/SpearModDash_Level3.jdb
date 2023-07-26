@@ -1,0 +1,47 @@
+{
+  "$type": "PerkResource",
+  "Id": "8240fe99-b79c-42e8-8162-0a01e2feaf25",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level3",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/SpearAttack"
+        },
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/DashAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackActionsModifier",
+        "Id": "419d432d-c7ff-4c74-85f0-a89c2deb259d",
+        "Target": "Victim",
+        "AddAction": {
+          "$type": "AttackCastSpell",
+          "When": "Always",
+          "Spell": "/UtilPrefabs/Traumas/NegEffSpearBleed"
+        }
+      },
+      {
+        "$type": "SpellCalcerModifier<float>",
+        "Id": "e11169b5-a2a9-44ed-acdc-531dddd31776",
+        "Variable": "/UtilPrefabs/Spells/Variables/StaminaCostMultiplier",
+        "Value": 1.1
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkEpicCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15046"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15047"
+  }
+}

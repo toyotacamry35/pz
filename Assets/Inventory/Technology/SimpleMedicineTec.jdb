@@ -1,0 +1,31 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "f3f0a729-cb35-4450-9ea8-1da0bde68f77",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Medicine",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 18,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 25,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/PrimitiveMedicineTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 3,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/SimpleMedicineKW"
+        ]
+    }
+}

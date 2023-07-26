@@ -1,0 +1,53 @@
+{
+  "$type": "PerkResource",
+  "Id": "A88DFDC0-D285-43FB-BEF7-BB799A9FDF04",
+  "MaxStack": 3,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkCommonCombatPvP",
+  "SpellModifiers": {
+    "Condition": {
+      "$type": "PredicateOr",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/TestTag2"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackStatModifier",
+        "Id": "5DD85C49-9D53-4D47-A854-8850AE831B3E",
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+        "Summand": -0.5
+      },
+      {
+        "$type": "SpellCalcerModifier<float>",
+        "Id": "462316E6-0BD8-4BD7-A5FF-6499E92BC70F",
+        "Variable": "/UtilPrefabs/Spells/Variables/StaminaCostMultiplier",
+        "Value": 0.2
+      },
+      {
+        "$type": "AttackActionsModifier",
+        "Id": "022AA1C6-CF06-4F76-8D7D-3C564F0ECEEE",
+        "Target": "Victim",
+        "RemoveAction": {
+          "$type": "AttackInvokeReaction",
+          "When": "Always",
+          "Reaction": "/UtilPrefabs/Reactions/CombatStance"
+        },
+        "AddAction": {
+          "$type": "AttackInvokeReaction",
+          "When": "Always",
+          "Reaction": "/UtilPrefabs/Spells/Reactions/TestFxReaction"
+        }
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504871"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504872"
+  }
+}

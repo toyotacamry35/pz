@@ -1,0 +1,200 @@
+{
+  "$type": "ItemResource",
+  "$proto": "/Inventory/Items/Weapons/_MeleeWeaponProto",
+    "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/AttackMelee": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Hammer1H_L"
+      },
+      "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Hammer1H_R"
+      },
+      "/UtilPrefabs/Input/Actions/AttackDash": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Hammer_Dash"
+      },
+      "/UtilPrefabs/Input/Actions/AttackAirborne": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Hammer_Airborne"
+      },
+      "/UtilPrefabs/Input/Actions/AttackDashSide": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Hammer1H_L"
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/Block"
+      }
+    }
+  }, 
+  "Id": "47ec91d5-6706-4906-a351-d3bf19dbd937",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 2000,
+      "DURABILITY_INITIALVALUE": 2000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "5993a34f-c12b-41f4-a4b2-fb7cbbd4388f"
+  },
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Big",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 5000
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "/Inventory/Items/Weapons/_MeleeWeaponDefProto",
+    "AttackBoxes": [
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.15
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.25
+        },
+        "extents": {
+          "x": 0.75,
+          "y": 0.6,
+          "z": 0.8
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": 1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0.5
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/StoneHammerI",
+  "BigIcon": "Assets/UI/UISprites/Items/StoneHammerIBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/hammerT1Stone",
+  "ItemNameLs": {
+    "Key": "#l10n624"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n625"
+  }
+}

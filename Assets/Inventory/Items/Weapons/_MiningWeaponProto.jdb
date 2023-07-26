@@ -1,0 +1,26 @@
+{
+  "$type": "ItemResource",
+  "$vars": {
+    "SPELL": {
+      "Type": "Spell",
+      "Value": "/UtilPrefabs/Spells/Combat/Attacks/AttackMining"
+    }
+  },
+  "Id" : "074fc177-247f-4c58-87f5-f7f941106712",
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/Mining": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "@SPELL",
+        "RestartIfReason": "FailOnStart",
+        "FinishMethod": "Cancel",
+        "FinishDelay": 0.4
+      }
+    }
+  },
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeMelee",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeMining"
+  ],
+  "CorrectionInHandRequired": true
+}

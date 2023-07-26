@@ -1,0 +1,52 @@
+{
+  "$type": "SpellDef",
+  "Name": "EngineerBodyInteractSpell",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Duration": 2.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/Spells/IconExplore",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 1,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Knowledge": "/Quests/Encounter3RadiantModule/EngineerBodyKW",
+      "WhenToApply": "OnAny"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/FullStop",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectPlayAnimationMineDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "GetFromKnowType": true,
+      "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+      "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Knowledge": "/Quests/Encounter3RadiantModule/EngineerBodyKW",
+      "Policy": "OnStart",
+      "Inversed": true
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1426"
+  }
+}

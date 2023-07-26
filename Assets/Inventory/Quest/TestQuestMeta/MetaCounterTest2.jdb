@@ -1,0 +1,54 @@
+{
+  "$type": "QuestDef",
+  "Id": "6fbf67d3-76d1-4dd6-9923-bf6f0897b015",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Дойти до логова Кваров
+    {
+      "$type": "PhaseDef",
+      "Id": "0eb10442-15b3-403f-b4a8-5c93671b1917",
+      "OnStart": [],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "72f987fa-b5a8-4e5c-83e8-f60e6b6d4cf2",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounter",
+            "Id": "15793606-212d-4801-8dda-29942b87d647",
+            "Target": "/Inventory/Knowledge/CoalKW",
+            "Count": 1
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "345e5913-ab9f-4a51-b4db-7f13a608f2bf",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Coal",
+            "Count": 2
+          }
+        ],
+        "Count": 3
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503365"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503366"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2675"
+      }
+    }
+    //Найти Капсулу в логове Кваров
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n2679"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n2680"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n2681"
+  }
+}

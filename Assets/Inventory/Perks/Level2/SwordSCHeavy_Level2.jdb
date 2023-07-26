@@ -1,0 +1,37 @@
+{
+  "$type": "PerkResource",
+  "Id": "1177078c-1129-4bfa-b9d6-6d0e3525df09",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level2",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/SwordAttack"
+        },
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/HeavyAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "SpellCalcerModifier<float>",
+        "Id": "af72c78c-b591-4dd6-a19d-025d2ead1e83",
+        "Variable": "/UtilPrefabs/Spells/Variables/StaminaCostMultiplier",
+        "Value": 0.85
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkRareCombatPvP",
+  "ItemNameLs": {
+    "Key": "#l10n15038"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15039"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$type": "ItemResource",
+  "Id": "a51fa523-26fb-45d4-8a5c-7c856828547a",
+  "MaxStack": 1,
+  "Weight": 10,
+  "ItemType": "/UtilPrefabs/ItemGroups/Bench",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/TanningBench",
+  "BigIcon": "Assets/UI/UISprites/Items/TanningBenchBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "/UtilPrefabs/Res/Prototypes/Mounting/TanningBench_EntityObjectDef"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n382"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n383"
+  }
+}

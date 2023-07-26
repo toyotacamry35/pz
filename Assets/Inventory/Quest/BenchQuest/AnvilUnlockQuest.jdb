@@ -1,0 +1,125 @@
+{
+  "$type": "QuestDef",
+  "Id": "5adad623-307a-41b4-9cda-477045c1234d",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Group": "Daily",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "218fe428-71c8-4731-833e-0f23c35cc4a6",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/AnvilUnlockQuest_TakenKW",
+          "WhenToApply": "OnSuccess"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "6b34ec88-4e3c-4e2b-b228-ba5678fb6476",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "f9345c4a-c138-4d60-8e2d-188f4d1b9fc7",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/HullFragment",
+            "Count": 5
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "dff25a1d-0cca-48c7-8e77-f37bf3152e0c",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Bone",
+            "Count": 10
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "2662352e-b347-4d97-9550-cea768ba098b",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Coal",
+            "Count": 15
+          }
+        ],
+        "Count": 30
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504873"
+      }, // Собрать ресурсы для ремонта наковальни
+      "DescriptionLs": {
+        "Key": "#l10n504874"
+      }// Наковальню необходимо поддерживать в рабочем состоянии, поэтому все, кто хочет им воспользоваться, должны сначала собрать некоторое количество материалов, которые понадобятся для его ремонта, и сдать их инженеру Радову.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "39a7f687-20f7-471c-b2b7-f28b485e342f",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "01f185b2-a8cc-4c79-a308-de0c24a21755",
+        "Target": "/UtilPrefabs/Spells/Quests/BenchQuest/AnvilUnlockQuest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "7cf146aa-61e1-456b-8c57-6889c91a850c",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "d1f13b44-62bd-4609-95b0-873974e626b6",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/HullFragment",
+            "Less": true,
+            "Count": 5
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "f4bc4e36-f7aa-4f0c-bcd8-395919b2e71d",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Bone",
+            "Less": true,
+            "Count": 10
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "1cda3a3a-d846-4504-93dd-93767ea331f4",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Coal",
+            "Less": true,
+            "Count": 15
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n504875"
+      }, // Отнести материалы инженеру Радову
+      "ShortDescriptionLs": {},
+      "DescriptionLs": {
+        "Key": "#l10n504876"
+      }// Его можно найти в Хабе
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n504877"
+  }, // Разрешение на использование наковальни
+  "ShortDescriptionLs": {
+    "Key": "#l10n504878"
+  }, // Чтобы пользоваться сложными станками в Хабе, необходимо получить разрешение у инженера Радова. Обычно, для этого достаточно просто принести ему материалы, которыми станок ремонтируется. Разрешение действует все следующие сутки после получения.
+  "DescriptionLs": {}
+}

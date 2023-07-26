@@ -1,0 +1,73 @@
+{
+  "$type": "PerkResource",
+  "Id": "3ffee643-ffe6-4516-9fdc-57872d18c43c",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level3",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/HammerAttack"
+        },
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/HeavyAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackActionsModifier",
+        "Id": "28d0aa7f-2552-4027-9776-889df4cf4b80",
+        "Target": "Victim",
+        "AddAction": {
+          "$type": "AttackCastSpell",
+          "When": "Always",
+          "Spell": {
+            "$type": "Spell",
+            "Duration": 10,
+            "AllowMultiple": true,
+            "ClearsSlot": true,
+            "SubSpells": [],
+            "Words": [
+              {
+                "$type": "EffectChangeAccumulatedStat",
+                "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+                "Summand": -30,
+                "Target": {
+                  "$type": "SpellCaster"
+                }
+              },
+              {
+                "$type": "EffectChangeAccumulatedStat",
+                "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+                "Summand": -30,
+                "Target": {
+                  "$type": "SpellCaster"
+                }
+              },
+              {
+                "$type": "EffectChangeAccumulatedStat",
+                "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+                "Summand": -30,
+                "Target": {
+                  "$type": "SpellCaster"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkEpicCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15044"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15045"
+  }
+}

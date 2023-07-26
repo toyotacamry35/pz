@@ -1,0 +1,35 @@
+{
+  "$type": "ItemResource",
+  "Id": "771e1096-c3f8-4ac6-9414-9ee68fe3d2ca",
+  "MaxStack": 5,
+  "Weight": 0,
+  "ItemType": "/UtilPrefabs/ItemGroups/Bench",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/new_standardScout",
+  "BigIcon": "Assets/UI/UISprites/Items/new_standardScoutBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1.0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1.0
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "./Standart_FP3_obelisk"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504865"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504942"
+  }
+}

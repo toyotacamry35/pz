@@ -1,0 +1,693 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "efbad078-1ac0-4a66-8218-f2dc5fdddee6",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    /*Игрок подходит к капсуле*/
+    {
+      "$type": "PhaseDef",
+      "Id": "36a31c7e-3aee-4906-9373-6c647c5e33d9",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_CapsulPOI"
+        },
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/DropZone/TutorialQuest1_TakenKW"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible": true,
+        "Id": "5044699c-f769-44e6-8b4e-8a28d79d93d8",
+        "Count": 1,
+        "Target": "/UtilPrefabs/Spells/BasicMoveSet/InteractWithDropShip"
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "24f70f90-1d2b-4d06-a386-c0dde616e4e3",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "c474b8c1-7fce-4dda-8f26-9a3e56e0fdd4",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/Follow1TutorialQuest1KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "ba702846-4ebf-4f7b-ad25-a9c7945ef52f",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "lake",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_CapsulPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4750"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4751"
+      },
+      //Возьми вещи из капсулы
+      "DescriptionLs": {
+        "Key": "#l10n2693"
+      }
+    }
+    /* Игрок берет в руки оружие*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "9b87ddc7-a706-43f4-b55a-28d74f5f5e4f",
+      "OnStart": [],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "c05937c7-c7fe-4663-9892-7cf176080b46",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "ded82bc2-1491-452f-8bf6-fcfee358bf17",
+            "SourceType": "PlayerDoll",
+            "Target": "/Inventory/Items/Weapons/MetalBar",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "fdb2db07-1702-489b-8a2b-db1632aef5c3",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "ba1e54f9-fbb5-4e9a-875c-6b2914795dbe",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/Follow1TutorialQuest1KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "cb3a387e-327c-4e55-bdcf-52c0a1303912",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "lake",
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4752"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4753"
+      },
+      //Кеплер - опасное место, поэтому не забудь вооружится металлической трубой, которую ты нашел внутри капсулы.
+      "DescriptionLs": {
+        "Key": "#l10n4079"
+      }
+    }
+    /*Игрок Ломает корни*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "1b349657-8c75-493d-928a-1d15e5c446b3",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_RootPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "64724b15-9549-4764-a644-012168a7022a",
+        "Target": "/Inventory/Knowledge/Quest/DropZone/Follow1TutorialQuest1KW",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "ff6af70a-eb25-440a-9b06-cea93a836ec8",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "5b1b7a31-fc64-49dc-a4c1-5b75e1d78495",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "lake",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_RootPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4754"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4755"
+      },
+      //Разбей корни, которые мешают тебе продолжить свой путь
+      "DescriptionLs": {
+        "Key": "#l10n2705"
+      }
+    }
+    /*Игрок бежит до оазиса*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "d9c383f0-62b2-4438-8076-bba3abe8e92d",
+      "Label": "lake",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_InerPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "23561e98-6491-4eba-85a6-1cbd9be9dfc3",
+        "Target": "/Inventory/Knowledge/Quest/DropZone/Follow2TutorialQuest1KW",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "a123a4a1-2227-47c5-b455-fe59e6b2a9c7",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "183f1b18-82a8-42e3-a309-c25b03a3607b",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_InerPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4756"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4757"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2732"
+      }
+    }
+    /*Игрок изучает сангвиру или герофит*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "2b554927-3989-4c65-b650-beab0e43a9e8",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_InerPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "2daf154f-57b7-4d7c-a743-c223bf7a33d8",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "d55be297-1d14-46d2-8261-8cce4bdfc7b0",
+            "Target": "/Inventory/Knowledge/GerophitKW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "b984f973-8eaf-4b08-aa4b-2932f135cfcf",
+            "Target": "/Inventory/Knowledge/SangviraKW",
+            "Count": 1
+          }
+        ],
+        "Count": 2
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "fcfec75d-1131-4efc-89f9-b09dc56332c5",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "6406e831-efd5-44dd-aca4-7d8a412bdbed",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/Follow4TutorialQuest1KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "0d9b41e4-8abd-498a-b263-8460fd0050e1",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "jump",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_InerPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4758"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4759"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4086"
+      }
+    }
+    /*Игрок изучает технологию*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "f83c6b9d-c87c-4a53-bff1-b7f76c361bbe",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_lakePOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "091e91fb-6ad9-47f4-9400-4d10f2f9f847",
+        "Target": "/Inventory/Knowledge/FromTechnologies/Atlas_Sessions/Flask_1KW",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "656b28bd-1988-4976-b96d-21ca7e33296c",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "3345506d-2552-46a8-9875-a8de9f02fd39",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/Follow4TutorialQuest1KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "db0e4f28-a13c-4402-9b4e-22ef21565c8b",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "jump",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_lakePOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4760"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4761"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4082"
+      }
+    }
+    /*Игрок крафтит и наполняет флягу*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "1af639bb-d5be-496a-8ba6-72fa93cffcb3",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_lakePOI"
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "IsInvisible": true,
+        "Id": "899f32f5-8ea7-4937-a576-1c0378b41b03",
+        "SourceType": "ItemInventory",
+        "Source": "/Inventory/Items/Consumables/Flask",
+        "Target": "/Inventory/Items/Res/CleanWater",
+        "Count": 10
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "4d2a7e35-9589-400e-b5d7-2a59399c12ad",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "f552614b-7934-4849-bc99-6f58a5cb6ee0",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/Follow4TutorialQuest1KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "2b4ed5cb-b31d-46c2-888b-f343536a06d0",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "jump",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_lakePOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4762"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4763"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2759"
+      }
+    }
+    /*Игрок проходит джампазл*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "cabbcf83-eb9f-4c77-ba61-15b28a86aa74",
+      "Label": "jump",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_CavePOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "5b1c87ca-8149-4a79-9627-920f7458286d",
+        "Target": "/Inventory/Knowledge/Quest/DropZone/Follow3TutorialQuest1KW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_CavePOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "d9650084-f720-43f0-920a-04c1c14dc451",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "4f70dc59-855d-4bb2-aabe-f2767b9e1836",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/Follow5TutorialQuest1KW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "4d82cd6a-ba69-46d0-919d-5cf54bb85634",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "Void",
+      "NameLs": {
+        "Key": "#l10n4764"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4765"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2747"
+      }
+    }
+    /*Игрок игрок бежит до арены*/
+    /*
+    {
+      "$type": "PhaseDef",
+      "Id": "dd98022f-3f74-47de-9d85-254e65eb3159",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_CavePOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "a467b8ea-6f23-445a-b7f9-38c56a318c4d",
+        "Target": "/UtilPrefabs/Spells/Quests/TutorialQuest/Follow4TutorialQuest1Spell",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "8b76b832-1b8c-45b5-a9f8-7a7e9ccbd8bd",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "a30252df-f83c-4a0e-801e-2b69e71f2879",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/Follow3TutorialQuest1KW",
+            "Count": 1
+          },
+          {
+            "$type": "SpellCounterDef",
+            "Id": "f292adbc-020a-41e6-b5e6-9c0ce8cbec50",
+            "Target": "/UtilPrefabs/Spells/Quests/TutorialQuest/FinishTutorialQuest1Spell",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "Void",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_CavePOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4766"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2762"
+      }
+    },
+    */
+    /*Игрок идет к существу*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "9e295ce7-858e-4009-b3fa-62461ed8aadf",
+      "Label": "Void",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_ExitPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "31161bab-5eaf-40c2-8f71-7dcdedfeb118",
+        "Target": "/Inventory/Knowledge/Quest/DropZone/Follow6TutorialQuest1KW",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "114f5483-25cf-480a-800b-2fe83f330dc8",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "dea45253-a739-476b-8dd8-9afec5bc5da8",
+            "Target": "/Inventory/Knowledge/Corpses/VoidEnemyCorpseKW",
+            "Count": 1
+          }
+          /* {
+            "$type": "KnowledgeCounterDef",
+            "Id": "fcb09090-a1f5-4fb5-af2a-69bbb688e11e",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/Follow5TutorialQuest1KW",
+            "Count": 1
+          },*/,
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "56319ea6-df59-466f-9a59-6f4a3e162923",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "Detour",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_ExitPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4767"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4768"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2762"
+      }
+    }
+    /*Игрок выбирается с арены*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "c6a231f0-489b-41da-96b0-e8a03704bb02",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_ExitPOI"
+        }
+      ],
+      "Label": "Exit",
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "fea999df-2af9-430e-ae2c-4ac1146e68b2",
+        "Target": "/Inventory/Knowledge/Quest/DropZone/Follow7TutorialQuest1KW",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "f2dc91e2-0e75-4d69-846e-a538f11bc613",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "4b861377-9447-4559-b259-b0d440ddfd2a",
+            "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "End",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_ExitPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4773"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4774"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2762"
+      }
+    }
+    /*Игрок добирается до выхода */,
+    {
+      "$type": "PhaseDef",
+      "Id": "6be70ad6-6ded-45de-ac34-daac3a331f11",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_EndPOI"
+        }
+      ],
+      "Label": "End",
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "fb96d4f7-d54b-4471-8dba-ff18791b9402",
+        "Target": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/TutorialQuest/TutorialQuest_EndPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4775"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4776"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2762"
+      }
+    }
+    /*Игрок говорит с капитаном*/,
+    {
+      "$type": "PhaseDef",
+      "Id": "ed550ad7-bb18-4b46-9677-e2765d8e4936",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_CaptainRangerPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "d6ef0f82-6d27-41c6-8d72-e3a1b42a54aa",
+        "Target": "/Inventory/Knowledge/Quest/DropZone/DialogTutorialQuest1KW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_CaptainRangerPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n504984"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504985"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504986"
+      }
+    }
+  ],
+  "OnFail": [],
+  "OnSuccess": [
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/KeyMainQuest/KeyMainQuest_Check"
+      ]
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n1179"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n1180"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n1181"
+  }
+}

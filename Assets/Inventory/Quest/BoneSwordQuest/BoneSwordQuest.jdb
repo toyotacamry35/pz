@@ -1,0 +1,169 @@
+{
+  "$type": "QuestDef",
+  "Id": "c5d0e915-5c82-4694-97c4-8b5c51e2f28f",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Group": "Daily",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Выучить технологию Лечение,
+      "Id": "9ce257db-beea-4a4e-9644-6d1585b382b4",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "5a3ed086-d5d7-44f9-a873-0e00ad01f500",
+        "Target": "/Inventory/Knowledge/FromTechnologies/Atlas_Sessions/Sword_1KW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503986"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504705"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504706"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Игрок собирает 4 брактус резины,
+      "Id": "846b2690-6524-47e4-8592-82aad54d6671",
+      "OnStart": [],
+      "Label": "BractusResinPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "58e98846-45a3-4f73-ad82-0ead46de4003",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/ItemBractusResin",
+        "Count": 4
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504707"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504708"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504709"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Игрок собирает 4 веревки,
+      "Id": "94cd9436-8f42-4692-ac8b-dbbb32466d11",
+      "OnStart": [],
+      "Label": "FlimsyRopePhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "4ecbd30c-17e0-4770-a502-757edada3e58",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/FlimsyRope",
+        "Count": 4
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504710"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504711"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504712"
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "60150513-c774-4bf1-b463-c1679ae09b71",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/ItemBractusResin",
+        "Less": true,
+        "Count": 4
+      },
+      "OnFailPhase": "BractusResinPhase"
+    },
+    {
+      "$type": "PhaseDef", //Игрок собирает 2 кости,
+      "Id": "ea16e1c4-17a5-4831-8046-d4621aad8082",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "3525d6ed-2406-4762-bd8e-f6eb6072f4ca",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/Bone",
+        "Count": 2
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504713"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504714"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504715"
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "7f38f4ab-0c84-42b5-a77e-bef5347a7371",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "8080f22e-a805-4121-b7b4-d290fe874e74",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/ItemBractusResin",
+            "Less": true,
+            "Count": 4
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "e81f8f37-a8e8-46bd-a232-eb25d34293bb",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/FlimsyRope",
+            "Less": true,
+            "Count": 4
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "BractusResinPhase"
+    },
+    {
+      "$type": "PhaseDef", //игрок крафтит лекарство,
+      "Id": "dbd405a3-8a63-488f-8f77-cfb0ef112bdd",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "CraftCounterDef",
+        "Id": "65481c06-a260-4e19-8fe0-c7c760d1d80a",
+        "Target": "/Inventory/Recipes/Sessions/Sword_1BP",
+        "CraftSource": "Bench",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/BoneSwordQuest/BoneSwordQuest_Complete"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n504716"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504717"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504718"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n504719"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n504720"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4741"
+  }
+}

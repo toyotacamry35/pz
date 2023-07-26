@@ -1,0 +1,109 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "630931d8-d4ad-4bec-acfa-9a2f1a3c845c",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "008b6676-d577-49ea-8e74-579f0a80811f",
+      "Label": "CollectPhase",
+      "OnStart": [],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "6b6e0bfa-6295-4ca6-b229-cb85b2f93076",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "c0fd9caa-c76c-4ef7-beac-8b88390646bc",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Consumables/Food/RoastedToughMeat",
+            "Count": 15
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "52990fbb-c3e4-4b02-90df-10de2c066526",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Consumables/Food/RoastedJuicyMeat",
+            "Count": 5
+          }
+        ],
+        "Count": 20
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504908"
+      }, // Добыть достаточно мяса
+      "ShortDescriptionLs": {
+        "Key": "#l10n504909"
+      }, // Охотясь на животных
+      "DescriptionLs": {
+        "Key": "#l10n504910"
+      }// Необходимо пополнить запасы еды в Хабе. Для этого нужно раздобыть достаточно свежего мяса, охотясь на животных. Больше всего животных обитает в Степи, на берегах большой реки, пока безымянной.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "beb81ed7-6cab-439e-827c-ad012d267b26",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "2f3de3bd-6692-4c37-a61f-70c6b77a0e1d",
+        "Target": "/UtilPrefabs/Spells/Quests/Key03Quest/Key03Quest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "283b979d-653f-46e8-9836-4e0441d09507",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "99e914f1-2d4a-4676-97ad-f5a11a57a510",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Consumables/Food/RoastedToughMeat",
+            "Less": true,
+            "Count": 15
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "e073b184-2564-44fa-893a-7538a5a79733",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Consumables/Food/RoastedJuicyMeat",
+            "Less": true,
+            "Count": 5
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n504911"
+      }, // Отнести мясо инженеру Радову
+      "ShortDescriptionLs": {
+        "Key": "#l10n504912"
+      }, // Его можно найти в Хабе
+      "DescriptionLs": {
+        "Key": "#l10n504913"
+      }// Мясо добыто. Нужно отнести его в Хаб инженеру Радову.
+    }
+  ],
+  "OnSuccess": [{
+    "$type": "ImpactAddPerkDef",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+  }],
+  "NameLs": {
+    "Key": "#l10n504914"
+  }, // Шаги к спасению: Мясо для Хаба
+  "DescriptionLs": {}
+}

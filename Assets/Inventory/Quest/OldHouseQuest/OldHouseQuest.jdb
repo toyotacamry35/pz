@@ -1,0 +1,157 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "ca9b5d4d-d16e-4b08-afea-dcf5154744b8",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Дойти до дома и попасть в зону поиска
+    {
+      "$type": "PhaseDef",
+      "Id": "a9c3675c-070b-4548-9b5f-11b3e37203e0",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible": true,
+        "Id": "bc473981-bed6-4f3f-aaf4-30b64a19e283",
+        "Target": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_SearchZone",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503636"
+      }, //Добраться до лагеря.
+      "ShortDescriptionLs": {
+        "Key": "#l10n503637"
+      }, //Ральф сказал, что база расположена далеко на востоке от его поста.
+      "DescriptionLs": {
+        "Key": "#l10n503638"
+      } //Если людей на базе не осталось, нужно будет поискать припасы. Наверняка что-нибудь найдется. И мне оно точно пригодится больше, чем войдам или кварам.
+    }, // Осмотреться (Фаза для развилки квеста)
+    {
+      "$type": "PhaseDef",
+      "Id": "176f7492-e7e0-4995-bf6a-fe0b09a5335d",
+      "OnStart": [],
+      "OnFailPhase": "Root2",
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "c7e41f2a-f9a2-4023-8573-ab4cbce49332",
+        "Target": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_FindChestKW",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "84f5dabe-e19a-43a8-a5e2-5198413dd6c5",
+        "Target": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_FindDeadKW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4053"
+      }, //Осмотреться
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503639"
+      } //Выживших нет, но можно поискать припасы. 
+    }, //Ветка 1. Игрок ищет ключ
+    {
+      "$type": "PhaseDef",
+      "Id": "183d2496-1df5-4bdc-9d08-97728eb37aae",
+      "OnStart": [],
+      "OnFailPhase": "end",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible": true,
+        "Id": "909557a3-963a-4148-a522-1ce86e28bd54",
+        "Target": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_Reward",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "24917a6b-1f2f-4d8b-9c24-f33875e2c4e7",
+        "Target": "/Inventory/Items/Quest/OldHouseQuest/OldHouseQuestChestKey",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4055" //#l10n4055
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503640"
+      }, //Сундук заперт, может у одного из погибших есть ключ?
+      "DescriptionLs": {
+        "Key": "#l10n503641"
+      } //Внутри палатки мне попался запертый сундук. Ключ может быть где-то неподалеку. Нужно прочесать окрестности.
+    }, //Ветка 2. Игрок нашел сундук
+    {
+      "$type": "PhaseDef",
+      "Id": "250f71bd-2a9d-4a3c-b0b1-1f9269dd26bd",
+      "OnStart": [],
+      "Label": "Root2",
+      "OnFailPhase": "end",
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "f77be447-969d-462f-b936-a606252183db",
+        "Target": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_FindChestKW",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "SpellCounterDef",
+        "Id": "3dd53715-8332-45b9-a383-d901c61ee125",
+        "Target": "/UtilPrefabs/Spells/Quests/OldHouseQuests/OldHouseQuest_Reward",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4057"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4058"
+      } //Ключ не похож на дверной, скорее от чего-то поменьше. Может быть, от какого-нибудь тайника? Стоит осмотреться.
+    }, //Схождение. Игрок открыл сундук
+    {
+      "$type": "PhaseDef",
+      "Id": "3131c482-f784-425d-adf7-346e71459423",
+      "Label": "end",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "ed7717e3-c34b-4b83-a314-f396eb0e7017",
+        "Target": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_CompletedKW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4059"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4060"
+      } //Я нашел и ключ, и сундук - осталось только открыть.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactAddPerkDef",
+      "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n503642"
+  }, //Старый лагерь
+  "ShortDescriptionLs": {
+    "Key": "#l10n503643"
+  }, //Нужно узнать, что случилось в лагере военной экспедиции.
+  "DescriptionLs": {
+    "Key": "#l10n503644"
+  } //Далеко на востоке от Хаба был лагерь военной экспедиции. По словам Ральфа, колонисты оттуда слишком долго не выходят на связь. Возможно, там теперь рассадник войдов.
+}

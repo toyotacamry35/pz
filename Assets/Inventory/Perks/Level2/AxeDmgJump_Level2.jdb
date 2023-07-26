@@ -1,0 +1,43 @@
+{
+  "$type": "PerkResource",
+  "Id": "ac47d3e2-ef39-4a33-9591-a82e1e174e7c",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level2",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/AxeAttack"
+        },
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/JumpAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "SpellCalcerModifier<float>",
+        "Id": "0c06c40e-4d38-49f8-af7a-5927773a09ab",
+        "Variable": "/UtilPrefabs/Spells/Variables/StaminaCostMultiplier",
+        "Value": 1.1
+      },
+      {
+        "$type": "AttackStatModifier",
+        "Id": "24955704-419a-4933-aef6-ff91c74a1281",
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+        "Multiplier": 1.3
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkRareCombatPvP",
+  "ItemNameLs": {
+    "Key": "#l10n15026"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15027"
+  }
+}

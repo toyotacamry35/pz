@@ -1,0 +1,75 @@
+{
+  "$type": "QuestDef",
+  "Id": "00a675ab-15ba-4964-a32d-1c745c9e0355",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "19ffb6cb-7b5b-44a8-b503-a05d13ee05ce",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "0215019c-be21-4a2d-8c22-0bab708bd2a3",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/CorneousPlate",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3994"
+      }, //Собрать ресурсы
+      "ShortDescriptionLs": {
+        "Key": "#l10n3995"
+      }, //В этот раз справиться в одиночку будет нелегко - стоит скооперироваться с кем-то еще из колонистов.
+      "DescriptionLs": {
+        "Key": "#l10n3996"
+      }//Хаб постоянно развивается - и ему все время нужно больше ресурсов. Твинки попросил меня собрать для него кое-что.
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "1651ed1a-f335-4a28-88f0-c2d323a52133",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "7e8a194b-e1b0-40e0-838b-65108c6f3b9f",
+        "Target": "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_CorneousPlate/GrindQuest_CorneousPlate_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_CorneousPlate/GrindQuest_CorneousPlate_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3997"
+      }, //Отдать ресурсы TWN-K12
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3998"
+      }//Cдать работу Твинки, и дело с концом.
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3999"
+  }, //Помощь Хабу
+  "ShortDescriptionLs": {
+    "Key": "#l10n4000"
+  }, //Собрать ресурсы для Хаба
+  "DescriptionLs": {
+    "Key": "#l10n4001"
+  }//Хаб постоянно развивается - и ему все время не хватает ресурсов. Твинки попросил меня собрать для него кое-что.
+}

@@ -1,0 +1,61 @@
+{
+  "$type": "PerkResource",
+  "Id": "a632ce7a-7916-4bdc-8a2d-c657ffb19cf1",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level2",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/HammerAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackActionsModifier",
+        "Id": "9c88f278-f681-41f1-82df-66ee7964df39",
+        "Target": "Victim",
+        "AddAction": {
+          "$type": "AttackCastSpell",
+          "When": "Always",
+          "Spell": {
+            "$type": "Spell",
+            "Duration": 0,
+            "AllowMultiple": true,
+            "ClearsSlot": true,
+            "SubSpells": [],
+            "Words": [
+              {
+                "$type": "PredicateCompareStat",
+                "Type": "More",
+                "Target": {
+                  "$type": "SpellCaster"
+                },
+                "Stat": "/UtilPrefabs/Stats/Combat/Block/BlockActive",
+                "Value": 0.001
+              },
+              {
+                "$type": "ImpactDamageObject",
+                "Damage": 35,
+                "Target": {
+                  "$type": "SpellCaster"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkRareCombatPvP",
+  "ItemNameLs": {
+    "Key": "#l10n15028"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15029"
+  }
+}

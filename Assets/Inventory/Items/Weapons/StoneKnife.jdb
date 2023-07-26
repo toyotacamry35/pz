@@ -1,0 +1,107 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "SPELL": "/UtilPrefabs/Spells/Combat/Attacks/AttackMiningKnife"
+  },
+  "$proto": "./_MiningWeaponProto",
+  "Id": "c0b23b0b-1b9e-4903-a949-da84dc51ce6c",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "0e7d37f1-1569-452f-b0a8-4f807444387c",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Stone",
+        "Count": 1
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Stone",
+        "Count": 1
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 0.3,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1000,
+      "DURABILITY_INITIALVALUE": 1000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "e0138720-7fbd-4181-9ed1-bedd30ea8f3e"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ToolMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "ff4bce8e-f02d-4c80-a62f-3d6cc753a393",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Small",
+    "DestructionPower": 200,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/MiningLootMultiplier",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 45
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "./_MiningWeaponDefProto"
+  },
+  "Icon": "Assets/UI/UISprites/Items/StoneKnife",
+  "BigIcon": "Assets/UI/UISprites/Items/StoneKnifeBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/StoneKnife",
+  "ItemNameLs": {
+    "Key": "#l10n621"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n622"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractDropPodEncounter4",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Duration": 0.9,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.0,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.8,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": true,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "InteractSubspellDeleteObject",
+        "Name": "InteractSubspellDeleteObject",
+        "Duration": 0.0,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactDestroyObjectDef",
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "WhenToApply": "OnSuccess"
+          }, /*
+          {
+            "$type": "ImpactGrantItemDef",
+                  "GrantRandom": true,
+            "GrantingItems": [],
+            "Receiver": {
+              "$type": "SpellCasterDef"
+            },
+            "InteractiveGranter": {
+              "$type": "SpellTargetDef"
+            },
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "ImpactGrantItemDef",
+                  "GrantRandom": false,
+            "GrantingItems": [],
+            "Receiver": {
+              "$type": "SpellCasterDef"
+            },
+            "InteractiveGranter": {
+              "$type": "SpellTargetDef"
+            },
+            "WhenToApply": "OnSuccess"
+          }*/
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Res/RaggedWires"
+            ],
+            "Count": 5
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Res/HullFragment"
+            ],
+            "Count": 5
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Weapons/MetalBar"
+            ],
+            "Count": 2
+          },
+          /* {
+            "$type": "ImpactAddItemsDef",
+            "Items": ["/Inventory/Items/Mounting/SimpleBaken"],
+            "Count": 1
+          } */
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.0,
+      "AnchorLeft": 0.67,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": true,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "InteractSubspellPreDelete",
+        "Name": "InteractSubspellPreDelete",
+        "Duration": 0.0,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          /*/*
+{
+            "$type": "EffectPlayHitFxDef",
+                  "Provocator": {
+              "$type": "SpellCasterDef"
+            },
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "MaxDistToTarget": 3.0,
+            "FxData": "Assets/Quests/QuestInteractionSpells/InteractDropPodEncounter4",
+            "TargetIsParent": false,
+            "RotationFromMarker": false,
+"UseDetach": false
+          }
+*/
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "ImpactSetInteractionTypeDef",
+      "AnimatorOwner": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractionType": "MineMiddle",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "EffectPlayAnimationMineDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "GetFromKnowType": true,
+      "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+      "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/FullStop",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1.0
+    },
+    /*{
+      "$type": "EffectPlayAnimationOLDDef",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractiveTargetIfHasOne": {
+        "$type": "SpellTargetDef"
+      }
+    },*/
+  ]
+}

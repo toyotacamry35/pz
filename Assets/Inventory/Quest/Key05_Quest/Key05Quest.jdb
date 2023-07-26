@@ -1,0 +1,90 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "13313a55-2f19-4376-bda7-0c72c4ae02dc",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "3b67778f-f90a-4f7d-b282-1bb3011bf98a",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key05Quest/Key05POI"
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "f255a80c-7763-4dde-9672-3f63e7f591cb",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Quest/Key05Quest/ToxicGas",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key05Quest/Key05POI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n504917"
+      }, // Собрать ядовитый газ на Болоте
+      "ShortDescriptionLs": {
+        "Key": "#l10n504918"
+      }, // Для этого нужно использовать газоуловитель
+      "DescriptionLs": {
+        "Key": "#l10n504919"
+      }// Для того чтобы отключить сознание пациента во время гибернации в капсуле, колонисты используют ядовитый газ. Газ можно собрать в местности с уровнем токсичности 450 и выше с помощью газоуловителя. Самое токсичное место на Кеплере - это Болота, именно там можно найти области с нужным уровнем токсичности. Чтобы узнать, как сделать газоуловитель, нужно изучить его рецепт в технологиях.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "b86392af-7bf0-495b-8db7-f1a27342d902",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "30b7195d-187f-493e-a51a-6e3ae2cd8f3f",
+        "Target": "/UtilPrefabs/Spells/Quests/Key05Quest/Key05Quest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "c5540d28-3c36-421b-9150-a97d03ebd708",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Quest/Key05Quest/ToxicGas",
+        "Less": true,
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n503613"
+      }, // Отнести газ доктору Тенушу
+      "ShortDescriptionLs": {
+        "Key": "#l10n504920"
+      }, // Его можно найти в Хабе
+      "DescriptionLs": {
+        "Key": "#l10n503614"
+      }// Газ получен. Его нужно отнести доктору Тенушу, чтобы он рассчитал точную дозу и заправил его в капсулу.
+    }
+  ],
+  "OnSuccess": [{
+    "$type": "ImpactAddPerkDef",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+  }],
+  "NameLs": {
+    "Key": "#l10n503615"
+  }, // Шаги к спасению: Ядовитый газ
+  "DescriptionLs": {}
+}

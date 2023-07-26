@@ -1,0 +1,31 @@
+{
+    "$type": "TechnologyDef",
+    "Id" : "31131a35-ecb9-443e-9dd4-b0c5c54c41d2",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 15,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 13,
+                    "Science": "/Inventory/Science/Surveying"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/FluorescentIlluminationTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 3,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/SimpleDecoysKW"
+        ]
+    }
+}

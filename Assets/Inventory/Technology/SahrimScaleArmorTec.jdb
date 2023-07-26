@@ -1,0 +1,36 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "7e4336b3-0844-41d0-a3f6-843eba1afd1e",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 18,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 8,
+                    "Science": "/Inventory/Science/Geology"
+                },
+                {
+                    "Count": 36,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/MeridCarapaceArmorTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 5,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/SahrimScaleArmorKW",
+            "/Inventory/Knowledge/FromTechnologies/XenoPotionsTier2KW"
+        ]
+    }
+}

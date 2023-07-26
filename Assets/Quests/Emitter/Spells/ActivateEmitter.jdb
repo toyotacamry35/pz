@@ -1,0 +1,41 @@
+{
+  "$type": "SpellDef",
+  "Name": "ActivateEmitter",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactForAllInBoxDef",
+      "AppliedSpells": [
+        "/Quests/Emitter/Spells/EmitterActivation"
+      ],
+      "AttackBoxes": [
+        {
+          "center": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "extents": {
+            "x": 5,
+            "y": 5,
+            "z": 5
+          }
+        }
+      ]
+    },
+    {
+      "$type": "PredicateCompareStatDef",
+      "Stat": "/Quests/Emitter/Stats/EmitterIsNear",
+      "Type": "More",
+      "Value": 0.5
+    }
+  ]
+}

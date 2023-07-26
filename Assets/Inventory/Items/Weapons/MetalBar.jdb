@@ -1,0 +1,180 @@
+{
+  "$type": "ItemResource",
+  "$proto": "./_MeleeWeaponProto",
+  "Id": "e9dd1307-4d3f-4628-b32f-122d7d8a80de",
+  "MaxStack": 20,
+  "Weight": 0.5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1200,
+      "DURABILITY_INITIALVALUE": 1200,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "478a5fce-34f3-438b-afbb-21c2b135e3fb"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "6ec87ced-5510-4f51-a2c4-07ba5acad608",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Big",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 105
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "./_MeleeWeaponDefProto",
+    "AttackBoxes": [
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.15
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.25
+        },
+        "extents": {
+          "x": 0.75,
+          "y": 0.6,
+          "z": 0.8
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": 1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0.5
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/MetalBar",
+  "BigIcon": "Assets/UI/UISprites/Items/MetalBarBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/Pipe",
+  "ItemNameLs": {
+    "Key": "#l10n588"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n589"
+  }
+}

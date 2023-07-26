@@ -1,0 +1,32 @@
+{
+  "$type": "ItemResource",
+  "MaxStack": 100,
+  "Weight": 0,
+  "ItemType": "/UtilPrefabs/ItemGroups/Misc",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/NewRepairArmor4",
+  "BigIcon": "Assets/UI/UISprites/Items/NewRepairArmor4Big",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "Набор для ремонта брони IV"
+  },
+  "DescriptionLs": {
+    "Key": "Подходит для ремонта брони адаптанта"
+  },
+  "Id": "caf7c73a-0925-48b8-a163-c6475cb6be0e"
+}

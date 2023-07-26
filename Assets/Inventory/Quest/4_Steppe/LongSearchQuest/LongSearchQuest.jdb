@@ -1,0 +1,126 @@
+{
+  "$type": "QuestDef",
+  "Id": "9705998b-abc1-46ce-8cd4-4a0cff5fd5d0",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Group": "Daily",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Тут игрок находит Кулибина и спрашивает про КПК!,
+      "Id": "8b9f64a2-1c16-4e36-989b-b33fd6a995be",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "e9b92a72-b2ab-41bc-b33d-2a3468880d3d",
+        "Target": "/UtilPrefabs/Spells/Quests/4_Steppe/LongSearchQuest/LongSearchQuest_FindKulibin",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3667"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3668"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3669"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Игрок ищет 2 порции пенного мха.,
+      "Id": "7d8f531a-2ab8-4e45-baa4-e2d98a5b1867",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "f1dc4ee3-2490-4885-a336-c570912714a5",
+        "Target": "/Inventory/Items/Res/StoutFoam",
+        "Count": 2
+      },
+      "Label": "CollectPhase",
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3670"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3671"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Рассказать тенушу, что деб все равно не берет таблетки,
+      "Id": "1d032229-783a-448f-8a5c-43db0661faba",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "999cf00d-3877-4af3-aa0a-d3140d2310aa",
+        "Target": "/Inventory/Knowledge/Quest/4_Steppe/LongSearchQuest/LongSearchQuest_RepairKpkKW",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "0d03d57c-178c-48e6-82e4-5b4683ac0461",
+        "Less": true,
+        "Target": "/Inventory/Items/Res/StoutFoam",
+        "Count": 2
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3672"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3673"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Игрок ищет тайник и сдает квест,
+      "Id": "3e65bb42-2255-4aec-b5cb-db5781e7ab0b",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "687ebebb-46fd-4bf6-abf4-d29e25e985bc",
+        "Target": "/UtilPrefabs/Spells/Quests/4_Steppe/LongSearchQuest/LongSearchQuest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LongSearchQuest/LongSearchQuest_Reward" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3674"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3993"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3676"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3677"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3678"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3679"
+  }
+}

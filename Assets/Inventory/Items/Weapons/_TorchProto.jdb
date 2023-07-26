@@ -1,0 +1,25 @@
+{
+  "$type": "ItemResource",
+  "Id": "8baa221f-64f9-47e6-9428-dd54b1cbaeb5",
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/AttackMelee": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Torch_L"
+      },
+      "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Axe1H_R"
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/Block"
+      }
+    }
+  },
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeMelee",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeMelee"
+  ],
+  "CorrectionInHandRequired": true
+}

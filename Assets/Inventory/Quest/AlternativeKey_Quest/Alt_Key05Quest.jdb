@@ -1,0 +1,91 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "13c98bf4-a467-481c-ac80-0781affbd5e9",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "740423f4-8da9-4497-aa6b-325a84cd4805",
+      "Label": "CollectPhase",
+      "OnStart": [],
+      "Counter": {
+        "$type": "MobKillsCounterDef",
+        "Id": "9821e13c-4e34-47d8-997d-7125adb51e2a",
+        "Target": "/AI/Defs/Mobs/Scyphoria_Legionary/Scyphoria_Stats",
+        "Count": 30
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpell",
+          "Spells": [
+            "/UtilPrefabs/Spells/Quests/Alt_Key05Quest/Alt_Key05Quest_Phase"
+          ]
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n5024"
+      }, // Убить достаточно фурий
+      "ShortDescriptionLs": {
+        "Key": "#l10n5025"
+      }, // Вам не удалось вспомнить, где именно вы умерли на Болоте. Но вы помните, что там были фурии
+      "DescriptionLs": {
+        "Key": "#l10n5026"
+      }// Внутри снежных сахрымов вы ничего не нашли. Наверное, это не удивительно, учитывая, что сахрымы травоядны и не едят людей в отличие от кваров.\nДальше ваш путь лежал на Болото, но вам не удалось вспомнить, где именно на Болоте вы умерли в очередной раз. В голове всплывают только какие-то обрывки: множество фурий налетает на вас и бьют электричеством. Возможно, стоит воспроизвести этот опыт, чтобы восстановить память.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "a4beb6fc-afa6-481c-9287-0cefcca552fa",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Alt_Key05Quest/ScyphoriaCave_POI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id" : "0843acda-ee77-4375-b573-08aae706ce70",
+        "IsInvisible": true,
+        "Target": "/Inventory/Knowledge/Quest/Alt_Key05Quest/Alt_Key05Quest_ScyphoriaCave_POI_KW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Alt_Key05Quest/ScyphoriaCave_POI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n5027"
+      }, // Найти и осмотреть место своей смерти
+      "ShortDescriptionLs": {
+        "Key": "#l10n5028"
+      }, // Вас убил рой фурий внутри маленькой пещеры на Болотах
+      "DescriptionLs": {
+        "Key": "#l10n5029"
+      }// Шоковая терапия подействовала, вы вспомнили, как все произошло: в тесной пещере на окраине болот очень сложно увернуться от смертельных атак, рой фурий окружил вас, и у вас не было ни единого шанса. Нужно найти эту пещеру и осмотреть.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key05Quest/Alt_Key05Quest_Complete"
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key06Quest/Alt_Key06Quest_Start"
+      ]
+    },
+    {
+      "$type": "ImpactAddPerkDef",
+      "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n5030"
+  }, // Шаги к разгадке: Смерть на Болоте
+  "DescriptionLs": {}
+}

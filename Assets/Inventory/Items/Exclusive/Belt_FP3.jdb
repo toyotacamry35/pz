@@ -1,0 +1,46 @@
+{
+  "$type": "ItemResource",
+  "Id": "3a850ba9-67b7-4ec0-9dcb-c1b9739b5146",
+  "MaxStack": 1,
+  "Weight": 0,
+  "ItemType": "/UtilPrefabs/ItemGroups/WearBelt",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "c33a37a1-993a-4f2f-a12d-b6a9794b2ded"
+  },
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "Icon": "Assets/UI/UISprites/Items/new_belt",
+  "BigIcon": "Assets/UI/UISprites/Items/new_beltBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight",
+        "Value": 5
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "PackDef": {
+    "UnblockSlots": [
+      "/UtilPrefabs/Slots/HotSlot4",
+      "/UtilPrefabs/Slots/HotSlot5"
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504808"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504809"
+  }
+}

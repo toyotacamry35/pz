@@ -1,0 +1,89 @@
+{
+  "$type": "QuestDef",
+  "Id": "a4938a63-5013-4538-a8ea-0b581f9368f4",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Выучить технологию Жареный Герофит,
+      "Id": "1f61bed8-1823-4b84-ae64-3bb1de35b099",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "f891fef4-ff84-4da8-ad2d-46f82a541b61",
+        "Target": "/Inventory/Knowledge/FromTechnologies/Atlas_Sessions/RoastedGerophit_1KW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4742"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4743"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4744"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Сделать 1 жареный герофит,
+      "Id": "f43d2a26-a894-43f4-bc11-8cb72b300684",
+      "OnStart": [],
+      "Counter": {
+        "$type": "CraftCounterDef",
+        "Id": "1ee1c606-199a-48fd-af1b-e9506ca381f0",
+        "CraftSource": "Any",
+        "Target": "/Inventory/Recipes/Sessions/RoastedGerophitBP",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503966"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4745"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503968"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Съесть герофит
+      "Id": "2d56d57a-3a2e-421a-8e7f-6bee6e01fab9",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "e62d7afa-4662-4416-8b56-8cbb1534ec3d",
+        "Targets": [
+          "/UtilPrefabs/Spells/Consumables/RoastedGerophitSpell"
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/FirstStarvingQuest/FirstStarvingQuest_Complete"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4746"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4747"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4748"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503969"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n4749"
+  },
+  "DescriptionLs": {
+    "Key": ""
+  }
+}

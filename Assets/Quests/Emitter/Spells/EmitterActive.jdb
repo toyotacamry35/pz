@@ -1,0 +1,91 @@
+{
+  "$type": "SpellDef",
+  "Name": "EmitterActive",
+  "Duration": 60.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/Quests/Emitter/Spells/Emitter",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/Quests/Emitter/Stats/EmitterEnergy",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Value": -100.0
+    },
+    /*
+{
+      "$type": "EffectPlayHitFxDef",
+      "Provocator": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "MaxDistToTarget": 3.0,
+      "FxData": "Assets/Quests/Emitter/Spells/EmitterActive",
+      "TargetIsParent": true,
+      "RotationFromMarker": true,
+      "UseDetach": false
+    },
+*/
+    /*    {
+      "$type": "MoveEffectDef",
+      "Id" : "193da522-7e18-4ba3-85eb-8e07fa8a06f7",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "",
+      "AnimationSubType": "State",
+      "AnimationSubTypeValue": 2,
+      "UseAsInputToPlayer": false,
+      "MoveType": "MoveToInput",
+      "Rotation": "LookAtTarget",
+      "Speed": 0.0,
+      "Target": null,
+      "Vec3": null,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 1.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    },*/
+    /*
+{
+      "$type": "EffectPlayHitFxDef",
+      "Enabled": true,
+      "Provocator": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "MaxDistToTarget": 3.0,
+      "FxData": "Assets/Quests/Emitter/Spells/EmitterActive",
+      "TargetIsParent": true,
+      "RotationFromMarker": true,
+      "ImmediatlyHide": true,
+      "CountEffect": 1
+    }
+*/
+  ]
+}

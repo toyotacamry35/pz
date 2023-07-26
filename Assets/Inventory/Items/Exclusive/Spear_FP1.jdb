@@ -1,0 +1,77 @@
+{
+  "$type": "ItemResource",
+  "$proto": "/Inventory/Items/Weapons/_SpearWeaponProto",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "debf6574-3dc8-449a-a7d7-3b5f3246a159"
+  },
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/WeaponMassive",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Big",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 123
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "AttackCollider": {
+      "$type": "WeaponColliderDef",
+      "DefaultCollider": {
+        "$type": "BoxShape",
+        "Position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.8
+        },
+        "Extents": {
+          "x": 0.1,
+          "y": 0.1,
+          "z": 1.7
+        },
+        "CheckTargetOnly": true
+      },
+      "CustomColliders": {}
+    }
+  },
+  "Icon": "Assets/UI/UISprites/Items/new_xenoboy",
+  "BigIcon": "Assets/UI/UISprites/Items/new_xenoboyBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/GlaiveCommander",
+  "ItemNameLs": {
+    "Key": "#l10n4882"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4883"
+  },
+  "Id": "33f3116f-2f1d-4707-99f2-83713df216ec"
+}

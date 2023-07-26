@@ -1,0 +1,217 @@
+{
+  "$type": "ItemResource",
+  "$proto": "/Inventory/Items/Weapons/_MeleeWeaponProto",
+  "Id": "6e11d04d-209e-4fc5-848f-23c93d3b8f14",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 2000,
+      "DURABILITY_INITIALVALUE": 2000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "8dba1e33-e1ee-4d92-ad50-30cdc3919f3e"
+  },
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier3",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "2b936975-1993-4fd9-adae-390e04c69388"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ]
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.25
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.25
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Medium",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 329
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+        "Value": 1
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "/Inventory/Items/Weapons/_MeleeWeaponDefProto",
+    "AttackBoxes": [
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.15
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.25
+        },
+        "extents": {
+          "x": 0.75,
+          "y": 0.6,
+          "z": 0.8
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": 1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0.5
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/new_Xenofungus_Axe",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Xenofungus_AxeBig",
+  "Visual": "Assets/Content/Craft/Weapons_Tools/Melee/1HandAxe_XenofungusSpiral",
+  "ItemNameLs": {
+    "Key": "#l10n4511"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n505132"
+  }
+}

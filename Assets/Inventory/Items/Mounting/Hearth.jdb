@@ -1,0 +1,35 @@
+{
+  "$type": "ItemResource",
+  "Id": "d0e2933f-0423-4b1f-84f6-cdb20d9756ee",
+  "MaxStack": 1,
+  "Weight": 10,
+  "ItemType": "/UtilPrefabs/ItemGroups/Bench",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/Hearth",
+  "BigIcon": "Assets/UI/UISprites/Items/HearthBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "/UtilPrefabs/Res/Prototypes/Mounting/Hearth_EntityObjectDef"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n375"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n376"
+  }
+}

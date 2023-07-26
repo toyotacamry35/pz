@@ -1,0 +1,61 @@
+{
+  "$type": "QuestDef",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Counter": {
+        "$type": "CraftCounterDef",
+        "Targets": [
+          "/Inventory/Recipes/Sessions/Armor_2_armsBP",
+          "/Inventory/Recipes/Sessions/Armor_2_chestBP",
+          "/Inventory/Recipes/Sessions/Armor_2_headBP",
+          "/Inventory/Recipes/Sessions/Armor_2_legsBP",
+          "/Inventory/Recipes/Sessions/Backpack_2BP",
+          "/Inventory/Recipes/Sessions/BeltBasicBP",
+          "/Inventory/Recipes/Sessions/Toxic_protection_2BP",
+          "/Inventory/Recipes/Sessions/BattlePotion_2BP",
+          "/Inventory/Recipes/Sessions/ColdProtectionSoupBP",
+          "/Inventory/Recipes/Sessions/DryedJuicyMeatBP",
+          "/Inventory/Recipes/Sessions/MeatStewBP",
+          "/Inventory/Recipes/Sessions/HealingBandageBP",
+          "/Inventory/Recipes/Sessions/RoastedJuicyMeatBP",
+          "/Inventory/Recipes/Sessions/DecoyKvarAlphaBP",
+          "/Inventory/Recipes/Sessions/Chest_2BP",
+          "/Inventory/Recipes/Sessions/Cocoon_1BP",
+          "/Inventory/Recipes/Sessions/ReinforcedHullFragmentBP",
+          "/Inventory/Recipes/Sessions/ReinforcedMeridCarapaceBP",
+          "/Inventory/Recipes/Sessions/TemperedSpiralStemBP",
+          "/Inventory/Recipes/Sessions/Knife_2",
+          "/Inventory/Recipes/Sessions/Pick_2",
+          "/Inventory/Recipes/Sessions/Spear_2BP",
+          "/Inventory/Recipes/Sessions/Sword_2",
+          "/Inventory/Recipes/Sessions/WarAxe_2BP",
+          "/Inventory/Recipes/Sessions/WarHammer_2BP"
+        ],
+        "CraftSource": "Any",
+        "Count": 15,
+        "Id": "e9f47867-ae62-4de5-a70a-d9ecdec06582"
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/CraftAnything_Tier_02"
+        }
+      ],
+      "Id": "54dcf1b6-d9cd-42fe-98a6-9228c2dd5a17"
+    },
+    {
+      "$type": "PhaseDef",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Time": 1,
+        "Id": "8bc6335a-7646-4315-9875-9ca7f1aa17e6"
+      },
+      "Id": "c0229389-5aa6-4d02-a4b6-c805b2028013"
+    }
+  ],
+  "Id": "5547556e-94a1-418e-a0d7-15ce21d995eb"
+}

@@ -1,0 +1,112 @@
+{
+  "$type": "QuestDef",
+  "Id": "97a01d82-eb1e-4cc0-adb2-5856a6a88ebd",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Найти корень
+    {
+      "$type": "PhaseDef",
+      "Id": "0b940223-0af9-4ec8-94cb-b76be01e3c4b",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "938831a6-5839-48b3-a838-6a187b90d926",
+        "Target": "/UtilPrefabs/Spells/Quests/HubQuest/RootCheck/Root2/RootCheckOnArea2Spell",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n502816"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502817"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502818"
+      }
+    }
+    , //Пометить корень
+    {
+      "$type": "PhaseDef",
+      "Id": "a41d0326-4336-4d45-9175-00d3cd9987e7",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/RootCheck/POIRootCheck2"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "6a866694-c8c1-4110-a1f5-b0f5edfa093f",
+        "Target": "/Inventory/Knowledge/Quest/HubQuest/RootCheck/RootCheck2KW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/RootCheck/POIRootCheck2"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n502819"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502820"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502821"
+      }
+    }
+    , //Вернуться к НПС
+    {
+      "$type": "PhaseDef",
+      "Id": "f495c993-c339-4b71-99c0-36a9f242cf9b",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "52b82301-a28f-431d-b18e-e8d3324e1b10",
+        "Target": "/Inventory/Knowledge/Quest/HubQuest/Guard_RootCheck/GvardTookQuest3complete2KW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n502822"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502823"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502824"
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+    },
+    {
+      "$type": "ImpactCastSpellDef",
+      "Spell": "/UtilPrefabs/Spells/Quests/HubQuest/Reward/RewardHubQuest3_2"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n502825"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n502826"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n502827"
+  }
+}

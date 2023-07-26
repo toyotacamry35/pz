@@ -1,0 +1,37 @@
+{
+  "$type": "Buff",
+  "Id": "494E7ED3-50CA-4500-BD40-CF4DA1A81F88",
+  "Duration": 600,
+  "IsInfinite": false,
+//  "IsStatusEffect": true,
+//  "SpellIcon": "Assets/UI/UISprites/ItemsDB/Traumas/PosEffDropzone",
+//  "InteractionDescriptionLs": {
+//    "Key": "#l10n2888"
+//  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/FallDamageModifier",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": -0.7
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/JumpHeightMod",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 0.5
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/JumpLengthMod",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 0.5
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "$type": "PerkResource",
+  "Id": "8BB53A36-3DED-4795-8330-262C68A914D3",
+  "MaxStack": 3,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkCommonCombat",
+  "SpellModifiers": {
+    "Condition": {
+      "$type": "PredicateOr",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/TestTag1"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackStatModifier",
+        "Id": "7F6944B8-67A8-46DE-91C7-A8095B0EF2BC",
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+        "Summand": 0.1
+      },
+      {
+        "$type": "SpellCalcerModifier<float>",
+        "Id": "1E93FD67-7921-4152-8C32-F08671ADA0D1",
+        "Variable": "/UtilPrefabs/Spells/Variables/StaminaCostMultiplier",
+        "Value": 1.2
+      },
+      {
+        "$type": "AttackActionsModifier",
+        "Id": "6D34EC64-036C-4EAB-B505-946D1E0B8068",
+        "Target": "Victim",
+        "AddAction": {
+          "$type": "AttackCastSpell",
+          "When": "Always",
+          "Spell": "/UtilPrefabs/Spells/Reactions/TestFxReactionSpell",
+          "Params": {
+            "Attacker": "/UtilPrefabs/Spells/Params/Target",
+            "HitLocalPoint": "/UtilPrefabs/Spells/Params/LocalPoint",
+            "HitLocalRotation": "/UtilPrefabs/Spells/Params/LocalRotation"
+          }
+        }
+      },
+      {
+        "$type": "CastExtraSpellModifier",
+        "Id": "C6BF5D83-00B5-435D-8F15-D9CAC88C24DB",
+        "Spell": {
+          "$type": "Spell",
+          "Duration": 0,
+          "Words": [
+            {
+              "$type": "ImpactDamageObject",
+              "Damage": 20
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504869"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504870"
+  }
+}

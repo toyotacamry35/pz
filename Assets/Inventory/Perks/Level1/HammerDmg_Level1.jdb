@@ -1,0 +1,33 @@
+{
+  "$type": "PerkResource",
+  "Id": "46762bc1-8291-4552-b664-fbabaa1d53f1",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateOr",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/HammerAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackStatModifier",
+        "Id": "c5143ab7-7d74-48ff-b5b6-1c82b21916d1",
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+        "Multiplier": 1.1
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkCommonCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15020"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15021"
+  }
+}

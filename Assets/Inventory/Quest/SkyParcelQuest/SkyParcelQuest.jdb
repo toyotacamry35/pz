@@ -1,0 +1,142 @@
+{
+  "$type": "QuestDef",
+  "Id": "4788d2cd-d0c4-4151-b4cd-30e71499b83d",
+  "Group": "Main",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Игрок отправляется в квадрат
+    {
+      "$type": "PhaseDef",
+      "Id": "3df4cdaf-0273-4c70-8865-940390f67cd9",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef", // POI указывающий в центр квадрат(Примерно)
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SkyParcelQuest/SkyParcelQuest_CapsulPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible": true,
+        "Id": "71c9aca3-e314-434b-80de-2083775769cd",
+        "Target": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_EnterSector", //Спел на вход в квадрат.
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503950"
+      }, //Найти источник грохота
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503951"
+      } //Источником могло быть что угодно, возможно, что-то опасное. Главное, выяснить, что именно. Надеюсь, оно не токсично.
+    }, //Игрок добирается до капсулы. (Игрок прощел джамп пазл)
+    {
+      "$type": "PhaseDef",
+      "Id": "d099cd32-7766-444e-83bd-56f83492496c",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef", // POI указывающий на капсулу
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SkyParcelQuest/SkyParcelQuest_CapsulPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible": true,
+        "Id": "cb410f55-91af-45da-a7fa-b3eb94a35a69",
+        "Target": "/UtilPrefabs/Spells/Quests/SkyParcelQuest/SkyParcelQuest_CapsulFound",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4066"
+      }, //Осмотреть капсулу
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4067"
+      } // Похоже, дело в упавшей аварийной капсуле. Нужно осмотреть ее поближе.
+    }, //Игрок открывает капсулу
+    {
+      "$type": "PhaseDef",
+      "Id": "377eff4a-e1c0-44e0-b49e-e0c8152539bf",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef", // POI указывающий на капсулу
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SkyParcelQuest/SkyParcelQuest_CapsulPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "8acf36ef-144e-4b19-b64c-8843db8f9e21",
+        "Target": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulOpenKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SkyParcelQuest/SkyParcelQuest_CapsulPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4068"
+      }, //Вскрыть капсулу
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503952"
+      } //Чтобы понять в чем дело, придется вскрыть капсулу. Может, если не справлюсь сам, Ральф поможет?
+    }, //Игрок относит лут в город.
+    {
+      "$type": "PhaseDef",
+      "Id": "26514624-c1b8-4a81-b7b1-a39b50f6d4b6",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef", // POI указывающий на капсулу
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible": true,
+        "Id": "f7b58f26-1081-42d9-88f7-250c876192d0",
+        "Target": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CompletedKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503953"
+      }, //Поговорить с Твинки
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503954"
+      } //Мне удалось вскрыть капсулу. Внутри оказался погибший колонист и куча битой электроники. Нужно отдать микросхемы Ральфу.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactAddPerkDef",
+      "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n4072"
+  }, //Сейсмический толчок
+  "ShortDescriptionLs": {
+    "Key": "#l10n503955"
+  }, //Рядом с постом Ральфа что-то громыхнуло. Нужно разобраться.
+  "DescriptionLs": {
+    "Key": "#l10n503956"
+  } //Ральф говорит, что неподалеку от его лагеря, что-то случилось. Он услышал грохот и затряслась земля. Это мог быть сейсмический толчок или что-то посерьезнее. Я согласился выяснить подробности.
+}

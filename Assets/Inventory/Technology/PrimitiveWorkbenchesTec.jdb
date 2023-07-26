@@ -1,0 +1,31 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "002ce856-50dc-407b-bc02-af6c00e0bb2b",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 6,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 3,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/FireplaceTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 2,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/PrimitiveWorkbenchesKW"
+        ]
+    }
+}

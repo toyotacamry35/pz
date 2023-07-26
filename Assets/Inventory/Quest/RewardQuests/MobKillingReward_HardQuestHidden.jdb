@@ -1,0 +1,75 @@
+{
+  "$type": "QuestDef",
+  "Id" : "0f7c336f-e495-4f67-962f-c2dcebd5621e",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id" : "2f58e08a-e93b-42b6-af79-648bf0349316",
+      "Counter": {
+        "$type": "MobKillsCounterDef",
+        "Id" : "12c72122-4571-4993-b54e-26f37db3049e",
+        "Targets": [
+          "/AI/Defs/Mobs/Kvar_Alpha_Legionary/Kvar_Alpha_Stats",
+          "/AI/Defs/Mobs/Sahrim_Legionary/Sahrim_Ice_Stats",
+          "/AI/Defs/Mobs/Sahrim_Legionary/Sahrim_Stats",
+          "/AI/Defs/Mobs/Scyphopod_War_Boss_Legionary/Scyphopod_War_Boss_Stats",
+        ],
+        "Count": 100000,
+        "OnEveryCounterChangeImpacts": [
+          {
+            "$type": "ImpactCastSpell",
+            "Spell": {
+              "$type": "SpellDef",
+              "IgnoresDeath": true,
+              "Words": [
+                {
+                  "$type": "ImpactGrantAccountReward",
+                  "Target": {
+                    "$type": "SpellCaster"
+                  },
+                  "Reward": "/Sessions/Rewards/KillMobsHardReward"
+                },
+                {
+                  "$type": "PredicateLogicalOrDef",
+                  "Predicates": [
+                    {
+                      "$type": "SpellPredicateFromCalcerPredicateDef",
+                      "Predicate": {
+                        "$type": "PredicateIsPvE"
+                      }
+                    },
+                    {
+                      "$type": "SpellPredicateFromCalcerPredicate",
+                      "Predicate": {
+                        "$type": "PredicateEquals<Resource>",
+                        "Lhs": {
+                          "$type": "CalcerFaction",
+                          "Entity": {
+                            "$type": "CalcerSpellParameter<OuterRef>",
+                            "Parameter": {
+                              "$type": "SpellCaster"
+                            }
+                          }
+                        },
+                        "Rhs": {
+                          "$type": "CalcerResource",
+                          "Value": "/Inventory/Factions/Human"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "OnSuccess": []
+    }
+  ],
+  "OnSuccess": [
+    
+  ]
+}

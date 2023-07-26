@@ -1,0 +1,90 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "d2c16098-650e-4f00-9fe4-43d656fa2d32",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "df6a7d1e-751a-42bd-b1ed-daa9082af059",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key06Quest/Key06POI"
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "54d13d93-c781-49eb-99e6-22ee09a7f564",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/LifeEssence",
+        "Count": 80
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key06Quest/Key06POI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503617"
+      }, // Раздобыть жизненную эссенцию
+      "ShortDescriptionLs": {
+        "Key": "#l10n503618"
+      }, // Это продукт жизнедеятельности растения, растущего в жерле вулкана
+      "DescriptionLs": {
+        "Key": "#l10n504921"
+      }// Гибернация в капсуле может снизить уровень Влияния у пациента, если добавить в состав для гибернации сок особого растения, которое растет только в местах с очень высокой температурой, например в жерле вулкана. Колонисты называют его \"жизненная эссенция\". Вулкан помечен на карте, но добраться туда будет очень не просто.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "3c132fc4-686c-4cdd-bb5c-fdebcf98f5de",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "ff350bc6-ae8b-4041-9048-b253d45278b6",
+        "Target": "/UtilPrefabs/Spells/Quests/Key06Quest/Key06Quest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "c3c23678-a8ae-433c-b37b-02f3cfa805f7",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/LifeEssence",
+        "Less": true,
+        "Count": 80
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n503620"
+      }, // Отнести жизненную эссенцию доктору Тенушу
+      "ShortDescriptionLs": {
+        "Key": "#l10n504922"
+      }, // Его можно найти в Хабе
+      "DescriptionLs": {
+        "Key": "#l10n504923"
+      }// Эссенция получена. Её нужно отнести доктору Тенушу, чтобы он добавил ее в состав для гибернции в вашей капсуле.
+    }
+  ],
+  "OnSuccess": [{
+    "$type": "ImpactAddPerkDef",
+    "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+  }],
+  "NameLs": {
+    "Key": "#l10n503622"
+  },
+  "DescriptionLs": {}
+}

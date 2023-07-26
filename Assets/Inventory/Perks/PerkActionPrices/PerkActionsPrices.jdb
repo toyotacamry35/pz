@@ -1,0 +1,144 @@
+{
+    "$type": "PerkActionsPricesDef",
+    "Id": "17509fee-b6a7-4a63-8edb-fd19f46fbdc2",
+    //Дефолтные цены сохранения перков - от типа перка
+    "PerkSavingDefaultCosts": [
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": 0
+                    }
+                ]
+            }
+        },
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level2",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": 0
+                    }
+                ]
+            }
+        },
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level3",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": 0
+                    }
+                ]
+            }
+        }
+    ],
+    //Цены сохранения особых перков
+    "PerkSavingCustomCosts": [
+        {
+            "Item": "/Inventory/Perks/Test/InvWeightMax_Level1_QA",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": -5
+                    }
+                ]
+            }
+        }
+    ],
+    //Цены апгрейда permanent-слотов перков (ДО уровня)
+    "ToPerkSlotUpgradingCosts": [
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": -1
+                    }
+                ]
+            }
+        },
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level2",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": -1
+                    }
+                ]
+            }
+        },
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level3",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": -1
+                    }
+                ]
+            }
+        }
+    ],
+    //Дефолтные прибыли разбора перков - от типа перка
+    "PerkDisassemblyDefaultBenefits": [
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+            "AmountOfResourcesMultiplier": "/Inventory/Perks/PerkActionPrices/PerkPremiumMultiplier",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": 0
+                    }
+                ]
+            }
+        },
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level2",
+            "AmountOfResourcesMultiplier": "/Inventory/Perks/PerkActionPrices/PerkPremiumMultiplier",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": 0
+                    }
+                ]
+            }
+        },
+        {
+            "PerkType": "/UtilPrefabs/ItemGroups/Perk_Level3",
+            "AmountOfResourcesMultiplier": "/Inventory/Perks/PerkActionPrices/PerkPremiumMultiplier",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": 0
+                    }
+                ]
+            }
+        }
+    ],
+    //Прибыли разбора особых перков
+    "PerkDisassemblyCustomBenefits": [
+        {
+            "Item": "/Inventory/Perks/Test/InvWeightMax_Level1_QA",
+            "AmountOfResourcesMultiplier": "/Inventory/Perks/PerkActionPrices/PerkPremiumMultiplier",
+            "Price": {
+                "TechPointCosts": [
+                    {
+                        "TechPoint": "/Inventory/Currencies/TechPointR2",
+                        "Count": 40
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+  "$type": "ItemResource",
+  "MaxStack": 5,
+  "Weight": 0,
+  "ItemType": "/UtilPrefabs/ItemGroups/Bench",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/Fireplace",
+  "BigIcon": "Assets/UI/UISprites/Items/FirePlaceBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1.0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1.0
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "./Board5_obelisk"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504959"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504960"
+  },
+  "Id": "7c8524c2-9611-4839-9649-ecf4ee2680fc"
+}

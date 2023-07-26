@@ -1,0 +1,57 @@
+{
+  "$type": "QuestDef",
+  "Id": "39d0dc37-4a30-428d-9db4-f090d954f35a",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "8e9e9abf-f025-4b80-bff4-19b322ab9a82",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "3baabee4-6b8a-4252-8a2c-a86b559a98c5",
+        "Targets": [
+          "/UtilPrefabs/Spells/Consumables/HealingBandageSpell",
+          "/UtilPrefabs/Spells/Consumables/MediumAntidoteSpell",
+          "/UtilPrefabs/Spells/Consumables/RegenerativeCompressSpell",
+          "/UtilPrefabs/Spells/Consumables/StandardMedicalKitSpell",
+          "/UtilPrefabs/Spells/Consumables/WeakAntidoteSpell"
+        ],
+        "Count": 10
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": {
+            "$type": "LootTableDef",
+            "DefaultPredicate": {
+              "$type": "LootTablePredicatePlayerHaveNotPerkDef"
+            },
+            "LootTable": [
+              {
+                "ItemResRefPack": {
+                  "ItemResource": "/Inventory/Perks/Special/Empty",
+                  "Count": 0
+                },
+                "WeightCalcer": {
+                  "$type": "LootItemChanceWeightCalcerConstantDef",
+                  "Value": 20
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "$type": "PhaseDef",
+      "Id" : "8755e799-5640-41e0-9e7b-673dae0cce7a",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Id" : "696ec324-6497-48e4-94ea-fd68b117be0b",
+        "Time": 10
+      }
+    }
+  ]
+}

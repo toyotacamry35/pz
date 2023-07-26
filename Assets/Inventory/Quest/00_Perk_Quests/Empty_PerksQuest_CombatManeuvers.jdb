@@ -1,0 +1,55 @@
+{
+  "$type": "QuestDef",
+  "Id": "c8418524-94c9-45ed-bb09-c2a528f9a2b7",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "63601425-e379-4691-8d12-565d3d0b3ed1",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "125d6481-3c9a-4144-9209-50b17ab1530b",
+        "Targets": [
+          "/UtilPrefabs/Spells/Combat/Attacks/AttackHard",
+          "/UtilPrefabs/Spells/Locomotion/Dash",
+          "/UtilPrefabs/Spells/Locomotion/DashForward"
+        ],
+        "Count": 200
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": {
+            "$type": "LootTableDef",
+            "DefaultPredicate": {
+              "$type": "LootTablePredicatePlayerHaveNotPerkDef"
+            },
+            "LootTable": [
+              {
+                "ItemResRefPack": {
+                  "ItemResource": "/Inventory/Perks/Special/Empty",
+                  "Count": 0
+                },
+                "WeightCalcer": {
+                  "$type": "LootItemChanceWeightCalcerConstantDef",
+                  "Value": 20
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "$type": "PhaseDef",
+      "Id" : "cbc6308c-1772-47cd-95eb-ddab74cd30f5",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Id" : "92f1039f-ff10-4efb-9b97-9590abed39c0",
+        "Time": 10
+      }
+    }
+  ] 
+}

@@ -1,0 +1,84 @@
+{
+  "$type": "QuestDef",
+  "Group": "Daily",
+  "Id": "4201a22c-4801-4997-94bd-9684561ef1df",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //5 факелов,
+      "Id": "ce812986-c458-4896-a3dd-8fc163758b9b",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "97bf699a-135a-4fef-bcf4-1d65e21fef08",
+        "Target": "/Inventory/Items/Weapons/TorchFoam",
+        "Count": 5
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3645"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503565"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503566"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "a619470b-5384-40b6-9ed4-de722f03c017",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "4e386e2b-9550-44ac-b9ad-87f248ef0b23",
+        "Target": "/UtilPrefabs/Spells/Quests/2_Desert/RangerTorchQuest/RangerTorchQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "e44db97f-7240-49d1-821d-558ac5583ffc",
+        "Less": true,
+        "Target": "/Inventory/Items/Weapons/TorchFoam",
+        "Count": 5
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/2_Desert/RangerTorchQuest/RangerTorchQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3647"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503567"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3649"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503568"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503569"
+  }
+}

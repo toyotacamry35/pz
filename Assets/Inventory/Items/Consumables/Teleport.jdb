@@ -1,0 +1,48 @@
+{
+  "$type": "ItemResource",
+  "Id": "7C981C9B-5B10-4399-981A-AE14A151BD16",
+  "MaxStack": 1,
+  "Weight": 0.05,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Medicine",
+  "Icon": "Assets/UI/UISprites/Items/Controller",
+  "BigIcon": "Assets/UI/UISprites/Items/ControllerBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "ConsumableData": {
+    "$type": "ConsumDef",
+    "SpellsGroups": [
+      {
+        "DontRemoveWhenUse": true,
+        "Spells": [
+          "/UtilPrefabs/Spells/Consumables/TeleportSpellRoot"
+        ],
+        "ActionTitleLs": {
+          "Key": "#l10n299"
+        }
+      }
+    ]
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n505163",
+    "IsValid": true
+  },
+  "DescriptionLs": {
+    "Key": "#l10n505164",
+    "IsValid": true
+  }
+}

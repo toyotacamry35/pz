@@ -1,0 +1,310 @@
+{
+  "$type": "QuestDef",
+  "Id": "c6e60c90-c9fb-4cc7-835b-5d5c46d51118",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    //StartQuest
+    {
+      "$type": "PhaseDef",
+      "Id": "53a9c594-cffa-4055-9576-dfe011483a6f",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_1"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "413ccb9c-da8f-4f06-9f98-12a49d99e713",
+        "Target": "/Quests/BiomeTest/StagesSpells/BiomeTest1",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_1"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2834"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2835"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2836"
+      }
+    }
+    , //Point_1
+    {
+      "$type": "PhaseDef",
+      "Id": "35d08126-6ce7-456c-b3d6-7d391c6448a6",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_2"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "163a56c6-2678-49b7-9394-33656f81120f",
+        "Target": "/Quests/BiomeTest/StagesSpells/BiomeTest2",
+        "Count": 1
+      },
+      "OnSuccess": [
+        /*{
+                    "$type": "ImpactCastSpell",
+                    "Caster": {
+                        "$type": "SpellCaster"
+                    },
+                    "Spell": "/Quests/BiomeTest/Events/BiomeTest001",
+                },*/
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_2"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2837"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2838"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2839"
+      }
+    }
+    , //Point_2
+    {
+      "$type": "PhaseDef",
+      "Id": "77e9f93c-e49e-4a16-a690-020f2f854651",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_3"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "1307c8c9-9902-4b1e-966b-28dfd42fef8e",
+        "Target": "/Quests/BiomeTest/StagesSpells/BiomeTest3",
+        "Count": 1
+      },
+      "OnSuccess": [
+        /*{
+                    "$type": "ImpactCastSpell",
+                    "Caster": {
+                        "$type": "SpellCaster"
+                    },
+                    "Spell": "/Quests/BiomeTest/Events/BiomeTest002",
+                },*/
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_3"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2840"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2841"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2842"
+      }
+    }
+    , //Point_3
+    {
+      "$type": "PhaseDef",
+      "Id": "e4b2ce2e-5ea9-4964-a384-002af068d5e2",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_4"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "5cfedc30-b6ef-4405-8dc3-7a41f7410bee",
+        "Target": "/Quests/BiomeTest/StagesSpells/BiomeTest4",
+        "Count": 1
+      },
+      "OnSuccess": [
+        /*{
+                    "$type": "ImpactCastSpell",
+                    "Caster": {
+                        "$type": "SpellCaster"
+                    },
+                    "Spell": "/Quests/BiomeTest/Events/BiomeTest003",
+                },*/
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_4"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2843"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2844"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2845"
+      }
+    }
+    , //Point_4
+    {
+      "$type": "PhaseDef",
+      "Id": "1d6f3c00-9d31-4066-adec-3d355ca056f5",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_5"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "66fb6e25-0c20-45d5-a2cd-319b2dc26e80",
+        "Target": "/Quests/BiomeTest/StagesSpells/BiomeTest5",
+        "Count": 1
+      },
+      "OnSuccess": [
+        /*{
+                    "$type": "ImpactCastSpell",
+                    "Caster": {
+                        "$type": "SpellCaster"
+                    },
+                    "Spell": "/Quests/BiomeTest/Events/BiomeTest004",
+                },*/
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_5"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2846"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2847"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2848"
+      }
+    }
+    , //Point_5
+    {
+      "$type": "PhaseDef",
+      "Id": "65e49173-7ff2-4d3f-b5e5-ea7b485cc801",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_6"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "307cde1c-6d2f-4aef-9637-b4b27add79e7",
+        "Target": "/Quests/BiomeTest/StagesSpells/BiomeTest6",
+        "Count": 1
+      },
+      "OnSuccess": [
+        /*{
+                    "$type": "ImpactCastSpell",
+                    "Caster": {
+                        "$type": "SpellCaster"
+                    },
+                    "Spell": "/Quests/BiomeTest/Events/BiomeTest005",
+                },*/
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_6"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2849"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2850"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2851"
+      }
+    }
+    , //Point_6
+    {
+      "$type": "PhaseDef",
+      "Id": "975fd31b-0a3a-4014-a6aa-76d0a37d5efc",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_Finish"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "669031c1-e78b-47fc-8362-2338f6e7568e",
+        "Target": "/Quests/BiomeTest/StagesSpells/BiomeTestFinish",
+        "Count": 1
+      },
+      "OnSuccess": [
+        /*{
+                    "$type": "ImpactCastSpell",
+                    "Caster": {
+                        "$type": "SpellCaster"
+                    },
+                    "Spell": "/Quests/BiomeTest/Events/BiomeTest006",
+                },*/
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/Quests/BiomeTest/POI/POI_view_Finish"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2852"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2853"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2854"
+      }
+    }
+    , //Finish
+    {
+      "$type": "PhaseDef",
+      "Id": "ee45ef46-593b-4edd-9163-01c341ce99af",
+      "ShortDescription": "",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "ca45a232-d4f7-4bb3-95b3-6207a16cf53e",
+        "Target": "/Quests/BiomeTest/StagesSpells/BiomeTestFinish",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpell",
+          "Caster": {
+            "$type": "SpellCaster"
+          },
+          "Spell": "/Quests/BiomeTest/StagesSpells/BiomeTestFinish"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2855"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2856"
+      }
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n1403"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n1404"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n1405"
+  }
+}

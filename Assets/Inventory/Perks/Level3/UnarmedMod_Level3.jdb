@@ -1,0 +1,59 @@
+{
+  "$type": "PerkResource",
+  "Id": "b1bfaeda-4d58-4842-a165-92c199374c57",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level3",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/UnarmedAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackActionsModifier",
+        "Id": "80d3a2fa-3fca-4e40-9342-d6e10025a060",
+        "Target": "Victim",
+        "AddAction": {
+          "$type": "AttackCastSpell",
+          "When": "Always",
+          "Spell": {
+            "$type": "Spell",
+            "Duration": 0,
+            "Words": [
+              {
+                "$type": "PredicateCompareStat",
+                "Type": "Less",
+                "Target": {
+                  "$type": "SpellCaster"
+                },
+                "Stat": "/UtilPrefabs/Stats/Combat/Block/BlockActive",
+                "Value": 0.001
+              },
+              {
+                "$type": "ImpactChangeTimeStatDef",
+                "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+                "Target": {
+                  "$type": "SpellCaster"
+                },
+                "Value": -45
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkEpicCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15052"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15053"
+  }
+}

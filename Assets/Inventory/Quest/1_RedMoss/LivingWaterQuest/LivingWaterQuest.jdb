@@ -1,0 +1,320 @@
+{
+  "$type": "QuestDef",
+  "Id": "febb81fa-7535-46b1-a327-deeaed28d475",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Игрок идет кормить таблетками выживших.,
+      "Id": "faa6691e-f1ec-40b1-9c60-a26d0f6c962f",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/1_RedMoss/LivingWaterQuest/POILivingWaterQuest_ColonistSaimonPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "826bd5f5-cf71-418b-8593-9b52aac03cd9",
+        "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_ColonistSaimonKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/1_RedMoss/LivingWaterQuest/POILivingWaterQuest_ColonistSaimonPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3586"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3587"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Игрок рассказывает Тенушу о проблеме.,
+      "Id": "75485f03-bcec-4a16-9952-226818f86e00",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "9f648952-7f21-42cf-a68d-0b07426d75ea",
+        "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_UnlockBackpackSimonKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3588"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3589"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3590"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Поиск рюкзака,
+      "Id": "835822c4-a327-4d82-84e9-c8966a5bd209",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "253d212e-b161-4362-be94-10efa7515567",
+        "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_OpenBackPackKW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3591"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3592"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Найти труп сцифории,
+      "Id": "e824877d-7338-4d53-8ab4-16b2e32331e7",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/1_RedMoss/LivingWaterQuest/POILivingWaterQuest_SciforiaBodyPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "22c7d48e-d01e-48cd-90fe-fe6f138dc757",
+        "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_SciforiaSearchKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/1_RedMoss/LivingWaterQuest/POILivingWaterQuest_SciforiaBodyPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3593"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503888"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3595"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернутся к Тенушу в Хаб.,
+      "Id": "a25b5d9f-6d3a-4b0b-a7d1-4d0d65341d30",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "092e0a19-a142-4279-bfb3-e91702421efb",
+        "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_HubDocSecondUnlockKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3596"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3991"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3597"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Рассказать Саймону, что живой воды нет.,
+      "Id": "175874bc-9456-4689-a92f-ec862202d2bd",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/1_RedMoss/LivingWaterQuest/POILivingWaterQuest_ColonistSaimonPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "f1e80fc9-90b2-4a80-a5ea-2245ccd26be1",
+        "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_ColonistSimon2KW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/1_RedMoss/LivingWaterQuest/POILivingWaterQuest_ColonistSaimonPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3598"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3599"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Рассказать тенушу, что деб все равно не берет таблетки,
+      "Id": "20ccc7c9-55e4-47c5-bd70-5cfa3ad3148f",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "4aecb6eb-0a98-4797-9d74-eb0d3232c81d",
+        "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_TenushBottle",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3600"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3601"
+      }
+    },
+    {
+      "$type": "PhaseDef", //игрок делает флягу,
+      "Id": "d64767cb-3f4c-4939-ac60-5d181c80424f",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "1cb6475d-b01c-4719-914e-a75084747645",
+        "Target": "/Inventory/Items/Consumables/Flask",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3602"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3603"
+      }
+    },
+    {
+      "$type": "PhaseDef",
+      "Id" : "38d82070-d674-44d7-b46a-1521950a9f63",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/1_RedMoss/LivingWaterQuest/POILivingWaterQuest_ColonistSaimonPOI"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id" : "99b9b32e-48d2-4099-a1f7-5f12ec486832",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounter",
+            "Id" : "0467886b-3f9c-4b24-a738-256e5bfeb615",
+            "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_CompletedKW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounter",
+            "Id" : "54687fa1-946d-4cf4-9f8e-e3e082c15d6f",
+            "Target": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_SimonfailKW",
+            "Count": 1
+          }
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/1_RedMoss/LivingWaterQuest/LivingWaterQuest_Reward" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/1_RedMoss/LivingWaterQuest/LivingWaterQuest_RewardSimon" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/1_RedMoss/LivingWaterQuest/POILivingWaterQuest_ColonistSaimonPOI"
+        },
+        {
+          "$type": "ImpactRemoveItemDef", //забираем у игрока предметы, кот. он должен был сдать
+          "Item": "/Inventory/Items/Consumables/Flask",
+          "Count": 1
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3604"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3992"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3605"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3606"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3607"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3608"
+  }
+}

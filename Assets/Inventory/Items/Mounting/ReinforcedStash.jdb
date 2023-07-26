@@ -1,0 +1,35 @@
+{
+  "$type": "ItemResource",
+  "Id": "a1b8181f-9f72-4501-8535-ca65f4a919e5",
+  "MaxStack": 1,
+  "Weight": 8,
+  "ItemType": "/UtilPrefabs/ItemGroups/Container",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/new_ReinforcedStash",
+  "BigIcon": "Assets/UI/UISprites/Items/new_ReinforcedStashBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "/UtilPrefabs/Res/Prototypes/Mounting/ReinforcedStash_EntityObjectDef"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4361"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4362"
+  }
+}

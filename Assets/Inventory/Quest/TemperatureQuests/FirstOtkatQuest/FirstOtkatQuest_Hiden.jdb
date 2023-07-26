@@ -1,0 +1,42 @@
+{
+    "$type": "QuestDef",
+    "Id" : "92fb1ce6-633d-46bc-a52e-886910385e8c",
+    "Group": "Hidden",
+    "Phases": [
+      {
+        "$type": "PhaseDef",
+        "Id" : "0795bfcb-6ccd-42d7-b104-ccbe97099963",
+        "Counter": {
+            "$type": "MutationCounterDef",
+            "IsInvisible":true,
+            "Id" : "693bff15-db8d-4ba5-bf39-35554baaabec",
+            "Stage": "/Inventory/Factions/Stages/HalfHuman"
+        },
+        "OnSuccess": []
+      },
+      {
+        "$type": "PhaseDef",
+        "Id" : "a6a8dca4-01b8-449d-83ec-60b6630b5bb4",
+        "OnStart": [],
+        "Counter": {
+          "$type": "TimerCounter",
+          "IsInvisible":true,
+          "Id" : "70b3d2a8-e36d-4190-8bd7-0ddf9575152d",
+          "Time": 10
+        },
+        "OnSuccess":[
+          {
+            "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+            "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/FirstOtkatQuest/FirstOtkatQuest_Start" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+          }
+        ]
+      }
+    ],
+    "NameLs": {
+      "Key": "#l10n1159"
+    },
+    "DescriptionLs": {
+      "Key": "#l10n1160"
+    }
+  }
+  

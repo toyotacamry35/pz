@@ -1,0 +1,32 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "79732f4e-150a-4eda-9aef-df51d47c9e31",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Food",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 9,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 7,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/PrimitiveCookingTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 2,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/SimpleCookingKW",
+            "/Inventory/Knowledge/FromTechnologies/XenoCookingPrimitiveKW"
+        ]
+    }
+}

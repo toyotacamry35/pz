@@ -1,0 +1,33 @@
+{
+  "$type": "ItemResource",
+  "Id": "33c989c0-8f90-41df-8ae1-f5b93490c11c",
+  "MaxStack": 1,
+  "Weight": 5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Bench",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/PressMachine",
+  "BigIcon": "Assets/UI/UISprites/Items/PressMachineBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "/UtilPrefabs/Res/Prototypes/Mounting/Press_EntityObjectDef"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504318"
+  },
+  "DescriptionLs": {}
+}

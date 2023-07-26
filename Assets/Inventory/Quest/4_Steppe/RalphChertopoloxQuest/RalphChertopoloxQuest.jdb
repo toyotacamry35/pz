@@ -1,0 +1,83 @@
+{
+  "$type": "QuestDef",
+  "Id": "513bc4ad-d65d-4319-abc0-169b9fd35ac1",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //9 панцирей,
+      "Id": "d6965ea0-bc8e-4a83-8be3-88c55f0c9d01",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "85e676e1-fe51-4c89-b507-c57875bd1a44",
+        "Target": "/Inventory/Items/Res/ThistleHead",
+        "Count": 20
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3686"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3687"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3688"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "959c5b80-d370-4a6f-a9b9-1c970df68d3c",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "1a81e33f-00df-471a-bd6e-910e93b5a113",
+        "Target": "/UtilPrefabs/Spells/Quests/4_Steppe/RalphChertopoloxQuest/RalphChertopoloxQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "17d967f4-f38a-40ff-ac98-cb242a964866",
+        "Less": true,
+        "Target": "/Inventory/Items/Res/ThistleHead",
+        "Count": 20
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/RalphChertopoloxQuest/RalphChertopoloxQuest_Reward" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3689"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3690"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503889"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3692"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3693"
+  }
+}

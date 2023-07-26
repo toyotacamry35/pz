@@ -1,0 +1,218 @@
+{
+  "$type": "ItemResource",
+  "$proto": "./_MeleeWeaponProto",
+  "Id": "63e5a0f8-5381-48c8-8a56-878f7da2afc7",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "e4eff449-5fe0-45d9-884e-005ff8ec48e8",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/FungalPlate",
+        "Count": 2
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/FungalPlate",
+        "Count": 2
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 2.5,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1500,
+      "DURABILITY_INITIALVALUE": 1500,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "1f672b49-f28d-403b-9655-6091cbcc683e"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "783ec526-c3c7-4078-aac1-42d8c7dd6f9c",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Medium",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 189
+      },  
+      {
+         "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+         "Value": 1
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "./_MiningWeaponDefProto",
+    "AttackBoxes": [
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.15
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.25
+        },
+        "extents": {
+          "x": 0.75,
+          "y": 0.6,
+          "z": 0.8
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": 1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0.5
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/FungalAxeW",
+  "BigIcon": "Assets/UI/UISprites/Items/FungalAxeWBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/axeT1Fungus",
+  "ItemNameLs": {
+    "Key": "#l10n572"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n573"
+  }
+}

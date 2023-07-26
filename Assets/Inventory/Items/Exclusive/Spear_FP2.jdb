@@ -1,0 +1,68 @@
+{
+  "$type": "ItemResource",
+  "$proto": "/Inventory/Items/Weapons/_SpearWeaponProto",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "c0e8c5bb-bbef-4ab9-957d-d1f07d106b13"
+  },
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/WeaponMassive",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Big",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 123
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+        "Value": -2.45
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "/Inventory/Items/Weapons/_MeleeWeaponDefProto"
+  },
+  "Icon": "Assets/UI/UISprites/Items/new_glave",
+  "BigIcon": "Assets/UI/UISprites/Items/new_GlaveBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/GlaiveSentinel",
+  "ItemNameLs": {
+    "Key": "#l10n504827"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504828"
+  },
+  "Id": "59cb4fba-7b8b-446e-afad-22a8b517c1de"
+}

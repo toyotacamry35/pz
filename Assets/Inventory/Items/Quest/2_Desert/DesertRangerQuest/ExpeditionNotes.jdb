@@ -1,0 +1,33 @@
+{
+  "$type": "ItemResource",
+  "Id" : "dbd36138-8ddc-41c1-98fc-06d32fb7934e",
+  "MaxStack": 1,
+  "Weight": 0.1,
+  "ActionOnDeath": "LeaveAtCharacter",
+  "ItemType": "/UtilPrefabs/ItemGroups/Misc",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/Controller",
+  "BigIcon": "Assets/UI/UISprites/Items/ControllerBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n3570"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3571"
+  }
+}

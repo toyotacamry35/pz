@@ -1,0 +1,32 @@
+{
+  "$type": "ItemResource",
+  "Id": "bdb77f5a-0d02-409a-b913-6b05b388b758",
+  "MaxStack": 1,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Misc",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/new_Quest_key",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Quest_keyBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n502750"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n502751"
+  }
+}

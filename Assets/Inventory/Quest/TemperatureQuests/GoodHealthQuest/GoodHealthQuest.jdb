@@ -1,0 +1,44 @@
+{
+  "$type": "QuestDef",
+  "Id": "f3f7a0b3-871c-4dce-8c15-faec07ea8f6d",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Сделать 1 противоохлаждающий компресс,
+      "Id": "b7a3d6ef-258c-4204-a266-2e2035970d7a",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible": true,
+        "Id": "c66f6f6a-4f67-4e9c-8948-57b02baee0c3",
+        "Target": "/UtilPrefabs/Traumas/PosEffSated1",
+        "Count": 1
+      },
+      "NameLs": {
+        "Key": "#l10n504979"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504980"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504981"
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+      "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/GoodHealthQuest/GoodHealthQuest_Complete"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n504982"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n504983"
+  },
+  "DescriptionLs": {
+    "Key": ""
+  }
+}

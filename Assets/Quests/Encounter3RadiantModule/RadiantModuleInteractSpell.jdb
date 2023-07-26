@@ -1,0 +1,45 @@
+{
+  "$type": "SpellDef",
+  "Name": "RadiantModuleInteractSpell",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Duration": 2.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/Spells/IconExplore",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 1,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Enabled": true,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Knowledge": "/Quests/Encounter3RadiantModule/RadiantModuleKW",
+      "WhenToApply": "OnAny"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/FullStop",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1.0
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Enabled": true,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Knowledge": "/Quests/Encounter3RadiantModule/RadiantModuleKW",
+      "Policy": "OnStart",
+      "Inversed": true
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1429"
+  }
+}

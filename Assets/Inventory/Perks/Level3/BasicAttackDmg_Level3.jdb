@@ -1,0 +1,33 @@
+{
+  "$type": "PerkResource",
+  "Id": "15113ec1-92e8-4a3b-9a45-ad3f0401bf68",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level3",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/BasicAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackStatModifier",
+        "Id": "16b0a393-7f7f-49b7-b3d5-2b8827ca5f6d",
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+        "Multiplier": 1.05
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkEpicCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15042"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15043"
+  }
+}

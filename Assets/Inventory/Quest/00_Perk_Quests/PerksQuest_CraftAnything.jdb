@@ -1,0 +1,67 @@
+{
+  "$type": "QuestDef",
+  "Id": "eeb7697b-ad69-4ab4-a770-57ffdf19c531",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "89f30769-9fe0-41fa-ab44-6272422dca6c",
+      "Counter": {
+        "$type": "CraftCounterDef",
+        "Targets": [
+          "/Inventory/Recipes/Sessions/Armor_1_armsBP",
+          "/Inventory/Recipes/Sessions/Armor_1_chestBP",
+          "/Inventory/Recipes/Sessions/Armor_1_headBP",
+          "/Inventory/Recipes/Sessions/Armor_1_legsBP",
+          "/Inventory/Recipes/Sessions/BackpackT1YuttBP",
+          "/Inventory/Recipes/Sessions/Fire_protection_chest_1BP",
+          "/Inventory/Recipes/Sessions/Fire_protection_feet_1BP",
+          "/Inventory/Recipes/Sessions/Fire_protection_hands_1BP",
+          "/Inventory/Recipes/Sessions/Fire_protection_head_1BP",
+          "/Inventory/Recipes/Sessions/Fire_protection_legs_1BP",
+          "/Inventory/Recipes/Sessions/Toxic_protection_1BP",
+          "/Inventory/Recipes/Sessions/FlaskBP",
+          "/Inventory/Recipes/Sessions/DryedToughMeatBP",
+          "/Inventory/Recipes/Sessions/RoastedGerophitBP",
+          "/Inventory/Recipes/Sessions/RoastedToughMeatBP",
+          "/Inventory/Recipes/Sessions/FireplaceBP",
+          "/Inventory/Recipes/Sessions/Chest_1BP",
+          "/Inventory/Recipes/Sessions/FlimsyRopeBP",
+          "/Inventory/Recipes/Sessions/PressedThickLeatherBP",
+          "/Inventory/Recipes/Sessions/PressedThinLeatherBP",
+          "/Inventory/Recipes/Sessions/Knife_1_1BP",
+          "/Inventory/Recipes/Sessions/Knife_1_2BP",
+          "/Inventory/Recipes/Sessions/Pick_1_1BP",
+          "/Inventory/Recipes/Sessions/Pick_1_2BP",
+          "/Inventory/Recipes/Sessions/Spear_1_1BP",
+          "/Inventory/Recipes/Sessions/Spear_1_2BP",
+          "/Inventory/Recipes/Sessions/Sword_1BP",
+          "/Inventory/Recipes/Sessions/Torch_1BP",
+          "/Inventory/Recipes/Sessions/WarAxe_1BP",
+          "/Inventory/Recipes/Sessions/WarHammer_1_1BP",
+          "/Inventory/Recipes/Sessions/WarHammer_1_2BP"
+        ],
+        "CraftSource": "Any",
+        "Id": "92bcd105-e2d2-4593-a6a8-e6a8b6200049",
+        "Count": 15
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/CraftAnything_Tier_01"
+        }
+      ]
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "a6a8dca4-01b8-449d-83ec-60b6630b5bb3",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Id": "70b3d2a8-e36d-4190-8bd7-0ddf9575151d",
+        "Time": 1
+      }
+    }
+  ]
+}

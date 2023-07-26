@@ -1,0 +1,36 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "90987a70-2c6b-44b8-9b83-90ede91ee8b4",
+    "Description": "This research method lets you perform experiments on known objects to get science points",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 20,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 10,
+                    "Science": "/Inventory/Science/Geology"
+                },
+                {
+                    "Count": 26,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/Research2Tec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 3,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/Research/Research3KW"
+        ]
+    }
+}

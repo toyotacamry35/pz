@@ -1,0 +1,32 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "5dd4dc46-fb09-465d-820d-cd86e58e09ef",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 5,
+                    "Science": "/Inventory/Science/Surveying"
+                },
+                {
+                    "Count": 6,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/LeatherWorkingTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 2,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/ReinforcedSuitKW",
+            "/Inventory/Knowledge/FromTechnologies/XenoCompoundsTier1KW"
+        ]
+    }
+}

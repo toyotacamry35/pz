@@ -1,0 +1,125 @@
+{
+  "$type": "QuestDef",
+  "Id": "86e633d9-305c-42fd-9f29-745bd6f0930d",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Group": "Daily",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "ed6b51f9-d889-4f93-8e37-21e65e51b7df",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/PressUnlockQuest_TakenKW",
+          "WhenToApply": "OnSuccess"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "d2eec40e-6adf-4dcd-b796-7b42196dd3b2",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "cab8295b-a3c2-41ff-a2b5-abbcde3ef828",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Stone",
+            "Count": 15
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "6578b1b7-ceeb-42c2-ad6a-561bb8b600c2",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Weapons/Rootstick",
+            "Count": 5
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "d250491c-35dc-46f9-86de-9f5943ef723f",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/SangviraStem",
+            "Count": 10
+          }
+        ],
+        "Count": 30
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504891"
+      }, // Собрать ресурсы для ремонта пресса
+      "DescriptionLs": {
+        "Key": "#l10n504892"
+      }// Пресс необходимо поддерживать в рабочем состоянии, поэтому все, кто хочет им воспользоваться, должны сначала собрать некоторое количество материалов, которые понадобятся для его ремонта, и сдать их инженеру Радову.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "cdb3d147-be72-4b1e-9336-0b6c247d59bc",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "f6356201-33e0-45b4-b403-b055451ad7ed",
+        "Target": "/UtilPrefabs/Spells/Quests/BenchQuest/PressUnlockQuest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "8e4f37a9-aee9-4478-942f-2f0d7c98ce3e",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "127e238a-0782-4fdc-bdd5-f6339339cdc6",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Stone",
+            "Less": true,
+            "Count": 15
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "e0b6abb8-5ece-4adc-b538-5ea99b66893f",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Weapons/Rootstick",
+            "Less": true,
+            "Count": 5
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "6532a1ab-c42f-4d5b-8174-e71c937aa61a",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/SangviraStem",
+            "Less": true,
+            "Count": 10
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n504893"
+      }, // Отнести материалы инженеру Радову
+      "ShortDescriptionLs": {},
+      "DescriptionLs": {
+        "Key": "#l10n504894"
+      }// Его можно найти в Хабе
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n504895"
+  }, // Разрешение на использование пресса
+  "ShortDescriptionLs": {
+    "Key": "#l10n504896"
+  }, // Чтобы пользоваться сложными станками в Хабе, необходимо получить разрешение у инженера Радова. Обычно, для этого достаточно просто принести ему материалы, которыми станок ремонтируется. Разрешение действует все следующие сутки после получения.
+  "DescriptionLs": {}
+}

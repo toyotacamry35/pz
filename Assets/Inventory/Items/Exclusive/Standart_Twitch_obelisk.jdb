@@ -1,0 +1,58 @@
+{
+  "$type": "ObeliskDef",
+  "$id": "71605a15-9f36-41b1-a8f4-d384ed93de75",
+  "Id" : "faaf3162-992d-4c23-8f7a-03e24ad02ac8",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id" : "f83ef956-ad14-42e5-bf5f-1c344002fabd",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": 0,
+        "LimitMaxDefault": 10000,
+        "InitialValue": 10000,
+        "IsBroadcasted": true
+      },
+    ]
+  },
+  "InitialSpells": [],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Id" : "7783618d-4068-4fd4-ac2f-218bc3d101aa",
+    "Title": "Obelisk"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  //Replace with correct visual
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Standart_Twitch_Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      },
+      {
+        "$type": "MortalObjectComponentDef"
+      },
+      {
+        "$type": "DeathResurrectHandlerDef",
+        "PlayAnimation": "Death"
+      }
+    ]
+  },
+  "QuerySpatialData": true
+}

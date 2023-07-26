@@ -1,0 +1,217 @@
+{
+  "$type": "ItemResource",
+  "$proto": "/Inventory/Items/Weapons/_MiningWeaponProto",
+  "Id": "1b295a00-4bb3-4d54-beb9-009456727459",
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier2",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "9a013110-fadd-41fa-8733-c6ac58a367ca"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ]
+  },
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 5000,
+      "DURABILITY_INITIALVALUE": 5000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "d866838b-642a-416b-9e03-24a076df0313"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ToolMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Big",
+    "DestructionPower": 200,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/MiningLootMultiplier",
+        "Value": 2
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 20
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/BuildingDestruction",
+        "Value": 1
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "/Inventory/Items/Weapons/_MiningWeaponDefProto",
+    "AttackBoxes": [
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.15
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1.25
+        },
+        "extents": {
+          "x": 0.75,
+          "y": 0.6,
+          "z": 0.8
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": 1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0.5
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.7
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 0.6
+        },
+        "extents": {
+          "x": 0.85,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -1.1,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 1,
+          "y": 0.6,
+          "z": 0.65
+        }
+      },
+      {
+        "center": {
+          "x": -0.9,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.8,
+          "y": 0.6,
+          "z": 0.7
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/new_Aluminium_Tool",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Aluminium_ToolBig",
+  "Visual": "Assets/Content/Craft/Weapons_Tools/Melee/ToolPick_AluminiumPlastic",
+  "ItemNameLs": {
+    "Key": "#l10n4479"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n505119"
+  }
+}

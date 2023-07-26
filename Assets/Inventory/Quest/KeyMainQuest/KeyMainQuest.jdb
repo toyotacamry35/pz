@@ -1,0 +1,162 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "44c0a436-2e94-4faa-ab41-872717ec153f",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "e39b6cc2-9ee0-4d00-94f8-84b17d7b55d8",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        },
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/KeyMainQuest/KeyMainQuest_TakenKW",
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "105346b8-59dd-4acb-a29a-01c5778eabcd",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "8c27d9be-59bc-400e-b066-0a23c824980c",
+            "Target": "/Inventory/Knowledge/Quest/Key01Quest/Key01Quest_CompletedKW",
+            "Count": 1,
+            "IsInvisible":true
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "7afd0887-fd44-42b6-88ce-312628e9091a",
+            "Target": "/Inventory/Knowledge/Quest/Key02Quest/Key02Quest_CompletedKW",
+            "Count": 1,
+            "IsInvisible":true
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "Id": "a3b28670-8c63-44b5-98dd-241d2dad23af",
+            "Target": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_CompletedKW",
+            "IsInvisible":true,
+            "Count": 1
+          }
+        ],
+        "Count": 3
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n504924"
+      }, // Помочь подготовить Хаб к ночи
+      "ShortDescriptionLs": {
+        "Key": "#l10n503625"
+      }, // Для этого нужно выполнить все задания инженера Радова
+      "DescriptionLs": {
+        "Key": "#l10n504925"
+      }// Колонисты используют каждую свободную минуту для того, чтобы подготовиться к предстоящей ночи и пережить её. Они действуют сообща - это единственный способ выжить. Тот же, кто не хочет участвовать в общем деле и работать наравне с остальными, будет изгнан из Хаба и не сможет провести ночь в капсуле гибернации, что на Кеплере означает верную смерть.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "2333e4af-fa54-4413-9dee-50b775841065",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "b6cdbee4-daab-4aa3-a145-13a365ea5d5e",
+        "SubCounters": [
+          {
+            "$type": "KnowledgeCounterDef",
+            "IsInvisible":true,
+            "Id": "97e915b2-5ab1-4cbe-a9f6-b7df8e01334b",
+            "Target": "/Inventory/Knowledge/Quest/Key04Quest/Key04Quest_CompletedKW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "IsInvisible":true,
+            "Id": "3fb0423d-7191-45fe-b057-cc8b20f1212c",
+            "Target": "/Inventory/Knowledge/Quest/Key05Quest/Key05Quest_CompletedKW",
+            "Count": 1
+          },
+          {
+            "$type": "KnowledgeCounterDef",
+            "IsInvisible":true,
+            "Id": "a20dabed-37a4-4f01-8b4d-c6ae07da5ee2",
+            "Target": "/Inventory/Knowledge/Quest/Key06Quest/Key06Quest_CompletedKW",
+            "Count": 1
+          }
+        ],
+        "Count": 3
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n503627"
+      }, // Подготовить капсулу гибернации
+      "ShortDescriptionLs": {
+        "Key": "#l10n503628"
+      }, // Для этого нужно выполнить все задания доктора Тенуша
+      "DescriptionLs": {
+        "Key": "#l10n504926"
+      }// Выжившим удалось сохранить и отремонтировать небольшую часть гибернационных капсул Андромеды и сейчас они используют их как убежище на время долгой ночи Кеплера. Однако, каждое использование капсулы требует сложной и длительной подготовки. Колонист должен произвести эту подготовку самостоятельно, после того, как выполнит свои обязательства перед Хабом. Если кто-то не успевает подготовить свою капсулу, то, скорее всего, он обречен ночевать под открытым небом. Разве что, кто то из колонистов согласится помочь, но лишнего времени на Кеплере нет ни у кого...
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "66cd0720-7bbc-4bfa-8a77-731044af8ec9",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/CapsuleFinalPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "f6f9ebae-b634-4bb9-b992-02f267ca3c2c",
+        "Targets": [
+          "/UtilPrefabs/Spells/Quests/KeyMainQuest/CapsuleFinal"
+        ],
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/CapsuleFinalPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503630"
+      }, // Лечь в капсулу гибернации
+      "ShortDescriptionLs": {
+        "Key": "#l10n503631"
+      }, // Найти свою персональную капсулу и лечь в нее до наступления ночи
+      "DescriptionLs": {
+        "Key": "#l10n504927"
+      }// Все готово для того, чтобы успешно пережить ночь. Осталось найти свою персональную капсулу, которую для вас подготовил доктор Тенуш, и погрузиться в гибернацию на 7 дней.
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503633"
+  }, // Спастись за 168 часов
+  "ShortDescriptionLs": {
+    "Key": "#l10n504928"
+  }, //Чтобы победить в сессии
+  "DescriptionLs": {}
+}

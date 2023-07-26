@@ -1,0 +1,120 @@
+{
+  "$type": "ItemResource",
+  "Id": "64a1719b-6ef7-4efe-a4f9-662c7377db6d",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "459e0a6a-187a-42c0-ba52-70a160956468",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier2",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/SpiralStem",
+        "Count": 2
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/SpiralStem",
+        "Count": 2
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 4,
+  "Tier": 1,
+  "InnerContainerSize": 1,
+  "ApplicableInnerItems": [
+    "/Inventory/Items/Explosives/GerophytGrenade"
+  ],
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1000,
+      "DURABILITY_INITIALVALUE": 1000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "DEFAULT_ACTION": "/Inventory/Items/Actions/LeaveAtCharacter"
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "Id": "4f095bd6-89ee-4afa-aca1-5ba97aa86d12"
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "9c1d2998-63bb-48cc-adee-e5dff7949d7a",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 300
+      }
+    ]
+  },
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/Attack": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/SporeGrenadeLauncherAttack"
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/SporeGrenadeLauncherAiming"
+      },
+      "/UtilPrefabs/Input/Actions/Reload": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/Reload"
+      }
+    }
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "ThrowSpeed": 25,
+    "MaxInnerStack": 1,
+    "ContainerUsage": "InnerContainer",
+    "UseGravity": true,
+    "ExplosureTime": 5,
+    "ExplosionByHit": true,
+    "DamageRadius": 5,
+    "ExplosureImpulse": 2500,
+    "ThrowObject": "Assets/Content/Characters/Weapons/Throw/GrenadeSpore/_Resourses/grenadeSpore_ThrowObject",
+    "ExplosionObject": "Assets/Content/FX/RangedWeapons/SporeGrenadeLauncher/PS_SporeGrenade_Spherical"
+  },
+  "Icon": "Assets/UI/UISprites/Items/SporeGrenadeLauncher",
+  "BigIcon": "Assets/UI/UISprites/Items/SporeGrenadeLauncherBig",
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeLauncher",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeLauncher"
+  ],
+  "Visual": "Assets/Content/Characters/Weapons/LongRange/grenadeThrower",
+  "ItemNameLs": {
+    "Key": "#l10n612"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n613"
+  }
+}

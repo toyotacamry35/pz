@@ -1,0 +1,216 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "SPELL": "/UtilPrefabs/Spells/Combat/Attacks/AttackMiningKnife"
+  },
+  "$proto": "/Inventory/Items/Weapons/_MiningWeaponProto",
+  "Id": "1f861cdc-4cd8-401a-8220-078d5f16808b",
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier3",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "68dfef9b-0dcd-458f-91d8-c844c1b2f211"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ]
+  },
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 10000,
+      "DURABILITY_INITIALVALUE": 10000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "56f0f24d-2414-4e67-93e6-0326d8c2c22b"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.8
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.8
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ToolMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Small",
+    "DestructionPower": 130,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/MiningLootMultiplier",
+        "Value": 2.5
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 10
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "/Inventory/Items/Weapons/_MiningWeaponDefProto",
+    "AttackBoxes": [
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.55,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0.95
+        },
+        "extents": {
+          "x": 0.55,
+          "y": 0.6,
+          "z": 0.5
+        }
+      },
+      {
+        "center": {
+          "x": 0.8,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.55,
+          "y": 0.6,
+          "z": 0.5
+        }
+      },
+      {
+        "center": {
+          "x": 0.85,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 0.7,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": 0.8,
+          "y": 0.85,
+          "z": 0.8
+        },
+        "extents": {
+          "x": 0.6,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": 0,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.6,
+          "y": 0.6,
+          "z": 0.5
+        }
+      },
+      {
+        "center": {
+          "x": -0.8,
+          "y": 0.85,
+          "z": 0.8
+        },
+        "extents": {
+          "x": 0.6,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": -0.85,
+          "y": 0.85,
+          "z": 0.9
+        },
+        "extents": {
+          "x": 0.7,
+          "y": 0.6,
+          "z": 0.45
+        }
+      },
+      {
+        "center": {
+          "x": -0.8,
+          "y": 0.85,
+          "z": 1
+        },
+        "extents": {
+          "x": 0.55,
+          "y": 0.6,
+          "z": 0.5
+        }
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/new_Xenofungus_Knife",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Xenofungus_KnifeBig",
+  "Visual": "Assets/Content/Craft/Weapons_Tools/Melee/Knife_Xenofungus",
+  "ItemNameLs": {
+    "Key": "#l10n4471"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n505116"
+  }
+}

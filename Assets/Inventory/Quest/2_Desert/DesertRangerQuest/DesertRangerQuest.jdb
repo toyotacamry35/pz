@@ -1,0 +1,142 @@
+{
+  "$type": "QuestDef",
+  "Id" : "f7f77d66-3e8d-4bc7-b256-f587034812ee",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Обыскать тело колониста,
+      "Id" : "3d3a0fcf-0fe9-478e-967d-59eb309a2008",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_LagerPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id" : "9d3504fc-f778-4e47-bbc1-8543dfa243ea",
+        "Target": "/Inventory/Knowledge/Quest/2_Desert/DesertRangerQuest/DesertRangerQuest_SearchBodyKW",
+        "Count": 1,
+        "IsInvisible": true
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_LagerPOI"
+        },
+        {
+          "$type": "ImpactAddItemsDef",
+          "Items": [
+            "/Inventory/Items/Quest/2_Desert/DesertRangerQuest/ExpeditionNotes"
+          ]
+        },
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/2_Desert/DesertRangerQuest/DesertRangerQuest_RalphJournalKW"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3609"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3610"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id" : "99c8b67c-87c4-4f63-bcdc-a939338f8be6",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id" : "1fc21e19-8f8a-4106-a231-ec723417dbd8",
+        "Target": "/UtilPrefabs/Spells/Quests/2_Desert/DesertRangerQuest/DesertRangerQuest_CompleteRalph",
+        "Count": 1,
+        "IsInvisible": true
+      },
+      "FailCounter": {
+        "$type": "KnowledgeCounterDef",
+        "Id" : "63b72208-c80f-418e-8391-501a4051f4d5",
+        "Target": "/Inventory/Knowledge/Quest/2_Desert/DesertRangerQuest/DesertRangerQuest_OtkazKW",
+        "Count": 1
+      },
+      "Label": "fail",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3611"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3612"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3613"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в Хаб и отдать журнал доктору Теушу,
+      "Id" : "10aba25d-a8b0-4b5c-b4fe-9efc3864cae5",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_CaptainRangerPOI"
+        }
+      ],
+      "Name": "fail",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id" : "ddca761c-7d40-4467-bc5b-f7f1b7b17068",
+        "Target": "/UtilPrefabs/Spells/Quests/2_Desert/DesertRangerQuest/DesertRangerQuest_Complete",
+        "Count": 1,
+        "IsInvisible": true
+      },
+      "FailCounter": {
+        "$type": "KnowledgeCounterDef",
+        "Id" : "5c9bc988-9f5d-41c0-99c9-2c03bae6d7ee",
+        "Target": "/Inventory/Knowledge/Quest/2_Desert/DesertRangerQuest/DesertRangerQuest_OtkazKW",
+        "Count": 1
+      },
+      "IsFinalPhase": true,
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/2_Desert/DesertRangerQuest/DesertRangerQuestCaptain_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_CaptainRangerPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3614"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3615"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3616"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3617"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3618"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3619"
+  }
+}

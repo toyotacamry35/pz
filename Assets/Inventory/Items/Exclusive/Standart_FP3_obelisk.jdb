@@ -1,0 +1,58 @@
+{
+  "$type": "ObeliskDef",
+  "$id": "ea4d62d8-f047-4ff3-86fd-70e8d2dae0a3",
+  "Id" : "482a1471-4774-4b16-9a1b-0bff038a41b9",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id" : "4cec75cf-9bef-4779-b6ba-39d2cc34acb4",
+    "MeanTimeToCheckCalcers": 2,
+    "Stats": [
+      {
+        "$type": "TimeStatDef",
+        "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+        "ChangeRateDefault": 0,
+        "LimitMaxDefault": 10000,
+        "InitialValue": 10000,
+        "IsBroadcasted": true
+      },
+    ]
+  },
+  "InitialSpells": [],
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Damage": 0,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 0
+      }
+    ]
+  },
+  "ObjectType": {
+    "$type": "StatisticType",
+    "Id" : "effc787c-37ea-4f58-8b65-495eb0d894c8",
+    "Title": "Obelisk"
+  },
+  "BackwardDamageMultiplier": 1,
+  "ForwardDamageMultiplier": 1,
+  "SideDamageMultiplier": 1,
+  //Replace with correct visual
+  "Prefab": "Assets/Content/Environment/Shared/Interactive/Standart_FP3_Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "EntityGameObject"
+      },
+      {
+        "$type": "MortalObjectComponentDef"
+      },
+      {
+        "$type": "DeathResurrectHandlerDef",
+        "PlayAnimation": "Death"
+      }
+    ]
+  },
+  "QuerySpatialData": true
+}

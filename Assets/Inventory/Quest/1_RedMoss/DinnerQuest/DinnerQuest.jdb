@@ -1,0 +1,104 @@
+{
+  "$type": "QuestDef",
+  "Id": "6f8d0655-4e94-430a-8e1e-53ee175f6c1c",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "01a96ec2-9773-4601-a132-9c2489bd186d",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "1307035e-ab7a-474d-9176-f1dd7ef41bfc",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "47293a0f-6fca-4431-a7f2-2415b43daac3",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Consumables/YuttEgg",
+            "Count": 6
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "0ef64986-c90f-491a-84cb-7ea19e0578f9",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Consumables/RoastedGerophit",
+            "Count": 6
+          }
+        ],
+        "Count": 12
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3543"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3544"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3545"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "001a0bc4-880d-44ce-ac25-f4b73e275d93",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "28c0ef8b-5f56-48f7-bb9a-ad080c166a30",
+        "Target": "/UtilPrefabs/Spells/Quests/1_RedMoss/DinnerQuest/DinnerQuest_Complete",
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "575c1090-cb98-4df9-ad46-10fef3d04fee",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "2a77f6eb-0bc2-4adb-8966-361174f63e0a",
+            "SourceType": "Player",
+            "Less": true,
+            "Target": "/Inventory/Items/Consumables/YuttEgg",
+            "Count": 6
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "4fa4aafd-27b8-409f-8c2d-786990ac88d2",
+            "SourceType": "Player",
+            "Less": true,
+            "Target": "/Inventory/Items/Consumables/RoastedGerophit",
+            "Count": 6
+          }
+        ],
+        "Count": 12
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/1_RedMoss/DinnerQuest/DinnerQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3546"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3547"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3548"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3549"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3550"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3551"
+  }
+}

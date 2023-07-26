@@ -1,0 +1,33 @@
+{
+  "$type": "PerkResource",
+  "Id": "c7376bb1-79c5-4ee2-912e-fd9db075e3d7",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateOr",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/SpearAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackStatModifier",
+        "Id": "20fb4c95-8cd1-4ace-94d3-42b915e1f50d",
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+        "Multiplier": 1.1
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkCommonCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15022"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15023"
+  }
+}

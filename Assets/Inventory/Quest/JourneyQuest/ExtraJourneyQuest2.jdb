@@ -1,0 +1,76 @@
+{
+  "$type": "QuestDef",
+  "Id" : "5efe4780-f5ee-4e5d-bfd7-9bc35595d93f",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Дойти до капсулы
+    {
+      "$type": "PhaseDef",
+      "Id" : "fcd70258-7cd5-4244-b73b-cc09e35a6636",
+      "OnStart": [
+      /*
+      {
+        "$type": "ImpactAddPointOfInterestDef",
+        "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest9"
+      }
+      */
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id" : "850ffe7b-9761-45c0-9f71-f07423d53057",
+        "Target": "/UtilPrefabs/Spells/Quests/JourneyQuest/Follow2ExtraJourneyQuest2Spell",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2682"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2683"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2684"
+      }
+    }
+    , //Забрать Ресурсы из капсулы
+    {
+      "$type": "PhaseDef",
+      "Id" : "ffbb3ef6-1727-4c2b-b33e-5f6054643e0b",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "0b99e76c-a50d-41c6-ae6d-117b7d945c7a",
+        "Count": 1,
+        "Target": "/Inventory/Items/Quest/SpareParts2"
+      },
+      "OnSuccess": [
+        /*
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest9"
+        }
+        */
+      ],
+      "NameLs": {
+        "Key": "#l10n2685"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2686"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2687"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n2688"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n2689"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n2690"
+  }
+}

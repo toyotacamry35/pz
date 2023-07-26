@@ -1,0 +1,86 @@
+{
+  "$type": "QuestDef",
+  "Id": "8e7013b2-2172-4375-b3b1-16a0869c371e",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Собрать 10 порций б,
+      "Id": "624c2ac5-36d3-47c7-b01c-b818c69d7ec9",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "5e938ddf-5182-4b58-9355-2cbcdffd2268",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/ItemBractusResin",
+        "Count": 20
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503341"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503942"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503943"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "94bdebfe-3ac0-4945-9a76-5fe395fb60e4",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "c21bcbfb-2bc8-4968-b831-c70c5a70b79c",
+        "Target": "/UtilPrefabs/Spells/Quests/RepairWaterQuest/RepairWaterQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "5c963814-17ab-4ec8-88a4-e04c5dc725ad",
+        "Less": true,
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/ItemBractusResin",
+        "Count": 20
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/RepairWaterQuest/RepairWaterQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503944"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503945"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503346"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503946"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503947"
+  }
+}

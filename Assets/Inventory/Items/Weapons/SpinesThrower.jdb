@@ -1,0 +1,108 @@
+{
+  "$type": "ItemResource",
+  "Id": "29ca38f7-d3bd-4259-8744-3d3a8bb3db0d",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "c46c3adb-b8d7-4053-8856-8af297d917c5",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/SpiralStem",
+        "Count": 2
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/SpiralStem",
+        "Count": 2
+      }
+    ]
+  },
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 3000,
+      "DURABILITY_INITIALVALUE": 3000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "DEFAULT_ACTION": "/Inventory/Items/Actions/LeaveAtCharacter"
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "Id": "2613ef6d-3ed6-49bc-bdbb-57917ba46271"
+  },
+  "MaxStack": 1,
+  "Weight": 2.5,
+  "Tier": 1,
+  "InnerContainerSize": 1,
+  "ApplicableInnerItems": [
+    "/Inventory/Items/Res/SpineAmmo"
+  ],
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "c49fd5c2-9b0b-4a5a-b98d-5703c7c8c95d",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 95
+      }
+    ]
+  },
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/Attack": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/RangeAttack"
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/Aiming"
+      },
+      "/UtilPrefabs/Input/Actions/Reload": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/Reload"
+      }
+    }
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "MaxInnerStack": 6,
+    "ContainerUsage": "InnerContainer",
+  },
+  "Icon": "Assets/UI/UISprites/Items/SpinesThrower",
+  "BigIcon": "Assets/UI/UISprites/Items/SpinesThrowerBig",
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeFirearm",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeFirearm"
+  ],
+  "Visual": "Assets/Content/Characters/Weapons/LongRange/SpinesThrower",
+  "ItemNameLs": {
+    "Key": "#l10n610"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n611"
+  }
+}

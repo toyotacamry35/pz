@@ -1,0 +1,86 @@
+{
+  "$type": "QuestDef",
+  "Id": "a3260a9f-296e-4d4b-9cc7-2fa02aae18a8",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Собрать 10 порций б,
+      "Id": "92cb29bb-7d54-48c3-906b-cfd9f1068c66",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "SourceType": "Player",
+        "Id": "0eafc18b-7ebe-4b97-aa29-bfde9d4087f5",
+        "Target": "/Inventory/Items/Mounting/SimpleStash",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503356"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503949"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503357"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "16ea27e7-d93b-4515-b2ea-f7ccf6af85af",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "9060801b-f565-434c-a39d-a496554919db",
+        "Target": "/UtilPrefabs/Spells/Quests/SimpleChestQuest/SimpleChestQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "1719c2e1-843d-4c1b-8200-d89023653e55",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Mounting/SimpleStash",
+        "Less": true,
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/SimpleChestQuest/SimpleChestQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503358"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503359"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503360"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503361"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503362"
+  }
+}

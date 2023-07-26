@@ -1,0 +1,95 @@
+{
+  "$type": "QuestDef",
+  "Id": "869bb855-ad1d-4773-aca8-a4115eafb1f1",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Собрать 5 яиц ютов,
+      "Id": "6cc8c91c-980e-48a5-9472-dbb9ec1d5eec",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/EggsYuutQuest/POIEggsYuutQuest_NestPOI"
+        }
+      ],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "d350286f-b2e5-4685-a4b2-32b3acd5ba1c",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Consumables/YuttEgg",
+        "Count": 5
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/EggsYuutQuest/POIEggsYuutQuest_NestPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503305"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503306"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503307"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "a29bb08c-5abc-4d65-bb41-08c37f791d2c",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/EggsYuutQuest/POIEggsYuutQuest_GuardPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "0572a400-706c-4e63-8277-b9b67f4ef38b",
+        "Target": "/UtilPrefabs/Spells/Quests/EggsYuutQuest/EggsYuutQuest_Complete",
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "daf4245f-57af-4322-9a0e-cec27535226d",
+        "Less":true,
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Consumables/YuttEgg",
+        "Count": 5
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/EggsYuutQuest/POIEggsYuutQuest_GuardPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/EggsYuutQuest/EggsYuutQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503308"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503309"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503310"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503311"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503312"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503313"
+  }
+}

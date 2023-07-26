@@ -1,0 +1,69 @@
+{
+  "$type": "QuestDef",
+  "Id" : "5089b472-1786-4323-bed6-dea25ff39ab5",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Дойти до логова Кваров
+    {
+      "$type": "PhaseDef",
+      "Id" : "c6766761-0a4c-4dfa-a553-f73c489e1d63",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id" : "f4729227-60a0-4a11-9cab-273ee91ff533",
+        "Target": "/UtilPrefabs/Spells/Quests/JourneyQuest/Follow1ExtraJourneyQuest1Spell",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2673"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2674"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2675"
+      }
+    }
+    , //Найти Капсулу в логове Кваров
+    {
+      "$type": "PhaseDef",
+      "Id" : "31e29dc2-c3af-4848-a0a0-a77a76e0ee62",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "5795fff4-8543-4330-958f-304b601955f5",
+        "Count": 1,
+        "Target": "/Inventory/Items/Quest/SpareParts1"
+      },
+      "OnSuccess": [
+        /*
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest8"
+        }
+        */
+      ],
+      "NameLs": {
+        "Key": "#l10n2676"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2677"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2678"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n2679"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n2680"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n2681"
+  }
+}

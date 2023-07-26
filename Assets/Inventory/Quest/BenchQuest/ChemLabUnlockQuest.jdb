@@ -1,0 +1,125 @@
+{
+  "$type": "QuestDef",
+  "Id": "a59ed68f-fc36-4ad9-ab7b-f12334198549",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Group": "Daily",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "e66f3a86-e025-4de6-b1fe-0822343d63af",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/ChemLabUnlockQuest_TakenKW",
+          "WhenToApply": "OnSuccess"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "c672ba48-bf8a-45cf-8acd-ad4bc215e994",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "366cbce2-4bdc-4a70-9964-49ae123340be",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/SpiralStem",
+            "Count": 20
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "af77e000-5a09-4639-9f1b-932e7fa79b36",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Limestone",
+            "Count": 20
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "0708fe48-9eab-4d6b-b551-fe2fc591efb9",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Peat",
+            "Count": 20
+          }
+        ],
+        "Count": 60
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504885"
+      }, // Собрать ресурсы для ремонта перегонной установки
+      "DescriptionLs": {
+        "Key": "#l10n504886"
+      }// Перегонную установку поддерживать в рабочем состоянии, поэтому все, кто хочет им воспользоваться, должны сначала собрать некоторое количество материалов, которые понадобятся для его ремонта, и сдать их инженеру Радову.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "8c606003-d323-44a7-aaa5-d6211ba9ea81",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "9c4c8a69-c782-40c3-9f7b-8ac3bcd29ea8",
+        "Target": "/UtilPrefabs/Spells/Quests/BenchQuest/ChemLabUnlockQuest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "e2b02024-c681-43a5-8491-cbf6291af92d",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "01af9660-9905-490b-a85d-304474cd4273",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/SpiralStem",
+            "Less": true,
+            "Count": 20
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "7cd07a90-4a99-437d-ab37-4c2c49f358ce",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Limestone",
+            "Less": true,
+            "Count": 20
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "3ef57d7c-ab9a-4301-b71b-e54a444f4fe6",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Peat",
+            "Less": true,
+            "Count": 20
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n504887"
+      }, // Отнести материалы инженеру Радову
+      "ShortDescriptionLs": {},
+      "DescriptionLs": {
+        "Key": "#l10n504888"
+      }// Его можно найти в Хабе
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n504889"
+  }, // Разрешение на использование перегонной установки
+  "ShortDescriptionLs": {
+    "Key": "#l10n504890"
+  }, // Чтобы пользоваться сложными станками в Хабе, необходимо получить разрешение у инженера Радова. Обычно, для этого достаточно просто принести ему материалы, которыми станок ремонтируется. Разрешение действует все следующие сутки после получения.
+  "DescriptionLs": {}
+}

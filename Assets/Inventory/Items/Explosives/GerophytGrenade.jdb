@@ -1,0 +1,56 @@
+{
+  "$type": "ItemResource",
+  "Id": "3af87e0e-0e46-45a0-982a-2dd4e82fd9d1",
+  "MaxStack": 50,
+  "Weight": 0.5,
+  "Tier": 2,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "MaxDurability": 100,
+  "RepairRecipes": [
+    "/Inventory/Recipes/Repair/TestRepairRecipe"
+  ],
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "1b3949b6-3231-4b06-9174-f15f224fb78d",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 100
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 900
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "ThrowSpeed": 15,
+    "ContainerUsage": "ItSelf",
+    "UseGravity": true,
+    "AddTorque": true,
+    "ExplosureTime": 5,
+    "ExplosionByHit": true,
+    "ThrowObject": "Assets/Content/Characters/Weapons/Throw/GrenadeSpore/_Resourses/grenadeSpore_ThrowObject",
+    "ExplosionObject": "Assets/Content/FX/RangedWeapons/SporeGrenadeLauncher/PS_SporeGrenade_Spherical",
+    "DamageRadius": 5,
+    "ExplosureImpulse": 2500,
+    "PressAction": "/UtilPrefabs/Spells/Combat/RangeAttacks/ThrowAttack",
+    "SecondaryAction": "/UtilPrefabs/Spells/Combat/RangeAttacks/Aiming_Throw"
+  },
+  "Icon": "Assets/UI/UISprites/Items/SporeGrenade",
+  "BigIcon": "Assets/UI/UISprites/Items/SporeGrenadeBig",
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeGrenade",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeGrenade"
+  ],
+  "Visual": "Assets/Content/Characters/Weapons/Throw/GrenadeSpore/_Resourses/grenadeSpore",
+  "ItemNameLs": {
+    "Key": "#l10n368"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n369"
+  }
+}

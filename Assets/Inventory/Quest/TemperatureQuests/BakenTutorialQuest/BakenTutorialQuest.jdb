@@ -1,0 +1,44 @@
+{
+  "$type": "QuestDef",
+  "Id" : "1dfce164-b28e-46bb-967d-81da400be645",
+  "Group": "Daily",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Сделать 1 противоохлаждающий компресс,
+      "Id" : "49006d3d-e282-4c5a-9f56-a31ef707c678",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id" : "7ad5daaf-2375-4427-a1c8-0e8a2ca389c6",
+        "IsInvisible": true,
+        "Target": "/UtilPrefabs/Spells/InteractiveObjects/Baken/ActivateCommonBaken",
+        "Count": 1
+      },
+      "NameLs": {
+        "Key": "#l10n504974"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n504975"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n504976"
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+      "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/BakenTutorialQuest/BakenTutorialQuest_Complete"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n504977"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n504978"
+  },
+  "DescriptionLs": {
+    "Key": ""
+  }
+}

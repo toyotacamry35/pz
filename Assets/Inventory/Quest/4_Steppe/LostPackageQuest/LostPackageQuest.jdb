@@ -1,0 +1,45 @@
+{
+  "$type": "QuestDef",
+  "Group": "Daily",
+  "Id" : "925f64f5-c34e-4b60-bacf-5a6a86c48d68",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id" : "2a492ed8-112e-44da-a47b-1199aaf95fa0",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id" : "763b95e5-d419-4c0d-ac3c-06267525f769",
+        "Target": "/UtilPrefabs/Spells/Quests/4_Steppe/LostPackageQuest/LostPackageQuest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/LostPackageQuest/LostPackageQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3680"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3681"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3682"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3683"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3684"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3685"
+  }
+}

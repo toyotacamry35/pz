@@ -1,0 +1,104 @@
+{
+  "$type": "QuestDef",
+  "Id": "2302f028-1088-47da-ad9e-a106c4239d19",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "e82daa6e-c4a6-4c2d-8621-e48fe08e47fb",
+      "OnStart": [
+        {
+          "$type": "ImpactAddItemsDef",
+          "Items": [
+            "/Inventory/Items/Consumables/MutagenZ"
+          ],
+          "Count": 1
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounter",
+        "Id": "ff351f14-bac1-45de-9614-c941240f4ddd",
+        "IsInvisible": true,
+        "Target": "/UtilPrefabs/Spells/Consumables/MutagenZSpell",
+        "Count": 1
+      },
+      "NameLs": {
+        "Key": "#l10n505001"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n505019"
+      }, //Ты слишком много умирал и скоро станешь войдом. Прими лекарство, которое позволяет полностью обратить мутацию. Найди его у себя в инвентаре.
+      "DescriptionLs": {
+        "Key": "#l10n505020"
+      }// С каждой смертью шкала мутации в верхнем левом углу будет заполняться. Как только она дойдет до конца, ты превратишься в войда и у тебя останется всего одна жизнь. Потеряешь её - и игровая сессия для тебя закончится. Срочно прими бета-лактамин, особый редкий препарат, который позволяет полностью обратить мутацию.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "3b505d2e-afc1-418e-9072-0aa19b0de125",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id" : "0171dd23-8811-4292-bc28-ae6d11181725",
+        "IsInvisible": true,
+        "SubCounters": [
+          {
+            "$type": "SpellCounter",
+            "Id" : "8b1119a8-360c-4328-8137-e1aa1d376cb3",
+            "IsInvisible": true,
+            "Target": "/UtilPrefabs/Spells/Dialog/2_Desert/DesertRangerQuest/RangerRalph_DialogStart",
+            "Count": 1
+          },
+          {
+            "$type": "CombinatorCounterDef",
+            "Id" : "2f1e9d5f-4e30-4727-be14-4b0030d90b6b",
+            "SubCounters": [
+              {
+                "$type": "KnowledgeCounterDef",
+                "Id" : "3668d2fa-4f24-4dea-80f8-bedea4bc39b0",
+                "IsInvisible": true,
+                "Target": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_CompletedKW",
+                "Count": 1
+              },
+              {
+                "$type": "KnowledgeCounterDef",
+                "Id" : "33310448-1763-47cf-b83f-f45a6df08968",
+                "IsInvisible": true,
+                "Target": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulOpenKW",
+                "Count": 1
+              }
+            ],
+            "Count": 2
+          }
+        ],
+        "Count": 1
+      },
+      "NameLs": {
+        "Key": "#l10n505021"
+      }, // Поговорить с Ральфом
+      "ShortDescriptionLs": {
+        "Key": "#l10n505022"
+      }, // Его можно найти на окраине Пустыни. Выполняя его задания, ты сможешь раздобыть еще немного бета-лактамина
+      "DescriptionLs": {
+        "Key": "#l10n505023"
+      }// Чтобы не превратиться в войда, старайся умирать как можно меньше. В крайнем случае попробуй найти и принять бета-лактамин. Это один из стандартных медикаментов, которые можно было найти в любой земной больнице.\nК сожалению, на Артемиде его, видимо, было не очень много: как только колонисты выяснили, что он способен влиять на мутацию, его запасы быстро подошли к концу.\nСейчас его почти невозможно достать, так что старайся экономить и использовать его только, когда шкала мутации почти полностью заполнена.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/FirstOtkatQuest/FirstOtkatQuest_CompletedKW"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n505024"
+  } // Лекарство от мутации
+}

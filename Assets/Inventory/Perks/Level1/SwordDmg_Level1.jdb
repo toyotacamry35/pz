@@ -1,0 +1,33 @@
+{
+  "$type": "PerkResource",
+  "Id": "a73764c8-b281-4dc2-84cc-570341c667de",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level1",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateOr",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/SwordAttack"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "AttackStatModifier",
+        "Id": "4f74f59b-6f0d-4f56-aeca-f1532fd6da85",
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+        "Multiplier": 1.1
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkCommonCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15024"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15025"
+  }
+}

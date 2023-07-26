@@ -1,0 +1,120 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "a157e9be-f0ed-4722-9941-6079b7bf74ca",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "65803271-dc7e-4236-be0e-42df080bda55",
+      "Label": "CollectPhase",
+      "OnStart": [],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "8023797b-b111-4da8-88cf-f573f6d54b0d",
+        "SubCounters": [
+          {
+            "$type": "MobKillsCounterDef",
+            "Id": "8af670c1-257d-4d6c-88c3-c8ebd20b9968",
+            "Target": "/AI/Defs/Mobs/Scyphopod_Wrk_Legionary/Scyphopod_Wrk_Stats",
+            "Count": 30
+          },
+          {
+            "$type": "MobKillsCounterDef",
+            "Id": "e5dc28b0-0480-4681-856e-6a3e31aad982",
+            "Target": "/AI/Defs/Mobs/Scyphopod_War_Legionary/Scyphopod_War_Stats",
+            "Count": 30
+          }
+        ],
+        "Count": 60
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpell",
+          "Spells": [
+            "/UtilPrefabs/Spells/Quests/Alt_Key06Quest/Alt_Key06Quest_Phase"
+          ]
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n5031"
+      }, // Сражайтесь со сцифоподами
+      "ShortDescriptionLs": {
+        "Key": "#l10n5032"
+      }, // Вы помните, что сражались с ними в Джунглях, и они вполне могли стать причиной вашей смерти
+      "DescriptionLs": {
+        "Key": "#l10n5033"
+      }// Вам удалось осмотреть пещеру, но ничего не привлекло ваше внимание. Трупики фурий тем временем один за другим просто пропадают, растворяются, как и все мертвые тела на Кеплере. Интересно, а они тоже потом воскресают на коконах? Никто из колонистов уже не придает этому особого значения, но, если задуматься, это так сюрреалистично. Каким образом тела перемещаются на коконы? Телепортация? Каким образом кокон возвращает их к жизни? И, наконец, кто построил все это? Что за цивилизация, способна создать такую технологию, похожую на чудо?\nВы решаете во что бы то ни стало докопаться до истины, а значит нужно идти дальше - в Джунгли. Вы помните, что сражались там со сцифоподами, опасными существами, и вполне могли пасть от их клешней.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "bcd803be-c181-4af7-b041-64495d971add",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Alt_Key06Quest/DeathPlace_POI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id" : "78831038-edc9-4dd5-aeda-35e26d479f1e",
+        "IsInvisible": true,
+        "Target": "/Inventory/Knowledge/Quest/Alt_Key06Quest/Alt_Key06Quest_DeathPlace_POI_KW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Alt_Key06Quest/DeathPlace_POI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n5034"
+      }, // Найти место своей смерти
+      "ShortDescriptionLs": {
+        "Key": "#l10n5035"
+      }, // Поднимаясь на вершину вулкана по узкой и скользкой тропе, вы оступились и сорвались вниз
+      "DescriptionLs": {
+        "Key": "#l10n5036"
+      }// Сражаясь со сцифоподами, вы внезапно вспомнили, что умерли вовсе не от удара огромной черной клешни. На самом деле все было куда прозаичнее: поднимаясь на вершину вулкана по узкой и скользкой тропе, вы оступились. Рюкзак был доверху набит мясом для цветка и весил тонну, вы не смогли удержать равновесие и сорвались вниз. Что ж, осталось только найти место, куда вы приземлились.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "9dfcf17e-8e36-4925-ac26-82f32bca918f",
+      "OnStart": [],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id" : "fd10442e-f2a3-4193-8654-f348a9845e8b",
+        "IsInvisible": true,
+        "Target": "/Inventory/Knowledge/Quest/Alt_Key06Quest/Alt_Key06Quest_Backpack_KW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n5037"
+      }, // Осмотрите место
+      "ShortDescriptionLs": {
+        "Key": "#l10n5038"
+      }, // Похоже, вы нашли то, что искали. Разгадка появления таинственного войда с вашим шрамом близко
+      "DescriptionLs": {
+        "Key": "#l10n5039"
+      }// Осмотрев расщелину, вы нашли в ней свой костюм, в котором были в тот день, а также все свои вещи. Мясо в рюкзаке уже стухло и наполовину съедено, при этом рюкзак открыт, а не разорван - значит это были не дикие звери. Рядом с рюкзаком даже собран небольшой кривой костерок, вокруг много следов крови.\nТакое ощущение, что здесь лежал сильно раненый человек, из последних сил борясь за жизнь. И все указывает на то, что этим человеком были… вы? И теперь понятно, откуда взялся войд: в таком состоянии человек никак не мог бы добраться до Хаба, и ночь застала его здесь.\nНо если вы не спаслись в прошлый раз и стали войдом, а войды не оживают на коконах и не становятся снова людьми, почему тогда утром вы оказались в капсуле?\nМеж тем, уже пора возвращаться в Хаб, по дороге у вас будет время всё обдумать.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key06Quest/Alt_Key06Quest_Complete"
+      ]
+    },
+    {
+      "$type": "ImpactAddPerkDef",
+      "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n5040"
+  }, // Шаги к разгадке: Смерть в Джунглях
+  "DescriptionLs": {}
+}

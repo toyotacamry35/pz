@@ -1,0 +1,83 @@
+{
+  "$type": "QuestDef",
+  "Id": "d9b5ab99-80d6-418f-8e41-1a08c23eee42",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "f0e27ddb-78c1-4912-9681-fcbdf84a16f1",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "5f3ea3bd-afbb-4ea9-828f-f3bbf592db8c",
+        "Target": "/Inventory/Items/Consumables/HeatstrokePotion",
+        "Count": 2
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3628"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3629"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3630"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "371be5ae-8566-4de1-aa7b-51d605be775e",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "7e6ed4ff-3726-424d-b9f5-26487001aec1",
+        "Target": "/UtilPrefabs/Spells/Quests/2_Desert/RalphDayQuest/RalphDayQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "f1ae18d7-01a1-4318-966d-83520f07454b",
+        "Less": true,
+        "Target": "/Inventory/Items/Consumables/HeatstrokePotion",
+        "Count": 2
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_RalphPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/2_Desert/RalphDayQuest/RalphDayQuest_Reward" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3631"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3632"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3633"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3634"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3635"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3636"
+  }
+}

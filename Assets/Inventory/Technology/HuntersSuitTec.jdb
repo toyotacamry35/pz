@@ -1,0 +1,36 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "d776c5c4-06fc-4a9f-83b0-451965e82377",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 8,
+                    "Science": "/Inventory/Science/Geology"
+                },
+                {
+                    "Count": 25,
+                    "Science": "/Inventory/Science/Surveying"
+                },
+                {
+                    "Count": 30,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/LeatherTanningTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 4,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/HuntersSuitKW",
+            "/Inventory/Knowledge/FromTechnologies/XenoCompoundsTier2KW"
+        ]
+    }
+}

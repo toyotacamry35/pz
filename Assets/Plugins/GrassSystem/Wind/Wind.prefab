@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1814340189471694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4435299011199490}
+  - component: {fileID: 182639231112516982}
+  - component: {fileID: 114570426741727998}
+  m_Layer: 0
+  m_Name: Wind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4435299011199490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814340189471694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!182 &182639231112516982
+WindZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814340189471694}
+  m_Enabled: 1
+  m_Mode: 0
+  m_Radius: 0.55
+  m_WindMain: 1
+  m_WindTurbulence: 0.5
+  m_WindPulseMagnitude: 0.4
+  m_WindPulseFrequency: 0.3
+--- !u!114 &114570426741727998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814340189471694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a887da97de66e47f18ad01918bb622a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WindFrequency: 0.25
+  FoliagePrimaryStrenght: 0.7
+  FoliageSecondaryStrenght: 0.7
+  FoliageLeafTurbulence: 0.7
+  FoliageWaveSize: 10
+  currentWind: 1
+  windVariants:
+  - name: Calm
+    windFrequency: 0.25
+    foliagePrimaryStrenght: 0.1
+    foliageSecondaryStrenght: 0.1
+    foliageLeafTurbulence: 0
+    foliageWaveSize: 0.1
+    grassStrenght: 0.1
+    grassSize: 0.03
+    grassSpeed: 0.03
+  - name: Breeze
+    windFrequency: 0.25
+    foliagePrimaryStrenght: 0.7
+    foliageSecondaryStrenght: 0.7
+    foliageLeafTurbulence: 0.7
+    foliageWaveSize: 10
+    grassStrenght: 0.5
+    grassSize: 0.03
+    grassSpeed: 0.03
+  - name: High Wind
+    windFrequency: 0.25
+    foliagePrimaryStrenght: 3
+    foliageSecondaryStrenght: 3
+    foliageLeafTurbulence: 3
+    foliageWaveSize: 10
+    grassStrenght: 2
+    grassSize: 0.03
+    grassSpeed: 0.03
+  - name: Gale
+    windFrequency: 0.25
+    foliagePrimaryStrenght: 6
+    foliageSecondaryStrenght: 6
+    foliageLeafTurbulence: 6
+    foliageWaveSize: 18
+    grassStrenght: 3.5
+    grassSize: 0.03
+    grassSpeed: 0.03
+  - name: Storm
+    windFrequency: 0.25
+    foliagePrimaryStrenght: 8
+    foliageSecondaryStrenght: 10
+    foliageLeafTurbulence: 10
+    foliageWaveSize: 25
+    grassStrenght: 5
+    grassSize: 0.03
+    grassSpeed: 0.03
+  GrassStrenght: 0.5
+  Foliage: 1
+  size: 0.03
+  speed: 0.03
+  speedLayer0: 3.18
+  speedLayer1: 2.14
+  speedLayer2: 3.76
+  GrassGustTiling: 2
+  GrassGustSpeed: 0.975
+  JitterFrequency: 3.1
+  JitterHighFrequency: 21
+  Resolution: 512
+  WindBaseTex: {fileID: 2800000, guid: b73479b3a81b64a7f9ff91aee463ad9c, type: 3}
+  WindCompositeShader: {fileID: 4800000, guid: b8cbd5f3b42484c96b747fba91803c56, type: 3}
+  noiseVegetation: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+  visualNoiseScale: 30
+  visualLinesScale: 1
+  visualLinesOffset: 0.3
+  visualLinesPower: 1.5

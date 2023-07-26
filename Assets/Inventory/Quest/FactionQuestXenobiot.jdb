@@ -1,0 +1,73 @@
+{
+  "$type": "QuestDef",
+  "Id": "93e10b87-6f68-4c33-b612-9e8f3421e66c",
+  "ShortDescription": "",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //CollectLifeEssence
+    {
+      "$type": "PhaseDef",
+      "Id": "791eaefa-9f32-43ef-beb1-8b296ea8dac1",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "SourceType": "Player",
+        "Id": "b8ddd93b-66cb-4dc8-b8db-f81eeadc96dd",
+        "Count": 3,
+        "Target": "/Inventory/Items/Res/LifeEssence"
+      },
+      "OnSuccess": [
+        /*{
+                    "$type": "ImpactRemovePointOfInterestDef",
+                    "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POISciforia"
+                }*/
+      ],
+      "NameLs": {
+        "Key": "#l10n2634"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2635"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2636"
+      }
+    }, //BecomeHuman
+    {
+      "$type": "PhaseDef",
+      "Id": "dd9b90e0-cdcd-4279-a9eb-c6201c3d8b3b",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "32904d02-0c9d-470e-9855-7a42728ab250",
+        "Target": "/UtilPrefabs/Traumas/Quest/QuestEffectXenobiotStage",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddKnowledge",
+          "Knowledge": "/UtilPrefabs/Spells/Quests/QuestKnowledge/FactionQuestXenobiotRewardKW"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2637"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2638"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2639"
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactActivateQuest",
+      "Quest": "/Inventory/Quest/FactionQuestHost"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n1153"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n1154"
+  }
+}

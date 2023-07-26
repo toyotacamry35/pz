@@ -1,0 +1,99 @@
+{
+  "$type": "QuestDef",
+  "Id": "083a336b-cfa5-40f0-a6d8-3a379d58d682",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "AfterComplete": "Loop",
+  "Phases": [
+    //BecomesHost
+    {
+      "$type": "PhaseDef",
+      "Id": "62a2877e-c42c-4f9d-8152-ebf5673d39ee",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "a35888f1-68ee-4c5b-bdfc-e9d98a9bd926",
+        "Target": "/UtilPrefabs/Traumas/Quest/QuestEffectHostStage",
+        "Count":1
+      },
+      "OnStart": [],
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2620"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2621"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2622"
+      }
+    }
+    , //InteractWithGenocastOrImplanter
+    {
+      "$type": "PhaseDef",
+      "Id": "93552eae-9ca3-4a15-b24a-702a3e6866d0",
+      "Description": "",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIGenocast"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIImplanter"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "647d5520-9bf4-4a57-90bf-02143c5363ac",
+        "Target": "/UtilPrefabs/Spells/Quests/FactionQuest/FactionQuestSpellFinish",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIGenocast"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIImplanter"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2623"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2624"
+      }
+    }
+    , //BecomesHost
+    {
+      "$type": "PhaseDef",
+      "Id": "5990f84d-95cd-4a97-b35c-2b62d5174dae",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "90102e1f-adc2-4344-81ac-4f03e81eca1c",
+        "Target": "/UtilPrefabs/Traumas/Quest/QuestEffectNotHostStage",
+        "Count": 1
+      },
+      "OnStart": [],
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2625"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2626"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2627"
+      }
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n1148"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n1149"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n1150"
+  }
+}

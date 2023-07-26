@@ -1,0 +1,62 @@
+{
+  "$type": "QuestDef",
+  "Id": "236243db-d23f-47d8-9d7f-da0a3d242241",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "dc605d84-9247-4f4e-90c4-9fd44d0d9224",
+      "Counter": {
+        "$type": "DealDamageCounterDef",
+        "Id": "470aa24f-6d75-4568-aced-c69adff97764",
+        "ObjectType": "/Inventory/Statistic/ObjectType/Mob",
+        "Value": 25000
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MobKilling_Tier_01"
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MobKilling_Tier_02"
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MobKilling_Tier_03"
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MobKilling_Tier_04"
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MobKilling_Tier_01_highlvl"
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MobKilling_Tier_02_highlvl"
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MobKilling_Tier_03_highlvl"
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MobKilling_Tier_04_highlvl"
+        }
+      ]
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "111f7c98-7b29-4d6a-9a9d-252c169d3a0f",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Id": "66b71a5f-b6ef-47b4-b339-33070e8deba8",
+        "Time": 1
+      }
+    }
+  ]
+}

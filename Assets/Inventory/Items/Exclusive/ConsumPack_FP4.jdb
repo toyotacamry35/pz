@@ -1,0 +1,33 @@
+{
+  "$type": "ItemResource",
+  "Id": "2ccecc1b-3e3e-4b29-aacd-734348d58917",
+  "MaxStack": 100,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Consumable",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/new_Scout_case_survival",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Scout_case_survivalBig",
+  "ConsumableData": "/Inventory/Items/Consumables/ConsumPack_FP4-Component-Consumable",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504816"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504817"
+  }
+}

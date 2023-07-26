@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Name": "EmitterActivation",
+  "Duration": 0.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/Quests/Emitter/Spells/Emitter",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactInvokeBaseReactionDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      }
+    },
+    {
+      "$type": "MarkerReactionProvocatorDef",
+      "Enabled": true,
+      "ReactionProvocatorTypePath": "/Quests/Emitter/Defs/ActivationReaction"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "$type": "QuestDef",
+  "Id": "b09c88d5-210b-4573-91ae-a75ae149fe38",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //список фаз квеста
+    {
+      "$type": "PhaseDef", //фаза 1: сбор первого ресурса, который попросил принести NPC. в данном случае, споровые батарейки.                       //отсюда и ниже продолжаем удалять ВСЕ ID,
+      "Id": "dbc89dbb-7210-4aa5-a36a-a854272eebf1",
+      "OnStart": [
+        //определяет, что происходит при старте фазы. сюда можно вставить любые спеллы. 
+        {
+          "$type": "ImpactAddKnowledge", //выдаём игроку кновледж о том, что он взял этот квест. С помощью него спелл выдачи квеста не даёт игроку брать квест второй раз.
+          "Knowledge": "/Inventory/Knowledge/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_TakenKW" //ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef", //выдаём игроку квест-маркер - чтобы он знал, где искать ресурсы.
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_DesertPOI" //ссылка на файл с квест-маркером. его заведём в п.5 и сюда вставим
+        }
+      ],
+      "Counter": { //каунтер - то, что включает переход на след. фазу квеста. этот считает, сколько предметов указанного типа в инвентаре игрока
+        "$type": "ItemsCounterDef",
+        "Id": "c51b9676-5a4e-4a6d-bf83-ac275f6cdde6",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/SporeCell", //что именно таргетит (считает) каунтер. здесь - ссылка на споровые батарейки
+        "Count": 10 // количество, которое каунтер должен насчитать, чтобы эта фаза закончилась и началась новая
+      },
+      "Label": "CollectPhase",
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503314"
+      }, //название фазы квеста - будет отображаться в журнале и в HUD
+      "ShortDescriptionLs": {
+        "Key": "#l10n503315"
+      }, //короткое описание фазы (журнал, когда квест закрыт, и в HUD). можно пустым оставить, если здесь нечего толкового сказать.
+      "DescriptionLs": {
+        "Key": "#l10n503316"
+      } //полное описание фазы(в журнале когда открыт квест). Это самое логичное место (пока), чтобы полно и обширно весь квест описать.
+    },
+    {
+      "$type": "PhaseDef", //фаза 2: сбор второго ресурса. в данном случае, кремния                  ,
+      "Id": "e4fc606a-c4b7-4f86-8656-3c26af758625",
+      "OnStart": [],
+      "Counter": { //каунтер: фаза закончится, когда игрок соберёт 10 кусков кремния
+        "$type": "ItemsCounterDef",
+        "SourceType": "Player",
+        "Id": "6c85c5da-6595-4dd8-9ab4-a9db71629d25",
+        "Target": "/Inventory/Items/Res/SiliconShard", //ссылка на файл со вторым ресурсом
+        "Count": 10
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "d0e5ad90-177d-4f59-8993-e37c140c33ab",
+        "Less": true,
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/SporeCell",
+        "Count": 10
+      },
+      "Label": "CollectPhase2",
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503317"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503318"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503319"
+      }
+    },
+    {
+      "$type": "PhaseDef", //фаза 3: возвращение к NPC - квест-гиверу,
+      "Id": "a147207b-f576-433d-9784-b9978134c2f7",
+      "OnStart": [
+        //маркер на Кулибина
+        {
+          "$type": "ImpactAddPointOfInterestDef", //выдаём квест-маркер - где стоит NPC.
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI" //ссылка на файл с этим квест-маркером. его заведём в п.5 и сюда вставим
+        }
+      ],
+      "Counter": { //этот каунтер проверяет, сработал ли указанный ниже спелл. когда сработал, фаза заканчивается
+        "$type": "SpellCounterDef",
+        "IsInvisible":true, //ссылка на файл с этим спеллом. его заведём в п.3 и и сюда вставим,
+        "Id": "90a1f01c-f306-47f6-a979-df0c7ac29c0b",
+        "Target": "/UtilPrefabs/Spells/Quests/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "68d15718-5631-400e-965d-47d255923e64",
+        "SourceType": "Player",
+        "Less":true,
+        "Target": "/Inventory/Items/Res/SiliconShard", //ссылка на файл со вторым ресурсом
+        "Count": 10
+      },
+      "OnFailPhase": "CollectPhase2",
+      "OnSuccess": [
+        //что происходит, если фаза успешно завершена:
+        {
+          "$type": "ImpactRemovePointOfInterestDef", //у игрока пропадает указанный ниже квест маркер
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI" //ссылка на файл с этим квест-маркером. его заведём в п.5 и и сюда вставим
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_Reward" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503320"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503321"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503322"
+      } // Пока этот дескрипшн - последний, который увидит игрок, и он показывается на видном месте в журнале. Имеет смысл его полнее и понятнее писать.
+    }
+  ],
+  "OnSuccess": [], //Название всего квеста (журнал и в худе)
+  "NameLs": {
+    "Key": "#l10n503323"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503324"
+  }, //Короткое описание квеста (журнал, когда квест закрыт, и в худе). Похоже, пока оно плохо показывается - журнал сжирает его часть. Худ не показывает.
+  "DescriptionLs": {
+    "Key": "#l10n503325"
+  } //Полное описание (в журнале когда открыт квест). Похоже, пока оно не показывается вообще нигде.
+}

@@ -1,0 +1,124 @@
+{
+  "$type": "QuestDef",
+  "Id": "1a8400f6-dcb4-4625-8363-33743471a21f",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //список фаз квеста.
+    {
+      "$type": "PhaseDef", //фаза 1,
+      "Id": "d5b1a493-0491-4303-9f08-d05924e3121d",
+      "OnStart": [
+        {
+          "$type": "ImpactAddKnowledge",
+          "Knowledge": "/Inventory/Knowledge/Quest/Conspiracy/1/ConspiracyQuest1_TakenKW"
+        },
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Conspiracy/1/ConspiracyQuest1_PlatPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "d3e90a76-ffca-41e7-aa14-01aac2760efe",
+        "Target": "/UtilPrefabs/Spells/Quests/Conspiracy/1/ConspiracyQuest1_JumpPuzzle",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Conspiracy/1/ConspiracyQuest1_PlatPOI"
+        }
+      ], //название фазы квеста - будет отображаться в журнале и в HUD
+      "NameLs": {
+        "Key": "#l10n3292"
+      }, //Идти на источник сигнала
+//короткое описание фазы (журнал, когда квест закрыт, и в HUD). можно пустым оставить, если здесь нечего толкового сказать.
+      "ShortDescriptionLs": {
+        "Key": ""//Сначала нужно обнаружить, откуда исходит сигнал
+      }, //полное описание фазы(в журнале когда открыт квест). Это самое логичное место (пока), чтобы полно и обширно весь квест описать.
+      "DescriptionLs": {
+        "Key": "#l10n3293"
+      }//Я получил сигнал бедствия. Его отправитель ранен и прячется от кого-то в пещере неподалёку. Он пытался предупредить о чём-то ещё, но разобрать его слова не представлялось возможным - должно быть, каменные стены искажают сигнал.
+    },
+    {
+      "$type": "PhaseDef", //фаза 2,
+      "Id": "7d4d1454-169c-408b-8b77-0705e0095474",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Conspiracy/1/ConspiracyQuest1_JumpPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "fc2905c6-2c6a-4b87-8990-3a6f57911c50",
+        "Target": "/UtilPrefabs/Spells/Quests/Conspiracy/1/ConspiracyQuest1_NextPhase",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Conspiracy/1/ConspiracyQuest1_JumpPOI"
+        }
+      ], //название фазы квеста - будет отображаться в журнале и в HUD
+      "NameLs": {
+        "Key": "#l10n3294"
+      }, //Взобраться на плато
+//короткое описание фазы (журнал, когда квест закрыт, и в HUD). можно пустым оставить, если здесь нечего толкового сказать.
+      "ShortDescriptionLs": {
+        "Key": ""
+      }, //полное описание фазы(в журнале когда открыт квест). Это самое логичное место (пока), чтобы полно и обширно весь квест описать.
+      "DescriptionLs": {
+        "Key": "#l10n3295"
+      }//Источник сигнала где-то здесь, на плато. Но, чтобы отыскать его, придется взобраться повыше.
+    },
+    {
+      "$type": "PhaseDef", //фаза 3                 ,
+      "Id": "3a385e08-487f-4a78-afed-d9b900290e2a",
+      "OnStart": [],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "a3e89ba9-d4c9-492b-a416-6efce2cb4d6e",
+        "Target": "/UtilPrefabs/Spells/Quests/Conspiracy/1/ConspiracyQuest1_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3296"
+      }, //Найти и обыскать пещеру
+      "ShortDescriptionLs": {
+        "Key": ""//Раненый должен быть в пещере.
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3297"
+      }//Я взобрался на плато, откуда поступил сигнал. Теперь нужно найти пещеру, о которой в нём говорилось.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Currencies/TechPointR1"
+      ],
+      "Count": 2
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Quest/Conspiracy/1/ConspiracyQuest1_Notes"
+      ],
+      "Count": 1
+    }
+  ], //Название всего квеста (журнал и в худе)
+  "NameLs": {
+    "Key": "#l10n3298"
+  }, //Сигнал бедствия
+  "ShortDescriptionLs": {
+    "Key": "#l10n3299"
+  }, //Короткое описание квеста (журнал, когда квест закрыт, и в худе). Похоже, пока оно плохо показывается - журнал сжирает его часть. Худ не показывает.
+//"Раненый незнакомец просит вызволить его из пещеры.
+  "DescriptionLs": {
+    "Key": "#l10n3300"
+  }//Полное описание (в журнале когда открыт квест). Похоже, пока оно не показывается вообще нигде.
+// Похоже, раненый колонист не может выбраться из пещер. Без моей помощи ему не спастись.
+}

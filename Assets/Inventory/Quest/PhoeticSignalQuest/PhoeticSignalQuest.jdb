@@ -1,0 +1,125 @@
+{
+  "$type": "QuestDef",
+  "Id": "84ccaf53-b4eb-46b3-83c6-25673dbf9e01",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Добраться до пещер,
+      "Id": "28e5ce22-8743-40f1-8990-98129a15129c",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/PhoeticSignalQuest/POIPhoeticSignalQuest_CavePOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "94043467-abf6-4403-9561-ca80a0a8c080",
+        "Target": "/UtilPrefabs/Spells/Quests/PhoeticSignalQuest/PhoeticSignalQuest_EnterCave",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "56e75275-76db-4dac-9eb1-f6d440d8659d",
+        "Target": "/Inventory/Knowledge/Quest/PhoeticSignalQuest/PhoeticSignalQuest_TurnOffKpk",
+        "Count": 1
+      },
+      "OnFailPhase": "InCave",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/PhoeticSignalQuest/POIPhoeticSignalQuest_CavePOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3301"
+      }, //Добраться до одной из точек на карте
+      "ShortDescriptionLs": {
+        "Key": ""//Твинки передал координаты, где искать источник сигнала.
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3302"
+      }//Твинки попросил отключить старый сигнал бедствия, который мешает ему работать. Он отметил на карте места, с которых было бы логично начать поиски.
+    },
+    {
+      "$type": "PhaseDef", //Выключить КПК,
+      "Id": "64ec8748-ca81-4de1-9469-ee8986973371",
+      "Label": "InCave",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/PhoeticSignalQuest/POIPhoeticSignalQuest_ShrinePOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "IsInvisible":true,
+        "Id": "d993120d-d555-4f83-9ba5-dc68be102752",
+        "Target": "/Inventory/Knowledge/Quest/PhoeticSignalQuest/PhoeticSignalQuest_TurnOffKpk",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/PhoeticSignalQuest/POIPhoeticSignalQuest_ShrinePOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3303"
+      }, //Обнаружить источник сигнала
+      "ShortDescriptionLs": {
+        "Key": ""//Источник сигнала в этих пещерах, нужно его отыскать.
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3304"
+      }//Похоже, передатчик уже близко. Осталось найти и отключить его.
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "5363a788-e557-4037-8d0e-9c22e5cf8537",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "49503f8f-707e-41bd-8e15-976896644b10",
+        "Target": "/UtilPrefabs/Spells/Quests/PhoeticSignalQuest/PhoeticSignalQuest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/PhoeticSignalQuest/PhoeticSignalQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3305"
+      }, //Поговорить с TWN-K12
+      "ShortDescriptionLs": {
+        "Key": ""//Я прекратил передачу сигнала.
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3306"
+      }//Сигнал бедствия отключен. Нужно сказать об этом Твинки. Надеюсь, его не замкнет от радости.
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3307"
+  }, //Назойливый сигнал
+  "ShortDescriptionLs": {
+    "Key": "#l10n3308"
+  }, //Найти и отключить источник сигнала.
+  "DescriptionLs": {
+    "Key": "#l10n3309"
+  }//Навязчивый сигнал бедствия забивает частоты связи в Хабе и мешает роботу-квартермейстеру. Нужно помочь Твинки и отключить источник сигнала.
+}

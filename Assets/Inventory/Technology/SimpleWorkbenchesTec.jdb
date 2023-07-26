@@ -1,0 +1,35 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "fd1d1030-e916-4969-b63b-ec9a4de9a6c3",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 13,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 5,
+                    "Science": "/Inventory/Science/Geology"
+                },
+                {
+                    "Count": 15,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/PrimitiveWorkbenchesTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 3,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/SimpleWorkbenchesKW"
+        ]
+    }
+}

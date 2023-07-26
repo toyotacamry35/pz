@@ -1,0 +1,140 @@
+{
+  "$type": "ItemResource",
+  "$proto": "/Inventory/Items/Weapons/_MeleeWeaponProto",
+  "Id": "5fe1ee74-847a-4f7c-9220-d3f938a05732",
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/AttackMelee": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Spear_L"
+      },
+      "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Spear_R"
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/Block"
+      },
+      "/UtilPrefabs/Input/Actions/AttackDash": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Spear_Dash"
+      },
+      "/UtilPrefabs/Input/Actions/AttackAirborne": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Spear_Airborne"
+      },
+      "/UtilPrefabs/Input/Actions/AttackDashSide": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Spear_L"
+      }
+    }
+  },
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeSpear",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeSpear"
+  ],
+  "MaxStack": 1,
+  "Weight": 1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/WeaponMassive",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier3",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 0
+        }
+      ],
+      "Id": "1de1f25c-27e5-47e0-b6e2-4d07d0027090"
+    },
+    "FullBreakDurability": 0,
+    "IncreaseDurabilityOnRepair": 1,
+    "DecreaseMaxDurabilityOnRepair": 0,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/Bone",
+        "Count": 0
+      }
+    ]
+  },
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 2000,
+      "DURABILITY_INITIALVALUE": 2000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "4a2011da-8a81-4c36-b435-1cceb3dd13e9"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.25
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.25
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Big",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 241
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+        "Value": -2.45
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "/Inventory/Items/Weapons/_MeleeWeaponDefProto"
+  },
+  "Icon": "Assets/UI/UISprites/Items/new_Xenofungus_Spear",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Xenofungus_SpearBig",
+  "Visual": "Assets/Content/Craft/Weapons_Tools/Melee/Spear_SpiralXenofungus",
+  "CorrectionInHandRequired": false,
+  "ItemNameLs": {
+    "Key": "#l10n4493"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n505124"
+  }
+}

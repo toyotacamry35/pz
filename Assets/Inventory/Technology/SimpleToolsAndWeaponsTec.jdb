@@ -1,0 +1,31 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "ac630a4c-5400-4248-90bc-7f0d1478c506",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 12,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 8,
+                    "Science": "/Inventory/Science/Geology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/MaterialsTier2Tec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 3,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/SimpleToolsAndWeaponsKW"
+        ]
+    }
+}

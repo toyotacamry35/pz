@@ -1,0 +1,126 @@
+{
+  "$type": "ItemResource",
+  "$proto": "./_SpearWeaponProto",
+  "Id": "25f8db29-e6dc-48be-8b7a-68888e734bc4",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "e58e1b39-2b49-41a1-98a9-ea1f2de8302e",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/FungalPlate",
+        "Count": 2
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/FungalPlate",
+        "Count": 2
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 3,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/WeaponMassive",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 2000,
+      "DURABILITY_INITIALVALUE": 2000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "4b4231a8-9519-4ff2-8dfe-e1c31dac3644"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "446b9d0d-66a7-4e8f-a61d-a12bd316a84b",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Big",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 112
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+        "Value": -2.45
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "AttackCollider": {
+      "$type": "WeaponColliderDef",
+      "DefaultCollider": {
+        "$type": "BoxShape",
+        "Position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.8
+        },
+        "Extents": {
+          "x": 0.1,
+          "y": 0.1,
+          "z": 1.7
+        },
+        "CheckTargetOnly": true
+      },
+      "CustomColliders": {}
+    },
+  },
+  "Icon": "Assets/UI/UISprites/Items/FungalSpear",
+  "BigIcon": "Assets/UI/UISprites/Items/FungalSpearBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/fungalSpear",
+  "CorrectionInHandRequired": false,
+  "ItemNameLs": {
+    "Key": "#l10n574"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n575"
+  }
+}

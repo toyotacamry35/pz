@@ -1,0 +1,37 @@
+{
+  "$type": "ItemResource",
+  "Id" : "ec79242c-b43b-48b7-86f2-822f591208b3",
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/AttackMelee": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Axe1H_L"
+      },
+      "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Axe1H_R"
+      },
+      "/UtilPrefabs/Input/Actions/AttackAirborne": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Axe_Airborne"
+      },
+      "/UtilPrefabs/Input/Actions/AttackDash": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Axe_Dash"
+      },
+      "/UtilPrefabs/Input/Actions/AttackDashSide": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Axe_Dash_Side"
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/Block"
+      }
+    }
+  },
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeMelee",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeMelee"
+  ],
+  "CorrectionInHandRequired": true
+}

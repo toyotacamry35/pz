@@ -1,0 +1,103 @@
+{
+  "$type": "QuestDef",
+  "Id": "47323b39-5437-4877-9101-52a3c3ff37c5",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Увидеть город
+    {
+      "$type": "PhaseDef",
+      "Id": "8ad2e816-d937-4e02-a38c-38207fb13698",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "24814555-eecf-4b74-9f2e-224b02684295",
+        "Target": "/UtilPrefabs/Spells/Quests/HubQuest/FollowHubQuest3Spell",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n502762"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502763"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502764"
+      }
+    }
+    , //Дойти до города
+    {
+      "$type": "PhaseDef",
+      "Id": "b8c26517-9673-489c-8d71-4cfcfc323ea6",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "04bea85f-3827-47b4-9c94-18c887f27130",
+        "Target": "/UtilPrefabs/Spells/Quests/HubQuest/FollowHubQuest4Spell",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n502765"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502766"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502767"
+      }
+    }
+    , //Поговорить с НПС
+    {
+      "$type": "PhaseDef",
+      "Id": "9247457e-b50c-40e1-aef8-908ab0120b45",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "d3f21d68-c99b-4c84-bfeb-c2a03650394e",
+        "Target": "/Inventory/Knowledge/Quest/HubQuest/OldHouseGuardKW",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n502768"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n502769"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n502770"
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/POIGvard"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n502771"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n502772"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n502773"
+  }
+}

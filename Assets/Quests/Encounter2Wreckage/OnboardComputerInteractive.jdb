@@ -1,0 +1,27 @@
+{
+    "$type": "UnityGameObjectDef",
+    "Name": "OnboardComputerInteractive",
+    "Components": [
+        {
+            "$type": "InteractiveDef",
+            "ObjectName": "Onboard computer",
+            "ContextualActions": {
+                "$type": "ContextualActionsDef",
+                "SpellsByAction": {
+                    "/UtilPrefabs/Input/Actions/Interaction": {
+                        "0": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/Quests/Encounter2Wreckage/PoweredOnboardComputerInteractiveSpell"
+                        },
+                        "1": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/Quests/Encounter2Wreckage/UnpoweredOnboardComputerInteractiveSpell"
+                        }
+                    }
+                }
+            },
+            "Interaction": "CollectLow",
+            "Know": "CollectLow"
+        }
+    ]
+}

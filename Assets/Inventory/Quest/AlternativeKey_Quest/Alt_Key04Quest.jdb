@@ -1,0 +1,52 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "b3c9e3fd-6fa9-4fd2-a812-d1f4982f6b66",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "86344c2e-5280-43d7-86be-cd6ccb70d7a8",
+      "Label": "CollectPhase",
+      "OnStart": [],
+      "Counter": {
+        "$type": "MobKillsCounterDef",
+        "Id": "5366afad-9fa3-46f0-acc0-47e85153d52b",
+        "Target": "/AI/Defs/Mobs/Sahrim_Legionary/Sahrim_Ice_Stats",
+        "Count": 3
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n5020"
+      }, // Убить несколько снежных сахрымов
+      "ShortDescriptionLs": {
+        "Key": "#l10n5021"
+      }, // Нужно продолжать расследование. Следующая смерть подстерегла вас во время похода за криогелем
+      "DescriptionLs": {
+        "Key": "#l10n5022"
+      }// Вскрыв тушу Альфа Квара, вы обнаружили у него в желудке наручные часы. Ваши наручные часы, те самые, которые отец подарил вам на 16-ти летие, те самые, которые были надеты на ваше запястье, когда вы проткнули брюхо монстра. Теперь у вас двое одинаковых часов. На обоих стекло немного треснуло в одном и том же месте и полустертая гравировка гласит одно и то же.\nКоконы создают все предметы на человеке заново, воскрешая его? Нужно продолжать расследование. Память постепенно возвращается, и вы вспоминаете, что следующая смерть подстерегла вас под ударами снежного сахрыма во время похода за криогелем.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key04Quest/Alt_Key04Quest_Complete"
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key05Quest/Alt_Key05Quest_Start"
+      ]
+    },
+    {
+      "$type": "ImpactAddPerkDef",
+      "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n5023"
+  }, // Шаги к разгадке: Смерть в Снегах
+  "DescriptionLs": {}
+}

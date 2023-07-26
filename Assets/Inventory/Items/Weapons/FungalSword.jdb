@@ -1,0 +1,126 @@
+{
+  "$type": "ItemResource",
+  "$proto": "./_MeleeWeaponProto",
+  "Id": "c2ff344e-0b14-42f6-bb45-a5a8c3058b8e",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "f9c1f975-8e99-4a67-8f9d-336249c5fa73",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/FungalPlate",
+        "Count": 3
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/FungalPlate",
+        "Count": 3
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 2,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1500,
+      "DURABILITY_INITIALVALUE": 1500,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "27088059-664a-438c-92d7-43225c4e8e07"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "c44380b9-d261-49a9-a6e1-93fc34372ab3",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Medium",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 140
+      },   
+      {
+         "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+         "Value": 1
+      }    
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "./_MeleeWeaponDefProto",
+    "AttackCollider": {
+      "$type": "WeaponColliderDef",
+      "DefaultCollider": {
+        "$type": "BoxShape",
+        "Position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.6
+        },
+        "Extents": {
+            "x": 0.025,
+            "y": 0.025,
+            "z": 0.6
+        },
+        "CheckTargetOnly": true
+      },
+      "CustomColliders": {}
+    },
+  },
+  "Icon": "Assets/UI/UISprites/Items/FungalSword",
+  "BigIcon": "Assets/UI/UISprites/Items/FungalSwordBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/swordT2Fungus",
+  "ItemNameLs": {
+    "Key": "#l10n576"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n577"
+  }
+}

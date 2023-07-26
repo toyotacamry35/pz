@@ -1,0 +1,56 @@
+{
+  "$type": "QuestDef",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Counter": {
+        "$type": "CraftCounterDef",
+        "Targets": [
+          "/Inventory/Recipes/Sessions/Armor_4_chestBP",
+          "/Inventory/Recipes/Sessions/Armor_4_handsBP",
+          "/Inventory/Recipes/Sessions/Armor_4_headBP",
+          "/Inventory/Recipes/Sessions/Armor_4_legsBP",
+          "/Inventory/Recipes/Sessions/Backpack_4BP",
+          "/Inventory/Recipes/Sessions/Belt_4BP",
+          "/Inventory/Recipes/Sessions/Toxic_protection_4BP",
+          "/Inventory/Recipes/Sessions/Battle_Potion_4BP",
+          "/Inventory/Recipes/Sessions/Meat_cucumber_salatBP",
+          "/Inventory/Recipes/Sessions/Kebab_4BP",
+          "/Inventory/Recipes/Sessions/Healing_4BP",
+          "/Inventory/Recipes/Sessions/Chest_4BP",
+          "/Inventory/Recipes/Sessions/Pressed_leather_4BP",
+          "/Inventory/Recipes/Sessions/Hardened_scyphopod_limbBP",
+          "/Inventory/Recipes/Sessions/Knife_4BP",
+          "/Inventory/Recipes/Sessions/Pick_4BP",
+          "/Inventory/Recipes/Sessions/Spear_4BP",
+          "/Inventory/Recipes/Sessions/Sword_4BP",
+          "/Inventory/Recipes/Sessions/WarAxe_4BP",
+          "/Inventory/Recipes/Sessions/WarHammer_4BP"
+        ],
+        "CraftSource": "Any",
+        "Count": 15,
+        "Id": "3ae8d6d1-a171-48cd-83bf-79dac9329b2b"
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/CraftAnything_Tier_04"
+        }
+      ],
+      "Id": "80c81799-4d67-458f-b138-2bd1c521280e"
+    },
+    {
+      "$type": "PhaseDef",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Time": 1,
+        "Id": "f10a8e1b-a441-470e-9216-2f7b68f4f43b"
+      },
+      "Id": "98e6956b-1423-4bce-8097-75690a0791e3"
+    }
+  ],
+  "Id": "9ec9355d-8941-47a2-b247-48374cfc76db"
+}

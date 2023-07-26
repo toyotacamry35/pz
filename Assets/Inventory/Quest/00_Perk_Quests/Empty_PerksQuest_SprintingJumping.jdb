@@ -1,0 +1,54 @@
+{
+  "$type": "QuestDef",
+  "Id": "015885dc-8716-4a7b-9b3e-340ad718878a",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "70ca7668-2c42-40bd-a5fc-885b9db75894",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "215d99fb-e136-4ac1-a11a-3f2144241475",
+        "Targets": [
+          "/UtilPrefabs/Spells/Locomotion/JumpReaction",
+          "/UtilPrefabs/Spells/Locomotion/SprintReaction"
+        ],
+        "Count": 200
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": {
+            "$type": "LootTableDef",
+            "DefaultPredicate": {
+              "$type": "LootTablePredicatePlayerHaveNotPerkDef"
+            },
+            "LootTable": [
+              {
+                "ItemResRefPack": {
+                  "ItemResource": "/Inventory/Perks/Special/Empty",
+                  "Count": 0
+                },
+                "WeightCalcer": {
+                  "$type": "LootItemChanceWeightCalcerConstantDef",
+                  "Value": 20
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "$type": "PhaseDef",
+      "Id" : "bf8c53ed-fc18-4cf3-978f-7c501134abf0",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Id" : "8b468678-9729-4d2a-bcfa-9e5bab17e543",
+        "Time": 10
+      }
+    }
+  ]
+}

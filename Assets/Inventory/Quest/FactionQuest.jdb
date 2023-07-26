@@ -1,0 +1,152 @@
+{
+  "$type": "QuestDef",
+  "Id": "40770dfa-4298-46a0-8c2b-4ff41f2ed074",
+  "ShortDescription": "",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //BecomesHalfHuman
+    /*  {
+            "$type": "PhaseDef",
+            "Name": "Await emission effects",
+            "ShortDescription": "Wait for Kepler's mutagenic emission to take effect",
+            "Description": "My implants detected mutagenic emission which persists on this planet. I will probably learn it's effects in some time. \n\n\n Mutations occur when I die or fight with sciophoria or sciophopods.",
+            "Counter": {
+                "$type": "MutationCounterDef",
+                "Stage": "/Inventory/Factions/Stages/HalfHuman"
+            },
+            "OnStart": [
+            ],
+            "OnSuccess": [
+            ]
+        },*/
+    //EnterExpeditionArea
+    {
+      "$type": "PhaseDef",
+      "Id": "6c4b9f2c-6655-4f92-a529-074ceabfcd1b",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POILostExpedition"
+        },/*
+        {
+          "$type": "ImpactCastSpell",
+          "Caster": {
+            "$type": "SpellCaster"
+          },
+          "Spell": "/UtilPrefabs/Spells/Quests/FactionQuest/FactionQuestSpellGordon1"
+        }*/
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "62a2754d-6ee7-444d-8240-4a8db4b94017",
+        "Target": "/UtilPrefabs/Spells/Quests/QuestFactionEnterExpeditionArea",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POILostExpedition"
+        },
+        /*
+        {
+          "$type": "ImpactCastSpell",
+          "Caster": {
+            "$type": "SpellCaster"
+          },
+          "Spell": "/UtilPrefabs/Spells/Quests/FactionQuest/FactionQuestSpellGordon2"
+        }*/
+      ],
+      "NameLs": {
+        "Key": "#l10n2608"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2609"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2610"
+      }
+    }
+    , //InteractWithCaptain
+    {
+      "$type": "PhaseDef",
+      "Id": "2b68314c-9b1a-44b1-9d6c-ea16faf90b45",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POICaptainCorpse"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "668e7843-2bd5-4dff-b854-b19904498568",
+        "Target": "/Inventory/Knowledge/Quest/FactionQuestCorpesKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POICaptainCorpse"
+        },/*
+        {
+          "$type": "ImpactCastSpell",
+          "Caster": {
+            "$type": "SpellCaster"
+          },
+          "Spell": "/UtilPrefabs/Spells/Quests/FactionQuest/FactionQuestSpellGordon3"
+        }*/
+      ],
+      "NameLs": {
+        "Key": "#l10n2611"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2612"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2613"
+      }
+    }
+    , 
+    //InteractWithImplanter
+    {
+      "$type": "PhaseDef",
+      "Id": "4ba6619c-eae6-4f48-9153-5f941f56dc21",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIImplanter"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id" : "b6ed22ad-27d9-4f1c-832f-d1f72caa4e5a",
+        "Target": "/Inventory/Knowledge/Quest/FactionQuestFinishKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIImplanter"
+        },
+        {
+          "$type": "ImpactAddKnowledge",
+          "Knowledge": "/UtilPrefabs/Spells/Quests/QuestKnowledge/FactionQuestRewardKW"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2617"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2618"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2619"
+      }
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n1143"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n1144"
+  }
+}

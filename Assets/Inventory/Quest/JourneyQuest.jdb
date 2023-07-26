@@ -1,0 +1,474 @@
+{
+  "$type": "QuestDef",
+  "Id": "a2121c5a-04fb-4ba1-bd78-7b4f74179024",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    //Дойти до зоны крушения челнока 
+    {
+      "$type": "PhaseDef",
+      "Id": "02df024c-289f-47c8-84e4-03eb73328b10",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest1"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "3d58e0b6-250e-4783-bc96-82b99e1ce4ad",
+        "Target": "/UtilPrefabs/Spells/Quests/JourneyQuest/Follow1JourneyQuestSpell",
+        "Count": 1
+      },
+      "OnFailPhase": "SupressorDone",
+      "FailCounter": {
+        "$type": "SpellCounterDef",
+        "Id": "769a3757-dd8f-4b8f-ac91-ef3e678fb75c",
+        "Target": "/Content/Quest/ScyphopodSupressor/SupressorActivateBoxEffect",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest1"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2640"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2641"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2642"
+      }
+    }, //Осмотреть Бортовой компьютер
+    {
+      "$type": "PhaseDef",
+      "Id": "982f7e85-635b-4b26-8629-ef569c19463f",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest6"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "8aded139-e680-40f2-9761-fd8d312d493d",
+        "Target": "/UtilPrefabs/Spells/Quests/JourneyQuest/BoardComputerInteractionSpell",
+        "Count": 1
+      },
+      "OnFailPhase": "SupressorDone",
+      "FailCounter": {
+        "$type": "SpellCounterDef",
+        "Id": "834ea795-fa1a-44b4-8461-59820c5d24d6",
+        "Target": "/Content/Quest/ScyphopodSupressor/SupressorActivateBoxEffect",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest6"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2643"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2644"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2645"
+      }
+    }, //Отправиться в зону с излучателем
+    {
+      "$type": "PhaseDef",
+      "Id": "0d862132-2fb9-4b2a-9e5c-d9c4e40283e0",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest2"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "185adcba-0772-48f9-b159-e1a8871b744e",
+        "Target": "/UtilPrefabs/Spells/Quests/JourneyQuest/Follow2JourneyQuestSpell",
+        "Count": 1
+      },
+      "OnFailPhase": "SupressorDone",
+      "FailCounter": {
+        "$type": "SpellCounterDef",
+        "Id": "b587747f-e41f-4d0d-b6ae-c5585fb3c500",
+        "Target": "/Content/Quest/ScyphopodSupressor/SupressorActivateBoxEffect",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest2"
+        }
+        /*
+                {
+                    "$type": "ImpactActivateQuest",
+                    "Quest": "/Inventory/Quest/JourneyQuest/ExtraJourneyQuest1"
+                },
+                {
+                    "$type": "ImpactActivateQuest",
+                    "Quest": "/Inventory/Quest/JourneyQuest/ExtraJourneyQuest2"
+                }
+                */
+      ],
+      "NameLs": {
+        "Key": "#l10n2646"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2647"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2648"
+      }
+    }, //Первое взаимодействие с излучателем (Излучатель сломан)
+    {
+      "$type": "PhaseDef",
+      "Id": "522d87ec-e53a-4273-8d1a-5a9334ec34b2",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest2"
+        }
+      ],
+      "OnFailPhase": "Corpes",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "33e865be-f9f6-4a61-9e1f-38205f336567",
+        "Target": "/Content/Quest/ScyphopodSupressor/SupressorErrorMessage",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "45447837-ec69-46f0-9def-10b5e0041cad",
+        "Target": "/Inventory/Knowledge/Quest/JourneyQuestCorpesKW",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest2"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2649"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2650"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2651"
+      }
+    }, //Осмотреть Труп инженера
+    {
+      "$type": "PhaseDef",
+      "Id": "9088240f-90be-4623-ac74-aafd00e5145a",
+      "Label": "Corpes",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest7"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "21413783-361e-412f-b05e-17ac5ef13f4a",
+        "Target": "/Inventory/Knowledge/Quest/JourneyQuestCorpesKW",
+        "Count": 1
+      },
+      "OnFailPhase": "SupressorDone",
+      "FailCounter": {
+        "$type": "SpellCounterDef",
+        "Id": "8e414319-7ab4-4966-8243-0155887db3c4",
+        "Target": "/Content/Quest/ScyphopodSupressor/SupressorActivateBoxEffect",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactActivateQuest",
+          "Quest": "/Inventory/Quest/JourneyQuest/ExtraJourneyQuest1"
+        },
+        {
+          "$type": "ImpactActivateQuest",
+          "Quest": "/Inventory/Quest/JourneyQuest/ExtraJourneyQuest2"
+        },
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest7"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2652"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2653"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2654"
+      }
+    }
+    /*
+    //Найти запчасти
+    {
+      "$type": "PhaseDef",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Count": 1,
+        "Target": "/Inventory/Items/Quest/SpareParts1"
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "Missing element"
+      },
+      "ShortDescriptionLs": {
+        "Key": "Find parts."
+      },
+      "DescriptionLs": {
+        "Key": "Find the parts to fix the radiator. Unfortunately, you have only approximate coordinates of the crash of the modules of the ship."
+      }
+    }
+    , //Найти запчасти
+    {
+      "$type": "PhaseDef",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Count": 1,
+        "Target": "/Inventory/Items/Quest/SpareParts2"
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "Missing element"
+      },
+      "ShortDescriptionLs": {
+        "Key": "Find parts."
+      },
+      "DescriptionLs": {
+        "Key": "Find the parts to fix the radiator. Unfortunately, you have only approximate coordinates of the crash of the modules of the ship."
+      }
+    }
+    , 
+    */
+    , //Сделать Рем. Комплект
+    {
+      "$type": "PhaseDef",
+      "Id": "5d995c35-8545-4672-bd9a-2b18f2b0fcf9",
+      "OnStart": [],
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "27ec3d1f-da7b-4251-9992-8e260b5d1cfb",
+        "Count": 1,
+        "Target": "/Inventory/Items/Quest/RepairKit"
+      },
+      "OnFailPhase": "SupressorDone",
+      "FailCounter": {
+        "$type": "SpellCounterDef",
+        "Id": "f2512df7-312b-43a1-8a36-1809dcf6f8fa",
+        "Target": "/Content/Quest/ScyphopodSupressor/SupressorActivateBoxEffect",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2655"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2656"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2657"
+      }
+    }, //Вернуться к излучателю
+    {
+      "$type": "PhaseDef",
+      "Id": "08f08665-0249-4502-b069-23ee50115f41",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest10"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "8e55b6ea-269e-432e-b74c-dd3465cf7aec",
+        "Target": "/UtilPrefabs/Spells/Quests/JourneyQuest/Follow2JourneyQuestSpell",
+        "Count": 1
+      },
+      "OnFailPhase": "SupressorDone",
+      "FailCounter": {
+        "$type": "SpellCounterDef",
+        "Id": "87aba922-f86b-4add-a2b4-b9faa4434c51",
+        "Target": "/Content/Quest/ScyphopodSupressor/SupressorActivateBoxEffect",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest10"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2658"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2659"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2660"
+      }
+    }
+    /*
+        //Забрать взрывчатку с трупа
+        {
+            "$type": "PhaseDef",
+            "Name": "Explosive",
+            "ShortDescription": "Pick up the explosives",
+            "Description": "Pick up the explosives",
+            "OnStart": [
+                {
+                    "$type": "ImpactAddPointOfInterestDef",
+                    "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest3"
+                }
+            ],
+            "Counter": {
+                "$type": "ItemsCounterDef",
+                "Count": 1,
+                "Target": "/Inventory/Items/Quest/Explosive"
+            },
+            "OnSuccess": [
+                {
+                    "$type": "ImpactRemovePointOfInterestDef",
+                    "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest3"
+                }
+            ]
+        },*/
+    , //Активировать излучатель
+    {
+      "$type": "PhaseDef",
+      "Id": "d8778584-93b9-4770-93cc-d11ceba6068a",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest10"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "c79f07b4-7c0c-453e-8f1e-88b4b306dea1",
+        "Target": "/Content/Quest/ScyphopodSupressor/SupressorActivateBoxEffect",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest10"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2661"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2662"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2663"
+      }
+    }
+    //Защитить излучатель
+    /*
+        {
+            "$type": "PhaseDef",
+            "Name": "Aggressive animals",
+            "ShortDescription": "Protect the radiator",
+            "Description": "Protect the radiator",
+            "OnStart": [],
+            "Counter": {
+                "$type": "ItemsCounterDef",
+                "Count": 1,
+                "Target": "/Inventory/Items/Quest/SurvivalManual"
+            },
+            "OnSuccess": []
+        },
+        */
+    , //Пройти в зону в награду
+    {
+      "$type": "PhaseDef",
+      "Id": "1bdcfc45-2186-4c49-8cd4-04ceb7a2c4d7",
+      "Label": "SupressorDone",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest11"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "adb7aa25-f4e0-4356-8286-419b2b869d1b",
+        "Target": "/UtilPrefabs/Spells/Quests/JourneyQuest/Follow3JourneyQuestSpell",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest11"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n2664"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2665"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2666"
+      }
+    }, //Осмотреть Труп Войда
+    {
+      "$type": "PhaseDef",
+      "Id": "5bbe0120-e703-419d-879f-bff48541cef4",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest11"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "c5879e07-ee88-41fd-916b-5be648c28e5b",
+        "Target": "/UtilPrefabs/Spells/BasicMoveSet/InteractWithPilotCorpse",
+        "Count": 1
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n2667"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n2668"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n2669"
+      }
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/JourneyQuest/POIJourneyQuest11"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n2670"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n2671"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n2672"
+  }
+}

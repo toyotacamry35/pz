@@ -1,0 +1,68 @@
+{
+  "$type": "ItemResource",
+  "Id": "e052ba53-9ce7-4317-9e61-fdeee7f626fa",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/ArmorHead",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "ce6d75d7-ee7d-4637-af3b-bf30589ab1ce"
+  },
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "Value": 9
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 1
+      }
+    ]
+  },
+  "HideBodyParts": [
+    "/UtilPrefabs/Res/Character/BodyParts/BodyPartHair"
+  ],
+  "HideVisualSlots": [
+    "/UtilPrefabs/Slots/WearHead"
+  ],
+  "Icon": "Assets/UI/UISprites/Items/new_Helm_pioneer",
+  "BigIcon": "Assets/UI/UISprites/Items/new_Helm_pervBig",
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Armor/Helmet_Scout_card/Helmet_Scout_card",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Armor/Helmet_Scout_card/Helmet_Scout_card_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504806"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504807"
+  }
+}

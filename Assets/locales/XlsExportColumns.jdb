@@ -1,0 +1,133 @@
+{
+    "$type": "XlsExportConfigDef",
+    "WorksheetName": "Translations",
+    "ImportOptionsRowTitle": "Опции импорта",
+    "OkBackgroundHexColor": "#A7FFAF",
+    "WarningBackgroundHexColor": "#FFFCA8",
+    "ErrorBackgroundHexColor": "#FFA7AF",
+    "Columns": [
+        {
+            "ColumnType": "Key",
+            "Width": 12,
+            "Title": "Key",
+            "IsOutlined": true,
+            "CellsStyle": {
+                "IsLocked": true,
+                "TextHexColor": "grey"
+            },
+            "TitleStyle": {
+                "IsBold": true,
+                "IsCentered": true,
+                "FontSizeDelta": -2,
+                "IsLocked": true,
+                "TextHexColor": "grey"
+            }
+        },
+        {
+            "ColumnType": "Version",
+            "Width": 3.7,
+            "Title": "Ver.",
+            "CellsStyle": {
+                "IsLocked": true,
+                "IsCentered": true
+            },
+            "TitleStyle": {
+                "IsBold": true,
+                "IsCentered": true,
+                "FontSizeDelta": -2,
+                "IsLocked": true
+            }
+        },
+        {
+            "ColumnType": "IsPlural",
+            "Width": 6,
+            "Title": "Plural",
+            "CellsStyle": {
+                "IsCentered": true
+            },
+            "TitleStyle": {
+                "IsBold": true,
+                "IsCentered": true,
+                "FontSizeDelta": -2,
+                "IsLocked": true
+            }
+        },
+        {
+            "ColumnType": "OrgText",
+            "DefaultColumnImportOption": "Ignore",
+            "Width": 50,
+            "Title": "{0} ({1})",
+            "TitleStyle": {
+                "IsBold": true,
+                "IsCentered": true,
+                "IsLocked": true
+            }
+        },
+        {
+            "ColumnType": "DstOldText",
+            "Width": 50,
+            "Title": "{0} ({1}) OLD",
+            "IsOutlined": true,
+            "CellsStyle": {
+                "TextHexColor": "grey"
+            },
+            "TitleStyle": {
+                "TextHexColor": "black",
+                "IsBold": true,
+                "IsCentered": true,
+                "IsLocked": true
+            }
+        },
+        {
+            "ColumnType": "DstNewText",
+            "DefaultColumnImportOption": "ImportIfVersionGreater",
+            "Width": 50,
+            "Title": "{0} ({1}) NEW",
+            "TitleStyle": {
+                "IsBold": true,
+                "IsCentered": true,
+                "IsLocked": true
+            }
+        },
+        {
+            "ColumnType": "Dst2NewText",
+            "DefaultColumnImportOption": "ImportIfVersionGreater",
+            "Width": 35,
+            "Title": "Select language",
+            "TitleStyle": {
+                "IsBold": true,
+                "IsCentered": true,
+                "IsLocked": true
+            }
+        },
+        {
+            "ColumnType": "Comments",
+            "Width": 44,
+            "Title": "Comments",
+            "IsOutlined": true,
+            "CellsStyle": {
+                "TextHexColor": "#007711",
+                "FontSizeDelta": -2
+            },
+            "TitleStyle": {
+                "IsBold": true,
+                "IsCentered": true,
+                "IsLocked": true
+            }
+        },
+        {
+            "ColumnType": "Errors",
+            "Width": 50,
+            "Title": "Errors",
+            "CellsStyle": {
+                "TextHexColor": "red",
+                "FontSizeDelta": -2
+            },
+            "TitleStyle": {
+                "IsBold": true,
+                "IsCentered": true,
+                "IsLocked": true
+            }
+        }
+    ]
+}

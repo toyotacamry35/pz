@@ -1,0 +1,35 @@
+{
+  "$type": "ItemResource",
+  "Id": "4c1b3a90-2069-46ba-afbc-6809e70adec8",
+  "MaxStack": 1,
+  "Weight": 10,
+  "ItemType": "/UtilPrefabs/ItemGroups/Container",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/new_MetalStash",
+  "BigIcon": "Assets/UI/UISprites/Items/new_MetalStashBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "/UtilPrefabs/Res/Prototypes/Mounting/MetalStash_EntityObjectDef"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4359"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4360"
+  }
+}

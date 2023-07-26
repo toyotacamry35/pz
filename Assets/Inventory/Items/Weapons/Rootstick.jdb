@@ -1,0 +1,77 @@
+{
+  "$type": "ItemResource",
+  "$proto": "./_MeleeWeaponProto",
+  "Id": "d69b8204-a0b2-418a-98e5-bafa99804065",
+  "MaxStack": 100,
+  "Weight": 0.12,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1000,
+      "DURABILITY_INITIALVALUE": 1000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "10705080-28ce-4b2b-86e3-d30dee93df9c"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "b1a5a3b0-2f1b-4821-bba7-08b73466d195",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Medium",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 73
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/PassiveDamageResistance/PassiveDamageResistanceSlashing",
+        "Value": 0
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "./_MeleeWeaponDefProto",
+    "DefaultCollider": {
+      "$type": "BoxShape",
+      "Position": {
+        "x": 0.0,
+        "y": -0.05,
+        "z": 0.3
+      },
+      "Extents": {
+        "x": 0.1,
+        "y": 0.1,
+        "z": 0.6
+      },
+      "CheckTargetOnly": true
+    }
+  },
+  "Icon": "Assets/UI/UISprites/Items/RootStick",
+  "BigIcon": "Assets/UI/UISprites/Items/RootStickBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/RootStick",
+  "ItemNameLs": {
+    "Key": "#l10n4485"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4486"
+  }
+}

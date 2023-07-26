@@ -1,0 +1,111 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "SPELL": "/UtilPrefabs/Spells/Combat/Attacks/AttackMiningKnife"
+  },
+  "$proto": "./_MeleeWeaponProto",
+  "Id": "e8215cc8-044c-4510-8f9d-6ef9537f7082",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "88936750-78c9-4207-b7c0-d404ea78d736",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier2",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/BractoFungalPlate",
+        "Count": 1
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/BractoFungalPlate",
+        "Count": 1
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 1.5,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 2000,
+      "DURABILITY_INITIALVALUE": 2000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "069d7709-6047-489f-88ac-fb827ff34ba8"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.775
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.775
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/WeaponMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "efad6a74-1f2f-4550-81c8-0c0cac2ba401",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Small",
+    "DestructionPower": 50,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 0
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 223
+      },  
+      {
+         "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+         "Value": 1
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "./_MiningWeaponDefProto"
+  },
+  "Icon": "Assets/UI/UISprites/Items/FlintKnife",
+  "BigIcon": "Assets/UI/UISprites/Items/FlintKnifeBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/StoneKnife",
+  "ItemNameLs": {
+    "Key": "#l10n568"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n569"
+  }
+}

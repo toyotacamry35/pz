@@ -1,0 +1,60 @@
+{
+  "$type": "QuestDef",
+  "Id": "4f03a401-692e-47ac-9dff-0164fb5ad440",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "8ac87d48-9017-4ab6-8c02-afa55cdc9c07",
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "Id": "f676efe2-13d0-4114-817d-ab502be2da7d",
+        "Targets": [
+          "/UtilPrefabs/Spells/Consumables/HeartyOmeletSpell",
+          "/UtilPrefabs/Spells/Consumables/MeatStewSpell",
+          "/UtilPrefabs/Spells/Consumables/OmeletSpell",
+          "/UtilPrefabs/Spells/Consumables/RoastedGerophitSpell",
+          "/UtilPrefabs/Spells/Consumables/RoastedJuicyMeatSpell",
+          "/UtilPrefabs/Spells/Consumables/RoastedMeatSpell",
+          "/UtilPrefabs/Spells/Consumables/RoastedToughMeatSpell",
+          "/UtilPrefabs/Spells/Consumables/StandardRationSpell"
+        ],
+        "Count": 10
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": {
+            "$type": "LootTableDef",
+            "DefaultPredicate": {
+              "$type": "LootTablePredicatePlayerHaveNotPerkDef"
+            },
+            "LootTable": [
+              {
+                "ItemResRefPack": {
+                  "ItemResource": "/Inventory/Perks/Special/Empty",
+                  "Count": 0
+                },
+                "WeightCalcer": {
+                  "$type": "LootItemChanceWeightCalcerConstantDef",
+                  "Value": 20
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "$type": "PhaseDef",
+      "Id" : "d7b40a9e-5d3e-4bfb-a33a-b08568a4b62d",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Id" : "7d31d5f2-d897-490f-bec2-d018da44c935",
+        "Time": 10
+      }
+    }
+  ]
+}

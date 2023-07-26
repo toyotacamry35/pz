@@ -1,0 +1,35 @@
+{
+  "$type": "ItemResource",
+  "Id": "d0dfa3b2-8fec-4b0e-a973-c4c2912b279d",
+  "MaxStack": 1,
+  "Weight": 5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Container",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/SimpleStash",
+  "BigIcon": "Assets/UI/UISprites/Items/SimpleStashBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "/UtilPrefabs/Res/Prototypes/Mounting/SimpleStash_EntityObjectDef"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4365"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4366"
+  }
+}

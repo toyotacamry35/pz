@@ -1,0 +1,38 @@
+{
+    "$type": "QuestDef",
+    "Id" : "1686bfae-d942-4df8-b3e0-5ec06b3ee113",
+    "Group": "Hidden",
+    "Phases": [
+      {
+        "$type": "PhaseDef",
+        "Id" : "3a249772-24ae-4ff6-9e3d-9dda2ba400b7",
+        "Counter": {
+            "$type": "MutationCounterDef",
+            "Id" : "0612a78f-030e-4f25-96ea-c25d95db1990",
+            "Stage": "/Inventory/Factions/Stages/Host"
+        },
+        "OnSuccess": []
+      },
+      {
+        "$type": "PhaseDef",
+        "Id" : "3842a8ee-f367-452b-81df-26169810cba2",
+        "OnStart": [],
+        "Counter": {
+          "$type": "TimerCounter",  
+          "Id" : "505d4e81-5875-4e84-bbaf-ded0e56013a7",
+          "Time": 2
+        },
+        "OnSuccess":[ 
+          /*{
+            "$type": "ImpactInvokeTrauma", //играется спелл. в данном случае - выдающий награду.
+            "TraumaType": "Void_State"           
+          },*/       
+          {
+            "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+            "Spell": "/UtilPrefabs/Spells/Quests/PerksQuest/Void_Quest_Start"
+          }
+        ]
+      }
+    ]
+  }
+  

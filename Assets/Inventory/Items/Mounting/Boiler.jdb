@@ -1,0 +1,33 @@
+{
+  "$type": "ItemResource",
+  "Id": "8c25fcac-23d1-4d8b-b276-eee8bdd1f9e6",
+  "MaxStack": 1,
+  "Weight": 5,
+  "ItemType": "/UtilPrefabs/ItemGroups/Bench",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/BenchChemical",
+  "BigIcon": "Assets/UI/UISprites/Items/BenchChemicalBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "/UtilPrefabs/Res/Prototypes/Mounting/Boiler_EntityObjectDef"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4052"
+  },
+  "DescriptionLs": {}
+}

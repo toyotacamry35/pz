@@ -1,0 +1,31 @@
+{
+    "$type": "TechnologyDef",
+    "Id" : "597361d8-2951-4945-81c6-2698fc61f91d",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 7,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 7,
+                    "Science": "/Inventory/Science/Surveying"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/PrimitiveConstructionsTec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 3,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/FromTechnologies/ReinforcedStashKW"
+        ]
+    }
+}

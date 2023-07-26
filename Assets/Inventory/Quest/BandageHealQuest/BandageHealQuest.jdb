@@ -1,0 +1,86 @@
+{
+  "$type": "QuestDef",
+  "Group": "Daily",
+  "Id": "2c815a2d-f4b1-479d-bb51-856cf36cce83",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Собрать 10 порций б,
+      "Id": "06ed0b93-2ddb-4a7b-a725-9f4ba9615d3a",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "SourceType": "Player",
+        "Id": "627d4761-9e5b-48bf-8d6f-6b20fc8eb61d",
+        "Target": "/Inventory/Items/Consumables/HealingBandage",
+        "Count": 6
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n503298"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n503576"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503577"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "f1bb0a93-aaeb-4353-b99d-d5d7faecc534",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "6207fb5c-5061-4597-b678-9e1173738e4b",
+        "Target": "/UtilPrefabs/Spells/Quests/BandageHealQuest/BandageHealQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "f0bed86f-e508-4558-aed0-a053e9be2668",
+        "SourceType": "Player",
+        "Less": true,
+        "Target": "/Inventory/Items/Consumables/HealingBandage",
+        "Count": 6
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/MadRobot/MadRobotPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/BandageHealQuest/BandageHealQuest_Reward"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n503578"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n503579"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n503302"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n503580"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n503581"
+  }
+}

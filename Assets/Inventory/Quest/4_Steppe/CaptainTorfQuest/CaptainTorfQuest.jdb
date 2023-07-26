@@ -1,0 +1,83 @@
+{
+  "$type": "QuestDef",
+  "Id": "a19f53dc-e067-469c-8787-de97dc8cca83",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //9 панцирей,
+      "Id": "28d5d667-c364-4bf1-b86a-33b4bea4d9e8",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "f6929831-a270-4e40-b50f-3eaf69249fca",
+        "Target": "/Inventory/Items/Res/Peat",
+        "Count": 10
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n3659"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n3660"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3661"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Вернуться в город и сдать квест,
+      "Id": "72b42900-fd0b-4708-961d-1ea261e2b2e5",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_CaptainRangerPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "176771c9-d462-4321-abd5-4b51fdf6794a",
+        "Target": "/UtilPrefabs/Spells/Quests/4_Steppe/CaptainTorfQuest/CaptainTorfQuest_Complete",
+        "Count": 1
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id" : "f89ae9d8-f7ea-45c7-904d-872336385cc6",
+        "Less": true,
+        "Target": "/Inventory/Items/Res/Peat",
+        "Count": 10
+      },
+      "OnFailPhase": "CollectPhase",
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/2_Desert/DesertRangerQuest/POIDesertRangerQuest_CaptainRangerPOI"
+        },
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/4_Steppe/CaptainTorfQuest/CaptainTorfQuest_Reward" //ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n3662"
+      },
+      "ShortDescriptionLs": {
+        "Key": ""
+      },
+      "DescriptionLs": {
+        "Key": "#l10n3663"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n3664"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n3665"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n3666"
+  }
+}

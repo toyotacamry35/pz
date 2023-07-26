@@ -1,0 +1,62 @@
+{
+  "$type": "QuestDef",
+  "Group": "Main",
+  "Id": "9239112b-e36f-4f04-b4d1-a0792f8f5102",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "e514013a-11d1-4b4c-bc51-6ca96ef8d3ed",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Alt_Key03Quest/AlfaKvarLair_POI"
+        }
+      ],
+      "Counter": {
+        "$type": "MobKillsCounterDef",
+        "Id": "beec7af6-cceb-4dbc-a793-39d1d6ed4af6",
+        "Target": "/AI/Defs/Mobs/Kvar_Alpha_Legionary/Kvar_Alpha_Stats",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Alt_Key03Quest/AlfaKvarLair_POI"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n5016"
+      }, // Убить Альфа-квара
+      "ShortDescriptionLs": {
+        "Key": "#l10n5017"
+      }, // Нужно искать дальше. Вы смогли точно вспомнить следующую смерть: вас разорвал гигантский квар
+      "DescriptionLs": {
+        "Key": "#l10n5018"
+      }// Изучив место своей смерти в Пустыне, вы не смогли найти ничего, что приблизило бы вас к разгадке. Нужно искать дальше. К счастью, вы смогли точно вспомнить, от чего умерли в другой раз: охотясь на сахрымов в Степи, вы случайно провалились в подземную пещеру, оказавшуюся логовом самки кваров. Тварь разорвала вас в считанные секунды - вы оказались не готовы к этой встрече.\nВы решаете подготовиться как следует, возможно, уговорить других колонистов помочь вам убить монстра и обыскать его берлогу.
+    }
+  ],
+  "OnSuccess": [
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key03Quest/Alt_Key03Quest_Complete"
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/Alt_Key04Quest/Alt_Key04Quest_Start"
+      ]
+    },
+    {
+      "$type": "ImpactAddPerkDef",
+      "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/QuestRewardLootTable"
+    }
+  ],
+  "NameLs": {
+    "Key": "#l10n5019"
+  }, // Шаги к разгадке: Смерть в Степи
+  "DescriptionLs": {}
+}

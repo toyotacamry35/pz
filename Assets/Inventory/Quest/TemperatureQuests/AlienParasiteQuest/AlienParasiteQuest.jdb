@@ -1,0 +1,270 @@
+{
+  "$type": "QuestDef",
+  "Id": "fba3a000-5d7f-44de-b9ea-07cfad28a94d",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/ArtQuestFachion",
+  "Group": "Daily",
+  "Phases": [
+    {
+      "$type": "PhaseDef", //Поговорить с Тенушем в Хабе,
+      "Id": "62e21664-f6ee-43e3-adb9-78fc0701a683",
+      "Label": "DocPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/HubDoc/HubDocPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "KnowledgeCounterDef",
+        "Id": "363ff0ae-07ce-4815-9dba-009737226916",
+        "Target": "/Inventory/Knowledge/Quest/TemperatureQuests/AlienParasiteQuest/AlienParasiteQuest_TenushParasiteKW",
+        "Count": 1,
+        "IsInvisible": true
+      },
+      "NameLs": {
+        "Key": "#l10n4718"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4719"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4720"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Фаза с комбинатором, где игрок ест ягоды и герофиты в попытке найти лекарство от паразита.,
+      "Id": "9399e48c-6a34-4333-bbec-9dcae7f0db91",
+      "Label": "EatingPhase",
+      "OnStart": [],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "8ebc1f53-eff5-4641-b601-86e4aec3c8d5",
+        "SubCounters": [
+          {
+            "$type": "SpellCounter",
+            "Id": "934eb710-cd2f-404e-a09e-6a102eb37b22",
+            "Target": "/UtilPrefabs/Spells/Consumables/JewelBerriesSpell",
+            "Count": 20
+          },
+          {
+            "$type": "SpellCounter",
+            "Id": "b36a6877-ccfd-40e1-8edd-620d46778a7e",
+            "Target": "/UtilPrefabs/Spells/Consumables/GerophitSpell",
+            "Count": 20
+          }
+        ],
+        "Count": 40
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4721"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4722"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4723"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Игрок собирает 8 жемчужных ягод,
+      "Id": "2c7d5f86-2203-4958-b2ee-8954cd14b5ff",
+      "OnStart": [],
+      "Label": "JewelBerriesPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "85f24675-aaa0-4cc8-85d0-6c651a1809e0",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/JewelBerries",
+        "Count": 8
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4724"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4725"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4726"
+      }
+    },
+    {
+      "$type": "PhaseDef", //Игрок собирает 4 герофита,
+      "Id": "4f192005-c953-46d8-9a79-4ff3890370e3",
+      "OnStart": [],
+      "Label": "GerophitPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "45b12aa1-68ba-4e21-b651-25fd1d65d90d",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Consumables/GerophitFruit",
+        "Count": 4
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4727"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4728"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4729"
+      },
+      "FailCounter": {
+        "$type": "ItemsCounterDef",
+        "Id": "c2009f66-5729-459f-9def-f72b645f13fa",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/JewelBerries",
+        "Less": true,
+        "Count": 8
+      },
+      "OnFailPhase": "JewelBerriesPhase"
+    },
+    {
+      "$type": "PhaseDef", //Игрок собирает 5 сангвир,
+      "Id": "53c32a2d-8c85-4640-94c6-b261fc281c58",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "ab7bd98f-319f-4cd7-a847-9da687b34254",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Res/SangviraLeaf",
+        "Count": 5
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n4730"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4731"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4732"
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "81cce839-2d5a-4b79-a50e-c78dbacccd92",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "976ec515-bddd-4163-9599-0c3b8d6b39b0",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/JewelBerries",
+            "Less": true,
+            "Count": 8
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "0cb3c769-dd96-496f-8cf6-244ecdf27777",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Consumables/GerophitFruit",
+            "Less": true,
+            "Count": 4
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "JewelBerriesPhase"
+    },
+    {
+      "$type": "PhaseDef", //игрок крафтит флягу,
+      "Id": "b5d60822-4b90-4b7e-baa7-0d9549ce7df4",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "ItemsCounterDef",
+        "Id": "5e3db6e4-4ae7-42d6-894b-6fc08f5bd5fa",
+        "SourceType": "Player",
+        "Target": "/Inventory/Items/Consumables/Flask",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/FromTechnologies/Atlas_1_5/ItmAlienParasiteCureKW"
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4733"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4734"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4735"
+      },
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "276b942c-2e99-44c1-8925-aa6e75f433c4",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "8d454adc-4a92-435c-a5bd-bcc6ca4ac510",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/JewelBerries",
+            "Less": true,
+            "Count": 8
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "527d8e3e-59c8-438a-a11b-2edda5bfba14",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Consumables/GerophitFruit",
+            "Less": true,
+            "Count": 4
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "90e11aab-5a55-4d4c-a31c-c2f6b87db75b",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/SangviraLeaf",
+            "Less": true,
+            "Count": 5
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "JewelBerriesPhase"
+    },
+    {
+      "$type": "PhaseDef", //игрок крафтит лекарство,
+      "Id": "213ce8c5-c759-4717-86d6-6fd2a2887002",
+      "OnStart": [],
+      "Label": "CollectPhase",
+      "Counter": {
+        "$type": "CraftCounterDef",
+        "Id": "bcf790af-d963-42b2-8c1c-74c918d5158b",
+        "Target": "/Inventory/Recipes/Quest/AlienParasiteQuest_CureParasite",
+        "CraftSource": "Any",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactCastSpellDef", //играется спелл. в данном случае - выдающий награду.
+          "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/AlienParasiteQuest/AlienParasiteQuest_Complete"//ссылка на файл с этим спеллом. его заведём в п.6 и и сюда вставим
+        }
+      ],
+      "NameLs": {
+        "Key": "#l10n4736"
+      },
+      "ShortDescriptionLs": {
+        "Key": "#l10n4737"
+      },
+      "DescriptionLs": {
+        "Key": "#l10n4738"
+      }
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n4739"
+  },
+  "ShortDescriptionLs": {
+    "Key": "#l10n4740"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4741"
+  }
+}

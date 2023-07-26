@@ -1,0 +1,125 @@
+{
+  "$type": "QuestDef",
+  "Id": "2165a9c9-c562-4191-b391-7b8c6c667b8d",
+  "Image": "Assets/UI/UISprites/Quest/QuestImages/BiomeTest",
+  "Group": "Daily",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "d258ae4e-05c1-44f5-a1c9-76071afef9b3",
+      "Label": "CollectPhase",
+      "OnStart": [
+        {
+          "$type": "ImpactAddKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/BoilerUnlockQuest_TakenKW",
+          "WhenToApply": "OnSuccess"
+        }
+      ],
+      "Counter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "8c2059b1-801c-4ae2-b44f-cd558a298121",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "b806d3e0-7430-48b5-aeb3-fb7b69292dd6",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/FungalShard",
+            "Count": 40
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "ece4e9bb-1f45-4c46-9441-03983a9d3342",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Antifreeze",
+            "Count": 5
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "e7078250-0636-44b5-a1ff-a2b8e22cede3",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/StoutFoam",
+            "Count": 5
+          }
+        ],
+        "Count": 50
+      },
+      "OnSuccess": [],
+      "NameLs": {
+        "Key": "#l10n504879"
+      }, // Собрать ресурсы для ремонта бойлера
+      "DescriptionLs": {
+        "Key": "#l10n504880"
+      }// Бойлер необходимо поддерживать в рабочем состоянии, поэтому все, кто хочет им воспользоваться, должны сначала собрать некоторое количество материалов, которые понадобятся для его ремонта, и сдать их инженеру Радову.
+    },
+    {
+      "$type": "PhaseDef",
+      "Id": "65564ce4-f644-45f6-9526-db0f5809babd",
+      "OnStart": [
+        {
+          "$type": "ImpactAddPointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "Counter": {
+        "$type": "SpellCounterDef",
+        "IsInvisible":true,
+        "Id": "00a7f7af-beae-4085-8519-f4e874552f86",
+        "Target": "/UtilPrefabs/Spells/Quests/BenchQuest/BoilerUnlockQuest_Complete",
+        "Count": 1
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactRemovePointOfInterestDef",
+          "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/SavannahHub/Kulibin/KulibinPOI"
+        }
+      ],
+      "FailCounter": {
+        "$type": "CombinatorCounterDef",
+        "Id": "d7281c6a-b410-4646-b99a-5cd8f3619298",
+        "SubCounters": [
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "2aceb908-19a2-4d3d-951c-687e617f652e",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/FungalShard",
+            "Less": true,
+            "Count": 40
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "ad7c31a6-b938-44b9-b2b7-ca0bc2c36295",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/Antifreeze",
+            "Less": true,
+            "Count": 5
+          },
+          {
+            "$type": "ItemsCounterDef",
+            "Id": "7b00fba5-4c6a-4f3c-9103-f15871d8ce88",
+            "SourceType": "Player",
+            "Target": "/Inventory/Items/Res/StoutFoam",
+            "Less": true,
+            "Count": 5
+          }
+        ],
+        "Count": 1
+      },
+      "OnFailPhase": "CollectPhase",
+      "NameLs": {
+        "Key": "#l10n504881"
+      }, // Отнести материалы инженеру Радову
+      "ShortDescriptionLs": {},
+      "DescriptionLs": {
+        "Key": "#l10n504882"
+      }// Его можно найти в Хабе
+    }
+  ],
+  "OnSuccess": [],
+  "NameLs": {
+    "Key": "#l10n504883"
+  }, // Разрешение на использование бойлера
+  "ShortDescriptionLs": {
+    "Key": "#l10n504884"
+  }, // Чтобы пользоваться сложными станками в Хабе, необходимо получить разрешение у инженера Радова. Обычно, для этого достаточно просто принести ему материалы, которыми станок ремонтируется. Разрешение действует все следующие сутки после получения.
+  "DescriptionLs": {}
+}

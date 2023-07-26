@@ -1,0 +1,32 @@
+{
+  "$type": "ItemResource",
+  "Id" : "62ed1829-ab30-40a4-b753-4e5877ad3561",
+  "MaxStack": 1,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Misc",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+  "Icon": "Assets/UI/UISprites/Items/RepairUnit",
+  "BigIcon": "Assets/UI/UISprites/Items/RepairUnitBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "ItemNameLs": {
+    "Key": "#l10n2596"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n2597"
+  }
+}

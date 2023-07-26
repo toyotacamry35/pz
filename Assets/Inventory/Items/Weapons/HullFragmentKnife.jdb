@@ -1,0 +1,107 @@
+{
+  "$type": "ItemResource",
+  "$overrideVars": {
+    "SPELL": "/UtilPrefabs/Spells/Combat/Attacks/AttackMiningKnife"
+  },
+  "$proto": "./_MiningWeaponProto",
+  "Id": "84a2ca8f-6275-49c9-b35d-c078a2d114f1",
+  "Durability": {
+    "$type": "DurabilityDef",
+    "RepairRecipe": {
+      "$type": "RepairRecipeDef",
+      "Id": "275183c7-9fe7-4cd2-9fa6-59882d32121b",
+      "Variants": [
+        {
+          "MandatorySlots": [
+            {
+              "Item": "/Inventory/Items/Res/RepairKitTier1",
+              "Count": 1
+            }
+          ],
+          "CraftingTime": 5
+        }
+      ]
+    },
+    "FullBreakDurability": 0.333,
+    "IncreaseDurabilityOnRepair": 0.5,
+    "DecreaseMaxDurabilityOnRepair": 0.0666,
+    "ItemsOnBreak": [
+      {
+        "Item": "/Inventory/Items/Res/HullFragment",
+        "Count": 1
+      }
+    ],
+    "ItemsOnFullBreak": [
+      {
+        "Item": "/Inventory/Items/Res/HullFragment",
+        "Count": 1
+      }
+    ]
+  },
+  "MaxStack": 1,
+  "Weight": 0.1,
+  "Tier": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1200,
+      "DURABILITY_INITIALVALUE": 1200,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "391b4f43-5210-4472-9fff-737ec1517b60"
+  },
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ToolMarker",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id": "86fc2bda-0990-4d3b-a861-b182b2cfea99",
+    "BlockSector": 90,
+    "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+    "WeaponSize": "/UtilPrefabs/WeaponSize/Small",
+    "DestructionPower": 200,
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/MiningLootMultiplier",
+        "Value": 1.3
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 45
+      },
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "$proto": "./_MiningWeaponDefProto"
+  },
+  "Icon": "Assets/UI/UISprites/Items/HullFragmentKnife",
+  "BigIcon": "Assets/UI/UISprites/Items/HullFragmentKnifeBig",
+  "Visual": "Assets/Content/Characters/Weapons/Melee/HullFragmentKnife",
+  "ItemNameLs": {
+    "Key": "#l10n580"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n581"
+  }
+}

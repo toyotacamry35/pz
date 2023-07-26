@@ -1,0 +1,46 @@
+{
+  "$type": "QuestDef",
+  "Id": "79960492-cfcf-4170-bf1c-44276ada0056",
+  "Group": "Hidden",
+  "AfterComplete": "Loop",
+  "Phases": [
+    {
+      "$type": "PhaseDef",
+      "Id": "26ca6216-788b-45cc-9a43-48e15b82d03a",
+      "Counter": {
+        "$type": "DealDamageCounterDef",
+        "Id": "78887d6d-92c6-4006-8839-6e5132e2e923",
+        "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+        "Value": 60
+      },
+      "OnSuccess": [
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MineResources_Tier_01" 
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MineResources_Tier_02" 
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MineResources_Tier_03" 
+        },
+        {
+          "$type": "ImpactAddPerkDef",
+          "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Perk_LootTables/MineResources_Tier_04" 
+        }
+      ]
+    },
+    {
+      "$type": "PhaseDef",
+      "Id" : "f9950eec-131c-4f15-b7c8-787a76a33a0a",
+      "OnStart": [],
+      "Counter": {
+        "$type": "TimerCounter",
+        "Id" : "35b83dc7-f237-4ab3-9d40-83fbf5d8ee4f",
+        "Time": 1
+      }
+    }
+  ]
+}

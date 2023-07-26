@@ -1,0 +1,65 @@
+{
+  "$type": "ItemResource",
+  "Id": "491bdbaf-7ce6-4436-a365-8b9da1c1332c",
+  "MaxStack": 1,
+  "Weight": 2,
+  "Tier": 2,
+  "InnerContainerSize": 1,
+  "ApplicableInnerItems": [
+    "/Inventory/Items/Res/SpineAmmo"
+  ],
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Weapon",
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "ec252b1d-6cd5-4763-89da-47ba7e20bf83",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 20
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 450
+      }
+    ]
+  },
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/Attack": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/SpearBioAttack"
+      },
+      "/UtilPrefabs/Input/Actions/Reload": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/RangeAttacks/Reload"
+      }
+    }
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "ThrowSpeed": 10,
+    "MaxInnerStack": 6,
+    "ContainerUsage": "InnerContainer",
+    "UseGravity": true,
+    "ExplosionByHit": true,
+    "ThrowObject": "Assets/Content/Characters/Weapons/Throw/SpearBio/SpearBio_ThrowObject",
+    "ExplosionObject": "Assets/Content/FX/RangedWeapons/SpearBio/PS_SpearBio_Impact",
+    "ShotObject": "Assets/Content/FX/RangedWeapons/SpearBio/PS_SpearBio_Shot"
+  },
+  "Icon": "Assets/UI/UISprites/Items/SpearBio",
+  "BigIcon": "Assets/UI/UISprites/Items/SpearBioBig",
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeMelee",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeSpearBio",
+  ],
+  "Visual": "Assets/Content/Characters/Weapons/Throw/SpearBio/SpearBio",
+  "CorrectionInHandRequired": false,
+  "ItemNameLs": {
+    "Key": "#l10n606"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n607"
+  }
+}

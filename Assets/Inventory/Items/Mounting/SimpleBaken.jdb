@@ -1,0 +1,38 @@
+{
+  "$type": "ItemResource",
+  "Id": "0d976a18-4544-4711-96c6-ca7aa285d4b9",
+  "MaxStack": 5,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Construction",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "Icon": "Assets/UI/UISprites/Items/Cocoon",
+  "BigIcon": "Assets/UI/UISprites/Items/CocoonBig",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 0.9
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 0.9
+      }
+    ]
+  },
+  "MountingData": {
+    "EntityObjectDef": "/UtilPrefabs/Res/Prototypes/Mounting/SimpleBaken_EntityObjectDef",
+    "ActionTitleLs": {
+      "Key": "#l10n379"
+    }
+  },
+  "ItemNameLs": {
+    "Key": "#l10n4363"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n4364"
+  }
+}

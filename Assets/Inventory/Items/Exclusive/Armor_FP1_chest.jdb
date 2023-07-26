@@ -1,0 +1,66 @@
+{
+  "$type": "ItemResource",
+  "Id": "127b7836-2ad1-41cf-b61c-4d28e0b367a1",
+  "MaxStack": 1,
+  "Weight": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/ArmorBody",
+  "Stats": {
+    "$type": "StatsDef",
+    "Id": "4c323cff-6c7c-44e7-8f6a-eee0923daec1"
+  },
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Armor",
+  "ActionOnDeathCalcer": {
+    "$type": "CalcerPiecewiseResourceDef",
+    "$overrideVars": {
+      "CHANCE_TO_KEEP": 1
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/ActionOnDeathProto"
+  },
+  "GeneralStats": {
+    "$type": "ItemGeneralStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+        "Value": 17
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+        "Value": 17
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+        "Value": 17
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/FakeInfoStats/ChanceToKeep",
+        "Value": 1
+      }
+    ]
+  },
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 1
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/new_Chest",
+  "BigIcon": "Assets/UI/UISprites/Items/new_ChestBig",
+  "PackDef": {
+    "BlockSlots": [
+    ]
+  },
+  "Visuals": {
+    "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": "Assets/Content/Characters/Armor/ArmorGladiator/armorGladiator",
+    "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": "Assets/Content/Characters/Armor/ArmorGladiator/armorGladiator_female"
+  },
+  "ItemNameLs": {
+    "Key": "#l10n504800"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n504801"
+  }
+}

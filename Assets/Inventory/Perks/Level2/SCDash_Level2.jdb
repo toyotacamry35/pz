@@ -1,0 +1,33 @@
+{
+  "$type": "PerkResource",
+  "Id": "000ab8e2-bc44-4eef-8222-b73f8c7ad507",
+  "MaxStack": 1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Perk_Level2",
+  "SpellModifiers": {
+    "$type": "SpellModifiersTuple",
+    "Condition": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateSpellTag",
+          "Tag": "/UtilPrefabs/Spells/Tags/DashTag"
+        }
+      ]
+    },
+    "Modifiers": [
+      {
+        "$type": "SpellCalcerModifier<float>",
+        "Id": "c46642d0-2390-4173-86ee-014020a9272d",
+        "Variable": "/UtilPrefabs/Spells/Variables/StaminaCostMultiplier",
+        "Value": 0.9
+      }
+    ]
+  },
+  "Icon": "Assets/UI/UISprites/Items/Perks/PerkRareCombat",
+  "ItemNameLs": {
+    "Key": "#l10n15032"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n15033"
+  }
+}

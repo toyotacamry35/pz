@@ -1,0 +1,36 @@
+{
+    "$type": "TechnologyDef",
+    "Id": "ebb619b9-3ba6-4087-a4f6-e6603159f343",
+    "Description": "This research method lets you examine known objects more thoroughly and get even more science points",
+    "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Component",
+    "ActivateConditions": {
+        "Requirements": {
+            "Sciences": [
+                {
+                    "Count": 8,
+                    "Science": "/Inventory/Science/Botany"
+                },
+                {
+                    "Count": 4,
+                    "Science": "/Inventory/Science/Geology"
+                },
+                {
+                    "Count": 8,
+                    "Science": "/Inventory/Science/Zoology"
+                }
+            ],
+            "Technologies": [
+                "/Inventory/Technology/Research1Tec"
+            ]
+        },
+        "Cost": [
+            {
+                "Count": 2,
+                "TechPoint": "/Inventory/Currencies/TechPointR1"
+            }
+        ],
+        "RewardKnowledges": [
+            "/Inventory/Knowledge/Research/Research2KW"
+        ]
+    }
+}

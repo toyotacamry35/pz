@@ -1,0 +1,47 @@
+{
+  "$type": "ItemResource",
+  "Id": "469df763-48a3-41cf-8338-b7ff5010f8d4",
+  "MaxStack": 50,
+  "Weight": 0.1,
+  "ItemType": "/UtilPrefabs/ItemGroups/Weapon",
+  "MaxDurability": 100,
+  "RepairRecipes": [
+    "/Inventory/Recipes/Repair/TestRepairRecipe"
+  ],
+  "SpecificStats": {
+    "$type": "ItemSpecificStats",
+    "Id" : "396c6105-3d95-4c4c-8f8d-b14f0c0a9941",
+    "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+        "Value": 100
+      },
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+        "Value": 10
+      }
+    ]
+  },
+  "WeaponDef": {
+    "$type": "WeaponDef",
+    "IsThrowable": true,
+    "ThrowSpeed": 10,
+    "ExplosureTime": 5,
+    "ExplosionByHit": true,
+    "ThrowObject": "Assets/AI/Sahrim/Spit_ThrowObject",
+    "ExplosionObject": "Assets/AI/Spells/Sahrim/PS_SahrimSpit",
+    "DamageRadius": 3,
+    "ExplosureImpulse": 200
+  },
+  "Icon": "Assets/UI/UISprites/Items/GerophytGrenade",
+  "BigIcon": "Assets/UI/UISprites/Items/IconMissingBig",
+  "CharacterAnimatorModifiers": [
+    "/UtilPrefabs/Res/AnimatorModifiers/LocomotionTypeGrenade",
+    "/UtilPrefabs/Res/AnimatorModifiers/WeaponTypeGrenade"
+  ],
+  "Visual": "Assets/AI/Spells/Sahrim/Old/SpitProjectile",
+  "ItemNameLs": {
+    "Key": "#l10n370"
+  }
+}
