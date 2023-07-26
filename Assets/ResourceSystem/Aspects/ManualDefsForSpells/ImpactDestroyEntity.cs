@@ -1,0 +1,8 @@
+﻿using SharedCode.Wizardry;
+
+namespace Shared.ManualDefsForSpells
+{
+    public class ImpactDestroyEntityDef : SpellImpactDef
+    {
+    }
+}

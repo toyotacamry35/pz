@@ -1,0 +1,567 @@
+{
+  "$type": "CartographerParamsDef",
+  "BackgroundClientSceneName": "Assets/Scenes/Crater/CraterBackground",
+  "BackgroundClientCreationParams": {
+    "$type": "BackgroundClientCreation",
+    "TerrainPrefabsFolder": "Assets/Scenes/Crater/TerrainMeshes",
+    "TerrainPrefabName": "TerrainMesh",
+    "TerrainMeshName": "Mesh",
+    "TerrainDiffuseTextureName": "Diffuse",
+    "TerrainMaterialName": "Material",
+    "TerrainTextureSize": 64,
+    "TerrainVertexCount": 16,
+    "TerrainCollidersGameObjectName": "TerrainCollider",
+    "TerrainVisualsGameObjectName": "TerrainMesh",
+    "StaticObjectsMaterialsFolder": "Assets/Scenes/Crater/StaticObjectsMaterials",
+    "StaticObjectsMaterialPostfix": "_NFM",
+    "StaticObjectVisualsGameObjectName": "StaticObjects",
+    "MinimalBounds": {
+      "$type": "Vector3",
+      "x": 20.0,
+      "y": 20.0,
+      "z": 20.0
+    },
+    "CleanupTerrainColliders": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -12,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 24,
+        "y": 0,
+        "z": 24
+      }
+    },
+    "CleanupTerrainVisuals": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -12,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 24,
+        "y": 0,
+        "z": 24
+      }
+    },
+    "CleanupStaticObjectVisuals": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -12,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 24,
+        "y": 0,
+        "z": 24
+      }
+    },
+    "GenerateTerrainColliders": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -7,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 14,
+        "y": 0,
+        "z": 14
+      }
+    },
+    "GenerateTerrainVisuals": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -7,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 14,
+        "y": 0,
+        "z": 14
+      }
+    },
+    "GenerateStaticObjectVisuals": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -7,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 14,
+        "y": 0,
+        "z": 14
+      }
+    }
+  },
+  "BackgroundServerSceneName": "Assets/Scenes/Crater/CraterServer",
+  "BackgroundServerCreationParams": {
+    "$type": "BackgroundServerCreation",
+    "TerrainCollidersGameObjectName": "TerrainCollider",
+    "StaticObjectCollidersGameObjectName": "StaticObjects",
+    "CleanupTerrainColliders": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -12,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 24,
+        "y": 0,
+        "z": 24
+      }
+    },
+    "CleanupStaticObjectColliders": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -12,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 24,
+        "y": 0,
+        "z": 24
+      }
+    },
+    "GenerateTerrainColliders": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -7,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 14,
+        "y": 0,
+        "z": 14
+      }
+    },
+    "GenerateStaticObjectColliders": {
+      "$type": "OperationArea",
+      "Active": true,
+      "Start": {
+        "$type": "Vector3Int",
+        "x": -7,
+        "y": 0,
+        "z": -12
+      },
+      "Count": {
+        "$type": "Vector3Int",
+        "x": 14,
+        "y": 0,
+        "z": 14
+      }
+    }
+  },
+  "ShowGridlines": false,
+  "ShowLoadedScenes": true,
+  "ConstantRepaint": false,
+  "MapDef": "/Scenes/Savannah/Savannah",
+  "SourceCollection": {
+    "$type": "SceneCollectionDef",
+    "CollectByX": true,
+    "CollectByY": false,
+    "CollectByZ": true,
+    "ScenePrefix": "Scene",
+    "SceneFolder": "Assets/Scenes",
+    "SceneNames": [
+      "Jungle/Jungle_A1",
+      "Jungle/Jungle_A2",
+      "Jungle/Jungle_A3",
+      "Jungle/Jungle_A4",
+      "Jungle/Jungle_B1",
+      "Jungle/Jungle_B2",
+      "Jungle/Jungle_C1",
+      "Jungle/Jungle_C2",
+      "Geysers/Geysers_03",
+      "Geysers/Geysers_13",
+      "Geysers/Geysers_23",
+      "Geysers/Geysers_33"
+    ],
+    "SceneSize": {
+      "$type": "Vector3",
+      "x": 256.0,
+      "y": 256.0,
+      "z": 256.0
+    },
+    "SceneStart": {
+      "$type": "Vector3Int",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "SceneCount": {
+      "$type": "Vector3Int",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "MinimalOcculderBounds": {
+    "$type": "Vector3",
+    "x": 256.0,
+    "y": 256.0,
+    "z": 256.0
+  },
+  "VegetationAsset": "Assets/Content/Environment/Savannah/Terrain/GrassLayer/Presets/PresetsVegetation/Contexts/Savannah (Default)",
+  "TemporarySceneName": "_TemporaryScene",
+  "ResultCollectionFolder": "Assets/Scenes/Crater",
+  "SceneCollectionSubFolder": "Scenes",
+  "TerrainCollectionSubFolder": "Terrain",
+  "RootTerrainGameObjectName": "Terrain",
+  "RootSceneGameObjectName": "SceneLoader",
+  "ResultSceneCollectionDefName": "SceneCollection",
+  "ResultSceneCollectionMinimap": "SceneCollectionMinimap",
+  "AssetsFolder": "Assets",
+  "CreateTemporaryScene": true,
+  "SplitTerrain": true,
+  "CreateVegetation": false,
+  "CreateSceneCollection": true,
+  "CreateScenes": true,
+  "SceneLoadAreas": [
+    {
+      "$type": "SceneLoadArea",
+      "Name": "Grass_A1_A2",
+      "Collection": {
+        "$type": "SceneCollectionDef",
+        "CollectByX": true,
+        "CollectByY": false,
+        "CollectByZ": true,
+        "ScenePrefix": "Scene",
+        "SceneFolder": "Assets/Scenes/Crater/Scenes",
+        "SceneNames": [
+          "Scene_x-10_z0",
+          "Scene_x-9_z0",
+          "Scene_x-8_z0",
+          "Scene_x-7_z0",
+          "Scene_x-10_z1",
+          "Scene_x-9_z1",
+          "Scene_x-8_z1",
+          "Scene_x-7_z1",
+          "Scene_x-10_z2",
+          "Scene_x-9_z2",
+          "Scene_x-8_z2",
+          "Scene_x-7_z2",
+          "Scene_x-10_z3",
+          "Scene_x-9_z3",
+          "Scene_x-8_z3",
+          "Scene_x-7_z3",
+          "Scene_x-10_z4",
+          "Scene_x-9_z4",
+          "Scene_x-8_z4",
+          "Scene_x-7_z4",
+          "Scene_x-10_z5",
+          "Scene_x-9_z5",
+          "Scene_x-8_z5",
+          "Scene_x-7_z5",
+          "Scene_x-10_z6",
+          "Scene_x-9_z6",
+          "Scene_x-8_z6",
+          "Scene_x-7_z6",
+          "Scene_x-12_z0",
+          "Scene_x-11_z0",
+          "Scene_x-11_z1",
+          "Scene_x-11_z2",
+          "Scene_x-11_z3",
+          "Scene_x-8_z7",
+          "Scene_x-7_z7",
+          "Scene_x-9_z7",
+          "Scene_x-8_z8",
+          "Scene_x-7_z8"
+        ],
+        "SceneSize": {
+          "$type": "Vector3",
+          "x": 256.0,
+          "y": 256.0,
+          "z": 256.0
+        },
+        "SceneStart": {
+          "$type": "Vector3Int",
+          "x": -12,
+          "y": 0,
+          "z": -3
+        },
+        "SceneCount": {
+          "$type": "Vector3Int",
+          "x": 6,
+          "y": 0,
+          "z": 3
+        }
+      }
+    },
+    {
+      "$type": "SceneLoadArea",
+      "Name": "Grass_A3_A4",
+      "Collection": {
+        "$type": "SceneCollectionDef",
+        "CollectByX": true,
+        "CollectByY": false,
+        "CollectByZ": true,
+        "ScenePrefix": "Scene",
+        "SceneFolder": "Assets/Scenes/Crater/Scenes",
+        "SceneNames": [
+          "Scene_x-12_z-3",
+          "Scene_x-11_z-3",
+          "Scene_x-10_z-3",
+          "Scene_x-9_z-3",
+          "Scene_x-8_z-3",
+          "Scene_x-7_z-3",
+          "Scene_x-12_z-2",
+          "Scene_x-11_z-2",
+          "Scene_x-10_z-2",
+          "Scene_x-9_z-2",
+          "Scene_x-8_z-2",
+          "Scene_x-7_z-2",
+          "Scene_x-12_z-1",
+          "Scene_x-11_z-1",
+          "Scene_x-10_z-1",
+          "Scene_x-9_z-1",
+          "Scene_x-8_z-1",
+          "Scene_x-7_z-1",
+          "Scene_x-11_z-5",
+          "Scene_x-10_z-5",
+          "Scene_x-10_z-6",
+          "Scene_x-9_z-5",
+          "Scene_x-8_z-5",
+          "Scene_x-7_z-5",
+          "Scene_x-11_z-4",
+          "Scene_x-10_z-4",
+          "Scene_x-9_z-4",
+          "Scene_x-8_z-4",
+          "Scene_x-7_z-4",
+          "Scene_x-9_z-7",
+          "Scene_x-8_z-7",
+          "Scene_x-7_z-7",
+          "Scene_x-9_z-6",
+          "Scene_x-8_z-6",
+          "Scene_x-7_z-6",
+          "Scene_x-8_z-8",
+          "Scene_x-7_z-8",
+          "Scene_x-7_z-9"
+        ],
+        "SceneSize": {
+          "$type": "Vector3",
+          "x": 256.0,
+          "y": 256.0,
+          "z": 256.0
+        },
+        "SceneStart": {
+          "$type": "Vector3Int",
+          "x": -10,
+          "y": 0,
+          "z": 0
+        },
+        "SceneCount": {
+          "$type": "Vector3Int",
+          "x": 4,
+          "y": 0,
+          "z": 7
+        }
+      }
+    },
+    {
+      "$type": "SceneLoadArea",
+      "Name": "GrassSavannah",
+      "Collection": {
+        "$type": "SceneCollectionDef",
+        "CollectByX": true,
+        "CollectByY": false,
+        "CollectByZ": true,
+        "ScenePrefix": "Scene",
+        "SceneFolder": "Assets/Scenes/Crater/Scenes",
+        "SceneNames": [
+          "Scene_x-4_z-12",
+          "Scene_x-3_z-12",
+          "Scene_x-2_z-12",
+          "Scene_x1_z-12",
+          "Scene_x2_z-12",
+          "Scene_x-6_z-11",
+          "Scene_x-5_z-11",
+          "Scene_x-4_z-11",
+          "Scene_x-3_z-11",
+          "Scene_x-2_z-11",
+          "Scene_x-1_z-11",
+          "Scene_x0_z-11",
+          "Scene_x1_z-11",
+          "Scene_x2_z-11",
+          "Scene_x3_z-11",
+          "Scene_x4_z-11",
+          "Scene_x5_z-11",
+          "Scene_x-6_z-10",
+          "Scene_x-5_z-10",
+          "Scene_x-4_z-10",
+          "Scene_x-3_z-10",
+          "Scene_x-2_z-10",
+          "Scene_x-1_z-10",
+          "Scene_x0_z-10",
+          "Scene_x1_z-10",
+          "Scene_x2_z-10",
+          "Scene_x3_z-10",
+          "Scene_x4_z-10",
+          "Scene_x5_z-10",
+          "Scene_x-6_z-9",
+          "Scene_x-5_z-9",
+          "Scene_x-4_z-9",
+          "Scene_x-3_z-9",
+          "Scene_x-2_z-9",
+          "Scene_x-1_z-9",
+          "Scene_x0_z-9",
+          "Scene_x1_z-9",
+          "Scene_x2_z-9",
+          "Scene_x3_z-9",
+          "Scene_x4_z-9",
+          "Scene_x5_z-9",
+          "Scene_x-6_z-8",
+          "Scene_x-5_z-8",
+          "Scene_x-4_z-8",
+          "Scene_x-3_z-8",
+          "Scene_x-2_z-8",
+          "Scene_x-1_z-8",
+          "Scene_x0_z-8",
+          "Scene_x1_z-8",
+          "Scene_x2_z-8",
+          "Scene_x3_z-8",
+          "Scene_x4_z-8",
+          "Scene_x5_z-8",
+          "Scene_x-6_z-7",
+          "Scene_x-5_z-7",
+          "Scene_x-4_z-7",
+          "Scene_x-3_z-7",
+          "Scene_x-2_z-7",
+          "Scene_x-1_z-7",
+          "Scene_x0_z-7",
+          "Scene_x1_z-7",
+          "Scene_x2_z-7",
+          "Scene_x3_z-7",
+          "Scene_x4_z-7",
+          "Scene_x5_z-7",
+          "Scene_x-6_z-6",
+          "Scene_x-5_z-6",
+          "Scene_x-4_z-6",
+          "Scene_x-3_z-6",
+          "Scene_x-2_z-6",
+          "Scene_x-1_z-6",
+          "Scene_x0_z-6",
+          "Scene_x1_z-6",
+          "Scene_x2_z-6",
+          "Scene_x3_z-6",
+          "Scene_x4_z-6",
+          "Scene_x5_z-6",
+          "Scene_x-6_z-5",
+          "Scene_x-5_z-5",
+          "Scene_x-4_z-5",
+          "Scene_x-3_z-5",
+          "Scene_x-2_z-5",
+          "Scene_x-1_z-5",
+          "Scene_x0_z-5",
+          "Scene_x1_z-5",
+          "Scene_x2_z-5",
+          "Scene_x3_z-5",
+          "Scene_x4_z-5",
+          "Scene_x5_z-5",
+          "Scene_x-6_z-4",
+          "Scene_x-5_z-4",
+          "Scene_x-4_z-4",
+          "Scene_x-3_z-4",
+          "Scene_x-2_z-4",
+          "Scene_x-1_z-4",
+          "Scene_x0_z-4",
+          "Scene_x1_z-4",
+          "Scene_x2_z-4",
+          "Scene_x3_z-4",
+          "Scene_x4_z-4",
+          "Scene_x5_z-4",
+          "Scene_x-6_z-3",
+          "Scene_x-5_z-3",
+          "Scene_x-4_z-3",
+          "Scene_x-3_z-3",
+          "Scene_x-2_z-3",
+          "Scene_x-1_z-3",
+          "Scene_x0_z-3",
+          "Scene_x1_z-3",
+          "Scene_x2_z-3",
+          "Scene_x3_z-3",
+          "Scene_x4_z-3",
+          "Scene_x5_z-3",
+          "Scene_x-6_z-2",
+          "Scene_x-5_z-2",
+          "Scene_x-4_z-2",
+          "Scene_x-3_z-2",
+          "Scene_x-2_z-2",
+          "Scene_x-1_z-2",
+          "Scene_x0_z-2",
+          "Scene_x1_z-2",
+          "Scene_x2_z-2",
+          "Scene_x3_z-2",
+          "Scene_x4_z-2",
+          "Scene_x5_z-2",
+          "Scene_x-6_z-1",
+          "Scene_x-5_z-1",
+          "Scene_x-4_z-1",
+          "Scene_x-3_z-1",
+          "Scene_x-2_z-1",
+          "Scene_x-1_z-1",
+          "Scene_x0_z-1",
+          "Scene_x1_z-1",
+          "Scene_x2_z-1",
+          "Scene_x3_z-1",
+          "Scene_x4_z-1",
+          "Scene_x5_z-1"
+        ],
+        "SceneSize": {
+          "$type": "Vector3",
+          "x": 256.0,
+          "y": 256.0,
+          "z": 256.0
+        },
+        "SceneStart": {
+          "$type": "Vector3Int",
+          "x": -1,
+          "y": 0,
+          "z": -8
+        },
+        "SceneCount": {
+          "$type": "Vector3Int",
+          "x": 1,
+          "y": 0,
+          "z": 2
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2335 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.044265687, g: 0.61781895, b: 0.67299026, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.004121287
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.21142344, g: 0.48836485, b: 0.7027401, a: 1}
+  m_AmbientEquatorColor: {r: 0.43490046, g: 0.31421405, b: 0.25880113, a: 1}
+  m_AmbientGroundColor: {r: 0.5863266, g: 0.39365348, b: 0.26637933, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 1
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 39b92d3cacbe31d44bcf06e8a1e610a7, type: 2}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 1
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 0.515
+  m_CustomReflection: {fileID: 8900000, guid: ac07e4725ae8c0347830460917822097, type: 3}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.515}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 0
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &214920504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 214920505}
+  m_Layer: 0
+  m_Name: Static
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &214920505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214920504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1822928898}
+  m_Father: {fileID: 714554472}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &250058226
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 538971664}
+    m_Modifications:
+    - target: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_Name
+      value: des_rock_bent_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004560721834292, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520099019792740, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804444194004376, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833485726753708, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 121.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 133.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -203.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.11914137
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9241931
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.14817294
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.33123606
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -218.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -20.659
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -7.4950004
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+--- !u!4 &250058227 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 250058226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &250058228 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23284771450565572, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 250058226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &250058229 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23716641960653040, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 250058226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &250058230 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23063732157326756, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 250058226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &250058231 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23933309093957116, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 250058226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &250058232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 250058226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &250058233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250058232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfd8646fe7eed547b9cb95db00d3fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 250058231}
+  - {fileID: 250058230}
+  - {fileID: 250058229}
+  - {fileID: 250058228}
+  materialSupport: {fileID: 816264353}
+  leftup: {fileID: 2800000, guid: d3caa3d6d4d2b674e9fde9ad2f10f476, type: 2}
+  rightup: {fileID: 2800000, guid: 9118784c72a5c224ca8cb017f981917a, type: 2}
+  leftdown: {fileID: 2800000, guid: 87534a7c03d0bc740af8cd5d8eecdd63, type: 2}
+  rightdown: {fileID: 2800000, guid: 6f85992d99d448b40b906da6ead9c704, type: 2}
+  singleTerrain: 0
+  terrainsCenter: {x: 0, y: 0, z: -256}
+  changedPosition: {x: 113.4, y: 112.4, z: -373.4}
+  isSetupActive: 0
+  isBlending: 1
+  isTemplate: 1
+  isCustomTemplate: 1
+  isTriplanar: 0
+  isDouble: 1
+  isCoating: 1
+  isCoatingMask: 1
+  isDetail: 1
+  isDetailSourceForMaterial: 0
+  isSimpleSettings: 1
+  isVectorActive: 0
+  directionCoating: {x: 0, y: 0, z: 0, w: 1}
+  orientedScale: 1
+  orientedCutoff: 0.1
+  orientedBlend: 0.1
+  directionalBlendAlphaVertexTint: 0
+  occlusionStrength: 0
+  coatingMaskPower: 1
+  coatingSpin: 0
+  isVectorActive02: 0
+  BlendingWeight: 1
+  FadeHeight: 1
+  FadeScale: 1.5
+  FadeStart: 0.5
+  MaskScale: 0.5
+  MaskStrenght: 6
+  doubleZ: 0
+  heightAO: 0.8
+  MaskPower: 6
+  MaskContrast: 0
+  doubleDirection: {x: 0, y: 0, z: 0, w: 0}
+  _surfaceIndex: 0
+  _surfaceIndex02: 0
+  _surfaceIndex03: 0
+  _surfaceName: sav_ground_sand_DM
+  _surfaceName02: sav_ground_sand_DM
+  albedoDetail: {fileID: 2800000, guid: 73702e5f8f1343642b77ddbf4fd66938, type: 3}
+  normalDetail: {fileID: 2800000, guid: 68b0e8865ffccf644a32cbda1c1b74cb, type: 3}
+  detailST: {x: 10, y: 10, z: 0, w: 0}
+  spin: 190
+  normalScale: 0.5
+  detailMode: 0
+  weight: 0.4
+--- !u!28 &294585336
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 2
+  m_Width: 2
+  m_Height: 2
+  m_CompleteImageSize: 20
+  m_TextureFormat: 4
+  m_MipCount: 2
+  m_IsReadable: 1
+  m_IgnoreMasterTextureLimit: 0
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  image data: 20
+  _typelessdata: cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
+--- !u!1 &538971663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538971664}
+  m_Layer: 0
+  m_Name: Big
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &538971664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538971663}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 945804084}
+  - {fileID: 250058227}
+  - {fileID: 802833729}
+  m_Father: {fileID: 784636811}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &714554470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 714554472}
+  - component: {fileID: 714554471}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &714554471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714554470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7da46708b97c940a4fe54d35254afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: Scene_x0_z-1
+  SceneIndex: {x: 0, y: 0, z: -1}
+  SceneStart: {x: 0, y: 0, z: -256}
+  SceneSize: {x: 256, y: 256, z: 256}
+  SceneColor: {r: 0, g: 1, b: 1, a: 1}
+  GameObjectsTerrain:
+  - {fileID: 816264345}
+  GameObjectsStatic:
+  - {fileID: 945804089}
+  - {fileID: 250058232}
+  - {fileID: 802833724}
+  GameObjectsFX: []
+--- !u!4 &714554472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714554470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1214077922}
+  - {fileID: 214920505}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &784636810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 784636811}
+  m_Layer: 0
+  m_Name: Stones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &784636811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784636810}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 538971664}
+  m_Father: {fileID: 1822928898}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &802833723
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 538971664}
+    m_Modifications:
+    - target: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_Name
+      value: des_rock_bent_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004560721834292, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520099019792740, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804444194004376, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833485726753708, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 143.04526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 133.92773
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -37.13794
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.10924532
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.62424225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.211244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.74415267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -77.436005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 25.235
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 11.349001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2800989
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2800996
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2800997
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d2e48380d816584ba5c6a0b73457af3, type: 3}
+--- !u!1 &802833724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000013668034398, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 802833723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &802833725 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23284771450565572, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 802833723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &802833726 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23716641960653040, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 802833723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &802833727 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23063732157326756, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 802833723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &802833728 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23933309093957116, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 802833723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &802833729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000010435029224, guid: 0d2e48380d816584ba5c6a0b73457af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 802833723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &802833730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802833724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfd8646fe7eed547b9cb95db00d3fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 802833728}
+  - {fileID: 802833727}
+  - {fileID: 802833726}
+  - {fileID: 802833725}
+  materialSupport: {fileID: 816264353}
+  leftup: {fileID: 2800000, guid: 0475350066be50946996e5642057e650, type: 2}
+  rightup: {fileID: 2800000, guid: 0475350066be50946996e5642057e650, type: 2}
+  leftdown: {fileID: 2800000, guid: 0475350066be50946996e5642057e650, type: 2}
+  rightdown: {fileID: 2800000, guid: 9118784c72a5c224ca8cb017f981917a, type: 2}
+  singleTerrain: 0
+  terrainsCenter: {x: 0, y: 0, z: 0}
+  changedPosition: {x: 243, y: 126.5, z: -76}
+  isSetupActive: 0
+  isBlending: 1
+  isTemplate: 1
+  isCustomTemplate: 1
+  isTriplanar: 0
+  isDouble: 1
+  isCoating: 1
+  isCoatingMask: 1
+  isDetail: 1
+  isDetailSourceForMaterial: 0
+  isSimpleSettings: 1
+  isVectorActive: 0
+  directionCoating: {x: 0, y: 0, z: 0, w: 1}
+  orientedScale: 1
+  orientedCutoff: 0.1
+  orientedBlend: 0.1
+  directionalBlendAlphaVertexTint: 0
+  occlusionStrength: 0
+  coatingMaskPower: 1
+  coatingSpin: 0
+  isVectorActive02: 0
+  BlendingWeight: 1
+  FadeHeight: 1
+  FadeScale: 1.5
+  FadeStart: 0.5
+  MaskScale: 0.5
+  MaskStrenght: 6
+  doubleZ: 0
+  heightAO: 0.8
+  MaskPower: 6
+  MaskContrast: 0
+  doubleDirection: {x: 0, y: 0, z: 0, w: 0}
+  _surfaceIndex: 0
+  _surfaceIndex02: 0
+  _surfaceIndex03: 0
+  _surfaceName: sav_ground_sand_DM
+  _surfaceName02: sav_ground_sand_DM
+  albedoDetail: {fileID: 2800000, guid: 73702e5f8f1343642b77ddbf4fd66938, type: 3}
+  normalDetail: {fileID: 2800000, guid: 68b0e8865ffccf644a32cbda1c1b74cb, type: 3}
+  detailST: {x: 10, y: 10, z: 0, w: 0}
+  spin: 190
+  normalScale: 0.5
+  detailMode: 0
+  weight: 0.4
+--- !u!1 &816264345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816264346}
+  - component: {fileID: 816264349}
+  - component: {fileID: 816264348}
+  - component: {fileID: 816264351}
+  - component: {fileID: 816264350}
+  - component: {fileID: 816264355}
+  - component: {fileID: 816264354}
+  - component: {fileID: 816264353}
+  - component: {fileID: 816264352}
+  - component: {fileID: 816264347}
+  m_Layer: 9
+  m_Name: Scene_x0_z-1_Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 90
+  m_IsActive: 0
+--- !u!4 &816264346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -256}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1214077922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &816264347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8c97d45951a604989fee77c5c76c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  composition: {fileID: 11400000, guid: 10ab4c3eeab6a36468866b933c2f3a80, type: 2}
+  enableCastShadows: 1
+  isEnableDrawInEditor: 0
+  enableComputeShader: 1
+  isEnableDrawBlocksBound: 0
+  isEnableDynamicUpdate: 0
+  thinningCoeff: 0.3
+  computeShader: {fileID: 7200000, guid: 8af157faf1f9fd04bb100d26632639a4, type: 3}
+--- !u!154 &816264348
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Material: {fileID: 13400000, guid: 0b42d1388d3e1614fb0928fc056bc901, type: 2}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 62428ee58cdc9924eb48f9d82b0aab84, type: 2}
+  m_EnableTreeColliders: 0
+--- !u!218 &816264349
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Enabled: 0
+  serializedVersion: 6
+  m_TerrainData: {fileID: 15600000, guid: 62428ee58cdc9924eb48f9d82b0aab84, type: 2}
+  m_TreeDistance: 0
+  m_TreeBillboardDistance: 0
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 0
+  m_DetailObjectDensity: 0
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 2
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 0
+  m_ReflectionProbeUsage: 0
+  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_BakeLightProbesForTrees: 0
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ScaleInLightmap: 1
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_RenderingLayerMask: 1
+  m_AllowAutoConnect: 0
+--- !u!114 &816264350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed61dbb94209aa41b4a71bfa87265f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PersistentVegetationStoragePackage: {fileID: 11400000, guid: 1c4fc358c6bdc2c42b001940a2cdcdec,
+    type: 2}
+  VegetationSystem: {fileID: 816264351}
+  mode: 0
+  SelectedBrushIndex: 0
+  BrushSize: 5
+  SampleDistance: 1
+  RandomizePosition: 1
+  PaintOnColliders: 0
+  UseSteepnessRules: 0
+  DisablePersistentStorage: 0
+  SelectedEditVegetationID: 
+  SelectedPaintVegetationID: 
+  SelectedBakeVegetationID: 
+  SelectedStorageVegetationID: 
+  SelectedPrecisionPaintingVegetationID: 
+  PrecisionPaintingMode: 2
+  AutoInitPersistentVegetationStoragePackage: 0
+  SelectedImporterIndex: 0
+--- !u!114 &816264351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368fdf8cf21da304190bc952b5cadf4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoselectCamera: 1
+  AutoselectTerrain: 0
+  SelectedCamera: {fileID: 0}
+  CellSize: 20
+  OverrideCellSize: 0
+  CustomCellSize: 40
+  RecieveShadows: 1
+  RenderVegetation: 1
+  RenderTrees: 1
+  DisableUnityDetails: 1
+  DisableUnityTrees: 1
+  SetUnityTerrainPixelError: 1
+  RenderSingleCamera: 0
+  RenderInstanced: 1
+  UseComputeShaders: 1
+  UseGPUCulling: 1
+  UseCPUCulling: 1
+  UseObjectCPUCulling: 0
+  UseLargeObjectCPUCulling: 0
+  LoadUnityTerrainDetails: 1
+  SunDirectionalLight: {fileID: 0}
+  DirectFromCell: 1
+  UseIndirectLoDs: 0
+  isRenderWait: 1
+  DisableWhenSaving: 0
+  VegetationPackageIndex: 0
+  VegetationPackageList:
+  - {fileID: 11400000, guid: 1a98daf30741efd4c884af0659d508f9, type: 2}
+  ShowCellGrid: 0
+  ShowCellLoadState: 0
+  WindSampler: {fileID: 0}
+  currentVegetationPackage: {fileID: 11400000, guid: 1a98daf30741efd4c884af0659d508f9,
+    type: 2}
+  IsDirty: 1
+  InitDone: 1
+  isCamera: 0
+  TextureGrassPrefab: {fileID: 0}
+  TexturePatchGrassPrefab: {fileID: 0}
+  vegCellStorage: {fileID: 11400000, guid: 5397fa4bdcc2dc54693c7ec8189ded81, type: 2}
+  DrawVegetationFromCells: 0
+  ExcludeSeaLevelCells: 0
+  EnableVegetationItemIDEdit: 0
+  TreeCount: 0
+  GrassCount: 0
+  CullFarStart: 100
+  CullFarDistance: 10
+  currentTerrain: {fileID: 816264349}
+  vsm: {fileID: 1214077921}
+  UnityTerrainData:
+    _size: {x: 256, y: 1000, z: 256}
+    _scale: {x: 1, y: 1000, z: 1}
+    _heightmapScale: {x: 1, y: 1000, z: 1}
+    _terrainPosition: {x: 0, y: 0, z: -256}
+    TerrainBounds:
+      m_Center: {x: 128, y: 78.86224, z: -128}
+      m_Extent: {x: 128, y: 78.86224, z: 128}
+    VegetationBounds:
+      m_Center: {x: 128, y: 78.86224, z: -128}
+      m_Extent: {x: 128, y: 78.86224, z: 128}
+    MaxTerrainHeight: 157.72447
+  vegetationSettings:
+    WaterLevel: 0
+    RandomSeed: 0
+    VegetationDistance: 100
+    TreeDistance: 300
+    BillboardDistance: 20000
+    GrassDensity: 1
+    PlantDensity: 1
+    TreeDensity: 1
+    ObjectDensity: 1
+    LargeObjectDensity: 1
+    VegetationScale: 1
+    DistanceLod0: 34.142136
+    DistanceLod1: 54.142136
+    DistanceLod2: 134.14214
+    DistanceLod3: 434.14215
+    DistanceBillboards: 20400
+    LODFadeDistance: 20
+    GrassLayer:
+      serializedVersion: 2
+      m_Bits: 20
+    PlantLayer:
+      serializedVersion: 2
+      m_Bits: 20
+    TreeLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    ObjectLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    LargeObjectLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    GrassShadows: 0
+    PlantShadows: 1
+    TreeShadows: 1
+    ObjectShadows: 0
+    LargeObjectShadows: 1
+    isRenderRuleInstances: 0
+    EditorGrassShadows: 0
+    EditorPlantShadows: 1
+    EditorTreeShadows: 1
+    EditorObjectShadows: 0
+    EditorLargeObjectShadows: 1
+    InstancedGIGrass: 0
+    InstancedGIPlant: 0
+    InstancedGITree: 0
+    InstancedGIObject: 0
+    InstancedGILargeObject: 0
+    InstancedOcclusionProbes: 0
+    ShadowCullinMode: 2
+    UseTouchReact: 1
+    GrassWetnesss: 0
+    WindRange: 100
+  CurrentTabIndex: 0
+  LastTabIndex: 0
+  AutomaticWakeup: 1
+  ThreadCount: 4
+  FrustumKernelHandle: 0
+  DistanceKernelHandle: 1
+  FrusumMatrixShader: {fileID: 7200000, guid: c9e8dd058032cd842a131f9c59cb41a7, type: 3}
+  MergeBufferKernelHandle: 0
+  MergeBufferShader: {fileID: 7200000, guid: 51a742f1facfd234085f43a4404c9333, type: 3}
+  RealTimeMaskTexture: {fileID: 0}
+  DummyMaskTexture: {fileID: 294585336}
+  RealTimeMaskBand: 1
+  RealTimeMaskEnabled: 0
+  RealTimeMaskInvert: 0
+  RealTimeMaskCutoff: 0.5
+  ManualVegetationRefresh: 0
+  isRenderRuleInstances: 1
+  isActivePlacingData: 0
+  currentVegetationPlacingData: {fileID: 0}
+  layerDetails:
+  - details: 200000002a0000002c000000
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  - details: 
+  other:
+    details: 0000000001000000020000000300000004000000050000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f0000002100000022000000230000002400000025000000260000002700000028000000290000002b000000
+  disabled:
+    details: 0600000010000000
+  ShowColliderMenu: 0
+  ShowNavMeshObstacleMenu: 0
+  ShowShadowsMenu: 0
+  ShowLODMenu: 0
+  ShowSpeedtreeMenu: 0
+  ShowTextureMaskRulesMenu: 0
+  ShowVegetationMaskMenu: 0
+  ShowDetailMaskMenu: 0
+  ShowTerrainTextureRulesMenu: 0
+  ShowPositionMenu: 1
+  ShowScaleMenu: 1
+  ShowRotationMenu: 1
+  ShowHeightMenu: 1
+  ShowSteepnessMenu: 1
+  ShowPerlinMenu: 0
+  ShowBillboardsMenu: 0
+  ShowVegetationItemGrassMenu: 0
+  ShowTouchReactMenu: 0
+  ShowGlobalVegetationItemSettingsMenu: 0
+  ShowAddVegetationItemMenu: 0
+  TerrainMaterialOverridden: 0
+  LocalTextureMaskTextureList: []
+  RuntimeTextureMaskList:
+  - MaskID: a6c89935-feed-4700-8f88-e9a05b01e7d3
+    UseTiling: 1
+    UseTexture: 1
+    ShowInverseResult: 1
+    InverseResult: 0
+    ShowRotateTexture: 1
+    TextureMaskRotation: 0
+    MaskName: Mask_Boulders
+    TextureMaskTypeReadableName: Color Texture Mask
+    TextureMaskTypeId: VS_ColorTextureMask
+    Scale: 3
+    MaskTexture: {fileID: 2800000, guid: b44a8dc319a8f0f409479ed41f08ee03, type: 3}
+    TextureMaskTextureStorage: 0
+    RequiredTextureFormatList: 
+    TextureMaskPropertiesList:
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+  - MaskID: 18036305-77c9-45e3-a938-786e28343838
+    UseTiling: 1
+    UseTexture: 1
+    ShowInverseResult: 1
+    InverseResult: 0
+    ShowRotateTexture: 1
+    TextureMaskRotation: 0
+    MaskName: Mask_Bush
+    TextureMaskTypeReadableName: Color Texture Mask
+    TextureMaskTypeId: VS_ColorTextureMask
+    Scale: 5
+    MaskTexture: {fileID: 2800000, guid: 15791506bf4a1b34cb8a91fc5f014d17, type: 3}
+    TextureMaskTextureStorage: 0
+    RequiredTextureFormatList: 
+    TextureMaskPropertiesList:
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+  - MaskID: 753c3df0-2308-465d-b1df-e4152cee81d1
+    UseTiling: 1
+    UseTexture: 1
+    ShowInverseResult: 1
+    InverseResult: 0
+    ShowRotateTexture: 1
+    TextureMaskRotation: 0
+    MaskName: Mask_Fern
+    TextureMaskTypeReadableName: Color Texture Mask
+    TextureMaskTypeId: VS_ColorTextureMask
+    Scale: 3
+    MaskTexture: {fileID: 2800000, guid: a79da91f078d443469324e2318470d36, type: 3}
+    TextureMaskTextureStorage: 0
+    RequiredTextureFormatList: 
+    TextureMaskPropertiesList:
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+  - MaskID: 2b924053-22ff-4060-b9e6-d15987165968
+    UseTiling: 1
+    UseTexture: 1
+    ShowInverseResult: 1
+    InverseResult: 0
+    ShowRotateTexture: 1
+    TextureMaskRotation: 0
+    MaskName: Mask_Grass
+    TextureMaskTypeReadableName: Color Texture Mask
+    TextureMaskTypeId: VS_ColorTextureMask
+    Scale: 5
+    MaskTexture: {fileID: 2800000, guid: cdc3639e4edbf8343b4b4a784fef616f, type: 3}
+    TextureMaskTextureStorage: 0
+    RequiredTextureFormatList: 
+    TextureMaskPropertiesList:
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+  - MaskID: 40eafb91-6462-4321-8d06-0006759dc358
+    UseTiling: 1
+    UseTexture: 1
+    ShowInverseResult: 1
+    InverseResult: 0
+    ShowRotateTexture: 1
+    TextureMaskRotation: 0
+    MaskName: Mask_Sparza
+    TextureMaskTypeReadableName: Color Texture Mask
+    TextureMaskTypeId: VS_ColorTextureMask
+    Scale: 5
+    MaskTexture: {fileID: 2800000, guid: 1220a254f1af4c543bdeea005dbb70f3, type: 3}
+    TextureMaskTextureStorage: 0
+    RequiredTextureFormatList: 
+    TextureMaskPropertiesList:
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+  - MaskID: c6291cdb-ce6a-449b-b307-259ba9ce9348
+    UseTiling: 1
+    UseTexture: 1
+    ShowInverseResult: 1
+    InverseResult: 0
+    ShowRotateTexture: 1
+    TextureMaskRotation: 0
+    MaskName: Mask_Trees
+    TextureMaskTypeReadableName: Color Texture Mask
+    TextureMaskTypeId: VS_ColorTextureMask
+    Scale: 3
+    MaskTexture: {fileID: 2800000, guid: ded9a3d8c2ada334fbd70f5f449d4f75, type: 3}
+    TextureMaskTextureStorage: 0
+    RequiredTextureFormatList: 
+    TextureMaskPropertiesList:
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+  - MaskID: c6291cdb-ce6a-449b-b307-259ba9ce9341
+    UseTiling: 1
+    UseTexture: 1
+    ShowInverseResult: 1
+    InverseResult: 0
+    ShowRotateTexture: 1
+    TextureMaskRotation: 0
+    MaskName: Mask_sparza_1
+    TextureMaskTypeReadableName: Color Texture Mask
+    TextureMaskTypeId: VS_ColorTextureMask
+    Scale: 3
+    MaskTexture: {fileID: 2800000, guid: 9c333cd0d4e1c124584f029084a3d7dc, type: 3}
+    TextureMaskTextureStorage: 0
+    RequiredTextureFormatList: 
+    TextureMaskPropertiesList:
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+  - MaskID: c6291cdb-ce6a-449b-b307-259ba9ce9343
+    UseTiling: 1
+    UseTexture: 1
+    ShowInverseResult: 1
+    InverseResult: 1
+    ShowRotateTexture: 1
+    TextureMaskRotation: 0
+    MaskName: Mask_sparza_2
+    TextureMaskTypeReadableName: Color Texture Mask
+    TextureMaskTypeId: VS_ColorTextureMask
+    Scale: 3
+    MaskTexture: {fileID: 2800000, guid: 9c333cd0d4e1c124584f029084a3d7dc, type: 3}
+    TextureMaskTextureStorage: 0
+    RequiredTextureFormatList: 
+    TextureMaskPropertiesList:
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+    - TextureMaskPropertyType: 3
+      PropertyName: Select color
+      PropertyDescription: Select color
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 0
+      PropertyName: Tolerance
+      PropertyDescription: Tolerance
+      IntValue: 20
+      IntMinValue: 1
+      IntMaxValue: 255
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Multiply with Alpha
+      PropertyDescription: Multiply with Alpha
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 0
+      StringList: []
+    - TextureMaskPropertyType: 4
+      PropertyName: Return color tolerance
+      PropertyDescription: Return color tolerance
+      IntValue: 0
+      IntMinValue: 0
+      IntMaxValue: 0
+      FloatValue: 0
+      FloatMinValue: 0
+      FloatMaxValue: 0
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      BoolValue: 1
+      StringList: []
+  SelectedWindZone: {fileID: 0}
+  WindWavesTexture: {fileID: 2800000, guid: c0a881baa80762d44b08db54fd409932, type: 3}
+  WindWavesSize: 10
+  WindSpeedFactor: 1
+  LimitWindRange: 1
+  WindMultiplier: 1
+--- !u!114 &816264352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d97c0b8f5317d848848de21afd37c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableUpdatesFromFixedTerrainFormer: 0
+  enableUpdateEveryFrame: 0
+  enableDrawSystemTextures: 0
+  enableHolesUpdate: 0
+  atlas: {fileID: 11400000, guid: 3e5a51ff238b3444983b74096bb77e32, type: 2}
+  linkMinX: {fileID: 11400000, guid: 63881e721ed18fe4f84fd7e6aaa11f61, type: 2}
+  linkMinZ: {fileID: 11400000, guid: 7480606f62ec870478157013ece2cfc5, type: 2}
+  linkMaxX: {fileID: 11400000, guid: 2a681c60d8f254b40afb48c6f538c5e5, type: 2}
+  linkMaxZ: {fileID: 0}
+  baseHeightError: 0.1
+  approximatelyMaxTrianglesCount: 60000
+  debugEnableDumpBuildMaterialsTextures: 0
+--- !u!114 &816264353
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e1a1855aa4fce499f4da36cf127bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atlas: {fileID: 11400000, guid: 3e5a51ff238b3444983b74096bb77e32, type: 2}
+  matTexture: {fileID: 2800000, guid: e452459b102010743a3c6882b6b2577a, type: 2}
+  weightsTexture: {fileID: 2800000, guid: 44268977e645acb41ac63e3ce0a951b9, type: 2}
+  terrainMesh: {fileID: 4300000, guid: e312f2bdde1cef44cb822646c3fc41ef, type: 2}
+  materialsArray: {fileID: 11400000, guid: 76d2283ae6c6cc644925579771cec2be, type: 2}
+  normalsHeightsTexture: {fileID: 2800000, guid: 9118784c72a5c224ca8cb017f981917a,
+    type: 2}
+  heightsScale: 1000
+  terrainSizes: {x: 0.00390625, y: 256, z: 0.00390625, w: 256}
+  terrainMatTexInfo: {x: 257, y: 0.0019455253, z: 0.0038910506, w: 0.99610895}
+  terrainWgtTexInfo: {x: 514, y: 0.00097276265, z: 0.0019455253, w: 0}
+  isHasEmissionTexture: 1
+  isHasMacroTexture: 0
+  isHasTriplanar: 0
+  material: {fileID: 2100000, guid: 3bcf1055e3e941146be7e4c99c9bb6e0, type: 2}
+--- !u!23 &816264354
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3bcf1055e3e941146be7e4c99c9bb6e0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &816264355
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816264345}
+  m_Mesh: {fileID: 4300000, guid: e312f2bdde1cef44cb822646c3fc41ef, type: 2}
+--- !u!1001 &945804083
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 538971664}
+    m_Modifications:
+    - target: {fileID: 1000010876988108, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_Name
+      value: des_rock_bent_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010876988108, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010876988108, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010876988108, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256468838256356, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582074329662152, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594186093345100, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946477337335782, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 143.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -204
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0963632
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.97728354
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.018729806
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.18783037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 158.62401
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9999991
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9999991
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 4.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 10.474001
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a133b89557a02bf4b88326cde8e92d46, type: 3}
+--- !u!4 &945804084 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000012192972330, guid: a133b89557a02bf4b88326cde8e92d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 945804083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &945804085 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23633181591615092, guid: a133b89557a02bf4b88326cde8e92d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 945804083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &945804086 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23276069031034180, guid: a133b89557a02bf4b88326cde8e92d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 945804083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &945804087 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23853957645614044, guid: a133b89557a02bf4b88326cde8e92d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 945804083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &945804088 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23706243647223102, guid: a133b89557a02bf4b88326cde8e92d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 945804083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &945804089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000010876988108, guid: a133b89557a02bf4b88326cde8e92d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 945804083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &945804090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945804089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfd8646fe7eed547b9cb95db00d3fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 945804088}
+  - {fileID: 945804087}
+  - {fileID: 945804086}
+  - {fileID: 945804085}
+  materialSupport: {fileID: 816264353}
+  leftup: {fileID: 2800000, guid: d3caa3d6d4d2b674e9fde9ad2f10f476, type: 2}
+  rightup: {fileID: 2800000, guid: 9118784c72a5c224ca8cb017f981917a, type: 2}
+  leftdown: {fileID: 2800000, guid: 87534a7c03d0bc740af8cd5d8eecdd63, type: 2}
+  rightdown: {fileID: 2800000, guid: 6f85992d99d448b40b906da6ead9c704, type: 2}
+  singleTerrain: 0
+  terrainsCenter: {x: 0, y: 0, z: -256}
+  changedPosition: {x: -39.1, y: 106.35486, z: -380.4}
+  isSetupActive: 0
+  isBlending: 1
+  isTemplate: 1
+  isCustomTemplate: 1
+  isTriplanar: 0
+  isDouble: 1
+  isCoating: 1
+  isCoatingMask: 1
+  isDetail: 1
+  isDetailSourceForMaterial: 0
+  isSimpleSettings: 1
+  isVectorActive: 0
+  directionCoating: {x: 0, y: 0, z: 0, w: 1}
+  orientedScale: 1
+  orientedCutoff: 0.1
+  orientedBlend: 0.1
+  directionalBlendAlphaVertexTint: 0
+  occlusionStrength: 0
+  coatingMaskPower: 1
+  coatingSpin: 0
+  isVectorActive02: 0
+  BlendingWeight: 1
+  FadeHeight: 1
+  FadeScale: 1.5
+  FadeStart: 0.5
+  MaskScale: 0.5
+  MaskStrenght: 6
+  doubleZ: 0
+  heightAO: 0.8
+  MaskPower: 6
+  MaskContrast: 0
+  doubleDirection: {x: 0, y: 0, z: 0, w: 0}
+  _surfaceIndex: 0
+  _surfaceIndex02: 0
+  _surfaceIndex03: 0
+  _surfaceName: sav_ground_sand_DM
+  _surfaceName02: sav_ground_sand_DM
+  albedoDetail: {fileID: 2800000, guid: 73702e5f8f1343642b77ddbf4fd66938, type: 3}
+  normalDetail: {fileID: 2800000, guid: 68b0e8865ffccf644a32cbda1c1b74cb, type: 3}
+  detailST: {x: 10, y: 10, z: 0, w: 0}
+  spin: 190
+  normalScale: 0.5
+  detailMode: 0
+  weight: 0.4
+--- !u!1 &1214077920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1214077922}
+  - component: {fileID: 1214077921}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 127
+  m_IsActive: 1
+--- !u!114 &1214077921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214077920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6114847e2729d4cb624f168583b0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEditedGrass: 0
+  itemIcons: []
+  terrains:
+  - {fileID: 816264349}
+  selectedVegetationSystem: 0
+  isDraw: 0
+  mode: 1
+  isCreated: 0
+  size: 3
+  isSelected: 0
+  cells: []
+  array: []
+  currentAtlasCell:
+    size_x: 0
+    size_y: 0
+    sourceGrass: {fileID: 0}
+    tex2D: {fileID: 0}
+    tex2D_EM: {fileID: 0}
+    center: {x: 0, y: 0}
+    x: 0
+    y: 0
+  isDebugMaterial: 0
+  layerDetails: []
+  other:
+    details: 
+  atlasSize: 512
+  atlasName: 
+  directory: 
+  currentVegetationPlacingDatas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  oldViewPos: {x: 0, y: 0, z: 0}
+  oldViewRot: {x: 0, y: 0, z: 0, w: 0}
+  context: {fileID: 11400000, guid: 1a98daf30741efd4c884af0659d508f9, type: 2}
+--- !u!4 &1214077922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214077920}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 816264346}
+  m_Father: {fileID: 714554472}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1822928897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822928898}
+  m_Layer: 0
+  m_Name: Nature
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1822928898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822928897}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 784636811}
+  m_Father: {fileID: 214920505}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
