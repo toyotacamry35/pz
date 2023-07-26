@@ -1,0 +1,32 @@
+{
+  "$type": "SpellDef",
+  "Name": "PsiColliderTraumaSpell",
+  "Duration": 0.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCompareStat",
+      "Type": "Less",
+      "Target": {
+        "$type": "SpellTarget",
+      },
+      "Value": 0.5,
+      "Stat": "/UtilPrefabs/Stats/Mobs/PsiFieldProtected"
+    },
+    {
+      "$type": "ImpactInvokeTraumaDef",
+      "TraumaType": "NegEffHivePsiDmg",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnStart"
+    }
+  ]
+}

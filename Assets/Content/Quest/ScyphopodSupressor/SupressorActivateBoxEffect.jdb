@@ -1,0 +1,218 @@
+{
+  "$type": "SpellDef",
+  "SpellWrapperOriginal": "Assets/Content/Quest/ScyphopodSupressor/",
+  "Name": "SupressorActivateBoxEffect",
+  "Duration": 125.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 10,
+            "TextLs": {
+              "Key": "#l10n502737"
+            }
+          },
+          {
+            "$type": "ImpactRaiseEvent",
+            "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/SupressorPreactivationEvent",
+            "From": {
+              "$type": "SpellCaster"
+            },
+            "Radius": 120
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 30,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 10,
+            "TextLs": {
+              "Key": "#l10n502738"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 60,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 10,
+            "TextLs": {
+              "Key": "#l10n502739"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 75,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 10,
+            "TextLs": {
+              "Key": "#l10n502740"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 90,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 10,
+            "TextLs": {
+              "Key": "#l10n502741"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 105,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 5,
+            "TextLs": {
+              "Key": "#l10n502742"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 110,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 5,
+            "TextLs": {
+              "Key": "#l10n502743"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 115,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 5,
+            "TextLs": {
+              "Key": "#l10n502744"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 120,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 5,
+            "TextLs": {
+              "Key": "#l10n502745"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 120,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "ImpactRaiseEvent",
+            //"$type": "ImpactRaiseEvent",
+            "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/SupressorActivationEvent",
+            "From": {
+              "$type": "SpellCaster"
+            },
+            "Caster": {
+              "$type": "SpellCaster"
+            },
+            "Radius": 120
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Quest/RepairKit"
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Quest/RepairKit"
+    },
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIEmitter"
+    },
+    {
+      "$type": "ImpactAddPointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIHive"
+    },
+    {
+      "$type": "ImpactGrantLootTableItemDef",
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "StatName": "/UtilPrefabs/Stats/Mobs/PsiFieldProtected",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    }
+  ]
+}

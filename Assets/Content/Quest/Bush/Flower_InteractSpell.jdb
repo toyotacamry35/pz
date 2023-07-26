@@ -1,0 +1,70 @@
+{
+  "$type": "SpellDef",
+  "Name": "Flower_Interact",
+  "Duration": 5.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "SpellIcon": null,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n502936"
+  },
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "ImpactForAllInBoxDef",
+            "AppliedSpells": [
+              {
+                "$type": "SpellDef",
+                "AllowMultiple": true,
+                "Words": [
+                  {
+                    "$type": "ImpactChangeTimeStatDef",
+                    "StatName": "/UtilPrefabs/Traumas/Quest/BushStat",
+                    "Value": 1,
+                    "Target": {
+                      "$type": "SpellTarget"
+                    }
+                  }
+                ]
+              }
+            ],
+            "AttackBoxes": [
+              {
+                "$type": "Bounds",
+                "extents": {
+                  "$type": "Vector3",
+                  "x": 1000.0,
+                  "y": 1000.0,
+                  "z": 1000.0
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 10,
+            "TextLs": {
+              "Key": "#l10n502937"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Words": []
+}
