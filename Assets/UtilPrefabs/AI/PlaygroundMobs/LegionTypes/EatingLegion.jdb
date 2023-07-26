@@ -1,0 +1,29 @@
+{
+    "$type": "LegionDef",
+    "CustomStrategy": {
+        "$type":"StrategyDef",
+        "Plan": {
+            "$type": "ChooseDef",
+            "Nodes": [
+                {
+                    "$type": "DoWithCooldownDef",
+                    "CooldownOnFail": 60,
+                    "CooldownOnSucces": 30,
+                    "CooldownName": "MyEatingTimer",
+                    "Do": {
+                        "$type": "UseStrategyDef",
+                        "Strategy": "/UtilPrefabs/AI/PlaygroundMobs/Strategies/FeedOrGoToFeedingGrounds",
+                        "Context": {
+                            "FOOD_LEGION": {
+                                "$type": "DefRef",
+                                "PointsTo": "LegionDef",
+                                "Ref": "/UtilPrefabs/AI/PlaygroundMobs/LegionTypes/EatingMobFood"
+                            }
+                        }
+                    }
+                },
+                "/UtilPrefabs/AI/PlaygroundMobs/CommonNodes/RoamForSomeTime"
+            ]
+        }
+    }
+}

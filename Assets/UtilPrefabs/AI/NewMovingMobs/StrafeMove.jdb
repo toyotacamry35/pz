@@ -1,0 +1,45 @@
+{
+  "$type": "SpellDef",
+  "Name": "StrafeMove",
+  "Duration": 2.0,
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "Running",
+      "AnimationSubType": "",
+      "AnimationSubTypeValue": 0,
+      "UseAsInputToPlayer": false,
+      "MoveType": "StrafeAroundTarget",
+      "Rotation": "LookAtMoveDirection",
+      "Speed": 3.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 1.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 0.0,
+      "RotationTime": 0.2,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    }
+  ]
+}

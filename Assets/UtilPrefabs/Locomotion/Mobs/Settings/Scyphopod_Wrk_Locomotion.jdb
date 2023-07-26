@@ -1,0 +1,59 @@
+{
+  "$type": "MobLocomotion",
+  "Stats" :
+  {
+    "$type" : "MobLocomotionStats",
+    "MinSpeed": 1.5,
+    "WalkingSpeedFwd":  1.85,
+    "WalkingSpeedSide":  1.85,
+    "WalkingSpeedBwd":   1.85,
+    "RunningSpeed":   3.5,
+    "JumpVerticalImpulse": 2,
+    "JumpHorizontalImpulseFwd": 3,
+    "JumpHorizontalImpulseSide": 2.5,
+    "JumpHorizontalImpulseBwd": 1.5,
+    // Jump to target:
+    "JumpToTargetMinDistance": 0.1,
+    "JumpToTargetMaxDistance": 2,
+    "JumpToTargetMaxHeight": 2,
+    
+    "DodgeSpeed": 1.3,
+    "AirControlSpeed": 2,
+    "StandingYawSpeed": 185,
+    "WalkingYawSpeed": 160,
+    "RunningYawSpeed": 160,
+    "JumpYawSpeed": 25,
+    "WalkingAccel": 100,
+    "RunningAccel": 100,
+    "Decel": 12
+  },
+  "Settings" :
+  {
+    "$type" : "MobLocomotionSettingsDef",
+    "TowardsDirectionTolerance": 5,
+    "TurnOnSpotThreshold": 25,
+    "TurnOnRunThreshold": 50,
+    "StandingSpeedThreshold": 1.5,
+    /* "DodgeMotion": "./KvarDodgeMotion", */ //#TODO: remove or make own asset
+    "MinAirborneTime": 0.1,
+    "JumpMinDuration": 0.5,
+    "JumpingOffDistance": 1,
+    "LandingDuration": 0.5,
+    "AirControlAccel": "Assets/UtilPrefabs/Locomotion/Mobs/MobAirControlAccel",
+    "JumpFromSpotDelay": 0.2,
+    "JumpFromRunSpeedThreshold": 1,
+    "ActionWhileJumpOffTimeWindow": 0.15,
+    "ActionTriggerInHindsight": 0.1,
+    "AnimatorDirectionSmoothness": 0.1,
+    "AnimatorSpeedSmoothness": 0.1,
+    "AnimatorAngularVelocitySmoothness": 1,
+    "AnimatorAngularVelocityForMaxTwist": 100,
+    "AnimatorMotionThreshold": 0.05
+  },
+  "Bindings": {
+    "$type": "MobLocomotionBindings"
+  },
+  "GroundSensor": "/UtilPrefabs/Locomotion/Mobs/MobGroundSensor",
+  "Network": "/UtilPrefabs/Locomotion/Mobs/MobLocomotionNetwork",
+  "Constants": "/UtilPrefabs/Locomotion/LocomotionConstants"
+}

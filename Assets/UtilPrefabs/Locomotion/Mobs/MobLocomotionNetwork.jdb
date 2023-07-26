@@ -1,0 +1,52 @@
+{
+  "$type": "MobLocomotionNetwork",
+  "$vars": {
+    "PREFETCH_TIME": {
+      "Type": "float",
+      "Value": 0.25
+    },
+    "PREFETCH_CHANGING_TIME": {
+      "Type": "float",
+      "Value": 0.08
+    },
+    "DISTANCE_FOR_MAX_RELEVANCE_LEVEL":
+    {
+      "Type": "float",
+      "Value": 5
+    },
+    "DISTANCE_FOR_MIN_RELEVANCE_LEVEL":
+    {
+      "Type": "float",
+      "Value": 25
+    }
+  },
+  "Server": {
+    "$type": "MobLocomotionNetworkServer",
+    "DistanceForMaxRelevanceLevel": "@DISTANCE_FOR_MAX_RELEVANCE_LEVEL",
+    "DistanceForMinRelevanceLevel": "@DISTANCE_FOR_MIN_RELEVANCE_LEVEL",
+    "SendIntervalForMaxRelevanceLevel": 0.1,
+    "SendIntervalForMinRelevanceLevel": 1,
+    "PositionDiffThresholdForMaxRelevanceLevel": 0.1,
+    "PositionDiffThresholdForMinRelevanceLevel": 0.5,
+    "VelocityDiffThresholdForMaxRelevanceLevel": 0.1,
+    "VelocityDiffThresholdForMinRelevanceLevel": 1.0,
+    "RotationDiffThresholdForMaxRelevanceLevel": 5,
+    "RotationDiffThresholdForMinRelevanceLevel": 30,
+    "ZeroVelocityThreshold": 0.03,
+    "SendOnlyImportantFlagsRelevanceLevel": 0.2,
+    "PrefetchTime": "@PREFETCH_TIME",
+    "PrefetchChangingTime": "@PREFETCH_CHANGING_TIME",
+  },
+  "Client": {
+    "$type": "MobLocomotionNetworkClient",
+    "MaxExtrapolationTime": 3,
+    "DamperMinDeltaPosition": 0.1, //--0.01, //0.1,
+    "DamperMinDeltaRotationDeg": 5, //3.5,
+    "DamperSmoothTime": 0.1, //--1, //0.1, //1,
+    "DamperMaxSpeedFactor_TmpHere": 1, //0.7, //Tmp Here (see comments at code)
+    "DistanceForMaxRelevanceLevel": 5,
+    "DistanceForMinRelevanceLevel": 25,
+    "PrefetchTime": "@PREFETCH_TIME",
+    "PrefetchChangingTime": "@PREFETCH_CHANGING_TIME",
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$type": "CalcerPiecewise",
+  "$vars": {
+    "DamageDump": {
+      "Type": "float",
+      "Value": 400
+    },
+    "CrucialDamageFactor": {
+      "Type": "float",
+      "Value": 0.8
+    },
+    "GravityMultiplier": {
+      "Type": "float",
+      "Value": -5
+    }
+  },
+  // Damage = MAX(0, FallHeight) * MAX(0, CharacterFallDamageModifier) * (-)Gravity * (-6)GravityMultiplier - @DamageDump;
+  // Damage >  CharacterHealthCurrentMax * CrucialDamageFactor ? CharacterHealthCurrentMax : Damage
+  "Ranges": [
+    {
+      "Condition": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+            "$type": "CalcerSum",
+            "$id": "Damage",
+            "Summands": [
+              {
+                "$type": "CalcerMul",
+                "Multipliers": [
+                  {
+                    "$type": "CalcerMax",
+                    "Values": [
+                      {
+                        "$type": "CalcerArg<float>",
+                        "Arg": "FallHeight"
+                      },
+                      0
+                    ]
+                  },
+                  {
+                    "$type": "CalcerMax",
+                    "Values": [
+                      {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/FallDamageModifier"
+                      },
+                      0.1
+                    ]
+                  },
+                  "/UtilPrefabs/Environment/Gravity",
+                  "@GravityMultiplier"
+                ]
+              },
+              {
+                "$type": "CalcerNegative",
+                "Value": "@DamageDump"
+              }
+            ]
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/Health/HealthMaxCurrent"
+            },
+            "@CrucialDamageFactor"
+          ]
+        }
+      },
+      "Value": {
+        "$type": "CalcerStat",
+        "Stat": "/UtilPrefabs/Stats/Health/HealthMaxCurrent"
+      }
+    }
+  ],
+  "Else": "$Damage"
+}

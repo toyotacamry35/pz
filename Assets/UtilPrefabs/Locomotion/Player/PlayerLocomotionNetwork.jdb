@@ -1,0 +1,22 @@
+{
+  "$type": "CharacterLocomotionNetwork",
+  "DamperSmoothFactor": 0.1,
+  "DamperMaxSpeed": 30,
+  "DestuckerThreshold": 1,
+  "ReceiveTimeout": 1.2, // Должен быть не меньше чем SendIntervalForMinRelevanceLevel !
+  "AuthorityClient": {
+    "$type": "AuthorityClient",
+    "DistanceForMaxRelevanceLevel": 5,
+    "DistanceForMinRelevanceLevel": 30,
+    "SendIntervalForMaxRelevanceLevel": 0.1,
+    "SendIntervalForMinRelevanceLevel": 1,
+    "PositionDiffThresholdForMaxRelevanceLevel": 0.1,
+    "PositionDiffThresholdForMinRelevanceLevel": 0.5,
+    "VelocityDiffThresholdForMaxRelevanceLevel": 0.1,
+    "VelocityDiffThresholdForMinRelevanceLevel": 1.0,
+    "RotationDiffThresholdForMaxRelevanceLevel": 5,
+    "RotationDiffThresholdForMinRelevanceLevel": 30,
+    "ZeroVelocityThreshold": 0.03,
+    "SendOnlyImportantFlagsRelevanceLevel": 0.2
+  }
+}

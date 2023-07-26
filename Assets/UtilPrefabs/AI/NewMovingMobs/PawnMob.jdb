@@ -1,0 +1,38 @@
+{
+    "$type": "StrategyDef",
+    "Selectors":{
+        "Target":{
+            "$type":"SelectAndRememberDef",
+            "$id":"Target",
+            "Selector":{
+                "$type": "RandomTargetSelectorDef",
+                "InRange": 100
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequenceDef",
+        "Steps": [
+            {
+                "$type": "CastSpellDef",
+                "Spell": "UtilPrefabs/AI/NewMovingMobs/SimpleMove",
+                "At": "$Target"
+            },
+            {
+                "$type": "CastSpellDef",
+                "Spell": "UtilPrefabs/AI/NewMovingMobs/StrafeMove",
+                "At": "$Target"
+            },
+            {
+                "$type": "CastSpellDef",
+                "Spell": "UtilPrefabs/AI/NewMovingMobs/JumpMove",
+                "At": "$Target"
+            },
+            {
+                "$type": "CastSpellDef",
+                "Spell": "UtilPrefabs/AI/NewMovingMobs/SlideBackMove",
+                "At": "$Target"
+            }
+        ]
+    }
+}

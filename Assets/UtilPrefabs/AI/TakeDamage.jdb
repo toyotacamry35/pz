@@ -1,0 +1,75 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0.1,
+  "IgnoresDeath":true,
+  "Words": [
+    /*
+{
+      "$type": "EffectPlayHitFxDef",
+      "Provocator": {
+        "$type": "SpellTargetDef"
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "MaxDistToTarget": 3.0,
+      "FxData": "Assets/UtilPrefabs/AI/TakeDamage",
+      "TargetIsParent": true,
+      "RotationFromMarker": true,
+      "UseDetach": false
+    },
+*/
+    {
+      "$type": "ImpactSendEvent",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "EventTarget": {
+        "$type": "SpellCasterDef"
+      },
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactSendTargetedEvent",
+      "Caster": {
+        "$type": "SpellTarget"
+      },
+      "EventTarget": {
+        "$type": "SpellCaster"
+      },
+      "PathToEventStatisDataType": "/AI/Events/Event_Aggro",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactRaiseTargetedEvent",
+      "Enabled": true,
+      "From": {
+        "$type": "SpellTarget"
+      },
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Radius": 1.5,
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "EffectPostVisualEvent",
+      "TriggerName": "/AI/Events/TakeDamageEvent"
+    },
+    {
+      "$type": "EffectPostVisualEvent",
+      "TriggerName": "/Character/Events/TakeHitDamageEvent",
+      "Params": {
+        "/Character/Events/Args/HitLocalPoint": "/UtilPrefabs/Spells/Params/LocalPoint",
+        "/Character/Events/Args/HitLocalRotation": "/UtilPrefabs/Spells/Params/LocalRotation",
+        "/Character/Events/Args/HitObject": "/UtilPrefabs/Spells/Params/ObjectName",
+        "/Character/Events/Args/HitDamageType": "/UtilPrefabs/Spells/Params/DamageType",
+        "/Character/Events/Args/HitWeaponSize": "/UtilPrefabs/Spells/Params/WeaponSize",
+        "/Character/Events/Args/HitAttackType": "/UtilPrefabs/Spells/Params/AttackType",
+        "/Character/Events/Args/HitMaterial": "/UtilPrefabs/Spells/Params/HitMaterial"
+      }
+    }
+  ]
+}

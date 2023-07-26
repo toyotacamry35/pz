@@ -1,0 +1,92 @@
+{
+  "$type": "SpellDef",
+  "Name": "BasicAISpellDamager",
+  "Duration": 3.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/AI/AISpells/AISpells",
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.0,
+      "AnchorLeft": 0.6,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.4,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Shoot",
+        "SpellWrapperOriginal": null,
+        "Name": "Shoot",
+        "Duration": 0.05,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactAttackObjectDef",
+            "Attacker": {
+              "$type": "SpellCasterDef"
+            },
+            "Victim": {
+              "$type": "SpellTargetDef"
+            },
+            "Attack": {
+              "$type": "Attack",
+              "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+            }
+          },
+          {
+            "$type": "BarkEffectDef",
+            "Enabled": true,
+            "TextureToShow": null,
+            "Bark": "I ATTACK YOU",
+            "Caster": {
+              "$type": "SpellCasterDef"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "BarkEffectDef",
+      "Enabled": true,
+      "TextureToShow": null,
+      "Bark": "I MOVE TO YOU",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      }
+    },
+    {
+      "$type": "PredicateCheckIfInRangeDef",
+      "Enabled": true,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Range": 5.0,
+      "Policy": "Continious",
+      "Inversed": false
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09230c9ce1004154a90fe02ecfe9e02a, type: 3}
+  m_Name: AttackUnarmed
+  m_EditorClassIdentifier: 
+  TimeRange: 2000
+  TimeMarkPeriod: 1000
+  TimeSubMarks: 100
+  TimeRewindSpeed: 0.01
+  Area:
+    serializedVersion: 2
+    x: 0.05
+    y: 0.7
+    width: 0.9
+    height: 0.25
+  BackColor: {r: 0, g: 0, b: 0, a: 0.6509804}
+  MarkColor: {r: 1, g: 1, b: 1, a: 0.1}
+  SubMarkColor: {r: 1, g: 1, b: 1, a: 0.05}
+  IntervalBgnColor: {r: 0, g: 0, b: 0, a: 0.1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  TextRatio: 0.5
+  TextSpacing: 0
+  TextPadding: 0
+  BarsAlpha: 1
+  GlobalFilter:
+    Pattern: 
+    Entity: 
+  Rules:
+  - Pattern: InputDispatcher.AttackMelee$
+    Entity: 
+    Color: {r: 0.99215686, g: 0.01568625, b: 0.8662101, a: 1}
+    Row: 0
+  - Pattern: InputActionState.AttackMelee.Activated$
+    Entity: 
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Row: 1
+  - Pattern: InputActionState.AttackMelee.*\.Deactivated$
+    Entity: 
+    Color: {r: 0, g: 0, b: 0, a: 1}
+    Row: 1
+  - Pattern: ClientSpellRunner.Attack.*_L$
+    Entity: 
+    Color: {r: 0.990566, g: 0.87073994, b: 0.014017418, a: 1}
+    Row: 2
+  - Pattern: Client with Auth.*Attack.*_L\..*EffectInputBlockerDef$
+    Entity: 
+    Color: {r: 0.65882355, g: 0.058823533, b: 0.06666667, a: 1}
+    Row: 3
+  - Pattern: Client with Auth.*Attack.*_L\..*EffectInputWindowDef$
+    Entity: 
+    Color: {r: 0.06585079, g: 0.65882355, b: 0.05882354, a: 1}
+    Row: 4
+  - Pattern: ClientSpellRunner.Attack.*_LL$
+    Entity: 
+    Color: {r: 0.99215686, g: 0.805609, b: 0.01568625, a: 1}
+    Row: 5
+  - Pattern: Client with Auth.*Attack.*_LL\..*EffectInputBlockerDef$
+    Entity: 
+    Color: {r: 0.65882355, g: 0.058823533, b: 0.06666667, a: 1}
+    Row: 6
+  - Pattern: Client with Auth.*Attack.*_LL\..*EffectInputWindowDef$
+    Entity: 
+    Color: {r: 0.06666667, g: 0.65882355, b: 0.058823533, a: 1}
+    Row: 7
+  - Pattern: InputActionHandlersProcessor.AttackMelee.*Blocker
+    Entity: 
+    Color: {r: 1, g: 0.027672686, b: 0, a: 1}
+    Row: 8
+  - Pattern: 'InputActionHandlersProcessor.AttackMelee.*InputWindow.*_L:336:'
+    Entity: 
+    Color: {r: 0.2875732, g: 0.05882354, b: 0.65882355, a: 1}
+    Row: 9
+  - Pattern: AppStart.Update
+    Entity: 
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Row: 12

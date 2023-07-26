@@ -1,0 +1,338 @@
+{
+  "$type": "CharacterLocomotionDef",
+  "$vars": {
+    "COLLIDER_WIDTH": {
+      "Type": "float",
+      "Value": 0.40
+    },
+    "SOFTCOLLIDER_WIDTH": {
+      "Type": "float",
+      "Value": 0.50
+    },
+    // Задаётся в /UtilPrefabs/Prototypes/PlayerPawnEntity.jdb параметром BOUNDS_HEIGHT
+    "COLLIDER_HEIGHT": {
+      "Type": "float"
+    },
+    // Задаётся в /UtilPrefabs/Prototypes/PlayerPawnEntity.jdb параметром BOUNDS_OFFSET
+    "COLLIDER_OFFSET": {
+      "Type": "float"
+    }
+  },
+  "Stats": {
+    "$type": "CharacterLocomotionStatsDef",
+    "MinSpeed": 1,
+    "WalkingSpeedFwd": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 2,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "WalkingSpeedSide": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 2,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "WalkingSpeedBwd": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 1,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "RunningSpeedFwd": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 3.5,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "RunningSpeedSide": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 3.5,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "RunningSpeedBwd": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 2,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "BlockingSpeedFwd": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 2,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "BlockingSpeedSide": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 2,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "BlockingSpeedBwd": {
+      "$type": "CalcerMax",
+      "$overrideVars": {
+        "SPEED": 1,
+        "MIN_SPEED": 1
+      },
+      "$proto": "./PlayerSpeedCalcer",
+    },
+    "SprintSpeedFwd": {
+      "$type": "CalcerMul",
+      "Multipliers": [
+        {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/SprintSpeedFactor"
+        },
+        {
+          "$type": "CalcerMax",
+          "$overrideVars": {
+            "SPEED": 5,
+            "MIN_SPEED": 1
+          },
+          "$proto": "./PlayerSpeedCalcer",
+        }
+      ]
+    },
+    "JumpVerticalImpulse": {
+      "$type": "CalcerMul",
+      "Multipliers": [
+        {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/JumpHeightMod"
+        },
+        6
+      ]
+    },
+    "JumpHorizontalImpulseFwd": {
+      "$type": "CalcerMul",
+      "Multipliers": [
+        {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/JumpLengthMod"
+        },
+        3
+      ]
+    },
+    "JumpHorizontalImpulseSide": 2.5,
+    "JumpHorizontalImpulseBwd": 1.5,
+    "SlippingControlSpeed": 1,
+    "AirControlSpeed": 2,
+    "StandingYawSpeed": 600,
+    "WalkingYawSpeed": 600,
+    "SprintYawSpeed": 600,
+    "SlipYawSpeed": 180,
+    "JumpYawSpeed": 500
+  },
+  "Settings": {
+    "$type": "CharacterLocomotionSettingsDef",
+    "WalkingAccel": 50,
+    "SprintAccel": 150,
+    "Decel": 20,
+    "SingleStepTime": 0.2,
+    "StandingSpeedThreshold": 1,
+    "MaxWalkingSlope": 60,
+    "SlipSlope": 50,
+    "SlipSpeed": "./PlayerSlipSpeed",
+    "SlipAccel": "./PlayerSlipAccel",
+    "SlippingStartSpeedThreshold": 2,
+    "SlippingStopSpeedThreshold": 1,
+    "SlippingTimeThreshold": 0.25,
+    "SlippingAccel": 10,
+    "SlippingDecel": 4,
+    "MinAirborneTime": 0.1,
+    "JumpingOffDistance": 1,
+    "LandingDuration": 0.15,
+    "AirControlAccel": "./PlayerAirControlAccel",
+    "HardLandingStunTime": 1,
+    "JumpFromSpotDelay": 0.2,
+    "JumpFromRunSpeedThreshold": 1,
+    "ActionWhileJumpOffTimeWindow": 0.15,
+    "ActionTriggerInHindsight": 0.1,
+    "AnimatorDirectionSmoothness": 0.3,
+    "AnimatorSpeedSmoothness": 0.3,
+    "AnimatorMotionThreshold": 0.05,
+    "CheatSpeed": 10,
+    "AccelBySlope": "./PlayerAccelBySlope",
+    "HorizontalSpeedLimit": 30,
+    "VerticalSpeedLimit": 30,
+    "DepenetrationSpeedLimit": 1,
+    "AirborneAttackHitDistance": 0.6,
+    "AirborneAttackControlSpeed": 8,
+    "AirborneAttackControlAccel":  "./PlayerAirborneAttackControlAccel",
+    "StickHitAngle": 180,
+    "SlideDownFromActorsAccel": 40,
+    "SlideDownFromActorsSpeed": 20
+  },
+  "GroundSensor": {
+    "$type": "RaycastGroundSensorDef",
+    "RaycastGroundTolerance": 0.1,
+    "RaycastDistance": 10,
+    "RaycastDistanceLong": 100,
+    "RaycastOffset": 0.1,
+    "NormalSmoothingDistance": 0.5,
+    "SphereCastSlopeAngle": 30
+  },
+  "ObstaclesSensor": {
+    "$type": "RaycastObstacleSensorDef",
+    "ColliderTolerance": 0.01,
+    "MinStairHeightFactor": 0.16
+  },
+  "CharacterController": { // Контроллер и hard-коллайдер для локального игрока
+    "$type": "CharacterController",
+    "StepOffset": "0.3",
+    "SkinWidth": "0.08",
+    "MinMoveDistance": "0.001",
+    "Center": {
+      "$type": "Vector3",
+      "x": 0,
+      "y": "@COLLIDER_OFFSET",
+      "z": 0
+    },
+    "Radius": "@COLLIDER_WIDTH",
+    "Height": "@COLLIDER_HEIGHT"
+  },
+  "Collider": { // Hard-коллайдер для remote игроков (вместо коллайдера CharacterController) 
+    "$type": "CapsuleCollider",
+    "Center": {
+      "$type": "Vector3",
+      "x": 0,
+      "y": "@COLLIDER_OFFSET",
+      "z": 0
+    },
+    "Radius": "@COLLIDER_WIDTH",
+    "Height": "@COLLIDER_HEIGHT",
+    "Direction": 1
+  },
+  "SoftCollider": { // Коллайдер используемый для прилипания и soft-depenetration 
+    "$type": "CapsuleCollider",
+    "IsTrigger": true,
+    "Center": {
+      "$type": "Vector3",
+      "x": 0,
+      "y": "@COLLIDER_OFFSET",
+      "z": 0
+    },
+    "Radius": "@SOFTCOLLIDER_WIDTH",
+    "Height": "@COLLIDER_HEIGHT",
+    "Direction": 1
+  },
+  "Rigidbody": {
+    "$type": "Rigidbody",
+    "IsKinematic": true,
+    "UseGravity": false
+  },
+  "ColliderResizer": {
+    "$type": "LocomotionColliderResizer",
+    "BlendTime": 0.1,
+    "Presets": [
+      { // Прыжок вперёд
+        "WithFlags": "Airborne,Moving",
+        "WithoutFlags": "Landing",
+        "BlendTime": 0.1,
+        "Height": 1,
+        "Center": {
+          "$type": "Vector3",
+          "y": 1.3555
+        }
+      },
+      { // Прыжок на месте
+        "WithFlags": "Airborne",
+        "WithoutFlags": "Landing,Moving",
+        "BlendTime": 0.1,
+        "Height": 1.4,
+        "Center": {
+          "$type": "Vector3",
+          "y": 1.6
+        }
+      },
+      { // Приземление в атаке-с-воздуха
+        "WithFlags": "Landing,NoCollideWithActors",
+        "BlendTime": 1.0,
+        "Height": "@COLLIDER_HEIGHT",
+        "Center": {
+          "$type": "Vector3",
+          "y": "@COLLIDER_OFFSET"
+        }
+      }
+    ]
+  },
+  "Network": "/UtilPrefabs/Locomotion/Player/PlayerLocomotionNetwork",
+  "Constants": "/UtilPrefabs/Locomotion/LocomotionConstants",
+  "Bindings": {
+    "$type": "CharacterLocomotionBindingsDef",
+    /// Sprint //////////////////////////////
+    "SprintStaminaPredicate": {
+      "$type": "PredicateLess",
+      "Lhs": 1.0,
+      "Rhs": {
+        "$type": "CalcerStat",
+        "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrent"
+      }
+    },
+    "SprintPredicate": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateLess",
+          "Lhs": {
+            "$type": "CalcerStat",
+            "Stat": "/UtilPrefabs/Stats/SprintBlock"
+          },
+          "Rhs": 0.0
+        }
+      ]
+    },
+    "SprintReaction": "/UtilPrefabs/Spells/Locomotion/SprintReaction",
+    /// Jump //////////////////////////////
+    "JumpStaminaPredicate": {
+      "$type": "PredicateLess",
+      "Lhs": 10.0,
+      "Rhs": {
+        "$type": "CalcerStat",
+        "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrent"
+      }
+    },
+    "JumpPredicate": {
+      "$type": "PredicateAnd",
+      "Predicates": [
+        {
+          "$type": "PredicateLess",
+          "Lhs": {
+            "$type": "CalcerStat",
+            "Stat": "/UtilPrefabs/Stats/JumpBlock"
+          },
+          "Rhs": 0.0
+        }
+      ]
+    },
+    "JumpReaction": "/UtilPrefabs/Spells/Locomotion/JumpReaction",
+    /// Airborne //////////////////////////////
+    "AirborneReaction": "/UtilPrefabs/Spells/Locomotion/AirborneReaction",
+    "LandReaction": "/UtilPrefabs/Spells/Locomotion/LandReaction",
+    "FallingPredicate": {
+      "$type": "PredicateLess",
+      "Lhs": 0,
+      "Rhs": "./PlayerFallDamageCalcer"
+    },
+    /// Slipping /////////////////////////
+    "SlippingReaction": "/UtilPrefabs/Spells/Locomotion/SlippingReaction",
+    "AirborneAttackHitInputAction": "/UtilPrefabs/Input/Actions/AttackAirborneHit"
+  }
+}

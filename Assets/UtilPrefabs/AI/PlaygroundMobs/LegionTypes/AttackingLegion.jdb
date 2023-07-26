@@ -1,0 +1,67 @@
+{
+    "$type": "LegionDef",
+    "CustomStrategy": {
+        "$type":"StrategyDef",
+        "Selectors":{
+            "Enemies": {
+                "$type": "SelectAndRememberDef",
+                "$id": "Enemies",
+                "Selector": {
+                    "$type": "SelectKnownDef",
+                    "Category": "/UtilPrefabs/AI/KnowledgeCategories/VisibleAgents",
+                    "Filter": {
+                        "$type": "IsLegionOfTypeDef",
+                        "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                    }
+                }
+            }
+        },
+        "Context":{
+            "AGRO_RANGE":15,
+            "MOVEMENT_SPEED":10
+        },
+        "Plan": {
+            "$type": "ChooseDef",
+            "Nodes": [
+                {
+                    "$type": "DoWhileDef",
+                    "Comment": "Here I Attack",
+                    "Condition": {
+                        "$type": "IsInRangeDef",
+                        "Range": "@AGRO_RANGE",
+                        "TargetSelectorDef": "$Enemies"
+                    },
+                    "Action": {
+                        "$type": "DoInSequenceDef",
+                        "Steps": [
+                            {
+                                "$type": "NavMoveDef",
+                                "Speed": "@MOVEMENT_SPEED",
+                                "SpeedState": 0.5,
+                                "AcceptedRange": 3,
+                                "TimeTreshold":5,
+                                "TargetSelector": "$Enemies"
+                            },
+                            {
+                                "$type": "ChooseRandomDef",
+                                "Nodes": [
+                                    {
+                                        "$type": "CastSpellDef",
+                                        "Spell": "UtilPrefabs/AI/AISpells/KvarBasicAttackSpell",
+                                        "At": "$Enemies"
+                                    },
+                                    {
+                                        "$type": "CastSpellDef",
+                                        "Spell": "UtilPrefabs/AI/AISpells/KvarAttackBleedingSpell",
+                                        "At": "$Enemies"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "/UtilPrefabs/AI/PlaygroundMobs/CommonNodes/RoamForSomeTime"
+            ]
+        }
+    }
+}

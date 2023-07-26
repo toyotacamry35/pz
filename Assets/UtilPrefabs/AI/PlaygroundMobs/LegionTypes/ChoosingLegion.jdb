@@ -1,0 +1,28 @@
+{
+    "$type": "LegionDef",
+    "CustomStrategy": {
+        "$type":"StrategyDef",
+        "Plan": {
+            "$type": "ChooseDef",
+            "Nodes": [
+                {
+                    "$type": "DoWithCooldownDef",
+                    "CooldownOnFail": 60,
+                    "CooldownOnSucces": 30,
+                    "CooldownName": "MyEatingTimer",
+                    "Do": {
+                        "$type": "CastSpellDef",
+                        "Spell": "UtilPrefabs/AI/AISpells/Idle"
+                    }
+                },
+                {
+                    "$type": "CastSpellDef",
+                    "Spell": "UtilPrefabs/AI/AISpells/Roar",
+                    "At":{
+                        "$type":"SelfDef"
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09230c9ce1004154a90fe02ecfe9e02a, type: 3}
+  m_Name: AttackBlockers
+  m_EditorClassIdentifier: 
+  TimeRange: 1000
+  TimeMarkPeriod: 1000
+  TimeSubMarks: 100
+  TimeRewindSpeed: 0.01
+  Area:
+    serializedVersion: 2
+    x: 0.05
+    y: 0.8
+    width: 0.9
+    height: 0.15
+  BackColor: {r: 0, g: 0, b: 0, a: 0.1}
+  MarkColor: {r: 1, g: 1, b: 1, a: 0.1}
+  SubMarkColor: {r: 1, g: 1, b: 1, a: 0.05}
+  IntervalBgnColor: {r: 0, g: 0, b: 0, a: 0.1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  TextRatio: 0.7
+  TextSpacing: 0
+  TextPadding: 0
+  BarsAlpha: 1
+  GlobalFilter:
+    Pattern: 
+    Entity: 
+  Rules:
+  - Pattern: ClientSpellRunner.*Attack
+    Entity: 
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Row: 0
+  - Pattern: AppStart.Test
+    Entity: 
+    Color: {r: 0.91193604, g: 0.9716981, b: 0, a: 1}
+    Row: 5
+  - Pattern: AppStart.Update
+    Entity: 
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Row: 6

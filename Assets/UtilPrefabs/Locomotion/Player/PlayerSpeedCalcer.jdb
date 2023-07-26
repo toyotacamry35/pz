@@ -1,0 +1,26 @@
+{ // Max (@SPEED * /UtilPrefabs/Stats/SpeedFactor, MIN_SPEED)
+  "$type": "CalcerMax",
+  "$vars": {
+    "SPEED": {
+      "Type": "float",
+      "Value": 1
+    },
+    "MIN_SPEED": {
+      "Type": "float",
+      "Value": 1
+    }
+  },
+  "Values": [
+    {
+      "$type": "CalcerMul",
+      "Multipliers": [
+        "@SPEED",
+        {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/SpeedFactor"
+        }
+      ]
+    },
+    "@MIN_SPEED"
+  ]
+}

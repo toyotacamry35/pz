@@ -1,0 +1,59 @@
+{
+  "$type": "MobLocomotion",
+  "Stats" :
+  {
+    "$type" : "MobLocomotionStats",
+    "MinSpeed": 1, // Минимальная скорость с которой дв. моб
+    "WalkingSpeedFwd":  2.5, // Скорость движения вперед
+    "WalkingSpeedSide":  2.0, // Скорость движения в стороны
+    "WalkingSpeedBwd":   2.5, // Скорость движения назад 
+    "RunningSpeed":   6, // Скорость бега
+    "JumpVerticalImpulse": 5, // Импульс при прыжке вперёд с места
+    "JumpHorizontalImpulseFwd": 10, // Скорость прыжка вперёд
+    "JumpHorizontalImpulseSide": 10, // Скорость прыжка вбок
+    "JumpHorizontalImpulseBwd": 10, // Скорость прыжка назад
+    // Jump to target:
+    "JumpToTargetMinDistance": 0.5, // Минимальная дистанция, на котоую прыгает моб в JumpToTarget
+    "JumpToTargetMaxDistance": 4.0, //4, // Максимальная дистанция прыжка
+    "JumpToTargetMaxHeight": 4.0, //4, // Максимальная высота прыжка
+    
+    "DodgeSpeed": 2.0, // Скорость движения уклонения (под новый стейт доджей)
+    "AirControlSpeed": 1, // Максимальная скорость подруливания в воздухе
+    "StandingYawSpeed": 300, // Скорость поворота в стойке на месте
+    "WalkingYawSpeed": 300, // Скорость поворота во время ходьбы
+    "RunningYawSpeed": 300, // Скорость поворота во время бега
+    "JumpYawSpeed": 25, // Скорость поворота в прыжке
+    "WalkingAccel": 1000, // Ускорение при ходьбе
+    "RunningAccel": 1000, // Ускорение при беге
+    "Decel": 1000 // Коэфф. замедления (инерция)
+  },
+  "Settings" :
+  {
+    "$type" : "MobLocomotionSettingsDef",
+    "TowardsDirectionTolerance": 5, // Угол между текущ. ориентацией моба и направлением взгляда 
+    "TurnOnSpotThreshold": 15, // Угол, при котором включается анимация доворота
+    "TurnOnRunThreshold": 45, // Угол, при котором включается анимация доворота во время движения
+    "StandingSpeedThreshold": 1, // Порог скорости, ниже которого моб стоит
+    "DodgeMotion": "./KvarDodgeMotion", // Ссылка на кривую движения доджа (неисп.)
+    "MinAirborneTime": 0.1, // Минимальное время в воздухе, после которого моб засчитывает себя в воздухе
+    "JumpMinDuration": 0.5, // ??
+    "JumpingOffDistance": 1, // Расстояние до земли, при которой моб переходит в аним. спрыгивания (требуется настройка navmesh offlink, точки спрыгивания и приземления)
+    "LandingDuration": 0.5, // Длительность анимации приземления
+    "AirControlAccel": "Assets/UtilPrefabs/Locomotion/Mobs/MobAirControlAccel", // Зависимость ускорения подруливания в воздухе от времени нахождения в воздухе
+    "JumpFromSpotDelay": 0.2, // Задержка перед прыжком с места
+    "JumpFromRunSpeedThreshold": 1, // Порог скорости, выше которого прыжок считается прыжком в беге, а не с места
+    "ActionWhileJumpOffTimeWindow": 0.15, // ??
+    "ActionTriggerInHindsight": 0.1, // Не трогать, время запоминания "инпутов" для повторного прыжка
+    "AnimatorDirectionSmoothness": 0.1, // Не работает для мобов
+    "AnimatorSpeedSmoothness": 0.1, // // Сглаживание перехода между анимациями
+    "AnimatorAngularVelocitySmoothness": 1, // см. выше
+    "AnimatorAngularVelocityForMaxTwist": 100, // Максимальный угол для поворота корпуса моба
+    "AnimatorMotionThreshold": 0.05 // ??
+  },
+  "Bindings": {
+    "$type": "MobLocomotionBindings" // Будут спеллы
+  },
+  "GroundSensor": "/UtilPrefabs/Locomotion/Mobs/MobGroundSensor", 
+  "Network": "/UtilPrefabs/Locomotion/Mobs/MobLocomotionNetwork",
+  "Constants": "/UtilPrefabs/Locomotion/LocomotionConstants"
+}

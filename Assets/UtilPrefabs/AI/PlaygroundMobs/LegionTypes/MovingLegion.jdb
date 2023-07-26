@@ -1,0 +1,19 @@
+{
+    "$type": "LegionDef",
+    "CustomStrategy": {
+        "$type":"StrategyDef",
+        "Plan": {
+            
+                "$type": "NavMoveDef",
+                "TargetSelector": {
+                    "$type": "RandomPointTargetSelectorDef",
+                    "InRange": 10
+                },
+                "Speed": 5,
+                "SpeedState": 0.5,
+                "AcceptedRange": 3,
+                "TimeTreshold": 20
+            
+        }
+    }
+}

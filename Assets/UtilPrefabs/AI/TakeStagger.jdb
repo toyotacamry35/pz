@@ -1,0 +1,46 @@
+{
+    "$type": "SpellDef",
+    "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    //"ClearsSlot":true,
+    "Duration": 0,
+    "Words": [
+        {
+            "$type": "ImpactStopAllSpellsOfGroupsDef",
+            "Groups": [
+                "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+                "/UtilPrefabs/Spells/Groups/MainActionSpellGroup"
+            ],
+            "Reason": "Fail"
+        },
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "MoveType": "StrafeAroundTarget",
+            "Rotation": "LookAtTarget",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "FixedDirection": {
+                "$type": "Vector3",
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Reaction",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/ReactionType",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

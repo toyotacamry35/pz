@@ -1,0 +1,22 @@
+{
+    "$type": "LegionDef",
+    "CustomStrategy": {
+        "$type":"StrategyDef",
+        "Plan": {
+            "$type": "DoInSequenceDef",
+            "Steps": [
+                {
+                    "$type": "CastSpellDef",
+                    "Spell": "UtilPrefabs/AI/AISpells/Idle"
+                },
+                {
+                    "$type": "CastSpellDef",
+                    "Spell": "UtilPrefabs/AI/AISpells/Roar",
+                    "At":{
+                        "$type":"SelfDef"
+                    }
+                }
+            ]
+        }
+    }
+}
