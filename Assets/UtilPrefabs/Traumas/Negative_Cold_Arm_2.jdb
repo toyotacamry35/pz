@@ -1,0 +1,44 @@
+{
+  "$type": "Buff",
+  "Id": "5B598DA7-BAE2-4A02-923F-E59489C62549",
+  "Duration": 12000.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffHandFrost1",
+  "DescriptionLs": {
+    "Key": "#l10n2865"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "Enabled": true,
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/MiningLootMultiplier",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "Summand": -0.2
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "Enabled": true,
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "Summand": -0.2
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503073"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestFlaskResources2",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "Group": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/ItemBractusResin",
+      "Count": 2,
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "$id": "SpellOnDisappearance",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIBractus"
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIGerophyt"
+          }
+        ]
+      },
+      "SpellOnAbsence": "$SpellOnDisappearance",
+      "SpellOnAppearance": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestStep5CapsuleToxic"
+    }
+  ]
+}

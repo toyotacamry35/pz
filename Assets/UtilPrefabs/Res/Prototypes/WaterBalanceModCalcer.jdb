@@ -1,0 +1,55 @@
+{
+    // waterbalance_mod = 1-0,75*(1-waterbalance/waterbalance_max)^2
+    "$type": "CalcerSum",
+    "Summands": [
+        1,
+        {
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": 0.75
+                        },
+                        {
+                            "$type": "CalcerPow",
+                            "Value": {
+                                "$type": "CalcerSum",
+                                "Summands": [
+                                    1,
+                                    {
+                                        "$type": "CalcerMul",
+                                        "Multipliers": [
+                                            {
+                                                "$type": "CalcerDiv",
+                                                "Dividend": {
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent"
+                                                },
+                                                "Divisor": {
+                                                    "$type": "CalcerStat",
+                                                    "Stat":"/UtilPrefabs/Stats/Satiety/WaterBalanceMax"
+                                                }
+                                            },
+                                            {
+                                                "$type": "CalcerConstant",
+                                                "Value": -1
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "Power": 2
+                        }
+                    ]
+                },
+                {
+                    "$type": "CalcerConstant",
+                    "Value": -1
+                }
+            ]
+        }
+    ]
+}

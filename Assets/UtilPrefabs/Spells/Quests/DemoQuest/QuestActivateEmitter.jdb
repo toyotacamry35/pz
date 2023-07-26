@@ -1,0 +1,31 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestActivateEmitter",
+  "Duration": 0.01,
+  "IsInfinite": false,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Res/PrimitiveBattery"
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Res/PrimitiveBattery"
+    },
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIEmitter"
+    },
+    {
+      "$type": "ImpactCastSpellDef",
+      "Spell": "/Quests/Emitter/Spells/EmitterActivation",
+      "Caster": {
+        "$type": "SpellTargetDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      }
+    }
+  ]
+}

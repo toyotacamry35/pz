@@ -1,0 +1,29 @@
+{
+  "$type": "Buff",
+  "Id": "45B1CE3C-21AD-4BC2-BC98-2A3A1CF4BE1C",
+  "Duration": 7200.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/PosEffSated1",
+  "DescriptionLs": {
+    "Key": "#l10n503897"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/CalorieConsumptionMod",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Multiplier": -0.75
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterConsumptionMod",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Multiplier": -0.75
+    }
+  ]
+}

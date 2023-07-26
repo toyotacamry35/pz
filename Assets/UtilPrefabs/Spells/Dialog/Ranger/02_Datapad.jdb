@@ -1,0 +1,55 @@
+{
+  "$type": "SpellDef",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": true,
+      "Spell" : {
+        "$type": "SpellDef",
+        "Name": "InteruptByRange",
+        "Duration": 1,
+        "IsInfinite": false,
+        "Words": [
+          {
+            "$type": "PredicateCheckIfInRangeDef",
+            "Enabled": true,
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "Range": 5,
+            "Inversed": false
+          }
+        ]
+      }
+    }
+  ],
+  "ClearsSlot": true,
+  "Words": [
+    {
+      "$type": "EffectOpenUIDialogDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Dialog": "/Inventory/Dialogs/NPC/Ranger/02_Datapad"
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Event/Island_Event/Island_Event_Corpse_Data"
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3711"
+  }
+}

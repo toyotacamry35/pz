@@ -1,0 +1,31 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes":
+    [
+        {
+            "DamageTypes": 
+            [
+                   "/UtilPrefabs/DamageTypes/DTCrushing"
+            ],
+            "LootTableTable": 
+            {
+                "$type": "LootTableDef",
+                "LootTable":
+                [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableSalt",
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

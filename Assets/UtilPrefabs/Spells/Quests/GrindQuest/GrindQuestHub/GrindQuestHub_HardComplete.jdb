@@ -1,0 +1,32 @@
+{
+  "$type": "SpellDef",
+  "Name": "GrindQuestHub_HardComplete",
+  "Duration": 1.0,
+  "AllowMultiple": true,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasActiveSpellOfGroup",
+      "_spellGroup": "/UtilPrefabs/Spells/Groups/QuestGroups/QuestGrindGroup_Hard"
+    },
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Quest": "/Inventory/Quest/KillTheKvarsQuest/KillTheKvarsQuest",
+          "Type": "More",
+          "Phases": 0
+        }
+      ]
+    },
+    {
+      "$type": "ImpactCastSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/KillTheKvarsQuest/KillTheKvarsQuest_Complete"
+      ]
+    }
+  ]
+}

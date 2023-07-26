@@ -1,0 +1,122 @@
+{
+    // Calculate MaxTemperature for NEW Temperature Sustem
+    // https://centre.atlassian.net/wiki/spaces/COL/pages/772177921
+    // MaxTemperature = Environment_Temperature + k1*f - k2*Wind - k3 + S
+    "$type": "CalcerSum",
+    "Summands": [
+        { // Environment_Temperature
+            "$type": "CalcerStat",
+            "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+        },
+        { // k1*f
+            "$type": "CalcerMul",
+            "Multipliers": [
+                { // k1
+                    "$type": "CalcerConstant",
+                    "Value": 0.348
+                },
+                { // f = (Humidity/100) * k4 * exp^((k5 * Environment_Temperature) / (k6 + Environment_Temperature))
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        { // (Humidity/100)
+                            "$type": "CalcerDiv",
+                            "Dividend": { // Humidity
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Environment/Humidity"
+                            },
+                            "Divisor": { // 100
+                                "$type": "CalcerConstant",
+                                "Value": 100
+                            }
+                        },
+                        { // k4
+                            "$type": "CalcerConstant",
+                            "Value": 6.105
+                        },
+                        { // exp^((k5 * Environment_Temperature) / (k6 + Environment_Temperature))
+                            "$type": "CalcerExp",
+                            "Pow": { // ((k5 * Environment_Temperature) / (k6 + Environment_Temperature))
+                                "$type": "CalcerDiv",
+                                "Dividend": { // (k5 * Environment_Temperature)
+                                    "$type": "CalcerMul",
+                                    "Multipliers": [
+                                        { // k5
+                                            "$type": "CalcerConstant",
+                                            "Value": 17.27
+                                        },
+                                        { // Environment_Temperature
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                                        }
+                                    ]
+                                },
+                                "Divisor": { // (k6 + Environment_Temperature)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        { // k6
+                                            "$type": "CalcerConstant",
+                                            "Value": 237.7
+                                        },
+                                        { // Environment_Temperature
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        { // k2*Wind
+            "$type": "CalcerMul",
+            "Multipliers": [
+                { // k2
+                    "$type": "CalcerConstant",
+                    "Value": -0.7
+                },
+                { // Wind
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/Environment/Wind"
+                }
+            ]
+        },
+        { // k3
+            "$type": "CalcerConstant",
+            "Value": -4.25
+        },
+        { // S = Stamina_Temperature * ((Max_Stamina - Current_Stamina) / Max_Stamina)
+            "$type": "CalcerMul",
+            "Multipliers": [
+                { // Stamina_Temperature
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/Stamina/StaminaTemperature"
+                },
+                { //((Max_Stamina - Current_Stamina) / Max_Stamina)
+                    "$type": "CalcerDiv",
+                    "Dividend": {
+                        "$type": "CalcerSum",
+                        "Summands": [
+                            { // Max_Stamina
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent"
+                            },
+                            {
+                                "$type": "CalcerNegative",
+                                "Value": { // - Current_Stamina
+                                    "$type": "CalcerStat",
+                                    "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrent"
+                                }
+                            }
+                        ]
+                    },
+                    "Divisor": { // Max_Stamina
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent"
+                    }
+                }
+            ]
+        }
+    ]
+}

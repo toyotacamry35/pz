@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Name": "GvardTookQuest2complete",
+  "Duration": 5.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "SpellIcon": null,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n502909"
+  },
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Res/LifeEssence",
+      "Count": 5
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardCompleteKW"
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Res/LifeEssence",
+      "Count": 5
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardCompleteKW"
+    },
+  ]
+}

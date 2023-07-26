@@ -1,0 +1,119 @@
+{
+  "$type": "Spell",
+  "Duration": 0,
+  "Group": "/UtilPrefabs/Spells/Groups/ReactionSpellGroup",
+  "AllowMultiple": true,
+  "ClearsSlot": true,
+  "SubSpells": [],
+  "Words": [
+    //DEBUG
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0.8,
+        "G": 0.4,
+        "B": 0.0,
+      }
+    },
+    {
+      "$type": "ImpactSendEvent",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "EventTarget": {
+        "$type": "SpellCasterDef"
+      },
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/NPCRecoilEvent",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactStopAllSpellsOfGroups",
+      "Groups": [
+        "/UtilPrefabs/Spells/Groups/AttackSpellGroup"
+      ],
+      "Reason": "Fail"
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "State",
+          "State": "/UtilPrefabs/Res/AnimatorStates/Recoil",
+          "Detached": false,
+          "Duration": 0
+        }
+      ]
+    },
+    {
+      "$type": "EffectInputLayer"
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera",
+      "Except": [
+        "/UtilPrefabs/Input/Actions/DashForward",
+        "/UtilPrefabs/Input/Actions/DashBackward",
+        "/UtilPrefabs/Input/Actions/DashLeft",
+        "/UtilPrefabs/Input/Actions/DashRight",
+        "/UtilPrefabs/Input/Actions/Jump",
+        "/UtilPrefabs/Input/Actions/AttackMelee",
+        "/UtilPrefabs/Input/Actions/AttackMeleeAlt"
+      ]
+    },
+    {
+      "$type": "EffectPostVisualEvent",
+      "TriggerName": "/Character/Events/StaggerPlayerEvent",
+      "Params": {
+        "/Character/Events/Args/Player": "/UtilPrefabs/Spells/Params/PlayerIs"
+      }
+    },
+    //INPUT WINDOWS
+    //Block
+    {
+      "$type": "EffectInputWindow",
+      "Delay": 0.06,
+      "DelayIsBeforeEnd": true,
+      "Handlers": {
+        "/UtilPrefabs/Input/Actions/Block": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+      }
+    },
+    //Attacks & Jump
+    {
+      "$type": "EffectInputWindow",
+      "Delay": 0.05,
+      "DelayIsBeforeEnd": true,
+      "Handlers": {
+        "/UtilPrefabs/Input/Actions/AttackMelee": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/Jump": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+              "$type": "InputActionHandlerSpellBreaker"
+        }
+      }
+    },
+    //Dash breakers
+    {
+      "$type": "EffectInputWindow",
+      "Delay": 0.100,
+      "Handlers": {
+        "/UtilPrefabs/Input/Actions/DashForward": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/DashBackward": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/DashLeft": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/DashRight": {
+              "$type": "InputActionHandlerSpellBreaker"
+        }
+      }
+    }
+  ]
+}

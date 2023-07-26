@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Duration": 40,
+  "IsInfinite": false,
+  "Words": [
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnAny",
+      "Spell": "/UtilPrefabs/Spells/Combat/StopStaminaRegeneration"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpenseSprint",
+      "Summand": 70
+    },    
+    {
+      "$type": "EffectInputLayer"
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "Block": [
+        "/UtilPrefabs/Input/Actions/Block"
+      ]
+    }
+  ]
+}

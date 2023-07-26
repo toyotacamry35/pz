@@ -1,0 +1,35 @@
+{
+  "$type": "Buff",
+  "Id": "ACF8F900-604B-4464-BE54-225279089FE5",
+  "Duration": 2400.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffHeadHot1",
+  "DescriptionLs": {
+    "Key": "#l10n2862"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "Enabled": true,
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "Multiplier": -0.5
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503078"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractWithRoot1",
+  "Duration": 7200.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n502897"
+  },
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardCompleteKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/QuestRoot/QuestRoot1KW"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/QuestRoot/QuestRoot1KW"
+    },
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot1"
+    },
+    {
+      "$type": "EffectRemoveQuestPoiDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Hub_Quest/Root/POIRoot1"
+    }
+  ]
+}

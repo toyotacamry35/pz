@@ -1,0 +1,31 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestFlaskResources2",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "Group": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/GerophitShell",
+      "Count": 1,
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "$id": "SpellOnDisappearance",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIGerophyt"
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POISanguira"
+          }
+        ]
+      },
+      "SpellOnAbsence": "$SpellOnDisappearance",
+      "SpellOnAppearance": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestStep4Bractus"
+    }
+  ]
+}

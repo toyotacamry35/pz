@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Name": "WeakAntidoteBuffSpell",
+  "Duration": 5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/Detoxication",
+      "UseClampMax": true,
+      "ClampMax": 50.0,
+      "UseClampMin": true,
+      "ClampMin": 50.0,
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    }
+  ]
+}

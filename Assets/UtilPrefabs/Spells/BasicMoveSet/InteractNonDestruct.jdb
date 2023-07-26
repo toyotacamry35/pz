@@ -1,0 +1,53 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractNonDestruct",
+  "Duration": 2.5,
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactGrantItemDef",
+      "GrantRandom": false,
+      "GrantingItems": [],
+      "Receiver": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractiveGranter": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "ImpactSetInteractionTypeDef",
+      "AnimatorOwner": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractionType": "MineHigh",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/FullStop",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1.0
+    },
+    /* {
+      "$type": "EffectPlayAnimationOLDDef",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractiveTargetIfHasOne": {
+        "$type": "SpellTargetDef"
+      }
+    }, */
+  ]
+}

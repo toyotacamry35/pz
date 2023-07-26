@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "ThrowSpell",
+  "Duration": 0.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactLaunchDef",
+      "Enabled": true,
+      "Direction": {
+        "$type": "SpellTargetPointDef"
+      },
+      "From": {
+        "$type": "SpellCasterDef"
+      },
+      "Prefab": "Assets/UtilPrefabs/Prototypes/ThrowingStone",
+      "Force": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 3.0,
+        "z": 6.0
+      },
+      "Offset": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 2.0,
+        "z": 1.0
+      },
+      "WhenToApply": "OnStart"
+    }
+  ]
+}

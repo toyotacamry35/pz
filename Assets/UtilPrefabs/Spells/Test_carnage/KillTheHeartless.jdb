@@ -1,0 +1,37 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0.1,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "Words": [
+    {
+      "$type": "ImpactStopSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Spells/Combat/StopHealthRegeneration"
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "Spell": "/UtilPrefabs/Spells/Test_carnage/KillTheHeartlessII"
+    },
+    {
+      "$type": "EffectShowText",
+      "Duration": 6,
+      "TextLs": {
+        "Key": "#l10n502930"
+      }
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Res/Heart",
+      "Count": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "WhenToApply": "OnSuccess"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.0,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.8,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": true,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 0.5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "Spell": "./ActionsBlockerForInteract"
+          }
+        ],
+        "Words": [
+          {
+            "$type": "ImpactAddPerk",
+            "Perk": "/Inventory/Perks/Special/Ability1Perk"
+          }
+        ]
+      }
+    },
+  ],
+  "Words": [],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1659"
+  }
+}

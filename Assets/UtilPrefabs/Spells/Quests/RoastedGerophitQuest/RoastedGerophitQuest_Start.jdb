@@ -1,0 +1,38 @@
+{
+  "$type": "SpellDef",
+  "Name": "RoastedGerophit_Start",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    //Если:
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+
+     {
+        "$type": "PredicateKnowledgeDef",                    // проверяет, есть ли у игрока кновледж "я уже брал этот квест" и, если есть, не даёт взять квест. мы будем выдавать этот кновледж в файле самого квеста, см. п.2
+        "Inversed": true,
+        "Knowledge": "/Inventory/Knowledge/Quest/RoastedGerophitQuest/RoastedGerophitQuest_TakenKW" //ссылка на файл с этим кновледжем. его заведём в п.4 и сюда вставим
+      },
+    //То:
+    {
+      "$type": "ImpactActivateQuestDef", //выдаёт квест, указанный ниже
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/RoastedGerophitQuest/RoastedGerophitQuest" //ссылка на файл с этим квестом. его заведём в п.2 и сюда вставим
+    },
+    
+      {
+        "$type": "ImpactAddKnowledgeDef", 
+        "Knowledge": "/Inventory/Knowledge/Quest/RoastedGerophitQuest/RoastedGerophitQuest_TakenKW",
+  
+      "WhenToApply": "OnSuccess"
+      } 
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key01Quest/Key01Quest_CompletedKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Key02Quest/Key02Quest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_TakenKW"
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/Key02_Quest/Key02Quest"
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/Key03_Quest/Key03Quest"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Key02Quest/Key02Quest_TakenKW",
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_TakenKW",
+      "WhenToApply": "OnSuccess"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$type": "SpellDef",
+  "Name": "GrindQuestHub_NormalStart",
+  "Duration": 1.0,
+  "AllowMultiple": true,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateLess",
+              "Lhs": {
+                "$type": "CalcerRandomDef"
+              },
+              "Rhs": 1.00
+            },
+            "Value": "/UtilPrefabs/Spells/Quests/SimpleChestQuest/SimpleChestQuest_Start"
+          }
+        ],
+        "Else": "/UtilPrefabs/Spells/Quests/SimpleChestQuest/SimpleChestQuest_Start"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$type": "SpellDef",
+  "Name": "HeatSpell",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Environment/TemperatureExternal",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "UseClampMax": true,
+      "ClampMax": 20.0,
+      "UseClampMin": true,
+      "ClampMin": 20.0
+    }
+  ]
+}

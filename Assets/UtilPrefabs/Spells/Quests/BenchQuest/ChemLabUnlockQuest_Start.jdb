@@ -1,0 +1,45 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/ChemLabUnlockQuest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/VoidOff/VoidoffKW" 
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/BenchQuest/ChemLabUnlockQuest"
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 1,
+        "g": 1,
+        "b": 1,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n504940"
+      }
+    }
+  ]
+}

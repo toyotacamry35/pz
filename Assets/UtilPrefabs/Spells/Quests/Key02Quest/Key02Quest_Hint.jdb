@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key02Quest/Key02Quest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Key02Quest/Key02Quest_CompletedKW"
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Quest/Key02Quest/Explosive",
+      "Inversed":true,
+      "Count": 200
+    }
+  ]
+}

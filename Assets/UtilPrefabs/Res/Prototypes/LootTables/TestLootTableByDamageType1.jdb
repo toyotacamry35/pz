@@ -1,0 +1,36 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes": [
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTCutting",
+                "/UtilPrefabs/DamageTypes/DTCrushing"
+            ],
+            "LootTableTable": {
+                "$type": "LootTableDef",
+                "LootTable": [
+                    {
+                        "ItemResRefPack": {
+                            "ItemResource": "/Inventory/Items/Res/SpiralStem",
+                            "Count": 2
+                        },
+                        //"Predicate": 
+                        //{
+                        //    "$type": "LootTablePredicateFalseDef"
+                        //},
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 10
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTSlashing"
+            ],
+            "LootTableTable": "/UtilPrefabs/Res/Prototypes/LootTables/TestLootTable3"
+        }
+    ]
+}

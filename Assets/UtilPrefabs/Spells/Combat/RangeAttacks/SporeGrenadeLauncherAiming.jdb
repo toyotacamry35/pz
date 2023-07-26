@@ -1,0 +1,78 @@
+{
+  "$type": "SpellDef",
+  "$vars": {
+    // Время изготовки. Это время, до того как станет возможно стрелять, а так же длительность анимации вставания в стойку
+    "AIMING_TIME": {
+      "Type": "float",
+      "Value": 0.5
+    },
+    // Это длительность анимации выхода из стойки
+    "DISAIMING_TIME": {
+      "Type": "float",
+      "Value": 0.25
+    }
+  },
+  "Name": "SporeGrenadeLauncherAiming",
+  "IsInfinite": true,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": "@AIMING_TIME",
+      "Spell": {
+        "$type": "SpellDef",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/AimingFactor",
+            "Summand": 1.0
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "PredicateLocomotionState",
+      "State": "Airborne,Slipping,Jumping",
+      "Inversed": true
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "SmoothFloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Battle",
+          "StartValue": 0,
+          "EndValue": 1,
+          "Time": "@AIMING_TIME",
+          "When": "OnStart"
+        },
+        {
+          "$type": "SmoothFloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Battle",
+          "StartValue": 1,
+          "EndValue": 0,
+          "Time": "@DISAIMING_TIME",
+          "When": "OnFinish"
+        }
+      ]
+    },
+    {
+      "$type": "EffectInputLayer",
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/Locomotion"
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Rotator": { "$type": "HardBindToCameraRotator" }
+    },
+    {
+      "$type": "EffectSwitchCamera",
+      "Camera": "/UtilPrefabs/Res/Camera/LauncherAimingCamera"
+    }
+  ]
+}

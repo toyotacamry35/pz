@@ -1,0 +1,40 @@
+{
+    "$type": "UnityGameObjectDef",
+    "Name": "WatersourceClear",
+    "Components": [
+        {
+            "$type": "InteractiveDef",
+            "ReuseExisting": true,
+            "ContextualActions":
+            {
+                "$type": "ContextualActions",
+                "SpellsByAction": 
+                {
+                    "/UtilPrefabs/Input/Actions/Interaction":{
+                        "0":{
+                            "$type": "ContextualAction",
+                            "Spell": "/UtilPrefabs/Spells/InteractiveObjects/WatersourceCleanSpell"
+                        }
+                    },
+                    "/UtilPrefabs/Input/Actions/ContextualReactions":
+                    {
+                        "0":
+                        {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/Reactions/NonCombat/BeUsedAsItemsConverter",
+                            "CheckSpell": "/UtilPrefabs/Spells/Reactions/NonCombat/BeUsedAsItemsConverterCheckSpell"
+                        },
+                        "1":
+                        {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/Reactions/NonCombat/BeUsedAsFuelConsumer",
+                            "CheckSpell": "/UtilPrefabs/Spells/Reactions/NonCombat/BeUsedAsFuelConsumerCheckSpell"
+                        }
+
+                    }
+
+                }
+            }
+        } 
+    ]
+}

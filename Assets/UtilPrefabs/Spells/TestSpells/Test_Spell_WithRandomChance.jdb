@@ -1,0 +1,39 @@
+{
+    "$type": "SpellDef",
+    "Name": "SpellWithRandomChance",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": true,
+    "SpellIcon": null,
+    "DontShowProgress": false,
+    "Group": null,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": 
+    [
+      {
+        "$type": "ImpactCastSpell",
+        "Target": 
+        {
+          "$type": "SpellCaster"
+        },
+        "ProcSpell":{
+          "$type": "CalcerPiecewiseResourceDef",
+          "Ranges": [
+          {
+              "Condition": {
+                  "$type": "PredicateLess",
+                  "Lhs": {
+                      "$type": "CalcerRandomDef"
+                  },
+                  "Rhs": 0.16
+              },
+              "Value": "/UtilPrefabs/Spells/TestSpells/Test_Spell_Kill"
+          },
+          ],
+          "Else": "/UtilPrefabs/Spells/TestSpells/Test_Spell_ShowText_And_AddItem"
+        }
+      }
+    ],
+  }
+  

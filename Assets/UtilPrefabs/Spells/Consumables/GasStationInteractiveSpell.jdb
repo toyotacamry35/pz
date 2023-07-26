@@ -1,0 +1,46 @@
+{
+  "$type": "Spell",
+  "Duration": 1,
+  "Words": [
+    {
+      "$type": "ImpactAddItemsDef",
+      "WhenToApply": "OnSuccess",
+      "Items": [
+        "/Inventory/Items/Quest/Key05Quest/ToxicGas"
+      ],
+      "Count": 1,
+      "Container": "Inventory",
+      "ItemsBatchType": "OneOfItem"
+    },
+    {
+      "$type": "EffectPlayAnimationDef",
+      "AnimatorOwner": {
+        "$type": "SpellCaster"
+      },
+      "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+      "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType",
+      "IntValue": 4
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnSuccess",
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "ImpactDie",
+            "Target": {
+              "$type": "SpellTarget"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n504002"
+  }
+}

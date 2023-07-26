@@ -1,0 +1,24 @@
+{
+    "$type": "UnityGameObjectDef",
+    "Name": "Press",
+    "Components": [
+        {
+            "$type": "InteractiveDef",
+            "ReuseExisting": true,
+            "ContextualActions": {
+                "$type": "ContextualActionsDef",
+                "SpellsByAction": {
+                    "/UtilPrefabs/Input/Actions/Interaction": {
+                        "0": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/Quests/BenchQuest/PressUnlockQuest_Check"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+        }
+    ]
+}

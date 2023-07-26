@@ -1,0 +1,102 @@
+{
+  "$type": "SpellDef",
+  "Name": "Negative_Heat_Burn",
+  "Duration": 1,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "IsStatusEffect": true,
+  "SpellIcon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffHot1",
+  "InteractionDescriptionLs": {
+    "Key": "#l10n504424"
+  },
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 4,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactDamageObjectDef",
+            "Target": {
+              "$type": "SpellCaster"
+            },
+            "Damage": {
+              "$type": "CalcerConstant",
+              "Value": 5
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n504451"
+      }
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                {
+                  "$type": "PredicateLess",
+                  "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/HatEquipped"
+                  },
+                  "Rhs": {
+                    "$type": "CalcerConstant",
+                    "Value": 1
+                  }
+                },
+                {
+                  "$type": "PredicateLess",
+                  "Lhs": {
+                    "$type": "CalcerRandomDef"
+                  },
+                  "Rhs": 0.7
+                }
+              ]
+            },
+            "Value": "/UtilPrefabs/Traumas/Negative_Heat_Head"
+          }
+        ],
+        "Else": null
+      }
+    }
+    //{
+      //"$type": "ImpactCastSpell",
+      //"Caster": {
+        //"$type": "SpellCaster"
+      //},
+      //"Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/HeatTeachQuest/HeatTeachQuest_Start"
+    //}
+  ]
+}

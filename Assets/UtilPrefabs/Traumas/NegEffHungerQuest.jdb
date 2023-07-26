@@ -1,0 +1,40 @@
+{
+  "$type": "SpellDef",
+  "Name": "NegEffHungerQuest",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n504006"
+      }
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Caster": {
+        "$type": "SpellCaster"
+      },
+      "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/FirstStarvingQuest/FirstStarvingQuest_Start"
+    },
+    {
+      "$type": "PredicateKnowledgeDef", //проверяем, что игрок брал квест - есть ли у него кновледж, выдающийся при взятии квеста?
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/FirstStarvingQuest/FirstStarvingQuest_TakenKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+    }
+  ]
+}

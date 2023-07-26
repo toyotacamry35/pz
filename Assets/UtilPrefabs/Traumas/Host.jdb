@@ -1,0 +1,29 @@
+{
+  "$type": "Spell",
+  "IsInfinite": true,
+  "IsStatusEffect": true,
+  "SpellIcon": null,
+  "Words": [
+    {
+      "$type": "EffectInputLayer",
+      "Layer": {
+        "$type": "InputActionHandlersLayer",
+        "Priority": 10
+      },
+      "Handlers": {
+        "/UtilPrefabs/Input/Actions/AttackMelee": {
+          "$type": "InputActionHandlerSpell",
+          "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Void_L"
+        },
+        "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+          "$type": "InputActionHandlerSpell",
+          "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Void_R"
+        },
+        "/UtilPrefabs/Input/Actions/AttackAirborne": {
+          "$type": "InputActionHandlerSpell",
+          "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Void_Airborne"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestEffectHostStage",
+  "Duration": 5,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "IsStatusEffect": true,
+  "SpellIcon": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Quest": "/Inventory/Quest/FactionQuest"
+    }
+  ]
+}

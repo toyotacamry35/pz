@@ -1,0 +1,60 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestFlaskResources",
+  "IsInfinite": true,
+  "Group": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/GerophitShell",
+      "Count": 1,
+      "SpellOnAbsence": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIGerophyt"
+          }
+        ]
+      },
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIGerophyt"
+          }
+        ]
+      },
+      "SpellOnPresence": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactCastSpellDef",
+            "Spell": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlaskResources2",
+            "Caster": {
+              "$type": "SpellCasterDef"
+            }
+          }
+        ]
+      },
+      "SpellOnAppearance": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIGerophyt"
+          },
+          {
+            "$type": "ImpactCastSpellDef",
+            "Spell": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlaskResources2",
+            "Caster": {
+              "$type": "SpellCasterDef"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

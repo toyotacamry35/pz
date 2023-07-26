@@ -1,0 +1,19 @@
+{
+  "$type": "Spell",
+  "Duration": 10,
+  "AllowMultiple": true,
+  "ClearSlot": true,
+  "IgnoresDeath": true,
+  "Words": [
+    {
+      "$type": "ImpactInvokeTrauma",
+      "TraumaType": "NegEffXenoParasite",
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "ImpactRemoveTrauma",
+      "TraumaType": "NegEffXenoParasiteTempInactive",
+      "WhenToApply": "OnAny"
+    }
+  ]
+}

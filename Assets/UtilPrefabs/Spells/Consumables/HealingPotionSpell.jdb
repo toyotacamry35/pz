@@ -1,0 +1,48 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasActiveTraumasDef",
+      "Inversed": true,
+      "TraumaTypes": [
+        "NegEffectHealCooldown"
+      ]
+    },
+    {
+      "$type": "ImpactStopSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Traumas/NegEffBleed1",
+        "/UtilPrefabs/Traumas/NegEffBleed2",
+        "/UtilPrefabs/Traumas/NegEffBleedDropzone",
+        "/UtilPrefabs/Traumas/NegEffBleed_Merid"
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnSuccess",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Spell": "/UtilPrefabs/Spells/Consumables/HealingPotionBuffSpell"
+    },
+    {
+      "$type": "ImpactInvokeTraumaDef",
+      "WhenToApply": "OnSuccess",
+      "TraumaType": "NegEffectHealCooldown"
+    },
+    {
+        "$type": "ImpactRemoveItemDef",
+        "Item": "/Inventory/Items/Consumables/HealingPotion",
+        "Count": 1
+    }
+  ]
+}

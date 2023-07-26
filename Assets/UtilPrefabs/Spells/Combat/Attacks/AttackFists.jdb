@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "$overrideVars": {
+    "STAMINA_COST": -50,
+    "STAMINA_REQ": 50,
+    "ANIMATION_STATE": "/UtilPrefabs/Res/AnimatorStates/AttackFists",
+    "CHAIN_ACTION_SPELL": "./Attack_Unarmed_L",
+    "DURATION": 1.433,
+    "DAMAGE_OFFSET": 0.31,
+    "DAMAGE_DURATION": 0.2,
+    "EXTRA_WORD": {
+      "$type": "PredicateFallbackDef",
+      "Predicates": [
+        {
+          "$type": "PredicateCompareStatDef",
+          "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+          "Type": "More",
+          "Value": 125
+        }
+      ],
+      "Spell": "./AttackWeak"
+    }
+  },
+  "$proto": "./_MeleeAttackProto",
+  "Name": "AttackFists",
+}

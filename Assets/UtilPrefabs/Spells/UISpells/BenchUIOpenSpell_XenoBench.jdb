@@ -1,0 +1,67 @@
+{
+  "$type": "SpellDef",
+  "Name": "BenchUIOpenSpell",
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "ClearsSlot": true,
+  "SubSpells": [{
+    "$type": "SubSpell",
+    "Periodic": true,
+    "MustNotFail": true,
+    "Spell" : {
+      "$type": "SpellDef",
+      "Name": "InteruptByRange",
+      "Duration": 1,
+      "IsInfinite": false,
+      "Words": [
+        {
+          "$type": "PredicateCheckIfInRangeDef",
+          "Enabled": true,
+          "Caster": {
+            "$type": "SpellCasterDef"
+          },
+          "Target": {
+            "$type": "SpellTargetDef"
+          },
+          "Range": "5",
+          "Inversed": false
+        }
+      ]
+    }
+  }],
+  "Words": [
+    {
+      "$type": "EffectOpenUiBenchDef",
+      "Enabled": true,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      }
+    },
+    {
+      "$type": "PredicateCheckIfInRangeDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Range": 5.0,
+      "Inversed": false
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "Knowledge": "/Inventory/Knowledge/Quest/LifeEssenceRecipeKW"
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3729"
+  }
+}

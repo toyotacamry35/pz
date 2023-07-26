@@ -1,0 +1,45 @@
+{
+  "$type": "Buff",
+  "Id": "7C7073B7-D837-4913-8188-926DF49EDEAB",
+  "Duration": 5.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffOverweight2",
+  "DescriptionLs": {
+    "Key": "#l10n2881"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/SpeedFactor",
+      "Multiplier": -0.5
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/SprintBlock",
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectCreateGameObjectAtTargetDef",
+      "TargetToPlaceFxAtItsPosition": {
+        "$type": "SpellCasterDef"
+      },
+      "OptionalParentObj": {
+        "$type": "SpellCasterDef"
+      },
+      "LocalPosition": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 1.1,
+        "z": -0.1
+      },
+      "Prefab": "Assets/Content/FX/Placeholders/PS_Placeholder_SlowDown"
+    }
+  ]
+}

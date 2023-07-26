@@ -1,0 +1,76 @@
+{
+  "$type": "SpellDef",
+  "Name": "WatersourceToxicSpell",
+  "Duration": 2,
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/Spells/IconDrink",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInputLayer"
+    },
+    {
+      "$type": "EffectInputSpellBreaker",
+      "When": "Activated",
+      "FinishReason": "Fail",
+      "List": {
+        "$type": "InputActionsList",
+        "SubLists": [
+          "/UtilPrefabs/Input/BlockLists/Combat",
+          "/UtilPrefabs/Input/BlockLists/Locomotion"
+        ],
+      }
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      }, //"Type": "DeltaChange",
+      "Value": 350.0,
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+      "Target": {
+        "$type": "SpellCaster",
+      }, //"Type": "DeltaChange",
+      "Value": 300.0,
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnSuccess",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Spell": "/UtilPrefabs/Spells/Consumables/PoisonousFoodKillSpell"
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "State",
+          "State": "/UtilPrefabs/Res/AnimatorStates/Drink",
+          "Mode": "Loop",
+          "Duration": 0
+        }
+      ]
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Rotator": {
+        "$type": "NullRotator"
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1673"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$type": "SpellDef",
+  "Name": "OldHouseQuestStartSpell",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/OldHouseQuest/OldHouseQuest"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_StartKW",
+      "WhenToApply": "OnStart"
+    }
+  ]
+}

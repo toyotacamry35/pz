@@ -1,0 +1,57 @@
+{
+  "$type": "SpellDef",
+  "Name": "ContainerUIOpenSpell",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "RequiresContiniousInput": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [{
+    "$type": "SubSpell",
+    "Periodic": true,
+    "MustNotFail": true,
+    "Spell" : {
+      "$type": "SpellDef",
+      "Name": "InteruptByRange",
+      "Duration": 1,
+      "IsInfinite": false,
+      "Words": [
+        {
+          "$type": "PredicateCheckIfInRangeDef",
+          "Enabled": true,
+          "Caster": {
+            "$type": "SpellCasterDef"
+          },
+          "Target": {
+            "$type": "SpellTargetDef"
+          },
+          "Range": "5",
+          "Inversed": false
+        },
+      ]
+    }
+  }],
+  "ClearsSlot": true,
+  "Words": [
+    {
+      "$type": "EffectOpenUIBankDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/VoidOff/VoidoffKW" 
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3058"
+  }
+}

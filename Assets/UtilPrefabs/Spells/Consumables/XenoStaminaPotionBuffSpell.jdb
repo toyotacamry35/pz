@@ -1,0 +1,30 @@
+{
+  "$type": "SpellDef",
+  "Duration": 60,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Summand": 70.0,
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent",
+      "Summand": 300.0,
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    }
+  ]
+}

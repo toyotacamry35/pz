@@ -1,0 +1,113 @@
+{
+  "$type": "SpellDef",
+  "Duration": 300.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "Spell": "./ActionsBlockerForInteract"
+          }
+        ],
+        "Words": [
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Consumables/MutagenX"
+            ],
+            "Count": 2,
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "ImpactRemoveItemDef",
+            "WhenToApply": "OnSuccess",
+            "Item": "/Inventory/Items/Res/CaptainAccessCard"
+          },
+          {
+            "$type": "EffectPlayAnimationDef",
+            "AnimatorOwner": {
+              "$type": "SpellCaster",
+            },
+            "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+            "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType",
+            "IntValue": 4
+          } /* ,
+          {
+            "$type": "PredicateQuestPhaseDef",
+            "Quest": "/Inventory/Quest/FactionQuest",
+            "Target": {
+              "$type": "SpellCasterDef"
+            },
+            "Phases": 3
+          } */,
+          {
+            "$type": "PredicateCheckItemDef",
+            "Item": "/Inventory/Items/Res/CaptainAccessCard",
+            "Count": 1
+          }
+        ]
+      }
+    } /* ,
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "Words": [
+          {
+            "$type": "PredicateQuestPhaseDef",
+            "Quest": "/Inventory/Quest/FactionQuest",
+            "Target": {
+              "$type": "SpellCasterDef"
+            },
+            "Phases": 3,
+            "Inversed": true
+          },
+          {
+            "$type": "EffectShowText",
+            "Color": {
+              "$type": "Color",
+              "r": 58,
+              "g": 222,
+              "b": 255,
+              "a": 1
+            },
+            "TextLs": {
+              "Key": "Ящик закрыт"
+            }
+          }
+        ]
+      }
+    } */
+  ],
+  "Words": [],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1669"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$type": "Spell",
+  "IsInfinite": true,
+  "IsStatusEffect": true,
+  "SpellIcon": null,
+  "Words": [
+    {
+      "$type": "EffectInputLayer",
+      "Layer": {
+        "$type": "InputActionHandlersLayer",
+        "Priority": 10
+      },
+      "Handlers": {
+        "/UtilPrefabs/Input/Actions/ActiveAbility": {
+          "$type": "InputActionHandlerSpell",
+          "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Ability_Shatter"
+        }
+      }
+    }
+  ]
+}

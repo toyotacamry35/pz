@@ -1,0 +1,38 @@
+{
+  "$type": "SpellDef",
+  "Name": "ConspiracyQuest1_Start",
+  "Duration": 1,
+  //"IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [
+
+  ],
+  "Words": [
+    //Если:
+    /*
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    */
+    {
+      "$type": "ImpactCastSpellDef",
+      "Spell": "./ConspiracyQuest1_ShowText"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Conspiracy/1/ConspiracyQuest1_TakenKW"
+    },
+    //То:
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/Conspiracy/ConspiracyQuest1"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0,
+  "Words": [
+    {
+      "$type": "ImpactSetLock",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Predicate": {
+        "$type": "AccessPredicate",
+        "Id": "055A2C2C-EAB8-477D-B0B7-E971AD8597EF",
+        "Predicate": "/UtilPrefabs/Utils/OtherEntityIsOwnerPredicate"
+      }
+    },
+    {
+      "$type": "PredicateCheckIfInRangeDef",
+      "Enabled": true,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Range": "5",
+      "Inversed": false
+    },
+    {
+      "$type": "PredicateCheckIfHasAccessRightsDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      }
+    },
+    {
+      "$type": "PredicateHasLock",
+      "Inversed": true,
+      "Target": {
+        "$type": "SpellTargetDef"
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3057"
+  }
+}

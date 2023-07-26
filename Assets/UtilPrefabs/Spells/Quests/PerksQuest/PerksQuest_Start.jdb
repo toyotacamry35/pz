@@ -1,0 +1,36 @@
+{
+    "$type": "SpellDef",
+    "Name": "PoorFirstAidQuest_Start",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "IgnoresDeath": true,
+    "SubSpells": [],
+    "Words": [
+      //Если:
+      {
+        "$type": "PredicateHasQuestEngine",                             
+        "Target": {
+          "$type": "SpellCaster"
+        }
+      },       
+     {
+        "$type": "PredicateKnowledgeDef",  
+        "Inversed": true,
+        "Knowledge": "/Inventory/Knowledge/Quest/PerksQuest/PerksQuest_TakenKW" 
+      },
+      //То:
+      {
+        "$type": "ImpactActivateQuestDef",
+        "Target": {
+          "$type": "SpellCaster"
+        },
+        "Quest": "/Inventory/Quest/PerksQuest/PerksQuest"
+      },
+      {
+        "$type": "ImpactAddKnowledgeDef", 
+        "Knowledge": "/Inventory/Knowledge/Quest/PerksQuest/PerksQuest_TakenKW",
+  
+      "WhenToApply": "OnSuccess"
+      } 
+    ]
+  }

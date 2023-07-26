@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "Negative_Cold_Freezing",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "IsStatusEffect": true,
+  "SpellIcon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffFrost2",
+  "InteractionDescriptionLs": {
+    "Key": "#l10n504427"
+  },
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Summand": 5.0
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n504448"
+      }
+    }
+  ]
+}

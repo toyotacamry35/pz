@@ -1,0 +1,80 @@
+{
+  "$type": "SpellDef",
+  "Name": "GrindQuestHub_EasyComplete",
+  "Duration": 1.0,
+  "AllowMultiple": true,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Type": "More",
+          "Phases": -1,
+          "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_CorneousPlate"
+        },
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Type": "More",
+          "Phases": -1,
+          "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_RoastedToughMeat"
+        },
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Type": "More",
+          "Phases": -1,
+          "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_RawJuicyMeat"
+        },
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Type": "More",
+          "Phases": -1,
+          "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_Rootstick"
+        },
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Type": "More",
+          "Phases": -1,
+          "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_Salt"
+        },
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Type": "More",
+          "Phases": -1,
+          "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_SangviraStem"
+        },
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Type": "More",
+          "Phases": -1,
+          "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_SelweaLiver"
+        },
+        {
+          "$type": "PredicateQuestPhaseDef",
+          "Type": "More",
+          "Phases": -1,
+          "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_YuttEgg"
+        }
+      ]
+    },
+    {
+      "$type": "ImpactCastSpellDef",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_CorneousPlate/GrindQuest_CorneousPlate_Complete",
+        "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_RoastedToughMeat/GrindQuest_RoastedToughMeat_Complete",
+        "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_RawJuicyMeat/GrindQuest_RawJuicyMeat_Complete",
+        "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_Rootstick/GrindQuest_Rootstick_Complete",
+        "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_Salt/GrindQuest_Salt_Complete",
+        "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_SangviraStem/GrindQuest_SangviraStem_Complete",
+        "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_SelweaLiver/GrindQuest_SelweaLiver_Complete",
+        "/UtilPrefabs/Spells/Quests/GrindQuest/GrindQuestRedMoss/GrindQuest_YuttEgg/GrindQuest_YuttEgg_Complete"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectShowText",
+      "TextLs": {
+        "Key": "#l10n3344"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/PhoeticSignalQuest/PhoeticSignalQuest_SearchBodyKW"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/PhoeticSignalQuest/PhoeticSignalQuest_TurnOffKpk"
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Weapons/StoneAxe",
+        "/Inventory/Items/Quest/PhoeticSignalQuest/PRKillerNotes"
+      ],
+      "Count": 1
+    },
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointsOfInterest": [
+        "/UtilPrefabs/PointsOfInterest/Quest/PhoeticSignalQuest/POIPhoeticSignalQuest_ShrinePOI"
+      ]
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "WhenToApply": "OnSuccess",
+      "Knowledge": "/Inventory/Knowledge/Quest/PhoeticSignalQuest/PhoeticSignalQuest_SearchBodyKW"
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3343"
+  }
+}

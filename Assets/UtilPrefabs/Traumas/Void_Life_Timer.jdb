@@ -1,0 +1,32 @@
+{
+  "$type": "SpellDef",
+  "Name": "Void_Life_Timer",
+  "Duration": 25.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [    
+    {
+      "$type": "ImpactCastSpell",
+      "Caster": {
+        "$type": "SpellCaster"
+      },
+      "Spell": "/UtilPrefabs/Traumas/Void_Death"
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n1123"
+      }
+    }    
+  ]
+}

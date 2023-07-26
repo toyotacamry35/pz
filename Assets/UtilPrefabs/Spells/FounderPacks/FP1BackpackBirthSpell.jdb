@@ -1,0 +1,22 @@
+{
+  "$type": "SpellDef",
+  "Duration": 10,
+  "Words": [
+    {
+      "$type": "SpellPredicateFromCalcerPredicate",
+      "Predicate": {
+        "$type": "PredicateFounder",
+        "Pack": "commander"
+      }
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "WhenToApply": "OnSuccess",
+      "Container": "Doll",
+      "Slot": 20,
+      "Items": [
+        "/Inventory/Items/Backpacks/Backpack3"
+      ]
+    }
+  ]
+}

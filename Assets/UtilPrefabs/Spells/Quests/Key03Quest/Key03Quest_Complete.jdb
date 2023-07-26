@@ -1,0 +1,63 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_CompletedKW"
+    },
+    {
+      "$type": "PredicateLogicalAndDef",
+      "Predicates": [
+        {
+          "$type": "PredicateCheckItemDef",
+          "Item": "/Inventory/Items/Consumables/Food/RoastedToughMeat",
+          "Count": 15
+        },
+        {
+          "$type": "PredicateCheckItemDef",
+          "Item": "/Inventory/Items/Consumables/Food/RoastedJuicyMeat",
+          "Count": 5
+        }
+      ]
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_CompletedKW" 
+    },
+    {
+      "$type": "ImpactRemoveItemDef", 
+      "Item": "/Inventory/Items/Consumables/Food/RoastedToughMeat",
+      "Count": 15
+    },
+    {
+      "$type": "ImpactRemoveItemDef", 
+      "Item": "/Inventory/Items/Consumables/Food/RoastedJuicyMeat",
+      "Count": 5
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Currencies/TechPointR2"
+      ],
+      "Count": 6
+    },
+    {
+      "$type": "ImpactGrantAccountReward",
+      "Target": {
+        "$type": "SpellCaster"
+      }, 
+      "Reward": "/Sessions/Rewards/Key03Quest_Reward"
+    }
+  ]
+}

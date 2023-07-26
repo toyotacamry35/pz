@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Name": "KulibinQuest_StartSpell",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    //Если:
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_TakenKW"
+    },
+    //То:
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/Hub/Kulibin/KulibinQuest"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_TakenKW",
+
+    "WhenToApply": "OnSuccess"
+    } 
+  ]
+}

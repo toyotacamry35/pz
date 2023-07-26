@@ -1,0 +1,45 @@
+{
+    "$type": "UnityGameObjectDef",
+    "Name": "PlayerPawn",
+    "Components": [
+        {
+            "$type": "VisualEventProxy",
+            "Events": "/Character/Events/FXEvents"
+        },
+        {
+            "$type": "InteractiveDef",
+            "ShowMarker":false,
+            "ContextualActions": {
+                "$type": "ContextualActionsDef",
+                "SpellsByAction": {
+                    "/UtilPrefabs/Input/Actions/Interaction": {
+                        "1": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/BasicMoveSet/ReviveTarget"
+                        }
+                    },
+                    /*"/UtilPrefabs/Input/Actions/Info": {
+                        "0": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/BasicMoveSet/InteractInfo"
+                        }
+                    }*/
+                }
+            },
+        },
+        {
+            "$type": "MortalObjectComponentDef"
+        },
+        {
+            "$type": "DeathResurrectHandlerDef",
+            "PlayAnimation": "Die",
+            "DestroyDelay": 5
+        },
+        {
+            "$type": "InvestigatorProxy"
+        },
+        {
+            "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+        }
+    ]
+}

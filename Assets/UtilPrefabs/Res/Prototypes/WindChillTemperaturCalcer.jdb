@@ -1,0 +1,92 @@
+{
+    // Wind_chill_temperature_index=
+    //13,12
+    //+ 0,6215*environment_temperature 
+    // - 11,37*(environment_wind_speed+1)^0,16 
+    // + 0,3965* environment_temperature *(environment_wind_speed+1)^0,16
+    "$type": "CalcerSum",
+    "Summands": [
+        {
+            "$type": "CalcerConstant",
+            "Value": 13.12
+        },
+        {
+            // 0,6215*environment_temperature
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    "$type": "CalcerConstant",
+                    "Value": 0.6215
+                },
+                {                  
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                }
+            ]      
+        },
+        {
+            // // - 11,37*(environment_wind_speed+1)^0,16
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    // 11,37*(environment_wind_speed+1)^0,16
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": 11.37
+                        },
+                        {
+                            "$type": "CalcerPow",
+                            "Value": {
+                                "$type": "CalcerSum",
+                                "Summands": [
+                                    {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Environment/Wind"
+                                    },
+                                    1
+                                ]
+                            },
+                            "Power": 0.16
+                        }
+                    ]
+                },
+                {
+                    // (-)
+                    "$type": "CalcerConstant",
+                    "Value": -1
+                }
+            ]
+        },
+        {
+            // + 0,3965* environment_temperature *(environment_wind_speed+1)^0,16
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    "$type": "CalcerConstant",
+                    "Value": 0.3965
+                },
+                {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                },
+                {
+                    "$type": "CalcerPow",
+                    "Value": {
+                        "$type": "CalcerSum",
+                        "Summands": [
+                            {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Environment/Wind"
+                            },
+                            1
+                        ]
+                    },
+                    "Power": 0.16
+                }
+            ]
+        }
+        
+    ]
+}

@@ -1,0 +1,24 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "SpellPredicateFromCalcerPredicateDef",
+      "Inversed": true,
+      "Predicate": {
+        "$type": "PredicateIsRealm",
+        "RealmRules": ["/Sessions/Rules/SavannahAltPvERules"]
+      }
+    },
+    {
+      "$type": "ImpactGrantAccountReward", 
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Reward": "/Sessions/Rewards/KeyMainQuest_Reward"
+    }
+  ]
+}

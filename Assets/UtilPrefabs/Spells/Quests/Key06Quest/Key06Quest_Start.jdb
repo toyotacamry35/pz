@@ -1,0 +1,40 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key04Quest/Key04Quest_CompletedKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key05Quest/Key05Quest_CompletedKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Key06Quest/Key06Quest_TakenKW"
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/Key06_Quest/Key06Quest"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Key06Quest/Key06Quest_TakenKW",
+      "WhenToApply": "OnSuccess"
+    }
+  ]
+}

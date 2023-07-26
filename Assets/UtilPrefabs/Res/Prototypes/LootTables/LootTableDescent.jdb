@@ -1,0 +1,150 @@
+{
+    "$type": "LootTableDef",
+    "LootTable": [
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/AirbagBerries",
+                "Count": 2
+            },
+            "Predicate": 
+            {
+                "$type": "LootTablePredicateAndDef",
+                "Predicates": [
+                    {
+                        "$type": "LootTablePredicateInverseDef",
+                        "Predicate": {
+                            "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                            "Perk": "/Inventory/Perks/Level3/ExtraPickupRes_Level3"
+                        }
+                    },
+                    {
+                        "$type": "LootTablePredicateInverseDef",
+                        "Predicate": {
+                            "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                            "Perk": "/Inventory/Perks/Level2/ExtraPlantRes_Level2"
+                        }
+                    },
+                    {
+                        "$type": "LootTablePredicatePremium"
+                    }
+                ]
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1.125
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/AirbagBerries",
+                "Count": 2
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateInverseDef",
+                "Predicate": {
+                    "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                    "Perk": "/Inventory/Perks/Level3/ExtraPickupRes_Level3"
+                }
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/AirbagBerries",
+                "Count": 2
+            },
+            "Predicate": 
+            {
+                "$type": "LootTablePredicateAndDef",
+                "Predicates": [
+                    {
+                        "$type": "LootTablePredicateInverseDef",
+                        "Predicate": {
+                            "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                            "Perk": "/Inventory/Perks/Level3/ExtraPickupRes_Level3"
+                        }
+                    },
+                    {
+                        "$type": "LootTablePredicatePremium"
+                    }
+                ]
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1.25
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/AirbagBerries",
+                "Count": 2
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateInverseDef",
+                "Predicate": {
+                    "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                    "Perk": "/Inventory/Perks/Level2/ExtraPlantRes_Level2"
+                }
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/AirbagBerries",
+                "Count": 2
+            },
+            "Predicate": 
+            {
+                "$type": "LootTablePredicateAndDef",
+                "Predicates": [
+                    {
+                        "$type": "LootTablePredicateInverseDef",
+                        "Predicate": {
+                            "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                            "Perk": "/Inventory/Perks/Level2/ExtraPlantRes_Level2"
+                        }
+                    },
+                    {
+                        "$type": "LootTablePredicatePremium"
+                    }
+                ]
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1.25
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/AirbagBerries",
+                "Count": 2
+            },
+            "Predicate": {
+                "$type": "LootTablePredicatePremium"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 0.75
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/AirbagBerries",
+                "Count": 1
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateTrueDef"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 3
+            }
+        }
+    ]
+}

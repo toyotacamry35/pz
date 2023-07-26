@@ -1,0 +1,25 @@
+{
+  "$type": "SpellDef",
+  "$vars": {
+    "DURATION": {
+      "Type": "float",
+      "Value": 1
+    }
+  },
+  "Duration": 0.0,
+  "Words": [
+    {
+      "$type": "ImpactReaction",
+      "Reaction": "/UtilPrefabs/Reactions/Stagger",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Args": {
+        "/UtilPrefabs/Reactions/Args/Duration": {
+          "$type": "ArgValueFloat",
+          "Value": "@DURATION"
+        }
+      }
+    }
+  ]
+}

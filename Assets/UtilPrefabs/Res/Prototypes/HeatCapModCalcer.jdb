@@ -1,0 +1,34 @@
+{
+    "$type": "CalcerPiecewise",
+    "Else": {
+        "$type": "CalcerPow",
+        "Power": 4,
+        "Value": {
+            "$type": "CalcerDiv",
+            "Dividend": "/UtilPrefabs/Res/Prototypes/HeatCap1Calcer",
+            "Divisor": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/ThermalBalance"
+                    },
+                    1
+                ]
+            }
+        }
+    },
+    "Ranges": [
+        {
+            "Condition": {
+                "$type": "PredicateLess",
+                "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ThermalBalance"
+                },
+                "Rhs": "/UtilPrefabs/Res/Prototypes/HeatCap1Calcer"
+            },
+            "Value": 1
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key01Quest/Alt_Key01Quest_CompletedKW" 
+    },
+    {
+      "$type": "ImpactRemoveItemDef", 
+      "Item": "/Inventory/Items/Quest/Key01Quest/VoidDNA_1",
+      "Count": 10
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Currencies/TechPointR2"
+      ],
+      "Count": 5
+    },
+    {
+      "$type": "ImpactGrantAccountReward",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Reward": "/Sessions/Rewards/Alt_Key01Quest_Reward" 
+    }
+  ]
+}

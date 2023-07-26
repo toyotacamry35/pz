@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "PosEffSated1",
+  "Duration": 450.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "IsStatusEffect": true,
+  "SpellIcon": "Assets/UI/UISprites/ItemsDB/Traumas/PosEffSated1",
+  "InteractionDescriptionLs": {
+    "Key": "#l10n2885"
+  },
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrentRegenModifier",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": 0.1
+    }
+  ]
+}

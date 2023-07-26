@@ -1,0 +1,38 @@
+{
+  "$type": "SpellDef",
+  "Name": "KulibinQuest_QuestComplete",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "SpellIcon": null,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3335"
+  },
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    //Если
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Conspiracy/1/ConspiracyQuest1_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Conspiracy/1/ConspiracyQuest1_CompletedKW"
+    }
+    , //То
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Conspiracy/1/ConspiracyQuest1_CompletedKW"
+    },
+    {
+      "$type": "EffectShowText",
+      "TextLs": {
+        "Key": "#l10n3336"
+      }
+    }
+  ]
+}

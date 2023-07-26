@@ -1,0 +1,309 @@
+  {
+      "$type": "LootTableDef",
+      "AmountOfResourcesMultiplier": {        
+        "$type": "CalcerPiecewise",
+        "Ranges": [
+            {
+                "Condition": {
+                    "$type": "PredicateInRange", //Difficulty=10
+                    "Min": 9,
+                    "Max": 11,
+                    "Value": {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/Difficulty"
+                    }
+                },
+                "Value": {
+                    "$type": "CalcerConstant",
+                    "Value": 1                        
+                }
+            }
+        ],
+        "Else": {
+            "$type": "CalcerConstant",
+            "Value": 0                 
+        }       
+    },
+      "DefaultPredicate": {
+        "$type": "LootTablePredicatePlayerHaveNotPerkDef"
+      },
+      "LootTable": [
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Special/Empty",
+            "Count": 0
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChanceWeightCalcerConstantDef",
+            "Value": 10
+          }
+        },
+        //Level 1 Perks
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level1/Mining_Level1",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 10,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level1/MiningHealthReg_Level1",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 10,
+            "PerkDestroyMult": 0.9
+          }
+        },*/
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level1/MiningStamReg_Level1",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 10,
+            "PerkDestroyMult": 0.9
+          }
+        },*/
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level1/InvMaxWgt_Level1",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 10,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level1/FallDmg_Level1",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 10,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level1/HealthReg_Level1",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 10,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level1/InvMaxWgtCalorieCons_Level1",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 10,
+            "PerkDestroyMult": 0.9
+          }
+        },*/      
+        //Level 2 Perks
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/Mining_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },        
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/MiningSpeed_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },*/       
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/MiningSatMax_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },*/
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/InvMaxWgt_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },    
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/InvMaxWgtFallDmg_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },*/
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/ExtraMeatRes_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/ExtraPlantRes_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/ExtraRockRes_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/FallDmg_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level2/HealthReg_Level2",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },       
+        //Level 3 Perks
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level3/Mining_Level3",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },        
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level3/MiningColdRes_Level3",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },*/
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level3/InvMaxWgt_Level3",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },        
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level3/InvMaxWgtCalorieCons_Level3",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },*/    
+        /*{
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level3/InvMaxWgtHealthReg_Level3",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        }*/ 
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level3/FallDmg_Level3",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        },
+        {
+          "ItemResRefPack": {
+            "ItemResource": "/Inventory/Perks/Level3/HealthReg_Level3",
+            "Count": 1
+          },
+          "WeightCalcer": {
+            "$type": "LootItemChancePerkWeightCalcerDef",
+            "Value": 0,
+            "PerkDestroyMult": 0.9
+          }
+        }   
+      ]
+    }

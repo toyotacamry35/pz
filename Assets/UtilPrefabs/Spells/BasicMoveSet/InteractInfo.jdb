@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractInfo",
+  "Duration": 0.9,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/Spells/IconExplore",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectGetInfoDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeFromObjDef",
+      "KnowledgeHolder": {
+        "$type": "SpellTargetDef"
+      }
+    }
+  ]
+}

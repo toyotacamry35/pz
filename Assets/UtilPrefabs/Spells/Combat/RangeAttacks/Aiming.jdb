@@ -1,0 +1,52 @@
+{
+  "$type": "SpellDef",
+  "Name": "Aiming",
+  "IsInfinite": true,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateLocomotionState",
+      "State": "Airborne,Slipping,Jumping",
+      "Inversed": true
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/AimingFactor",
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "SmoothFloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Battle",
+          "StartValue": 0,
+          "EndValue": 1,
+          "Time": 0.2,
+          "When": "OnStart"
+        },
+        {
+          "$type": "SmoothFloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Battle",
+          "StartValue": 1,
+          "EndValue": 0,
+          "Time": 0.2,
+          "When": "OnFinish"
+        }
+      ]
+    },
+    {
+      "$type": "EffectLocomotionInputDef",
+      "Input": "Aim",
+      "Value": 1
+    },
+    {
+      "$type": "EffectSwitchCamera",
+      "Camera": "/UtilPrefabs/Res/Camera/AimingCamera"
+    },
+    {
+      "$type": "EffectEnableBodyPitch",
+    }
+  ]
+}

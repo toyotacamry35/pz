@@ -1,0 +1,25 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes": [
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTPiercing"
+            ],
+            "LootTableTable": {
+                "$type": "LootTableDef",
+                "LootTable": [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBambooStem",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                    "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

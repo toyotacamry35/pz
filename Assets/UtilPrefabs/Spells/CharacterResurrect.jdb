@@ -1,0 +1,25 @@
+{
+  "$type": "Spell",
+  "Duration": 1,
+  "Words": [
+    // убираем из рук оружие и запрещаем брать его в руки на время воскрешения  
+    {
+      "$type": "EffectBlockSlotsForUsage",
+      "SlotsList": "/UtilPrefabs/Slots/WeaponSlots"
+    },
+    {
+      "$type": "ImpactUnuseSlot",
+      "SlotsList": "/UtilPrefabs/Slots/WeaponSlots"
+    },
+    // Временное отключение атаки
+    {
+      "$type": "EffectInputLayer",
+      "Layer": "/UtilPrefabs/Input/Layers/HubSafePlace"
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/HubSafePlace",
+      "Layer": "/UtilPrefabs/Input/Layers/HubSafePlace"
+    }
+  ]
+}

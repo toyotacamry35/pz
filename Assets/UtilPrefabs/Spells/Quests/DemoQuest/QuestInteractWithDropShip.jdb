@@ -1,0 +1,74 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestInteractWithDropShip",
+  "Duration": 7200,
+  "IsInfinite": false,
+  "DontShowProgress": true,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+        "OutlineColorIndex": 1,
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "Spell": "/UtilPrefabs/Spells/BasicMoveSet/ActionsBlockerForInteract"
+          }
+        ],
+        "Words": [
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/FullStop",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Summand": 1.0
+          },
+          {
+            "$type": "EffectPlayAnimationDef",
+            "AnimatorOwner": {
+              "$type": "SpellCaster",
+            },
+            "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+            "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType",
+            "IntValue": 4
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": ["/Inventory/Items/Res/DatapadShuttle"],
+            "Count": 1
+          },
+          {
+            "$type": "ImpactCastSpellDef",
+            "Spells": [
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestEmitter",
+              /*
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestBatteryResources",
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestBattery",
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlaskResources",
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlask"
+              */
+            ],
+            "Caster": {
+              "$type": "SpellCasterDef"
+            }
+          },
+          {
+            "$type": "ImpactAddKnowledgeFromObjDef",
+            "KnowledgeHolder": {
+              "$type": "SpellTargetDef"
+            },
+            "WhenToApply": "OnStart"
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIDropShip"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": []
+}

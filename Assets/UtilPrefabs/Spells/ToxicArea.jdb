@@ -1,0 +1,23 @@
+{
+  "$type": "SpellDef",
+  "Name": "ToxicArea",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Environment/ToxicMod",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 200.0
+    }
+  ]
+}

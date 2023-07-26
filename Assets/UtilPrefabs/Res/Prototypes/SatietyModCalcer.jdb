@@ -1,0 +1,59 @@
+{
+    // satiety_mod = 1-0,75*(1-satiety/satiety_max)^2
+    "$type": "CalcerSum",
+    "Summands": [
+        1,
+        {
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    // 0,75*(1-satiety/satiety_max)^2
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": 0.75
+                        },
+                        {
+                            // (1-satiety/satiety_max)^2
+                            "$type": "CalcerPow",
+                            "Value": {
+                                "$type": "CalcerSum",
+                                "Summands": [
+                                    1,
+                                    {
+                                        "$type": "CalcerMul",
+                                        "Multipliers": [
+                                            {
+                                                // satiety/satiety_max
+                                                "$type": "CalcerDiv",
+                                                "Dividend": {
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/Satiety/SatietyCurrent"
+                                                },
+                                                "Divisor": {
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/Satiety/SatietyMax"
+                                                }
+                                            },
+                                            {
+                                                "$type": "CalcerConstant",
+                                                "Value": -1 
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "Power": 2
+                        }
+                    ]
+                },
+                {
+                    "$type": "CalcerConstant",
+                    "Value": -1
+                }
+            ]
+        }
+    ]
+
+}

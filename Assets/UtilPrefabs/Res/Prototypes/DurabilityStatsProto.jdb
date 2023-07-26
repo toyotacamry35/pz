@@ -1,0 +1,34 @@
+{
+  "$type": "StatsDef",
+  "$vars": {
+    "DURABILITY_MAXIMUM": {
+      "Type": "float",
+      "Value": 1000
+    },
+    "DURABILITY_INITIALVALUE": {
+      "Type": "float",
+      "Value": 1000
+    }
+  },
+  "Id": "699f1791-ab39-4581-b6ba-a7c07e270058",
+  "Stats": [
+    {
+      "$type": "ValueStatDef",
+      "StatResource": "/UtilPrefabs/Stats/Health/HealthMaxAbsolute",
+      "InitialValue": "@DURABILITY_MAXIMUM"
+    },
+    {
+      "$type": "ValueStatDef",
+      "StatResource": "/UtilPrefabs/Stats/Health/HealthMaxCurrent",
+      "LimitMaxStat": "/UtilPrefabs/Stats/Health/HealthMaxAbsolute",
+      "InitialValue": "@DURABILITY_MAXIMUM"
+    },
+    {
+      "$type": "ValueStatDef",
+      "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+      "LimitMinDefault": -0.001,
+      "LimitMaxStat": "/UtilPrefabs/Stats/Health/HealthMaxCurrent",
+      "InitialValue": "@DURABILITY_INITIALVALUE"
+    }
+  ]
+}

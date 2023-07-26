@@ -1,0 +1,56 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes":
+    [
+        {
+            "DamageTypes": 
+            [
+                   "/UtilPrefabs/DamageTypes/DTSlashing",
+                   "/UtilPrefabs/DamageTypes/DTCrushing"
+            ],
+            "LootTableTable": 
+            {
+                "$type": "LootTableDef",
+                "LootTable":
+                [
+                    {
+                        "ItemResRefPack": 
+                        {
+                            "ItemResource": "/Inventory/Items/Res/SiliconShard",
+                            "Count": 1
+                        },
+                        //"Predicate": 
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 0.9
+                        },
+                        "Predicate": {
+                          "$type": "LootTablePredicateExpiredLifespanPercentDef",
+                          "FromIncluding": 0,
+                          "TillExcluding": 0.5  
+                        }
+                    },
+                    {
+                        "ItemResRefPack": 
+                        {
+                            "ItemResource": "/Inventory/Items/Res/SangviraLeaf",
+                            "Count": 1
+                        },
+                        //"Predicate": 
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 0.9
+                        },
+                        // "Predicate": {
+                        //   "$type": "LootTablePredicateExpiredLifespanPercentDef",
+                        //   "FromIncluding": 0,
+                        //   "TillExcluding": 0.5  
+                        // }
+                    }
+                ]
+            }
+        }
+    ]
+}

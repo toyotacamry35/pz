@@ -1,0 +1,38 @@
+{
+  "$type": "SpellDef",
+  "Name": "FrostbiteCompressSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactStopSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Traumas/Negative_Cold_Leg_2",
+        "/UtilPrefabs/Traumas/Negative_Cold_Arm_2"
+      ]
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaHandsTraumaStat",
+      "Value": -1000.0,
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaFeetTraumaStat",
+      "Value": -1000.0,
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    }
+  ]
+}

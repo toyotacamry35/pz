@@ -1,0 +1,50 @@
+{
+    "$type": "LootTableDef",
+    "LootTable": [
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Event/Island_Event/Island_Event_Corpse_Data",
+                "Count": 1
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateTrueDef"
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/StandardMedicalKit",
+                "Count": 1
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateTrueDef"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 4
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Weapons/HullFragmentKnife",
+                "Count": 1
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateTrueDef"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 2
+            }
+        },
+        {         
+            "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableTreasureChest01",
+            "Predicate": {
+                "$type": "LootTablePredicateTrueDef"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1
+            }
+        }
+    ]
+}

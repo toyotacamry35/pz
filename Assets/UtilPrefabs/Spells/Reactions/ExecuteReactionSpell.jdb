@@ -1,0 +1,37 @@
+{
+  "$type": "Spell",
+  "Group": "/UtilPrefabs/Spells/Groups/ReactionSpellGroup",
+  "AllowMultiple": true,
+  "ClearsSlot": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCompareStat",
+      "Type": "Less",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent",
+      "Value": {
+        "$type": "CalcerMul",
+        "Multipliers": [
+          {
+            "$type": "CalcerStat",
+            "Stat": "/UtilPrefabs/Stats/Health/HealthMaxCurrent"
+          },
+          {
+            "$type": "CalcerConstant",
+            "Value": 0.20
+          }
+        ]
+      }
+    },
+    {
+      "$type": "ImpactDamageObject",
+      "Damage": 999999,
+      "Target": {
+        "$type": "SpellCaster",
+      }
+    }
+  ]
+}

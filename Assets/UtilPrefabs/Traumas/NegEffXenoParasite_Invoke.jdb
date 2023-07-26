@@ -1,0 +1,25 @@
+{
+  "$type": "CalcerPiecewiseResourceDef",
+  "Ranges": [
+    {
+      "Condition": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerRandomDef"
+        },
+        "Rhs": 0.10
+      },
+      "Value": {
+        "$type": "Spell",
+        "Duration": 0,
+        "Words": [
+          {
+            "$type": "ImpactInvokeTrauma",
+            "TraumaType": "NegEffXenoParasite"
+          }
+        ]
+      }
+    }
+  ],
+  "Else": null
+}

@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "HealingBandageSpell",
+  "Duration": 5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/Health/HealthCurrent",
+            "Target": {
+              "$type": "SpellCaster"
+            },
+            "Value": 40.0,
+            "WhenToApply": "OnStart"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": []
+}

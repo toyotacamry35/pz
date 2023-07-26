@@ -1,0 +1,208 @@
+{
+  "$type": "SpellDef",
+  "$vars": {
+    "DURATION": {
+      "Type": "float",
+      "Value": 0.65
+    },
+    "DAMAGE_DURATION": {
+      "Type": "float",
+      "Value": 0.1
+    },
+    "DAMAGE_OFFSET": {
+      "Type": "float",
+      "Value": 0.03
+    },
+    "ANIMATION": {
+      "Type": "AnimationState",
+      "Value": "/UtilPrefabs/Res/AnimatorStates/AttackMining"
+    }
+  },
+  "Name": "AttackMining",
+  "IsInfinite": true,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "Slot":"/UtilPrefabs/Spells/MainActionSlot",
+  "SubSpells": [
+    //    {
+    //      "$type": "SubSpell",
+    //      "Spell": {
+    //        "$type": "SpellDef",
+    //        "Id": "45ee71cf-883e-4bd5-b170-5acd28841ea9",
+    //        "IsInfinite": true,
+    //        "Words": [
+    //          {
+    //            "$type": "EffectAnimator",
+    //            "Id": "e1f883c7-7ffa-45eb-45eb-5acd28841ea9",
+    //            "Actions": [
+    //              {
+    //                "$type": "State",
+    //                "$id": "AttackAnimation",
+    //                "Id": "e5f583c8-7ffa-45eb-9bae-3e3d64ddd9d5",
+    //                "State": "/UtilPrefabs/Res/AnimatorStates/AttackMining",
+    //                "Mode": "Loop",
+    //                "Duration": "@DURATION"
+    //              }
+    //            ]
+    //          }
+    //        ]
+    //      }
+    //    },
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": "@DURATION",
+        "Words": [
+          {
+            "$type": "EffectAnimator",
+            "Actions": [
+              {
+                "$type": "State",
+                "$id": "AttackAnimation",
+                "State": "@ANIMATION",
+                "Mode": "Loop",
+                "Duration": "@DURATION",
+              }
+            ]
+          },
+          {
+            "$type": "PredicateLocomotionState",
+            "State": "Airborne,Slipping,Jumping",
+            "Inversed": true
+          }
+        ],
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "OffsetStart": "@DAMAGE_OFFSET",
+            "Spell": {
+              "$type": "Spell",
+              "Name": "Attack",
+              "Duration": "@DAMAGE_DURATION",
+              "Words": [
+                {
+                  "$type": "EffectAttack",
+                  "Attack": {
+                    "$type": "Attack",
+                    "$proto": "./_AttackDamageProto",
+                    "IsMiningDamage": true
+                  },
+                  "Animation": "$AttackAnimation",
+                  "Attributes": "@ATTACK_ATTRIBUTES"
+                }
+              ]
+            }
+          },
+          {
+            "$type": "SubSpell",
+            "RelativeOffsetStart": "0.60",
+            "Spell": {
+              "$type": "SpellDef",
+              "Duration": 0,
+              "Words": [
+                {
+                  "$type": "PredicateNotCanceled"
+                }
+              ]
+            }
+          },
+          {
+            "$type": "SubSpell",
+            "RelativeOffsetStart": "0.72",
+            "Spell": {
+              "$type": "SpellDef",
+              "Duration": 0,
+              "Words": [
+                {
+                  "$type": "PredicateNotCanceled"
+                }
+              ]
+            }
+          },
+          {
+            "$type": "SubSpell",
+            "RelativeOffsetStart": "0.84",
+            "Spell": {
+              "$type": "SpellDef",
+              "Duration": 0,
+              "Words": [
+                {
+                  "$type": "PredicateNotCanceled"
+                }
+              ]
+            }
+          },
+          {
+            "$type": "SubSpell",
+            "RelativeOffsetStart": "0.96",
+            "Spell": {
+              "$type": "SpellDef",
+              "Duration": 0,
+              "Words": [
+                {
+                  "$type": "PredicateNotCanceled"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "PredicateLocomotionState",
+      "State": "Airborne,Slipping,Jumping",
+      "Inversed": true
+    },
+    {
+      "$type": "EffectLocomotionInputDef",
+      "Input": "Block",
+      "Value": 1
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "ImpactRaiseEvent",
+      "Caster": {
+        "$type": "SpellCaster"
+      },
+      "From": {
+        "$type": "SpellCaster"
+      },
+      "Radius": 7,
+      "WhenToApply": "OnStart",
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/CharacterLightAttackEvent"
+    },
+    {
+      "$type": "ImpactRaiseEventDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "From": {
+        "$type": "SpellCasterDef"
+      },
+      "Radius": 60.0,
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEvent",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "EffectInputLayer"
+    },
+    {
+      "$type": "EffectInputSpellBreaker",
+      "When": "Activated",
+      "Actions": [
+        "/UtilPrefabs/Input/Actions/DashForward",
+        "/UtilPrefabs/Input/Actions/DashBackward",
+        "/UtilPrefabs/Input/Actions/DashLeft",
+        "/UtilPrefabs/Input/Actions/DashRight"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$type": "SpellDef",
+  "Name": "Temperature 40",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Environment/TemperatureMod",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 100.0,
+      "UseClampMin": true,
+      "ClampMin": 40.0,
+      "UseClampMax": true,
+      "ClampMax": 40.0
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractWithDropship",
+  "Duration": 1,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "SpellDef",
+        "Name": "InteractWithDropShipSubspell",
+        "Duration": 0.5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "Spell": "./ActionsBlockerForInteract"
+          }
+        ],
+        "Words": [
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Consumables/StandardMedicalKit"
+            ],
+            "Count": 1
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Consumables/StandardRation"
+            ],
+            "Count": 2
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Weapons/MetalBar"
+            ],
+            "Count": 1
+          },
+          {
+            "$type": "EffectPlayAnimationDef",
+            "AnimatorOwner": {
+              "$type": "SpellCaster",
+            },
+            "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+            "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType",
+            "IntValue": 4
+          },
+          {
+            "$type": "ImpactAddKnowledgeDef",
+            "WhenToApply": "OnSuccess",
+            "Knowledge": "/Inventory/Knowledge/Interactive/InteractWithDropShipKW"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Interactive/InteractWithDropShipKW"
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1663"
+  }
+}

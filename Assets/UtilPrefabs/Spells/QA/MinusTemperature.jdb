@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Duration": 7200.0, //Время спелла
+  "IsInfinite": false, //Бесконечный спелл
+  "AllowMultiple": true, //Возможность использовать неограниченное количество раз
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Environment/TemperatureMod", //Имя стата
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": -1.0, //Сколько добавить
+      "UseClampMin": false, // вкл/выкл минимальной границы
+      "ClampMin": 0.0, //Минимальная граница. Например, если темпа = -10, а добавили +100, то темпа будет = 20
+      "UseClampMax": false, // вкл/выкл максимальной границы
+      "ClampMax": 0.0 //Максимальная граница. Например, если темпа = -10, а добавили +100, то темпа будет = 20
+    }
+  ]
+}

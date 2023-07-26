@@ -1,0 +1,56 @@
+{
+  "$type": "WorldPersonalMachineDef",
+  "Id": "0754e385-f66e-4ce6-82a5-b8dd913c980f",
+  "NameLs": {
+    "Key": "#l10n504933"
+  },
+  "Prefab": "Assets/Content/Craft/benchChem/benchChem",
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Name": "ChemLab",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              "0": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Quests/BenchQuest/ChemLabUnlockQuest_Check"
+              }
+            }
+          }
+        }
+      },
+      {
+        "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+      }
+    ]
+  },
+  "InitialSpells": [],
+  "WorkbenchType": "/Inventory/WorkbenchType/ChemLab",
+  "TitleIcon": "Assets/UI/UISprites/ItemsDB/ContextView/InfoIconItems",
+  "OutContainerSize": 16,
+  "MaxQueueSize": 8,
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1000,
+      "DURABILITY_INITIALVALUE": 1000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "5deb629b-dd50-4b83-a695-dd7607ad0bea"
+  },
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 5
+      }
+    ]
+  }
+}

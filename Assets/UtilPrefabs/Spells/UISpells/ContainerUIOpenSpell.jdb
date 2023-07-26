@@ -1,0 +1,105 @@
+{
+  "$type": "SpellDef",
+  "Name": "ContainerUIOpenSpell",
+  "IsInfinite": true,
+  "RequiresContiniousInput": false,
+  "AllowMultiple": false,
+  "DontShowProgress": true,
+  "ClearsSlot": true,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "Name": "InteruptByRange",
+        "Duration": 1,
+        "IsInfinite": false,
+        "Words": [
+          {
+            "$type": "PredicateCheckIfInRangeDef",
+            "Enabled": true,
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "Range": "5",
+            "Inversed": false
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 0,
+        "Words": [
+          {
+            "$type": "PredicateCheckIfHasAccessRightsDef",
+            "Inversed": true,
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "Caster": {
+              "$type": "SpellCasterDef"
+            }
+          },
+          {
+            "$type": "ImpactCastSpell",
+            "Spell": {
+              "$type": "Spell",
+              "Duration": 1,
+              "Words": [
+                {
+                  "$type": "EffectShowText",
+                  "ShowForEveryone": false,
+                  "IsError": true,
+                  "TextLs": {
+                    "Key": "#l10n5102"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "MustNotFail": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "PredicateCheckIfHasAccessRightsDef",
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "Caster": {
+              "$type": "SpellCasterDef"
+            }
+          },
+          {
+            "$type": "EffectOpenUiContainerDef",
+            "Enabled": true,
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "Caster": {
+              "$type": "SpellCasterDef"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1688"
+  }
+}

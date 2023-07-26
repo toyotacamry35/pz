@@ -1,0 +1,30 @@
+{
+  "$type": "UnityGameObjectDef",
+  "Components": [
+    {
+      "$type": "InteractiveDef",
+      "ReuseExisting": true,
+      "ContextualActions": {
+        "$type": "ContextualActionsDef",
+        "SpellsByAction": {
+          // "t": {
+          //   "0": {
+          //     "$type": "ContextualActionDef",
+          //     "Spell": "/UtilPrefabs/Spells/InteractiveObjects/CraftMachines/TakeAll",
+          //     "CheckSpell": "/UtilPrefabs/Spells/Reactions/NonCombat/HasWorldBuildingItems"
+          //   }
+          // },
+          "/UtilPrefabs/Input/Actions/Interaction": {
+            "0": {
+              "$type": "ContextualActionDef",
+              "Spell": "/UtilPrefabs/Spells/UISpells/BenchUIOpenSpell"
+            }
+          }
+        }
+      }
+    },
+    {
+      "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+    }
+  ]
+}

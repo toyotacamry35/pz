@@ -1,0 +1,52 @@
+{
+  "$type": "Buff",
+  "$vars": {
+    "DURATION": {
+      "Type": "float",
+      "Value": 60
+    }
+  },
+  "Id": "92cbadc3-2228-4e5a-8878-af75f668cc82",
+  "Duration": "@DURATION",
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffIntoxication3",
+  "DescriptionLs": {
+    "Key": "#l10n504430"
+  },
+  "Effects": [
+    {
+      "$type": "EffectCastSpell",
+      "Spell": {
+        "$type": "Spell",
+        "Duration": "@DURATION",
+        "IsInfinite": false,
+        "Words": [],
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "Periodic": true,
+            "Spell": {
+              "$type": "SpellDef",
+              "Duration": 2,
+              "IsInfinite": false,
+              "AllowMultiple": false,
+              "Words": [
+                {
+                  "$type": "ImpactDamageObjectDef",
+                  "Target": {
+                    "$type": "SpellCaster"
+                  },
+                  "Damage": {
+                    "$type": "CalcerConstant",
+                    "Value": 30
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

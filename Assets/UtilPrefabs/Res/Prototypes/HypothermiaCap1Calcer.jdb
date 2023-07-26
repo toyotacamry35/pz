@@ -1,0 +1,38 @@
+{
+    // Coldcap = 250 + 15*potential_hypothermia*(1-cold_resistance_min/(100+cold_resistance_min))
+    "$type": "CalcerSum",
+    "Summands": [
+        250,
+        {
+            // 15*potential_hypothermia*(1-cold_resistance_min/(100+cold_resistance_min))
+            "$type": "CalcerMul",
+            "Multipliers": [
+                15,
+                "/UtilPrefabs/Res/Prototypes/PotentialHypothermiaCalcer",
+                {
+                    // (1-cold_resistance_min/(100+cold_resistance_min))
+                    "$type": "CalcerDiv",
+                    "Dividend": {
+                        // 1-cold_resistance_min
+                        "$type": "CalcerSum",
+                        "Summands": [
+                            1,
+                            {
+                                "$type": "CalcerNegative",
+                                "Value": "/UtilPrefabs/Res/Prototypes/MinHypotermiaCalcer"
+                            }
+                        ]
+                    },
+                    "Divisor": {
+                        // (100+cold_resistance_min)
+                        "$type": "CalcerSum",
+                        "Summands": [
+                            100,
+                            "/UtilPrefabs/Res/Prototypes/MinHypotermiaCalcer"
+                        ]
+                    }
+                }
+            ]
+        }
+    ] 
+}

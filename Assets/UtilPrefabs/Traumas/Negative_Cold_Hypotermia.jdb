@@ -1,0 +1,138 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "IsStatusEffect": true,
+  "SpellIcon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffFrost1",
+  "InteractionDescriptionLs": {
+    "Key": "#l10n504426"
+  },
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 4,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactDamageObjectDef",
+            "Target": {
+              "$type": "SpellCaster"
+            },
+            "Damage": {
+              "$type": "CalcerConstant",
+              "Value": 5
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n504449"
+      }
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                {
+                  "$type": "PredicateLess",
+                  "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/BootsEquipped"
+                  },
+                  "Rhs": {
+                    "$type": "CalcerConstant",
+                    "Value": 1
+                  }
+                },
+                {
+                  "$type": "PredicateLess",
+                  "Lhs": {
+                    "$type": "CalcerRandomDef"
+                  },
+                  "Rhs": 0.5
+                }
+              ]
+            },
+            "Value": "/UtilPrefabs/Traumas/Negative_Cold_Leg"
+          }
+        ],
+        "Else": null
+      }
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                {
+                  "$type": "PredicateLess",
+                  "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/GlovesEquipped"
+                  },
+                  "Rhs": {
+                    "$type": "CalcerConstant",
+                    "Value": 1
+                  }
+                },
+                {
+                  "$type": "PredicateLess",
+                  "Lhs": {
+                    "$type": "CalcerRandomDef"
+                  },
+                  "Rhs": 0.3
+                }
+              ]
+            },
+            "Value": "/UtilPrefabs/Traumas/Negative_Cold_Arm"
+          }
+        ],
+        "Else": null
+      }
+    }
+    //{
+      //"$type": "ImpactCastSpell",
+      //"Caster": {
+        //"$type": "SpellCaster"
+      //},
+      //"Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/ColdTeachQuest/ColdTeachQuest_Start"
+    //}
+  ]
+}

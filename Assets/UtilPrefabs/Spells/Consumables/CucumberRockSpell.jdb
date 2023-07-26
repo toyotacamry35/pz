@@ -1,0 +1,40 @@
+{
+  "$type": "SpellDef",
+  "Name": "CucumberRockSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/SatietyCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Value": 150.0,
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Value": 300.0
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnSuccess",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Spell": "/UtilPrefabs/Spells/Consumables/PoisonousFoodKillSpell"
+    }
+  ]
+}

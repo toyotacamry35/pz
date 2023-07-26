@@ -1,0 +1,50 @@
+{
+  "$type": "Buff",
+  "Id": "8669F166-1E6C-4922-8573-CCFE8E3BC3E3",
+  "Duration": 10.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffIntoxication1",
+  "DescriptionLs": {
+    "Key": "#l10n2882"
+  },
+  "Effects": [
+    {
+      "$type": "EffectCreateGameObjectAtTargetDef",
+      "TargetToPlaceFxAtItsPosition": {
+        "$type": "SpellCasterDef"
+      },
+      "OptionalParentObj": {
+        "$type": "SpellCasterDef"
+      },
+      "LocalPosition": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 1.1,
+        "z": -0.1
+      },
+      "Prefab": "Assets/Content/FX/Placeholders/PS_Placeholder_SlowDown"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 50.0
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503084"
+      }
+    }
+  ]
+}

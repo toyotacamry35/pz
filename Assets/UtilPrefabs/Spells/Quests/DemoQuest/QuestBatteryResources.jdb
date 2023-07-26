@@ -1,0 +1,114 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestBatteryResources",
+  "IsInfinite": true,
+  "Group": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/Coal",
+      "Count": 3,
+      "SpellOnAbsence": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POICoal"
+          }
+        ]
+      },
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POICoal"
+          }
+        ]
+      },
+      "SpellOnAppearance": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POICoal"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/Salt",
+      "Count": 3,
+      "SpellOnAbsence": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POISalt"
+          }
+        ]
+      },
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POISalt"
+          }
+        ]
+      },
+      "SpellOnAppearance": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POISalt"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/RaggedWires",
+      "Count": 2,
+      "SpellOnAbsence": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointsOfInterest": [
+              "/UtilPrefabs/PointsOfInterest/POIRaggedWires1",
+              "/UtilPrefabs/PointsOfInterest/POIRaggedWires2"
+            ]
+          }
+        ]
+      },
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointsOfInterest": [
+              "/UtilPrefabs/PointsOfInterest/POIRaggedWires1",
+              "/UtilPrefabs/PointsOfInterest/POIRaggedWires2"
+            ]
+          }
+        ]
+      },
+      "SpellOnAppearance": {
+        "$type": "SpellDef",
+        "Words": [
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointsOfInterest": [
+              "/UtilPrefabs/PointsOfInterest/POIRaggedWires1",
+              "/UtilPrefabs/PointsOfInterest/POIRaggedWires2"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

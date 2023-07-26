@@ -1,0 +1,26 @@
+{
+    "$type": "SpellDef",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": false,
+    "DontShowProgress": true,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "ClearsSlot": true,
+    "Words": [
+        {
+            "$type": "PredicateKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/AlienParasiteQuest/AlienParasiteQuest_TakenKW"
+        },
+        {
+            "$type": "PredicateKnowledgeDef",
+            "Inversed": true,
+            "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/AlienParasiteQuest/AlienParasiteQuest_TenushParasiteKW"
+        },
+        {
+            "$type": "ImpactAddKnowledgeDef",
+            "WhenToApply": "OnStart",
+            "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/AlienParasiteQuest/AlienParasiteQuest_TenushParasiteKW"
+        }
+    ]
+}

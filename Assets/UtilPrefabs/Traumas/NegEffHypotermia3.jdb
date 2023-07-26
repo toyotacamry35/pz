@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "NegEffHypotermia3",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": -0.1
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": -0.2
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": -0.25
+    }
+  ]
+}

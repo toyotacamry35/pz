@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Name": "TestAreaIntoxication",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "Enabled": true,
+      "StatName": "/UtilPrefabs/Stats/Environment/ToxicMod",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Summand": 300.0,
+      "Multiplier": 0.0,
+      "UseClampMin": false,
+      "ClampMin": 0.0,
+      "UseClampMax": false,
+      "ClampMax": 0.0
+    }
+  ]
+}

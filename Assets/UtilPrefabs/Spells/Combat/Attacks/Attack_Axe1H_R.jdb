@@ -1,0 +1,539 @@
+{
+  "$type": "SpellDef",
+  "$vars": {
+    "DAMAGE_MOD": {
+      "Type": "float",
+      "Value": 1.5
+    },
+    "MINING_MOD": {
+      "Type": "float",
+      "Value": 1
+    },
+    "POWER_MOD": {
+      "Type": "float",
+      "Value": 25
+    },
+    "STAMINA_REQ": {
+      "Type": "float",
+      "Value": 20
+    },
+    "STAMINA_COST": {
+      "Type": "float",
+      "Value": 110
+    },
+    "WATER_COST": {
+      "Type": "float",
+      "Value": 0
+    },
+    "CALORIE_COST": {
+      "Type": "float",
+      "Value": -0.3
+    }
+  },
+  //END OF PARAMETERS
+  //Attack spell duration
+  "Duration": 1.617,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "ClearsSlot": true,
+  "Tags": [
+    "/UtilPrefabs/Spells/Tags/Attack",
+    "/UtilPrefabs/Spells/Tags/HeavyAttack",
+    "/UtilPrefabs/Spells/Tags/AxeAttack",
+  ],
+  "Words": [
+    //DEBUG
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0.2,
+        "G": 0.2,
+        "B": 1.0
+      }
+    },
+    {
+      "$type": "PredicateLocomotionState",
+      "State": "Airborne,Slipping,Jumping",
+      "Inversed": true
+    },
+    {
+      "$type": "EffectInputLayer"
+    },
+    //ANIMATOR
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "State",
+          "$id": "AttackAnimation",
+          "State": "/UtilPrefabs/Res/AnimatorStates/AttackMeleeHard"
+        }
+      ]
+    },
+    //    {
+    //      "$type": "EffectAnimatorSetDirectionDef",
+    //      "ParameterZ": "/UtilPrefabs/Res/AnimatorParameters/LngAttackDirection",
+    //      "ParameterX": "/UtilPrefabs/Res/AnimatorParameters/LatAttackDirection",
+    //      "Direction": {
+    //        "$type": "SpellDirection"
+    //      }
+    //    },
+    //EVENTS
+    {
+      "$type": "ImpactRaiseEventDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "From": {
+        "$type": "SpellCasterDef"
+      },
+      "Radius": 4,
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEvent",
+      "WhenToApply": "OnStart"
+    },
+    { // IMP-CRUTCH: I've added a temporary solution to playout the mobs' reactions to heavy attacks until we implement proper reactions
+      "$type": "ImpactRaiseEventDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "From": {
+        "$type": "SpellCasterDef"
+      },
+      "Radius": 4,
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/HeavyAttackTriggerEvent",
+      "WhenToApply": "OnStart"
+    },
+    //STAT CHANGE
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Calcer": {
+        "$type": "CalcerNegative",
+        "Value": {
+          "$type": "CalcerMul",
+          "$overrideVars": {
+            "COST": "@STAMINA_COST"
+          },
+          "$proto": "/UtilPrefabs/Spells/Utils/StaminaCost"
+        }
+      }
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Value": "@WATER_COST"
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/SatietyCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Value": "@CALORIE_COST"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnAny",
+      "Spell": "/UtilPrefabs/Spells/Combat/StopStaminaRegeneration"
+    },
+    //ENTER COMBAT STANCE
+    {
+      "$type": "ImpactReaction",
+      "Reaction": "/UtilPrefabs/Reactions/CombatStance"
+    },
+    {
+      "$type": "ImpactStopAllSpellsOfGroups",
+      "Groups": [
+        "/UtilPrefabs/Spells/Groups/BlockSpellGroup"
+      ],
+      "Reason": "Fail"
+    },
+    {
+      "$type": "PredicateFallbackDef",
+      "Predicates": [
+        {
+          "$type": "PredicateCompareStatDef",
+          "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+          "Type": "More",
+          "Value": "@STAMINA_REQ"
+        }
+      ],
+      "Spell": "/UtilPrefabs/Spells/UISpells/StaminaUIFlashSpell"
+    }
+  ],
+  "SubSpells": [
+    //ATTACK EFFECT
+    {
+      "$type": "SubSpell",
+      //Attack collider appearance,
+      "OffsetStart": 0.590,
+      "Spell": {
+        "$type": "Spell",
+        "Name": "Attack",
+        //Attack collider duration
+        "Duration": 0.210,
+        "Words": [
+          {
+            "$type": "EffectAttack",
+            "Attack": {
+              "$type": "Attack",
+              "$overrideVars": {
+                "DAMAGE_MOD": "@DAMAGE_MOD",
+                "MINING_MOD": "@MINING_MOD",
+                "POWER_MOD": "@POWER_MOD",
+                "ADDITIONAL_REACTION": {
+                  "$type": "AttackInvokeReaction",
+                  "When": "Always",
+                  "Reaction": "/UtilPrefabs/Spells/Reactions/HeavyHitReaction"
+                },
+                "ATTACK_TYPE": "/UtilPrefabs/AttackType/Heavy"
+              },
+              "$proto": "./_AttackDamageProto"
+            },
+            "Animation": "$AttackAnimation",
+            "Attributes": "@ATTACK_ATTRIBUTES",
+            "TrajectoryMarkers": [
+              "/UtilPrefabs/Res/Character/AttackBodyParts/RightHand"
+            ]
+          }
+        ]
+      }
+    },
+    //MOVEMENT
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 1.050,
+        "Words": [
+          {
+            "$type": "EffectDirectMotion",
+            "Mover": {
+              "$type": "CurveMover",
+              "Curve": "Assets/UtilPrefabs/Locomotion/Player/Player_Attack_Axe1H_R"
+            },
+            "Rotator": {
+              "$type": "BindToCameraRotator",
+              "Speed": 900
+            }
+          },
+          {
+            "$type": "EffectLocomotionInput",
+            "Id": "b9083522-64cc-4f6a-9b6c-a7ac3257ecf3",
+            "Input": "Sticking"
+          }
+        ]
+      }
+    },
+    //Rotation
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0.37,
+        "Words": [
+          {
+            "$type": "EffectDirectMotion",
+            "Rotator": {
+              "$type": "BindToCameraRotator",
+              "Speed": 280
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.37,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0.30,
+        "Words": [
+          {
+            "$type": "EffectDirectMotion",
+            "Rotator": {
+              "$type": "BindToCameraRotator",
+              "Speed": 360
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.67,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0.33,
+        "Words": [
+          {
+            "$type": "EffectDirectMotion",
+            "Rotator": {
+              "$type": "BindToCameraRotator",
+              "Speed": 160
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 1.00,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 1.00,
+        "Words": [
+          {
+            "$type": "EffectDirectMotion",
+            "Rotator": {
+              "$type": "BindToCameraRotator",
+              "Speed": 600
+            }
+          }
+        ]
+      }
+    },
+    //BLOCKERS
+    //Movement blocker
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 1.153,
+        "Words": [
+          {
+            "$type": "EffectInputBlocker",
+            "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera",
+            "Except": [
+              "/UtilPrefabs/Input/Actions/DashForward",
+              "/UtilPrefabs/Input/Actions/DashBackward",
+              "/UtilPrefabs/Input/Actions/DashLeft",
+              "/UtilPrefabs/Input/Actions/DashRight",
+              "/UtilPrefabs/Input/Actions/Block",
+              "/UtilPrefabs/Input/Actions/Jump"
+            ]
+          }
+        ]
+      }
+    },
+    //Jump blocker
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0.815,
+        "Words": [
+          {
+            "$type": "EffectInputBlocker",
+            "Block": [
+              "/UtilPrefabs/Input/Actions/Jump"
+            ]
+          }
+        ]
+      }
+    },
+    //Block+Dash blocker
+    // {
+    //   "$type": "SubSpell",
+    //   "OffsetStart": 0.576,
+    //   "Spell": {
+    //     "$type": "Spell",
+    //     "Duration": 0.239,
+    //     "Words": [
+    //       {
+    //         "$type": "EffectInputBlocker",
+    //         "Block": [
+    //           "/UtilPrefabs/Input/Actions/DashForward",
+    //           "/UtilPrefabs/Input/Actions/DashBackward",
+    //           "/UtilPrefabs/Input/Actions/DashLeft",
+    //           "/UtilPrefabs/Input/Actions/DashRight",
+    //           "/UtilPrefabs/Input/Actions/Block",
+    //         ],
+    //       }
+    //     ]
+    //   }
+    // },
+    //INPUT WINDOWS
+    //chain into Axe1H_L
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.200,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 1.617,
+        "Words": [
+          {
+            "$type": "EffectInputWindow",
+            "Delay": 1.017,
+            "Handlers": {
+              "/UtilPrefabs/Input/Actions/AttackMelee": {
+                "$type": "InputActionHandlerSpellOnce",
+                "Spell": "./Attack_Axe1H_L"
+              }
+            }
+          }
+        ]
+      }
+    },
+    //chain into Axe1H_R
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.200,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 1.617,
+        "Words": [
+          {
+            "$type": "EffectInputWindow",
+            "Delay": 1.017,
+            "Handlers": {
+              "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+                "$type": "InputActionHandlerSpellOnce",
+                "Spell": "./Attack_Axe1H_R"
+              }
+            }
+          }
+        ]
+      }
+    },
+    //SPELL BREAKERS
+    //Block+Dash breaker
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0.576,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Activated",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/DashForward",
+              "/UtilPrefabs/Input/Actions/DashBackward",
+              "/UtilPrefabs/Input/Actions/DashLeft",
+              "/UtilPrefabs/Input/Actions/DashRight",
+              "/UtilPrefabs/Input/Actions/Block"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.576,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Activated",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/DashForward",
+              "/UtilPrefabs/Input/Actions/DashBackward",
+              "/UtilPrefabs/Input/Actions/DashLeft",
+              "/UtilPrefabs/Input/Actions/DashRight",
+              "/UtilPrefabs/Input/Actions/Block"
+            ]
+          }
+        ]
+      }
+    },
+    //Attack breaker
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 1.153,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Activated",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/AttackMelee",
+              "/UtilPrefabs/Input/Actions/AttackMeleeAlt",
+              "/UtilPrefabs/Input/Actions/Interaction"
+            ]
+          }
+        ]
+      }
+    },
+    //Movement breaker
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 1.350,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Active",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/MoveForwardTrigger",
+              "/UtilPrefabs/Input/Actions/MoveBackwardTrigger",
+              "/UtilPrefabs/Input/Actions/MoveLeftTrigger",
+              "/UtilPrefabs/Input/Actions/MoveRightTrigger",
+              "/UtilPrefabs/Input/Actions/Sprint"
+            ]
+          }
+        ]
+      }
+    },
+    //Jump breaker
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.853,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Activated",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/Jump"
+            ]
+          }
+        ]
+      }
+    }
+    //HYPERARMOR
+    // {
+    //   "$type": "SubSpell",
+    //   "Id": "6aa3911f-ddca-41d1-ad46-3d3022147f24",
+    //   "OffsetStart": 0.576,
+    //   "Spell": {
+    //     "$type": "Spell",
+    //     "Id": "cbdcf760-c036-4aff-8f5c-793c460dccb4",
+    //     "Duration": 0.239,
+    //     "Words": [
+    //       {
+    //         "$type": "EffectChangeAccumulatedStatDef",
+    //         "Id": "084a7559-662b-451e-8235-262679975c55",
+    //         "StatName": "/UtilPrefabs/Stats/Combat/Stagger/Stability",
+    //         "Summand": 100
+    //       },
+    //     ]
+    //   }
+    // },
+  ]
+}

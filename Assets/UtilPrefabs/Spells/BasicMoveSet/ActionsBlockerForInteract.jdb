@@ -1,0 +1,21 @@
+{
+  "$type": "Spell",
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "EffectInputLayer",
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera"
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Rotator": {
+        "$type": "LookAtRotator",
+        "Target": { "$type": "SpellTargetDef" },
+        "Time": 0.15
+      }
+    }
+  ]  
+}

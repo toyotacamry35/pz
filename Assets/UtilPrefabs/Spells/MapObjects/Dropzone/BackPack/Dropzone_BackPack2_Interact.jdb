@@ -1,0 +1,26 @@
+{
+    "$type": "SpellDef",
+    "Name": "Dropzone_BackPack_Interact",
+    "Words": [
+        {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+                "/Inventory/Items/Consumables/StandardMedicalKit"
+            ],
+            "Count": 1
+        },
+        {
+            "$type": "PredicateKnowledgeDef",
+            "Inversed":true,
+            "Knowledge": "/Inventory/Knowledge/MapObjects/Dropzone/BackPack/Dropzone_BackPack2KW"
+        },
+        {
+            "$type": "ImpactAddKnowledgeDef",
+            "WhenToApply": "OnFinish",
+            "Knowledge": "/Inventory/Knowledge/MapObjects/Dropzone/BackPack/Dropzone_BackPack2KW"
+        }
+    ],
+    "InteractionDescriptionLs": {
+        "Key": "#l10n1663"
+    }
+}

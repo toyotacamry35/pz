@@ -1,0 +1,28 @@
+{
+  "$type": "SpellDef",
+  "Name": "Aiming_Throw",
+  "IsInfinite": true,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateLocomotionState",
+      "State": "Airborne,Slipping,Jumping",
+      "Inversed": true
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/AimingFactor",
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectLocomotionInputDef",
+      "Input": "Aim",
+      "Value": 1
+    },
+    {
+      "$type": "EffectSwitchCamera",
+      "Camera": "/UtilPrefabs/Res/Camera/GrenadeAimingCamera"
+    }
+  ]
+}

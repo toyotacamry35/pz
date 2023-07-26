@@ -1,0 +1,297 @@
+{
+    // Raw_overheat_per_second = potential_overheat_head*0,2 + potential_overheat_chest*0,3 + potential_overheat_legs*0,3 + potential_overheat_arms*0,2 – thermotaxis_cooling
+    "$type": "CalcerSum",
+    "Summands": [
+        {
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    //Potential_overheat_head = potential_overheat*(1-(heat_resistance_head+humidity_character) /(100+heat_resistance_head+ humidity_character))
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        // potential_overheat
+                        "/UtilPrefabs/Res/Prototypes/PotentialOverheatCalcer",
+                        {
+                            // (1-(heat_resistance_head+humidity_character) /(100+heat_resistance_head+ humidity_character))
+                            "$type": "CalcerSum",
+                            "Summands": [
+                                {
+                                    "$type": "CalcerConstant",
+                                    "Value": 1.0
+                                },
+                                {
+                                    // (-)
+                                    "$type": "CalcerMul",
+                                    "Multipliers": [
+                                        {
+                                            "$type": "CalcerConstant",
+                                            "Value": -1.0
+                                        },
+                                        {
+                                            // (heat_resistance_head+humidity_character) /(100+heat_resistance_head+ humidity_character)
+                                            "$type": "CalcerDiv",
+                                            "Dividend": {
+                                                // (heat_resistance_head+humidity_character)
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceHead"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                                    }
+                                                ]
+                                            },
+                                            "Divisor": {
+                                                // (100+heat_resistance_head+ humidity_character)
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    100,
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceHead"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "CalcerConstant",
+                    "Value": 0.2
+                }
+            ]
+        },
+        {
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    //Potential_overheat_chest = potential_overheat*(1-(heat_resistance_chest+humidity_character) /(100+heat_resistance_chest+ humidity_character))
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        // potential_overheat
+                        "/UtilPrefabs/Res/Prototypes/PotentialOverheatCalcer",
+                        {
+                            // (1-(heat_resistance_chest+humidity_character) /(100+heat_resistance_chest+ humidity_character))
+                            "$type": "CalcerSum",
+                            "Summands": [
+                                {
+                                    "$type": "CalcerConstant",
+                                    "Value": 1.0
+                                },
+                                {
+                                    // (-)
+                                    "$type": "CalcerMul",
+                                    "Multipliers": [
+                                        {
+                                            "$type": "CalcerConstant",
+                                            "Value": -1.0
+                                        },
+                                        {
+                                            // (heat_resistance_chest+humidity_character) /(100+heat_resistance_chest+ humidity_character)
+                                            "$type": "CalcerDiv",
+                                            "Dividend": {
+                                                // (heat_resistance_chest+humidity_character)
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceChest"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                                    }
+                                                ]
+                                            },
+                                            "Divisor": {
+                                                // (100+heat_resistance_chest+ humidity_character)
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    100,
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceChest"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "CalcerConstant",
+                    "Value": 0.3
+                }
+            ]
+        },
+        {
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    //Potential_overheat_legs = potential_overheat*(1-(heat_resistance_legs+humidity_character) /(100+heat_resistance_legs+ humidity_character))
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        // potential_overheat
+                        "/UtilPrefabs/Res/Prototypes/PotentialOverheatCalcer",
+                        {
+                            // (1-(heat_resistance_legs+humidity_character) /(100+heat_resistance_legs+ humidity_character))
+                            "$type": "CalcerSum",
+                            "Summands": [
+                                {
+                                    "$type": "CalcerConstant",
+                                    "Value": 1.0
+                                },
+                                {
+                                    // (-)
+                                    "$type": "CalcerMul",
+                                    "Multipliers": [
+                                        {
+                                            "$type": "CalcerConstant",
+                                            "Value": -1.0
+                                        },
+                                        {
+                                            // (heat_resistance_legs+humidity_character) /(100+heat_resistance_legs+ humidity_character)
+                                            "$type": "CalcerDiv",
+                                            "Dividend": {
+                                                // (heat_resistance_legs+humidity_character)
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceLegs"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                                    }
+                                                ]
+                                            },
+                                            "Divisor": {
+                                                // (100+heat_resistance_legs+ humidity_character)
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    100,
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceLegs"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "CalcerConstant",
+                    "Value": 0.3
+                }
+            ]
+        },
+        {
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    //Potential_overheat_arms = potential_overheat*(1-(heat_resistance_arms+humidity_character) /(100+heat_resistance_arms+ humidity_character))
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        // potential_overheat
+                        "/UtilPrefabs/Res/Prototypes/PotentialOverheatCalcer",
+                        {
+                            // (1-(heat_resistance_arms+humidity_character) /(100+heat_resistance_arms+ humidity_character))
+                            "$type": "CalcerSum",
+                            "Summands": [
+                                {
+                                    "$type": "CalcerConstant",
+                                    "Value": 1.0
+                                },
+                                {
+                                    // (-)
+                                    "$type": "CalcerMul",
+                                    "Multipliers": [
+                                        {
+                                            "$type": "CalcerConstant",
+                                            "Value": -1.0
+                                        },
+                                        {
+                                            // (heat_resistance_arms+humidity_character) /(100+heat_resistance_arms+ humidity_character)
+                                            "$type": "CalcerDiv",
+                                            "Dividend": {
+                                                // (heat_resistance_arms+humidity_character)
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceArms"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                                    }
+                                                ]
+                                            },
+                                            "Divisor": {
+                                                // (100+heat_resistance_arms+ humidity_character)
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    100,
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceArms"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "CalcerConstant",
+                    "Value": 0.2
+                }
+            ]
+        },
+        {
+            // (-) thermotaxis_cooling = endurance*waterbalance_mod
+            "$type": "CalcerMul",
+            "Multipliers": [
+                {
+                    "$type": "CalcerConstant",
+                    "Value": -10  
+                },
+                "/UtilPrefabs/Res/Prototypes/WaterBalanceModCalcer",
+            ]
+        }
+    ]
+}

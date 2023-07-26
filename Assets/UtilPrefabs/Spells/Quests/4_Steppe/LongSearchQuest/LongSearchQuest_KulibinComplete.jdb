@@ -1,0 +1,49 @@
+{
+    "$type": "SpellDef",
+    "Name": "LongSearchQuest_KulibinComplete",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": true,
+    "SpellIcon": null,
+    "InteractionDescriptionLs": {
+      "Key": "#l10n503373"
+    },
+    "DontShowProgress": true,
+    "Group": null,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": [
+      //Если
+      {
+        "$type": "PredicateKnowledgeDef", //проверяем, что игрок брал квест - есть ли у него кновледж, выдающийся при взятии квеста?
+        "Knowledge": "/Inventory/Knowledge/Quest/4_Steppe/LongSearchQuest/LongSearchQuest_CompletedKulibinKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "PredicateKnowledgeDef", //проверяем, что игрок НЕ сдавал этот квест - есть ли у него кновледж, выдающийся при сдаче квеста?
+        "Inversed": true,
+        "Knowledge": "/Inventory/Knowledge/Quest/4_Steppe/LongSearchQuest/LongSearchQuest_RepairKpkKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "PredicateCheckItemDef", //проверяем, что у игрока есть предметы, кот. нужно сдать для завершения квеста
+        "Item": "/Inventory/Items/Res/StoutFoam",
+        "Count": 2
+      }
+      , //То
+      {
+        "$type": "ImpactAddKnowledgeDef", //выдаём кновледж, что игрок закончил квест
+        "Knowledge": "/Inventory/Knowledge/Quest/4_Steppe/LongSearchQuest/LongSearchQuest_RepairKpkKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "ImpactRemoveItemDef", //забираем у игрока предметы, кот. он должен был сдать
+        "Item": "/Inventory/Items/Res/StoutFoam",
+        "Count": 2
+      },
+      {
+        "$type": "ImpactAddItemsDef",
+        "Items": [
+            "/Inventory/Items/Quest/4_Steppe/LongSearchQuest/RepairKpk"
+        ]
+    }
+    ]
+  }
+  

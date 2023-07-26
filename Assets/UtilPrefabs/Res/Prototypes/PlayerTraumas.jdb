@@ -1,0 +1,1162 @@
+{
+  "$type": "TraumasDef",
+  "Id": "68beac8a-45ac-4be3-aa7e-4766f1447a9f",
+  "MeanTimeForTraumasToHappen": 2,
+  "TraumaGivers": {//NEGATIVE EFFECTS
+//HEAT TRAUMAS
+//Heat Head Trauma
+    "Negative_Heat_Head": {
+      "$type": "TraumaGiverDef",
+      "Id": "7a5fc074-0bfd-46b5-9822-37edf60740a2",
+      "Predicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatHeadTraumaStat"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.85
+            }
+          ]
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Negative_Heat_Head"
+    },
+    "Negative_Heat_Head_2": {
+      "$type": "SaveableTrauma",
+      "Id": "d6fb8ea9-f772-455b-94e7-0b6e2a2b7509",
+      "Buff": "/UtilPrefabs/Traumas/Negative_Heat_Head_2",
+    },
+    "Negative_Heat_Overheat": {
+      "$type": "TraumaGiverDef",
+      "Id": "95412d37-c49c-4420-a61a-af47f7aee841",
+      "Predicate": {
+        "$type": "PredicateInRange",
+        "Min": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.49
+            }
+          ]
+        },
+        "Max": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.9
+            }
+          ]
+        },
+        "Value": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Overheat"
+        }
+      },
+      "EndPredicate": {
+        "$type": "PredicateOr",
+        "Predicates": [
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/Overheat"
+            },
+            "Rhs": {
+              "$type": "CalcerMul",
+              "Multipliers": [
+                {
+                  "$type": "CalcerStat",
+                  "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax"
+                },
+                {
+                  "$type": "CalcerConstant",
+                  "Value": 0.2
+                }
+              ]
+            }
+          },
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/Overheat"
+            },
+            "Rhs": {
+              "$type": "CalcerMul",
+              "Multipliers": [
+                {
+                  "$type": "CalcerStat",
+                  "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax"
+                },
+                {
+                  "$type": "CalcerConstant",
+                  "Value": 0.95
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Negative_Heat_Overheat",
+    },
+    "Negative_Heat_Burn": {
+      "$type": "TraumaGiverDef",
+      "Id": "0cc049c8-f113-4e4f-826c-e9c312e8666b",
+      "Predicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Overheat"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.99
+            }
+          ]
+        }
+      },
+      "EndPredicate": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Overheat"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.9
+            }
+          ]
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Negative_Heat_Burn",
+    }, //COLD TRAUMAS
+    "Negative_Cold_Arm": {
+      "$type": "TraumaGiverDef",
+      "Id": "7b3830fb-0042-4a3f-b002-c8dfcbfb86f0",
+      "Predicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaHandsTraumaStat"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.85
+            }
+          ]
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Negative_Cold_Arm"
+    },
+    "Negative_Cold_Arm_2": {
+      "$type": "SaveableTrauma",
+      "Id": "28cc4ef4-6529-4468-b42f-366d989c0502",
+      "Buff": "/UtilPrefabs/Traumas/Negative_Cold_Arm_2",
+    },
+    "Negative_Cold_Leg_2": {
+      "$type": "SaveableTrauma",
+      "Id": "e538d9bf-cce5-4c72-8b5d-48732587af18",
+      "Buff": "/UtilPrefabs/Traumas/Negative_Cold_Leg_2",
+    }, //Cold Freezing Trauma
+    "Negative_Cold_Hypotermia": {
+      "$type": "TraumaGiverDef",
+      "Id": "f1150b9c-9378-45fe-be99-fe6600be7d61",
+      "Predicate": {
+        "$type": "PredicateInRange",
+        "Min": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.49
+            }
+          ]
+        },
+        "Max": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.9
+            }
+          ]
+        },
+        "Value": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Hypotermia"
+        }
+      },
+      "EndPredicate": {
+        "$type": "PredicateOr",
+        "Predicates": [
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/Hypotermia"
+            },
+            "Rhs": {
+              "$type": "CalcerMul",
+              "Multipliers": [
+                {
+                  "$type": "CalcerStat",
+                  "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax"
+                },
+                {
+                  "$type": "CalcerConstant",
+                  "Value": 0.2
+                }
+              ]
+            }
+          },
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/Hypotermia"
+            },
+            "Rhs": {
+              "$type": "CalcerMul",
+              "Multipliers": [
+                {
+                  "$type": "CalcerStat",
+                  "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax"
+                },
+                {
+                  "$type": "CalcerConstant",
+                  "Value": 0.95
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Negative_Cold_Hypotermia",
+    },
+    "Negative_Cold_Freezing": {
+      "$type": "TraumaGiverDef",
+      "Id": "6ed27f33-ac24-4e3a-a9c8-2a77d3e93ebe",
+      "Predicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Hypotermia"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.99
+            }
+          ]
+        }
+      },
+      "EndPredicate": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Hypotermia"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.9
+            }
+          ]
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Negative_Cold_Freezing",
+    }, //INTOXICATION TRAUMAS
+    "Negative_ToxicIndex": {
+      "$type": "TraumaGiverDef",
+      "Id": "ec335163-f146-4d7c-b76e-dddd3a474498",
+      "Predicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/ToxicLimit"
+        },
+        "Rhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Intoxication"
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Negative_IntoxicationIndex"
+    },
+    "NegEffIntoxication1": {
+      "$type": "TraumaGiverDef",
+      "Id": "fc2fc9da-e83a-4039-96a2-98d4f0337a7a",
+      "Predicate": {
+        "$type": "PredicateAnd",
+        "Predicates": [
+          {
+            "$type": "PredicateInRange",
+            "Min": {
+              "$type": "CalcerMul",
+              "Multipliers": [
+                {
+                  "$type": "CalcerStat",
+                  "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax"
+                },
+                {
+                  "$type": "CalcerConstant",
+                  "Value": 0.01
+                }
+              ]
+            },
+            "Max": {
+              "$type": "CalcerMul",
+              "Multipliers": [
+                {
+                  "$type": "CalcerStat",
+                  "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax"
+                },
+                {
+                  "$type": "CalcerConstant",
+                  "Value": 0.5
+                }
+              ]
+            },
+            "Value": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/Intoxication"
+            }
+          },
+          {
+            "$type": "PredicateNot",
+            "Value": {
+              "$type": "PredicateHasTraumasDef",
+              "TraumaTypes": [
+                "NegEffIntoxication2_1",
+                "NegEffIntoxication3_1"
+              ]
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/NegEffIntoxication1"
+    },
+    "NegEffIntoxication1_1": {
+      "$type": "SaveableTrauma",
+      "Id": "ffd294ab-5219-4b93-aa9e-7e03ba1676e3",
+      "Buff": "/UtilPrefabs/Traumas/NegEffIntoxication1_1",
+      "EndPredicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Intoxication"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.5
+            }
+          ]
+        }
+      }
+    },
+    "NegEffIntoxication2": {
+      "$type": "TraumaGiverDef",
+      "Id": "17303364-17be-4dd2-89c6-4e053ca2d28a",
+      "Predicate": {
+        "$type": "PredicateAnd",
+        "Predicates": [
+          {
+            "$type": "PredicateInRange",
+            "Min": {
+              "$type": "CalcerMul",
+              "Multipliers": [
+                {
+                  "$type": "CalcerStat",
+                  "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax"
+                },
+                {
+                  "$type": "CalcerConstant",
+                  "Value": 0.5
+                }
+              ]
+            },
+            "Max": {
+              "$type": "CalcerMul",
+              "Multipliers": [
+                {
+                  "$type": "CalcerStat",
+                  "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax"
+                },
+                {
+                  "$type": "CalcerConstant",
+                  "Value": 0.99
+                }
+              ]
+            },
+            "Value": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/Intoxication"
+            }
+          },
+          {
+            "$type": "PredicateNot",
+            "Value": {
+              "$type": "PredicateHasTraumasDef",
+              "TraumaTypes": [
+                "NegEffIntoxication3_1"
+              ]
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/NegEffIntoxication2"
+    },
+    "NegEffIntoxication2_1": {
+      "$type": "SaveableTrauma",
+      "Id": "58620bea-57db-4d00-9b61-bf5b5a0a10b2",
+      "Buff": "/UtilPrefabs/Traumas/NegEffIntoxication2_1",
+      "EndPredicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Intoxication"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.99
+            }
+          ]
+        }
+      }
+    },
+    "NegEffIntoxication3": {
+      "$type": "TraumaGiverDef",
+      "Id": "77b45d06-b5c9-4de5-b22e-f0b188ecf498",
+      "Predicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/NegativeFactors/Intoxication"
+        },
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax"
+            },
+            {
+              "$type": "CalcerConstant",
+              "Value": 0.99
+            }
+          ]
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/NegEffIntoxication3"
+    },
+    "NegEffIntoxication3_1": {
+      "$type": "SaveableTrauma",
+      "Id": "2d36b54b-945e-4c3c-b997-f0bcdc9ff950",
+      "Buff": "/UtilPrefabs/Traumas/NegEffIntoxication3_1",
+    }, //STARVATION TRAUMAS
+    "NegEffHunger1": {
+      "$type": "TraumaGiverDef",
+      "Id": "3e7109fe-47fa-45ed-b305-59d30a4f3316",
+      "Predicate": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/Satiety/SatietyCurrent"
+        },
+        "Rhs": {
+          "$type": "CalcerConstant",
+          "Value": 1
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/NegEffHunger1",
+    },
+    "NegEffHunger2": {
+      "$type": "TraumaGiverDef",
+      "Id": "9c0054e4-cb6c-45f2-8f06-c59ce9935d4b",
+      "Predicate": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/Satiety/SatietyCurrent"
+        },
+        "Rhs": {
+          "$type": "CalcerConstant",
+          "Value": 100
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/NegEffHunger2"
+    },
+    "NegEffThirst1": {
+      "$type": "TraumaGiverDef",
+      "Id": "343a557d-2a1c-4e55-ad06-e3a3983ae566",
+      "Predicate": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent"
+        },
+        "Rhs": {
+          "$type": "CalcerConstant",
+          "Value": 1
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/NegEffThirst1",
+    }, //PHYSICS TRAUMAS
+    "NegEffBleed1": {
+      "$type": "SaveableTrauma",
+      "Id": "8ea0d4ef-cb3c-46e9-bad8-df674be7d605",
+      "Buff": "/UtilPrefabs/Traumas/NegEffBleed1",
+      "TraumaPoints": 5,
+    },
+    "NegEffBleed2": {
+      "$type": "SaveableTrauma",
+      "Id": "bdd24b6c-4cd3-48ce-a937-c8fa74a12348",
+      "Buff": "/UtilPrefabs/Traumas/NegEffBleed2",
+      "TraumaPoints": 5,
+    },
+    "NegEffBleedDropzone": {
+      "$type": "SaveableTrauma",
+      "Id": "755feeb6-f37e-422e-be0c-2b5f85bf69a2",
+      "Buff": "/UtilPrefabs/Traumas/NegEffBleedDropzone",
+      "TraumaPoints": 5,
+    },
+    "NegEffBleed_Merid": {
+      "$type": "SaveableTrauma",
+      "Id": "41aca956-c8b0-4c27-bbc9-b832d8906bf9",
+      "Buff": "/UtilPrefabs/Traumas/NegEffBleed_Merid",
+      "TraumaPoints": 5,
+    },
+    "NegEffBleed_FungalSpear": {
+      "$type": "SaveableTrauma",
+      "Id": "cfb87c9d-dafd-4314-8033-64898a62641a",
+      "Buff": "/UtilPrefabs/Traumas/NegEffBleed_FungalSpear",
+      "TraumaPoints": 5,
+    },
+    "NegEffSprain": {
+      "$type": "SaveableTraumaDef",
+      "Id": "f4ae8c4c-b822-4cf0-af30-e1c201e75200",
+      "Buff": "/UtilPrefabs/Traumas/NegEffSprain",
+      "TraumaPoints": 5,
+    },
+    "OverweightLvl1": {
+      "$type": "TraumaGiverDef",
+      "Id": "f41d4ef4-526a-43ae-9067-266c7adb890e",
+      "Predicate": {
+        "$type": "PredicateInRange",
+        "Min": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight"
+        },
+        "Max": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerConstant",
+              "Value": 1.3
+            },
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight"
+            }
+          ]
+        },
+        "Value": "/UtilPrefabs/Res/Prototypes/PlayerInventoryWeightCalcer"
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/OverweightLvl1",
+    },
+    "OverweightLvl2": {
+      "$type": "TraumaGiverDef",
+      "Id": "6f97bad9-b3c7-4845-9427-9267e51a88b0",
+      "Predicate": {
+        "$type": "PredicateGreaterOrEquals",
+        "Lhs": "/UtilPrefabs/Res/Prototypes/PlayerInventoryWeightCalcer",
+        "Rhs": {
+          "$type": "CalcerMul",
+          "Multipliers": [
+            {
+              "$type": "CalcerConstant",
+              "Value": 1.3
+            },
+            {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight"
+            }
+          ]
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/OverweightLvl2",
+    }, //ILLNESSES
+    "NegEffXenoParasite": {
+      "$type": "SaveableTrauma",
+      "Id": "c370248b-6bf5-410d-aca9-9b68f82659e4",
+      "IgnoresDeath": true,
+      "SpellOnStart": "/UtilPrefabs/Traumas/NegEffXenoParasite_OnStart",
+      "Buff": "/UtilPrefabs/Traumas/NegEffXenoParasite",
+    },
+    "NegEffXenoParasiteTempInactive": {
+      "$type": "SaveableTrauma",
+      "Id": "3F68F4DF-C256-44D9-8540-6B0F9E87F6CB",
+      "IgnoresDeath": true,
+      "SpellOnStart": "/UtilPrefabs/Traumas/NegEffXenoParasiteTempInactive_OnStart",
+      "Buff": "/UtilPrefabs/Traumas/NegEffXenoParasiteTempInactive",
+    }, //BATTLE POTION I
+    "BattlePotion2Cooldown": {
+      "$type": "SaveableTrauma",
+      "Id" : "23e35abd-6a13-4345-a29b-fba4bc3433c2",
+      "Buff": "/UtilPrefabs/Spells/Consumables/BattlePotion2BuffSpellEffect",
+    }, //BATTLE POTION II
+    "BattlePotion3Cooldown": {
+      "$type": "SaveableTrauma",
+      "Id" : "9a95411b-bd05-44b8-b8aa-a4d069064caf",
+      "Buff": "/UtilPrefabs/Spells/Consumables/BattlePotion3BuffSpellEffect",
+    }, //BATTLE POTION III
+    "BattlePotion4Cooldown": {
+      "$type": "SaveableTrauma",
+      "Id" : "eae25ac9-3c84-4580-a53d-f6e656a299fc",
+      "Buff": "/UtilPrefabs/Spells/Consumables/BattlePotion4BuffSpellEffect",
+    }, //EXPERIMENTAL TRAUMAS
+    "Void_Power_1": {
+      "$type": "TraumaGiverDef",
+      "Id": "5d6f80bc-99da-4987-853a-cb1c9cfee0ad",
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Void_Power_1",
+    },
+    "Void_Power_2": {
+      "$type": "TraumaGiverDef",
+      "Id": "79e9ede5-e6cb-4fcd-a5ee-b743d03102c6",
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Void_Power_2",
+    },
+    "Void_Power_3": {
+      "$type": "TraumaGiverDef",
+      "Id": "bfe95955-2d48-4cff-863f-c1bed6600e80",
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Void_Power_3",
+    },
+    "Void_Power_4": {
+      "$type": "TraumaGiverDef",
+      "Id": "de92476c-9dbb-4156-8dcb-670ceda7f6c6",
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Void_Power_4",
+    },
+    "Void_Power_5": {
+      "$type": "TraumaGiverDef",
+      "Id": "0d46ee59-d630-4a27-b049-586e63c381b5",
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Void_Power_5",
+    },
+    "Void_Power_6": {
+      "$type": "TraumaGiverDef",
+      "Id": "68ced63b-9737-452f-8f03-d80cc9cce221",
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Void_Power_6",
+    },
+    "Void_State": {
+      "$type": "TraumaGiverDef",
+      "Predicate": {
+        "$type": "PredicateEquals<Resource>",
+        "Lhs": {
+          "$type": "CalcerFaction",
+          "Entity": {
+            "$type": "CalcerThisEntity"
+          }
+        },
+        "Rhs": {
+          "$type": "CalcerResource",
+          "Value": "/Inventory/Factions/Host"
+        }
+      },
+      "Id": "c8b2cd36-a495-4816-b534-c85d209be779",
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Void_State",
+    },
+    "Void_Life_Timer": {
+      "$type": "TraumaGiverDef",
+      "Id": "12cf8b41-fa02-4d3f-bec3-66389af2fa87",
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Void_Life_Timer",
+    },
+    "NegEffClanMobSlow": {
+      "$type": "SaveableTrauma",
+      "Id": "f3ccb8d6-f1dc-4515-b7b4-4e88bc1babff",
+      "Buff": "/UtilPrefabs/Traumas/NegEffClanMobSlow",
+      "TraumaPoints": 5,
+    },
+    "NegEffHivePsiDmg": {
+      "$type": "SaveableTrauma",
+      "Id": "3d3ae048-4fb3-44b5-8575-a5b438b61754",
+      "Buff": "/UtilPrefabs/Traumas/NegEffHivePsiDmg",
+      "TraumaPoints": 5,
+    },
+    "NegEffSahrimSlow": {
+      "$type": "SaveableTrauma",
+      "Id": "4375fafb-04c3-4910-a6d9-81bfb2fb7097",
+      "Buff": "/UtilPrefabs/Traumas/NegEffSahrimSlow",
+      "TraumaPoints": 5,
+    },
+    "NegEffNearDeath": {
+      "$type": "TraumaGiverDef",
+      "Id": "38f7b38e-417c-44c7-a24c-ce29c95e8ab9",
+      "Predicate": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent"
+        },
+        "Rhs": {
+          "$type": "CalcerConstant",
+          "Value": 100
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/NegEffNearDeath"
+    },
+    "NegEffNearDeathQuest": {
+      "$type": "TraumaGiverDef",
+      "Id": "7f010d9a-ca89-42e8-913f-aa8fe19ae201",
+      "Predicate": {
+        "$type": "PredicateAnd",
+        "Predicates": [
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 600
+            }
+          },
+          {
+            "$type": "PredicateNot",
+            "Value": {
+              "$type": "PredicateHasTraumas",
+              "TraumaTypes": [
+                "PosEffSated1"
+              ]
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Spells/Quests/TemperatureQuests/GoodHealthQuest/GoodHealthQuest_Start"
+    },
+    "NegEffDangerArea": {
+      "$type": "TraumaGiverDef",
+      "Id": "5480dc7c-e74e-4526-84f5-daf3876f9be0",
+      "Predicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+        },
+        "Rhs": {
+          "$type": "CalcerConstant",
+          "Value": 35
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/NegEffDangerArea"
+    }, //POSITIVE EFFECTS
+    "PosEffDropzone": {
+      "$type": "SaveableTrauma",
+      "Id": "8e01d1a9-8133-4443-b03e-21799e39cacf",
+      "Buff": "/UtilPrefabs/Traumas/PosEffDropzone",
+    },
+    "PosEffSated1": {
+      "$type": "TraumaGiverDef",
+      "Id": "2d6116b1-17bc-43be-8d8f-903aa5ef97c3",
+      "Predicate": {
+        "$type": "PredicateAnd",
+        "Predicates": [
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerDiv",
+              "Dividend": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Satiety/SatietyCurrent"
+              },
+              "Divisor": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Satiety/SatietyMax"
+              }
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 0.7
+            }
+          },
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerDiv",
+              "Dividend": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent"
+              },
+              "Divisor": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Satiety/WaterBalanceMax"
+              }
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 0.7
+            }
+          },
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/Intoxication"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 1
+            }
+          }
+        ]
+      },
+      "EndPredicate": {
+        "$type": "PredicateOr",
+        "Predicates": [
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerDiv",
+              "Dividend": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Satiety/SatietyCurrent"
+              },
+              "Divisor": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Satiety/SatietyMax"
+              }
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 0.7
+            }
+          },
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerDiv",
+              "Dividend": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent"
+              },
+              "Divisor": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Satiety/WaterBalanceMax"
+              }
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 0.7
+            }
+          },
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/NegativeFactors/Intoxication"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 0
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/PosEffSated1",
+    },
+    "PosEffEnergyBurst0": {
+      "$type": "SaveableTrauma",
+      "Id": "aa8a28d5-8b29-442f-ac59-cbceb1025163",
+      "Buff": "/UtilPrefabs/Traumas/PosEffEnergyBurst0",
+    },
+    "PosEffEnergyBurst1": {
+      "$type": "SaveableTrauma",
+      "Id": "fecbdbb0-de9a-42da-b1e8-3cb250493ef8",
+      "Buff": "/UtilPrefabs/Traumas/PosEffEnergyBurst1",
+    },
+    "PosEffJumpGel": {
+      "$type": "SaveableTrauma",
+      "Id": "15992040-7e06-4a6a-8479-38698ca7f24a",
+      "Buff": "/Inventory/Items/Quest/JumpingGelBuffSpell",
+    },
+    "PosEffFood1": {
+      "$type": "SaveableTrauma",
+      "Id": "c81b13f8-7998-4495-aa7c-d8bdd6c21704",
+      "EndPredicate": {
+        "$type": "PredicateHasTraumas",
+        "TraumaTypes": [
+          "PosEffFood2"
+        ]
+      },
+      "Buff": "/UtilPrefabs/Traumas/PosEffFood1",
+    },
+    "PosEffFood2": {
+      "$type": "SaveableTrauma",
+      "Id": "24dbf3f3-7930-4d7d-bb7e-c50d7d76dc92",
+      "Buff": "/UtilPrefabs/Traumas/PosEffFood2",
+    },
+    "PosEffFoodHotProtect2": {
+      "$type": "SaveableTrauma",
+      "Id": "496a2634-4643-4561-9ef1-30914d2ecfd2",
+      "Buff": "/UtilPrefabs/Traumas/PosEffFoodHotProtect2",
+    },
+    "PosEffFoodToxicProtect3": {
+      "$type": "SaveableTrauma",
+      "Id": "8ed91129-f69c-4e4f-b6e4-da1c3db8cb8c",
+      "Buff": "/UtilPrefabs/Traumas/PosEffFoodToxicProtect3",
+    },
+    "PosEffFoodColdProtect2": {
+      "$type": "SaveableTrauma",
+      "Id": "f06ac616-7578-40ff-bba2-ac429de4ee82",
+      "Buff": "/UtilPrefabs/Traumas/PosEffFoodColdProtect2",
+    }, //KOSTIL' EFFECTS
+    "QuestEffectHostStage": {
+      "$type": "TraumaGiverDef",
+      "Id": "0683e44e-c874-4bf9-8611-2cf96f82854a",
+      "Predicate": {
+        "$type": "PredicateInRange",
+        "Min": {
+          "$type": "CalcerConstant",
+          "Value": 1.9
+        },
+        "Max": {
+          "$type": "CalcerConstant",
+          "Value": 2.1
+        },
+        "Value": {
+          "$type": "CalcerStat",
+          "Stat": "/UtilPrefabs/Stats/PlayerFaction"
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Quest/QuestEffectHostStage"
+    },
+    "NegEffectHealCooldown": {
+      "$type": "SaveableTrauma",
+      "Id": "97e10e5c-d2a8-4a52-a9eb-ccca6624f4bc",
+      "Buff": "/UtilPrefabs/Traumas/NegEffHealCooldown"
+    },
+    "NegEffectTeleportCooldown": {
+      "$type": "SaveableTrauma",
+      "IgnoresDeath": true,
+      "Id": "505ab76d-7d99-47c1-aba5-6f1e569d709b",
+      "Buff": "/UtilPrefabs/Traumas/NegEffTeleportCooldown"
+    }, //Ability tracking
+    "Ability_4": {
+      "$type": "TraumaGiverDef",
+      "Id": "5c55fd78-6d7d-4a5f-a079-821010ffe9f0",
+      "Predicate": {
+        "$type": "PredicateAnd",
+        "Predicates": [
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/AbilityType"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 15.99
+            }
+          },
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/AbilityType"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 31.99
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Ability4EnableSpell"
+    },
+    "Ability_3": {
+      "$type": "TraumaGiverDef",
+      "Id": "cf5409b3-700c-4de4-a789-a832ff7e08fd",
+      "Predicate": {
+        "$type": "PredicateAnd",
+        "Predicates": [
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/AbilityType"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 7.99
+            }
+          },
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/AbilityType"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 15.99
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Ability3EnableSpell"
+    },
+    "Ability_2": {
+      "$type": "TraumaGiverDef",
+      "Id": "f2d8d2fe-fd99-4a83-8bcd-b769ef412915",
+      "Predicate": {
+        "$type": "PredicateAnd",
+        "Predicates": [
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/AbilityType"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 3.99
+            }
+          },
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/AbilityType"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 7.99
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Ability2EnableSpell"
+    },
+    "Ability_1": {
+      "$type": "TraumaGiverDef",
+      "Id": "fe8498b4-67c9-4b9b-91ee-e9eff9377e35",
+      "Predicate": {
+        "$type": "PredicateAnd",
+        "Predicates": [
+          {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/AbilityType"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 1.99
+            }
+          },
+          {
+            "$type": "PredicateLess",
+            "Lhs": {
+              "$type": "CalcerStat",
+              "Stat": "/UtilPrefabs/Stats/AbilityType"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 3.99
+            }
+          }
+        ]
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Ability1EnableSpell"
+    },
+    "Host": {
+      "$type": "TraumaGiverDef",
+      "Id": "36A54326-A254-4D94-9BAA-36642F010834",
+      "Predicate": {
+        "$type": "PredicateEquals<Resource>",
+        "Lhs": {
+          "$type": "CalcerFaction",
+          "Entity": {
+            "$type": "CalcerThisEntity"
+          }
+        },
+        "Rhs": {
+          "$type": "CalcerResource",
+          "Value": "/Inventory/Factions/Host"
+        }
+      },
+      "DebuffSpellRef": "/UtilPrefabs/Traumas/Host"
+    }
+  }//end of TraumaGivers
+}

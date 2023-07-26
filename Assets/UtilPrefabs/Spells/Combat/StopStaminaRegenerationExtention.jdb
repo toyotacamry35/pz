@@ -1,0 +1,63 @@
+{
+  "$type": "SpellDef",
+  "Name": "Stop Stamina Regeneration",
+  //This is NOT stamina regeneration block duration
+  "Duration": 2.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "ClearsSlot": true,
+  "Words": [
+    {
+      "$type": "PredicateCompareStat",
+      "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+      "Type": "Less",
+      "Value": 5
+    },
+  ],
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0.9,
+        "Words": [
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "UseClampMax": true,
+            "ClampMax": 0.0,
+          },
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.9,
+      "OverridenDuration": 1,
+      "OverrideDuration": true,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 1,
+        "Words": [
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "Enabled": true,
+            "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+            "Target": {
+              "$type": "SpellCasterDef"
+            },
+            "Multiplier": 0.500
+          },
+        ]
+      }
+    }
+  ]
+}

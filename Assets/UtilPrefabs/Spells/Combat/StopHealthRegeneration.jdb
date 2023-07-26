@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Name": "Stop Health Regeneration",
+  "Duration": 30.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/HealthSpellGroup",
+  "OutlineColorIndex": 0,
+  "ClearsSlot":true,
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrentRegenModifier",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 0.0,
+      "UseClampMin": true,
+      "ClampMin": 0.0
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$type": "SpellDef",
+  "$id": "AirborneReaction",
+  "IsInfinite": true,
+  "ClearsSlot": true,
+  "Words": [
+//    {
+//      "$type": "ImpactStopAllSpellsOfGroups",
+//      "Reason": "Fail",
+//      "Groups": [
+//        "/UtilPrefabs/Spells/Groups/ReactionSpellGroup"
+//      ]
+//    },
+    {
+      "$type": "EffectInputLayer"
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/CombatAndInteraction"
+    }
+  ],
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.1,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputWindow",
+            "Delay": 0,
+            "Handlers": {
+              "/UtilPrefabs/Input/Actions/Attack": {
+                "$type": "InputActionHandlerCombined",
+                "Handlers": [
+                  {
+                    "$type": "InputActionHandlerTriggerRedirect",
+                    "Action": "/UtilPrefabs/Input/Actions/AttackAirborne"
+                  },
+                  {
+                    "$type": "InputActionHandlerSpellBreaker"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

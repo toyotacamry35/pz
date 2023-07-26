@@ -1,0 +1,115 @@
+{
+  "$type": "SpellDef",
+  "Name": "SpearBioAttack",
+  "Duration": 2.4,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 1.6,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Throwing",
+        "SpellWrapperOriginal": null,
+        "Name": "Throwing",
+        "Duration": 1.0,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactRaiseEventDef",
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "From": {
+              "$type": "SpellCasterDef"
+            },
+            "Radius": 40.0,
+            "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEvent",
+            "WhenToApply": "OnStart"
+          },
+          {
+            "$type": "ImpactThrowDef",
+            "InitialAngleForTarget": 45.0,
+            "ThrowAngle": 40.0,
+            "OptionalTarget": null,
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "AppliedSpells": [
+              {
+                "$type": "SpellDef",
+                "$overrideVars": {
+                  "DURATION": 1
+                },
+                "$proto": "/UtilPrefabs/Spells/Reactions/Invoke/InvokeStagger",
+              }
+            ],
+            "ItemResourceStatic": null,
+            "WhenToApply": "OnStart"
+          },
+          {
+            "$type": "ImpactUse1AmmoDef",
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "WhenToApply": "OnSuccess"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectInputLayer",
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/Locomotion"
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Rotator": {
+        "$type": "HardBindToCameraRotator"
+      }
+    },
+    {
+      "$type": "EffectSetAnimatorTriggerDef",
+      "AnimatorParameter": "/UtilPrefabs/Res/AnimatorParameters/Attack"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "PredicateCheckAmmoDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Policy": "OnStart",
+      "Inversed": false
+    }
+  ]
+}

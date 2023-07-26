@@ -1,0 +1,82 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes":
+    [
+        {
+            "DamageTypes": 
+            [
+                "/UtilPrefabs/DamageTypes/DTPiercing",
+                "/UtilPrefabs/DamageTypes/DTSlashing"
+            ],
+            "LootTableTable": 
+            {
+                "$type": "LootTableDef",
+                "LootTable":
+                [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableThistleHead",
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 15
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTablePlantScraps",
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "DamageTypes": 
+            [
+                   "/UtilPrefabs/DamageTypes/DTCrushing",
+                   "/UtilPrefabs/DamageTypes/DTCutting",
+            ],
+            "LootTableTable": 
+            {
+                "$type": "LootTableDef",
+                "LootTable":
+                [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableThistleHead",
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTablePlantScraps",
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 15
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

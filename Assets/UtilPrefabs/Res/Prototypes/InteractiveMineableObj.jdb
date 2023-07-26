@@ -1,0 +1,48 @@
+{
+    "$type": "UnityGameObjectDef",
+    "$vars": {
+        "ON_SIMPLE_HIT_FX":{
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Craft&Harvest/Default_Hit"
+        }
+    },
+    "Components": [
+        {
+            "$type": "EntityGameObject"
+        },
+        {
+            "$type": "VisualEventProxy",
+            "Events": {
+                "$type": "FXEvents",
+                "$overrideVars": {
+                    "ON_SIMPLE_HIT_FX": "@ON_SIMPLE_HIT_FX"
+                },
+                "$proto": "/SpawnSystem/Objects/Events/MineableFXEvents",
+            }
+        },
+        {
+            "$type": "InteractiveDef",
+            "ContextualActions": {
+                "$type": "ContextualActionsDef",
+                "SpellsByAction": {
+                    "/UtilPrefabs/Input/Actions/Interaction": {
+                        "0": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/BasicMoveSet/InteractKnowledge"
+                        }
+                    },
+                    /*"/UtilPrefabs/Input/Actions/Info": {
+                        "0": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/BasicMoveSet/InteractInfo"
+                        }
+                    }*/
+                }
+            },
+            "ReuseExisting": true
+        },
+        {
+            "$type": "WorldObjectInformer"
+        }
+    ]
+}

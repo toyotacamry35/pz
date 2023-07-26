@@ -1,0 +1,44 @@
+{
+  "$type": "SpellDef",
+  "SpellWrapperOriginal": "Assets/UtilPrefabs/Traumas/NegEffIntoxication4",
+  "Name": "NegEffIntoxication4",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/CalorieConsumptionMod",
+      "Summand": 0.2
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterConsumptionMod",
+      "Summand": 0.4
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Summand": 20.0
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503091"
+      }
+    }
+  ]
+}

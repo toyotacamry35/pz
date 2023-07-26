@@ -1,0 +1,40 @@
+{
+  "$type": "SpellDef",
+  "Duration": 5.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key06Quest/Alt_Key06Quest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key06Quest/Alt_Key06Quest_DeathPlace_POI_KW"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key06Quest/Alt_Key06Quest_Backpack_KW" 
+    },
+    {
+      "$type": "EffectShowText",
+      "ShowForEveryone": true,
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n505054"
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n4091"
+  }
+}

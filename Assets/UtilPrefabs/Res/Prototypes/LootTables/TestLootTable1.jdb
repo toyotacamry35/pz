@@ -1,0 +1,73 @@
+{
+    "$type": "LootTableDef",
+    "LootTable": [
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/ItemBractusResin",
+                "Count": 5
+            },
+            //"Predicate": 
+            //{
+            //    //"$type": "LootTablePredicateFalseDef"
+            //    "$type": "LootTablePredicateIsAnyOfDamageTypesInLootRequestDef",
+            //    "DamageTypes": 
+            //    [
+            //        "/UtilPrefabs/DamageTypes/DTSlashing",
+            //        "/UtilPrefabs/DamageTypes/DTCutting"
+            //    ]
+            //},
+            "WeightCalcer": {
+                // "$type": "ClusterCalcerByLootRequestDef",
+                // "Value": 14.5
+                "$type": "LootItemChanceWeightCalcerByLootRequestDamageTypeDef",
+                "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+                "Weight": 70
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/Scraps",
+                "Count": 7
+            },
+            //"Predicate": 
+            //{
+            //    //"$type": "LootTablePredicateTrueDef"
+            //    "$type": "LootTablePredicateIsAnyOfDamageTypesInLootRequestDef",
+            //    "DamageTypes": 
+            //    [
+            //        "/UtilPrefabs/DamageTypes/DTCrushing",
+            //        "/UtilPrefabs/DamageTypes/DTPiercing"
+            //    ]
+            //},
+            "WeightCalcer": {
+                // "$type": "ClusterCalcerByLootRequestDef",
+                // "Value": 25.6
+                "$type": "LootItemChanceWeightCalcerByLootRequestDamageTypeDef",
+                "DamageType": "/UtilPrefabs/DamageTypes/DTSlashing",
+                "Weight": 30
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/SpiralStem",
+                "Count": 11
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerByLootRequestDamageTypeDef",
+                "DamageType": "/UtilPrefabs/DamageTypes/DTCutting",
+                "Weight": 0.2
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/SpiralSprout",
+                "Count": 13
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerByLootRequestDamageTypeDef",
+                "DamageType": "/UtilPrefabs/DamageTypes/DTPiercing",
+                "Weight": 0.1
+            }
+        }
+    ]
+}

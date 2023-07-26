@@ -1,0 +1,54 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/BoilerUnlockQuest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/BoilerUnlockQuest_CompletedKW"
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Res/StoutFoam",
+      "Count": 5
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Res/Antifreeze",
+      "Count": 5
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Res/FungalShard",
+      "Count": 40
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/BoilerUnlockQuest_CompletedKW" 
+    },
+    {
+      "$type": "ImpactRemoveItemDef", 
+      "Item": "/Inventory/Items/Res/StoutFoam",
+      "Count": 5
+    },
+    {
+      "$type": "ImpactRemoveItemDef", 
+      "Item": "/Inventory/Items/Res/Antifreeze",
+      "Count": 5
+    },
+    {
+      "$type": "ImpactRemoveItemDef", 
+      "Item": "/Inventory/Items/Res/FungalShard",
+      "Count": 40
+    }
+  ]
+}

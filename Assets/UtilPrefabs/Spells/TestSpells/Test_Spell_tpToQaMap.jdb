@@ -1,0 +1,31 @@
+{
+    "$type": "SpellDef",
+    "Name": "Test_Spell_tpToQaMap",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": true,
+    "SpellIcon": null,
+    "DontShowProgress": false,
+    "Group": null,
+    "IgnoresDeath":true,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": 
+    [
+        {
+            "$type": "ImpactAddItems",
+            "Items": [
+                "/Inventory/Items/Res/Stone"
+            ]
+        },
+        {
+            "$type": "ImpactUseGateway",
+            "Target": {
+                "$type": "SpellCasterDef"
+            },
+            "WhenToApply": "OnSuccess",
+            "Map": "/Scenes/QAMap"
+        }
+    ],
+  }
+  

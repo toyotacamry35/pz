@@ -1,0 +1,33 @@
+{
+  "$type": "WorldPersonalMachineDef",
+  "Id": "d9f88441-12ec-4fb3-a66e-41240931078e",
+  "NameLs": {
+    "Key": "#l10n504436"
+  },
+  "Prefab": "Assets/Content/Craft/benchPress/benchPress",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/Mounting/Press_InteractiveDef",
+  "InitialSpells": [],
+  "WorkbenchType": "/Inventory/WorkbenchType/Press",
+  "TitleIcon": "Assets/UI/UISprites/ItemsDB/ContextView/InfoIconHouse",
+  "OutContainerSize": 16,
+  "MaxQueueSize": 8,
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 1000,
+      "DURABILITY_INITIALVALUE": 1000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "20226bee-d8ef-40ed-9404-573be0428b2a"
+  },
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 5
+      }
+    ]
+  }
+}

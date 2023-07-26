@@ -1,0 +1,25 @@
+{
+  "$type": "SpellDef",
+  "Name": "TakeAll",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/Spells/IconTake",
+  // "InteractionDescription": "Take all",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactCraftMachineTakeAllDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnSuccess"
+    }
+  ]
+}

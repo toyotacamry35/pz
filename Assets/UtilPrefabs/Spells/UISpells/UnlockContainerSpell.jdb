@@ -1,0 +1,46 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0,
+  "Words": [
+    {
+      "$type": "ImpactSetLock",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Predicate": null
+    },
+    {
+      "$type": "PredicateCheckIfInRangeDef",
+      "Enabled": true,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Range": "5",
+      "Inversed": false
+    },
+    {
+      "$type": "PredicateCheckIfHasAccessRightsDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      }
+    },
+    {
+      "$type": "PredicateHasLock",
+      "Target": {
+        "$type": "SpellTargetDef"
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3058"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Name": "BePickedUp",
+  "Duration": 0.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactGrantItemDef",
+      "Enabled": true,
+      "GrantRandom": false,
+      "GrantingItems": [],
+      "Receiver": {
+        "$type": "SpellTargetDef"
+      },
+      "InteractiveGranter": {
+        "$type": "SpellCasterDef"
+      },
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "ImpactDestroyObjectDef",
+      "Enabled": true,
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "WhenToApply": "OnSuccess"
+    }
+  ]
+}

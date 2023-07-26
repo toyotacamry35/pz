@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Words": [
+    {
+      "$type": "SpellPredicateFromCalcerPredicate",
+      "Predicate": {
+        "$type": "PredicateFounder",
+        "Pack": "twitch_standard"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/FounderPacks/Twitch_standard_TakenKW"
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Exclusive/Standart_Twitch"
+      ],
+      "Count": 1
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/FounderPacks/Twitch_standard_TakenKW",
+      "WhenToApply": "OnSuccess"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key06Quest/Key06Quest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Key06Quest/Key06Quest_CompletedKW"
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Res/LifeEssence",
+      "Count": 80
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key06Quest/Key06Quest_CompletedKW" 
+    },
+    {
+      "$type": "ImpactRemoveItemDef", 
+      "Item": "/Inventory/Items/Res/LifeEssence",
+      "Count": 80
+    },
+    {
+      "$type": "ImpactGrantAccountReward", 
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Reward": "/Sessions/Rewards/Key06Quest_Reward"
+    }
+  ]
+}

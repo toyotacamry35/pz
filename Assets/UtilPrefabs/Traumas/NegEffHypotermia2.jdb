@@ -1,0 +1,33 @@
+{
+  "$type": "SpellDef",
+  "Name": "NegEffHypotermia2",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": -0.1
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/SpeedFactor",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": -0.1,
+      "UseClampMax": true,
+      "ClampMax": 0.9
+    }
+  ]
+}

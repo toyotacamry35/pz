@@ -1,0 +1,31 @@
+{
+    "$type": "SpellDef",
+    "Duration": 1.0,
+    "IsInfinite": true,
+    "AllowMultiple": false,
+    "DontShowProgress": true,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "ClearsSlot": true,
+    "Words": [
+        {
+            "$type": "PredicateKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/PhoeticSignalQuest/PhoeticSignalQuest_CompletedKW"
+        },
+        {
+            "$type": "PredicateCheckItemDef",
+            "Item": "/Inventory/Items/Quest/PhoeticSignalQuest/PRKillerNotes",
+            "Count": 1
+        },
+        {
+            "$type": "PredicateKnowledgeDef",
+            "Inversed": true,
+            "Knowledge": "/Inventory/Knowledge/Quest/PhoeticSignalQuest/PhoeticSignalQuest_Kulibin_TalkKW"
+        },
+        {
+            "$type": "ImpactAddKnowledgeDef",
+            "WhenToApply": "OnSuccess",
+            "Knowledge": "/Inventory/Knowledge/Quest/PhoeticSignalQuest/PhoeticSignalQuest_Kulibin_TalkKW"
+        }
+    ]
+}

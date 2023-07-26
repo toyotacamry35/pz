@@ -1,0 +1,48 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key04Quest/Key04Quest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Key04Quest/Key04Quest_CompletedKW"
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Quest/Key04Quest/Cryogel",
+      "Count": 30
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Key04Quest/Key04Quest_CompletedKW" 
+    },
+    {
+      "$type": "ImpactRemoveItemDef", 
+      "Item": "/Inventory/Items/Quest/Key04Quest/Cryogel",
+      "Count": 30
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Currencies/TechPointR2"
+      ],
+      "Count": 6
+    },
+    {
+      "$type": "ImpactGrantAccountReward",
+      "Target": {
+        "$type": "SpellCaster"
+      }, 
+      "Reward": "/Sessions/Rewards/Key04Quest_Reward"
+    }
+  ]
+}

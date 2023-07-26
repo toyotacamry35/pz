@@ -1,0 +1,27 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef", //проверяем, что игрок брал квест - есть ли у него кновледж, выдающийся при взятии квеста?
+      "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_TakenKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+    },
+    {
+      "$type": "PredicateKnowledgeDef", //проверяем, что игрок брал квест - есть ли у него кновледж, выдающийся при взятии квеста?
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_ColonistSaimonKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_ColonistSaimonKW"
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3717"
+  }
+}

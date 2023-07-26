@@ -1,0 +1,21 @@
+{
+  "$type": "CalcerMul",
+  "$vars": {
+    "COST" : {
+      "Type": "float",
+      "Value": 0
+    }
+  },
+  "Multipliers": [
+    {
+      "$type": "CalcerConstant<float>",
+      "Value": "@COST" 
+    },
+    {
+      "$type": "CalcerSpellModifier",
+      "Variable": "/UtilPrefabs/Spells/Variables/StaminaCostMultiplier", // ссылка на переменную которая указывается в перке или баффе
+      "StackingPolicy": "Multiply", // что делать если есть несколько модификаторов для этой переменной (Multiply - перемножить все можификаторы, Add - сложить, Min - взять минимальный, Max - взять максимальный)
+      "DefaultValue": 1 // значение калкера, если нет ни одного модификатора (если калкер умножается на что-то, то должно быть 1, если складывается с чем то 0)
+    }
+  ]
+}

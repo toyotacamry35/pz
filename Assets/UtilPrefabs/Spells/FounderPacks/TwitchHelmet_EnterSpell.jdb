@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Words": [
+    {
+      "$type": "SpellPredicateFromCalcerPredicate",
+      "Predicate": {
+        "$type": "PredicateFounder",
+        "Pack": "twitch_helmet"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/FounderPacks/Twitch_helmet_TakenKW"
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Exclusive/Armor_Twitch_head"
+      ],
+      "Count": 1
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/FounderPacks/Twitch_helmet_TakenKW",
+      "WhenToApply": "OnSuccess"
+    }
+  ]
+}

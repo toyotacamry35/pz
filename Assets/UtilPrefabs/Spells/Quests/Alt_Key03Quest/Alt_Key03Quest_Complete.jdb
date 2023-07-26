@@ -1,0 +1,50 @@
+{
+  "$type": "SpellDef",
+  "Duration": 5.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key03Quest/Alt_Key03Quest_CompletedKW"
+    },
+    {
+      "$type": "EffectShowText",
+      "ShowForEveryone": true,
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n5095"
+      }
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Quest/AltKey03Quest/Watch"
+      ],
+      "Count": 1
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Currencies/TechPointR2"
+      ],
+      "Count": 6
+    },
+    {
+      "$type": "ImpactGrantAccountReward", 
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Reward": "/Sessions/Rewards/Alt_Key03Quest_Reward" 
+    }
+  ]
+}

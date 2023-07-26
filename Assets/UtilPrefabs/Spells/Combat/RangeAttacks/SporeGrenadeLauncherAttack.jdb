@@ -1,0 +1,131 @@
+{
+  "$type": "SpellDef",
+  "Name": "SporeGrenadeLauncherAttack",
+  "Duration": 1.0,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.35,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.1,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Shooting",
+        "SpellWrapperOriginal": null,
+        "Name": "Shooting",
+        "Duration": 0.0,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactRaiseEventDef",
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "From": {
+              "$type": "SpellCasterDef"
+            },
+            "Radius": 40.0,
+            "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEvent",
+            "WhenToApply": "OnStart"
+          },
+          {
+            "$type": "ImpactThrowDef",
+            "InitialAngleForTarget": 45.0,
+            "ThrowAngle": 20.0,
+            "OptionalTarget": null,
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "AppliedSpells": [
+              {
+                "$type": "SpellDef",
+                "$overrideVars": {
+                  "DURATION": 1
+                },
+                "$proto": "/UtilPrefabs/Spells/Reactions/Invoke/InvokeStagger",
+              }
+            ],
+            "ItemResourceStatic": null,
+            "WhenToApply": "OnStart"
+          },
+          {
+            "$type": "ImpactUse1AmmoDef",
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "WhenToApply": "OnSuccess"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectSetAnimatorTriggerDef",
+      "AnimatorParameter": "/UtilPrefabs/Res/AnimatorParameters/Attack"
+    },
+    {
+      "$type": "EffectInputLayer",
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera"
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Rotator": { "$type": "HardBindToCameraRotator" }
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "PredicateCheckAmmoDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Policy": "OnStart",
+      "Inversed": false
+    },
+    {
+      "$type": "PredicateCompareStatDef",
+      "Type": "More",
+      "Stat": "/UtilPrefabs/Stats/AimingFactor",
+      "Value": 0.0
+    },
+    {
+      "$type": "EffectInputLayer",
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/Locomotion"
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Rotator": { "$type": "HardBindToCameraRotator" }
+    }
+  ]
+}

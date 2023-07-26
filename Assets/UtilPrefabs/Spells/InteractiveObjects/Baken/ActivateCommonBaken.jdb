@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Name": "ActivateCocoon",
+  "Duration": 1,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "Words": [
+    {
+      "$type": "PredicateBakenCanBeActivatedDef",
+      "Source": {
+        "$type": "SpellCaster"
+      },
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "CommonBaken": true
+    },
+    {
+      "$type": "ImpactActivateBakenDef",
+      "Source": {
+        "$type": "SpellCaster"
+      },
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "CommonBaken": true
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n2506"
+  }
+}

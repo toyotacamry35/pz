@@ -1,0 +1,84 @@
+{
+    "$type": "UnityGameObjectDef",
+    /*"Children": [
+        {
+            "$type": "UnityGameObjectDef",
+            "Name": "StatsFromJson",
+            "Children": [
+                {
+                    "$type": "UnityGameObjectDef",
+                    "Name": "DamageAbsorption",
+                    "Components": [
+                        // Cutting:
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionCutting",
+                            "InitialValue": 10
+                        },
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCutting",
+                            "InitialValue": 10
+                        },
+                        // Slashing:
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionSlashing",
+                            "InitialValue": 20
+                        },
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+                            "InitialValue": 20
+                        },
+                        // Crushing:
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionCrushing",
+                            "InitialValue": 90
+                        },
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+                            "InitialValue": 90
+                        },                        
+                        // Piercing:
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionPiercing",
+                            "InitialValue": 20
+                        },
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+                            "InitialValue": 20
+                        },
+                        // Generic:
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionGeneric",
+                            "InitialValue": 1
+                        },
+                        {
+                            "$type": "AccumulatedStatDef",
+                            "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceGeneric",
+                            "InitialValue": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ],*/
+    "Components": [
+        {
+            "$type": "MineableObjectDef",
+            "$id": "MineableObject",
+            "ReuseExisting": true
+        },
+        {
+            "$type": "DestructControllerDef",
+            "HealthOwner": "$MineableObject",
+            "ReuseExisting": true
+        }
+    ]
+}

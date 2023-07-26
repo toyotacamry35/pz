@@ -1,0 +1,273 @@
+{
+    // Raw_hypothermia_per_second = (potential_hypothermia_head*0,2 + potential_hypothermia_chest*0,3 + potential_hypothermia_legs*0,3 + potential_hypothermia_arms*0,2) - thermotaxis_warming
+    //= (potential_hypothermia_head*0,2 + potential_hypothermia_chest*0,3 + potential_hypothermia_legs*0,3 + potential_hypothermia_arms*0,2) 
+    // - thermotaxis_warming
+    "$type": "CalcerSum",
+    "Summands": [ 
+        {
+            // (potential_hypothermia_head*0,2 + potential_hypothermia_chest*0,3 + potential_hypothermia_legs*0,3 + potential_hypothermia_arms*0,2)
+            "$type": "CalcerSum",
+            "Summands": [
+                {
+                    // potential_hypothermia_head*0,2
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            // Potential_hypothermia_head = potential_hypothermia *(1-cold_resistance_head/(100+cold_resistance_head))*(1+humidity_character/100)
+                            "$type": "CalcerMul",
+                            "Multipliers": [
+                                // potential_hypothermia
+                                "/UtilPrefabs/Res/Prototypes/PotentialHypothermiaCalcer",
+                                {
+                                    // 1-cold_resistance_head/(100+cold_resistance_head)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        1,
+                                        {
+                                            "$type": "CalcerNegative",
+                                            "Value": {
+                                                "$type": "CalcerDiv",
+                                                "Dividend": {
+                                                    // cold_resistance_head
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceHead"
+                                                },
+                                                "Divisor": {
+                                                    // 100+cold_resistance_head
+                                                    "$type": "CalcerSum",
+                                                    "Summands": [
+                                                        100,
+                                                        {
+                                                            "$type": "CalcerStat",
+                                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceHead"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    // 1+ humidity_character/100
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        1,
+                                        {
+                                            "$type": "CalcerDiv",
+                                            "Dividend": {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                            },
+                                            "Divisor": 100
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": 0.2
+                        }
+                    ]
+                },
+                {
+                    // potential_hypothermia_chest*0,3
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            // Potential_hypothermia_chest = potential_hypothermia *(1-cold_resistance_chest/(100+cold_resistance_chest))* (1+humidity_character/100)
+                            "$type": "CalcerMul",
+                            "Multipliers": [
+                                // potential_hypothermia
+                                "/UtilPrefabs/Res/Prototypes/PotentialHypothermiaCalcer",
+                                {
+                                    // 1-cold_resistance_chest/(100+cold_resistance_chest)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        1,
+                                        {
+                                            "$type": "CalcerNegative",
+                                            "Value": {
+                                                "$type": "CalcerDiv",
+                                                "Dividend": {
+                                                    // cold_resistance_chest
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceChest"
+                                                },
+                                                "Divisor": {
+                                                    // 100+cold_resistance_chest
+                                                    "$type": "CalcerSum",
+                                                    "Summands": [
+                                                        100,
+                                                        {
+                                                            "$type": "CalcerStat",
+                                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceChest"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    // 1+ humidity_character/100
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        1,
+                                        {
+                                            "$type": "CalcerDiv",
+                                            "Dividend": {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                            },
+                                            "Divisor": 100
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": 0.3
+                        }
+                    ]
+                },
+                {
+                    // potential_hypothermia_legs*0,3
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            // Potential_hypothermia _legs = potential_hypothermia *(1-cold_resistance_legs/(100+cold_resistance_legs))*(1+humidity_character/100)
+                            "$type": "CalcerMul",
+                            "Multipliers": [
+                                // potential_hypothermia
+                                "/UtilPrefabs/Res/Prototypes/PotentialHypothermiaCalcer",
+                                {
+                                    // 1-cold_resistance_legs/(100+cold_resistance_legs)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        1,
+                                        {
+                                            "$type": "CalcerNegative",
+                                            "Value": {
+                                                "$type": "CalcerDiv",
+                                                "Dividend": {
+                                                    // cold_resistance_legs
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceLegs"
+                                                },
+                                                "Divisor": {
+                                                    // 100+cold_resistance_legs
+                                                    "$type": "CalcerSum",
+                                                    "Summands": [
+                                                        100,
+                                                        {
+                                                            "$type": "CalcerStat",
+                                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceLegs"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    // 1+ humidity_character/100
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        1,
+                                        {
+                                            "$type": "CalcerDiv",
+                                            "Dividend": {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                            },
+                                            "Divisor": 100
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": 0.3
+                        }
+                    ]
+                },
+                {
+                    // potential_hypothermia_arms*0,2
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            // Potential_hypothermia _arms = potential_hypothermia *(1-cold_resistance_arms/(100+cold_resistance_arms))*(1+ humidity_character/100)
+                            "$type": "CalcerMul",
+                            "Multipliers": [
+                                // potential_hypothermia
+                                "/UtilPrefabs/Res/Prototypes/PotentialHypothermiaCalcer",
+                                {
+                                    // 1-cold_resistance_arms/(100+cold_resistance_arms)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        1,
+                                        {
+                                            "$type": "CalcerNegative",
+                                            "Value": {
+                                                "$type": "CalcerDiv",
+                                                "Dividend": {
+                                                    // cold_resistance_arms
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceArms"
+                                                },
+                                                "Divisor": {
+                                                    // 100+cold_resistance_arms
+                                                    "$type": "CalcerSum",
+                                                    "Summands": [
+                                                        100,
+                                                        {
+                                                            "$type": "CalcerStat",
+                                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceArms"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    // 1+ humidity_character/100
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        1,
+                                        {
+                                            "$type": "CalcerDiv",
+                                            "Dividend": {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/CharacterHumidity"
+                                            },
+                                            "Divisor": 100
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": 0.2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "$type": "CalcerNegative",
+            "Value": {
+                // thermotaxis_warming = endurance*satiety_mod
+                "$type": "CalcerMul",
+                "Multipliers": [
+                    10,
+                    "/UtilPrefabs/Res/Prototypes/SatietyModCalcer",
+                ]
+            }
+        }
+    ]
+}

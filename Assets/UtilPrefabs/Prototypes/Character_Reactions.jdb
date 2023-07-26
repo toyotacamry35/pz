@@ -1,0 +1,178 @@
+{
+    "$type": "ReactionsDef",
+    "Reactions": {
+        "/UtilPrefabs/Reactions/Stagger": {
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/Stagger",
+            "Params": {
+                "/UtilPrefabs/Spells/Params/Target": {
+                    "$type": "ArgRef<OuterRef>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/Attacker"
+                },
+                "/UtilPrefabs/Spells/Params/SpellDuration": {
+                    "$type": "ArgRef<float>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/Duration"
+                },
+                "/UtilPrefabs/Spells/Params/Direction2": {
+                    "$type": "ArgRef<Vector2>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitDirection"
+                }
+            }
+        },
+        "/UtilPrefabs/Reactions/Recoil": {
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/Recoil",
+            "Params": {
+                "/UtilPrefabs/Spells/Params/SpellDuration": {
+                    "$type": "ArgRef<float>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/Duration"
+                }
+            }            
+        },
+        "/UtilPrefabs/Reactions/TakeDamageInBlock": {
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/TakeDamageInBlock",
+            "Params": {
+                "/UtilPrefabs/Spells/Params/Target": {
+                    "$type": "ArgRef<OuterRef>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/Attacker"
+                },
+                "/UtilPrefabs/Spells/Params/LocalPoint": {
+                    "$type": "ArgRef<Vector3>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitLocalPoint"
+                },
+                "/UtilPrefabs/Spells/Params/LocalRotation": {
+                    "$type": "ArgRef<Quaternion>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitLocalRotation"
+                },
+                "/UtilPrefabs/Spells/Params/ObjectName": {
+                    "$type": "ArgRef<string>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitObject"
+                },
+                "/UtilPrefabs/Spells/Params/DamageType": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitDamageType"
+                },
+                "/UtilPrefabs/Spells/Params/WeaponSize": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitWeaponSize"
+                },
+                "/UtilPrefabs/Spells/Params/AttackType": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitAttackType"
+                }
+            }
+        },
+        "/UtilPrefabs/Reactions/TakeDamageThroughBlock": {
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/TakeDamageThroughBlock",
+            "Params": {
+                "/UtilPrefabs/Spells/Params/Target": {
+                    "$type": "ArgRef<OuterRef>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/Attacker"
+                },
+                "/UtilPrefabs/Spells/Params/LocalPoint": {
+                    "$type": "ArgRef<Vector3>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitLocalPoint"
+                },
+                "/UtilPrefabs/Spells/Params/LocalRotation": {
+                    "$type": "ArgRef<Quaternion>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitLocalRotation"
+                },
+                "/UtilPrefabs/Spells/Params/ObjectName": {
+                    "$type": "ArgRef<string>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitObject"
+                },
+                "/UtilPrefabs/Spells/Params/DamageType": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitDamageType"
+                },
+                "/UtilPrefabs/Spells/Params/WeaponSize": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitWeaponSize"
+                },
+                "/UtilPrefabs/Spells/Params/AttackType": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitAttackType"
+                }
+            }
+        },
+        "/UtilPrefabs/Reactions/CombatStance": {
+            "$type": "ReactionHandlerSpellProlongable",
+            "Spell": "/UtilPrefabs/Spells/Reactions/CombatStance",
+            "Timeout": 5
+        },
+        "/UtilPrefabs/Spells/Reactions/BleedReaction":{
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/BleedReactionSpell"
+        },
+        "/UtilPrefabs/Spells/Reactions/ExecuteReaction":{
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/ExecuteReactionSpell"
+        },
+        "/UtilPrefabs/Spells/Reactions/HeavyHitReaction":{
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/HeavyHitReactionSpell"
+        },
+        "/UtilPrefabs/Reactions/TakeDamage": {
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/TakeDamage",
+            "Params": {
+                "/UtilPrefabs/Spells/Params/Target": {
+                    "$type": "ArgRef<OuterRef>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/Attacker"
+                },
+                "/UtilPrefabs/Spells/Params/LocalPoint": {
+                    "$type": "ArgRef<Vector3>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitLocalPoint"
+                },
+                "/UtilPrefabs/Spells/Params/LocalRotation": {
+                    "$type": "ArgRef<Quaternion>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitLocalRotation"
+                },
+                "/UtilPrefabs/Spells/Params/ObjectName": {
+                    "$type": "ArgRef<string>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitObject"
+                },
+                "/UtilPrefabs/Spells/Params/DamageType": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitDamageType"
+                },
+                "/UtilPrefabs/Spells/Params/WeaponSize": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitWeaponSize"
+                },
+                "/UtilPrefabs/Spells/Params/AttackType": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitAttackType"
+                },
+                "/UtilPrefabs/Spells/Params/HitMaterial": {
+                    "$type": "ArgRef<Resource>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitMaterial"
+                }
+            }
+        },
+        "/UtilPrefabs/Reactions/HitStatic": {
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/HitStatic",
+            "Params": {
+                "/UtilPrefabs/Spells/Params/Target": {
+                    "$type": "ArgRef<OuterRef>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/Victim"
+                },
+                "/UtilPrefabs/Spells/Params/TargetPoint": {
+                    "$type": "ArgRef<Vector3>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitPoint"
+                },
+                "/UtilPrefabs/Spells/Params/Rotation": {
+                    "$type": "ArgRef<Quaternion>",
+                    "Arg": "/UtilPrefabs/Reactions/Args/HitRotation"
+                }
+            }
+        },
+        "/UtilPrefabs/Spells/Reactions/TestFxReaction": {
+            "$type": "ReactionHandlerSpell",
+            "Spell": "/UtilPrefabs/Spells/Reactions/TestFxReactionSpell"
+        }
+    }
+}

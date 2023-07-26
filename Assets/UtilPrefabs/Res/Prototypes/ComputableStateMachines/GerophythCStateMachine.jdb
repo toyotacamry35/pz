@@ -1,0 +1,31 @@
+{
+    "$type": "ComputableStateMachineDef",
+    "StatesTable": [
+        {
+            //"$type": "ComputableStateData",
+            "Predicate": {
+                "$type": "ComputableStateMachinePredicateFalseDef",
+                //#old:
+                // "$type": "ComputableStateMachinePredicateHasLootItemDef",
+                // "ItemRefPack": {
+                //     "ItemResource": "/Inventory/Items/Consumables/GerophitFruit",
+                //     "Count": 1
+                // }
+            },
+            "StateDef": {
+                "$type": "PrefabStateDef",
+                "Prefab": "Assets/Content/Environment/Shared/Interactive/Gerophit/unripeGerophythTest"
+            }
+        }, 
+        {
+            //"$type": "ComputableStateData",
+            "Predicate": {
+                "$type": "ComputableStateMachinePredicateTrueDef"
+            },
+            "StateDef": {
+                "$type": "PrefabStateDef",
+                "Prefab": "Assets/Content/Environment/Shared/Interactive/Gerophit/unripeGerophyth"
+            }
+        }        
+    ]
+}

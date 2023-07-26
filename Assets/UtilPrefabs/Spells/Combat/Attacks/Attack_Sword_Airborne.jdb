@@ -1,0 +1,246 @@
+{
+  "$type": "SpellDef",
+  "$vars": {
+    "DAMAGE_MOD": {
+      "Type": "float",
+      "Value": 1.0
+    },
+    "POWER_MOD": {
+      "Type": "float",
+      "Value": 25
+    },
+    "STAMINA_COST": {
+      "Type": "float",
+      "Value": 165
+    },
+  },
+  "Duration": 5,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "ClearsSlot": true,
+  "Tags": [
+    "/UtilPrefabs/Spells/Tags/Attack",
+    "/UtilPrefabs/Spells/Tags/JumpAttack",
+    "/UtilPrefabs/Spells/Tags/SwordAttack",
+  ],
+  "Words": [
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnFinish",
+      "Spell": "/UtilPrefabs/Spells/Combat/StopStaminaRegeneration"
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+      "Calcer": {
+        "$type": "CalcerNegative",
+        "Value": {
+          "$type": "CalcerMul",
+          "$overrideVars": { "COST": "@STAMINA_COST" },
+          "$proto": "/UtilPrefabs/Spells/Utils/StaminaCost"
+        }
+      }
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "PredicateLocomotionState",
+      "State": "Falling",
+      "Inversed": true
+    },
+    {
+      "$type": "EffectInputLayer",
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera",
+      "ExceptList": "/UtilPrefabs/Input/BlockLists/LocomotionMove" // во время атаки, можно "подруливать"
+    },
+    {
+      "$type": "EffectLocomotionInput",
+      "Input": "AirborneAttack"
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Mover": {
+        "$type": "CurveMover",
+        "Curve": "Assets/UtilPrefabs/Locomotion/Player/Player_Attack_Airborne",
+        "VerticalCurve": "Assets/UtilPrefabs/Locomotion/Player/Player_Attack_Airborne_Vertical",
+        "AdjustTime": false
+      },
+      "Rotator": {
+        "$type": "NullRotator"
+      }
+    },
+    {
+      "$type": "EffectLocomotionInput",
+      "Input": "Sticking"
+    }
+  ],
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectAnimator",
+            "Actions": [
+              {
+                "$type": "State",
+                "State": "/UtilPrefabs/Res/AnimatorStates/AttackAxeAirborne",
+                "Mode": "ClampForever",
+                "Duration": 0.267
+              },
+              {
+                "$type": "State",
+                "$id": "AttackAnimation",
+                "State": "/UtilPrefabs/Res/AnimatorStates/AttackAxeAirborneHit",
+                "When": "OnFinish",
+                "Detached": true,
+                "Duration": 0, // "0" means original duration
+                "FadeOut": 0.080
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputHandler",
+            "Handlers": {
+              "/UtilPrefabs/Input/Actions/AttackAirborneHit": {
+                "$type": "InputActionHandlerSpellOnce",
+                "Parameters": [
+                  {
+                    "$type": "SpellParameterPrevSpellId"
+                  }
+                ],
+                "Spell":{
+                  "$type": "SpellDef",
+                  "Tags": [
+                    "/UtilPrefabs/Spells/Tags/Attack",
+                    "/UtilPrefabs/Spells/Tags/JumpAttack",
+                    "/UtilPrefabs/Spells/Tags/SwordAttack",
+                  ],
+                  "Duration": 0.833,
+                  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+                  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+                  "ClearsSlot": true,
+                  "Words": [
+                    {
+                      "$type": "EffectInputLayer"
+                    },
+                    {
+                      "$type": "EffectInputBlocker",
+                      "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera"
+                    },
+                    {
+                      "$type": "ImpactReaction",
+                      "Reaction": "/UtilPrefabs/Reactions/CombatStance",
+                      "WhenToApply": "OnFinish"
+                    },
+                    {
+                      "$type": "EffectLocomotionInput",
+                      "Input": "AirborneAttack"
+                    }
+                  ],
+                  "SubSpells": [
+                    {
+                      "$type": "SubSpell",
+                      "OffsetStart": 0.0,
+                      "Spell": {
+                        "$type": "Spell",
+                        "Duration": 0.500,
+                        "Words": [
+                          {
+                            "$type": "EffectDirectMotion",
+                            "Rotator": {
+                              "$type": "BindToCameraRotator",
+                              "Speed": 10
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "SubSpell",
+                      "OffsetStart": 0.500,
+                      "Spell": {
+                        "$type": "Spell",
+                        "Duration": 0.250,
+                        "Words": [
+                          {
+                            "$type": "EffectDirectMotion",
+                            "Rotator": {
+                              "$type": "BindToCameraRotator",
+                              "Speed": 300
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "SubSpell",
+                      "OffsetStart": 0.750,
+                      "Spell": {
+                        "$type": "Spell",
+                        "IsInfinite": true,
+                        "Words": [
+                          {
+                            "$type": "EffectDirectMotion",
+                            "Rotator": {
+                              "$type": "BindToCameraRotator",
+                              "Speed": 600
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "SubSpell",
+                      "OffsetStart": 0.0,
+                      "Spell": {
+                        "$type": "Spell",
+                        "Duration": 0.8,
+                        "Words": [
+                          {
+                            "$type": "EffectAttack",
+                            "Attack": {
+                              "$type": "Attack",
+                              "$overrideVars": {
+                                "DAMAGE_MOD": "@DAMAGE_MOD",
+                                "MINING_MOD": 1,
+                                "POWER_MOD": "@POWER_MOD"
+                              },
+                              "$proto": "./_AttackDamageProto"
+                            },
+                            "Animation": "$AttackAnimation",
+                            "AnimationSpellId": { "$type": "PrevSpellId" },
+                            "ColliderMarker": "/UtilPrefabs/Res/Character/AttackBodyParts/Airborne",
+                            "Attributes": "/Character/Events/AttackTypes/HardAttack"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

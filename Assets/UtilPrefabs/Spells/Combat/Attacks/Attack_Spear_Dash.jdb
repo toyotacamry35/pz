@@ -1,0 +1,238 @@
+{
+  "$type": "Spell",
+  "$vars": {
+    "DAMAGE_MOD": {
+      "Type": "float",
+      "Value": 0.8
+    },
+    "POWER_MOD": {
+      "Type": "float",
+      "Value": 35
+    },
+    "STAMINA_COST": {
+      "Type": "float",
+      "Value": 80
+    },
+  },
+  "Duration": 0.9,
+  "Tags": [
+    "/UtilPrefabs/Spells/Tags/Attack",
+    "/UtilPrefabs/Spells/Tags/DashAttack",
+    "/UtilPrefabs/Spells/Tags/SpearAttack",
+  ],
+  "Words": [
+    //DEBUG
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0.2,
+        "G": 0.2,
+        "B": 1.0,
+      }
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Mover": {
+        "$type": "CurveMover",
+        "Curve": "Assets/UtilPrefabs/Locomotion/Player/PlayerAttackDashMotion",
+        "Direction": {
+          "$type": "SpellExplicitVector2",
+          "x": 1,
+          "y": 0
+        },
+      },
+      "Rotator": {
+        "$type": "BindToCameraRotator",
+        "Speed": 300
+      }
+    },
+    {
+      "$type": "EffectLocomotionInput",
+      "Id": "bd1d300d-f778-4228-9cf2-70422747732c",
+      "Input": "Sticking"
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "State",
+          "$id": "AttackAnimation",
+          "State": "/UtilPrefabs/Res/AnimatorStates/AttackSpearDash",
+          "Offset": 0,
+        }
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnAny",
+      "Spell": "/UtilPrefabs/Spells/Combat/StopStaminaRegeneration"
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+      "Calcer": {
+        "$type": "CalcerNegative",
+        "Value": {
+          "$type": "CalcerMul",
+          "$overrideVars": { "COST": "@STAMINA_COST" },
+          "$proto": "/UtilPrefabs/Spells/Utils/StaminaCost"
+        }
+      }
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "ImpactReaction",
+      "Reaction": "/UtilPrefabs/Reactions/CombatStance"
+    },
+    {
+      "$type": "ImpactStopAllSpellsOfGroups",
+      "Groups": [
+        "/UtilPrefabs/Spells/Groups/BlockSpellGroup"
+      ],
+      "Reason": "Fail"
+    },
+    {
+      "$type": "EffectInputLayer",
+    }
+  ],
+  //BLOCKERS
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0.100,
+        "Words": [
+          {
+            "$type": "EffectInputBlocker",
+            "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera",
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.100,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectInputBlocker",
+            "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera",
+            "Except": [
+              "/UtilPrefabs/Input/Actions/Attack",
+              "/UtilPrefabs/Input/Actions/AttackMelee",
+              "/UtilPrefabs/Input/Actions/AttackMeleeAlt"
+            ]
+          }
+        ]
+      }
+    },
+    //Attack effect
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0,
+      "Spell": {
+        "$type": "Spell",
+        "Name": "Attack",
+        "Duration": 0.5,
+        "Words": [
+          {
+            "$type": "EffectAttack",
+            "$id": "Attack",
+            "Attack": {
+              "$type": "Attack",
+              "$overrideVars": {
+                "POWER_MOD": "@POWER_MOD",
+                "DAMAGE_MOD": "@DAMAGE_MOD"
+              },
+              "$proto": "./_AttackDamageProto"
+            },
+            "Animation": "$AttackAnimation",
+            "ColliderMarker": "/UtilPrefabs/Res/Character/AttackBodyParts/Dash",
+            "Attributes": "/Character/Events/AttackTypes/DashAttack",
+            "TrajectoryMarkers" : [
+              "/UtilPrefabs/Res/Character/AttackBodyParts/RightHand"
+            ]
+          }
+        ]
+      }
+    },
+    //INPUT WINDOWS
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.100,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "EffectInputWindow",
+            "Delay": 0.550,
+            "Handlers": {
+              "/UtilPrefabs/Input/Actions/Attack": {
+                    "$type": "InputActionHandlerSpellBreaker"
+              },
+              "/UtilPrefabs/Input/Actions/AttackMelee": {
+                    "$type": "InputActionHandlerSpellBreaker"
+              },
+              "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+                    "$type": "InputActionHandlerSpellBreaker"
+              }
+            }
+          }
+        ]
+      }
+    },
+    //SPELL BREAKERS
+    //Block+Dash+Jump breaker
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.400,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Activated",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/DashForward",
+              "/UtilPrefabs/Input/Actions/DashBackward",
+              "/UtilPrefabs/Input/Actions/DashLeft",
+              "/UtilPrefabs/Input/Actions/DashRight",
+              "/UtilPrefabs/Input/Actions/Jump",
+              "/UtilPrefabs/Input/Actions/Block",
+            ]
+          }
+        ]
+      }
+    },
+    //Movement breaker
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.400,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Active",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/MoveForwardTrigger",
+              "/UtilPrefabs/Input/Actions/MoveBackwardTrigger",
+              "/UtilPrefabs/Input/Actions/MoveLeftTrigger",
+              "/UtilPrefabs/Input/Actions/MoveRightTrigger",
+              "/UtilPrefabs/Input/Actions/Sprint"
+            ]
+          }
+        ]
+      }
+    },
+  ]
+}

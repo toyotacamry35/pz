@@ -1,0 +1,68 @@
+{
+    "$type": "ComputableStateMachineDef",
+    "StatesTable": [
+        {
+            //"$type": "ComputableStateData",
+            "Predicate": {
+                "$type": "ComputableStateMachinePredicateExpiredLifespanPercentDef",
+                "FromIncluding": 0,
+                "TillExcluding": 0.33
+            },
+            "States": {
+                "$type": "ComputableStatesDef",
+                "States": [
+                    {
+                        "$type": "PrefabStateDef",
+                        "Prefab": "Assets/Content/Environment/Shared/Interactive/Gerophit/unripeGerophythTest"
+                    },
+                    {
+                        "$type": "LootTableStateDef",
+                        "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableSanguira"
+                    }
+                ]
+            }
+        },
+        {
+            //"$type": "ComputableStateData",
+            "Predicate": {
+                "$type": "ComputableStateMachinePredicateExpiredLifespanPercentDef",
+                "FromIncluding": 0.33,
+                "TillExcluding": 0.66
+            },
+            "States": {
+                "$type": "ComputableStatesDef",
+                "States": [
+                    {
+                        "$type": "PrefabStateDef",
+                        "Prefab": "Assets/Content/Environment/Shared/Interactive/Gerophit/unripeGerophyth"
+                    },
+                    {
+                        "$type": "LootTableStateDef",
+                        "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableCoal"
+                    }
+                ]
+            }
+        },
+        {
+            //"$type": "ComputableStateData",
+            "Predicate": {
+                "$type": "ComputableStateMachinePredicateExpiredLifespanPercentDef",
+                "FromIncluding": 0.66,
+                "TillExcluding": 1
+            },
+            "States": {
+                "$type": "ComputableStatesDef",
+                "States": [
+                    {
+                        "$type": "PrefabStateDef",
+                        "Prefab": "Assets/Content/Environment/Shared/Interactive/Gerophit/shellGerophyth"
+                    },
+                    {
+                        "$type": "LootTableStateDef",
+                        "LootTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableStone"
+                    }
+                ]
+            }
+        }
+    ]
+}

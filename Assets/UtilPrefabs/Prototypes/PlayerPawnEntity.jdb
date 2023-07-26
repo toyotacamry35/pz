@@ -1,0 +1,362 @@
+{
+    "$type": "WorldCharacterDef",
+    "$vars": {
+        "BOUNDS_HEIGHT": {
+            "Type": "float",
+            "Value": 1.86
+        },
+        "BOUNDS_RADIUS": {
+            "Type": "float",
+            "Value": 0.60
+        },
+        "BOUNDS_OFFSET": {
+            "Type": "float",
+            "Value": 0.93
+        }
+    },
+    "Id": "bf377fb9-08e0-47f9-8a35-579d609de33c",
+    "Prefab": "Assets/UtilPrefabs/Prototypes/PlayerPawn",
+    //"Prefab": "Assets/UtilPrefabs/Prototypes/PlayerMobPawn",
+    "PrefabDef": "/UtilPrefabs/Res/Prototypes/PlayerPawnUnityObj",
+    "SpellsOnEnterWorld": [
+        "/UtilPrefabs/Spells/FounderPacks/Email_EnterSpell",
+        "/UtilPrefabs/Spells/FounderPacks/FP1_EnterSpell",
+        "/UtilPrefabs/Spells/FounderPacks/FP2_EnterSpell",
+        "/UtilPrefabs/Spells/FounderPacks/FP3_EnterSpell",
+        "/UtilPrefabs/Spells/FounderPacks/TwitchHelmet_EnterSpell",
+        "/UtilPrefabs/Spells/FounderPacks/TwitchStandart_EnterSpell"
+    ],
+    "SpellsOnBirth": [
+        "/UtilPrefabs/Spells/Quests/KeyMainQuest/KeyMainQuest_Check",
+        "/UtilPrefabs/Spells/Quests/KeyMainQuest/GetTeleportSpell"
+    ],
+    "Bodies": {
+        "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody": {
+            "Genders": [
+                "/Inventory/Gender/Male"
+            ],
+            "Mutations": [
+                "/Inventory/Factions/Stages/FullHuman",
+                "/Inventory/Factions/Stages/HalfHuman"
+            ]
+        },
+        "/UtilPrefabs/Res/Character/Bodies/HumanFemaleBody": {
+            "Genders": [
+                "/Inventory/Gender/Female"
+            ],
+            "Mutations": [
+                "/Inventory/Factions/Stages/FullHuman",
+                "/Inventory/Factions/Stages/HalfHuman"
+            ]
+        },
+        "/UtilPrefabs/Res/Character/Bodies/HostBody": {
+            "Mutations": [
+                "/Inventory/Factions/Stages/Host"
+            ]
+        },
+        "/UtilPrefabs/Res/Character/Bodies/XenobiotBody": {
+            "Mutations": [
+                "/Inventory/Factions/Stages/FullKsenobiot",
+                "/Inventory/Factions/Stages/HalfKsenobiot"
+            ]
+        }
+    },
+    "Colliders": [
+        {
+            "$type": "SphereShape",
+            "Position": {
+                "x": 0.0,
+                "y": 0.2,
+                "z": 0.0
+            },
+            "Radius": 0.4
+        },
+        {
+            "$type": "SphereShape",
+            "Position": {
+                "x": 0.0,
+                "y": 0.9,
+                "z": 0.0
+            },
+            "Radius": 0.5
+        },
+        {
+            "$type": "SphereShape",
+            "Position": {
+                "x": 0.0,
+                "y": 1.6,
+                "z": 0.0
+            },
+            "Radius": 0.3
+        }
+    ],
+    "Bounds": {
+        "$type": "Capsule",
+        "Radius": "@BOUNDS_RADIUS",
+        "Height": "@BOUNDS_HEIGHT",
+        "OffsetY": "@BOUNDS_OFFSET"
+    },
+    "KnockDownSpell": "/UtilPrefabs/Spells/Knockdown",
+    "SpellsOnResurrect": [
+        "/UtilPrefabs/Spells/CharacterResurrect"
+    ],
+    "InitialQuests": [
+        "/Inventory/Quest/00_Perk_Quests/PerksQuest_CraftAnything",
+        "/Inventory/Quest/00_Perk_Quests/PerksQuest_CraftAnything2",
+        "/Inventory/Quest/00_Perk_Quests/PerksQuest_CraftAnything3",
+        "/Inventory/Quest/00_Perk_Quests/PerksQuest_CraftAnything4",
+        "/Inventory/Quest/00_Perk_Quests/PerksQuest_MineResources",
+        "/Inventory/Quest/00_Perk_Quests/PerksQuest_MobKilling",
+        "/Inventory/Quest/00_Perk_Quests/Void_Quest_Hiden",
+        "/Inventory/Quest/TemperatureQuests/FirstOtkatQuest/FirstOtkatQuest_Hiden",
+        "/Inventory/Quest/PvPAvailableFakeQuest/PvPAvailableFakeQuest_Hiden",
+        "/Inventory/Quest/RewardQuests/MobKillingReward_EasyQuestHidden",
+        "/Inventory/Quest/RewardQuests/MobKillingReward_HardQuestHidden",
+        "/Inventory/Quest/PerksQuest/PerksQuestHidden"
+    ],
+    "AFKStateMachine": {
+        "TimeToBecomeIdleAndInteractive": 10,
+        "TimeToDieAndUnload": 60 //200 minutes  
+    },
+    "DefaultGender": "/Inventory/Gender/Male",
+    // Brute:
+    //"DefaultAttackSlot": "/UtilPrefabs/Slots/Weapon2",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Id": "567c06ad-4a6c-4138-95ac-8f58e98c8ec7",
+        "BlockSector": 90,
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "WeaponSize": "/UtilPrefabs/WeaponSize/Hand",
+        "HitMaterial": "/UtilPrefabs/HitMaterials/Flesh",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+                "Value": 45
+            },
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+                "Value": -2.45
+            },
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 5
+            }
+        ]
+    },
+    "InventoryWeightProxyStat": "/UtilPrefabs/Stats/ProxyStats/InventoryWeightProxyStat",
+    "DollWeightProxyStat": "/UtilPrefabs/Stats/ProxyStats/DollWeightProxyStat",
+    "CraftWeightProxyStat": "/UtilPrefabs/Stats/ProxyStats/CraftWeightProxyStat",
+    "ObjectType": "/Inventory/Statistic/ObjectType/Player",
+    "BackwardDamageMultiplier": 1.5,
+    "DestructionPowerRequired": 1,
+    // end_of Brute:
+    // --- IHasStatsDef: --------------------------------------------
+    "Stats": "/UtilPrefabs/Res/Prototypes/PlayerStats",
+    "Locomotion": {
+        "$type": "CharacterLocomotionDef",
+        "$overrideVars": {
+            "COLLIDER_HEIGHT": "@BOUNDS_HEIGHT",
+            "COLLIDER_OFFSET": "@BOUNDS_OFFSET"
+            // "COLLIDER_WIDTH" : "@BOUNDS_RADIUS" // коллайдер перемещения имеет свой радиус 
+        },
+        "$proto": "/UtilPrefabs/Locomotion/Player/PlayerLocomotion"
+    },
+    //"MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/Kvar_Locomotion",
+    "CorpseDef": "/UtilPrefabs/Res/Prototypes/Corpse/WorldCorpseDef",
+    "InputActionHandlers": {
+        "/UtilPrefabs/Input/Layers/Base": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+                "$type": "InputActionHandlerInteraction"
+            },
+            "/UtilPrefabs/Input/Actions/Info": {
+                "$type": "InputActionHandlerInteraction"
+            },
+            //            "/UtilPrefabs/Input/Actions/HotKey1": {
+            //                "$type": "InputActionHandlerInteraction"
+            //            },
+            //            "/UtilPrefabs/Input/Actions/HotKey2": {
+            //                "$type": "InputActionHandlerInteraction"
+            //            },
+            //            "/UtilPrefabs/Input/Actions/HotKey3": {
+            //                "$type": "InputActionHandlerInteraction"
+            //            },
+            //            "/UtilPrefabs/Input/Actions/HotKey4": {
+            //                "$type": "InputActionHandlerInteraction",
+            //            },
+            "/UtilPrefabs/Input/Actions/Jump": {
+                "$type": "InputActionHandlerLocomotionTrigger",
+                "Input": "Jump"
+            },
+            "/UtilPrefabs/Input/Actions/Sprint": {
+                "$type": "InputActionHandlerLocomotionTrigger",
+                "Input": "Sprint"
+            },
+            "/UtilPrefabs/Input/Actions/DashForward": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Locomotion/DashForward",
+                "Parameters": [
+                    {
+                        "$type": "SpellParameterDirection2",
+                        "X": 1
+                    }
+                ]
+            },
+            "/UtilPrefabs/Input/Actions/DashBackward": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Locomotion/Dash",
+                "Parameters": [
+                    {
+                        "$type": "SpellParameterDirection2",
+                        "X": -1
+                    }
+                ]
+            },
+            "/UtilPrefabs/Input/Actions/DashLeft": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Locomotion/Dash",
+                "Parameters": [
+                    {
+                        "$type": "SpellParameterDirection2",
+                        "Y": 1
+                    }
+                ]
+            },
+            "/UtilPrefabs/Input/Actions/DashRight": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Locomotion/Dash",
+                "Parameters": [
+                    {
+                        "$type": "SpellParameterDirection2",
+                        "Y": -1
+                    }
+                ]
+            },
+            "/UtilPrefabs/Input/Actions/MoveForward": {
+                "$type": "InputActionHandlerLocomotionAxis",
+                "Input": "MoveLng+"
+            },
+            "/UtilPrefabs/Input/Actions/MoveBackward": {
+                "$type": "InputActionHandlerLocomotionAxis",
+                "Input": "MoveLng-"
+            },
+            "/UtilPrefabs/Input/Actions/MoveLeft": {
+                "$type": "InputActionHandlerLocomotionAxis",
+                "Input": "MoveLat+"
+            },
+            "/UtilPrefabs/Input/Actions/MoveRight": {
+                "$type": "InputActionHandlerLocomotionAxis",
+                "Input": "MoveLat-"
+            },
+            "/UtilPrefabs/Input/Actions/CameraX": {
+                "$type": "InputActionHandlerCamera",
+                "Axis": "X"
+            },
+            "/UtilPrefabs/Input/Actions/CameraY": {
+                "$type": "InputActionHandlerCamera",
+                "Axis": "Y"
+            },
+            "/UtilPrefabs/Input/Actions/Fly": {
+                "$type": "InputActionHandlerLocomotionTrigger",
+                "Input": "CheatMode"
+            },
+            "/UtilPrefabs/Input/Actions/FlyUp": {
+                "$type": "InputActionHandlerLocomotionAxis",
+                "Input": "MoveVertical+"
+            },
+            "/UtilPrefabs/Input/Actions/FlyDown": {
+                "$type": "InputActionHandlerLocomotionAxis",
+                "Input": "MoveVertical-"
+            },
+            "/UtilPrefabs/Input/Actions/FlySpeed1": {
+                "$type": "InputActionHandlerLocomotionTriggerToAxis",
+                "Input": "CheatSpeed",
+                "Value": "5"
+            },
+            "/UtilPrefabs/Input/Actions/FlySpeed2": {
+                "$type": "InputActionHandlerLocomotionTriggerToAxis",
+                "Input": "CheatSpeed",
+                "Value": "10"
+            }
+        },
+        "/UtilPrefabs/Input/Layers/Weapon": {
+            "/UtilPrefabs/Input/Actions/AttackMelee": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_L"
+            },
+            "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_R"
+            },
+            "/UtilPrefabs/Input/Actions/AttackAirborne": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_Airborne"
+            },
+            "/UtilPrefabs/Input/Actions/AttackDash": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_Dash"
+            },
+            "/UtilPrefabs/Input/Actions/AttackDashSide": {
+                "$type": "InputActionHandlerSpell",
+                "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_L"
+            },
+            "/UtilPrefabs/Input/Actions/Block": {
+                "$type": "InputActionHandlerSpellContinuous",
+                "Spell": "/UtilPrefabs/Spells/Combat/Block"
+            }
+        }
+    },
+    "ReactionHandlers": "/UtilPrefabs/Prototypes/Character_Reactions",
+    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player",
+    "QuerySpatialData": true,
+    "AllTraumas": "/UtilPrefabs/Res/Prototypes/PlayerTraumas",
+    "MaxCraftQueueSize": 6,
+    "OnZeroHealthSpell": {
+        "$type": "SpellDef",
+        "Duration": 5,
+        "Words": [
+            {
+                "$type": "PredicateIsMap",
+                "Map": "/Scenes/Dropzone/Dropzone"
+            },
+            {
+                "$type": "PredicateKnowledgeDef",
+                "Inversed": true,
+                "Knowledge": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW"
+            },
+        ],
+        "SubSpells": [
+            {
+                "$type": "SubSpell",
+                "Spell": {
+                    "$type": "Spell",
+                    "Words": [
+                        {
+                            "$type": "ImpactAddKnowledgeDef",
+                            "Knowledge": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW"
+                        },
+                        {
+                            "$type": "ImpactStopSpellDef",
+                            "Spells": [
+                                "/UtilPrefabs/Traumas/PosEffDropzone"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactSetAllowedSpawnPointDef",
+                            "SpawnPointType": "/SpawnSystem/SpawnPointTypes/Hub",
+                        },
+                        {
+                            "$type": "ImpactUseGateway",
+                            "Target": {
+                                "$type": "SpellCasterDef"
+                            },
+                            "Map": "/Scenes/Savannah/Savannah"
+                        }
+                    ]
+                }
+            }
+        ],
+    },
+    "NameLs": {
+        "Key": ""
+    }
+}

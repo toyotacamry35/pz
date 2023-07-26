@@ -1,0 +1,27 @@
+{
+  "$type": "SpellDef",
+  "Name": "LifeEssenceSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCanChangeMutationDef",
+      "DeltaValue": -5
+    },
+    {
+      "$type": "ImpactChangeMutationDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "DeltaValue": -5,
+      "CoolDownTime": 1
+    }
+  ]
+}

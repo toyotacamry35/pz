@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/Coal",
+      "Count": 3,
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "$id": "SpellOnDisappearance",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POICoal"
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIRaggedWires2"
+          }
+        ]
+      },
+      "SpellOnAbsence": "$SpellOnDisappearance",
+      "SpellOnAppearance": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestStep7Salt"
+    }
+  ]
+}

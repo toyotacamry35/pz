@@ -1,0 +1,38 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractWithEntity",
+  "Duration": 1,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW"
+    },
+    {
+      "$type": "ImpactStopSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Traumas/PosEffDropzone"
+      ]
+    },
+    /*{
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/KeyMainQuest/KeyMainQuest"
+    },*/
+    {
+      "$type": "ImpactUseGateway",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "WhenToApply": "OnSuccess",
+      "Map": "/Scenes/Savannah/Savannah"
+    }
+  ]
+}

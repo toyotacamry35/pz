@@ -1,0 +1,65 @@
+{
+  "$type": "SpellDef",
+  //END OF PARAMETERS
+  "Duration": 1.500,
+  "Words": [
+    //TINT
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0.70,
+        "G": 1.00,
+        "B": 0.70,
+      },
+      "IgnoreTintDisablment": true
+    },
+    //COOLDOWN
+    {
+      "$type": "PredicateCompareStatDef",
+      "Stat": "/UtilPrefabs/Stats/AbilityCooldown",
+      "Type": "Less",
+      "Value": 0.01
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/AbilityCooldown",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Value": 25
+    },
+    {
+      "$type": "PredicateLocomotionState",
+      "State": "Falling",
+      "Inversed": true
+    },
+    //ANIMATOR
+    // {
+    //   "$type": "EffectAnimator",
+    //   "Actions": [
+    //     {
+    //       "$type": "State",
+    //       "$id": "AttackAnimation",
+    //       "State": "/UtilPrefabs/Res/AnimatorStates/AttackMelee04",
+    //     }
+    //   ]
+    // },
+    //STAT CHANGE
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "Enabled": true,
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegenUnconditional",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "Summand": 500,
+    },
+    {
+      "$type": "ImpactStopSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Combat/StopStaminaRegeneration",
+        "/UtilPrefabs/Spells/Combat/StopStaminaRegenerationExtention"
+      ]
+    },
+  ],
+}

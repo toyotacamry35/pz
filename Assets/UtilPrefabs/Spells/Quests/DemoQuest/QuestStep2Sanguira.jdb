@@ -1,0 +1,31 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestFlaskResources2",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "Group": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/SangviraStem",
+      "Count": 6,
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "$id": "SpellOnDisappearance",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POISanguira"
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIDropShip"
+          }
+        ]
+      },
+      "SpellOnAbsence": "$SpellOnDisappearance",
+      "SpellOnAppearance": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestStep3Gerophit"
+    }
+  ]
+}

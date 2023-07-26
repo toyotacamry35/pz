@@ -1,0 +1,66 @@
+{
+  "$type": "Spell",
+  "Duration": 5,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup", // телепорт может быть прерван при получении урона
+  "Words": [
+    {
+      "$type": "EffectInputLayer",
+      "Layer": "/UtilPrefabs/Input/Layers/Teleport"
+    },
+    {
+      "$type": "EffectInputSpellBreaker",
+      "Layer": "/UtilPrefabs/Input/Layers/Teleport",
+      "When": "Activated",
+      "FinishReason": "Fail",
+      "List": {
+        "$type": "InputActionsList",
+        "SubLists": [
+          "/UtilPrefabs/Input/BlockLists/Combat",
+          "/UtilPrefabs/Input/BlockLists/Locomotion"
+        ]
+      }
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Rotator": {
+        "$type": "NullRotator"
+      }
+    },
+    {
+      "$type": "EffectOpenUITeleportCountdown"
+    },
+    {
+      "$type": "PredicateHasActiveTraumasDef",
+      "Inversed": true,
+      "TraumaTypes": [
+        "NegEffectTeleportCooldown"
+      ]
+    },
+    {
+      "$type": "PredicateIsKnockedDown",
+      "Inversed": true
+    }
+  ],
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.5,
+      "OffsetIsFromParentEnd": true,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0,
+        "Words": [
+          { // собственно сам телепорт при успешном окончании спелла
+            "$type": "ImpactTeleport",
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "ImpactInvokeTraumaDef",
+            "TraumaType": "NegEffectTeleportCooldown",
+            "WhenToApply": "OnSuccess"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes": [
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTCrushing"
+                        ],
+            "LootTableTable": {
+                "$type": "LootTableDef",
+                "LootTable": [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusScraps",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTPiercing"
+            ],
+            "LootTableTable": {
+                "$type": "LootTableDef",
+                "LootTable": [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusResin",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+  "$type": "SpellDef",
+  "Duration": 7200.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.0,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.8,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": true,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 0.9,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactAddKnowledgeDef",
+            "WhenToApply": "OnSuccess",
+            "Knowledge": "/Inventory/Knowledge/Quest/JumpingGelKW"
+          },
+          {
+            "$type": "EffectDirectMotion",
+            "Mover": {
+              "$type": "NullMover"
+            },
+            "Rotator": {
+              "$type": "LookAtRotator",
+              "Target": {
+                "$type": "SpellTargetDef"
+              },
+              "Time": 0.15
+            }
+          },
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/FullStop",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Summand": 1.0
+          },
+          {
+            "$type": "EffectPlayAnimationDef",
+            "AnimatorOwner": {
+              "$type": "SpellCaster",
+            },
+            "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+            "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType",
+            "IntValue": 4
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n2890"
+  }
+}

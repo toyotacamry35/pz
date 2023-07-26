@@ -1,0 +1,29 @@
+{
+  "$type" : "SpellCalcer<string>",
+  "Calcer": {
+    "$type": "CalcerSelect<string>",
+    "Ranges": [
+      {
+        "Condition": {
+          "$type": "PredicateHasAuthority",
+          "Entity": {
+            "$type": "CalcerSpellParameter<OuterRef>",
+            "Parameter": "/UtilPrefabs/Spells/Params/Target"
+          }
+        },
+        "Value": "attacker"
+      },
+      {
+        "Condition": {
+          "$type": "PredicateHasAuthority",
+          "Entity": {
+            "$type": "CalcerSpellParameter<OuterRef>",
+            "Parameter": "/UtilPrefabs/Spells/Params/Caster"
+          }
+        },
+        "Value": "victim"
+      }
+    ],
+    "Default": "none"
+  }
+}

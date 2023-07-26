@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "Words": [
+    {
+      "$type": "PredicateLogicalNot",
+      "Predicate": {
+        "$type": "PredicateCheckItemDef",
+        "Item": "/Inventory/Items/Res/Heart"
+      }
+    },
+    {
+      "$type": "ImpactStopSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Spells/Combat/StopHealthRegeneration"
+      ]
+    },
+    {
+      "$type": "ImpactDamageObject",
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "WhenToApply": "OnStart",
+      "Damage": 100000
+    },
+    {
+      "$type": "EffectShowText",
+      "Duration": 6,
+      "TextLs": {
+        "Key": "#l10n502931"
+      }
+    }
+  ]
+}

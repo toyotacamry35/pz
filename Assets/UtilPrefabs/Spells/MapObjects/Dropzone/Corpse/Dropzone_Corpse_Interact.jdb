@@ -1,0 +1,26 @@
+{
+    "$type": "SpellDef",
+    "Name": "Dropzone_Corpse_Interact",
+    "Words": [
+        {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+                "/Inventory/Items/Consumables/StandardRation"
+            ],
+            "Count": 1
+        },
+        {
+            "$type": "PredicateKnowledgeDef",
+            "Inversed":true,
+            "Knowledge": "/Inventory/Knowledge/MapObjects/Dropzone/Corpse/Dropzone_CorpseKW"
+        },
+        {
+            "$type": "ImpactAddKnowledgeDef",
+            "WhenToApply": "OnFinish",
+            "Knowledge": "/Inventory/Knowledge/MapObjects/Dropzone/Corpse/Dropzone_CorpseKW"
+        }
+    ],
+    "InteractionDescriptionLs": {
+        "Key": "#l10n1663"
+    }
+}

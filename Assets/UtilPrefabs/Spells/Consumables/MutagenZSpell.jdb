@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Name": "MutagenZSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCanChangeMutationDef",
+      "Faction": "/Inventory/Factions/Human",
+      "DeltaValue": 120
+    },
+    {
+      "$type": "ImpactChangeMutationDef",
+      "Faction": "/Inventory/Factions/Human",
+      "DeltaValue": 120,
+      "CoolDownTime": 1
+    }
+  ]
+}

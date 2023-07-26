@@ -1,0 +1,45 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Key01Quest/Key01Quest_TakenKW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key01Quest/Alt_Key01Quest_TakenKW"
+        }
+      ]
+    },
+    {
+      "$type": "PredicateLogicalAndDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Inversed": true,
+          "Knowledge": "/Inventory/Knowledge/Quest/Key01Quest/Key01Quest_CompletedKW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Inversed": true,
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key01Quest/Alt_Key01Quest_CompletedKW"
+        }
+      ]
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Quest/Key01Quest/VoidDNA_1",
+      "Inversed": true,
+      "Count": 10
+    }
+  ]
+}

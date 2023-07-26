@@ -1,0 +1,21 @@
+{
+  "$type": "Buff",
+  "Id": "969399B3-4F73-4BCF-8F35-08DF6E0B2340",
+  "Duration": 60.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffIntoxication1",
+  "DescriptionLs": {
+    "Key": "#l10n504428"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": -200
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$type": "SpellDef",
+  "InteractionDescriptionLs": {
+    "Key": "#l10n5088"
+  },
+  "Duration": 5.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_Point_03KW"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_Point_03KW" 
+    },
+    {
+      "$type": "ImpactRemovePointOfInterestDef",
+      "PointOfInterest": "/UtilPrefabs/PointsOfInterest/Quest/Key02Quest/DesertResPOI_03"
+    },
+    {
+      "$type": "EffectShowText",
+      "ShowForEveryone": true,
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n5089"
+      }
+    }
+  ]
+}

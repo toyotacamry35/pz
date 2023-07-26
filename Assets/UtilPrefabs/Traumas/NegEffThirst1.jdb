@@ -1,0 +1,37 @@
+{
+  "$type": "SpellDef",
+  "Name": "NegEffThirst1",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "IsStatusEffect": true,
+  "SpellIcon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffThirst1",
+  "InteractionDescriptionLs": {
+    "Key": "#l10n2874"
+  },
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Summand": 5
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503093"
+      }
+    }
+  ]
+}

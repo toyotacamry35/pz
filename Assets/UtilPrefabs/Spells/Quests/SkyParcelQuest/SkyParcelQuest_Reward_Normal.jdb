@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Words": [
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CompletedKW"
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Quest/SkyParcelQuest/SkyParcelQuest_Processor",
+      "Count": 3
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "WhenToApply": "OnSuccess",
+      "Item": "/Inventory/Items/Quest/SkyParcelQuest/SkyParcelQuest_Processor",
+      "Count": 3
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "WhenToApply": "OnSuccess",
+      "Item": "/Inventory/Items/Quest/SkyParcelQuest/SkyParcelQuest_AutoBurglar",
+      "Count": 1
+    }
+  ]
+}

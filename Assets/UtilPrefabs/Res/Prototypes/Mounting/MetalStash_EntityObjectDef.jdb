@@ -1,0 +1,30 @@
+{
+  "$type": "CharacterChestDef",
+  "Id": "c693ceb5-d921-4d50-beb0-f989c4a491d3",
+  "NameLs": {
+    "Key": "#l10n503119"
+  },
+  "Prefab": "Assets/Content/Craft/StashBoxT03/StashBoxT03",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/Mounting/MetalStash_InteractiveDef",
+  "DestructionPowerRequired": 190,
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 8000,
+      "DURABILITY_INITIALVALUE": 8000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "8e0a3df2-c058-4ef2-b8e6-898426be6d2e"
+  },
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 75
+      }
+    ]
+  },
+  "Size": 40
+}

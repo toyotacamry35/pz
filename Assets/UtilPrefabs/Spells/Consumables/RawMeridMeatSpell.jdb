@@ -1,0 +1,57 @@
+{
+  "$type": "SpellDef",
+  "Name": "RawMeridMeatSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/SatietyCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Value": 100.0,
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Value": 125.0
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Value": 50.0,
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Target":
+      {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": "/UtilPrefabs/Traumas/NegEffXenoParasite_Invoke"
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnSuccess",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Spell": "/UtilPrefabs/Spells/Consumables/PoisonousFoodKillSpell"
+    }
+  ]
+}

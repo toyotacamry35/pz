@@ -1,0 +1,25 @@
+{
+  "$type": "SpellDef",
+  "Name": "NegEffSprainDamage",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactDamageObjectDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Damage": {
+        "$type": "CalcerConstant",
+        "Value": 25
+      }
+    }
+  ]
+}

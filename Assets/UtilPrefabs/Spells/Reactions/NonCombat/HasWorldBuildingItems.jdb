@@ -1,0 +1,27 @@
+{
+  "$type": "SpellDef",
+  "Name": "HasWorldBuildingItems",
+  "Duration": 0.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "CheckPredicateHasWorldBuildingItemsDef",
+      "Enabled": true,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Policy": "OnStart",
+      "Inversed": false
+    }
+  ]
+}

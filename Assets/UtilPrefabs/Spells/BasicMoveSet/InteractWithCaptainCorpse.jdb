@@ -1,0 +1,112 @@
+{
+  "$type": "SpellDef",
+  "Duration": 300.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "Spell": "./ActionsBlockerForInteract"
+          }
+        ],
+        "Words": [
+          {
+            "$type": "ImpactAddKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/FactionQuestCorpesKW"
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Res/DatapadCaptain"
+            ],
+            "Count": 1,
+            "Target": {
+              "$type": "SpellCaster"  
+            },
+            "WhenToApply": "OnSuccess"
+          }, /*
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": ["/Inventory/Items/Res/CaptainAccessCard"],
+            "Count": 1,
+            "Target": {
+              "$type": "SpellCaster"
+            },
+            "WhenToApply": "OnSuccess"
+          },*/
+          {
+            "$type": "EffectPlayAnimationDef",
+            "AnimatorOwner": {
+              "$type": "SpellCaster"
+            },
+            "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+            "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType",
+            "IntValue": 4
+          },
+          {
+            "$type": "PredicateQuestPhaseDef",
+            "Quest": "/Inventory/Quest/FactionQuest",
+            "Target": {
+              "$type": "SpellCasterDef"
+            },
+            "Type": "Equal",
+            "Phases": 1
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "Words": [
+          {
+            "$type": "PredicateQuestPhaseDef",
+            "Quest": "/Inventory/Quest/FactionQuest",
+            "Target": {
+              "$type": "SpellCasterDef"
+            },
+            "Type": "Equal",
+            "Phases": 1,
+            "Inversed": true
+          },
+          {
+            "$type": "EffectShowText",
+            "TextLs": {
+              "Key": "#l10n502892"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1660"
+  }
+}

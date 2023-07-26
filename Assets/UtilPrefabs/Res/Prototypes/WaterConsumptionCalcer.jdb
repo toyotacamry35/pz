@@ -1,0 +1,45 @@
+{
+    // (basic_constant + weight_mod + effect_mod) * action_mod
+    "$type": "CalcerMul",
+    "Multipliers": [
+        {
+            // (basic_constant + weight_mod + effect_mod) 
+            "$type": "CalcerSum",
+            "Summands": [
+                // basic_constant
+                {
+                    "$type": "CalcerConstant",
+                    "Value": 0.28
+                },
+                {
+                    // weight_mod = weight_const * weight / weight_max
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": 0.14
+                        },
+                        {
+                            "$type": "CalcerDiv",
+                            "Dividend": "/UtilPrefabs/Res/Prototypes/PlayerInventoryWeightCalcer",
+                            "Divisor": {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    // effect_mod
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/Satiety/WaterConsumptionMod"
+                }
+            ]
+        },
+        {
+            // TODO action_mod  
+            "$type": "CalcerConstant",
+            "Value": 1.0
+        }
+    ]
+}

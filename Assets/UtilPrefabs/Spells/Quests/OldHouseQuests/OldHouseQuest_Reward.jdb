@@ -1,0 +1,25 @@
+{
+  "$type": "SpellDef",
+  "Words": [
+    {
+      "$type": "ImpactAddItemsDef", //выдаём награду
+      "Items": [
+        "/Inventory/Items/Consumables/MutagenZ"
+      ],
+      "Count": 1
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Quest/OldHouseQuest/OldHouseQuestChestKey",
+      "Count": 1
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_CompletedKW"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_journalKW"
+    }
+  ]
+}

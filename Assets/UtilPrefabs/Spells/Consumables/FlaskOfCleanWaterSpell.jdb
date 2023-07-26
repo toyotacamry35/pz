@@ -1,0 +1,28 @@
+{
+  "$type": "SpellDef",
+  "Name": "FlaskOfCleanWaterSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent",
+      "Value": 300.0,
+      "Target": {
+        "$type": "SpellCaster",
+      }
+    },
+    {
+      "$type": "PredicateItemInnerContainerDef",
+      "Item": "/Inventory/Items/Res/CleanWater",
+      "Count": 1
+    }
+  ]
+}

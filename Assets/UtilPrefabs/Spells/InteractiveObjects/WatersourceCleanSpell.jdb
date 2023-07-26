@@ -1,0 +1,59 @@
+{
+  "$type": "SpellDef",
+  "Name": "WatersourceCleanSpell",
+  "Duration": 2.0,
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/Spells/IconDrink",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInputLayer"
+    },
+    {
+      "$type": "EffectInputSpellBreaker", 
+      "When": "Activated",
+      "FinishReason": "Fail",
+      "List": {
+        "$type": "InputActionsList",
+        "SubLists": [
+          "/UtilPrefabs/Input/BlockLists/Combat",
+          "/UtilPrefabs/Input/BlockLists/Locomotion"
+        ], 
+      }
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      }, //"Type": "DeltaChange",
+      "Value": 1600.0,
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "State",
+          "State": "/UtilPrefabs/Res/AnimatorStates/Drink",
+//          "Mode": "Loop",
+//          "Duration": 0
+        }
+      ]
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Rotator": {
+        "$type": "NullRotator"
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1672"
+  }
+}

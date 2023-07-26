@@ -1,0 +1,49 @@
+{
+  "$type": "SpellDef",
+  "Name": "NegEffThirst2",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthMaxCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": -600
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 6
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/JumpBlock",
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503095"
+      }
+    }
+  ]
+}

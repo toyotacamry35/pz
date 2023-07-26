@@ -1,0 +1,64 @@
+{
+    "$type": "SpellDef",
+    "Name": "RangerTorchQuest_Complete",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": true,
+    "SpellIcon": null,
+    "InteractionDescriptionLs": {
+      "Key": "#l10n503378"
+    },
+    "DontShowProgress": true,
+    "Group": null,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": [
+      //Если
+      {
+        "$type": "PredicateKnowledgeDef", //проверяем, что игрок брал квест - есть ли у него кновледж, выдающийся при взятии квеста?
+        "Knowledge": "/Inventory/Knowledge/Quest/2_Desert/RangerTorchQuest/RangerTorchQuest_TakenKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "PredicateKnowledgeDef", //проверяем, что игрок НЕ сдавал этот квест - есть ли у него кновледж, выдающийся при сдаче квеста?
+        "Inversed": true,
+        "Knowledge": "/Inventory/Knowledge/Quest/2_Desert/RangerTorchQuest/RangerTorchQuest_CompletedKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "PredicateCheckItemDef", //проверяем, что у игрока есть предметы, кот. нужно сдать для завершения квеста
+        "Item": "/Inventory/Items/Weapons/TorchFoam",
+        "Count": 5
+      }
+      , //То
+      {
+        "$type": "ImpactAddKnowledgeDef", //выдаём кновледж, что игрок закончил квест
+        "WhenToApply": "OnSuccess",
+        "Knowledge": "/Inventory/Knowledge/Quest/2_Desert/RangerTorchQuest/RangerTorchQuest_CompletedKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "ImpactRemoveItemDef", //забираем у игрока предметы, кот. он должен был сдать
+        "Item": "/Inventory/Items/Weapons/TorchFoam",
+        "Count": 1
+      },
+      {
+        "$type": "ImpactRemoveItemDef", //забираем у игрока предметы, кот. он должен был сдать
+        "Item": "/Inventory/Items/Weapons/TorchFoam",
+        "Count": 1
+      },
+      {
+        "$type": "ImpactRemoveItemDef", //забираем у игрока предметы, кот. он должен был сдать
+        "Item": "/Inventory/Items/Weapons/TorchFoam",
+        "Count": 1
+      },
+      {
+        "$type": "ImpactRemoveItemDef", //забираем у игрока предметы, кот. он должен был сдать
+        "Item": "/Inventory/Items/Weapons/TorchFoam",
+        "Count": 1
+      },
+      {
+        "$type": "ImpactRemoveItemDef", //забираем у игрока предметы, кот. он должен был сдать
+        "Item": "/Inventory/Items/Weapons/TorchFoam",
+        "Count": 1
+      }
+    ]
+  }
+  

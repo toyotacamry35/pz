@@ -1,0 +1,29 @@
+
+
+{
+  "$type": "SpellDef",
+  "SpellWrapperOriginal": "Assets/UtilPrefabs/Traumas/NegEffIntoxication6",
+  "Name": "NegEffIntoxication6",
+  "Duration": 10.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "UseClampMax": true,
+      "ClampMax": 17.0,
+      "UseClampMin": true,
+      "ClampMin": 17.0
+    },
+  ]
+}

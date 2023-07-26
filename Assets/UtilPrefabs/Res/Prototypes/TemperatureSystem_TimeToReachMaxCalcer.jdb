@@ -1,0 +1,234 @@
+{
+    // Calculate Time to reach MaxTemperature with Termal Resistance for NEW Temperature System
+    // https://centre.atlassian.net/wiki/spaces/COL/pages/772177921
+    // Time = Default_Time * (1 + ((Resist_Arm/w_Arm + Resist_Leg/w_Leg + Resist_Head/w_Head + Resist_Chest/w_Chest)/(w_Arm + w_Leg + w_Head + w_Chest))
+    "$type": "CalcerMul",
+    "Multipliers": [
+        { // Default_Time
+            "$type": "CalcerStat",
+            "Stat": "/UtilPrefabs/Stats/NegativeFactors/TimeToReachMaxTemperature"
+        },
+        { //(1 + ((Resist_Arm/w_Arm + Resist_Leg/w_Leg + Resist_Head/w_Head + Resist_Chest/w_Chest)/(w_Arm + w_Leg + w_Head + w_Chest))
+            "$type": "CalcerSum",
+            "Summands": [
+                { // 1
+                    "$type": "CalcerConstant",
+                    "Value": 1
+                },
+                { // ((w_Arm*Resist_Arm + w_Leg*Resist_Leg + w_Head*Resist_Head + w_Chest*Resist_Chest)/(w_Arm + w_Leg + w_Head + w_Chest))
+                    "$type": "CalcerPiecewise",
+                    "Ranges": [
+                        { // if Cold Current Temperature
+                            "Condition": {
+                                "$type": "PredicateAnd",
+                                "Predicates": [
+                                    {
+                                        "$type": "PredicateLess",
+                                        "Lhs": {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ThermalBalance"
+                                        },
+                                        "Rhs": {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMin"
+                                        }
+                                    },
+                                    {
+                                        "$type": "PredicateLess",
+                                        "Lhs": {
+                                            "$type": "CalcerNegative",
+                                            "Value": "./TemperatureSystem_MaxTemperatureCalcer"
+                                        },
+                                        "Rhs": {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMin"
+                                        }
+                                    }
+                                ]
+                            },
+                            "Value": {
+                                "$type": "CalcerDiv",
+                                "Dividend": { //(Resist_Arm/w_Arm + Resist_Leg/w_Leg + Resist_Head/w_Head + Resist_Chest/w_Chest)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        { // Resist_Arm/w_Arm
+                                            "$type": "CalcerDiv",
+                                            "Dividend": { //Resist_Arm
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceArms"
+                                            },
+                                            "Divisor": { //w_Arm
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_ColdResistanceArms"
+                                            }
+                                        },
+                                        { // Resist_Leg/w_Leg
+                                            "$type": "CalcerDiv",
+                                            "Dividend": { //Resist_Leg
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceLegs"
+                                            },
+                                            "Divisor": { //w_Leg
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_ColdResistanceLegs"
+                                            }
+                                        },
+                                        { // Resist_Chest/w_Chest
+                                            "$type": "CalcerDiv",
+                                            "Dividend": { //Resist_Chest
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceChest"
+                                            },
+                                            "Divisor": { //w_Chest
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_ColdResistanceChest"
+                                            }
+                                        },
+                                        { // Resist_Head/w_Head
+                                            "$type": "CalcerDiv",
+                                            "Dividend": { //Resist_Head
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ColdResistanceHead"
+                                            },
+                                            "Divisor": { //w_Head
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_ColdResistanceHead"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "Divisor": { // (w_Arm + w_Leg + w_Head + w_Chest)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        { // w_Arm
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_ColdResistanceArms"
+                                        },
+                                        { // w_Leg
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_ColdResistanceLegs"
+                                        },
+                                        { // w_Head
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_ColdResistanceHead"
+                                        },
+                                        { // w_Chest
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_ColdResistanceChest"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        { // if Heat Current Temperature
+                            "Condition": {
+                                "$type": "PredicateAnd",
+                                "Predicates": [
+                                    {
+                                        "$type": "PredicateGreater",
+                                        "Lhs": {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ThermalBalance"
+                                        },
+                                        "Rhs": {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMax"
+                                        }
+                                    },
+                                    {
+                                        "$type": "PredicateLess",
+                                        "Lhs": {
+                                            "$type": "CalcerNegative",
+                                            "Value": "./TemperatureSystem_MaxTemperatureCalcer"
+                                        },
+                                        "Rhs": {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMax"
+                                        }
+                                    }
+                                ]
+                            },
+                            "Value": {
+                                "$type": "CalcerDiv",
+                                "Dividend": { //(Resist_Arm/w_Arm + Resist_Leg/w_Leg + Resist_Head/w_Head + Resist_Chest/w_Chest)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        { // Resist_Arm/w_Arm
+                                            "$type": "CalcerDiv",
+                                            "Dividend": { //Resist_Arm
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceArms"
+                                            },
+                                            "Divisor": { //w_Arm
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_HeatResistanceArms"
+                                            }
+                                        },
+                                        { // Resist_Leg/w_Leg
+                                            "$type": "CalcerDiv",
+                                            "Dividend": { //Resist_Leg
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceLegs"
+                                            },
+                                            "Divisor": { //w_Leg
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_HeatResistanceLegs"
+                                            }
+                                        },
+                                        { // Resist_Chest/w_Chest
+                                            "$type": "CalcerDiv",
+                                            "Dividend": { //Resist_Chest
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceChest"
+                                            },
+                                            "Divisor": { //w_Chest
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_HeatResistanceChest"
+                                            }
+                                        },
+                                        { // Resist_Head/w_Head
+                                            "$type": "CalcerDiv",
+                                            "Dividend": { //Resist_Head
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/HeatResistanceHead"
+                                            },
+                                            "Divisor": { //w_Head
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_HeatResistanceHead"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "Divisor": { // (w_Arm + w_Leg + w_Head + w_Chest)
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        { // w_Arm
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_HeatResistanceArms"
+                                        },
+                                        { // w_Leg
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_HeatResistanceLegs"
+                                        },
+                                        { // w_Head
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_HeatResistanceHead"
+                                        },
+                                        { // w_Chest
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Weight_HeatResistanceChest"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "Else": {
+                        "$type": "CalcerConstant",
+                        "Value": 0.0
+                    }
+                }
+            ]
+        }
+    ]
+}

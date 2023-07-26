@@ -1,0 +1,62 @@
+{
+  "$type": "Spell",
+  "DontShowProgress": false,
+  "Duration": 2,
+  "Words": [
+    {
+      "$type": "ImpactAddItemsDef",
+      "WhenToApply": "OnSuccess",
+      "Items": [
+        "/Inventory/Items/Mounting/GasStation"
+      ],
+      "Count": 1,
+      "Container": "Inventory",
+      "ItemsBatchType": "OneOfItem"
+    },
+    {
+      "$type": "EffectInputLayer"
+    },
+    {
+      "$type": "EffectInputSpellBreaker", 
+      "When": "Activated",
+      "FinishReason": "Fail",
+      "List": {
+        "$type": "InputActionsList",
+        "SubLists": [
+          "/UtilPrefabs/Input/BlockLists/Combat",
+          "/UtilPrefabs/Input/BlockLists/Locomotion"
+        ]
+      }
+    },
+    {
+      "$type": "EffectPlayAnimationDef",
+      "AnimatorOwner": {
+        "$type": "SpellCaster"
+      },
+      "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+      "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType",
+      "IntValue": 4
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnSuccess",
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "ImpactDie",
+            "Target": {
+              "$type": "SpellTarget"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1643"
+  }
+}

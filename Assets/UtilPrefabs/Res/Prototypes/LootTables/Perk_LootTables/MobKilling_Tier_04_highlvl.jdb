@@ -1,0 +1,669 @@
+{
+  "$type": "LootTableDef",
+  "AmountOfResourcesMultiplier": {
+    "$type": "CalcerPiecewise",
+    "Ranges": [
+      {
+        "Condition": {
+          "$type": "PredicateAnd",
+          "Predicates": [
+            {
+              "$type": "PredicateInRange", //Difficulty=40
+              "Min": 39,
+              "Max": 41,
+              "Value": {
+                "$type": "CalcerStat",
+                "Stat": "/UtilPrefabs/Stats/Environment/Difficulty"
+              }
+            },
+            {
+              "$type": "PredicateNot",
+              "Value": {
+                "$type": "PredicateInRange",
+                "Min": -0.5,
+                "Max": 7.5,
+                "Value": {
+                  "$type": "CalcerPlayerLevel",
+                  "LevelTable": "/UtilPrefabs/Res/Prototypes/LevelUpDatasDef"
+                }
+              },
+            }
+          ]
+        },
+        "Value": {
+          "$type": "CalcerConstant",
+          "Value": 1
+        }
+      }
+    ],
+    "Else": {
+      "$type": "CalcerConstant",
+      "Value": 0
+    }
+  },
+  "DefaultPredicate": {
+    "$type": "LootTablePredicatePlayerHaveNotPerkDef"
+  },
+  "LootTable": [
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Special/Empty",
+        "Count": 0
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChanceWeightCalcerConstantDef",
+        "Value": 5
+      }
+    },
+    //Level 1 Perks
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/SwordDmg_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/AxeDmg_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/HammerDmg_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/SpearDmg_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/HealthMax_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/HealthMaxFallDmg_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/HealthMaxSatMax_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/HealthRegHeatRes_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/HealthRegWaterMax_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/StamMax_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/StamMaxDetox_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/StamReg_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/Dmg_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/DmgColdRes_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/DmgResCrsh_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/DmgResPrc_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level1/DmgResSlsh_Level1",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 2,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    //Level 2 Perks
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/SCDash_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/SCBlock_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/SwordSCHeavy_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/AxeDmgJump_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/HammerMod_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/SpearDmgFin_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    ////////////////////////////
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/HealthMax_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/HealthMaxWaterCons_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/HealthRegColdRes_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/HealthRegWaterCons_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/StamMax_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/StamMaxCalorieCons_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/StamReg_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/StamRegWaterMax_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/Dmg_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/DmgDetox_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/DmgResCrsh_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/DmgResPrc_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level2/DmgResSlsh_Level2",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 3,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    //Level 3 Perks
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/BasicAttackDmg_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/UnarmedMod_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/UnarmedDmg_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/SwordModHeavy_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/AxeModHeavy_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/HammerModHeavy_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/SpearModDash_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    ///////////////////////////////
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/HealthMax_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/HealthMaxSatMax_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/HealthRegFallDmg_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/StamMax_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/StamMaxDetox_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/StamReg_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/StamRegColdRes_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/DmgResCrsh_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/DmgResPrc_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/DmgResSlsh_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    },*/
+    /*{
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/DmgDetox_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    }*/
+    {
+      "ItemResRefPack": {
+        "ItemResource": "/Inventory/Perks/Level3/Dmg_Level3",
+        "Count": 1
+      },
+      "WeightCalcer": {
+        "$type": "LootItemChancePerkWeightCalcerDef",
+        "Value": 5,
+        "PerkDestroyMult": 0.9
+      }
+    }
+  ]
+}

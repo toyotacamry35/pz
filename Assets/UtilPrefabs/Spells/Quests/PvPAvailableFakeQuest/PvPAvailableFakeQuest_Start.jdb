@@ -1,0 +1,48 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/PvPAvailableFakeQuest/PvPAvailableFakeQuest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/PvPAvailableFakeQuest/PvPAvailableFakeQuest_CompletedKW"
+    },
+    {
+      "$type": "SpellPredicateFromCalcerPredicateDef",
+      "Predicate": {
+        "$type": "PredicateIsPvE"
+      }
+    },
+    {
+      "$type": "SpellPredicateFromCalcerPredicateDef",
+      "Predicate": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerPlayerLevel",
+          "LevelTable": "/UtilPrefabs/Res/Prototypes/LevelUpDatasDef"
+        },
+        "Rhs": {
+          "$type": "CalcerConstant",
+          "Value": 2
+        }
+      }
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/PvPAvailableFakeQuest/PvPAvailableFakeQuest"
+    }
+  ]
+}

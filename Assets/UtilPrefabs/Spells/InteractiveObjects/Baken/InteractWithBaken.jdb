@@ -1,0 +1,32 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractWithCocoon",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateMutationNeedSyncDef",
+      "Source": {
+        "$type": "SpellCaster"
+      },
+      "Target": {
+        "$type": "SpellTarget"
+      }
+    },
+    {
+      "$type": "ImpactSynchronizeMutationDef",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n2507"
+  }
+}

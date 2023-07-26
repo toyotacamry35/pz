@@ -1,0 +1,25 @@
+{
+  "$type": "SpellDef",
+  "Name": "MeatStewSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/SatietyCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Value": 300.0,
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactInvokeTraumaDef",
+      "TraumaType": "PosEffFoodHotProtect2"
+    }
+  ]
+}

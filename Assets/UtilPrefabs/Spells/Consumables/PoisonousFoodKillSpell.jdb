@@ -1,0 +1,41 @@
+{
+  "$type": "SpellDef",
+  "Name": "StandardMedicalKitSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasActiveTraumasDef",
+      "TraumaTypes": [
+        "NegEffIntoxication3_1"
+      ]
+    },
+    {
+      "$type": "ImpactDamageObjectDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Damage": {
+        "$type": "CalcerConstant",
+        "Value": 100000
+      }
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n504438"
+      }
+    }
+  ]
+}

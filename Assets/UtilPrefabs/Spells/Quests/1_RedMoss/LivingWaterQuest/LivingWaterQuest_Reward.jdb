@@ -1,0 +1,33 @@
+{
+    "$type": "SpellDef",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": false,
+    "SpellIcon": null,
+    "DontShowProgress": true,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": [
+      {
+        "$type": "PredicateKnowledgeDef", //проверяем, что игрок брал квест - есть ли у него кновледж, выдающийся при взятии квеста?
+        "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_CompletedKW" //ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "ImpactAddItemsDef", //выдаём награду
+        "Items": [
+          "/Inventory/Items/Consumables/StandardRation"
+        ],
+        "Count": 3
+      },
+      {
+        "$type": "ImpactAddItemsDef", //выдаём награду
+        "Items": [
+          "/Inventory/Items/Consumables/StandardMedicalKit"
+        ],
+        "Count": 3
+      }
+    ],
+    "InteractionDescriptionLs": {
+      "Key": "#l10n1669"
+    }
+  }

@@ -1,0 +1,20 @@
+{
+  "$type": "SpellDef",
+  "Name": "CombatStance",
+  "Duration": 10,
+  "IsInfinite": false,
+  "Words": [
+    {
+      "$type": "EffectPostVisualEvent",
+      "TriggerName": "/Character/Events/ObeliskBurnFXEvent",
+    },
+    {
+      "$type": "ImpactDie",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "WhenToApply": "OnFinish"
+    }
+
+  ]
+}

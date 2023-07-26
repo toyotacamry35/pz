@@ -1,0 +1,43 @@
+{
+  "$type": "SpellDef",
+  "Name": "GrindQuest_MeatStew_Start",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    //Если:
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "PredicateQuestPhaseDef",
+      "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_SelweaLiver",
+      "Type": "Less",
+      "Phases": 0
+    },
+    {
+      "$type": "PredicateQuestPhaseDef",
+      "Inversed":true,
+      "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_RoastedToughMeat",
+      "Type": "Less",
+      "Phases": 0
+    },
+    {
+      "$type": "PredicateQuestPhaseDef",
+      "Inversed": true,
+      "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_RoastedToughMeat"
+    },
+    //То:
+    {
+      "$type": "ImpactActivateQuestDef", //выдаёт квест, указанный ниже
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_RoastedToughMeat" //ссылка на файл с этим квестом. его заведём в п.2 и сюда вставим
+    }
+  ]
+}

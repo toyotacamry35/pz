@@ -1,0 +1,62 @@
+{
+  "$type": "SpellDef",
+  "Name": "AttackObject_NOSTAGGERSpell",
+  "Duration": 0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAttackObjectDef",
+      "Attacker": {
+        "$type": "SpellCasterDef"
+      },
+      "Victim": {
+        "$type": "SpellTargetDef"
+      },
+      "Attack": 
+      {
+        "$type": "Attack",
+        "ActionsOnAttacker": [
+          {
+            "$type": "AttackInvokeReaction",
+            "When": "Recoil",
+            "Reaction": "/UtilPrefabs/Reactions/Recoil",
+            "Args": {
+              "RecoilTime": "/UtilPrefabs/Reactions/Args/Duration"
+            }
+          }
+        ],
+        "ActionsOnVictim": [
+          {
+            "$type": "AttackInvokeReaction",
+            "When": "Always",
+            "Reaction": "/UtilPrefabs/Reactions/CombatStance"
+          }
+        ]
+      }
+    }
+    /*
+    /*
+{
+      "$type": "EffectPlayHitFxDef",
+      "Provocator": {
+        "$type": "SpellTargetDef"
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "MaxDistToTarget": 3.0,
+      "FxData": "Assets/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell",
+      "TargetIsParent": true,
+      "RotationFromMarker": true,
+      "UseDetach": false
+    }
+    */
+  ]
+}

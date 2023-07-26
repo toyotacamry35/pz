@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "Negative_Heat_Burn",
+  "Duration": 1,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "IsStatusEffect": true,
+  "SpellIcon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffHot2",
+  "InteractionDescriptionLs": {
+    "Key": "#l10n504425"
+  },
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Summand": 5.0
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n504450"
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$type": "SpellDef",
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulOpenKW"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulOpenKW",
+      "WhenToApply": "OnFinish"
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Consumables/StandardMedicalKit",
+        "/Inventory/Items/Quest/SkyParcelQuest/SkyParcelQuest_Processor"
+      ],
+      "Count": 3
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Quest/SkyParcelQuest/SkyParcelQuest_Jornal"
+      ],
+      "Count": 1
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Consumables/MutagenZ"
+      ],
+      "Count": 1
+    }
+  ]
+}

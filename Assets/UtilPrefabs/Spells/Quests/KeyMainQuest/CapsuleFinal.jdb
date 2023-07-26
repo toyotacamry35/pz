@@ -1,0 +1,192 @@
+{
+  "$type": "SpellDef",
+  "Duration": 20.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "Words": [
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Key01Quest/Key01Quest_CompletedKW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key01Quest/Alt_Key01Quest_CompletedKW"
+        }
+      ]
+    },
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Key02Quest/Key02Quest_CompletedKW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key02Quest/Alt_Key02Quest_CompletedKW"
+        }
+      ]
+    },
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_CompletedKW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key03Quest/Alt_Key03Quest_CompletedKW"
+        }
+      ]
+    },
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Key04Quest/Key04Quest_CompletedKW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key04Quest/Alt_Key04Quest_CompletedKW"
+        }
+      ]
+    },
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Key05Quest/Key05Quest_CompletedKW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key05Quest/Alt_Key05Quest_CompletedKW"
+        }
+      ]
+    },
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Key06Quest/Key06Quest_CompletedKW"
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key06Quest/Alt_Key06Quest_CompletedKW"
+        }
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Spells": [
+        "/UtilPrefabs/Spells/Quests/KeyMainQuest/KeyMainQuest_Complete",
+        "/UtilPrefabs/Spells/Quests/KeyMainQuest/Alt_KeyMainQuest_Complete"
+      ],
+      "WhenToApply": "OnStart"
+    }
+    , // Обездвиживаем счастлиффца
+    {
+      "$type": "EffectInputLayer",
+      "Layer": "/UtilPrefabs/Input/Layers/EndGame"
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/All",
+      "Layer": "/UtilPrefabs/Input/Layers/EndGame"
+    }
+    , // Делаем его неуязвимым
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/IncomingDamageMod",
+      "UseClampMin": true,
+      "ClampMin": -1,
+      "UseClampMax": true,
+      "ClampMax": -1
+    }
+  ],
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 2,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "MustNotFail": false,
+            "IsInfinite": true,
+            "Spell": {
+              "$type": "Spell",
+              "Words": [
+                {
+                  "$type": "SpellPredicateFromCalcerPredicate",
+                  "Predicate": "/UtilPrefabs/Utils/ThisEntityIsMalePredicate"
+                },
+                {
+                  "$type": "EffectShowEndGameInterface",
+                  "TitleLs": {
+                    "Key": "#l10n4982"
+                  },
+                  "TextLs": {
+                    "Key": "#l10n4983"
+                  },
+                  "Image": "Assets/UI/UISprites/Preloader/GameOver/Victory_male"
+                }
+              ]
+            }
+          },
+          {
+            "$type": "SubSpell",
+            "MustNotFail": false,
+            "IsInfinite": true,
+            "Spell": {
+              "$type": "Spell",
+              "Words": [
+                {
+                  "$type": "SpellPredicateFromCalcerPredicate",
+                  "Predicate": "/UtilPrefabs/Utils/ThisEntityIsFemalePredicate"
+                },
+                {
+                  "$type": "EffectShowEndGameInterface",
+                  "TitleLs": {
+                    "Key": "#l10n4984"
+                  },
+                  "TextLs": {
+                    "Key": "#l10n4985"
+                  },
+                  "Image": "Assets/UI/UISprites/Preloader/GameOver/Victory_female"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 10,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 0,
+        "Words": [
+          {
+            "$type": "ImpactEndGame",
+            "Target": {
+              "$type": "SpellCaster"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n504004"
+  }
+}

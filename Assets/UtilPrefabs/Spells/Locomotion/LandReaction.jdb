@@ -1,0 +1,129 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1,
+  "ClearsSlot": true,
+  "Words": [
+    //DEBUG
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0,
+        "G": 0.8,
+        "B": 0.8,
+      }
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/DieType",
+          "Value": 2
+        }
+      ]
+    },
+    {
+      "$type": "ImpactDamageObjectDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Damage": {
+        "$type": "CalcerWithArgs<float>",
+        "Calcer": "/UtilPrefabs/Locomotion/Player/PlayerFallDamageCalcer",
+        "Args": {
+          "FallHeight": {
+            "$type": "CalcerVectorComponent",
+            "Component": "X",
+            "Vector": {
+              "$type": "CalcerSpellParameter<Vector3>",
+              "Parameter": "/UtilPrefabs/Spells/Params/Direction3"
+            }
+          }
+        }
+      }
+    },
+    ///   SprainTraumaObtaining
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateLess",
+              "Lhs": {
+                "$type": "CalcerVectorComponent",
+                "Component": "X",
+                "Vector": {
+                  "$type": "CalcerSpellParameter<Vector3>",
+                  "Parameter": "/UtilPrefabs/Spells/Params/Direction3"
+                }
+              },
+              "Rhs": {
+                "$type": "CalcerConstant",
+                "Value": 7
+              }
+            },
+            "Value": null
+          },
+          {
+            "Condition": {
+              "$type": "PredicateLess",
+              "Lhs": {
+                "$type": "CalcerRandomDef"
+              },
+              "Rhs": {
+                "$type": "CalcerMul",
+                "Multipliers": [
+                  {
+                    "$type": "CalcerMax",
+                    "Values": [
+                      {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/FallDamageModifier"
+                      },
+                      0
+                    ]
+                  },
+                  {
+                    "$type": "CalcerDiv",
+                    "Dividend": {
+                      "$type": "CalcerMul",
+                      "Multipliers": [
+                        {
+                          "$type": "CalcerVectorComponent",
+                          "Component": "X",
+                          "Vector": {
+                            "$type": "CalcerSpellParameter<Vector3>",
+                            "Parameter": "/UtilPrefabs/Spells/Params/Direction3"
+                          }
+                        },
+                        {
+                          "$type": "CalcerVectorComponent",
+                          "Component": "X",
+                          "Vector": {
+                            "$type": "CalcerSpellParameter<Vector3>",
+                            "Parameter": "/UtilPrefabs/Spells/Params/Direction3"
+                          }
+                        }
+                      ]
+                    },
+                    "Divisor": {
+                      "$type": "CalcerConstant",
+                      "Value": 2000
+                    }
+                  }
+                ]
+              }
+            },
+            "Value": "/UtilPrefabs/Traumas/NegEffSprain1"
+          }
+        ],
+        "Else": null
+      }
+    }
+  ]
+}

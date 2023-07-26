@@ -1,0 +1,57 @@
+{
+  "$type": "Buff",
+  "Id": "FD99FBA9-34EE-493F-BB9A-6A61BAC60F0F",
+  "IsInfinite": true,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/VerminUFO",
+  "DescriptionLs": {
+    "Key": "#l10n504431"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/ToxicResistance",
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "Summand": 20
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/Detoxication",
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "Summand": 1.5
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/CalorieConsumptionMod",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Multiplier": 1
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthMaxCurrent",
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "Summand": -200
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503938"
+      }
+    }
+  ]
+}

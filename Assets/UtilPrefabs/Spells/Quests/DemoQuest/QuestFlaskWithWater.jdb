@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestFlaskWithWater",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "Group": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Consumables/FlaskOfCleanWater",
+      "SpellOnAppearance": {
+        "$type": "SpellDef",
+        "$id": "SpellOnAppearance",
+        "Words": [
+          {
+            "$type": "ImpactStopSpellDef",
+            "Spell": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlaskWithWater"
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIWater"
+          }
+        ]
+      },
+      "SpellOnPresence": "$SpellOnAppearance"
+    },
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Consumables/FlaskOfToxicWater",
+      "SpellOnAppearance": "$SpellOnAppearance",
+      "SpellOnPresence": "$SpellOnAppearance"
+    }
+  ]
+}

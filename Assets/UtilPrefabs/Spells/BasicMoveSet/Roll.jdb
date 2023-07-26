@@ -1,0 +1,60 @@
+{
+  "$type": "SpellDef",
+  "Name": "Roll",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Duration": 0.8,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/PartialStop",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectShowDebugTextureDef",
+      "Enabled": true,
+      "Texture": null,
+      "Color": {
+        "$type": "Color",
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      }
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Invulnerability",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectShowDebugTextureDef",
+      "Enabled": true,
+      "Texture": null,
+      "Color": {
+        "$type": "Color",
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      }
+    }
+  ]
+}

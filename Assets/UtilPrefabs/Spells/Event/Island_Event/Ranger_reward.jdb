@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Name": "NPC_YES",
+  "Duration": 60.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n502897"
+  },
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Event/Island_Event/Island_Event_Corpse_Data"
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Event/Island_Event/Island_Event_Corpse_Data"
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Item": "/Inventory/Items/Weapons/FungalSword",
+      "Count": 1
+    },
+    {
+      "$type": "EffectShowTextDef",
+      "TextLs": {
+        "Key": "#l10n503039"
+      }
+    }
+  ]
+}

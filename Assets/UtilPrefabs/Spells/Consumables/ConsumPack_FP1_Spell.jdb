@@ -1,0 +1,112 @@
+{
+  "$type": "SpellDef",
+  "Name": "BeetRootSpell",
+  "Duration": 0.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0,
+        "Words": [
+          {
+            "$type": "PredicateLogicalOr",
+            "Predicates": [
+              {
+                "$type": "SpellPredicateFromCalcerPredicate",
+                "Predicate": {
+                  "$type": "PredicateGreater",
+                  "Lhs": {
+                    "$type": "CalcerPlayerLevel",
+                    "LevelTable": "/UtilPrefabs/Res/Prototypes/LevelUpDatasDef"
+                  },
+                  "Rhs": 1.5,
+                }
+              },
+              {
+                "$type": "PredicateKnowledgeDef",
+                "Knowledge": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW"
+              },
+            ]
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Consumables/StandardRation"
+            ],
+            "Count": 7
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Consumables/StandardMedicalKit"
+            ],
+            "Count": 7
+          },
+          {
+            "$type": "ImpactAddItemsDef",
+            "Items": [
+              "/Inventory/Items/Consumables/BattlePotion_2"
+            ],
+            "Count": 2
+          },
+          {
+            "$type": "ImpactRemoveItem",
+            "Count": 1,
+            "Item": "/Inventory/Items/Exclusive/ConsumPack_FP1"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 0,
+        "Words": [
+          {
+            "$type": "PredicateLogicalOr",
+            "Inversed": true,
+            "Predicates": [
+              {
+                "$type": "SpellPredicateFromCalcerPredicate",
+                "Predicate": {
+                  "$type": "PredicateGreater",
+                  "Lhs": {
+                    "$type": "CalcerPlayerLevel",
+                    "LevelTable": "/UtilPrefabs/Res/Prototypes/LevelUpDatasDef"
+                  },
+                  "Rhs": 1.5,
+                }
+              },
+              {
+                "$type": "PredicateKnowledgeDef",
+                "Knowledge": "/Inventory/Knowledge/Quest/DropZone/FinishTutorialQuest1KW"
+              },
+            ]
+          },
+          {
+            "$type": "ImpactCastSpell",
+            "Spell": "./LeaveDropzoneText",
+            "Caster": {
+              "$type": "SpellCaster"
+            },
+            "Target": {
+              "$type": "SpellTarget"
+            }
+          },
+        ]
+      }
+    }
+  ],
+  "Words": []
+}

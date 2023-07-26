@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "GrindQuest_RawJuicyMeat_Complete",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n503376"
+  },
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    //Если
+    {
+      "$type": "PredicateQuestPhaseDef",
+      "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_RawJuicyMeat",
+      "Type": "More",
+      "Phases": -1
+    },
+    {
+      "$type": "PredicateQuestPhaseDef",
+      "Inversed":true,
+      "Quest": "/Inventory/Quest/GrindQuest/GrindQuest_RawJuicyMeat",
+      "Type": "Less",
+      "Phases": 0
+    },
+    {
+      "$type": "PredicateCheckItemDef", //проверяем, что у игрока есть предметы, кот. нужно сдать для завершения квеста
+      "Item": "/Inventory/Items/Consumables/RawJuicyMeat",
+      "Count": 5
+    }, //То
+    {
+      "$type": "ImpactRemoveItemDef", //забираем у игрока предметы, кот. он должен был сдать
+      "Item": "/Inventory/Items/Consumables/RawJuicyMeat",
+      "Count": 5
+    }
+  ]
+}

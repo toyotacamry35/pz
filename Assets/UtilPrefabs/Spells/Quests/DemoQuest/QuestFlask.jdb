@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestFlask",
+  "IsInfinite": true,
+  "Group": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Consumables/EmptyFlask",
+      "SpellOnAppearance": {
+        "$type": "SpellDef",
+        "$id": "SpellOnAppearance",
+        "Words": [
+          {
+            "$type": "ImpactStopSpellDef",
+            "Spells": [
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlaskResources",
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlaskResources2",
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlask"
+            ]
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointsOfInterest": [
+              "/UtilPrefabs/PointsOfInterest/POIGerophyt",
+              "/UtilPrefabs/PointsOfInterest/POIBractus"
+            ]
+          },
+          {
+            "$type": "ImpactCastSpellDef",
+            "Spell": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestFlaskWithWater"
+          }
+        ]
+      },
+      "SpellOnPresence": "$SpellOnAppearance"
+    }
+  ]
+}

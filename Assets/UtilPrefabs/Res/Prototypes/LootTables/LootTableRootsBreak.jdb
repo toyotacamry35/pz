@@ -1,0 +1,38 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes": [
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTSlashing"
+            ],
+            "LootTableTable": {
+                "$type": "LootTableDef",
+                "LootTable": [
+                    {
+                        "ItemResRefPack": {
+                            "ItemResource": "/Inventory/Items/Weapons/Rootstick",
+                            "Count": 1
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1.0
+                        }
+                    },
+                    {
+                        "ItemResRefPack": {
+                            "ItemResource": "/Inventory/Items/Weapons/Rootstick",
+                            "Count": 1
+                        },
+                        "Predicate": {
+                            "$type": "LootTablePredicatePremium"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 0.25
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

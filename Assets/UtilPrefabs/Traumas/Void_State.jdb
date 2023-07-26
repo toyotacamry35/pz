@@ -1,0 +1,297 @@
+{
+  "$type": "SpellDef",
+  "Name": "Void_State",
+  "IsInfinite": true,
+  "IgnoresDeath": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "PredicateHasActiveTraumasDef",
+            "Inversed": true,
+            "TraumaTypes": [
+              "Void_Power_1"
+            ]
+          },
+          {
+            "$type": "ImpactInvokeTrauma",
+            "Target": {
+              "$type": "SpellTarget"
+            },
+            "TraumaType": "Void_Power_1"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "PredicateHasActiveTraumasDef",
+            "Inversed": true,
+            "TraumaTypes": [
+              "Void_Power_2"
+            ]
+          },
+          {
+            "$type": "ImpactInvokeTrauma",
+            "Target": {
+              "$type": "SpellTarget"
+            },
+            "TraumaType": "Void_Power_2"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "PredicateHasActiveTraumasDef",
+            "Inversed": true,
+            "TraumaTypes": [
+              "Void_Power_3"
+            ]
+          },
+          {
+            "$type": "ImpactInvokeTrauma",
+            "Target": {
+              "$type": "SpellTarget"
+            },
+            "TraumaType": "Void_Power_3"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "PredicateHasActiveTraumasDef",
+            "Inversed": true,
+            "TraumaTypes": [
+              "Void_Power_4"
+            ]
+          },
+          {
+            "$type": "ImpactInvokeTrauma",
+            "Target": {
+              "$type": "SpellTarget"
+            },
+            "TraumaType": "Void_Power_4"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "PredicateHasActiveTraumasDef",
+            "Inversed": true,
+            "TraumaTypes": [
+              "Void_Power_5"
+            ]
+          },
+          {
+            "$type": "ImpactInvokeTrauma",
+            "Target": {
+              "$type": "SpellTarget"
+            },
+            "TraumaType": "Void_Power_5"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "PredicateHasActiveTraumasDef",
+            "Inversed": true,
+            "TraumaTypes": [
+              "Void_Power_6"
+            ]
+          },
+          {
+            "$type": "ImpactInvokeTrauma",
+            "Target": {
+              "$type": "SpellTarget"
+            },
+            "TraumaType": "Void_Power_6"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 55
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 350
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": -1000
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Value": 3000
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMax",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 100
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMin",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": -100
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/CalorieConsumption",
+      "UseClampMin": true,
+      "ClampMin": 0,
+      "UseClampMax": true,
+      "ClampMax": 0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterConsumption",
+      "UseClampMin": true,
+      "ClampMin": 0,
+      "UseClampMax": true,
+      "ClampMax": 0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/SatietyMax",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 500
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/SpeedFactor",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 0.3
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/FallDamageModifier",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": -0.4
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n505057"
+      }
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "WhenToApply": "OnStart",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Quest": "/Inventory/Quest/00_Perk_Quests/Void_Quest"
+    }
+  ]
+}

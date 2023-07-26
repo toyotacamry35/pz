@@ -1,0 +1,34 @@
+{
+  "$type": "SpellDef",
+  "Name": "BlackLeechSpell",
+  "Duration": 14.943,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/Detoxication",
+      "UseClampMax": true,
+      "ClampMax": 25.0,
+      "UseClampMin": true,
+      "ClampMin": 25.0,
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": -0.2
+    }
+  ]
+}

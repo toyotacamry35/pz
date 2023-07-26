@@ -1,0 +1,135 @@
+{
+  "$type": "Attack",
+  "$vars": {
+    "DAMAGE_MOD": {
+      "Type": "float",
+      "Value": 1
+    },
+    "MINING_MOD": {
+      "Type": "float",
+      "Value": 1
+    },
+    "POWER_MOD": {
+      "Type": "float",
+      "Value": 0
+    },
+    "ADDITIONAL_REACTION":{
+      "Type": "AttackAction",
+      "Value": null
+    },
+    "FX_EVENT": {
+      "Type": "FXEventType",
+      "Value": "/Character/Events/TakeHitDamageEvent"
+    },
+    "ATTACK_TYPE": {
+      "Type": "AttackType",
+      "Value": "/UtilPrefabs/AttackType/Normal"
+    }   
+  }, 
+  "ActionsOnAttacker": [
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Recoil",
+      "Reaction": "/UtilPrefabs/Reactions/Recoil",
+      "Args": {
+        "RecoilTime": "/UtilPrefabs/Reactions/Args/Duration"
+      }
+    },
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Always",
+      "Reaction": "/UtilPrefabs/Reactions/HitStatic",
+      "Args": {
+        "Victim": "/UtilPrefabs/Reactions/Args/Victim",
+        "HitPoint": "/UtilPrefabs/Reactions/Args/HitPoint",
+        "HitRotation": "/UtilPrefabs/Reactions/Args/HitRotation"
+      }
+    }
+  ],
+  "ActionsOnVictim": [
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Stagger",
+      "Reaction": "/UtilPrefabs/Reactions/Stagger",
+      "Args": {
+        "StaggerTime": "/UtilPrefabs/Reactions/Args/Duration",
+        "HitDirection": "/UtilPrefabs/Reactions/Args/HitDirection",
+        "Attacker": "/UtilPrefabs/Reactions/Args/Attacker"
+      }
+    },
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Always",
+      "Reaction": "/UtilPrefabs/Reactions/TakeDamage",
+      "Args": {
+        "Attacker": "/UtilPrefabs/Reactions/Args/Attacker",
+        "Victim": "/UtilPrefabs/Reactions/Args/Victim",
+        "HitPoint": "/UtilPrefabs/Reactions/Args/HitPoint",
+        "HitLocalPoint": "/UtilPrefabs/Reactions/Args/HitLocalPoint",
+        "HitRotation": "/UtilPrefabs/Reactions/Args/HitRotation",
+        "HitLocalRotation": "/UtilPrefabs/Reactions/Args/HitLocalRotation",
+        "HitObject": "/UtilPrefabs/Reactions/Args/HitObject",
+        "DamageType": "/UtilPrefabs/Reactions/Args/HitDamageType",
+        "WeaponSize": "/UtilPrefabs/Reactions/Args/HitWeaponSize",
+        "AttackType": "/UtilPrefabs/Reactions/Args/HitAttackType",
+        "HitMaterial": "/UtilPrefabs/Reactions/Args/HitMaterial"
+      }
+    },
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "BlockAndNoStagger",
+      "Reaction": "/UtilPrefabs/Reactions/TakeDamageInBlock",
+      "Args": {
+        "Attacker": "/UtilPrefabs/Reactions/Args/Attacker",
+        "Victim": "/UtilPrefabs/Reactions/Args/Victim",
+        "HitPoint": "/UtilPrefabs/Reactions/Args/HitPoint",
+        "HitLocalPoint": "/UtilPrefabs/Reactions/Args/HitLocalPoint",
+        "HitRotation": "/UtilPrefabs/Reactions/Args/HitRotation",
+        "HitLocalRotation": "/UtilPrefabs/Reactions/Args/HitLocalRotation",
+        "HitObject": "/UtilPrefabs/Reactions/Args/HitObject",
+        "DamageType": "/UtilPrefabs/Reactions/Args/HitDamageType",
+        "WeaponSize": "/UtilPrefabs/Reactions/Args/HitWeaponSize",
+        "AttackType": "/UtilPrefabs/Reactions/Args/HitAttackType"
+      }
+    },
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "BlockAndStagger",
+      "Reaction": "/UtilPrefabs/Reactions/TakeDamageThroughBlock",
+      "Args": {
+        "Attacker": "/UtilPrefabs/Reactions/Args/Attacker",
+        "Victim": "/UtilPrefabs/Reactions/Args/Victim",
+        "HitPoint": "/UtilPrefabs/Reactions/Args/HitPoint",
+        "HitLocalPoint": "/UtilPrefabs/Reactions/Args/HitLocalPoint",
+        "HitRotation": "/UtilPrefabs/Reactions/Args/HitRotation",
+        "HitLocalRotation": "/UtilPrefabs/Reactions/Args/HitLocalRotation",
+        "HitObject": "/UtilPrefabs/Reactions/Args/HitObject",
+        "DamageType": "/UtilPrefabs/Reactions/Args/HitDamageType",
+        "WeaponSize": "/UtilPrefabs/Reactions/Args/HitWeaponSize",
+        "AttackType": "/UtilPrefabs/Reactions/Args/HitAttackType"
+      }
+    },
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Always",
+      "Reaction": "/UtilPrefabs/Reactions/CombatStance"
+    },
+    "@ADDITIONAL_REACTION"
+  ],
+  "Modifiers": [
+    {
+      "$type": "AttackStatOverride",
+      "Id": "E614DAB5-BE17-4DE3-9EEA-31AE16E96BF1", 
+      "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+      "Value": "@DAMAGE_MOD"
+    },
+    {
+      "$type": "AttackStatOverride",
+      "Id": "423EFA6E-9534-4B20-872D-A05F82A86DDD",
+      "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+      "Value": "@POWER_MOD"
+    }
+  ],
+  "AttackType": "@ATTACK_TYPE" 
+//  "FxEventOnVictim": "@FX_EVENT" // Теперь файрится через реакцию /UtilPrefabs/Reactions/TakeDamage
+}

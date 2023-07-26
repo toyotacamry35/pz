@@ -1,0 +1,24 @@
+{
+    "$type": "UnityGameObjectDef",
+    "Name": "Boiler",
+    "Components": [
+        {
+            "$type": "InteractiveDef",
+            "ReuseExisting": true,
+            "ContextualActions": {
+                "$type": "ContextualActionsDef",
+                "SpellsByAction": {
+                    "/UtilPrefabs/Input/Actions/Interaction": {
+                        "0": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/Quests/BenchQuest/BoilerUnlockQuest_Check"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+        }
+    ]
+}

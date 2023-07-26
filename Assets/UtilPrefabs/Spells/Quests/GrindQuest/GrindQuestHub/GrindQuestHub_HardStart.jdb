@@ -1,0 +1,33 @@
+{
+  "$type": "SpellDef",
+  "Name": "SpellWithRandomChance",
+  "Duration": 1.0,
+  "AllowMultiple": true,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateLess",
+              "Lhs": {
+                "$type": "CalcerRandomDef"
+              },
+              "Rhs": 1.0
+            },
+            "Value": "/UtilPrefabs/Spells/Quests/KillTheKvarsQuest/KillTheKvarsQuest_Start"
+          }
+        ],
+        "Else": "/UtilPrefabs/Spells/Quests/KillTheKvarsQuest/KillTheKvarsQuest_Start"
+      }
+    }
+  ]
+}

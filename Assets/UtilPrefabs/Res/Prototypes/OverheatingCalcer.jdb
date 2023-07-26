@@ -1,0 +1,36 @@
+{
+    "$type": "CalcerPiecewise",
+    "Ranges": [
+        {
+            "Condition": {
+                "$type": "PredicateLess",
+                "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ThermalBalance"
+                },
+                "Rhs": 0.0
+            },
+            "Value": 10
+        },
+        {
+            "Condition": {
+                "$type": "PredicateLess",
+                "Lhs": "/UtilPrefabs/Res/Prototypes/RawOverheatCalcer",
+                "Rhs": 0.1
+            },
+            "Value": 0.1
+        }
+    ],
+    "Else": {
+        "$type": "CalcerMul",
+        "Multipliers": [
+            "/UtilPrefabs/Res/Prototypes/RawOverheatCalcer",
+            "/UtilPrefabs/Res/Prototypes/HeatCapModCalcer",
+            {
+                // test&balance multiplier
+                "$type": "CalcerConstant",
+                "Value": 3.0
+            }
+        ]
+    }
+}

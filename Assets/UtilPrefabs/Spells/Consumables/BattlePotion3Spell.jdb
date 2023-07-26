@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateHasTraumasDef",
+              "TraumaTypes": [
+                "BattlePotion3Cooldown",
+                "BattlePotion4Cooldown"
+              ]
+            },
+            "Value": "/UtilPrefabs/Spells/Consumables/BattlePotionNotificationSpell"
+          }
+        ],
+        "Else": "/UtilPrefabs/Spells/Consumables/BattlePotion3BuffSpell"
+      }
+    }
+  ]
+}

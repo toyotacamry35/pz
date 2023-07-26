@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Duration": 5.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddKnowledgeDef", 
+      "Knowledge": "/Inventory/Knowledge/Quest/Alt_Key05Quest/Alt_Key05Quest_CompletedKW" 
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Currencies/TechPointR2"
+      ],
+      "Count": 6
+    },
+    {
+      "$type": "ImpactGrantAccountReward", 
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Reward": "/Sessions/Rewards/Alt_Key05Quest_Reward" 
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$type": "Buff",
+  "Id": "B94CA48D-C5DB-4FFE-971E-B00ABFEB747B",
+  "Duration": 900.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/PosEffDropzone",
+  "DescriptionLs": {
+    "Key": "#l10n2884"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/CalorieConsumption",
+      "UseClampMin": true,
+      "ClampMin": 0,
+      "UseClampMax": true,
+      "ClampMax": 0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterConsumption",
+      "UseClampMin": true,
+      "ClampMin": 0,
+      "UseClampMax": true,
+      "ClampMax": 0
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$type": "SpellDef",
+  "Name": "KulibinQuest_QuestComplete",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "SpellIcon": null,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n502917"
+  },
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    //Если
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_CompletedKW"
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Res/SiliconShard",
+      "Count": 10
+    },
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Res/SporeCell",
+      "Count": 10
+    },
+    //То
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/SavannahHub/Kulibin/KulibinQuest/KulibinQuest_CompletedKW"
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Res/SiliconShard",
+      "Count": 10
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Res/SporeCell",
+      "Count": 10
+    }
+  ]
+}

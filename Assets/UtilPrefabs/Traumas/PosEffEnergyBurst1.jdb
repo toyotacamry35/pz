@@ -1,0 +1,29 @@
+{
+  "$type": "Buff",
+  "Id": "7CFE5FAC-70D0-4787-A73E-C0F4C86D80AD",
+  "Duration": 180.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/PosEffEnergyBurst1",
+  "DescriptionLs": {
+    "Key": "#l10n2887"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": 0.2
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": 0.2
+    }
+  ]
+}

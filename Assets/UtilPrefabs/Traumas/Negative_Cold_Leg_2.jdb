@@ -1,0 +1,35 @@
+{
+  "$type": "Buff",
+  "Id": "E5B54292-BA21-4F75-BB9A-9CC646742D02",
+  "Duration": 12000.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffLegFrost1",
+  "DescriptionLs": {
+    "Key": "#l10n2866"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "Enabled": true,
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpenseSprintModifier",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "Summand": 0.5
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503076"
+      }
+    }
+  ]
+}

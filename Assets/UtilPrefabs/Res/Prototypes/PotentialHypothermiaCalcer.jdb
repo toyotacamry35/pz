@@ -1,0 +1,123 @@
+{
+    // potential_hypothermia = I wind_chill_temperature_index – character_comfort_temperature_min I
+    "$type": "CalcerPiecewise",
+    "Ranges": [
+        {
+            "Condition": {
+                "$type": "PredicateLess",
+                "Lhs": "/UtilPrefabs/Res/Prototypes/WindChillTemperaturCalcer",
+                "Rhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMin"
+                }
+            },
+            "Value": {
+                "$type": "CalcerPiecewise",
+                "Ranges": [
+                    {
+                        "Condition": {
+                            "$type": "PredicateLess",
+                            "Lhs": {
+                                "$type": "CalcerSum",
+                                "Summands": [
+                                    "/UtilPrefabs/Res/Prototypes/WindChillTemperaturCalcer",
+                                    {
+                                        "$type": "CalcerMul",
+                                        "Multipliers": [
+                                            
+                                            {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMin"
+                                            },
+                                            {
+                                                "$type": "CalcerConstant",
+                                                "Value": -1.0
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "Rhs": 0.0
+                        },
+                        "Value": {
+                            "$type": "CalcerMul",
+                            "Multipliers": [
+                                {
+                                    "$type": "CalcerSum",
+                                    "Summands": [
+                                        "/UtilPrefabs/Res/Prototypes/WindChillTemperaturCalcer",
+                                        {
+                                            "$type": "CalcerMul",
+                                            "Multipliers": [
+                                                
+                                                {
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMin"
+                                                },
+                                                {
+                                                    "$type": "CalcerConstant",
+                                                    "Value": -1.0
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "$type": "CalcerConstant",
+                                    "Value": -1.0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "Condition": {
+                            "$type": "PredicateGreater",
+                            "Lhs": {
+                                "$type": "CalcerSum",
+                                "Summands": [
+                                    "/UtilPrefabs/Res/Prototypes/WindChillTemperaturCalcer",
+                                    {
+                                        "$type": "CalcerMul",
+                                        "Multipliers": [
+                                            {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMin"
+                                            },
+                                            {
+                                                "$type": "CalcerConstant",
+                                                "Value": -1.0
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "Rhs": 0.0
+                        },
+                        "Value": {
+                            "$type": "CalcerSum",
+                            "Summands": [
+                                "/UtilPrefabs/Res/Prototypes/WindChillTemperaturCalcer",
+                                {
+                                    "$type": "CalcerMul",
+                                    "Multipliers": [
+                                        
+                                        {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMin"
+                                        },
+                                        {
+                                            "$type": "CalcerConstant",
+                                            "Value": -1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "Else": 0.0
+            }
+        }
+    ],
+    "Else": 0.0
+}

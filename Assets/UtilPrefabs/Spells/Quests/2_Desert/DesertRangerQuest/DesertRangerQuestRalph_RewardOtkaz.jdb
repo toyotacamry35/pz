@@ -1,0 +1,31 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddItemsDef", //выдаём награду
+      "Items": [
+        "/Inventory/Currencies/TechPointR1"
+      ],
+      "Count": 2
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/2_Desert/DesertRangerQuest/DesertRangerQuest_OtkazKW"
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "WhenToApply": "OnSuccess",
+      "Item": "/Inventory/Items/Quest/2_Desert/DesertRangerQuest/ExpeditionNotes"
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1669"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "AttackObjectSpellDeadly",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "AllowMultiple": true,
+  "Words": [
+    {
+      "$type": "ImpactAttackObjectDef",
+      "Attacker": {
+        "$type": "SpellCasterDef"
+      },
+      "Victim": {
+        "$type": "SpellTargetDef"
+      },
+      "Attack": {
+        "$type": "Attack",
+        "Modifiers": [
+          {
+            "$type": "AttackStatOverride",
+            "Id": "28C4BC5E-32EE-4ECA-9965-67EA14674BB5",
+            "Stat": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+            "Value": 9999999
+          },
+          {
+            "$type": "AttackStatOverride",
+            "Id": "0909BFEE-A315-4372-89A1-99AC61B83780",
+            "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+            "Value": 9999999
+          }
+        ]
+      }
+    }
+  ]
+}

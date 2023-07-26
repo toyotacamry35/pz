@@ -1,0 +1,129 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes": [
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTCrushing",
+                "/UtilPrefabs/DamageTypes/DTCutting",
+            ],
+            "LootTableTable": {
+                "$type": "LootTableDef",
+                "LootTable": [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusScraps",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 10
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusResin",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusPollen",
+                        "Predicate": {
+                            "$type": "LootTablePredicateInGameTimeDef",
+                            "TimeInterval": "/UtilPrefabs/Res/Prototypes/InGameTimeIntervals/TimeIntervalNight"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 5
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTPiercing"
+            ],
+            "LootTableTable": {
+                "$type": "LootTableDef",
+                "LootTable": [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusResin",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 10
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusPollen",
+                        "Predicate": {
+                            "$type": "LootTablePredicateInGameTimeDef",
+                            "TimeInterval": "/UtilPrefabs/Res/Prototypes/InGameTimeIntervals/TimeIntervalNight"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 5
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusScraps",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "DamageTypes": [
+                "/UtilPrefabs/DamageTypes/DTSlashing"
+            ],
+            "LootTableTable": {
+                "$type": "LootTableDef",
+                "LootTable": [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusPulp",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 10
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusPollen",
+                        "Predicate": {
+                            "$type": "LootTablePredicateInGameTimeDef",
+                            "TimeInterval": "/UtilPrefabs/Res/Prototypes/InGameTimeIntervals/TimeIntervalNight"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 5
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableBractusResin",
+                        "Predicate": {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "ImpactCraftMachineWorkingSwitch",
+  "Duration": 0.005,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/Items/Fireplace",
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactCraftMachineWorkingSwitchDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "PredicateCheckIfInRangeDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Range": 10.0,
+      "Policy": "OnStart",
+      "Inversed": false
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1674"
+  }
+}

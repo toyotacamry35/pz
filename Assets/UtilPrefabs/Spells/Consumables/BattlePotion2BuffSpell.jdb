@@ -1,0 +1,42 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasActiveTraumasDef",
+      "Inversed": true,
+      "TraumaTypes": [
+        "BattlePotion2Cooldown",
+        "BattlePotion3Cooldown",
+        "BattlePotion4Cooldown"
+      ]
+    },
+    {
+      "$type": "ImpactCastBuff",
+      "WhenToApply": "OnSuccess",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Buff": "/UtilPrefabs/Spells/Consumables/BattlePotion2BuffSpellEffect"
+    },
+
+    {
+      "$type": "ImpactInvokeTraumaDef",
+      "WhenToApply": "OnSuccess",
+      "TraumaType": "BattlePotion2Cooldown"
+    },
+    {
+        "$type": "ImpactRemoveItemDef",
+        "Item": "/Inventory/Items/Consumables/BattlePotion_2",
+        "Count": 1
+    }
+  ]
+}

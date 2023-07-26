@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "NegEffDangerArea",
+  "Duration": 0.4,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/SpeedFactor",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": -0.5 // Стат влияющий на скорость передвижения
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/SprintBlock",
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/JumpBlock",
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/DodgeBlock",
+      "Summand": 1.0
+    }
+  ]
+}

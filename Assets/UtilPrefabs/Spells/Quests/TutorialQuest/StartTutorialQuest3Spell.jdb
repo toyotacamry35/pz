@@ -1,0 +1,23 @@
+{
+  "$type": "SpellDef",
+  "Name": "StartTutorialQuest1Spell",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Quest": "/Inventory/Quest/TutorialQuest/TutorialQuest3"
+    }
+  ]
+}

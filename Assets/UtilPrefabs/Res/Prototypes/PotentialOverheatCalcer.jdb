@@ -1,0 +1,39 @@
+{
+    // potential_overheat
+    "$type": "CalcerPiecewise",
+    "Ranges": [
+        {
+            "Condition": {
+                "$type": "PredicateGreater",
+                "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                },
+                "Rhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMax"
+                }
+            },
+            "Value": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                    },
+                    {
+                        "$type": "CalcerMul",
+                        "Multipliers": [
+                            {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ItemsEquippedComfortTempMax"
+                            },
+                            -1.0
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "Else": 0.0
+}

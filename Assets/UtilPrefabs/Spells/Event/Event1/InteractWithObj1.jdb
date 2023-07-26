@@ -1,0 +1,47 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractWithObj1",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n504114"
+  },
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    /*
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Event/Event1/EventObj1KW"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Event/Event1/EventObj1KW"
+    },
+    */
+    {
+      "$type": "ImpactCastSpellDef",
+      "Caster": {
+        "$type": "SpellTargetDef"
+      },
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 60.0,
+        "Words": [
+          {
+            "$type": "ImpactDieDef",
+            "WhenToApply": "OnSuccess",
+            "Target": {
+              "$type": "SpellCasterDef"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

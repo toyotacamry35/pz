@@ -1,0 +1,64 @@
+{
+  "$type": "Spell",
+  "Duration": 400,
+  "IsInfinite": false,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 300.0,
+      "AnchorLeft": 0.0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.5,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": true,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 0.5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "DontShowProgress": false,
+        "OutlineColorIndex": 0,
+        "Words": [
+          {
+            "$type": "ImpactSpawnObelisk",
+            "Obelisk": "/SpawnSystem/Objects/GasStationInteractive",
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "ImpactDie",
+            "Target": {
+              "$type": "SpellCaster"
+            },
+            "WhenToApply": "OnSuccess"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "PredicateCompareStat",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Type": "More",
+      "Value": 449,
+      "Stat": "/UtilPrefabs/Stats/Environment/ToxicExternal"
+    },
+    {
+      "$type": "EffectShowText",
+      "ShowForEveryone": true,
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n505110"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+    "$type": "SpellDef",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": false,
+    "DontShowProgress": true,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": [
+        {
+            "$type": "PredicateKnowledgeDef", // проверяет, есть ли у игрока кновледж "я уже брал этот квест" и, если есть, не даёт взять квест. мы будем выдавать этот кновледж в файле самого квеста, см. п.2
+            "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_UnlockBackpackSimonKW" //ссылка на файл с этим кновледжем. его заведём в п.4 и сюда вставим
+        },
+        {
+            "$type": "PredicateKnowledgeDef", // проверяет, есть ли у игрока кновледж "я уже брал этот квест" и, если есть, не даёт взять квест. мы будем выдавать этот кновледж в файле самого квеста, см. п.2
+            "Inversed":true,
+            "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_ColonistPodskazKW" //ссылка на файл с этим кновледжем. его заведём в п.4 и сюда вставим
+        },
+        {
+            "$type": "ImpactAddKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_ColonistPodskazKW"
+        }
+    ]
+}

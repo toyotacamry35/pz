@@ -1,0 +1,55 @@
+{
+    "$type": "GlobalConstsDef",
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "DefaultWeaponSize": "/UtilPrefabs/WeaponSize/Small",
+    "DefaultAttackType": "/UtilPrefabs/AttackType/Normal",
+    "DefaultHitMaterial": "/UtilPrefabs/HitMaterials/None",
+    "StopHealthRegenerationSpell": "/UtilPrefabs/Spells/Combat/StopHealthRegeneration",
+    "ItemsStatsAccumulatorKey":    "/UtilPrefabs/Res/Prototypes/ItemsStatsAccumulatorKey",
+    "PreDeathHandlerKey":          "/UtilPrefabs/Res/Prototypes/PreDeathHandlerKey",       
+    "AnimationParameters":         "/UtilPrefabs/Res/Prototypes/AnimationParameters",
+    "LevelUpDatas": 		       "/UtilPrefabs/Res/Prototypes/LevelUpDatasDef",
+    "LocalizationKeysDefsHolder":  "/UtilPrefabs/Res/Prototypes/LocalizationKeysDefsHolderDef",
+    "DurabilityLevels": [
+        0.25,
+        0.5,
+        0.75,
+        1
+    ],
+    "VisibilityDistance": 100,
+	"UnstuckTeleportTimeout": 5,
+	"MaxMiningDistance": 5.5,
+	"Tmp_Dbg_RelevancyBordersMid": 0, // 0f == 14.99f; but every +15 causes +1 square radius of Rel.grid cells
+
+	//Namely Locomotion
+    "EnableLocomotionProfiler": false,
+	//Other: (PawnWatchDog & Char.) +Loco.Upd
+    "EnableLocomotionProfiler2": false,
+	//SpatialHash
+    "EnableLocomotionProfiler3": false,
+	//SpatialLegionary
+    "EnableLocomotionProfiler4": false,
+
+    // --- Debug: --------------
+
+    "DebugMobs":                     false, //true,    
+    //Should be false in common. (Set it `true` to CurveLogger as Collector's ITarget be able correcttly collect data)
+	"UseSyncedTimestamperAtDebugCollector": false, 
+    "DebugMobsHard_DANGER":          false,
+    "DebugMobs_OffClLocoInHostMode": false,
+    "DbgLogEnabled":                 false, //true,
+	"LocoPosLogAgentFixedDtToCalcVeloAsDltPos": 0.01,
+	"CurveTangentMode":				 2, //Free - 0, Linear - 2, Constant - 3
+	"DisableLocoClPosDamper":		 false, 
+    "DebugSpells":                   false,
+    
+	///#PZ-13568: #Dbg:
+	"PZ_13761_EnableLogZoneBorders": false, //true,
+	//PZ_13761_LogZoneBorderMin : new Vector2(-870, 530); //MobZone:(160, 120);//Svnh:(-870, 530); //(z, x)    
+	"PZ_13761_LogZoneBorderMin_X": -870, 
+	"PZ_13761_LogZoneBorderMin_Y": 530,
+	//PZ_13761_LogZoneBorderMax : new Vector2(-250, 830); //MobZone:(220, 180);//Svnh:(-250, 830); //(z, x)
+	"PZ_13761_LogZoneBorderMax_X": -250, 
+	"PZ_13761_LogZoneBorderMax_Y": 830,
+
+}

@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Name": "HeatstrokePotionSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactStopSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Traumas/Negative_Heat_Head_2"
+      ]
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/NegativeFactors/OverheatHeadTraumaStat",
+      "Value": -1000.0,
+      "Target": {
+        "$type": "SpellCaster",
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractWithWorkBrench",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Duration": 3.266,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactSetInteractionTypeDef",
+      "AnimatorOwner": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractionType": "MineMiddle",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactInvokeBaseReactionDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/FullStop",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1.0
+    },
+    /* {
+      "$type": "EffectPlayAnimationOLDDef",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractiveTargetIfHasOne": {
+        "$type": "SpellTargetDef"
+      }
+    }, */
+    {
+      "$type": "MarkerReactionProvocatorDef",
+      "ReactionProvocatorTypePath": "/UtilPrefabs/Spells/Reactions/ReactionProvocatorTypes/NonCombat/ProvocatorTryBeInteracted"
+    },
+    {
+      "$type": "MarkerReactionProvocatorDef",
+      "ReactionProvocatorTypePath": "/UtilPrefabs/Spells/Reactions/ReactionProvocatorTypes/FxProvocatorTypes/FxProvocatorHitBySharp"
+    }
+  ]
+}

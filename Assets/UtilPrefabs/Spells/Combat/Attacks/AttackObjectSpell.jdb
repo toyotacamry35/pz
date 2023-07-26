@@ -1,0 +1,40 @@
+{
+  "$type": "SpellDef",
+  "$vars": {
+    "DAMAGE_MOD": {
+      "Type": "float",
+      "Value": 1
+    },
+    "MINING_MOD": {
+      "Type": "float",
+      "Value": 1
+    },
+    "POWER_MOD": {
+      "Type": "float",
+      "Value": 0
+    }
+  },
+  "Duration": 0,
+  "AllowMultiple": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAttackObjectDef",
+      "Attacker": {
+        "$type": "SpellCasterDef"
+      },
+      "Victim": {
+        "$type": "SpellTargetDef"
+      },
+      "Attack": {
+        "$type": "Attack",
+        "$overrideVars": {
+          "DAMAGE_MOD": "@DAMAGE_MOD",
+          "MINING_MOD": "@MINING_MOD",
+          "POWER_MOD": "@POWER_MOD"
+        },
+        "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+      }
+    }
+  ]
+}

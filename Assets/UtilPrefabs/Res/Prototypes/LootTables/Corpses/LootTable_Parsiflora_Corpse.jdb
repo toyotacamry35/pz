@@ -1,0 +1,76 @@
+{
+    "$type": "LootTableDef",
+    "LootTable": 
+    [
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawJuicyMeat",
+                "Count": 4
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateInverseDef",
+                "Predicate": {
+                    "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                    "Perk": "/Inventory/Perks/Level2/ExtraMeatRes_Level2"
+                }
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawJuicyMeat",
+                "Count": 4
+            },
+            "Predicate": 
+            {
+                "$type": "LootTablePredicateAndDef",
+                "Predicates": [
+                    {
+                        "$type": "LootTablePredicateInverseDef",
+                        "Predicate": {
+                            "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                            "Perk": "/Inventory/Perks/Level2/ExtraMeatRes_Level2"
+                        }
+                    },
+                    {
+                        "$type": "LootTablePredicatePremium"
+                    }
+                ]
+            },            
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1.25
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawJuicyMeat",
+                "Count": 2
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateTrueDef"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 3
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawJuicyMeat",
+                "Count": 4
+            },
+            "Predicate": {
+                "$type": "LootTablePredicatePremium"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 0.75
+            }
+        }
+    ]
+}
+

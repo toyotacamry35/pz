@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Name": "SickTestSpell",
+  "Duration": 20.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "SmoothFloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Sick",
+          "StartValue": 0,
+          "EndValue": 1,
+          "Time": 0.5,
+          "When": "OnStart"
+        },
+        {
+          "$type": "SmoothFloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Sick",
+          "StartValue": 1,
+          "EndValue": 0,
+          "Time": 0.5,
+          "When": "OnFinish"
+        }
+      ]
+    }
+  ]
+}

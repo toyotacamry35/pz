@@ -1,0 +1,62 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractKnowledge",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Duration": 0.9,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/Spells/IconExplore",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 1,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": "./ActionsBlockerForInteract"
+    }
+  ],
+  "Words": [
+    {
+      "$type": "ImpactAddKnowledgeFromObjDef",
+      "KnowledgeHolder": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "EffectPlayAnimationMineDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "GetFromKnowType": true,
+      "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact",
+      "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType"
+    },
+    {
+      "$type": "PredicateKnowledgeFromObjDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "KnowledgeHolder": {
+        "$type": "SpellTargetDef"
+      },
+      "Policy": "OnStart",
+      "Inversed": true
+    }
+    /*,
+    {
+      "$type": "PredicateCheckIfPlayerInBoxRangeDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Policy": "Continious",
+      "Inversed": false
+    }*/
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1658"
+  }
+}

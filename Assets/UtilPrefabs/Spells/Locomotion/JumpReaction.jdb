@@ -1,0 +1,61 @@
+{
+  "$type": "SpellDef",
+  "$id": "JumpReaction",
+  "Duration": 15,
+  "IsInfinite": false,
+  "ClearsSlot": true,
+  "Words": [
+    //DEBUG
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0,
+        "G": 1,
+        "B": 1,
+      }
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Value": -155.0
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnAny",
+      "Spell": "/UtilPrefabs/Spells/Combat/StopStaminaRegeneration"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateHasTraumasDef",
+              "TraumaTypes": [
+                "NegEffSprain"
+              ]
+            },
+            "Value": "/UtilPrefabs/Traumas/NegEffSprainDamage"
+          }
+        ],
+        "Else": null
+      }
+    }
+  ]
+}

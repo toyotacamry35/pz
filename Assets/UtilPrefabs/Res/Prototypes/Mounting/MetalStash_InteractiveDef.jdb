@@ -1,0 +1,33 @@
+{
+  "$type": "UnityGameObjectDef",
+  "Components": [
+    {
+      "$type": "InteractiveDef",
+      "ReuseExisting": true,
+      "ContextualActions": {
+        "$type": "ContextualActionsDef",
+        "SpellsByAction": {
+          "/UtilPrefabs/Input/Actions/Interaction": {
+            "0": {
+              "$type": "ContextualActionDef",
+              "Spell": "/UtilPrefabs/Spells/UISpells/ContainerUIOpenSpell"
+            }
+          },
+          "/UtilPrefabs/Input/Actions/Info": {
+            "0": {
+              "$type": "ContextualActionDef",
+              "Spell": "/UtilPrefabs/Spells/UISpells/LockContainerSpell"
+            },
+            "1": {
+              "$type": "ContextualActionDef",
+              "Spell": "/UtilPrefabs/Spells/UISpells/UnlockContainerSpell"
+            }
+          }
+        }
+      }
+    },
+    {
+      "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+    }
+  ]
+}

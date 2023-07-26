@@ -1,0 +1,43 @@
+{
+    "$type": "SpellDef",
+    "Name": "ColdTeachQuest_CompleteNoTrauma",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": true,
+    "SpellIcon": null,
+    "InteractionDescriptionLs": {
+      "Key": "#l10n503373"
+    },
+    "DontShowProgress": true,
+    "Group": null,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": [
+      //Если
+      {
+        "$type": "PredicateKnowledgeDef", //проверяем, что игрок брал квест - есть ли у него кновледж, выдающийся при взятии квеста?
+        "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/ColdTeachQuest/ColdTeachQuest_TakenKW" //ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "PredicateHasActiveTraumas",
+        "Inversed":true,
+        "TraumaTypes": [
+          "Negative_Cold_Arm_2",
+          "Negative_Cold_Arm",
+          "Negative_Cold_Freezing",
+          "Negative_Cold_Hypotermia",
+          "Negative_Cold_Leg_2",
+          "Negative_Cold_Leg"
+        ]
+      },
+      {
+        "$type": "PredicateKnowledgeDef",
+        "Inversed":true, //проверяем, что игрок НЕ сдавал этот квест - есть ли у него кновледж, выдающийся при сдаче квеста?
+        "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/ColdTeachQuest/ColdTeachQuest_CompletedKW" //ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      },
+      {
+        "$type": "ImpactAddKnowledgeDef", //выдаём кновледж, что игрок закончил квест
+        "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/ColdTeachQuest/ColdTeachQuest_CompletedKW" //ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+      }
+    ]
+  }

@@ -1,0 +1,88 @@
+{
+  "$type": "SpellDef",
+  //END OF PARAMETERS
+  "Duration": 3.500,
+  "Words": [
+    //TINT
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0.7,
+        "G": 0.15,
+        "B": 0.15,
+      },
+      "IgnoreTintDisablment": true
+    },
+    //COOLDOWN
+    {
+      "$type": "PredicateCompareStatDef",
+      "Stat": "/UtilPrefabs/Stats/AbilityCooldown",
+      "Type": "Less",
+      "Value": 0.01
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/AbilityCooldown",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Value": 60
+    },
+    {
+      "$type": "PredicateLocomotionState",
+      "State": "Falling",
+      "Inversed": true
+    },
+    //ANIMATOR
+    // {
+    //   "$type": "EffectAnimator",
+    //   "Actions": [
+    //     {
+    //       "$type": "State",
+    //       "$id": "AttackAnimation",
+    //       "State": "/UtilPrefabs/Res/AnimatorStates/AttackMelee04",
+    //     }
+    //   ]
+    // },
+    //STAT CHANGE
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthMinCurrent",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "UseClampMin": true,
+      "ClampMin": 1
+    },
+    //ENTER COMBAT STANCE
+    {
+      "$type": "ImpactReaction",
+      "Reaction": "/UtilPrefabs/Reactions/CombatStance"
+    },
+    {
+      "$type": "ImpactStopAllSpellsOfGroups",
+      "Groups": [
+        "/UtilPrefabs/Spells/Groups/BlockSpellGroup"
+      ],
+      "Reason": "Fail"
+    },
+  ],
+  "SubSpells": [
+    //HyperArmor
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.0,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/Combat/Stagger/Stability",
+            "Summand": 100
+          },
+        ]
+      }
+    },
+  ]
+}

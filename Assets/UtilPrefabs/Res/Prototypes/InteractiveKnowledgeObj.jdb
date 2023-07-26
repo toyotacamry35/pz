@@ -1,0 +1,68 @@
+{
+    "$type": "UnityGameObjectDef",
+    "$vars": {
+        "ON_RESOURCE_PICKUP": {
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Craft&Harvest/ResourcePickUp/PS_ResourcePickUp"
+        },
+        "MAIN_INTERACTION_SPELL": {
+            "Type": "SpellDef",
+            "Value": "/UtilPrefabs/Spells/BasicMoveSet/InteractWithEntity"
+        }
+    },
+    "Components": [
+        {
+            "$type": "EntityGameObject"
+        },
+        {
+            "$type": "DestroyFXPlayer"
+        },
+        {
+            "$type": "VisualEventProxy",
+            "Events": {
+                "$type": "FXEvents",
+                "$overrideVars": {
+                    "ON_RESOURCE_PICKUP": "@ON_RESOURCE_PICKUP"
+                },
+                "$proto": "/SpawnSystem/Objects/Events/MineableFXEvents",
+            }
+        },
+        {
+            "$type": "InteractiveDef",
+            "ContextualActions": {
+                "$type": "ContextualActionsDef",
+                "SpellsByAction": {
+                    "/UtilPrefabs/Input/Actions/Interaction": {
+                        "0": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/BasicMoveSet/InteractKnowledge"
+                        },
+                        "1": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "@MAIN_INTERACTION_SPELL"
+                        }
+                    },
+                    /*"/UtilPrefabs/Input/Actions/Info": {
+                        "0": {
+                            "$type": "ContextualActionDef",
+                            "Spell": "/UtilPrefabs/Spells/BasicMoveSet/InteractInfo"
+                        }
+                    }*/
+                }
+            },
+            "ReuseExisting": true
+        },
+        {
+            "$type": "WorldObjectInformer"
+        }
+        ///#TC-4802: no_need?
+        // {
+        //     "$type": "CorpseViewProviderDef",
+        //     "PlayAnimation" : "Die",
+        //     "PlayAnimationParameter" : "DieType",
+        //     "PlayAnimationParameterValue" : 0,
+        //     //DefaultViewPrefab is set in Unity-component
+        //     "ReuseExisting": true,
+        // }
+    ]
+}

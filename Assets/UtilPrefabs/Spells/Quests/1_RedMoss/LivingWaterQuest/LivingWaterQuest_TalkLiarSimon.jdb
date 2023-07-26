@@ -1,0 +1,26 @@
+{
+    "$type": "SpellDef",
+    "Duration": 1.0,
+    "IsInfinite": true,
+    "AllowMultiple": false,
+    "DontShowProgress": true,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "ClearsSlot": true,
+    "Words": [
+        {
+            "$type": "PredicateKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_SimonfailKW"
+        },
+        {
+            "$type": "PredicateKnowledgeDef",
+            "Inversed": true,
+            "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_TalkLiarSimonKW"
+        },
+        {
+            "$type": "ImpactAddKnowledgeDef",
+            "WhenToApply": "OnSuccess",
+            "Knowledge": "/Inventory/Knowledge/Quest/1_RedMoss/LivingWaterQuest/LivingWaterQuest_TalkLiarSimonKW"
+        }
+    ]
+}

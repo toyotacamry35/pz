@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/PressUnlockQuest_CompletedKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/VoidOff/VoidoffKW" 
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/BenchQuest/PressUnlockQuest_TakenKW"
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 1,
+        "g": 1,
+        "b": 1,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n504780"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$type": "SpellDef",
+  "Name": "Stop Stamina Regeneration",
+  "Duration": 0.75,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "ClearsSlot": true,
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 0.0,
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnStart",
+      "Spell": "/UtilPrefabs/Spells/Combat/StopStaminaRegenerationExtention"
+    }
+  ]
+}

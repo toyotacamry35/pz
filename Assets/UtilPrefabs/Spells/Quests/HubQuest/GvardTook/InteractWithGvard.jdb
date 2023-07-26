@@ -1,0 +1,139 @@
+{
+  "$type": "SpellDef",
+  "Duration": 10.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 5.0,
+        "IsInfinite": false,
+        "AllowMultiple": true,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": true,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "PredicateKnowledgeDef",
+            "Inversed": true,
+            "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardKW"
+          },
+          {
+            "$type": "PredicateKnowledgeDef",
+            "Inversed": true,
+            "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/OldHouseGuardTookKW"
+          },
+          {
+            "$type": "EffectShowText",
+            "Duration": 6,
+            "TextLs": {
+              "Key": "#l10n502921"
+            }
+          },
+          {
+            "$type": "ImpactAddKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardKW"
+          },
+          {
+            "$type": "ImpactActivateQuestDef",
+            "Target": {
+              "$type": "SpellCaster"
+            },
+            "Quest": "/Inventory/Quest/HubQuest/HubQuest2"
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 5.0,
+        "IsInfinite": false,
+        "AllowMultiple": true,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": true,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "PredicateCheckItemDef",
+            "Item": "/Inventory/Items/Res/LifeEssence",
+            "Count": 5
+          },
+          {
+            "$type": "PredicateKnowledgeDef",
+            "Inversed": true,
+            "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardCompleteKW"
+          },
+          {
+            "$type": "ImpactRemoveItemDef",
+            "Item": "/Inventory/Items/Res/LifeEssence",
+            "Count": 5
+          },
+          {
+            "$type": "PredicateKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardKW"
+          },
+          {
+            "$type": "EffectShowText",
+            "Duration": 6,
+            "TextLs": {
+              "Key": "#l10n502922"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 6.0,
+        "IsInfinite": false,
+        "AllowMultiple": true,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": true,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "EffectShowText",
+            "Duration": 6,
+            "TextLs": {
+              "Key": "#l10n502923"
+            }
+          },
+          {
+            "$type": "PredicateKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardKW"
+          },
+          {
+            "$type": "PredicateKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardKW"
+          },
+          {
+            "$type": "PredicateKnowledgeDef",
+            "Knowledge": "/Inventory/Knowledge/Quest/HubQuest/HubQuest2GuardCompleteKW"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1669"
+  }
+}

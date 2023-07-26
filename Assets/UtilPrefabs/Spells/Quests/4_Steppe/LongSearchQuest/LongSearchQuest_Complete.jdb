@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "LongSearchQuest_Complete",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "SpellIcon": null,
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3723"
+  },
+  "DontShowProgress": true,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    //Если
+    {
+      "$type": "PredicateKnowledgeDef", //проверяем, что игрок брал квест - есть ли у него кновледж, выдающийся при взятии квеста?
+      "Knowledge": "/Inventory/Knowledge/Quest/4_Steppe/LongSearchQuest/LongSearchQuest_TakenKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+    },
+    {
+      "$type": "PredicateKnowledgeDef", //проверяем, что игрок НЕ сдавал этот квест - есть ли у него кновледж, выдающийся при сдаче квеста?
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/4_Steppe/LongSearchQuest/LongSearchQuest_CompletedKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", //выдаём кновледж, что игрок закончил квест
+      "Knowledge": "/Inventory/Knowledge/Quest/4_Steppe/LongSearchQuest/LongSearchQuest_CompletedKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef", //выдаём кновледж, что игрок закончил квест
+      "Knowledge": "/Inventory/Knowledge/Quest/4_Steppe/LongSearchQuest/LongSearchQuest_BackPackOpenKW"//ссылка на файл с кновледжем. его заведём в п.4 и сюда вставим 
+    }
+  ]
+}

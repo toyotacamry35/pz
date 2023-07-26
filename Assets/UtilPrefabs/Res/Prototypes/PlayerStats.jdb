@@ -1,0 +1,1049 @@
+{
+    //!!! #IMPORTANT !!!:
+    // All stats should be declared here in order: 1st limits, then value-stat (depending on them)
+    "$type": "StatsDef",
+    "Id": "fb38bdff-f0a4-4cd1-acd7-05423b51f2c6",
+    "Stats": [
+        ////////////////////////////////////////////////////////////////////////////////// Stamina
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent",
+            "InitialValue": 1000.0,
+            "LimitMinDefault": 500.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+            "InitialValue": 320,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegenUnconditional",
+            "InitialValue": 0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpense",
+            "InitialValue": 0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpenseSprint",
+            "InitialValue": 0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpenseSprintModifier",
+            "InitialValue": 1,
+            "LimitMinDefault": 0.1
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaTemperature",
+            "InitialValue": 10,
+            "LimitMinDefault": 10
+        },
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+            "ChangeRateCalcer": {
+                "$type": "CalcerPiecewise",
+                "Ranges": [
+                    {
+                        "Condition": {
+                            "$type": "PredicateInRange",
+                            "Min": 0,
+                            "Max": 0.1,
+                            "Value": {
+                                "$type": "CalcerSum",
+                                "Summands": [
+                                    {
+                                        "$type": "CalcerMax",
+                                        "Values": [
+                                            {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpense"
+                                            },
+                                            0
+                                        ]
+                                    },
+                                    {
+                                        "$type": "CalcerMul",
+                                        "Multipliers": [
+                                            {
+                                                "$type": "CalcerMax",
+                                                "Values": [
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpenseSprint"
+                                                    },
+                                                    0
+                                                ]
+                                            },
+                                            {
+                                                "$type": "CalcerMax",
+                                                "Values": [
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpenseSprintModifier"
+                                                    },
+                                                    0.1
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "Value": {
+                            "$type": "CalcerSum",
+                            "Summands": [
+                                {
+                                    "$type": "CalcerMax",
+                                    "Values": [
+                                        {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegenUnconditional"
+                                        },
+                                        0
+                                    ]
+                                },
+                                {
+                                    "$type": "CalcerMax",
+                                    "Values": [
+                                        {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen"
+                                        },
+                                        0
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "Else": {
+                    "$type": "CalcerNegative",
+                    "Value": {
+                        "$type": "CalcerSum",
+                        "Summands": [
+                            {
+                                "$type": "CalcerMax",
+                                "Values": [
+                                    {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpense"
+                                    },
+                                    0
+                                ]
+                            },
+                            {
+                                "$type": "CalcerMul",
+                                "Multipliers": [
+                                    {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpenseSprint"
+                                    },
+                                    {
+                                        "$type": "CalcerMax",
+                                        "Values": [
+                                            {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrentExpenseSprintModifier"
+                                            },
+                                            0.1
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            "LimitMaxStat": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent",
+            "InitialValue": 1000.0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/JumpBlock",
+            "InitialValue": -0.5
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/SprintBlock",
+            "InitialValue": -0.5
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/DodgeBlock",
+            "InitialValue": -0.5
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/SpeedFactor",
+            "InitialValue": 1,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/SprintSpeedFactor",
+            "InitialValue": 1,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/JumpLengthMod",
+            "InitialValue": 1,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/JumpHeightMod",
+            "InitialValue": 1,
+            "LimitMinDefault": 0
+        },
+        ////////////////////////////////////////////////////////////////////////////////// DamageAbsorption
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionCutting"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCutting"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionSlashing"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionCrushing"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionPiercing"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageAbsorption/DamageAbsorptionGeneric"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceGeneric"
+        },
+        ///////////////////////////////// ReputationStats
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/YuttReputation",
+            "LimitMaxDefault": 100,
+            "LimitMinDefault": -100,
+            "InitialValue": 0
+        },
+        ////////////////////////////////////////////////////////////////////////////////// InventoryStats
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Inventory/InventoryMaxWeight",
+            "LimitMinDefault": 20.0,
+            "InitialValue": 50
+        },
+        ////////////////////////////////////////////////////////////////////////////////// CharacterWeightStat
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Character/CharacterWeight",
+            "LimitMinDefault": 40.0,
+            "InitialValue": 85
+        },
+        ////////////////////////////////////////////////////////////////////////////////// PrototypeStats
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/PrototypeStats/WatersourceInRangeClean",
+            "InitialValue": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/PrototypeStats/WatersourceInRangeToxic",
+            "InitialValue": 0
+        },
+        ////////////////////////////////////////////////////////////////////////////////// ClimateStats
+        /// Procedural ClimateStats
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/TemperatureExternal",
+            "ValueCalcer": {
+                "$type": "CalcerTemperature",
+            }
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/HumidityExternal",
+            "ValueCalcer": {
+                "$type": "CalcerHumidity",
+            }
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/ToxicExternal",
+            "ValueCalcer": {
+                "$type": "CalcerToxicity",
+            }
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/WindExternal",
+            "ValueCalcer": {
+                "$type": "CalcerWind",
+            }
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/OxygenExternal",
+            "ValueCalcer": {
+                "$type": "CalcerOxygen",
+            }
+        },
+        /// Accumulated ClimateStats
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/TemperatureMod",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/HumidityMod",
+            "InitialValue": 10
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/ToxicMod",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/WindMod",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/OxygenMod",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/Difficulty",
+            "InitialValue": 0.0
+        },
+        /// ClimateStats
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/Temperature",
+            "ValueCalcer": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/TemperatureMod"
+                    },
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/TemperatureExternal"
+                    },
+                ]
+            }
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/Humidity",
+            "ValueCalcer": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/HumidityMod"
+                    },
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/HumidityExternal"
+                    },
+                ]
+            }
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/Toxic",
+            "ValueCalcer": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/ToxicMod"
+                    },
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/ToxicExternal"
+                    },
+                ]
+            }
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/Wind",
+            "ValueCalcer": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/WindMod"
+                    },
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/WindExternal"
+                    },
+                ]
+            }
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Environment/Oxygen",
+            "ValueCalcer": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/OxygenMod"
+                    },
+                    {
+                        "$type": "CalcerStat",
+                        "Stat": "/UtilPrefabs/Stats/Environment/OxygenExternal"
+                    },
+                ]
+            }
+        },
+        ///
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax",
+            "InitialValue": 3000
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax",
+            "InitialValue": 3000
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMin",
+            "InitialValue": 15
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMax",
+            "InitialValue": 20
+        },
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/Hypotermia",
+            "ChangeRateCalcer": {
+                "$type": "CalcerPiecewise",
+                "Ranges": [
+                    {
+                        "Condition": {
+                            "$type": "PredicateLess",
+                            "Lhs": {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                            },
+                            "Rhs": {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMin"
+                            }
+                        },
+                        "Value": {
+                            "$type": "CalcerPow",
+                            "Value": {
+                                "$type": "CalcerMax",
+                                "Values": [
+                                    {
+                                        "$type": "CalcerMul",
+                                        "Multipliers": [
+                                            {
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMin"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerNegative",
+                                                        "Value": {
+                                                            "$type": "CalcerStat",
+                                                            "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "$type": "CalcerConstant",
+                                                "Value": 0.5
+                                            }
+                                        ]
+                                    },
+                                    0
+                                ]
+                            },
+                            "Power": 1.5
+                        }
+                    }
+                ],
+                "Else": {
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerStat",
+                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax"
+                        },
+                        -0.25
+                    ]
+                }
+            },
+            "LimitMaxStat": "/UtilPrefabs/Stats/NegativeFactors/HypotermiaMax",
+            "InitialValue": 0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/Overheat",
+            "ChangeRateCalcer": {
+                "$type": "CalcerPiecewise",
+                "Ranges": [
+                    {
+                        "Condition": {
+                            "$type": "PredicateGreater",
+                            "Lhs": {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                            },
+                            "Rhs": {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMax"
+                            }
+                        },
+                        "Value": {
+                            "$type": "CalcerPow",
+                            "Value": {
+                                "$type": "CalcerMax",
+                                "Values": [
+                                    {
+                                        "$type": "CalcerMul",
+                                        "Multipliers": [
+                                            {
+                                                "$type": "CalcerSum",
+                                                "Summands": [
+                                                    {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/Environment/Temperature"
+                                                    },
+                                                    {
+                                                        "$type": "CalcerNegative",
+                                                        "Value": {
+                                                            "$type": "CalcerStat",
+                                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ComfortTempMax"
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "$type": "CalcerConstant",
+                                                "Value": 0.5
+                                            }
+                                        ]
+                                    },
+                                    0
+                                ]
+                            },
+                            "Power": 1.5
+                        }
+                    }
+                ],
+                "Else": {
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerStat",
+                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax"
+                        },
+                        -0.25
+                    ]
+                }
+            },
+            "LimitMaxStat": "/UtilPrefabs/Stats/NegativeFactors/OverheatMax",
+            "InitialValue": 0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/HatEquipped",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/BootsEquipped",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/GlovesEquipped",
+            "InitialValue": 0.0
+        },
+        ////////////////////////////////////////////////////////////////////////////////// HealthStats
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Health/HealthMaxCurrent",
+            "InitialValue": 1000
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Health/HealthMinCurrent",
+            "InitialValue": -100
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrentRegenModifier", //// Enables and disables regeneration
+            "LimitMinDefault": 0,
+            "InitialValue": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrentRegen", //// Health Regeneration Rate
+            "LimitMinDefault": 0.1,
+            "InitialValue": 10
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Health/HealthDamageOverTime", //// Changes HealthCurrent each second (by subtraction)
+            "LimitMinDefault": 0,
+            "InitialValue": 0
+        },
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+            "IsBroadcasted": true,
+            "LimitMinDefault": -1000,
+            "ChangeRateCalcer": {
+                "$type": "CalcerPiecewise",
+                "Ranges": [
+                    {
+                        "Condition": {
+                            "$type": "PredicateInRange",
+                            "Min": 0,
+                            "Max": 0.1,
+                            "Value": {
+                                "$type": "CalcerMax",
+                                "Values": [
+                                    {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Health/HealthDamageOverTime"
+                                    },
+                                    0
+                                ]
+                            }
+                        },
+                        "Value": {
+                            "$type": "CalcerMul",
+                            "Multipliers": [
+                                {
+                                    "$type": "CalcerMax",
+                                    "Values": [
+                                        {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/Health/HealthCurrentRegenModifier"
+                                        },
+                                        0
+                                    ]
+                                },
+                                {
+                                    "$type": "CalcerMax",
+                                    "Values": [
+                                        {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/Health/HealthCurrentRegen"
+                                        },
+                                        0.1
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "Else": {
+                    "$type": "CalcerNegative",
+                    "Value": {
+                        "$type": "CalcerMax",
+                        "Values": [
+                            {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Health/HealthDamageOverTime"
+                            },
+                            0
+                        ]
+                    }
+                }
+            },
+            "LimitMaxStat": "/UtilPrefabs/Stats/Health/HealthMaxCurrent",
+            "LimitMinStat": "/UtilPrefabs/Stats/Health/HealthMinCurrent",
+            "InitialValue": 10000000
+        },
+        ////////////////////////////////////////////////////////////////////////////////// SatietyStats
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Satiety/SatietyMax",
+            "InitialValue": 1000.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Satiety/CalorieConsumption",
+            "InitialValue": 0.5
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Satiety/CalorieConsumptionMod",
+            "InitialValue": 1,
+            "LimitMinDefault": 0.001
+        },
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Satiety/SatietyCurrent",
+            "LimitMaxStat": "/UtilPrefabs/Stats/Satiety/SatietyMax",
+            "LimitMinDefault": 0,
+            "InitialValue": 750.0,
+            "ChangeRateCalcer": {
+                "$type": "CalcerNegative",
+                "Value": {
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerStat",
+                            "Stat": "/UtilPrefabs/Stats/Satiety/CalorieConsumption"
+                        },
+                        {
+                            "$type": "CalcerMax",
+                            "Values": [
+                                {
+                                    "$type": "CalcerStat",
+                                    "Stat": "/UtilPrefabs/Stats/Satiety/CalorieConsumptionMod"
+                                },
+                                0.01
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        ////////////////////////////////////////////////////////////////////////////////// WaterBalanceStats
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Satiety/WaterBalanceMax",
+            "InitialValue": 1000.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Satiety/WaterConsumption",
+            "InitialValue": 2,
+            "LimitMinDefault": 0.01
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Satiety/WaterConsumptionMod",
+            "InitialValue": 1,
+            "LimitMinDefault": 0.01
+        },
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent",
+            "ChangeRateCalcer": {
+                "$type": "CalcerNegative",
+                "Value": {
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerStat",
+                            "Stat": "/UtilPrefabs/Stats/Satiety/WaterConsumption"
+                        },
+                        {
+                            "$type": "CalcerMax",
+                            "Values": [
+                                {
+                                    "$type": "CalcerStat",
+                                    "Stat": "/UtilPrefabs/Stats/Satiety/WaterConsumptionMod"
+                                },
+                                0.01
+                            ]
+                        }
+                    ]
+                }
+            },
+            "LimitMaxStat": "/UtilPrefabs/Stats/Satiety/WaterBalanceMax",
+            "LimitMinDefault": 0,
+            "InitialValue": 750.0
+        },
+        ////////////////////////////////////////////////////////////////////////////////// CombatStats
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Invulnerability",
+            "InitialValue": -0.5
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/Block/BlockActive",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage"
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageMods/IncomingDamageMod",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/DamageMods/MiningLootMultiplier",
+            "InitialValue": 0
+        },
+        //This value is overrided by any weapon power stat; unarmed attack power is specified in PlayerPawnEntity
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/Stagger/Stability",
+            "InitialValue": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Combat/ArmorPenetration/ArmorPenetration",
+            "InitialValue": 0.0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/Mobs/PsiFieldProtected",
+            "InitialValue": 0,
+            "LimitMinDefault": 0
+        },
+        { // Р­С‚РѕС‚ СЃС‚Р°С‚ РѕРїСЂРµРґРµР»СЏРµС‚, С‡С‚Рѕ РїРµСЂСЃРѕРЅР°Р¶ РіРѕС‚РѕРІ Рє СЃС‚СЂРµР»СЊР±Рµ (РїСЂРё Р·РЅР°С‡РµРЅРёРё > 0) 
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/AimingFactor",
+            "InitialValue": -0.5
+        },
+        ////////////////////////////////////////////////////////////////////////////////// NegIntoxication
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/Detoxication",
+            "InitialValue": 3,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMod",
+            "InitialValue": 0.01,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/ToxicResistance",
+            "InitialValue": 0.0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax",
+            "InitialValue": 1000.0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationIndex",
+            "InitialValue": 0
+        },
+        {
+            "$type": "ProceduralStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/ToxicLimit",
+            "ValueCalcer": {
+                "$type": "CalcerMul",
+                "Multipliers": [
+                    {
+                        "$type": "CalcerConstant",
+                        "Value": 10
+                    },
+                    {
+                        "$type": "CalcerSum",
+                        "Summands": [
+                            {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Environment/Toxic"
+                            },
+                            {
+                                "$type": "CalcerNegative",
+                                "Value": {
+                                    "$type": "CalcerMax",
+                                    "Values": [
+                                        {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ToxicResistance"
+                                        },
+                                        0
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+            "LimitMinDefault": 0,
+            "LimitMaxStat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMax",
+            "InitialValue": 0.0,
+            "ChangeRateCalcer": {
+                "$type": "CalcerPiecewise",
+                "Ranges": [
+                    {
+                        "Condition": {
+                            "$type": "PredicateGreater",
+                            "Lhs": {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationIndex"
+                            },
+                            "Rhs": {
+                                "$type": "CalcerConstant",
+                                "Value": 0.0
+                            }
+                        },
+                        "Value": {
+                            "$type": "CalcerPow",
+                            "Value": {
+                                "$type": "CalcerMax",
+                                "Values": [
+                                    {
+                                        "$type": "CalcerMul",
+                                        "Multipliers": [
+                                            {
+                                                "$type": "CalcerMul",
+                                                "Multipliers": [
+                                                    {
+                                                        "$type": "CalcerConstant",
+                                                        "Value": 10
+                                                    },
+                                                    {
+                                                        "$type": "CalcerSum",
+                                                        "Summands": [
+                                                            {
+                                                                "$type": "CalcerStat",
+                                                                "Stat": "/UtilPrefabs/Stats/Environment/Toxic"
+                                                            },
+                                                            {
+                                                                "$type": "CalcerNegative",
+                                                                "Value": {
+                                                                    "$type": "CalcerMax",
+                                                                    "Values": [
+                                                                        {
+                                                                            "$type": "CalcerStat",
+                                                                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ToxicResistance"
+                                                                        },
+                                                                        0
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/IntoxicationMod"
+                                            }
+                                        ]
+                                    },
+                                    0
+                                ]
+                            },
+                            "Power": 1.6
+                        }
+                    }
+                ],
+                "Else": {
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerStat",
+                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/Detoxication"
+                        },
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": -1
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/FallDamageModifier",
+            "InitialValue": 1,
+            "LimitMinDefault": 0.1
+        },
+        //Ability cooldown kostil
+        {
+            "$type": "TimeStatDef",
+            "StatResource": "/UtilPrefabs/Stats/AbilityCooldown",
+            "ChangeRateCalcer": {
+                "$type": "CalcerConstant",
+                "Value": -1,
+            },
+            "InitialValue": 0.0,
+            "LimitMinDefault": 0.0,
+            "LimitMaxDefault": 60.0,
+            "IsBroadcasted": true
+        },
+        //Ability type kostil
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/AbilityType",
+            "InitialValue": 0,
+            "LimitMinDefault": 0
+        },
+        {
+            "$type": "AccumulatedStatDef",
+            "StatResource": "/UtilPrefabs/Stats/PlayerFaction",
+            "InitialValue": 0,
+            "LimitMinDefault": 0,
+            "LimitMaxDefault": 2
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  //Fills flask with toxic water
+  "$type": "SpellDef",
+  "Name": "EmptyFlaskToxicWaterSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddItemToIneerContainerDef",
+      "Item": "/Inventory/Items/Res/ToxicWater",
+      "Count": 30
+    },
+    {
+      "$type": "PredicateCompareStatDef",
+      "Stat": "/UtilPrefabs/Stats/PrototypeStats/WatersourceInRangeToxic",
+      "Type": "More",
+      "Value": 0.1
+    }
+  ]
+}

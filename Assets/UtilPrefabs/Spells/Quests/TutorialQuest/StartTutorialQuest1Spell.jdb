@@ -1,0 +1,49 @@
+{
+  "$type": "SpellDef",
+  "Name": "StartTutorialQuest1Spell",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateHasQuestEngine",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/DropZone/TutorialQuest1_TakenKW"
+    },
+    {
+      "$type": "SpellPredicateFromCalcerPredicateDef",
+      "Predicate": {
+        "$type": "PredicateLess",
+        "Lhs": {
+          "$type": "CalcerPlayerLevel",
+          "LevelTable": "/UtilPrefabs/Res/Prototypes/LevelUpDatasDef"
+        },
+        "Rhs": {
+          "$type": "CalcerConstant",
+          "Value": 2
+        }
+      }
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/TutorialQuest/TutorialQuest1"
+    },
+    {
+      "$type": "ImpactInvokeTraumaDef",
+      "TraumaType": "PosEffDropzone",
+      "Target": {
+        "$type": "SpellCaster"
+      }
+    }
+  ]
+}

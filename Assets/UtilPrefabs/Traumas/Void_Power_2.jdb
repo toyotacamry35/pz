@@ -1,0 +1,65 @@
+{
+  "$type": "SpellDef",
+  "Name": "Void_Power_2",
+  "IsInfinite": true,
+  "IgnoresDeath": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",      
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Knowledge": "/Inventory/Knowledge/Quest/Key02Quest/Key02Quest_CompletedKW" 
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,      
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_CompletedKW" 
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/Damage",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 60
+    },    
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthMaxCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 200
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Value": 3000
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n1123"
+      }
+    } 
+  ]
+}

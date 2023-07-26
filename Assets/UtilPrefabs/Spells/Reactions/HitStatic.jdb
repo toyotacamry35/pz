@@ -1,0 +1,16 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0,
+  "IgnoresDeath":true,
+  "Words": [
+    {
+      "$type": "EffectPostVisualEventOnTargetDef",
+//      "Target": { "$type": "SpellTarget" }, // EffectPostVisualEventOnTargetDef сам берёт SpellTarget в качестве цели 
+      "TriggerName": "/Character/Events/HitStaticEvent",
+      "Params": {
+        "/Character/Events/Args/HitPoint": "/UtilPrefabs/Spells/Params/TargetPoint",
+        "/Character/Events/Args/HitRotation": "/UtilPrefabs/Spells/Params/Rotation",
+      }
+    }
+  ]
+}

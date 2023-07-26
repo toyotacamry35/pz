@@ -1,0 +1,120 @@
+{
+  "$type": "SpellDef",
+  "$vars": {
+    "DURATION": {
+      "Type": "float",
+      "Value": 0.25
+    },
+    "OFFSET": {
+      "Type": "float",
+      "Value": 0.0
+    },
+    "SHOT_FX": {
+      "Type": "GameObject",
+      "Value": "Assets/Content/Characters/Weapons/Consumables/spineBullet"
+    },
+    "MUZZLE_FX": {
+      "Type": "GameObject",
+      "Value": "Assets/Content/Characters/Weapons/Consumables/PS_Thorngun_Muzzle"
+    },
+    "AIMING": {
+      "Type": "float",
+      "Value": 0
+    },
+    "DISTANCE": {
+      "Type": "float",
+      "Value": 100
+    }
+  },
+  "Duration": "@DURATION",
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "Slot":"/UtilPrefabs/Spells/MainActionSlot",
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": "@OFFSET",
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.1,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Shooting",
+        "Name": "Shooting",
+        "Duration": 0.0,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactRaiseEventDef",
+            "From": {
+              "$type": "SpellCasterDef"
+            },
+            "Radius": 40.0,
+            "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEvent"
+          },
+          {
+            "$type": "EffectRaycastDef",
+            "AppliedSpells": [
+              "/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell"
+            ],
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "Distance": "@DISTANCE",
+            "ShotFX": "@SHOT_FX",
+            "MuzzleFX": "@MUZZLE_FX"
+          },
+          {
+            "$type": "ImpactUse1AmmoDef",
+            "Caster": {
+              "$type": "SpellCasterDef"
+            }
+            //"WhenToApply": "OnSuccess"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectPlayAnimationDef",
+      "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Attack"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "PredicateCheckAmmoDef",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Inversed": false
+    },
+    {
+      "$type": "PredicateCompareStatDef",
+      "Stat": "/UtilPrefabs/Stats/AimingFactor",
+      "Type": "More",
+      "Value": "@AIMING"
+    }
+  ]
+}

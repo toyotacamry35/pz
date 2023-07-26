@@ -1,0 +1,33 @@
+{
+  "$type": "SpellDef",
+  "Name": "HealingBandageSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactCastSpell",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "ProcSpell": {
+        "$type": "CalcerPiecewiseResourceDef",
+        "Ranges": [
+          {
+            "Condition": {
+              "$type": "PredicateHasTraumasDef",
+              "TraumaTypes": [
+                "NegEffectHealCooldown"
+              ]
+            },
+            "Value": "/UtilPrefabs/Spells/Consumables/HealCooldownNotificationSpell"
+          }
+        ],
+        "Else": "/UtilPrefabs/Spells/Consumables/RegenerativeCompressSpell"
+      }
+    }
+  ]
+}

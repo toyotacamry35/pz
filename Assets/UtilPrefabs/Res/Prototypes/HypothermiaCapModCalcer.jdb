@@ -1,0 +1,58 @@
+{
+    // IF hypothermia_character_current =< coldcap, THEN coldcap_mod = 1.
+    "$type": "CalcerPiecewise",
+    "Ranges": [
+        {
+            "Condition": {
+                "$type": "PredicateLess",
+                "Lhs": {
+                    "$type": "CalcerMul",
+                    "Multipliers": [
+                        {
+                            "$type": "CalcerStat",
+                            "Stat": "/UtilPrefabs/Stats/NegativeFactors/ThermalBalance"
+                        },
+                        {
+                            "$type": "CalcerConstant",
+                            "Value": -1
+                        }
+                    ] 
+                },
+                "Rhs": "/UtilPrefabs/Res/Prototypes/HypothermiaCap1Calcer"
+            },
+            "Value": 1
+        }
+    ],
+    "Else": {
+        // coldcap_mod = (coldcap/(hypothermia_character_current+1))^4
+        "$type": "CalcerPow",
+        "Value": {
+            "$type": "CalcerDiv",
+            "Dividend": "/UtilPrefabs/Res/Prototypes/HypothermiaCap1Calcer",
+            "Divisor": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    {
+                        "$type": "CalcerMul",
+                        "Multipliers": [
+                            {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/NegativeFactors/ThermalBalance"
+                            },
+                            {
+                                "$type": "CalcerConstant",
+                                "Value": -1
+                            }
+                        ]
+                    },
+                    1
+                ]
+            }
+        },
+        "Power": 4
+    }
+}
+
+
+
+

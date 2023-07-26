@@ -1,0 +1,230 @@
+{
+  "$type": "Spell",
+  "Duration": 1.40,
+  "Words": [
+    //DEBUG
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0.2,
+        "G": 0.2,
+        "B": 1.0,
+      }
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Mover": {
+        "$type": "CurveMover",
+        "Curve": "Assets/UtilPrefabs/Locomotion/Player/PlayerAttackAxeDashMotionSide",
+        "Direction": {
+          "$type": "SpellExplicitVector2",
+          "x": 1,
+          "y": 0
+        }
+      },
+      "Rotator": {
+        "$type": "BindToCameraRotator",
+        "Speed": 300
+      }
+    },
+    {
+      "$type": "EffectLocomotionInput",
+      "Input": "Sticking"
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "State",
+          "$id": "AttackAnimation",
+          "State": "/UtilPrefabs/Res/AnimatorStates/AttackAxeDash",
+        }
+      ]
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "WhenToApply": "OnAny",
+      "Spell": "/UtilPrefabs/Spells/Combat/StopStaminaRegeneration"
+    },
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+      "Value": -80.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "UseClampMax": true,
+      "ClampMax": 0.0
+    },
+    {
+      "$type": "ImpactReaction",
+      "Reaction": "/UtilPrefabs/Reactions/CombatStance"
+    },
+    {
+      "$type": "EffectInputLayer",
+    }
+  ],
+  //BLOCKERS
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.000,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputBlocker",
+            "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera",
+            "Except": [
+              "/UtilPrefabs/Input/Actions/DashForward",
+              "/UtilPrefabs/Input/Actions/DashBackward",
+              "/UtilPrefabs/Input/Actions/DashLeft",
+              "/UtilPrefabs/Input/Actions/DashRight",
+              "/UtilPrefabs/Input/Actions/Block",
+            ]
+          }
+        ]
+      }
+    },
+    //BREAKERS
+    {
+      "$type": "SubSpell",
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Activated",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/DashForward",
+              "/UtilPrefabs/Input/Actions/DashBackward",
+              "/UtilPrefabs/Input/Actions/DashLeft",
+              "/UtilPrefabs/Input/Actions/DashRight",
+              "/UtilPrefabs/Input/Actions/Block",
+              "/UtilPrefabs/Input/Actions/Jump",
+            ]
+          }
+        ]
+      }
+    },
+    //Attack effect
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0,
+      "Spell": {
+        "$type": "Spell",
+        "Name": "Attack",
+        "Duration": 0.5,
+        "Words": [
+          {
+            "$type": "EffectAttack",
+            "$id": "Attack",
+            "Attack": {
+              "$type": "Attack",
+              "$overrideVars": {
+                "POWER_MOD": 35,
+                "DAMAGE_MOD": 0.80
+              },
+              "$proto": "./_AttackDamageProto"
+            },
+            "Animation": "$AttackAnimation",
+            "ColliderMarker": "/UtilPrefabs/Res/Character/AttackBodyParts/Dash",
+            "Attributes": "/Character/Events/AttackTypes/DashAttack"
+          }
+        ]
+      }
+    },
+    //INPUT WINDOWS
+    //chain into Attack_Axe1H_LL
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.200,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 1.600, //.550,
+        "Words": [
+          {
+            "$type": "EffectInputWindow",
+            "Delay": 0.400,
+            "Handlers": {
+              "/UtilPrefabs/Input/Actions/AttackMelee": {
+                "$type": "InputActionHandlerSpellOnce",
+                "Spell": "./Attack_Axe1H_LL"
+              }
+            }
+          }
+        ]
+      }
+    },
+    //chain into Attack_Axe1H_R
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.200,
+      "Spell": {
+        "$type": "Spell",
+        "Duration": 1.600,
+        "Words": [
+          {
+            "$type": "EffectInputWindow",
+            "Delay": 0.500,
+            "Handlers": {
+              "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+                "$type": "InputActionHandlerSpellOnce",
+                "Spell": "./Attack_Axe1H_R"
+              }
+            }
+          }
+        ]
+      }
+    },
+    //SPELL BREAKERS
+    //Block+Dash+Jump breaker
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.767,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Activated",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/DashForward",
+              "/UtilPrefabs/Input/Actions/DashBackward",
+              "/UtilPrefabs/Input/Actions/DashLeft",
+              "/UtilPrefabs/Input/Actions/DashRight",
+              "/UtilPrefabs/Input/Actions/Jump",
+              "/UtilPrefabs/Input/Actions/Block",
+            ]
+          }
+        ]
+      }
+    },
+    //Movement breaker
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.767,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectInputSpellBreaker",
+            "When": "Active",
+            "Actions": [
+              "/UtilPrefabs/Input/Actions/MoveForwardTrigger",
+              "/UtilPrefabs/Input/Actions/MoveBackwardTrigger",
+              "/UtilPrefabs/Input/Actions/MoveLeftTrigger",
+              "/UtilPrefabs/Input/Actions/MoveRightTrigger",
+              "/UtilPrefabs/Input/Actions/Sprint"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

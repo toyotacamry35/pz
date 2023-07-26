@@ -1,0 +1,30 @@
+{
+    "$type": "CalcerPiecewiseResourceDef",
+    "$vars": {
+        "DEFAULT_ACTION": {
+            "Type": "ActionOnDeathDef",
+            "Value": "/Inventory/Items/Actions/MoveToCorpse"
+        },
+        "PROBABLE_ACTION": {
+            "Type": "ActionOnDeathDef",
+            "Value": "/Inventory/Items/Actions/LeaveAtCharacter"
+        },
+        "CHANCE_TO_KEEP": {
+            "Type": "float",
+            "Value": -1
+        }
+    },
+    "Ranges": [
+        {
+            "Condition": {
+                "$type": "PredicateLess",
+                "Lhs": {
+                    "$type": "CalcerRandomDef"
+                },
+                "Rhs": "@CHANCE_TO_KEEP"
+            },
+            "Value": "@PROBABLE_ACTION"
+        }
+    ],
+    "Else": "@DEFAULT_ACTION"
+}

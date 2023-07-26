@@ -1,0 +1,48 @@
+{
+    "$type": "LootTableDef",
+    "LootTable": 
+    [
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Res/Bone",
+                "Count": 3
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawToughMeat",
+                "Count": 4
+            }
+        },
+
+        {
+            "ItemResRefPack": {
+                "ItemResource":  "/Inventory/Items/Res/RawThickLeather",
+                "Count": 2
+            }
+        },
+
+        {
+            "ItemResRefPack": {
+                "ItemResource":  "/Inventory/Items/Res/RawThickLeather",
+                "Count": 1
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 0.33
+            }
+        },
+
+        {
+            "ItemResRefPack": {
+                "ItemResource":  "/Inventory/Items/Consumables/RawToughMeat",
+                "Count": 1
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 0.66
+            }
+        }
+    ]
+}
+

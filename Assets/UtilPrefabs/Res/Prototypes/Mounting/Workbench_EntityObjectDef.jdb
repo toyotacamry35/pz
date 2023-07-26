@@ -1,0 +1,32 @@
+{
+  "$type": "WorldPersonalMachineDef",
+  "NameLs": {
+    "Key": "#l10n384"
+  },
+  "Id": "77be0cbe-cbd0-4a2f-94b5-9db22ed64d63",
+  "Prefab": "Assets/Content/Craft/Workbench/workbench",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/Mounting/Workbench_InteractiveDef",
+  "WorkbenchType": "/Inventory/WorkbenchType/Basic",
+  "TitleIcon": "Assets/UI/UISprites/ItemsDB/ContextView/InfoIconInstruments",
+  "OutContainerSize": 16,
+  "MaxQueueSize": 8,
+  "Stats": {
+    "$type": "Stats",
+    "$overrideVars": {
+      "DURABILITY_MAXIMUM": 5000,
+      "DURABILITY_INITIALVALUE": 5000,
+      "DURABILITY_CHANGERATE": 0
+    },
+    "$proto": "/UtilPrefabs/Res/Prototypes/DurabilityStatsProto",
+    "Id": "fed849b3-5555-4402-9391-f0a2400c4acf"
+  },
+  "DefaultStats": {
+    "$type": "ItemSpecificStats",
+    "Stats": [
+      {
+        "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+        "Value": 5
+      }
+    ]
+  }
+}

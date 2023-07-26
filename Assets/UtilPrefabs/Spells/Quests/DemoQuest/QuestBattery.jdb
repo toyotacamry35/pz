@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestBattery",
+  "IsInfinite": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/PrimitiveBattery",
+      "SpellOnAppearance": {
+        "$type": "SpellDef",
+        "$id": "SpellOnAppearance",
+        "Words": [
+          {
+            "$type": "ImpactStopSpellDef",
+            "Spells": [
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestBatteryResources",
+              "/UtilPrefabs/Spells/Quests/DemoQuest/QuestBattery"
+            ]
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointsOfInterest": [
+              "/UtilPrefabs/PointsOfInterest/POICoal",
+              "/UtilPrefabs/PointsOfInterest/POISalt",
+              "/UtilPrefabs/PointsOfInterest/POIRaggedWires1",
+              "/UtilPrefabs/PointsOfInterest/POIRaggedWires2"
+            ]
+          },
+          {
+            "$type": "ImpactCastSpellDef",
+            "Spell": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestEmitter"
+          }
+        ]
+      },
+      "SpellOnPresence": "$SpellOnAppearance"
+    }
+  ]
+}

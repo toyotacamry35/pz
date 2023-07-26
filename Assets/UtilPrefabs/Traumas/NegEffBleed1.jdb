@@ -1,0 +1,35 @@
+{
+  "$type": "Buff",
+  "Id": "E7D3DED5-47A9-45F9-A924-898E3859745C",
+  "SpellWrapperOriginal": "Assets/UtilPrefabs/Traumas/NegEffBleed1",
+  "Duration": 10.0,
+  "IsInfinite": false,
+  "IsStatusEffect": true,
+  "Icon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffBleed1",
+  "DescriptionLs": {
+    "Key": "#l10n2875"
+  },
+  "Effects": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Summand": 7
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 1,
+        "g": 1,
+        "b": 1,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503080"
+      }
+    }
+  ]
+}

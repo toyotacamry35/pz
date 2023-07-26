@@ -1,0 +1,145 @@
+{
+  "$type": "Spell",
+  "IsInfinite": true,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "MustNotFail": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 30,
+        "Words": [
+          {
+            "$type": "SpellPredicateFromCalcerPredicate",
+            "Predicate": {
+              "$type": "PredicateEquals<Resource>",
+              "$id": "CheckIsHuman",
+              "Lhs": {
+                "$type": "CalcerFaction",
+                "Entity": {
+                  "$type": "CalcerSpellParameter<OuterRef>",
+                  "Parameter": {
+                    "$type": "SpellCaster"
+                  }
+                }
+              },
+              "Rhs": {
+                "$type": "CalcerResource",
+                "Value": "/Inventory/Factions/Human"
+              }
+            }
+          },
+          {
+            "$type": "EffectShowKnockdownInterface",
+            "TextLs": {
+              "Key": "#l10n505092"
+            }
+          },
+          {
+            "$type": "ImpactChangeTimeStat",
+            "StatName": "/UtilPrefabs/Stats/Health/HealthCurrent",
+            "Value": 200,
+            "WhenToApply": "OnStart"
+          },
+          {
+            "$type": "EffectShowDurationTimer",
+            "ShowForEveryone": false,
+            "TextLs": {
+              "Key": "#l10n505046"
+            }
+          },
+          {
+            "$type": "ImpactStopThisSpell",
+            "WhenToApply": "OnSuccess"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectAnimator",
+      "Parameters": [
+        {
+          "$type": "BoolParameter",
+          "Parameter": {
+            "$type": "AnimationParameter",
+            "Name": "IsKnockedDown"
+          },
+          "Value": true
+        }
+      ]
+    },
+    {
+      "$type": "EffectPostVisualEvent",
+      "TriggerName": "/Character/Events/KnockdownEvent",
+      "Params": {
+        "/Character/Events/Args/Player": "/UtilPrefabs/Spells/Params/PlayerIs"
+      }
+    }, // убираем из рук оружие и запрещаем брать его в руки на время нокдауна  
+    {
+      "$type": "EffectBlockSlotsForUsage",
+      "SlotsList": "/UtilPrefabs/Slots/WeaponSlots"
+    },
+    {
+      "$type": "ImpactUnuseSlot",
+      "SlotsList": "/UtilPrefabs/Slots/WeaponSlots"
+    }, // Обездвиживание поцыэнта
+    {
+      "$type": "EffectInputLayer",
+      "Layer": "/UtilPrefabs/Input/Layers/Knockdown"
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera",
+      "Layer": "/UtilPrefabs/Input/Layers/Knockdown"
+    },
+    {
+      "$type": "EffectDirectMotion",
+      "Mover": {
+        "$type": "NullMover"
+      },
+      "Rotator": {
+        "$type": "NullRotator"
+      }
+    },
+    {
+      "$type": "ImpactStopAllSpellsOfGroupsDef",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "Groups": [
+        "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+        "/UtilPrefabs/Spells/Groups/MainActionSpellGroup"
+      ],
+      "Reason": "Fail"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/IncomingDamageMod",
+      "UseClampMin": true,
+      "ClampMin": -0.8,
+      "UseClampMax": true,
+      "ClampMax": -0.8
+    },
+    {
+      "$type": "SpellPredicateFromCalcerPredicate",
+      "Predicate": {
+        "$type": "PredicateEquals<Resource>",
+        "Lhs": {
+          "$type": "CalcerFaction",
+          "Entity": {
+            "$type": "CalcerSpellParameter<OuterRef>",
+            "Parameter": {
+              "$type": "SpellCaster"
+            }
+          }
+        },
+        "Rhs": {
+          "$type": "CalcerResource",
+          "Value": "/Inventory/Factions/Human"
+        }
+      }
+    }
+  ]
+}

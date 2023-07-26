@@ -1,0 +1,37 @@
+{
+    "$type": "SpellDef",
+    "Name": "InteractWithEntity",
+    "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "Duration": 0,
+    "IsInfinite": false,
+    "AllowMultiple": true,
+    "SpellIcon": null,
+    "DontShowProgress": true,
+    "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": [
+        {
+            "$type": "ImpactGrantLootTableItemDef",
+            "DieAfterLoot": true
+        },
+        {
+            "$type": "EffectPostVisualEventOnTarget",
+            "TriggerName": "/Character/Events/GatherResourceEvent"
+        },
+        {
+            "$type": "EffectAnimator",
+            "Actions": [
+                {
+                    "$type": "State",
+                    "State": "/UtilPrefabs/Res/AnimatorStates/Collect",
+                    "Duration": 0, // original duration
+                    "Detached": true
+                }
+            ]
+        }
+    ],
+    "InteractionDescriptionLs": {
+        "Key": "#l10n1664"
+    }
+}

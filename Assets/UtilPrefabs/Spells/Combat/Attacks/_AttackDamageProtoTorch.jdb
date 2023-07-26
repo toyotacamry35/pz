@@ -1,0 +1,86 @@
+{
+  "$type": "Attack",
+  "$vars": {
+    "DAMAGE_MOD": {
+      "Type": "float",
+      "Value": 1
+    },
+    "MINING_MOD": {
+      "Type": "float",
+      "Value": 1
+    },
+    "POWER_MOD": {
+      "Type": "float",
+      "Value": 0
+    },
+    "ATTACK_TYPE": {
+      "Type": "AttackType",
+      "Value": "/UtilPrefabs/AttackType/Normal"
+    }
+  },
+  "ActionsOnAttacker": [
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Recoil",
+      "Reaction": "/UtilPrefabs/Reactions/Recoil",
+      "Args": {
+        "RecoilTime": "/UtilPrefabs/Reactions/Args/Duration"
+      }
+    }
+  ],
+  "ActionsOnVictim": [
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Stagger",
+      "Reaction": "/UtilPrefabs/Reactions/Stagger",
+      "Args": {
+        "StaggerTime": "/UtilPrefabs/Reactions/Args/Duration",
+        "HitDirection": "/UtilPrefabs/Reactions/Args/HitDirection",
+        "Attacker": "/UtilPrefabs/Reactions/Args/Attacker"
+      }
+    },
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Always",
+      "Reaction": "/UtilPrefabs/Reactions/TakeDamage",
+      "Args": {
+        "Attacker": "/UtilPrefabs/Reactions/Args/Attacker",
+        "HitPoint": "/UtilPrefabs/Reactions/Args/HitPoint",
+        "HitLocalPoint": "/UtilPrefabs/Reactions/Args/HitLocalPoint",
+        "HitRotation": "/UtilPrefabs/Reactions/Args/HitRotation",
+        "HitLocalRotation": "/UtilPrefabs/Reactions/Args/HitLocalRotation",
+        "HitObject": "/UtilPrefabs/Reactions/Args/HitObject",
+        "DamageType": "/UtilPrefabs/Reactions/Args/HitDamageType",
+        "WeaponSize": "/UtilPrefabs/Reactions/Args/HitWeaponSize",
+        "AttackType": "/UtilPrefabs/Reactions/Args/HitAttackType",
+        "HitMaterial": "/UtilPrefabs/Reactions/Args/HitMaterial"
+      }
+    },
+    //Burn reaction for Obelisk
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Always",
+      "Reaction": "/UtilPrefabs/Reactions/Burn",
+    },
+    {
+      "$type": "AttackInvokeReaction",
+      "When": "Always",
+      "Reaction": "/UtilPrefabs/Reactions/CombatStance"
+    }
+  ],
+  "Modifiers": [
+    {
+      "$type": "AttackStatOverride",
+      "Id": "0DAD6B0E-D552-4530-A1D2-CAD2AE192F13",
+      "Stat": "/UtilPrefabs/Stats/Combat/DamageMods/DamageMod",
+      "Value": "@DAMAGE_MOD"
+    },
+    {
+      "$type": "AttackStatOverride",
+      "Id": "59A7E1CB-C7C1-41A0-A88F-02F9A9B2C06F",
+      "Stat": "/UtilPrefabs/Stats/Combat/Stagger/Power",
+      "Value": "@POWER_MOD"
+    }
+  ],
+  "AttackType": "@ATTACK_TYPE"
+}

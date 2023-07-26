@@ -1,0 +1,30 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "SpellPredicateFromCalcerPredicateDef",
+      "Predicate": {
+        "$type": "PredicateGreater",
+        "Lhs": {
+          "$type": "CalcerPlayerLevel",
+          "LevelTable": "/UtilPrefabs/Res/Prototypes/LevelUpDatasDef"
+        },
+        "Rhs": {
+          "$type": "CalcerConstant",
+          "Value": 1.5
+        }
+      }
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Consumables/Teleport"
+      ],
+      "Count": 1
+    }
+  ]
+}

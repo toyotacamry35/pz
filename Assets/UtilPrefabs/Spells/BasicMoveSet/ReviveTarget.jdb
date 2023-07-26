@@ -1,0 +1,114 @@
+{
+  "$type": "SpellDef",
+  "Name": "InteractWithEntity",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Duration": 5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeRegenerativeCompressTierII",
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.1,
+      "OffsetIsFromParentEnd": true,
+      "Spell": {
+        "$type": "Spell",
+        "IsInfinite": true,
+        "Words": [
+          {
+            "$type": "EffectSound",
+            "Event": "StateFXRevive",
+            "Params": {}
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "PredicateIsKnockedDown"
+    },
+    { // проверяем, что тот кто в нокдауне - человек
+      "$type": "SpellPredicateFromCalcerPredicate",
+      "Predicate": {
+        "$type": "PredicateEquals<Resource>",
+        "Lhs": {
+          "$type": "CalcerFaction",
+          "Entity": {
+            "$type": "CalcerSpellParameter<OuterRef>",
+            "Parameter": {
+              "$type": "SpellTarget"
+            }
+          }
+        },
+        "Rhs": {
+          "$type": "CalcerResource",
+          "Value": "/Inventory/Factions/Human"
+        }
+      }
+    },
+    { // проверяем, что тот кто оживляет - тоже человек
+      "$type": "SpellPredicateFromCalcerPredicate",
+      "Predicate": {
+        "$type": "PredicateEquals<Resource>",
+        "Lhs": {
+          "$type": "CalcerFaction",
+          "Entity": {
+            "$type": "CalcerSpellParameter<OuterRef>",
+            "Parameter": {
+              "$type": "SpellCaster"
+            }
+          }
+        },
+        "Rhs": {
+          "$type": "CalcerResource",
+          "Value": "/Inventory/Factions/Human"
+        }
+      }
+    },
+    {
+      "$type": "ImpactReviveFromKnockDown",
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "State",
+          "State": "/UtilPrefabs/Res/AnimatorStates/Revive",
+          "Duration": 1,
+          "Mode": "Loop"
+        }
+      ]
+    },
+    {
+      "$type": "EffectInputLayer"
+    },
+    {
+      "$type": "EffectInputSpellBreaker",
+      "When": "Activated",
+      "FinishReason": "Fail",
+      "Actions": [
+        "/UtilPrefabs/Input/Actions/DashForward",
+        "/UtilPrefabs/Input/Actions/DashBackward",
+        "/UtilPrefabs/Input/Actions/DashLeft",
+        "/UtilPrefabs/Input/Actions/DashRight",
+        "/UtilPrefabs/Input/Actions/Block",
+        "/UtilPrefabs/Input/Actions/Jump",
+        "/UtilPrefabs/Input/Actions/MoveForwardTrigger",
+        "/UtilPrefabs/Input/Actions/MoveBackwardTrigger",
+        "/UtilPrefabs/Input/Actions/MoveLeftTrigger",
+        "/UtilPrefabs/Input/Actions/MoveRightTrigger",
+        "/UtilPrefabs/Input/Actions/Attack",
+        "/UtilPrefabs/Input/Actions/AttackMelee",
+        "/UtilPrefabs/Input/Actions/AttackMeleeAlt",
+      ]
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n505094"
+  }
+}

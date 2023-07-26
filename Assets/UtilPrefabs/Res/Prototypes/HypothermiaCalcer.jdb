@@ -1,0 +1,53 @@
+{
+    "$type": "CalcerPiecewise",
+    "Ranges": [
+        {
+            "Condition": {
+                "$type": "PredicateGreater",
+                "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/NegativeFactors/ThermalBalance"
+                },
+                "Rhs": {
+                    "$type": "CalcerConstant",
+                    "Value": 0.0
+                }
+            },
+            "Value": {
+                "$type": "CalcerConstant",
+                "Value": -10
+            }
+        },
+        {
+            "Condition": {
+                "$type": "PredicateLess",
+                "Lhs": "/UtilPrefabs/Res/Prototypes/RawHypothermiaCalcer",
+                "Rhs": {
+                    "$type": "CalcerConstant",
+                    "Value": 0.1
+                }
+            },
+            "Value": {
+                "$type": "CalcerConstant",
+                "Value": -0.1
+            }
+        }
+    ],
+    "Else": {
+        "$type": "CalcerMul",
+        "Multipliers": [
+            // effective_hypothermia_per_second = raw_hypothermia_per_second * coldcap_mod
+            "/UtilPrefabs/Res/Prototypes/RawHypothermiaCalcer",
+            "/UtilPrefabs/Res/Prototypes/HypothermiaCapModCalcer",
+            {
+                "$type": "CalcerConstant",
+                "Value": -1
+            },
+            {
+                // test&balance multiplier
+                "$type": "CalcerConstant",
+                "Value": 3.0
+            }
+        ]
+    }
+}

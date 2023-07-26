@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectInventoryObserverDef",
+      "Item": "/Inventory/Items/Res/RaggedWires",
+      "Count": 2,
+      "SpellOnDisappearance": {
+        "$type": "SpellDef",
+        "$id": "SpellOnDisappearance",
+        "Words": [
+          {
+            "$type": "ImpactAddPointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIRaggedWires2"
+          },
+          {
+            "$type": "ImpactRemovePointOfInterestDef",
+            "PointOfInterest": "/UtilPrefabs/PointsOfInterest/POIBractus"
+          }
+        ]
+      },
+      "SpellOnAbsence": "$SpellOnDisappearance",
+      "SpellOnAppearance": "/UtilPrefabs/Spells/Quests/DemoQuest/QuestStep6Coal"
+    }
+  ]
+}

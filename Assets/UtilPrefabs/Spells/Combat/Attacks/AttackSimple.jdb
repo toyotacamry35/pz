@@ -1,0 +1,28 @@
+{
+  "$type": "SpellDef",
+  "$overrideVars": {
+    "STAMINA_COST": -50,
+    "STAMINA_REQ": 50,
+    "CALORIE_COST": 0.5,
+    "ANIMATION_STATE": "/UtilPrefabs/Res/AnimatorStates/AttackMelee",
+    "CHAIN_ACTION_SPELL": "./AttackSimple2",
+    "DURATION": 1.433,
+    "DAMAGE_OFFSET": 0.45,
+    "DAMAGE_DURATION": 0.15,
+    "EXTRA_WORD":
+    {
+      "$type": "PredicateFallbackDef",
+      "Predicates": [
+        {
+          "$type": "PredicateCompareStatDef",
+          "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+          "Type": "More",
+          "Value": 125
+        }
+      ],
+      "Spells": [ "./AttackWeak" ]
+    }
+  },
+  "$proto": "./_MeleeAttackProto",
+  "Name": "AttackSimple"
+}

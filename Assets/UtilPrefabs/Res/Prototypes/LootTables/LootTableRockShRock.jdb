@@ -1,0 +1,43 @@
+{
+    "$type": "LootTableByDamageTypesDef",
+    "TablesByDamageTypes":
+    [
+        {
+            "DamageTypes": 
+            [
+                   "/UtilPrefabs/DamageTypes/DTCrushing"
+            ],
+            "LootTableTable": 
+            {
+                "$type": "LootTableDef",
+                "LootTable":
+                [
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableRockStone",
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 15
+                        }
+                    },
+                    {
+                        "SubTable": "/UtilPrefabs/Res/Prototypes/LootTables/LootTableRockSalt",
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicateTrueDef"
+                        },
+                        "WeightCalcer": 
+                        {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 0
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

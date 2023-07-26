@@ -1,0 +1,138 @@
+{
+    "$type": "LootTableDef",
+    "LootTable": 
+    [
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawToughMeat",
+                "Count": 8
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateInverseDef",
+                "Predicate": {
+                    "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                    "Perk": "/Inventory/Perks/Level2/ExtraMeatRes_Level2"
+                }
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawToughMeat",
+                "Count": 8
+            },
+            "Predicate": 
+            {
+                "$type": "LootTablePredicateAndDef",
+                "Predicates": [
+                    {
+                        "$type": "LootTablePredicateInverseDef",
+                        "Predicate": {
+                            "$type": "LootTablePredicatePlayerHaveNotPerkDef",
+                            "Perk": "/Inventory/Perks/Level2/ExtraMeatRes_Level2"
+                        }
+                    },
+                    {
+                        "$type": "LootTablePredicatePremium"
+                    }
+                ]
+            },            
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 1.25
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawToughMeat",
+                "Count": 4
+            },
+            "Predicate": {
+                "$type": "LootTablePredicateTrueDef"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 3
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource": "/Inventory/Items/Consumables/RawToughMeat",
+                "Count": 8
+            },
+            "Predicate": {
+                "$type": "LootTablePredicatePremium"
+            },
+            "WeightCalcer": {
+                "$type": "LootItemChanceWeightCalcerConstantDef",
+                "Value": 0.75
+            }
+        },
+        {
+            "ItemResRefPack": {
+                "ItemResource":  "/Inventory/Items/Res/KvarHide",
+                "Count": 1
+            }
+        },
+        {
+            "SubTable": {
+                "$type": "LootTableDef",
+                "LootTable": 
+                [
+                    {
+                        "ItemResRefPack": {
+                            "ItemResource": "/Inventory/Items/Res/KvarSpine",
+                            "Count": 8
+                        },
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicateInverseDef",
+                            "Predicate": {
+                                "$type": "LootTablePredicatePremium"
+                                    }                                                    
+                        },            
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 1
+                        }
+                    },
+                    {
+                        "ItemResRefPack": {
+                            "ItemResource": "/Inventory/Items/Res/KvarSpine",
+                            "Count": 9
+                        },
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicatePremium"                                                                                
+                        },            
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 4
+                        }
+                    },
+                    {
+                        "ItemResRefPack": {
+                            "ItemResource": "/Inventory/Items/Res/KvarSpine",
+                            "Count": 10
+                        },
+                        "Predicate": 
+                        {
+                            "$type": "LootTablePredicatePremium"                                                                                
+                        },            
+                        "WeightCalcer": {
+                            "$type": "LootItemChanceWeightCalcerConstantDef",
+                            "Value": 6
+                        }
+                    }
+                ]
+            },
+            "Predicate": 
+            {
+                "$type": "LootTablePredicateTrueDef"
+            }                              
+        }
+    ]
+}

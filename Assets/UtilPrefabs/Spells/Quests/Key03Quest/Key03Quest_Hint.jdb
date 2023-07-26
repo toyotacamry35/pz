@@ -1,0 +1,37 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_TakenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/Key03Quest/Key03Quest_CompletedKW"
+    },
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "PredicateCheckItemDef",
+          "Item": "/Inventory/Items/Consumables/Food/RoastedToughMeat",
+          "Inversed": true,
+          "Count": 15
+        },
+        {
+          "$type": "PredicateCheckItemDef",
+          "Item": "/Inventory/Items/Consumables/Food/RoastedJuicyMeat",
+          "Inversed": true,
+          "Count": 5
+        }
+      ]
+    }
+  ]
+}

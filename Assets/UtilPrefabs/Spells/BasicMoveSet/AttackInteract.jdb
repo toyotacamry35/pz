@@ -1,0 +1,82 @@
+{
+  "$type": "SpellDef",
+  "Name": "AttackInteract",
+  "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactGrantItemDef",
+      "GrantRandom": false,
+      "GrantingItems": [],
+      "Receiver": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractiveGranter": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "ImpactSetInteractionTypeDef",
+      "AnimatorOwner": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractionType": "MineLow",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "ImpactAttackObjectDef",
+      "Attacker": {
+        "$type": "SpellCasterDef"
+      },
+      "Victim": {
+        "$type": "SpellTargetDef"
+      },
+      "Attack": {
+        "$type": "Attack",
+        "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+      }
+    },
+    /*
+{
+      "$type": "EffectPlayHitFxDef",
+      "Provocator": {
+        "$type": "SpellTargetDef"
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "MaxDistToTarget": 3.0,
+      "FxData": "Assets/UtilPrefabs/Spells/BasicMoveSet/AttackInteract",
+      "TargetIsParent": true,
+      "RotationFromMarker": true,
+      "UseDetach": false
+    },
+*/
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/FullStop",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 1.0
+    },
+    /* {
+      "$type": "EffectPlayAnimationOLDDef",
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "InteractiveTargetIfHasOne": {
+        "$type": "SpellTargetDef"
+      }
+    }, */
+  ]
+}

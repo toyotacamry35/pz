@@ -1,0 +1,36 @@
+{
+    "$type": "SpellDef",
+    "Duration": 1.0,
+    "IsInfinite": false,
+    "AllowMultiple": false,
+    "SpellIcon": null,
+    "DontShowProgress": true,
+    "OutlineColorIndex": 0,
+    "SubSpells": [],
+    "Words": [
+        {
+            "$type": "ImpactAddItemsDef", //выдаём награду
+            "Items": [
+              "/Inventory/Items/Consumables/StandardMedicalKit"
+            ],
+            "Count": 3
+          },
+          {
+            "$type": "ImpactAddItemsDef", //выдаём награду
+            "Items": [
+              "/Inventory/Items/Consumables/RegenerativeCompress"
+            ],
+            "Count": 6
+          },
+          {
+            "$type": "ImpactAddItemsDef", //выдаём награду
+            "Items": [
+              "/Inventory/Items/Res/KvarHide"
+            ],
+            "Count": 12
+          }
+    ],
+    "InteractionDescriptionLs": {
+      "Key": "#l10n1669"
+    }
+  }

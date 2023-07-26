@@ -1,0 +1,165 @@
+{
+  "$type": "Spell",
+  "Duration": 0,
+  "Group": "/UtilPrefabs/Spells/Groups/ReactionSpellGroup",
+  "AllowMultiple": true,
+  "ClearsSlot": true,
+  "SubSpells": [
+//    {
+//      "$type": "SubSpell",
+//      "OffsetStart": 0.055,
+//      "OffsetIsFromParentEnd": true,
+//      "Spell": {
+//        "$type": "Spell",
+//        "IsInfinite": true,
+//        "Words": [
+//          {
+//            "$type": "EffectInputSpellBreaker",
+//            "When": "Active",
+//            "Actions": [
+//              "/UtilPrefabs/Input/Actions/Block",
+//            ]
+//          }
+//        ]
+//      }
+//    },
+  ],
+  "Words": [
+    //DEBUG
+    {
+      "$type": "EffectDebugTint",
+      "Color": {
+        "R": 0.5,
+        "G": 0.5,
+        "B": 0.0,
+      }
+    },
+    {
+      "$type": "ImpactSendEvent",
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "EventTarget": {
+        "$type": "SpellCasterDef"
+      },
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/NPCStaggerEvent",
+      "WhenToApply": "OnStart"
+    },
+    {
+      "$type": "EffectAnimator",
+      "Actions": [
+        {
+          "$type": "Vector2Parameter",
+          "ParameterX": "/UtilPrefabs/Res/AnimatorParameters/LngReactionDirection",
+          "ParameterY": "/UtilPrefabs/Res/AnimatorParameters/LatReactionDirection",
+          "Vector": {
+            "$type": "SpellDirection2"
+          },
+          "Detached": true
+        },
+        {
+          "$type": "RandomFloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/ReactionRandom",
+          "MinValue": 0,
+          "MaxValue": 1,
+          "Detached": true
+        },
+        {
+          "$type": "CalcerFloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/StaggerDuration",
+          "Calcer": {
+            "$type": "CalcerSpellParameter<float>",
+            "Parameter": "/UtilPrefabs/Spells/Params/SpellDuration"
+          },
+          "Detached": true
+        },
+//        {
+//          "$type": "FloatParameter",
+//          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Battle",
+//          "Value": 0
+//        },
+        {
+          "$type": "State",
+          "State": "/UtilPrefabs/Res/AnimatorStates/Stagger",
+          "Duration": 0
+        },
+        {
+          "$type": "State",
+          "State": "/UtilPrefabs/Res/AnimatorStates/StaggerAdditional",
+          "Duration": 0,
+          "Detached": true
+        }
+      ]
+    },
+    {
+      "$type": "EffectInputLayer"
+    },
+    //BLOCKER
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/AllExceptCamera",
+      "Except": [
+        "/UtilPrefabs/Input/Actions/DashForward",
+        "/UtilPrefabs/Input/Actions/DashBackward",
+        "/UtilPrefabs/Input/Actions/DashLeft",
+        "/UtilPrefabs/Input/Actions/DashRight",
+        "/UtilPrefabs/Input/Actions/Jump",
+        "/UtilPrefabs/Input/Actions/AttackMelee",
+        "/UtilPrefabs/Input/Actions/AttackMeleeAlt"
+      ]
+    },
+    {
+      "$type": "ImpactStopAllSpellsOfGroups",
+      "Groups": [
+        "/UtilPrefabs/Spells/Groups/ReactionSpellGroup",
+        "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+        "/UtilPrefabs/Spells/Groups/MainActionSpellGroup"
+      ],
+      "Reason": "Fail"
+    },
+    {
+      "$type": "EffectPostVisualEvent",
+      "TriggerName": "/Character/Events/StaggerPlayerEvent",
+      "Params": {
+        "/Character/Events/Args/Player": "/UtilPrefabs/Spells/Params/PlayerIs"
+      }
+    },
+    //INPUT WINDOWS
+    //Attacks & Jump
+    {
+      "$type": "EffectInputWindow",
+      "Delay": 0.05,
+      "DelayIsBeforeEnd": true,
+      "Handlers": {
+        "/UtilPrefabs/Input/Actions/AttackMelee": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/Jump": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+              "$type": "InputActionHandlerSpellBreaker"
+        }
+      }
+    },
+    //Dash breakers
+    {
+      "$type": "EffectInputWindow",
+      "Delay": 0.100,
+      "Handlers": {
+        "/UtilPrefabs/Input/Actions/DashForward": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/DashBackward": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/DashLeft": {
+              "$type": "InputActionHandlerSpellBreaker"
+        },
+        "/UtilPrefabs/Input/Actions/DashRight": {
+              "$type": "InputActionHandlerSpellBreaker"
+        }
+      }
+    }
+  ]
+}

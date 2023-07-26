@@ -1,0 +1,48 @@
+{
+    // Heatcap = 250 + 15*potential_overheat*(1-heat_resistance_min/(100+heat_resistance_min))
+    "$type": "CalcerSum",
+    "Summands": [
+        250,
+        {
+            // 15*potential_overheat*(1-heat_resistance_min/(100+heat_resistance_min))
+            "$type": "CalcerMul",
+            "Multipliers": [
+                15,
+                 // potential_overheat
+                "/UtilPrefabs/Res/Prototypes/PotentialOverheatCalcer",
+                {
+                    // (1-heat_resistance_min/(100+heat_resistance_min))
+                    "$type": "CalcerDiv",
+                    "Dividend": {
+                        // 1-heat_resistance_min
+                        "$type": "CalcerSum",
+                        "Summands": [
+                            1,
+                            {
+                                "$type": "CalcerMul",
+                                "Multipliers": [
+                                    {
+                                        // (-)
+                                        "$type": "CalcerConstant",
+                                        "Value": -1
+                                    },
+                                    //heat_resistance_min
+                                    "/UtilPrefabs/Res/Prototypes/MinOverheatlDefenceCalcer"
+                                ]
+                            }
+                        ]
+                    },
+                    "Divisor": {
+                        // (100+heat_resistance_min)
+                        "$type": "CalcerSum",
+                        "Summands": [
+                            100,
+                            "/UtilPrefabs/Res/Prototypes/MinOverheatlDefenceCalcer"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+    
+}

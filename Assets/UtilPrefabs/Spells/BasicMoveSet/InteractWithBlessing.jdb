@@ -1,0 +1,99 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.0,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.8,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": true,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 0.5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [
+          {
+            "$type": "SubSpell",
+            "Spell": "./ActionsBlockerForInteract"
+          }
+        ],
+        "Words": [
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/Satiety/SatietyCurrent",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Value": 1000.0,
+            "WhenToApply": "OnStart"
+          },
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/Satiety/WaterBalanceCurrent",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Value": 1000.0
+          },
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/Health/HealthCurrent",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Value": 5000.0
+          },
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Value": -5000.0
+          },
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/AbilityCooldown",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Value": -5000.0
+          },
+          {
+            "$type": "ImpactStopSpellDef",
+            "Spells": [
+              "/UtilPrefabs/Traumas/NegEffBleed1",
+              "/UtilPrefabs/Traumas/NegEffBleed2",
+              "/UtilPrefabs/Traumas/NegEffBleedDropzone",
+              "/UtilPrefabs/Traumas/NegEffBleed_Merid"
+            ]
+          },
+        ]
+      }
+    },
+  ],
+  "Words": [],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n1659"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "$type": "SpellDef",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "MustNotFail": true,
+      "Spell" : {
+        "$type": "SpellDef",
+        "Name": "InteruptByRange",
+        "Duration": 1,
+        "IsInfinite": false,
+        "Words": [
+          {
+            "$type": "PredicateCheckIfInRangeDef",
+            "Enabled": true,
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "Range": 5,
+            "Inversed": false
+          }
+        ]
+      }
+    }
+  ],
+  "ClearsSlot": true,
+  "Words": [
+    {
+      "$type": "EffectOpenUIDialogDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "Dialog": "/Inventory/Dialogs/QuestItems/SkyParcelQuest/SkyParcelQuest_CapsulDialog"
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "WhenToApply": "OnStart",
+      "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_StartKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CapsulOpenKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/SkyParcelQuest/SkyParcelQuest_CompletedKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef", 
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/TemperatureQuests/VoidOff/VoidoffKW" 
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n4097"
+  }//Включить
+}

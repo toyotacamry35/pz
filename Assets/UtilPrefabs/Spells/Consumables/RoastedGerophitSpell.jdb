@@ -1,0 +1,28 @@
+{
+  "$type": "SpellDef",
+  "Name": "RoastedGerophitSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/SatietyCurrent",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      //"Type": "DeltaChange",
+      "Value": 250.0,
+      "WhenToApply": "OnStart"
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n4322"
+  }
+}

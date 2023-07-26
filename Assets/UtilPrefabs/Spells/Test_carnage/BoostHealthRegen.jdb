@@ -1,0 +1,52 @@
+{
+  "$type": "SpellDef",
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "Words": [
+    {
+      "$type": "ImpactStopSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Spells/Combat/StopHealthRegeneration"
+      ]
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrentRegenModifier",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 1.0,
+      "UseClampMin": true,
+      "ClampMin": 1.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 500.0,
+      "UseClampMin": true,
+      "ClampMin": 500.0
+    },
+    {
+      "$type": "ImpactStopSpellDef",
+      "Spells": [
+        "/UtilPrefabs/Spells/Combat/StopStaminaRegeneration"
+      ]
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Stamina/StaminaCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 500.0,
+      "UseClampMin": true,
+      "ClampMin": 500.0
+    },
+  ]
+}

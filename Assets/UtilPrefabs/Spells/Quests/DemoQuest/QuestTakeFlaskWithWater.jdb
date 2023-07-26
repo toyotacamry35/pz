@@ -1,0 +1,26 @@
+{
+  "$type": "SpellDef",
+  "Name": "QuestTakeFlaskWithWater",
+  "Duration": 0.01,
+  "IsInfinite": false,
+  "Group": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Consumables/EmptyFlask"
+    },
+    {
+      "$type": "ImpactRemoveItemDef",
+      "Item": "/Inventory/Items/Consumables/EmptyFlask",
+      "Count": 1
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Consumables/FlaskOfCleanWater"
+      ],
+      "Count": 1
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "$type": "SpellDef",
+  "Name": "PosEffHub",
+  "Duration": 1,
+  "IsInfinite": true,
+  "IgnoresDeath": true,
+  "AllowMultiple": false,
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/CalorieConsumption",
+      "UseClampMin": true,
+      "ClampMin": 0,
+      "UseClampMax": true,
+      "ClampMax": 0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Satiety/WaterConsumption",
+      "UseClampMin": true,
+      "ClampMin": 0,
+      "UseClampMax": true,
+      "ClampMax": 0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/IncomingDamageMod",
+      "UseClampMin": true,
+      "ClampMin": -1,
+      "UseClampMax": true,
+      "ClampMax": -1
+    },
+    {
+      "$type": "EffectInputLayer",
+      "Layer": "/UtilPrefabs/Input/Layers/HubSafePlace"
+    },
+    {
+      "$type": "EffectInputBlocker",
+      "BlockList": "/UtilPrefabs/Input/BlockLists/HubSafePlace",
+      "Layer": "/UtilPrefabs/Input/Layers/HubSafePlace"
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n4803"
+      }
+    }
+  ]
+}

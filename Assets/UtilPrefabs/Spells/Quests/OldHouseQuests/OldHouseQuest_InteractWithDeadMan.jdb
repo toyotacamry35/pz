@@ -1,0 +1,42 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "Words": [
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_StartKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_CompletedKW"
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_FindDeadKW"
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "WhenToApply": "OnStart",
+      "Items": [
+        "/Inventory/Items/Quest/OldHouseQuest/OldHouseQuestChestKey"
+      ],
+      "Count": 1
+    },
+    {
+      "$type": "ImpactAddKnowledgeDef",
+      "Knowledge": "/Inventory/Knowledge/Quest/OldHouseQuest/OldHouseQuest_FindDeadKW",
+      "WhenToApply": "OnFinish"
+    },
+    {
+      "$type": "EffectShowTextDef",
+      "TextLs": {
+        "Key": "#l10n4096"
+      }//Труп колониста: На спине мертвеца вы замечаете глубокие рваные раны. В его ладони зажат ржавый ключ.
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n4095"
+  }//Осмотреть
+}

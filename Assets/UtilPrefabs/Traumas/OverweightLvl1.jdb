@@ -1,0 +1,49 @@
+{
+  "$type": "SpellDef",
+  "Name": "OverweightLvl1",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/OverWeightTraumaGroup",
+  "OutlineColorIndex": 0,
+  "IsStatusEffect": true,
+  "SpellIcon": "Assets/UI/UISprites/ItemsDB/Traumas/NegEffOverweight1",
+  "InteractionDescriptionLs": {
+    "Key": "#l10n2879"
+  },
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/SprintBlock",
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/SpeedFactor",
+      "Summand": -0.2
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503096"
+      }
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Caster": {
+        "$type": "SpellCaster"
+      },
+      "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/QuestOverLoad/QuestOverLoad_Start"
+    }
+  ]
+}

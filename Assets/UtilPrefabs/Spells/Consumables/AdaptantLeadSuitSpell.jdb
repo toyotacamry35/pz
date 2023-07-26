@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "ChemicalProtectionSuitSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateCheckItemDef",
+      "Item": "/Inventory/Items/Clothes/AdaptantLeadSuit",
+      "Inversed": true
+    },
+    {
+      "$type": "ImpactMoveItemsDef",
+      "From": {
+        "Container": "Doll",
+        "Slot": "/UtilPrefabs/Slots/WearBody"
+      },
+      "To": {
+        "Container": "Inventory"
+      }
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Container": "Doll",
+      "Slot": 1,
+      "Count": 1,
+      "Items": [
+        "/Inventory/Items/Clothes/AdaptantLeadSuit"
+      ]
+    }
+  ]
+}

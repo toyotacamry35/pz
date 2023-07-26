@@ -1,0 +1,25 @@
+{
+  //Fills flask with clean water
+  "$type": "SpellDef",
+  "Name": "EmptyFlaskCleanWaterSpell",
+  "Duration": 0.5,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAddItemToIneerContainerDef",
+      "Item": "/Inventory/Items/Res/CleanWater",
+      "Count": 30
+    },
+    {
+      "$type": "PredicateCompareStatDef",
+      "Stat": "/UtilPrefabs/Stats/PrototypeStats/WatersourceInRangeClean",
+      "Type": "More",
+      "Value": 0.1
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$type": "SpellDef",
+  "Name": "NegEffHunger3",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "IsStatusEffect": true,
+  "SpellIcon": null,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Multiplier": -1.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "Summand": 6
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/JumpBlock",
+      "Summand": 1.0
+    },
+    {
+      "$type": "EffectShowText",
+      "Color": {
+        "$type": "Color",
+        "r": 58,
+        "g": 222,
+        "b": 255,
+        "a": 1
+      },
+      "TextLs": {
+        "Key": "#l10n503087"
+      }
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Caster": {
+        "$type": "SpellCaster"
+      },
+      "Spell": "/UtilPrefabs/Spells/Quests/TemperatureQuests/FirstStarvingQuest/FirstStarvingQuest_Start"
+    }
+  ]
+}

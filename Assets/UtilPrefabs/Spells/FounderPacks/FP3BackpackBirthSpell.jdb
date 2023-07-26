@@ -1,0 +1,31 @@
+{
+  "$type": "SpellDef",
+  "Duration": 12,
+  "Words": [
+    {
+      "$type": "SpellPredicateFromCalcerPredicate",
+      "Inversed": true,
+      "Predicate": {
+        "$type": "PredicateFounder",
+        "Pack": "commander"
+      }
+    },
+    {
+      "$type": "SpellPredicateFromCalcerPredicate",
+      "Inversed": true,
+      "Predicate": {
+        "$type": "PredicateFounder",
+        "Pack": "sentinel"
+      }
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "WhenToApply": "OnSuccess",
+      "Container": "Doll",
+      "Slot": 20,
+      "Items": [
+        "/Inventory/Items/Backpacks/Backpack"
+      ]
+    }
+  ]
+}

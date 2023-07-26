@@ -1,0 +1,56 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "IgnoresDeath": true,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "PredicateLogicalOrDef",
+      "Predicates": [
+        {
+          "$type": "SpellPredicateFromCalcerPredicateDef",
+          "Predicate": {
+            "$type": "PredicateGreater",
+            "Lhs": {
+              "$type": "CalcerPlayerLevel",
+              "LevelTable": "/UtilPrefabs/Res/Prototypes/LevelUpDatasDef"
+            },
+            "Rhs": {
+              "$type": "CalcerConstant",
+              "Value": 1.5
+            }
+          }
+        },
+        {
+          "$type": "PredicateKnowledgeDef",
+          "Knowledge": "/Inventory/Knowledge/Quest/DropZone/DialogTutorialQuest1KW"
+        }
+      ]
+    },
+    {
+      "$type": "PredicateKnowledgeDef",
+      "Inversed": true,
+      "Knowledge": "/Inventory/Knowledge/Quest/KeyMainQuest/KeyMainQuest_TakenKW"
+    },
+    {
+      "$type": "SpellPredicateFromCalcerPredicateDef",
+      "Inversed": true,
+      "Predicate": {
+        "$type": "PredicateIsRealm",
+        "RealmRules": ["/Sessions/Rules/SavannahAltPvERules"]
+      }
+    },
+    {
+      "$type": "ImpactActivateQuestDef",
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "Quest": "/Inventory/Quest/KeyMainQuest/KeyMainQuest"
+    },
+    {
+      "$type": "ImpactSetAllowedSpawnPointDef",
+      "SpawnPointType": "/SpawnSystem/SpawnPointTypes/Savannah"
+    }
+  ]
+}
