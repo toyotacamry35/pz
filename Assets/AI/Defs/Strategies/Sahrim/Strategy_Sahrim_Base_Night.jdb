@@ -1,0 +1,179 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Watersource": { // Select Watersource
+            "$type": "SelectAndRemember",
+            "$id": "Watersource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Watersource",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Ally": { // Select Ally
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+            }
+        },
+        "FoodSource": { // Check FoodSource
+            "$type": "SelectAndRemember",
+            "$id": "FoodSource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/FoodSource",
+            }
+        }
+    },
+    "Plan": { // Eat some food
+        "$type": "Choose",
+        "Actions": [
+            { // Check Enemy
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Enraged",
+                    }
+                },
+                "Action": { // Fight
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Sahrim_Fight_Enemy"
+                }
+            },
+            { // Check Threat
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                            }
+                        },
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.1,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Alerted",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": { // Fight
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Sahrim_Fight_Threat"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": "$Watersource",
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "WatersourceCooldown",
+                    "CooldownOnFail": 1,
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 20,
+                            "Min": 10,
+                        }
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Summon Kso
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Summon",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_WalkToTarget",
+                                "At": "$Watersource"
+                            }
+                        ]
+                    }
+                }
+            },
+            { //
+                "$type": "ChooseRandom",
+                "Actions": [
+                    { // Play Social
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "IsInRange",
+                            "Range": 10,
+                            "Not": true,
+                            "TargetSelectorDef": "$Ally",
+                        },
+                        "Action": { // Play Social
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "Summon_Cooldown",
+                            "CooldownOnFail": 20,
+                            "CooldownOnSuccess": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 40,
+                                    "Min": 20,
+                                }
+                            },
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    { // Summon Kso
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Summon",
+                                        "At": {
+                                            "$type": "Self"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    { // Roam
+                        "$type": "UseStrategy",
+                        "Strategy": "./Strategy_Sahrim_Roam"
+                    },
+                    { // Check FoodSource
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+                            }
+                        },
+                        "Action": {
+                            "$type": "UseStrategy",
+                            "Strategy": "./Strategy_Sahrim_Eat"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

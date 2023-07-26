@@ -1,0 +1,49 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id": "d0e6e9d7-aa98-4624-8e9b-a44e87c72ab5",
+    "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+    "Prefab": "Assets/AI/Prefabs/Corpses/Yutt_Corpse",
+    "LegionType": "/AI/Defs/Legions/Corpses/Yutt_Corpse_Legion",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Yutt_Corpse",
+    "LifeSpanSec": 600,
+    "DoOnExpired": "Destroy",
+    "NameLs": {
+        "Key": "#l10n2909"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/YuttCorpseKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/YuttCorpseNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

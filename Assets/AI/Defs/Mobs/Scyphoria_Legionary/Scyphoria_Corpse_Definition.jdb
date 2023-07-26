@@ -1,0 +1,49 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "bc37415b-a414-42c2-a8fb-4bafda3f096d",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+  "Prefab": "Assets/AI/Prefabs/Corpses/Scyphoria_Corpse",
+  "LegionType": "/AI/Defs/Legions/Corpses/Scyphoria_Corpse_Legion",
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Scyphoria_Corpse",
+  "LifeSpanSec": 600,
+  "DoOnExpired": "Destroy",
+  "NameLs": {
+    "Key": "#l10n5112"
+  },
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/ScyphoriaCorpseKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 25
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/ScyphoriaCorpseNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

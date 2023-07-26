@@ -1,0 +1,51 @@
+{
+    "$type": "Strategy",
+    "Selectors": { //know about Food
+        "Food": {
+            "$type": "SelectAndRemember",
+            "$id": "Food",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            { //go to food
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                "At": "$Food"
+            },
+            { //eat food (destroy corpse)
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Merid/Spell_Merid_DestroyObject",
+                "At": "$Food"
+            },
+            {
+                "$type": "RememberValue",
+                "Change": "Set",
+                "Flat": 1,
+                "ModDef": {
+                    "$type": "StatModifier",
+                },
+                "Memory": {
+                    "$type": "Self"
+                },
+                "Target": {
+                    "$type": "Self"
+                },
+                "StatDef": "/AI/Defs/Memories/Fed",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 300,
+                        "Min": 150
+                    }
+                }
+            }
+        ]
+    }
+}

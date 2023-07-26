@@ -1,0 +1,173 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Kvar_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Kvar/Strategy_Kvar_J_Base",
+        "KnowledgeSources": [
+            { // know all visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { // Target to Attack
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Prey",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kso_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Yutt_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        }
+                    ]
+                }
+            },
+            /*            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Obelisks/DecoyKvarAlpha_Obelisk_Legion"
+                }
+            },*/
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Alpha_Legion"
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Kso_Corpse_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Yutt_Corpse_Legion"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/AI/Events/Event_Aggro",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "RememberValue",
+                                "ModDef": {
+                                    "$type": "StatModifier"
+                                },
+                                "Change": "Add",
+                                "Flat": 1,
+                                "Memory": {
+                                    "$type": "TargetLegion",
+                                    "TargetSelector": {
+                                        "$type": "Self"
+                                    }
+                                },
+                                "Target": {
+                                    "$type": "SelectEventSource"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Enemy",
+                                "Time": 6
+                            },
+                            {
+                                "$type": "RememberValue",
+                                "ModDef": {
+                                    "$type": "StatModifier"
+                                },
+                                "Change": "Add",
+                                "Flat": 1,
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Staggered",
+                                "Time": 0.8
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/AI/Events/Event_Kvar_Alpha_Call",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "ModDef": {
+                            "$type": "StatModifier"
+                        },
+                        "Change": "Set",
+                        "Flat": 1,
+                        "Memory": {
+                            "$type": "TargetLegion",
+                            "TargetSelector": {
+                                "$type": "Self"
+                            }
+                        },
+                        "Target": {
+                            "$type": "SelectEventSource"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Alpha",
+                        "Time": 360
+                    }
+                }
+            }
+        ]
+    }
+}

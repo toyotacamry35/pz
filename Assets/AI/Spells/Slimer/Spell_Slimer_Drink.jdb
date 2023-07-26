@@ -1,0 +1,56 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Slimer_Drink",
+  "Duration": 10,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": true,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "Basic_Drink",
+      "UseAsInputToPlayer": false,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Speed": 0.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": null,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 1.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    }
+  ]
+}

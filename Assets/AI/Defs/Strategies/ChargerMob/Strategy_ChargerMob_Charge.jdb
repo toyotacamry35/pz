@@ -1,0 +1,47 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "AttackTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "ChargeTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Not": true,
+                    "Range": 10,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                },
+                "MemoryCategory": "/AI/Defs/Memories/ChargeTarget"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoWithCooldown",
+        "Action": {
+            "$type": "DoInSequence",
+            "Actions": [
+                {
+                    "$type": "CastSpell",
+                    "At": "$ChargeTarget",
+                    "Spell": "/AI/Spells/ChargerMob/Spell_ChargerMob_Swing"
+                },
+                {
+                    "$type": "DoForTime",
+                    "Action": {
+                        "$type": "CastSpell",
+                        "At": "$ChargeTarget",
+                        "Spell": "/AI/Spells/ChargerMob/Spell_ChargerMob_Move"
+                    },
+                    "DoUntilEnd": false,
+                    "Time": 10
+                }
+            ]
+        },
+        "CooldownName": "ChargeCooldown",
+        "CooldownOnFail": 30,
+        "CooldownOnSuccess": 17
+    }
+}

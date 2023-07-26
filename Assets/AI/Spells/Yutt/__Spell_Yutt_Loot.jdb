@@ -1,0 +1,68 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_Loot",
+  "Duration": 3.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "",
+      "AnimationSubType": "",
+      "AnimationSubTypeValue": 0,
+      "UseAsInputToPlayer": false,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Speed": 0.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": null,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 1.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    },
+    /*
+{
+      "$type": "EffectPlayHitFxDef",
+      "Enabled": true,
+      "Provocator": {
+        "$type": "SpellTargetDef"
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "MaxDistToTarget": 3.0,
+      "FxData": "/AI/Spells/Yutt/LookBlue",
+      "TargetIsParent": true,
+      "RotationFromMarker": true,
+      "ImmediatlyHide": true,
+      "CountEffect": 1
+    }
+*/
+  ]
+}

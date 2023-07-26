@@ -1,0 +1,104 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spit",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.35,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.1,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "Name": "Throwing",
+        "Duration": 0.0,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactThrowDef",
+            "Enabled": true,
+            "InitialAngleForTarget": 45.0,
+            "OptionalTarget": {
+              "$type": "SpellTargetDef"
+            },
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "AppliedSpells": [
+              "/AI/Spells/Sahrim/Old/SpitSlow",
+              {
+                "$type": "SpellDef",
+                "$overrideVars": {
+                  "DURATION": 1
+                },
+                "$proto": "/UtilPrefabs/Spells/Reactions/Invoke/InvokeStagger",
+                "AllowMultiple": true,
+              }
+            ],
+            "ItemResourceStatic": null,
+            "WhenToDo": "OnStart"
+          },
+          {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "InverseMovement": false,
+            "KeepDistance": false,
+            "KeepDistanceTreshold": 1.0,
+            "AnimationBool": "Acting",
+            "AnimationSubType": "ActionType",
+            "AnimationSubTypeValue": 2,
+            "UseAsInputToPlayer": false,
+            "MoveType": "FollowPathToTarget",
+            "Rotation": "LookAtTarget",
+            "Speed": 0.0,
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "Vec3": null,
+            "Caster": {
+              "$type": "SpellCasterDef"
+            },
+            "FixedDirection": {
+              "$type": "Vector3",
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "AcceptedRange": 1.9,
+            "RotationTime": 0.5,
+            "Levitate": false,
+            "ApplyHeightSpeedCurve": false,
+            "TargetHeightSpeed": 0.0,
+            "ApplyHeightCurve": false,
+            "TargetHeight": 0.0,
+            "Period": 0.0
+          }
+        ]
+      }
+    }
+  ],
+  "Words": []
+}

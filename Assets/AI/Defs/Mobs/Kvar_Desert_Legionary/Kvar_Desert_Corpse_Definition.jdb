@@ -1,0 +1,43 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id": "95826d36-a732-4c58-bac3-4bcdb1537e1b",
+    "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+    "Prefab": "Assets/AI/Prefabs/Corpses/Kvar_Desert_Corpse",
+    "LegionType": "/AI/Defs/Legions/Corpses/Kvar_Corpse_Legion",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Kvar_Desert_Corpse",
+    "LifeSpanSec": 600,
+    "DoOnExpired": "Destroy",
+    "NameLs": {
+        "Key": "#l10n2898"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/KvarDesertCorpseKW",
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/KvarDesertCorpseNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

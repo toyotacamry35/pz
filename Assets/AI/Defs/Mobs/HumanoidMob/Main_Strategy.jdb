@@ -1,0 +1,27 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Bot_Additems"
+            },
+            //Если рядом есть реальный игрок, то бот бежит атаковать его
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Prey"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Bot_Hunt_Players"
+                }
+            }
+        ]
+    }
+}

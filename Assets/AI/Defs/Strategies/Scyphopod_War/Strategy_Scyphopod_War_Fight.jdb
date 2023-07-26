@@ -1,0 +1,490 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Prey": {
+            "$type": "SelectAndRemember",
+            "$id": "Prey",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Prey",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Ally": {
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 2.5,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackCut",
+                            "At": "$Prey"
+                        },
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownOnFail": 1.5,
+                            "CooldownOnSuccess": 1.5,
+                            "CooldownName": "AttackHeavy_CD",
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackHeavy",
+                                "At": "$Prey"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 5,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "WeightedActions": [
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 100,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackRanged",
+                                "At": "$Prey"
+                            }
+                        },
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 20,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                "At": "$Prey"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": { //если цель слишком далеко Pod прерывает движение к ней и завершает стратегию
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                    "At": "$Prey"
+                }
+            }
+        ]
+    }
+}
+/*
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Threat": { // Perceive Threat
+            "$type": "SelectAndRemember",
+            "$id": "Threat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Ally": { // Perceive Ally
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Hive": { // Perceive Hive
+            "$type": "SelectAndRemember",
+            "$id": "Hive",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Hive",
+            }
+        }
+    },
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef",
+        "SubNode": {
+            "$type": "Choose",
+            "Actions": [
+                { // Move closer
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "IsInRange",
+                        "Range": 20,
+                        "Not": true,
+                        "TargetSelectorDef": "$Hive"
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Come closer
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                "At": "$Hive"
+                            },
+                            { // Reset stat
+                                "$type": "RememberValue",
+                                "Change": "Set",
+                                "Flat": 0,
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Infuriated",
+                                "Time": 10
+                            }
+                        ]
+                    }
+                },
+                { // BattleStance 1 == Circle and prepare
+                    "$type": "DoWhile",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "MemorizedStat": "/AI/Defs/Memories/BattleStance"
+                        }
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Circle for time
+                                "$type": "ChooseRandom",
+                                "Actions": [
+                                    {
+                                        "$type": "DoForTime",
+                                        "Action": {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Spell_Mob_CircleLeft",
+                                            "At": "$Threat"
+                                        },
+                                        "Time": {
+                                            "$type": "CalcerMetric",
+                                            "Calcer": {
+                                                "$type": "CalcerRandom",
+                                                "Max": 4,
+                                                "Min": 2
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$type": "DoForTime",
+                                        "Action": {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Spell_Mob_CircleRight",
+                                            "At": "$Threat"
+                                        },
+                                        "Time": {
+                                            "$type": "CalcerMetric",
+                                            "Calcer": {
+                                                "$type": "CalcerRandom",
+                                                "Max": 4,
+                                                "Min": 2
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                           // { // Cast Ranged Attack (temporary disabled)
+                           //     "$type": "CastSpell",
+                           //     "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackCut",
+                           //     "At": "$Threat"
+                           // },
+                        ]
+                    }
+                },
+                {
+                    "$type": "DoIf", // BattleStance 0 == Attack
+                    "Condition": {
+                        "$type": "Not",
+                        "Condition": {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemoryOfTarget": true,
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "TargetOfStat": {
+                                    "$type": "Self"
+                                },
+                                "MemorizedStat": "/AI/Defs/Memories/BattleStance"
+                            }
+                        }
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "ChooseRandom", // Attacks
+                                "Actions": [
+                                    { // Shield Attack
+                                        "$type": "DoWithCooldown",
+                                        "CooldownOnFail": 1.0,
+                                        "CooldownOnSuccess": 5.0,
+                                        "CooldownName": "Shield_Attack_Cooldown",
+                                        "Action": {
+                                            "$type": "DoInSequence",
+                                            "Actions": [
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Melee R Attack
+                                                    "$type": "DoWithCooldown",
+                                                    "CooldownOnFail": 1.0,
+                                                    "CooldownOnSuccess": 5.0,
+                                                    "CooldownName": "Shield_Attack_Cooldown",
+                                                    "Action": { // Cast Right
+                                                        "$type": "CastSpell",
+                                                        "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackShield",
+                                                        "At": "$Threat"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                     { // Melee R Attack
+                                        "$type": "DoWithCooldown",
+                                        "CooldownOnFail": 1.0,
+                                        "CooldownOnSuccess": 5.0,
+                                        "CooldownName": "AttackRCooldown",
+                                        "Action": {
+                                            "$type": "DoInSequence",
+                                            "Actions": [
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Melee R Attack
+                                                    "$type": "DoWithCooldown",
+                                                    "CooldownOnFail": 1.0,
+                                                    "CooldownOnSuccess": 5.0,
+                                                    "CooldownName": "AttackRCooldown",
+                                                    "Action": { // Cast Right
+                                                        "$type": "CastSpell",
+                                                        "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackMeleeR",
+                                                        "At": "$Threat"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    { // Melee L Attack
+                                        "$type": "DoWithCooldown",
+                                        "CooldownOnFail": 1.0,
+                                        "CooldownOnSuccess": 5.0,
+                                        "CooldownName": "AttackRCooldown",
+                                        "Action": {
+                                            "$type": "DoInSequence",
+                                            "Actions": [
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Melee L Attack
+                                                    "$type": "DoWithCooldown",
+                                                    "CooldownOnFail": 1.0,
+                                                    "CooldownOnSuccess": 5.0,
+                                                    "CooldownName": "AttackRCooldown",
+                                                    "Action": { // Cast Left
+                                                        "$type": "CastSpell",
+                                                        "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackMeleeL",
+                                                        "At": "$Threat"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    { // R-Heavy Attack Combo
+                                        "$type": "DoWithCooldown",
+                                        "CooldownOnFail": 1.0,
+                                        "CooldownOnSuccess": 10.0,
+                                        "CooldownName": "AttackRCLCooldown",
+                                        "Action": { // 
+                                            "$type": "DoInSequence",
+                                            "Actions": [
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Cast Right
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackMeleeR",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Cast Heavy
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackHeavy",
+                                                    "At": "$Threat"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    { // L-Heavy Attack Combo
+                                        "$type": "DoWithCooldown",
+                                        "CooldownOnFail": 1.0,
+                                        "CooldownOnSuccess": 10.0,
+                                        "CooldownName": "AttackLCLCooldown",
+                                        "Action": { // 
+                                            "$type": "DoInSequence",
+                                            "Actions": [
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Cast Left
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackMeleeL",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Cast Heavy
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackHeavy",
+                                                    "At": "$Threat"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    { // R-L-Heavy Attack Combo
+                                        "$type": "DoWithCooldown",
+                                        "CooldownOnFail": 1.0,
+                                        "CooldownOnSuccess": 10.0,
+                                        "CooldownName": "AttackLCLCooldown",
+                                        "Action": { // 
+                                            "$type": "DoInSequence",
+                                            "Actions": [
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Cast Right
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackMeleeR",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Cast Left
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackMeleeL",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Come closer
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                                    "At": "$Threat"
+                                                },
+                                                { // Cast Heavy
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_AttackHeavy",
+                                                    "At": "$Threat"
+                                                }
+                                            ]
+                                        }
+                                    } 
+                                ]
+                            },
+                            { // Send event and reset nearest Ally's stat (set BattleStance == 0)
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_BattleEvent",
+                                "At": "$Ally"
+                            },
+                            { // Set stat
+                                "$type": "RememberValue",
+                                "Change": "Set",
+                                "Flat": 1,
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/BattleStance",
+                                "Time": 15
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
+*/

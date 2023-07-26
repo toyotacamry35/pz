@@ -1,0 +1,41 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_Staggered",
+    "Duration": 1,
+    "IsInfinite": false,
+    "AllowMultiple": false,
+    "SpellIcon": null,
+    "InteractionDescription": "",
+    "DontShowProgress": false,
+    "Group": null,
+    "OutlineColorIndex": 0,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "MoveType": "LookAt",
+            "Rotation": "LookAtTarget",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Reaction",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/ReactionType",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

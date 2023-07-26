@@ -1,0 +1,18 @@
+{
+  "$type": "TriggerFXRule",
+  "$vars": {
+    "ON_HIT_SOUNDEFFECT": {
+      "Type": "string",
+      "Value": "KvarDamage"
+    }
+  },
+  "EventType": "/AI/Events/TakeDamageEvent",
+  "OnEvent": {
+    "Caster": [
+      {
+        "$type": "SoundEvent",
+        "SoundEvent": "@ON_HIT_SOUNDEFFECT"
+      }
+    ]
+  }
+}

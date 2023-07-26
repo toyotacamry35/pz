@@ -1,0 +1,38 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Scyphopod_Wrk_LookAt",
+  "Duration": 15.0,
+  "IsInfinite": false,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.4,
+      "AcceptedRange": 2.0,
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtTarget",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Social",
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/SocialType",
+          "Value": 2,
+        }    
+      ]
+    } 
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kso_Drink",
+  "Duration": 9.63,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": null,
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Basic",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BasicType",
+          "Value": 1,
+        }    
+      ]
+    }
+  ]
+}

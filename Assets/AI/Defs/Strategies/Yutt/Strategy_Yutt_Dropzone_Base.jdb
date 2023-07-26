@@ -1,0 +1,230 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RoutePoint": { //know about route point
+            "$type": "SelectKnown",
+            "$id": "RoutePoint",
+            "Category": "/AI/Defs/Knowledge/RoutePoint",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true,
+            "Filter": { //points not Recently Used
+                "$type": "Not",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/RecentlyUsed",
+                        "MemoryOfTarget": true,
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            }
+        },
+        "FleeingPoint": { // Perceive FleeingPoint
+            "$type": "SelectAndRemember",
+            "$id": "FleeingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/FleeingPoint"
+            }
+        },
+        "Enemy": { //Kvar
+            "$type": "SelectAndRemember",
+            "$id": "Enemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy"
+            }
+        },
+        "Player": { // Player
+            "$type": "SelectAndRemember",
+            "$id": "Player",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Curiosity",
+            }
+        },
+        "Food": { //Gerophit
+            "$type": "SelectAndRemember",
+            "$id": "Food",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+            }
+        }
+    },
+    ///////////////////////////   MAIN STRATEGY   ////////////////////////
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef",
+        "SubNode": {
+            "$type": "Choose",
+            "Actions": [
+                { //run away from Kvar to hide point
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "IsInRange",
+                        "Range": 6.0,
+                        "TargetSelectorDef": "$Enemy"
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { //scare at Kvar
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Yutt/Spell_Yutt_J_Scare",
+                                "At": "$Enemy"
+                            },
+                            { //run away
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Yutt_Dropzone/Spell_Yutt_Dropzone_Run",
+                                "At": "$FleeingPoint",
+                            },
+                            { //stay at hide point
+                                "$type": "DummyNode"
+                            }
+                        ]
+                    }
+                },
+                { //eat food, if near food without Player
+                    "$type": "DoWhile",
+                    "Condition": {
+                        "$type": "IsInRange",
+                        "Range": 6,
+                        "TargetSelectorDef": "$Food"
+                    },
+                    "Action": { //let's eat food!
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { //go to food
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Yutt_Dropzone/Spell_Yutt_Dropzone_Run",
+                                "At": "$Food"
+                            },
+                            { //eat food
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Yutt_Dropzone/Spell_Yutt_Dropzone_Devour",
+                                "At": "$Food"
+                            }
+                        ]
+                    }
+                },
+                { //if player near
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "Has",
+                        "Target": "$Player"
+                    },
+                    "Action": {
+                        "$type": "Choose",
+                        "Actions": [
+                            { //if route point 
+                                "$type": "DoIf",
+                                "Condition": {
+                                    "$type": "IsInRange",
+                                    "TargetSelectorDef": "$RoutePoint",
+                                    "Range": 5.0,
+                                    "Not": true
+                                },
+                                "Action": { //go to point
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt_Dropzone/Spell_Yutt_Dropzone_Run",
+                                    "At": "$RoutePoint",
+                                    "PointTargetHasPriority":true
+                                }
+                            },
+                            {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    { //if player not near point
+                                        "$type": "DoWhile",
+                                        "Condition": {
+                                            "$type": "IsInRange",
+                                            "TargetSelectorDef": "$Player",
+                                            "Range": 10.0
+                                        },
+                                        "Action": { //run to point
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Yutt_Dropzone/Spell_Yutt_Dropzone_Run",
+                                            "At": "$RoutePoint",
+                                            "PointTargetHasPriority":true
+                                        }
+                                    },
+                                    { //if Yutt near point
+                                        "$type": "DoIf",
+                                        "Condition": {
+                                            "$type": "IsInRange",
+                                            "TargetSelectorDef": "$RoutePoint",
+                                            "Range": 6.0,
+                                        },
+                                        "Action": { //remember about point
+                                            "$type": "RememberValue",
+                                            "Change": "Set",
+                                            "Flat": 1,
+                                            "Memory": {
+                                                "$type": "Self"
+                                            },
+                                            "ModDef": {
+                                                "$type": "StatModifier",
+                                            },
+                                            "StatDef": "/AI/Defs/Memories/RecentlyUsed",
+                                            "Target": "$RoutePoint",
+                                            "Time": 999,
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                { //follow Player
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Yutt/Spell_Yutt_LookAt",
+                            "At": "$Player"
+                        },
+                        {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                { //Pry at Player
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Pry",
+                                    "At": "$Player"
+                                },
+                                { //Pry at Player
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Pry_01",
+                                    "At": "$Player"
+                                },
+                                { //Pry at Player
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Pry_02",
+                                    "At": "$Player"
+                                },
+                                { //Worry at Player
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Worry",
+                                    "At": "$Player"
+                                },
+                                { //Alert Positive at Player
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_AlertPositive",
+                                    "At": "$Player"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

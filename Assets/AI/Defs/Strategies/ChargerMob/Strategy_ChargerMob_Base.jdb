@@ -1,0 +1,24 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_ChargerMob_Stomp"
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_ChargerMob_Charge"
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_ChargerMob_Fight"
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_ChargerMob_Stare"
+            }
+        ]
+    }
+}

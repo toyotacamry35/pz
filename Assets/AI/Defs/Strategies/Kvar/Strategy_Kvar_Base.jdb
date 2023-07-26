@@ -1,0 +1,540 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        },
+        "Alpha": {
+            "$type": "SelectAndRemember",
+            "$id": "Alpha",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Alpha",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 40,
+                            "TargetSelectorDef": "$EvadePoint"
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/FreeMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kvar/Spell_Kvar_Alert",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        },
+                        {
+                            "$type": "DoWhile",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Not": true,
+                                "Range": 5,
+                                "TargetSelectorDef": "$EvadePoint"
+                            },
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_RunToPoint",
+                                "At": "$EvadePoint"
+                            }
+                        }
+                    ]
+                }
+            },
+            /*           {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Threat"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kvar_Alpha_Bait"
+                }
+            },*/
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Enemy"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "/AI/Defs/Strategies/Kvar/Strategy_Kvar_Fight"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Or",
+                            "Conditions": [
+                                {
+                                    "$type": "IsInRange",
+                                    "Range": 14,
+                                    "SectorBorderL": -90,
+                                    "SectorBorderR": 90,
+                                    "TargetSelectorDef": {
+                                        "$type": "SelectKnown",
+                                        "MemoryCategory": "/AI/Defs/Memories/Prey"
+                                    }
+                                },
+                                {
+                                    "$type": "IsInRange",
+                                    "Range": 7,
+                                    "TargetSelectorDef": {
+                                        "$type": "SelectKnown",
+                                        "MemoryCategory": "/AI/Defs/Memories/Prey"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/PassiveMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "/AI/Defs/Strategies/Kvar/Strategy_Kvar_Hunt"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "/AI/Defs/Strategies/Kvar/Strategy_Kvar_Eat"
+                }
+            },
+            /*  {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Alpha"
+                    }
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kvar/Spell_Kvar_Prepare",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_RunToTarget",
+                            "At": "$Alpha"
+                        }
+                    ]
+                }
+            },*/
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 15,
+                            "TargetSelectorDef": "$EvadePoint"
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/FreeMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "Choose",
+                    "Actions": [
+                        {
+                            "$type": "DoIf",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Range": 3,
+                                "TargetSelectorDef": "$EvadePoint"
+                            },
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kvar/Spell_Kvar_Rest",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "DoForTime",
+                                    "Time": 3.5,
+                                    "Action": {
+                                        "$type": "DummyNode"
+                                    }
+                                },
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                                    "At": "$EvadePoint"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+            }
+        ]
+    }
+}
+/*{
+    "$type": "Strategy",
+    "$vars": {
+        "CURRENT_HEALTH": { 
+            "Type": "float",
+            "Value": 850.0
+        },
+        "AMOUNT_OF_PLAYERS_NEARBY": {
+            "Type": "float",
+            "Value": 2.5
+        },
+        "AMOUNT_OF_THREATS_NEARBY": { 
+            "Type": "float",
+            "Value": 1.5
+        },
+        "AMOUNT": {
+            "Type": "float",
+            "Value": 0.5
+        },
+        "METRIC": {
+            "Type": "float",
+            "Value": 1.0
+        },
+    },
+    "Selectors": {
+        "Lair": {
+            "$type": "SelectAndRemember",
+            "$id": "Lair",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Lair",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // FIGHT CONDITIONS //
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Enemy"
+                            }
+                        },
+                        {
+                            "$type": "And",
+                            "Conditions": [
+                                { // Check Preferred Target
+                                    "$type": "Has",
+                                    "Target": {
+                                        "$type": "SelectKnown",
+                                        "MemoryCategory": "/AI/Defs/Memories/PreferredTarget"
+                                    }
+                                },
+                                {
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": -0.5, // HUMAN
+                                    "Evaluator": {
+                                        "$type": "CalcerMetric",
+                                        "Target": {
+                                            "$type": "SelectKnown",
+                                            "MemoryCategory": "/AI/Defs/Memories/PreferredTarget",
+                                            "InverseMetric": true,
+                                            "Metric": {
+                                                "$type": "RangeMetric",
+                                                "Target": {
+                                                    "$type": "Self"
+                                                }
+                                            }
+                                        },
+                                        "Calcer": {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/PlayerFaction",
+                                        }
+                                    }
+                                },
+                                { // Check Player Faction
+                                    "$type": "Not",
+                                    "Condition": {
+                                        "$type": "EvaluatesToMoreThan",
+                                        "Amount": 1.5, // HALF-HUMAN
+                                        "Evaluator": {
+                                            "$type": "CalcerMetric",
+                                            "Target": {
+                                                "$type": "SelectKnown",
+                                                "MemoryCategory": "/AI/Defs/Memories/PreferredTarget",
+                                                "InverseMetric": true,
+                                                "Metric": {
+                                                    "$type": "RangeMetric",
+                                                    "Target": {
+                                                        "$type": "Self"
+                                                    }
+                                                }
+                                            },
+                                            "Calcer": {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/PlayerFaction",
+                                            }
+                                        }
+                                    }
+                                },
+                            ]
+                        },
+                    ]
+                },
+                "Action": { // Fight
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kvar_Fight"
+                }
+            },
+            { // FLEE CONDITIONS //
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        { // Check Lairs nearby
+                            "$type": "Has",
+                            "Target": "$Lair"
+                        },
+                        {
+                            "$type": "Or",
+                            "Conditions": [
+                                {
+                                    "$type": "And",
+                                    "Conditions": [
+                                        { // Check Preferred Target
+                                            "$type": "Has",
+                                            "Target": {
+                                                "$type": "SelectKnown",
+                                                "MemoryCategory": "/AI/Defs/Memories/PreferredTarget"
+                                            }
+                                        },
+                                        { // Check Player Faction
+                                            "$type": "EvaluatesToMoreThan",
+                                            "Amount": 1.5, // HALF-HUMAN
+                                            "Evaluator": {
+                                                "$type": "CalcerMetric",
+                                                "Target": {
+                                                    "$type": "SelectKnown",
+                                                    "MemoryCategory": "/AI/Defs/Memories/PreferredTarget",
+                                                    "InverseMetric": true,
+                                                    "Metric": {
+                                                        "$type": "RangeMetric",
+                                                        "Target": {
+                                                            "$type": "Self"
+                                                        }
+                                                    }
+                                                },
+                                                "Calcer": {
+                                                    "$type": "CalcerStat",
+                                                    "Stat": "/UtilPrefabs/Stats/PlayerFaction",
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "$type": "Not",
+                                            "Condition": {
+                                                "$type": "EvaluatesToMoreThan",
+                                                "Amount": 2.5, // VOID
+                                                "Evaluator": {
+                                                    "$type": "CalcerMetric",
+                                                    "Target": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/PreferredTarget",
+                                                        "InverseMetric": true,
+                                                        "Metric": {
+                                                            "$type": "RangeMetric",
+                                                            "Target": {
+                                                                "$type": "Self"
+                                                            }
+                                                        }
+                                                    },
+                                                    "Calcer": {
+                                                        "$type": "CalcerStat",
+                                                        "Stat": "/UtilPrefabs/Stats/PlayerFaction",
+                                                    }
+                                                }
+                                            }
+                                        },
+                                    ]
+                                },
+                                { // Check Health stat
+                                    "$type": "CheckStat",
+                                    "Operation": "Less",
+                                    "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                                    "Value": "@CURRENT_HEALTH"
+                                },
+                                { // Check Players
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": "@AMOUNT_OF_PLAYERS_NEARBY", // 3
+                                    "Evaluator": {
+                                        "$type": "CollectionSumMetric",
+                                        "CollectionSelector": {
+                                            "$type": "SelectKnown",
+                                            "MemoryCategory": "/AI/Defs/Memories/PreferredTarget"
+                                        },
+                                        "Metric": "@METRIC"
+                                    }
+                                },
+                                { // Check Threats
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": "@AMOUNT_OF_THREATS_NEARBY", // 2
+                                    "Evaluator": {
+                                        "$type": "CollectionSumMetric",
+                                        "CollectionSelector": {
+                                            "$type": "SelectKnown",
+                                            "MemoryCategory": "/AI/Defs/Memories/Threat"
+                                        },
+                                        "Metric": "@METRIC"
+                                    }
+                                },
+                                { // Check Fear
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": "@AMOUNT",
+                                    "Evaluator": {
+                                        "$type": "RememberedValue",
+                                        "MemorizedStat": "/AI/Defs/Memories/Fear",
+                                        "Target": {
+                                            "$type": "TargetLegion",
+                                            "TargetSelector": {
+                                                "$type": "Self"
+                                            }
+                                        },
+                                        "MemoryOfTarget": true,
+                                        "TargetOfStat": {
+                                            "$type": "Self"
+                                        },
+                                    }
+                                },
+                            ]
+                        },
+                    ]
+                },
+                "Action": { // Flee
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kvar_Flee"
+                }
+            },
+            { // Ambient
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Kvar_Idle"
+            },
+        ]
+    }
+}*/

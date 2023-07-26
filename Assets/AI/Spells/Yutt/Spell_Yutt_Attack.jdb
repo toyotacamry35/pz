@@ -1,0 +1,107 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Yutt_Attack",
+    "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+    "Duration": 2.5,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 3.5,
+            "MoveType": "LookAt",
+            "Rotation": "LookAtTarget",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 1
+                }
+            ]
+        },
+        {
+            "$type": "EffectChangeAccumulatedStat",
+            "Summand": 0,
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 1.5,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.2,
+                "Words": [
+                    {
+                        "$type": "EffectPostVisualEvent",
+                        "TriggerName": "/AI/Events/MobAttackEvent"
+                    },
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 2
+                            },
+                            "Extents": {
+                                "x": 1,
+                                "y": 2,
+                                "z": 4
+                            }
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Yutt_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "Words": [
+                                    {
+                                        "$type": "ImpactChangeTimeStatDef",
+                                        "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+                                        "Target": {
+                                          "$type": "SpellTarget"
+                                        },
+                                        "Value": 20.0
+                                      }
+                                ]
+                            },
+                            "/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

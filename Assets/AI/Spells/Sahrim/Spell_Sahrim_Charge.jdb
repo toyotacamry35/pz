@@ -1,0 +1,121 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Charge",
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.5,
+      "AcceptedRange": 5.0,
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtMoveDirection",
+      "Modifier": "Run",
+      "SpeedFactor": 1.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "FloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MovementType",
+          "Value": 1.0,
+        }
+      ]
+    },
+    {
+      "$type": "EffectDebugTint",
+      "Enabled": true,
+      "Color": {
+        "R": 1,
+        "G": 0,
+        "B": 0
+      }
+    },
+  ],
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Periodic": true,
+      "Spell": {
+        "$type": "SpellDef",
+        "Duration": 0.2,
+        "Words": [
+          {
+            "$type": "EffectPostVisualEvent",
+            "TriggerName": "/AI/Events/SahrimStompEvent"
+          },
+          {
+            "$type": "ImpactForAllInBox",
+            "AttackBoxes": [
+              {
+                "center": {
+                  "x": 0.0,
+                  "y": 0.5,
+                  "z": 0.0
+                },
+                "extents": {
+                  "x": 3,
+                  "y": 2,
+                  "z": 3
+                }
+              }
+            ],
+            // "WhenToApply": "OnStart",
+            // "PredicateOnTarget": {
+            //   "$type": "PredicateAnd",
+            //   "Predicates": [
+            //     {
+            //       "$type": "PredicateNot",
+            //       "Value": {
+            //         "$type": "PredicateOfLegion",
+            //         "OfLegion": "/AI/Defs/Legions/Mobs/SahrimBaby_Legion"
+            //       }
+            //     },
+            //     {
+            //       "$type": "PredicateNot",
+            //       "Value": {
+            //         "$type": "PredicateOfLegion",
+            //         "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+            //       }
+            //     },
+            //   ]
+            // },
+            "AppliedSpells": [
+              {
+                "$type": "Spell",
+                "AllowMultiple": true,
+                "Words": [
+                  {
+                    "$type": "ImpactAttackObjectDef",
+                    "Attacker": {
+                      "$type": "SpellCasterDef"
+                    },
+                    "Victim": {
+                      "$type": "SpellTargetDef"
+                    },
+                    "Attack": {
+                      "$type": "Attack",
+                      "$overrideVars": {
+                        "POWER_MOD": 27.45,
+                        "DAMAGE_MOD": 0.1
+                      },
+                      "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+        ]
+      }
+    },
+  ]
+}

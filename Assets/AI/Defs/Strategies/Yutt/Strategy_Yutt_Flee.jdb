@@ -1,0 +1,113 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Hole": { //Hole to hide
+            "$type": "SelectKnown",
+            "$id": "Hole",
+            "Category": "/AI/Defs/Knowledge/Hole",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true
+        },
+        "FleeingPoint": { //point to run
+            "$type": "SelectKnown",
+            "$id": "FleeingPoint",
+            "Category": "/AI/Defs/Knowledge/FleeingPoint",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true,
+            "Filter": {
+                "$type": "And",
+                "Conditions": [
+                    {
+                        "$type": "Not",
+                        "Condition": {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/RecentlyUsed",
+                                "MemoryOfTarget": true,
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "$type": "EvaluatesToMoreThan",
+                        "Evaluator": {
+                            "$type": "RangeMetric",
+                            "Target": "$Hole"
+                        },
+                        "Amount": {
+                            "$type": "RangeMetric",
+                            "Target": {
+                                "$type": "Self"
+                            }
+                        }
+                    },
+                    //CONDITION THAT RANGE FROM FP TO HOLE IS LESSER THAN FROM ACTOR TO HOLE
+                ]
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { //Hide if on a hole
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 0.75,
+                    "TargetSelectorDef": "$Hole"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Hide"
+                }
+            },
+            { //Remember fleeing point as recently used
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 1.5,
+                    "TargetSelectorDef": "$FleeingPoint"
+                },
+                "Action": {
+                    "$type": "RememberValue",
+                    "Flat": 1,
+                    "Time": 666,
+                    "ModDef": {
+                        "$type": "StatModifier",
+                    },
+                    "Change": "Set",
+                    "Memory": {
+                        "$type": "Self"
+                    },
+                    "Target": "$FleeingPoint",
+                    "StatDef": "/AI/Defs/Memories/RecentlyUsed"
+                }
+            },
+            { //Run to fleeing point
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5",
+                "At": "$FleeingPoint"
+            },
+
+            { //Run to hole
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5",
+                "At": "$Hole"
+            }
+        ]
+    }
+}

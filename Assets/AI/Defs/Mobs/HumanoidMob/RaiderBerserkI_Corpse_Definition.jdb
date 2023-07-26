@@ -1,0 +1,30 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "f1bc0c3e-0c1a-4e9e-8f24-e0cde819d66b",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveContainerObj",
+  "Prefab": "Assets/UtilPrefabs/Prototypes/DeadPlayerPawn",
+  "NameLs": {
+    "Key": "#l10n504668"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_RaiderBerserkI_Corpse",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/RaiderBerserkICorpseKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 7
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    }
+  ]
+}
+//

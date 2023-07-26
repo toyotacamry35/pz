@@ -1,0 +1,51 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kso/Spell_Kso_eat_Start",
+                "At": {
+                    "$type": "Self"
+                }
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kso/Spell_Kso_eat_Loop",
+                "At": {
+                    "$type": "Self"
+                }
+            },
+            {
+                 
+                    "$type": "DoForTime",
+                    "Time": 1.7,
+                    "Action": {
+                        "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kso/Spell_Kso_eat_Walk",
+                        "At": {
+                            "$type": "RandomPointTargetSelector",
+                            "InRange": 5
+                        },
+                        "PointTargetHasPriority": true
+                    }
+                
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kso/Spell_Kso_eat_Loop",
+                "At": {
+                    "$type": "Self"
+                }
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kso/Spell_Kso_eat_End",
+                "At": {
+                    "$type": "Self"
+                }
+            }
+        ]
+    }
+}

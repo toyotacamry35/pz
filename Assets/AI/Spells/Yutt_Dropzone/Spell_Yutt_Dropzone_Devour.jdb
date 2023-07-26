@@ -1,0 +1,34 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_Dropzone_Devour",
+  "Duration": 1000.0,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Basic",
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BasicType",
+          "Value": 2,
+        }    
+      ]
+    }
+  ]
+}

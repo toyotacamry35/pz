@@ -1,0 +1,57 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "ROAM_RANGE": {
+            "Type": "float",
+            "Value": 20
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 7.467,
+                        "Min": 7.466
+                    }
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "At": {
+                        "$type": "Self"
+                    },
+                    "Spell": "/AI/Spells/Kvar/Spell_Kvar_SleepStart"
+                },
+            },
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 800,
+                        "Min": 400
+                    }
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Kvar/Spell_Kvar_SleepLoop",
+                    "At": {
+                        "$type": "Self"
+                    },
+                },
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kvar/Spell_Kvar_SleepFinish",
+                "At": {
+                    "$type": "Self"
+                },
+            },
+        ]
+    }
+}

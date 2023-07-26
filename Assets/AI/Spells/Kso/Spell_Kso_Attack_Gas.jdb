@@ -1,0 +1,150 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kso_Gas",
+    "Duration": 0.1,
+    /* "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",*/
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "AcceptedRange": 1,
+            "MoveType": "LookAt",
+            "Rotation": "LookAtMoveDirection",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+      /*  {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 1
+                }
+            ]
+        },*/
+        {
+            "$type": "EffectPostVisualEvent",
+            "TriggerName": "/AI/Events/MobAttackEvent"
+        },
+        {
+            "$type": "ImpactCastSpell",
+            "Caster": {
+                "$type": "SpellTarget"
+            },
+            "Spell": "/AI/Spells/Kso/Spell_Kso_Gas"
+        }
+    ],
+   /* "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.10,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 10,
+                "Words": [
+                    {
+                        "$type": "EffectStaticAOE",
+                        "Target": {
+                            "$type": "SpellCaster"
+                        },
+                        "RegionDef": {
+                            "$type": "GeoSphere",
+                            "Radius": 5,
+                            "Data": [
+                                {
+                                    "$type": "SpellCastRegion",
+                                     "OnEnterSpellDef": {
+                                        "$type": "Spell",
+                                        "Words": [
+                                            {
+                                                "$type": "EffectChangeAccumulatedStatDef",
+                                                "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+                                                "Target": {
+                                                    "$type": "SpellCaster"
+                                                },
+                                                "Summand": 10.0
+                                            }
+                                        ]
+                                    },
+                                    "WhileInsideSpellDef": {
+                                        "$type": "Spell",
+                                        "IsInfinite": true,
+                                        "AllowMultiple": false,
+                                        "Words": [
+                                            {
+                                                "$type": "EffectChangeAccumulatedStatDef",
+                                                "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+                                                "Target": {
+                                                    "$type": "SpellCaster"
+                                                },
+                                                "Summand": 10.0
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                     {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0,
+                                "z": -2
+                            },
+                            "Extents": {
+                                "x": 3,
+                                "y": 3,
+                                "z": 3
+                            }
+                        },
+                        "WhenToDo": "OnSuccess",
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Kso_Legion"
+                                    }
+                                },
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "AppliedSpells": [
+                            "/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell"
+                        ]
+                    },
+                    {
+                        "$type": "ImpactChangeTimeStatDef",
+                        "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+                        "Target": {
+                            "$type": "SpellTarget"
+                        },
+                        "Value": 150.0,
+                        "WhenToApply": "OnStart"
+                    }
+                ]
+            }
+        }
+    ]*/
+}

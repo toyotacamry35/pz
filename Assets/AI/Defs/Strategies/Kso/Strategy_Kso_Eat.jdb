@@ -1,0 +1,76 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "FoodSource": {
+            "$type": "SelectAndRemember",
+            "$id": "FoodSource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/FoodSource",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+            }
+        }
+    },
+    "Plan": 
+    {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": "$FoodSource",
+                },
+                "Action":     {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                            "At": "$FoodSource"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kso/Spell_Kso_Eating",
+                            "At": "$FoodSource"
+                        },
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Add",
+                            "Flat": 1.5,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Fed",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 600,
+                                    "Min": 180
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+
+            { // Else roam around
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+            }
+        ]
+    }
+}

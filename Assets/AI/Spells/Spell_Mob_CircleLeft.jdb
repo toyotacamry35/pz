@@ -1,0 +1,27 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Mob_CircleRight",
+    "Duration": 2,
+    "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 1.5,
+            "MoveType": "StrafeAroundTarget",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "FixedDirection": {
+                "$type": "Vector3",
+                "x": -1.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        }
+    ]
+}

@@ -1,0 +1,264 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        },
+        "Enemy": {
+            "$type": "SelectKnown",
+            "$id": "Enemy",
+            "MemoryCategory": "/AI/Defs/Memories/Enemy",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true
+        },
+        "Threat": {
+            "$type": "SelectKnown",
+            "$id": "Threat",
+            "MemoryCategory": "/AI/Defs/Memories/Threat",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true
+        },
+        "Prey": {
+            "$type": "SelectKnown",
+            "$id": "Prey",
+            "MemoryCategory": "/AI/Defs/Memories/Prey",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "And",
+                            "Conditions": [
+                                {
+                                    "$type": "Not",
+                                    "Condition": {
+                                        "$type": "EvaluatesToMoreThan",
+                                        "Amount": 0.5,
+                                        "Evaluator": {
+                                            "$type": "CalcerMetric",
+                                            "Target": {
+                                                "$type": "Self"
+                                            },
+                                            "Calcer": {
+                                                "$type": "CalcerStat",
+                                                "Stat": "/UtilPrefabs/Stats/Mobs/PassiveMob"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "$type": "IsInRange",
+                                    "Range": 2.1,
+                                    "TargetSelectorDef": "$Prey"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemoryOfTarget": true,
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "MemorizedStat": "/AI/Defs/Memories/Charged"
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownOnFail": 1,
+                    "CooldownOnSuccess": 3,
+                    "CooldownName": "Scyphoria_Attack_CD",
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Scyphoria/Spell_Scyphoria_Attack",
+                        "At": "$Prey"
+                    }
+                }
+            },
+            /* {
+                "$type": "DoWithCooldown",
+                "CooldownOnFail": 5.0,
+                "CooldownOnSuccess": 5.0,
+                "CooldownName": "Remember_CD",
+                "Action": {
+                    "$type": "RememberValue",
+                    "Target": "$Enemy",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "Memory": {
+                        "$type": "TargetLegion",
+                        "TargetSelector": {
+                            "$type": "Self"
+                        }
+                    },
+                    "Time": 5,
+                    "StatDef": "/AI/Defs/Memories/Threat"
+                }
+            },*/
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 8,
+                            "TargetSelectorDef": "$Prey"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 2,
+                            "TargetSelectorDef": "$Prey"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                    "At": "$Prey"
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 2.5,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_CircleLeft",
+                            "At": "$Prey"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_CircleRight",
+                            "At": "$Prey"
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Enemy"
+                    }
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_RunToTarget",
+                    "At": "$Enemy"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 30,
+                            "TargetSelectorDef": "$EvadePoint"
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Range": 7,
+                                "TargetSelectorDef": "$EvadePoint"
+                            }
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/FreeMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_RunToPoint",
+                    "At": "$EvadePoint"
+                }
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+            }
+        ]
+    }
+}
+/*       { //find Party of other Scyphorias and go to them
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 5,
+                        "Evaluator": {
+                            "$type": "CollectionSumMetric",
+                            "CollectionSelector": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Ally"
+                            },
+                            "Metric": 1
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Scyphoria_Party"
+                }
+            },*/

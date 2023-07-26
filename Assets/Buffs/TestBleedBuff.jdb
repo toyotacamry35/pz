@@ -1,0 +1,24 @@
+{
+    "$type": "Buff",
+    "Id" : "d34954e2-b38d-4183-82bd-e9c13cdeebb2",
+    "Duration": 100,
+    "Effects": [
+        {
+            "$type": "EffectDebugTint",
+            "Color": {
+                "R": 1
+            }
+        },
+        {
+            "$type": "EffectChangeAccumulatedStat",
+            "StatName": "/UtilPrefabs/Stats/Health/HealthDamageOverTime",
+            "Summand": {
+                "$type": "FloatCalcer",
+                "Calcer": {
+                    "$type": "CustomContextArgCalcer",
+                    "Arg": "./BuffStrength"
+                }
+            }
+        },
+    ]
+}

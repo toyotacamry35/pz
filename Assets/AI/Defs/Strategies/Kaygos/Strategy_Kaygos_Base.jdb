@@ -1,0 +1,115 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Fight
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Enraged",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemoryOfTarget": true,
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "MemorizedStat": "/AI/Defs/Memories/Fed"
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kaygos_Fight"
+                }
+            },
+            { // Hidden movement
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Enraged",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "RememberedValue",
+                                    "MemoryOfTarget": true,
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "MemorizedStat": "/AI/Defs/Memories/Fed"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kaygos_Hidden_Movement"
+                }
+            },
+            { // Daytime strategy
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "TimeIsWithinInterval",
+                    "Interval": { // 6 - 18
+                        "$type": "InGameTimeInterval",
+                        "HourFrom": 13, // 13
+                        "HourTill": 14, // 14
+                    }
+                },
+                "Action": { // Swap strategy
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kaygos_Daytime_Base"
+                }
+            },
+            { // Dig out and search for food
+                "$type": "DoIf",
+                "Condition": { // 19-20
+                    "$type": "TimeIsWithinInterval",
+                    "Interval": {
+                        "$type": "InGameTimeInterval",
+                        "HourFrom": 15, // 15
+                        "HourTill": 16, // 16
+                    }
+                },
+                "Action": { // Swap strategy
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kaygos_Nighttime_Base"
+                }
+            },
+            { // Else roam around
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Kaygos_Roam"
+            }
+        ]
+    }
+}

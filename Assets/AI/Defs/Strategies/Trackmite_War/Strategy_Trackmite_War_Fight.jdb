@@ -1,0 +1,253 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Threat": { // Perceive Threat
+            "$type": "SelectAndRemember",
+            "$id": "Threat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat"
+            }
+        },
+        "AttackMarker": { // Perceive AttackMarker
+            "$type": "SelectAndRemember",
+            "$id": "AttackMarker",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/AttackMarker"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Command_1
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Attack_1",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": { // Combo 1 or charged attack 1 placeholder
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": "$Threat",
+                            "StatDef": "/AI/Defs/Memories/AttackMarker",
+                            "Time": 15.0
+                        },
+                        { // Come closer
+                            "$type": "CastSpell",
+                            "At": "$AttackMarker",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget"
+                        },
+                        { // Jump Attack
+                            "$type": "CastSpell",
+                            "At": "$AttackMarker",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Jump_AttackX2"
+                        },
+                        { // Bite Attack
+                            "$type": "CastSpell",
+                            "At": "$AttackMarker",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Bite_AttackX2"
+                        },
+                        { // Set stat
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 0,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Attack_1",
+                            "Time": 5
+                        }
+                    ]
+                }
+            },
+            { // Command_2
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Attack_2",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": { // Combo 2 or charged attack 2 placeholder
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": "$Threat",
+                            "StatDef": "/AI/Defs/Memories/AttackMarker",
+                            "Time": 15.0
+                        },
+                        { // Come closer
+                            "$type": "CastSpell",
+                            "At": "$AttackMarker",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget"
+                        },
+                        { // Bite Attack
+                            "$type": "CastSpell",
+                            "At": "$AttackMarker",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Bite_AttackX2"
+                        },
+                        { // Jump Attack
+                            "$type": "CastSpell",
+                            "At": "$AttackMarker",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Jump_AttackX2"
+                        },
+                        { // Set stat
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 0,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Attack_2",
+                            "Time": 5
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Enraged",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "MarkCooldown",
+                            "CooldownOnFail": 8,
+                            "CooldownOnSuccess": 8,
+                            "Action": {
+                                "$type": "RememberValue",
+                                "Change": "Set",
+                                "Flat": 1,
+                                "ModDef": {
+                                    "$type": "StatModifier",
+                                },
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": "$Threat",
+                                "StatDef": "/AI/Defs/Memories/AttackMarker",
+                                "Time": 15.0
+                            }
+                        },
+                        {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                {
+                                    "$type": "DoForTime",
+                                    "Action": { // Circle R
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_CircleRight",
+                                        "At": "$AttackMarker"
+                                    },
+                                    "Time": { // Set time
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 3,
+                                            "Min": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "$type": "DoForTime",
+                                    "Action": { // Circle L
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_CircleLeft",
+                                        "At": "$AttackMarker"
+                                    },
+                                    "Time": { // Set time
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 3,
+                                            "Min": 1
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        { // Come closer and bite
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                { // Come closer
+                                    "$type": "CastSpell",
+                                    "At": "$AttackMarker",
+                                    "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget"
+                                },
+                                { // Bite Attack
+                                    "$type": "CastSpell",
+                                    "At": "$AttackMarker",
+                                    "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Bite_AttackX2"
+                                }
+                            ]
+                        },
+                        { // Come closer and jump
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                { // Come closer
+                                    "$type": "CastSpell",
+                                    "At": "$AttackMarker",
+                                    "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget"
+                                },
+                                { // Jump Attack
+                                    "$type": "CastSpell",
+                                    "At": "$AttackMarker",
+                                    "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Jump_AttackX2"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            { // Else come closer
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                "At": "$Threat"
+            }
+        ]
+    }
+}

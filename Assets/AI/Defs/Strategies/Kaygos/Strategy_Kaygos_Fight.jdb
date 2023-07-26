@@ -1,0 +1,107 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Enemy": { // Perceive Enemy
+            "$type": "SelectAndRemember",
+            "$id": "Enemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy"
+            }
+        },
+        "AttackMarker": { // Perceive AttackMarker
+            "$type": "SelectAndRemember",
+            "$id": "AttackMarker",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/AttackMarker"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWithCooldown",
+                "CooldownOnFail": 1.0,
+                "CooldownOnSuccess": 3.0,
+                "CooldownName": "ChargeCooldown",
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": "$Enemy",
+                            "StatDef": "/AI/Defs/Memories/AttackMarker",
+                            "Time": 10.0
+                        }, 
+                        { // Set time
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 2.0,
+                                    "Min": 1.5
+                                }
+                            },
+                            "Action": { // Run
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_RunToPoint",
+                                "At": {
+                                    "$type": "RandomPointTargetSelector",
+                                    "BasisSelectorDef": "$AttackMarker",
+                                    "InRange": {
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 12,
+                                            "Min": 11
+                                        }
+                                    }
+                                }
+                            },
+                            "DoUntilEnd": true
+                        },
+                        { // Attack
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_Ranged_Attack",
+                            "At": "$AttackMarker"
+                        },
+                        { // Remove stat
+                            "$type": "RememberValue",
+                            "Change": "Add",
+                            "Flat": -1,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Fed",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 300,
+                                    "Min": 120
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

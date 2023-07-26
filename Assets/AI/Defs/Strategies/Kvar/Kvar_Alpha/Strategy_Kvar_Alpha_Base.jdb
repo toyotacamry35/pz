@@ -1,0 +1,203 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 30,
+                            "TargetSelectorDef": "$EvadePoint"
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/FreeMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                    "At": "$EvadePoint"
+                }
+            },
+            /* {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "CheckStat",
+                    "Operation": "Less",
+                    "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                    "Value": 10000
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownOnFail": 10.0,
+                    "CooldownOnSuccess": 300.0,
+                    "CooldownName": "Alpha_Call_CD",
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_Alert",
+                        "At": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            },*/
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Threat"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "/AI/Defs/Strategies/Kvar/Kvar_Alpha/Strategy_Kvar_Alpha_Bait"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Enemy"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "/AI/Defs/Strategies/Kvar/Kvar_Alpha/Strategy_Kvar_Alpha_Fight"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Prey",
+                                "Filter": {
+                                    "$type": "IsInRange",
+                                    "Range": 25,
+                                    "TargetSelectorDef": "$EvadePoint"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/PassiveMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWhile",
+                    "Condition": {
+                        "$type": "Has",
+                        "Target": {
+                            "$type": "SelectKnown",
+                            "MemoryCategory": "/AI/Defs/Memories/Prey",
+                            "Filter": {
+                                "$type": "IsInRange",
+                                "Range": 35,
+                                "TargetSelectorDef": "$EvadePoint"
+                            }
+                        }
+                    },
+                    "Action": {
+                        "$type": "UseStrategy",
+                        "Strategy": "/AI/Defs/Strategies/Kvar/Kvar_Alpha/Strategy_Kvar_Alpha_Hunt"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 3,
+                            "TargetSelectorDef": "$EvadePoint"
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/FreeMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                    "At": "$EvadePoint"
+                }
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kvar/Spell_Kvar_SleepLoop",
+                "At": {
+                    "$type": "Self"
+                }
+            }
+        ]
+    }
+}

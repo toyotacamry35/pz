@@ -1,0 +1,22 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_J_RunToPoint",
+  "Duration": 4.0,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.2,
+      "AcceptedRange": 0.5,
+      "MoveType": "FollowPathToPosition",
+      "Rotation": "LookAtMoveDirection",
+      "Modifier": "Run",
+      "SpeedFactor": 1.0,
+      "Vec3": {
+        "$type": "SpellTargetPoint"
+      }
+    }
+  ]
+}

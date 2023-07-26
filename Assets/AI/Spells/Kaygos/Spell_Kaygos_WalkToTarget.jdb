@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kaygos_WalkToTarget",
+  "Duration": 4.0,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.3,
+      "AnimationBool": "Move_Walk",
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtMoveDirection",
+      "Speed": 2.5,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.5,
+      "RotationTime": 0.2
+    }
+  ]
+}

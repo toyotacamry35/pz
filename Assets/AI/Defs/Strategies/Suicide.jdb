@@ -1,0 +1,25 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "SUICIDE_TIME": {
+            "Type": "float",
+            "Value": 15
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "DummyNode",
+                "Time": "@SUICIDE_TIME"
+            },
+            {
+                "$type": "CastSpell",
+                "At": {
+                    "$type": "Self"
+                },
+                "Spell": "/AI/Spells/Destroy"
+            }
+        ]
+    }
+}

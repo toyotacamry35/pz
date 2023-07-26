@@ -1,0 +1,49 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kvar_Alpha_DodgeLeft",
+  "Duration": 1.067,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "StrafeAroundTarget",
+      "Rotation": "LookAtTarget",
+      "SpeedFactor": 1.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": -6.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Dodge",
+          "Value": true,
+        }
+      ]
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Items": {
+            "$type": "SelectAndRemember",
+            "$id": "Items",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Loot"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { //If there is a player within 7m that is not a good guy, snatch and run
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "Category": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                        "Filter": {
+                            "$type": "And",
+                            "Conditions": [
+                                {
+                                    "$type": "Not",
+                                    "Condition": {
+                                        "$type": "EvaluatesToMoreThan",
+                                        "Evaluator": {
+                                            "$type": "RememberedValue",
+                                            "MemoryOfTarget": false,
+                                            "Target": {
+                                                "$type": "Self"
+                                            },
+                                            "MemorizedStat": "/AI/Defs/Memories/GoodGuy"
+                                        },
+                                        "Amount": -0.5
+                                    }
+                                },
+                                {
+                                    "$type": "IsLegionOfType",
+                                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                                },
+                                {
+                                    "$type": "IsInRange",
+                                    "Range": 7,
+                                    "TargetSelectorDef": {
+                                        "$type": "Self"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "At": "$Items",
+                            "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "At": "$Items",
+                            "Spell": "/AI/Spells/Yutt/__Spell_Yutt_Snatch"
+                        }
+                    ]
+                }
+            },
+            { //Else loot for a time and flee afterwards
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                        "$type": "CastSpell",
+                        "At": "$Items",
+                        "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5"
+                    },
+                    {
+                        "$type": "DoForTime",
+                        "FailOnTimeout": false,
+                        "Action": {
+                            "$type": "CastSpell",
+                            "At": "$Items",
+                            "Spell": "/AI/Spells/Yutt/__Spell_Yutt_Loot"
+                        },
+                        "Time": {
+                            "$type": "CalcerMetric",
+                            "Calcer": {
+                                "$type": "CalcerRandom",
+                                "Max": 15,
+                                "Min": 3
+                            }
+                        }
+                    },
+                    {
+                        "$type": "CastSpell",
+                        "At": "$Items",
+                        "Spell": "/AI/Spells/Yutt/__Spell_Yutt_Snatch"
+                    }
+                ]
+            }
+        ]
+    }
+}

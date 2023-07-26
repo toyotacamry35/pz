@@ -1,0 +1,54 @@
+{
+    "$type": "Strategy",
+    "Plan": { //find Patry of Csyphorias and stay with them for some time
+        "$type": "DoWithCooldown",
+        "CooldownName": "PartyCooldown",
+        "CooldownOnFail": 1,
+        "CooldownOnSuccess": {
+            "$type": "CalcerMetric",
+            "Calcer": {
+                "$type": "CalcerRandom",
+                "Max": 10,
+                "Min": 3
+            }
+        },
+        "Action": {
+            "$type": "DoInSequence",
+            "Actions": [
+                {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                    "At": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Ally",
+                        "Metric": {
+                            "$type": "RangeMetric",
+                            "Target": {
+                                "$type": "Self"
+                            }
+                        },
+                        "InverseMetric": true
+                    }
+                },
+                {
+                    "$type": "DoForTime",
+                    "Time": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 12,
+                            "Min": 4
+                        }
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Scyphoria/Spell_Scyphoria_Party",
+                        "At": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

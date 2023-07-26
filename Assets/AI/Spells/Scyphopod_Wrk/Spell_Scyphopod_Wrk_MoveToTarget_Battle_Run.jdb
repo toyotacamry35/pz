@@ -1,0 +1,34 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Scyphopod_Wrk_MoveToTarget_Battle_Run",
+  "Duration": 4.2, // 4.0
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "AcceptedRange": 2.5,
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtTarget",
+      "Modifier": "Run",
+/*       "SpeedFactor": 2.0, */
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "FloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MovementType",
+          "Value": 1.0,
+        }    
+      ]
+    }
+  ]
+}

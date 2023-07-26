@@ -1,0 +1,308 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Trackmite_Wrk_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Trackmite_Wrk/Strategy_Trackmite_Wrk_Base",
+        "KnowledgeSources": [
+            { // Sensed == Visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { // Perceive Slimers as Hostiles
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Hostiles",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Slimer_Legion"
+                        }
+                    ]
+                }
+            },
+            { // Perceive Warriors
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Guardian",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Trackmite_War_Legion"
+                        }
+                    ]
+                }
+            },
+            { // Perceive Threats
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        }
+                    ]
+                }
+            },
+            { // Perceive Trackmite_Wrk as Ally
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                    "$id": "AllyCategory",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "Filter": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Trackmite_Wrk_Legion"
+                        },
+                        {
+                            "$type": "SameLegion",
+                            "Target": {
+                                "$type": "Self"
+                            }
+                        }
+                    ]
+                }
+            },
+            { // So they can count Leaders around them
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/Leader",
+                "GetFrom": "$AllyCategory",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "Filter": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Leader"
+                    }
+                }
+            },
+            { // Perceive Interactive Objects as InterestingStuff
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/InterestingStuff",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bamboo"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Fruit"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Unripe"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Sangvira"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Coal"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Foam_Berry"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Rock"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Root"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Salt"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Silicon"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Stone"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Yutt_Den"
+                        }
+                    ]
+                }
+            },
+            { // Perceive resources as FoodSource
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Fruit"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Unripe"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Sangvira"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            { // Set stat and Interact
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_Wrk_Interact",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/ChosenLocation",
+                        "Time": 30
+                    }
+                }
+            },
+            { // Set stat and Fallback
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_Fallback",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Frightened",
+                        "Time": 30
+                    }
+                }
+            },
+            { // Protect each other
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_Wrk_Askforhelp",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Enraged",
+                        "Time": 30
+                    }
+                }
+            },
+            { // Set stat
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Set stat
+                                "$type": "RememberValue",
+                                "Change": "Set",
+                                "Flat": 1,
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Enraged",
+                                "Time": 60
+                            },
+                            { // Send Event
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Wrk_Askforhelp",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

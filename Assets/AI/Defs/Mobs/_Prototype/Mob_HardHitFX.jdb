@@ -1,0 +1,54 @@
+{
+  "$type": "TriggerFXRule",
+  "$vars": {
+    "FX": {
+      "Type": "GameObject",
+      "Value": "Assets/Content/FX/Creatures/Kvar/PS_Kvar_OnDamage_NonDirectional"
+    }
+  },
+  "EventType": "/Character/Events/TakeHitDamageEvent",
+  "Predicate": {
+    "$type": "PredicateEquals<Resource>",
+    "Lhs": {
+      "$type": "CalcerArg<Resource>",
+      "ArgDef": "/Character/Events/Args/HitAttackType"
+    },
+    "Rhs": {
+      "$type": "CalcerResource",
+      "Value": "/UtilPrefabs/AttackType/Heavy"
+    }
+  },
+  "OnEvent": {
+    "Caster": [
+      {
+        "$type": "PlaceParentedFX",
+        "Parent": {
+          "$type": "ArgRef<string>",
+          "Arg": "/Character/Events/Args/HitObject"
+        },
+        "LocalPosition": {
+          "$type": "ArgRef<Vector3>",
+          "Arg": "/Character/Events/Args/HitLocalPoint"
+        },
+        "LocalRotation": {
+          "$type": "ArgRef<Quaternion>",
+          "Arg": "/Character/Events/Args/HitLocalRotation"
+        },
+        "FX": "@FX",
+        "SubFX": [
+          {
+            "$type": "SoundEvent",
+            "SoundEvent": "MeleeHit",
+            "Params": {
+              "weapon_size": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitWeaponSize" },
+              "damage_type": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitDamageType" },
+              "attack_intensity": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitAttackType" },
+              "hit_material": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitMaterial" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+

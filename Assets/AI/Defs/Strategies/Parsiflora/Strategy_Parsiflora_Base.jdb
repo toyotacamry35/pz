@@ -1,0 +1,73 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Threat": { //Player
+            "$type": "SelectAndRemember",
+            "$id": "Threat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Bud": { //Ally Bud
+            "$type": "SelectAndRemember",
+            "$id": "Bud",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            /*  {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "TargetSelectorDef": "$Threat",
+                    "BasisSelectorDef": "$Bud",
+                    "Range": 10
+                },
+                "Action": { //move to Bud
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Parsiflora/Spell_Parsiflora_MoveToBud",
+                    "At": "$Bud"
+                }
+            }, */
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Bud"
+                    }
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Parsiflora/Spell_Parsiflora_MoveToBud",
+                    "At": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Bud"
+                    }
+                }
+            },
+            {
+                "$type": "DummyNode"
+            }
+        ]
+    }
+}

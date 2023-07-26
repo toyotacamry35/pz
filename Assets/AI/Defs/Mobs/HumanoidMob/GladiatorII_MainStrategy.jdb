@@ -1,0 +1,240 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RandomTarget12": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget12",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 12,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+            }
+        },
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        },
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWithCooldown",
+                "CooldownOnSuccess": 300,
+                "CooldownName": "RearmCD",
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": {
+                        "$type": "SpellDef",
+                        "Words": [
+                            {
+                                "$type": "ImpactUseSlots",
+                                "Slots": [
+                                    "/UtilPrefabs/Slots/WeaponMassive1",
+                                    "/UtilPrefabs/Slots/WeaponMassive2",
+                                    "/UtilPrefabs/Slots/Weapon1",
+                                    "/UtilPrefabs/Slots/Weapon2"
+                                ]
+                            }
+                        ]
+                    }
+                },
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 1.1,
+                    "TargetSelectorDef": "$NearestEnemy"
+                },
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": 1,
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": {
+                            "$type": "Spell",
+                            "Words": [
+                                {
+                                    "$type": "MoveEffectDef",
+                                    "Enabled": true,
+                                    "AcceptedRange": 3,
+                                    "KeepDistance": true,
+                                    "KeepDistanceTreshold": 0.25,
+                                    "MoveType": "FollowPathToTarget",
+                                    "Rotation": "LookAtTarget",
+                                    "Modifier": "Run",
+                                    "SpeedFactor": 1.0,
+                                    "Target": {
+                                        "$type": "SpellTargetDef"
+                                    },
+                                    "Vec3": {
+                                        "$type": "SpellTargetPointDef"
+                                    }
+                                },
+                            ]
+                        },
+                        "At": "$NearestEnemy"
+                    }
+                },
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Not": true,
+                    "Range": 75,
+                    "TargetSelectorDef": "$EvadePoint"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": {
+                        "$type": "SpellDef",
+                        "Duration": 8.0,
+                        "IsInfinite": true,
+                        "Words": [
+                            {
+                                "$type": "MoveEffectDef",
+                                "Enabled": true,
+                                "KeepDistance": false,
+                                "KeepDistanceTreshold": 2.0,
+                                "AcceptedRange": 0.2,
+                                "MoveType": "FollowPathToPosition",
+                                "Rotation": "LookAtMoveDirection",
+                                "Modifier": "Run",
+                                "SpeedFactor": 1.0,
+                                "Vec3": {
+                                    "$type": "SpellTargetPoint"
+                                }
+                            }
+                        ]
+                    },
+                    "At": "$EvadePoint"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 3.9,
+                            "TargetSelectorDef": "$NearestEnemy"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "Choose",
+                    "Actions": [
+                        {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "UseStrategy",
+                                    "Strategy": "./GladiatorII_MeleeRound"
+                                },
+                                {
+                                    "$type": "DoIf",
+                                    "Condition": {
+                                        "$type": "IsInRange",
+                                        "Range": 3.2,
+                                        "TargetSelectorDef": "$NearestEnemy"
+                                    },
+                                    "Action": {
+                                        "$type": "UseStrategy",
+                                        "Strategy": "./GladiatorII_NeutralAction"
+                                    }
+                                }
+                            ]
+                        },
+                    ]
+                },
+            },
+            //Engage
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 6.5,
+                            "TargetSelectorDef": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 4.0,
+                            "TargetSelectorDef": "$NearestEnemy",
+                            "Not": true
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "EngagementCD",
+                    "CooldownOnFail": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 18,
+                            "Min": 12
+                        }
+                    },
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 18,
+                            "Min": 12
+                        }
+                    },
+                    "Action": {
+                        "$type": "UseStrategy",
+                        "Strategy": "./RaiderSpearI_EngagementAction"
+                    }
+                },
+            },
+            //Close distance
+            {
+                "$type": "CastSpell",
+                "At": "$NearestEnemy",
+                "Spell": "./Spell_NPC_MoveTarget2"
+            }
+        ]
+    }
+}

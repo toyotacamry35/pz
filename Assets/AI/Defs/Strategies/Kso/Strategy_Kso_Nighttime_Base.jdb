@@ -1,0 +1,98 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "RANGE": {
+            "Type": "float",
+            "Value": 15.0
+        },
+    },
+    "Selectors": {
+        "Watersource": {
+            "$type": "SelectAndRemember",
+            "$id": "Watersource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Watersource",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "ProcessingPoint": {
+            "$type": "SelectAndRemember",
+            "$id": "ProcessingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/ProcessingPoint",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": "@RANGE",
+                    "TargetSelectorDef": "$ProcessingPoint"
+                },
+            }
+        },
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "Not": true,
+                    "TargetSelectorDef": "$Watersource"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                    "At": "$Watersource"
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 4.5,
+                    "TargetSelectorDef": "$ProcessingPoint"
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // megaplaceholder
+                            "$type": "Do",
+                            "ChanceToDo": 0.25,
+                            "ResultOnNotDoing": "Succeeded",
+                            "Action":  { // Gas attack
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kso/Spell_Kso_Gas",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            },
+                        },
+                        {
+                            "$type": "Do",
+                            "ChanceToDo": 0.35,
+                            "ResultOnNotDoing": "Succeeded",
+                            "Action": {
+                                "$type": "UseStrategy",
+                                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+                            }
+                        },
+                    ]
+                },
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                "At": "$ProcessingPoint",
+            },
+        ]
+    }
+}

@@ -1,0 +1,134 @@
+{
+    "$type": "FXs",
+    "Rules": [
+        {
+            "$type": "BoolFXRule",
+            "AnimatedProp": "IsAFK",
+            "MainAnimatorProp": true,
+            "Predicate": {
+                "$type": "PredicateIsAFK",
+            }
+        },
+        {
+            "$type": "BoolFXRule",
+            "AnimatedProp": "Overheat",
+            "Predicate": {
+                "$type": "PredicateHasTraumas",
+                "TraumaTypes": [
+                    "Negative_Heat_Burn",
+                    "Negative_Heat_Overheat"
+                ]
+            }
+        },
+        
+        {
+            "$type": "FloatFXRule",
+            "AnimatedProp": "Stamina",
+            "Calcer": {
+                "$type": "CalcerSum",
+                "Summands": [
+                    1,
+                    {
+                        "$type":"CalcerNegative",
+                        "Value":{
+                            "$type": "CalcerDiv",
+                            "Dividend": {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Stamina/StaminaCurrent"
+                            },
+                            "Divisor": {
+                                "$type": "CalcerStat",
+                                "Stat": "/UtilPrefabs/Stats/Stamina/StaminaMaxCurrent"
+                            }
+                        },
+                    }
+                    
+
+                ]
+            }
+        },
+        {
+            "$type": "BoolFXRule",
+            "AnimatedProp": "Frozen",
+            "Predicate": {
+                "$type": "PredicateHasTraumas",
+                "TraumaTypes": [
+                    "Negative_Cold_Freezing",
+                    "Negative_Cold_Hypotermia"
+                ]
+            }
+        },
+        {
+            "$type": "BoolFXRule",
+            "AnimatedProp": "Toxic",
+            "Predicate": {
+                "$type": "PredicateHasTraumas",
+                "TraumaTypes": [
+                    "NegEffIntoxication3",
+                    "NegEffIntoxication4"
+                ]
+            }
+        },
+        {
+            "$type": "BoolFXRule",
+            "AnimatedProp": "Fatigue",
+            "Predicate": {
+                "$type": "PredicateHasTraumas",
+                "TraumaTypes": [
+                    "OverweightLvl2"
+                ]
+            }
+        },
+        {
+            "$type": "BoolFXRule",
+            "AnimatedProp": "CriticalDamage",
+            "Predicate": {
+                "$type": "PredicateLess",
+                "Lhs": {
+                    "$type": "CalcerStat",
+                    "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent"
+                },
+                "Rhs": 100
+            }
+        },
+        {
+            "$type": "BoolFXRule",
+            "AnimatedProp": "CriticalDamage",
+            "Predicate": {
+                "$type": "PredicateHasTraumas",
+                "TraumaTypes": [
+                    "NegEffHivePsiDmg"
+                ]
+            }
+        },
+        {
+            "$type": "BoolFXRule",
+            "AnimatedProp": "Bleed",
+            "Predicate": {
+                "$type": "PredicateHasTraumas",
+                "TraumaTypes": [
+                    "NegEffBleed1",
+                    "NegEffBleed2",
+                    "NegEffBleedDropzone",
+                    "NegEffBleed_Merid"
+                ]
+            }
+        }
+        // {
+        //     "$type": "FloatFXRule",
+        //     "AnimatedProp": "FrozenVignetteIntensity",
+        //     "Predicate": {
+        //         "$type": "PredicateHasTraumas",
+        //         "TraumaTypes" : [ "NegEffNearDeath" ]
+        //     }
+        // },
+        // {
+        //     "$type": "FloatFXRule",
+        //     "AnimatedProp": "ToxicVignetteIntensity",
+        //     "Predicate": {
+        //         "$type": "PredicateHasTraumas",
+        //         "TraumaTypes" : [ "NegEffNearDeath" ]
+        //     }
+        // }
+    ]
+}

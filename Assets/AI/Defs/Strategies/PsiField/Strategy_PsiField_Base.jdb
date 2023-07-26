@@ -1,0 +1,151 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Player": {
+            "$type": "SelectAndRemember",
+            "$id": "Player",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "MemorizedStat": "/AI/Defs/Memories/BadGuy"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "UseStrategy",
+        "GoalCondition": {
+            "$type": "Not",
+            "Condition": {
+                "$type": "IsStateValid",
+                "ValidSelector": "$Player"
+            }
+        },
+        "Strategy": {
+            "$type": "Strategy",
+            "Plan": {
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                        "$type": "CheckCondition",
+                        "Condition": {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "RememberedValue",
+                                    "MemoryOfTarget": true,
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "TargetOfStat": {
+                                        "$type": "Self"
+                                    },
+                                    "MemorizedStat": "/AI/Defs/Memories/Alerted"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "$type": "CastSpell",
+                        "Spell": "/Content/Quest/ScyphopodSupressor/PsiColliderTraumaSpell",
+                        "At": "$Player"
+                    },
+                    {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": "$Player",
+                        "StatDef": "/AI/Defs/Memories/BadGuy",
+                        "Time": 4
+                    },
+                    //2nd time
+                    {
+                        "$type": "CastSpell",
+                        "Spell": "/Content/Quest/ScyphopodSupressor/PsiColliderTraumaSpell",
+                        "At": "$Player"
+                    },
+                    {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": "$Player",
+                        "StatDef": "/AI/Defs/Memories/BadGuy",
+                        "Time": 4
+                    },
+                    //3rd time
+                    {
+                        "$type": "CastSpell",
+                        "Spell": "/Content/Quest/ScyphopodSupressor/PsiColliderTraumaSpell",
+                        "At": "$Player"
+                    },
+                    {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": "$Player",
+                        "StatDef": "/AI/Defs/Memories/BadGuy",
+                        "Time": 4
+                    }
+                ]
+            },
+            "EventHandlers": [
+                {
+                    "EventType": "AIEvent",
+                    "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace", //AttackEventFace
+                    "HandlerStrategy": {
+                        "$type": "Strategy",
+                        "Plan": {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Alerted",
+                            "Time": 360
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

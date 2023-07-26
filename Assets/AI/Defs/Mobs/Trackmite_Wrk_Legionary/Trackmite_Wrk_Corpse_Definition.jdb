@@ -1,0 +1,40 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "dc0c6411-41f4-40e5-a54f-1278aac68038",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+  "Prefab": "Assets/AI/Prefabs/Corpses/Trackmite_Wrk_Corpse",
+  "NameLs": {
+    "Key": "#l10n2908"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Trackmite_Wrk_Corpse",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/TrackmiteWrkCorpseKW",
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/TrackmiteWrkCorpseNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

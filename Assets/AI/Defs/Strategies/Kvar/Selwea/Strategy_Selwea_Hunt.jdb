@@ -1,0 +1,191 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Prey": {
+            "$type": "SelectAndRemember",
+            "$id": "Prey",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Prey",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        },
+        "Ally": {
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 5,
+                            "TargetSelectorDef": "$Prey"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 3.5,
+                            "TargetSelectorDef": "$Prey"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "Jump_CD",
+                    "CooldownOnFail": 2.0,
+                    "CooldownOnSuccess": 4,
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kvar/Spell_Kvar_Attack_Jump",
+                        "At": "$Prey"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 5,
+                            "TargetSelectorDef": "$Prey"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 3.5,
+                            "TargetSelectorDef": "$Ally"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "Stafe_CD",
+                    "CooldownOnFail": 2.0,
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Min": 3,
+                            "Max": 6
+                        }
+                    },
+                    "Action": {
+                        "$type": "ChooseRandom",
+                        "Actions": [
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_CircleRight",
+                                "At": "$Prey"
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_CircleLeft",
+                                "At": "$Prey"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 1.8,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Kvar/Spell_Kvar_Attack_Right",
+                                    "At": "$Prey"
+                                },
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Kvar/Spell_Kvar_Attack_Left",
+                                    "At": "$Prey"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "Do",
+                            "ChanceToDo": 0.6,
+                            "ResultOnNotDoing": "Succeeded",
+                            "Action": {
+                                "$type": "ChooseRandom",
+                                "Actions": [
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Kvar/Spell_Kvar_Attack_Right",
+                                        "At": "$Prey"
+                                    },
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Kvar/Spell_Kvar_Attack_Left",
+                                        "At": "$Prey"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Min": 0.6,
+                                    "Max": 1.0
+                                }
+                            },
+                            "Action": {
+                                "$type": "DummyNode"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 16,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_RunToTarget",
+                    "At": "$Prey"
+                }
+            }
+        ]
+    }
+}

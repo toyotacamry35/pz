@@ -1,0 +1,154 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Pasture": { // Select Pasture
+            "$type": "SelectAndRemember",
+            "$id": "Pasture",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Pasture",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Ally": { // Select Ally
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Check Kso AttackEvent
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Alerted",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Sahrim_Fight_Threat",
+                }
+            },
+            { // Check Enemy
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Enemy"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Sahrim_Fight_Enemy",
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": "$Pasture",
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "PastureCooldown",
+                    "CooldownOnFail": 1,
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 20,
+                            "Min": 10,
+                        }
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Call Kso
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Summon",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_WalkToTarget",
+                                "At": "$Pasture"
+                            }
+                        ]
+                    }
+                }
+            },
+            { //
+                "$type": "ChooseRandom",
+                "Actions": [
+                    { // Play Social
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "IsInRange",
+                            "Range": 10,
+                            "Not": true,
+                            "TargetSelectorDef": "$Ally",
+                        },
+                        "Action": { // Play Social
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "Summon_Cooldown",
+                            "CooldownOnFail": 1,
+                            "CooldownOnSuccess": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 40,
+                                    "Min": 20,
+                                }
+                            },
+                            "Action": { // Summon Kso
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Summon",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    },
+                    { // Check FoodSource
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+                            }
+                        },
+                        "Action": {
+                            "$type": "UseStrategy",
+                            "Strategy": "./Strategy_Sahrim_Eat"
+                        }
+                    },
+                    { // Else roam around
+                        "$type": "UseStrategy",
+                        "Strategy": "./Strategy_Sahrim_Roam"
+                    }
+                ]
+            }
+        ]
+    }
+}

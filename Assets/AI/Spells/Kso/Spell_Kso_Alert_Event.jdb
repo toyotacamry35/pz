@@ -1,0 +1,20 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kso_Alert_Event",
+    "Duration": 0.1,
+    "IsInfinite": false,
+    "AllowMultiple": false,
+    "Words": [
+        {
+            "$type": "ImpactRaiseEvent",
+            "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Kso_Alert_Event",
+            "From": {
+                "$type": "SpellCaster"
+            },
+            "Caster": {
+                "$type": "SpellCaster"
+            },
+            "Radius": 5
+        }
+    ]
+}

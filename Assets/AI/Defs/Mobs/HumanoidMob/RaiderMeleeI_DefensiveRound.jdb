@@ -1,0 +1,251 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RandomTarget12": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget12",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 12,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+            }
+        },
+    },
+    "Plan": {
+        "$type": "ChooseRandom",
+        "WeightedActions": [
+            //Block
+            {
+                "$type": "WeightedAction",
+                "Weight": 300,
+                "Action": {
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "Not",
+                        "Condition": {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 1.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/HeavyHitCount",
+                                "MemoryOfTarget": true,
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "TargetOfStat": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "DoForTime",
+                                "DoUntilEnd": true,
+                                "Time": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Min": 1.0,
+                                        "Max": 2.0
+                                    },
+                                },
+                                "TryAgain": true,
+                                "Action": {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/Block",
+                                    "TimeToHold": 5,
+                                    "Target": "$NearestEnemy"
+                                },
+                            },
+                            {
+                                "$type": "Do",
+                                "ChanceToDo": 0.5,
+                                "ResultOnNotDoing": "Succeeded",
+                                "Action": {
+                                    "$type": "ChooseRandom",
+                                    "Actions": [
+                                        {
+                                            "$type": "DoInputAction",
+                                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                            "Target": "$NearestEnemy"
+                                        },
+                                    ]
+                                },
+                            }
+                        ]
+                    }
+                },
+            },
+            //Dash
+            {
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DummyNode",
+                            "Time": 0.25
+                        },
+                        {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/DashBackward",
+                                    //"BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                    "Target": "$NearestEnemy"
+                                },
+                                {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/DashLeft",
+                                    //"BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                    "Target": "$NearestEnemy"
+                                },
+                                {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/DashRight",
+                                    //"BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                    "Target": "$NearestEnemy"
+                                },
+                            ]
+                        }
+                    ]
+                },
+            },
+            //Counter
+            {
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "CounterattackCD",
+                            "CooldownOnSuccess": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 12,
+                                    "Min": 5
+                                }
+                            },
+                            "CooldownOnFail": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 12,
+                                    "Min": 5
+                                }
+                            },
+                            "Action": {
+                                "$type": "ChooseRandom",
+                                "Actions": [
+                                    //Back-forth
+                                    {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/DashBackward",
+                                                "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                            {
+                                                "$type": "DoForTime",
+                                                "Time": 0.2,
+                                                "FailOnTimeout": false,
+                                                "Action": {
+                                                    "$type": "DoInputAction",
+                                                    "Trigger": "/UtilPrefabs/Input/Actions/DashForward",
+                                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                    "Target": "$NearestEnemy"
+                                                },
+                                            },
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                        ]
+                                    },
+                                    //Left
+                                    {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "DoForTime",
+                                                "Time": 0.55,
+                                                "FailOnTimeout": false,
+                                                "Action": {
+                                                    "$type": "DoInputAction",
+                                                    "Trigger": "/UtilPrefabs/Input/Actions/DashLeft",
+                                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                    "Target": "$NearestEnemy"
+                                                },
+                                            },
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                        ]
+                                    },
+                                    //Right
+                                    {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "DoForTime",
+                                                "Time": 0.55,
+                                                "FailOnTimeout": false,
+                                                "Action": {
+                                                    "$type": "DoInputAction",
+                                                    "Trigger": "/UtilPrefabs/Input/Actions/DashRight",
+                                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                    "Target": "$NearestEnemy"
+                                                },
+                                            },
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                        ]
+                                    },
+                                ]
+                            },
+                        },
+                    ]
+                }
+            },
+        ]
+    }
+}

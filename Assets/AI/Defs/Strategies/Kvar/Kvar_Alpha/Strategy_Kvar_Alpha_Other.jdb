@@ -1,0 +1,255 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Lair": {
+            "$type": "SelectAndRemember",
+            "$id": "Lair",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Lair",
+            }
+        },
+        "LairSleepingPoint": {
+            "$type": "SelectAndRemember",
+            "$id": "LairSleepingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/LairSleepingPoint",
+            }
+        },
+        "Watersource": {
+            "$type": "SelectAndRemember",
+            "$id": "Watersource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Watersource",
+            }
+        },
+        "WatersourceDrinkingPoint": {
+            "$type": "SelectAndRemember",
+            "$id": "WatersourceDrinkingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/WatersourceDrinkingPoint",
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "TargetSelectorDef": "$Watersource",
+                }
+            }
+        },
+        "RestingGround": {
+            "$type": "SelectAndRemember",
+            "$id": "RestingGround",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/RestingGround",
+            }
+        },
+        "RestingGroundRestingPoint": {
+            "$type": "SelectAndRemember",
+            "$id": "RestingGroundRestingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/RestingGroundRestingPoint",
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "TargetSelectorDef": "$RestingGround",
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { //go sleep in night time
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "TimeIsWithinInterval",
+                        "Interval": {
+                            "$type": "InGameTimeInterval",
+                            "HourFrom": 4,
+                            "HourTill": 20,
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "Choose",
+                    "Actions": [
+                        { //go to lair
+                            "$type": "DoWhile",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Range": 20,
+                                "Not": true,
+                                "TargetSelectorDef": "$Lair"
+                            },
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                "At": "$Lair"
+                            }
+                        },
+                        { //go to sleep point
+                            "$type": "DoWhile",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Range": 1.6,
+                                "Not": true,
+                                "TargetSelectorDef": "$LairSleepingPoint"
+                            },
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                "At": "$LairSleepingPoint"
+                            }
+                        },
+                        { //sleep
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kvar/Spell_Kvar_Sleep",
+                            "At": "$LairSleepingPoint"
+                        }
+                    ]
+                }
+            },
+            { //go drink
+                "$type": "Choose",
+                "Actions": [
+                    { //go to watersourse if far
+                        "$type": "DoWhile",
+                        "Condition": {
+                            "$type": "IsInRange",
+                            "Range": 20,
+                            "Not": true,
+                            "TargetSelectorDef": "$Watersource"
+                        },
+                        "Action": {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                            "At": "$Watersource"
+                        }
+                    },
+                    { //drink with CD
+                        "$type": "DoWithCooldown",
+                        "CooldownName": "DrinkCooldown",
+                        "CooldownOnFail": 5,
+                        "CooldownOnSuccess": {
+                            "$type": "CalcerMetric",
+                            "Calcer": {
+                                "$type": "CalcerRandom",
+                                "Max": 25,
+                                "Min": 15
+                            }
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                { //go to drink point
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                                    "At": "$WatersourceDrinkingPoint"
+                                },
+                                { //drink
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Kvar/Spell_Kvar_Drink",
+                                    "At": "$WatersourceDrinkingPoint"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            { //walk around
+                "$type": "Choose",
+                "Actions": [
+                    { //if resting ground far
+                        "$type": "DoWhile",
+                        "Condition": {
+                            "$type": "IsInRange",
+                            "Range": 20,
+                            "Not": true,
+                            "TargetSelectorDef": "$RestingGround"
+                        },
+                        "Action": { //go to resting ground
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                            "At": "$RestingGround"
+                        }
+                    },
+                    { //if near resting ground
+                        "$type": "Choose",
+                        "Actions": [
+                            { //roam around resting ground for time with CD
+                                "$type": "DoWithCooldown",
+                                "CooldownName": "RoamCooldown",
+                                "CooldownOnFail": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Max": 90,
+                                        "Min": 45
+                                    }
+                                },
+                                "CooldownOnSuccess": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Max": 90,
+                                        "Min": 45
+                                    }
+                                },
+                                "Action": {
+                                    "$type": "DoForTime",
+                                    "Time": {
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 15,
+                                            "Min": 9
+                                        }
+                                    },
+                                    "DoUntilEnd": true,
+                                    "Action": {
+                                        "$type": "UseStrategy",
+                                        "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+                                    }
+                                }
+                            },
+                            { //rest on point
+                                "$type": "Choose",
+                                "Actions": [
+                                    { //go to point
+                                        "$type": "DoWhile",
+                                        "Condition": {
+                                            "$type": "IsInRange",
+                                            "Range": 1.6,
+                                            "Not": true,
+                                            "TargetSelectorDef": "$RestingGroundRestingPoint"
+                                        },
+                                        "Action": {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                            "At": "$RestingGroundRestingPoint"
+                                        }
+                                    },
+                                    { //rest on point
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Kvar/Spell_Kvar_Rest",
+                                        "At": "$RestingGroundRestingPoint"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    { //go away
+                        "$type": "UseStrategy",
+                        "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+                    }
+                ]
+            }
+        ]
+    }
+}

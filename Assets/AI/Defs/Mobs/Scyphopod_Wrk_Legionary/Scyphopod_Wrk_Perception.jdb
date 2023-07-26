@@ -1,0 +1,340 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Scyphopod_Wrk_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Scyphopod_Wrk/Strategy_Scyphopod_Wrk_Base",
+        "KnowledgeSources": [
+            { //know about all visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { //know about other Scyphopods as Ally
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_War_Legion"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Prey",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        }
+                    ]
+                }
+            },
+            { // Perceive resources
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/InterestingStuff",
+                "TimeToRemember": 20,
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        { //all foodsourses
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Fruit"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Unripe"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Sangvira"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Fungus"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bamboo"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Jewel_Berry"
+                        },
+                        //all resourses
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Coal"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Foam_Berry"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Rock"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Root"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Salt"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Silicon"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Stone"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Res/Yutt_Den"
+                        },
+                        //or all mobs corpses
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Kso_Corpse_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Kvar_Corpse_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Merid_Corpse_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Sahrim_Corpse_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Scyphopod_Wrk_Corpse_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Scyphoria_Corpse_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Selwea_Corpse_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Corpses/Yutt_Corpse_Legion"
+                        }
+                    ]
+                }
+            },
+            { // Perceive living things
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Interest",
+                "TimeToRemember": 20,
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Scyphoria_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Selwea_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Merid_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Yutt_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kso_Legion"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            { // Send event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/Staggered"
+                                    }
+                                }
+                            }
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "DoWithCooldown",
+                                    "CooldownOnFail": 1.0,
+                                    "CooldownOnSuccess": 4.8,
+                                    "CooldownName": "StaggerCooldown",
+                                    "Action": {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Staggered",
+                                        "At": {
+                                            "$type": "Self"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Askforhelp",
+                                    "At": {
+                                        "$type": "Self"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            { // Catch War's call
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_War_Askforhelp",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Fallback
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Fallback",
+                        "At": {
+                            "$type": "RandomPointTargetSelector",
+                            "InRange": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 50,
+                                    "Min": 30
+                                }
+                            },
+                            "BasisSelectorDef": {
+                                "$type": "SelectEventSource"
+                            }
+                        },
+                        "PointTargetHasPriority": true
+                    }
+                }
+            },
+            { // Remember their Enemy while being attacked
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "Has",
+                                "Target": {
+                                    "$type": "SelectKnown",
+                                    "MemoryCategory": "/AI/Defs/Memories/Threat"
+                                }
+                            }
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "DoIf",
+                                    "Condition": {
+                                        "$type": "SameLegion",
+                                        "Target": {
+                                            "$type": "SelectEventTarget"
+                                        }
+                                    },
+                                    "Action": {
+                                        "$type": "RememberValue",
+                                        "Change": "Set",
+                                        "ModDef": {
+                                            "$type": "StatModifier",
+                                        },
+                                        "Flat": 1,
+                                        "Memory": {
+                                            "$type": "Self"
+                                        },
+                                        "Target": {
+                                            "$type": "SelectEventSource"
+                                        },
+                                        "StatDef": "/AI/Defs/Memories/Threat",
+                                        "Time": 30
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

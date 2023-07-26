@@ -1,0 +1,102 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Hub": { // Perceive Hub
+            "$type": "SelectAndRemember",
+            "$id": "Hub",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Hub"
+            }
+        },
+        "RoutePoint": { // Acquire the nearest route point available
+            "$type": "SelectKnown",
+            "$id": "RoutePoint",
+            "Category": "/AI/Defs/Knowledge/RoutePoint",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true,
+            "Filter": {
+                "$type": "Not",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/RecentlyUsed",
+                        "MemoryOfTarget": true,
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            }
+        },
+    }, 
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoInSequence",
+                "Actions": [
+                    { //
+                      "$type": "DoForTime",
+                        "Time": 600, // 20 
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5", // movement spel
+                                    "At": "$RoutePoint"
+                                },
+                                {
+                                    "$type": "RememberValue",
+                                    "Change": "Set",
+                                    "Flat": 1,
+                                    "Memory": {
+                                        "$type": "Self"
+                                    },
+                                    "ModDef": {
+                                        "$type": "StatModifier",
+                                    },
+                                    "StatDef": "/AI/Defs/Memories/RecentlyUsed",
+                                    "Target": "$RoutePoint",
+                                    "Time": 600 // 20
+                                },
+                                { // Else stay
+                                    "$type": "DoForTime",
+                                    "Time": {
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+
+                                            "Max": 3.5,
+                                            "Min": 1.5
+                                        }
+                                    },
+                                    "Action": { // Stay
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Yutt/Spell_Yutt_AlertPositive", // Idle spell
+                                        "At": {
+                                            "$type": "Self"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    { // Move to Hive
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5", // movement spell
+                        "At": "$Hub"
+                    },
+                ]
+            },
+        ]
+    }
+}

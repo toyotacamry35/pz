@@ -1,0 +1,48 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_EatFruit",
+  "Duration": 2.667,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactDieDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Basic",
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BasicType",
+          "Value": 2,
+        }    
+      ]
+    }
+  ]
+}

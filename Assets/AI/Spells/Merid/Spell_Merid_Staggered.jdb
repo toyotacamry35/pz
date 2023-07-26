@@ -1,0 +1,44 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Merid_Staggered",
+  "Duration": 1.1,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+    },
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Reaction",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/ReactionType",
+          "Value": 1,
+        }    
+      ]
+    }
+  ]
+}

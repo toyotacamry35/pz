@@ -1,0 +1,132 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWithCooldown",
+                "CooldownName": "RememberCD",
+                "CooldownOnSuccess": 300,
+                "Action": {
+                    "$type": "RememberValue",
+                    "Change": "Add",
+                    "Flat": 1,
+                    "Memory": {
+                        "$type": "TargetLegion",
+                        "TargetSelector": {
+                            "$type": "Self"
+                        }
+                    },
+                    "Time": 300,
+                    "Target": {
+                        "$type": "Self"
+                    },
+                    "StatDef": "/AI/Defs/Memories/Daddy"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                                "Filter": {
+                                    "$type": "IsInRange",
+                                    "Range": 30,
+                                    "TargetSelectorDef": "$EvadePoint"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                                "Filter": {
+                                    "$type": "IsInRange",
+                                    "Range": 15,
+                                    "TargetSelectorDef": {
+                                        "$type": "Self"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWhile",
+                    "Condition": {
+                        "$type": "Has",
+                        "Target": {
+                            "$type": "SelectKnown",
+                            "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                            "Filter": {
+                                "$type": "IsInRange",
+                                "Range": 40,
+                                "TargetSelectorDef": "$EvadePoint"
+                            }
+                        }
+                    },
+                    "Action": {
+                        "$type": "UseStrategy",
+                        "Strategy": "/AI/Defs/Strategies/Sahrim/Strategy_Sahrim_Combat"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 30,
+                            "TargetSelectorDef": "$EvadePoint"
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/FreeMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_RunToPoint",
+                    "At": "$EvadePoint"
+                }
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+            }
+        ]
+    }
+}

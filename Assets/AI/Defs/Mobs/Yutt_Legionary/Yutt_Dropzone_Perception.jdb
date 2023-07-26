@@ -1,0 +1,66 @@
+{
+    "$type": "SpatialLegionary",
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Yutt_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Yutt/Strategy_Yutt_Dropzone_Base",
+        "KnowledgeSources": [
+            { //Yutt know about all visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "Filter": {
+                    "$type": "TrueDef"
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Visible"
+            },
+            { //Yutt know about Player
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Curiosity",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                }
+            },
+            { //Yutt know about Kvar
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Enemy",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                }
+            },
+            { //Yutt know about food
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": {
+                        "$type": "Legion",
+                        "Kin": [
+                            "/AI/Defs/Legions/FoodSources/Gerophit_Fruit",
+                            "/AI/Defs/Legions/FoodSources/Gerophit_Unripe",
+                            "/AI/Defs/Legions/FoodSources/Sangvira"
+                        ]
+                    }
+                },
+                "TimeToRemember": 1
+            }
+        ]
+    },
+    "ReuseExisting": true
+}

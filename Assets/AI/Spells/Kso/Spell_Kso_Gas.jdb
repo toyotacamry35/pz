@@ -1,0 +1,36 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kso_Gas",
+    "Duration": 10,
+    "Words": [
+        {
+            "$type": "EffectStaticAOE",
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "RegionDef": {
+                "$type": "GeoSphere",
+                "Radius": 4,
+                "Data": [
+                    {
+                        "$type": "SpellCastRegion",
+                        "WhileInsideSpellDef": {
+                            "$type": "Spell",
+                            "Duration": 10,
+                            "Words": [
+                                {
+                                    "$type": "EffectChangeAccumulatedStatDef",
+                                    "StatName": "/UtilPrefabs/Stats/Environment/ToxicMod",
+                                    "Target": {
+                                        "$type": "SpellCaster"
+                                    },
+                                    "Summand": 200.0
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

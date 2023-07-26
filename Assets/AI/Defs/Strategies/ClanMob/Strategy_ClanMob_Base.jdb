@@ -1,0 +1,60 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_ClanMob_Alert"
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_ClanMob_Caster"
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_ClanMob_TestOfFaith"
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoWhile",
+                        "Action": {
+                            "$type": "CastSpell",
+                            "At": {
+                                "$type": "Self"
+                            },
+                            "Spell": "/AI/Spells/ClanMob/Spell_ClanMob_Chief"
+                        },
+                        "Condition": {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/ClanMobCaster",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_ClanMob_Fight"
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DummyNode"
+                    }
+                }
+            }
+        ]
+    }
+}

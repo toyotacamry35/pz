@@ -1,0 +1,50 @@
+{
+
+    "$type": "InteractiveEntityDef",
+    "Id": "d9930bde-c1a4-4381-a06b-6a0117d852da",
+    "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+    "Prefab": "Assets/AI/Prefabs/Corpses/Kvar_Jungle_Corpse",
+    "LegionType": "/AI/Defs/Legions/Corpses/Kvar_Corpse_Legion",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Kvar_Jungle_Corpse",
+    "LifeSpanSec": 600,
+    "DoOnExpired": "Destroy",
+    "NameLs": {
+        "Key": "#l10n5108"
+    },
+    "KnowledgeSelectors": [
+{
+  "$type": "KnowledgeSelectorDef",
+  "Knowledge": "/Inventory/Knowledge/Corpses/KvarJungleCorpseKW",
+  "RewardPoints": [       
+{
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 50
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/KvarJungleCorpseNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

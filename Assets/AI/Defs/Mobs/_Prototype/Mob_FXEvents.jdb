@@ -1,0 +1,40 @@
+{
+  "$type": "FXEvents",
+  "$vars":{
+    "ON_SIMPLE_HIT_FX":{
+      "Type": "GameObject",
+      "Value": "Assets/Content/FX/Creatures/Kvar/PS_Kvar_OnDamage_NonDirectional"
+    },
+    "ON_HARD_HIT_FX":{
+      "Type": "GameObject",
+      "Value": "Assets/Content/FX/Creatures/Kvar/PS_Kvar_OnDamage"
+    },
+    "ON_HIT_SOUNDEFFECT":{
+      "Type": "string",
+      "Value": "KvarDamage"
+    }
+  },
+  "FXEvents": [
+    {
+      "$type": "TriggerFXRule",
+      "$overrideVars": {
+        "ON_HIT_SOUNDEFFECT": "@ON_HIT_SOUNDEFFECT"
+      },
+      "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HitSoundFX"
+    },
+    {
+      "$type": "TriggerFXRule",
+      "$overrideVars": {
+        "FX": "@ON_HARD_HIT_FX"
+      },
+      "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HardHitFX"
+    },
+    {
+      "$type": "TriggerFXRule",
+      "$overrideVars": {
+        "FX": "@ON_SIMPLE_HIT_FX"
+      },
+      "$proto": "/AI/Defs/Mobs/_Prototype/Mob_SimpleHitFX"
+    }
+  ]
+}

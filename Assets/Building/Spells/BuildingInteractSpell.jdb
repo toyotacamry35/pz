@@ -1,0 +1,43 @@
+{
+  "$type": "SpellDef",
+  "Duration": 1,
+  "DontShowProgress": true,
+  "Words": [
+    {
+      "$type": "PredicateIsOwnerOf",
+      "Override": false,
+      "Result": false,
+      "Negate": false
+    },
+    {
+      "$type": "EffectPlayAnimationDef",
+      "AnimatorOwner": {
+        "$type": "SpellCaster",
+      },
+      "IntName": "/UtilPrefabs/Res/AnimatorParameters/InteractionType",
+      "IntValue": 5,
+      "TriggerName": "/UtilPrefabs/Res/AnimatorParameters/Interact"
+    }
+  ],
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "Spell": "/UtilPrefabs/Spells/BasicMoveSet/ActionsBlockerForInteract"
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.4,
+      "Spell": {
+        "$type": "Spell",
+        "Words": [
+          {
+            "$type": "InteractWithCurrentBuildingElementDef",
+          }
+        ]
+      }
+    }
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n9"
+  }
+}

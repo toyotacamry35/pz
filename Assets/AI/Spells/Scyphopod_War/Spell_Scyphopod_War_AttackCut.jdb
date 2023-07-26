@@ -1,0 +1,126 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Scyphopod_War_AttackMeleeL",
+    "Duration": 2,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": false,
+            "KeepDistanceTreshold": 0.2,
+            "AcceptedRange": 2.5,
+            "MoveType": "LookAt",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 3
+                }
+            ]
+        },
+        {
+            "$type": "EffectChangeAccumulatedStat",
+            "Summand": 0,
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod"
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.75,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 1.5
+                            },
+                            "Extents": {
+                                "x": 2.5,
+                                "y": 2.0,
+                                "z": 1
+                            },
+                            "CheckTargetOnly": true
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Scyphopod_War_Boss_Legion"
+                                    }
+                                },
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Scyphopod_War_Legion"
+                                    }
+                                },
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Scyphopod_Wrk_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "POWER_MOD": 15
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

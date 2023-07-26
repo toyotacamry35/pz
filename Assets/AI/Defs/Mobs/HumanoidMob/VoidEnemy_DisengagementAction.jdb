@@ -1,0 +1,213 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RandomTarget12": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget12",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 12,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+            }
+        },
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 1.5,
+                        "Min": 0.75,
+                    }
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "At": "$NearestEnemy",
+                            "Spell": "./Spell_NPC_StrafeLeft"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "At": "$NearestEnemy",
+                            "Spell": "./Spell_NPC_StrafeRight"
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "ChooseRandom",
+                "WeightedActions": [
+                    //Dash side
+                    {
+                        "$type": "WeightedAction",
+                        "Weight": 100,
+                        "Action": {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/DashLeft",
+                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                    "Target": "$NearestEnemy"
+                                },
+                                {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/DashRight",
+                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                    "Target": "$NearestEnemy"
+                                },
+                            ]
+                        }
+                    },
+                    //Dash back
+                    {
+                        "$type": "WeightedAction",
+                        "Weight": 100,
+                        "Action": {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/DashBackward",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                    },
+                    //Walk back
+                    {
+                        "$type": "WeightedAction",
+                        "Weight": 100,
+                        "Action": {
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 1.0,
+                                    "Min": 0.5,
+                                }
+                            },
+                            "Action": {
+                                "$type": "CastSpell",
+                                "At": "$NearestEnemy",
+                                "Spell": "./Spell_NPC_KeepDistance5"
+                            },
+                        },
+                    },
+                    //Block walk
+                    {
+                        "$type": "WeightedAction",
+                        "Weight": 100,
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "DoForTime",
+                                    "DoUntilEnd": true,
+                                    "Time": {
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Min": 1.0,
+                                            "Max": 2.0
+                                        },
+                                    },
+                                    "TryAgain": true,
+                                    "Action": {
+                                        "$type": "DoInputAction",
+                                        "Trigger": "/UtilPrefabs/Input/Actions/Block",
+                                        "TimeToHold": 5,
+                                        "Target": "$NearestEnemy"
+                                    },
+                                },
+                                {
+                                    "$type": "DoForTime",
+                                    "Time": {
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 1.0,
+                                            "Min": 0.5,
+                                        }
+                                    },
+                                    "Action": {
+                                        "$type": "CastSpell",
+                                        "At": "$NearestEnemy",
+                                        "Spell": "./Spell_NPC_KeepDistance5"
+                                    },
+                                },
+                            ]
+                        }
+                    }
+                ],
+            },
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 1.5,
+                        "Min": 0.5,
+                    }
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "At": "$NearestEnemy",
+                            "Spell": "./Spell_NPC_StrafeLeft"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "At": "$NearestEnemy",
+                            "Spell": "./Spell_NPC_StrafeRight"
+                        }
+                    ]
+                }
+            },
+            // {
+            //     "$type": "DoForTime",
+            //     "Time": {
+            //         "$type": "CalcerMetric",
+            //         "Calcer": {
+            //             "$type": "CalcerRandom",
+            //             "Max": 1.0,
+            //             "Min": 0.0,
+            //         }
+            //     },
+            //     "Action": {
+            //         "$type": "CastSpell",
+            //         "At": "$NearestEnemy",
+            //         "Spell": "./Spell_NPC_KeepDistance5"
+            //     },
+            // },
+        ]
+    },
+}

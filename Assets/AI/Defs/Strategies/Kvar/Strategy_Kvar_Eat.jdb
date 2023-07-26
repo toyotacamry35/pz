@@ -1,0 +1,59 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "FoodSource": {
+            "$type": "SelectAndRemember",
+            "$id": "FoodSource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/FoodSource",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 1.5,
+                    "TargetSelectorDef": "$FoodSource"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Kvar/Spell_Kvar_Eat",
+                    "At": "$FoodSource"
+                }
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Spell_Mob_RunToTarget",
+                "At": "$FoodSource"
+            }
+        ]
+    }
+}
+/*          { //Kvar eat up
+                "$type": "RememberValue",
+                "Change": "Set",
+                "Flat": 1.1,
+                "Memory": {
+                    "$type": "Self"
+                },
+                "StatDef": "/AI/Defs/Memories/Fed",
+                "ModDef": {
+                    "$type": "StatModifier",
+                },
+                "Target": {
+                    "$type": "Self"
+                },
+                "Time": 300
+            }*/

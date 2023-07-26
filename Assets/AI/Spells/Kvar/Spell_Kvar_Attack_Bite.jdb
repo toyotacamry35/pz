@@ -1,0 +1,107 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_Attack_Bite",
+    "Duration": 2,
+    "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+    "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.2,
+            "AcceptedRange": 1.6,
+            "MoveType": "FollowPathToTarget",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 7
+                }
+            ]
+        },
+        {
+            "$type": "EffectChangeAccumulatedStat",
+            "Summand": 0,
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod"
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 1,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 1.4
+                            },
+                            "Extents": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            },
+                            "CheckTargetOnly": true
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "AllowMultiple": true,
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "ADDITIONAL_REACTION": {
+                                                    "$type": "AttackInvokeReaction",
+                                                    "When": "Always",
+                                                    "Reaction": "/UtilPrefabs/Spells/Reactions/ExecuteReaction"
+                                                }
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

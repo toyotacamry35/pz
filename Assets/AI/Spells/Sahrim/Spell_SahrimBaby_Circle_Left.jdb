@@ -1,0 +1,33 @@
+{
+  "$type": "SpellDef",
+  "Duration": 2,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": true,
+      "KeepDistanceTreshold": 0.5,
+      "AcceptedRange": 0.5,
+      "MoveType": "StrafeAroundTarget",
+      "Rotation": "LookAtTarget",
+      "SpeedFactor": 1.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": -1.0,
+        "y": 0.0,
+        "z": -0.5
+      }
+    }
+  ]
+}

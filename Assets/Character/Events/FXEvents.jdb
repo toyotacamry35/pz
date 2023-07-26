@@ -1,0 +1,407 @@
+{
+    "$type": "FXEvents",
+    "FXEvents": [
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/Character/Events/TakeDamageEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFX",
+                        "FX": "Assets/Content/FX/Character/CharBlood/PS_BloodParticle_Regular_Thick"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "AnimatedProp": "OnRegularDamage",
+            "EventType": "/Character/Events/TakeDamageEventVisibleOnlyToPlayer",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundState",
+                        "SoundEvent": "CombatEvent",
+                        "Duration": 15
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/Character/Events/TakeHitDamageEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceParentedFX",
+                        "Parent": { "$type": "ArgRef<string>", "Arg": "/Character/Events/Args/HitObject" },
+                        "LocalPosition": { "$type": "ArgRef<Vector3>", "Arg": "/Character/Events/Args/HitLocalPoint" },
+                        "LocalRotation": { "$type": "ArgRef<Quaternion>", "Arg": "/Character/Events/Args/HitLocalRotation" },
+                        "FX": "Assets/Content/FX/Character/CharBlood/PS_BloodParticle_Regular_Light",
+                        "SubFX": [
+                            {
+                                "$type": "SoundEvent",
+                                "SoundEvent": "MeleeHit",
+                                "Params": {
+                                    "weapon_size": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitWeaponSize" },
+                                    "damage_type": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitDamageType" },
+                                    "attack_intensity": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitAttackType" },
+                                    "hit_material": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitMaterial" }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/Character/Events/TakeDamageInBlockEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceParentedFX",
+                        "Parent": { "$type": "ArgRef<string>", "Arg": "/Character/Events/Args/HitObject" },
+                        "LocalPosition": { "$type": "ArgRef<Vector3>", "Arg": "/Character/Events/Args/HitLocalPoint" },
+                        "LocalRotation": { "$type": "ArgRef<Quaternion>", "Arg": "/Character/Events/Args/HitLocalRotation" },
+                        "FX": "Assets/Content/FX/Character/CharBlood/PS_TakeDamageInBlock",
+                        "SubFX": [
+                            {
+                                "$type": "SoundEvent",
+                                "SoundEvent": "MeleeInBlock",
+                                "Params": {
+                                    "weapon_size": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitWeaponSize" },
+                                    "damage_type": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitDamageType" },
+                                    "attack_intensity": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitAttackType" },
+                                    "combat_authority": { "$type": "ArgRef<string>", "Arg": "/Character/Events/Args/Player" }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/Character/Events/TakeDamageThroughBlockEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceParentedFX",
+                        "Parent": { "$type": "ArgRef<string>", "Arg": "/Character/Events/Args/HitObject" },
+                        "LocalPosition": { "$type": "ArgRef<Vector3>", "Arg": "/Character/Events/Args/HitLocalPoint" },
+                        "LocalRotation": { "$type": "ArgRef<Quaternion>", "Arg": "/Character/Events/Args/HitLocalRotation" },
+                        "FX": "Assets/Content/FX/Character/CharBlood/PS_TakeDamageThroughBlock",
+                        "SubFX": [
+                            {
+                                "$type": "SoundEvent",
+                                "SoundEvent": "MeleeBlock",
+                                "Params": {
+                                    "weapon_size": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitWeaponSize" },
+                                    "damage_type": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitDamageType" },
+                                    "attack_intensity": { "$type": "ArgRef<Resource>", "Arg": "/Character/Events/Args/HitAttackType" },
+                                    "combat_authority": { "$type": "ArgRef<string>", "Arg": "/Character/Events/Args/Player" }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+       {
+           "$type": "TriggerFXRule",
+           "EventType": "/Character/Events/StaggerPlayerEvent",
+           "OnEvent": {
+               "Caster": [
+                   {                       
+                        "$type": "SoundEvent",
+                        "SoundEvent": "MeleeStagger",
+                        "Params": {
+                            "combat_authority": { "$type": "ArgRef<string>", "Arg": "/Character/Events/Args/Player" }
+                        }
+                   }
+               ]
+           }
+       },
+       {
+        "$type": "TriggerFXRule",
+        "EventType": "/Character/Events/KnockdownEvent",
+        "OnEvent": {
+            "Caster": [
+                {                       
+                    "$type": "SoundEvent",
+                    "SoundEvent": "StateFXKnockdown",
+                    "Params": {
+                        "combat_authority": { "$type": "ArgRef<string>", "Arg": "/Character/Events/Args/Player" }
+                    }
+               }
+            ]
+        }
+    },
+        //FACTION QUEST EVENTS
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon1",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0220_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon2",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0221_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon3",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0223_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon4",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0224_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon5",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0225_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon6",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0226_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon0227",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0227_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon0228",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0228_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon0229",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0229_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/FactionQuestEventGordon0230",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0230_quest_faction"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0000",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0000_Gordon"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0001",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0001_Gordon"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0004",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0004_Yutt_dropzone"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0006",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0006_Roots"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0007",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0007_Roots"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0008",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0008_Roots"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0010",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0010_Yutt_dropzone"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0025",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0025_Sangvira"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0030",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0030_clear_water"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0035",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0035_point_of_view"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0040",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0040_wayout"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/UtilPrefabs/Spells/Quests/Events/DropZoneEventGordon0090",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "Text_0090_capsule"
+                    }
+                ]
+            }
+        }
+    ]
+}

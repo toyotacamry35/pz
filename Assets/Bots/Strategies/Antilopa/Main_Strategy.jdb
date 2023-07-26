@@ -1,0 +1,13 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [         
+            //Бот добавляет айтем, выкидывает его и бежит в случайную точку
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Bot_Antilopa"
+            }
+        ]
+    }
+}

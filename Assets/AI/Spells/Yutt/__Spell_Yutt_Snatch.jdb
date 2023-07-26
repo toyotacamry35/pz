@@ -1,0 +1,72 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_Snatch",
+  "Duration": 3.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactDestroyObjectDef",
+      "Enabled": true,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": true,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "Acting",
+      "AnimationSubType": "ActionType",
+      "AnimationSubTypeValue": 5,
+      "UseAsInputToPlayer": false,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Speed": 0.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": null,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 1.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    },
+    {
+      "$type": "ImpactSendEvent",
+      "EventTarget": {
+        "$type": "SpellCaster",
+      },
+      "Caster": {
+        "$type": "SpellCaster",
+      },
+      "From": {
+        "$type": "SpellCaster",
+      },
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Load",
+      "WhenToApply": "OnStart"
+    }
+  ]
+}

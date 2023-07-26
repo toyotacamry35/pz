@@ -1,0 +1,41 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+
+            //Если в инвентаре и на кукле бота есть N свободного места, то он добавляет айтема и одевается
+            {
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Bot_Additems"
+                    }
+                ]
+            },
+            
+            //Если рядом есть реальный игрок, то бот бежит атаковать его
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Interest"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Bot_Hunt_Players"
+                }
+            },
+            
+            //Если рядом вообще никого нет, то бот бежит в случайную точку
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Bot_Run"
+            }
+        ]
+    }
+}

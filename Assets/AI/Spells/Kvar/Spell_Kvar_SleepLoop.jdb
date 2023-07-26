@@ -1,0 +1,35 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_SleepLoop",
+    "Duration": 10,
+    "IsInfinite": true,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "MoveType": "LookAt",
+            "Rotation": "LookAtMoveDirection",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Basic",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BasicType",
+                    "Value": 5
+                }
+            ]
+        }
+    ]
+}

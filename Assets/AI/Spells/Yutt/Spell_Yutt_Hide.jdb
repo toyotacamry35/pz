@@ -1,0 +1,49 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_Hide",
+  "Duration": 1.167,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactDestroyObjectDef",
+      "Enabled": true,
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Social",
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/SocialType",
+          "Value": 1,
+        }    
+      ]
+    } 
+  ]
+}

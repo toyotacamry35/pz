@@ -1,0 +1,95 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RestingGround": { // Perceive RestingGround
+            "$type": "SelectAndRemember",
+            "$id": "RestingGround",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/RestingGround"
+            }
+        },
+        "RestingGroundRestingPoint": { // Perceive RestingGroundRestingPoint
+            "$type": "SelectAndRemember",
+            "$id": "RestingGroundRestingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/RestingGroundRestingPoint"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Dig out and search for food
+                "$type": "DoIf",
+                "Condition": { // 19-20
+                    "$type": "TimeIsWithinInterval",
+                    "Interval": {
+                        "$type": "InGameTimeInterval",
+                        "HourFrom": 15, // 13
+                        "HourTill": 16, // 14
+                    }
+                },
+                "Action": { // Swap strategy
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kaygos_Nighttime_Base"
+                }
+            },
+            { // 
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemorizedStat": "/AI/Defs/Memories/ChosenLocation",
+                            "Target": {
+                                "$type": "Self"
+                            }
+                        }
+                    }
+                },
+                "Action": { // Come closer
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // Come closer to RestingPoint
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_WalkToTarget",
+                            "At": "$RestingGroundRestingPoint"
+                        },
+                        { // Dig In
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_DigIn",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        },
+                        { // Set stat
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/ChosenLocation",
+                            "Time": 1200
+                        }
+                    ]
+                }
+            },
+            { // Else sleep
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_Sleep",
+                "At": {
+                    "$type": "Self"
+                }
+            }
+        ]
+    }
+}

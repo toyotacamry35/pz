@@ -1,0 +1,264 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Trackmite_War_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Trackmite_War/Strategy_Trackmite_War_Base",
+        "KnowledgeSources": [
+            { // Sensed == Visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { // Perceive Trackmite_War as Ally
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                    "$id": "AllyCategory",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Trackmite_War_Legion"
+                        }
+                    ]
+                }
+            },
+            { // So they can count Leaders around them
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/Leader",
+                "GetFrom": "$AllyCategory",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "Filter": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Leader"
+                    }
+                }
+            },
+            { // Perceive Threats
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        }
+                    ]
+                }
+            },
+            { // Perceive Workers as Worker
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Worker",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Trackmite_Wrk_Legion"
+                }
+            },
+            { // Perceive Slimers as Hostiles
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Hostiles",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Slimer_Legion"
+                        }
+                    ]
+                }
+            },
+            { // Perceive resources as FoodSource
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Fruit"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Unripe"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Sangvira"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            { // Set Attack 1
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_War_Attack1Event",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Attack_1",
+                        "Time": 10
+                    }
+                }
+            },
+            { // Set Attack 2
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_War_Attack2Event",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Attack_2",
+                        "Time": 10
+                    }
+                }
+            },
+            { // Protect Workers
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_Wrk_Askforhelp",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Alerted",
+                        "Time": 30
+                    }
+                }
+            },
+            { // Ally event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_War_Askforhelp",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Enraged",
+                        "Time": 20
+                    }
+                }
+            },
+            { // Set stat and Guard
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_War_GuardEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 0,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/CombatState",
+                        "Time": 20
+                    }
+                }
+            },
+            { // 
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "RememberValue",
+                                "Change": "Set",
+                                "Flat": 1,
+                                "ModDef": {
+                                    "$type": "StatModifier",
+                                },
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Enraged",
+                                "Time": 20
+                            },
+                            { // Send Event
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_War_Askforhelp",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,87 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Slimer_Eat",
+  "Duration": 9.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 8.99,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Backswing",
+        "Name": "Backswing",
+        "Duration": 0.5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactDieDef",
+            "Target": {
+              "$type": "SpellTarget",
+            },
+            "WhenToApply": "OnSuccess"
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": false,
+      "AnimationBool": "Basic_Eat",
+      "UseAsInputToPlayer": false,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Speed": 0.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.5,
+      "RotationTime": 1.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    }
+  ]
+}

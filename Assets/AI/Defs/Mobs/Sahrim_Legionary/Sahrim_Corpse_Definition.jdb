@@ -1,0 +1,49 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id": "6ee607c9-8dcd-42d3-9686-633f143fcc0a",
+    "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+    "Prefab": "Assets/AI/Prefabs/Corpses/Sahrim_Corpse",
+    "LegionType": "/AI/Defs/Legions/Corpses/Sahrim_Corpse_Legion",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Sahrim_Corpse",
+    "LifeSpanSec": 600,
+    "DoOnExpired": "Destroy",
+    "NameLs": {
+        "Key": "#l10n2901"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/SahrimCorpseKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 3
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/SahrimCorpseNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

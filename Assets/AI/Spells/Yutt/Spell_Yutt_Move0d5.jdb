@@ -1,0 +1,26 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Yutt_Move0d5",
+    "Duration": 2,
+    "IsInfinite": false,
+    "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 7,
+            "MoveType": "FollowPathToTarget",
+            "Rotation": "LookAtMoveDirection",
+            "Modifier": "Run",
+            "SpeedFactor": 1.0,
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        }
+    ]
+}

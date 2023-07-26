@@ -1,0 +1,220 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Slimer_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Slimer/Strategy_Slimer_Base",
+        "KnowledgeSources": [
+            { // Sensed == Visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { // Perceive Slimers as Ally
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Slimer_Legion"
+                }
+            },
+            { // Perceive Mobs and Player as Threat
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                }
+            },
+            { // Perceive resources as FoodSource
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Fruit"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Unripe"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Sangvira"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            { // Invoke chain reaction
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Slimer_Chain",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0,
+                                "Evaluator": {
+                                    "$type": "RememberedValue",
+                                    "MemoryOfTarget": true,
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "MemorizedStat": "/AI/Defs/Memories/Frightened"
+                                }
+                            }
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Slimer/Spell_Slimer_Detonate",
+                                    "At": {
+                                        "$type": "SelectEventSource"
+                                    }
+                                },
+                                { // Set stat
+                                    "$type": "RememberValue",
+                                    "Change": "Set",
+                                    "Flat": 1,
+                                    "ModDef": {
+                                        "$type": "StatModifier",
+                                    },
+                                    "Memory": {
+                                        "$type": "Self"
+                                    },
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "StatDef": "/AI/Defs/Memories/Frightened",
+                                    "Time": 15
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            { // Escape Event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0,
+                                "Evaluator": {
+                                    "$type": "RememberedValue",
+                                    "MemoryOfTarget": true,
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "MemorizedStat": "/AI/Defs/Memories/Frightened"
+                                }
+                            }
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Slimer/Spell_Slimer_Detonate",
+                                    "At": {
+                                        "$type": "Self"
+                                    }
+                                },
+                                { // Set stat
+                                    "$type": "RememberValue",
+                                    "Change": "Set",
+                                    "Flat": 1,
+                                    "ModDef": {
+                                        "$type": "StatModifier",
+                                    },
+                                    "Memory": {
+                                        "$type": "Self"
+                                    },
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "StatDef": "/AI/Defs/Memories/Frightened",
+                                    "Time": 15
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            { // Remember their Enemy
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "SameLegion",
+                            "Target": {
+                                "$type": "SelectEventTarget"
+                            }
+                        },
+                        "Action": {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "SelectEventSource"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Enemy",
+                            "Time": 60
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

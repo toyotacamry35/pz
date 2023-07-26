@@ -1,0 +1,151 @@
+{
+    "$type": "Strategy",
+    "Selectors": { // Perceive FoodSource
+        "FoodSource": {
+            "$type": "SelectAndRemember",
+            "$id": "FoodSource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // 
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/ChosenLocation",
+                        "MemoryOfTarget": true,
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": { //
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // Dig Out
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_DigOut",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        },
+                        { // Set stat
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 0,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/ChosenLocation",
+                            "Time": 10
+                        }
+                    ]
+                }
+            },
+            { // Check stat
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 1, // 4
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "TargetOfStat": {
+                                "$type": "Self"
+                            },
+                            "MemorizedStat": "/AI/Defs/Memories/Fed"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // Come closer
+                            "$type": "CastSpell",
+                            "At": "$FoodSource",
+                            "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_WalkToTarget"
+                        },
+                        { // Desroy object
+                            "$type": "CastSpell",
+                            "At": "$FoodSource",
+                            "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_Eat"
+                        },
+                        { // Add stat
+                            "$type": "RememberValue",
+                            "Change": "Add",
+                            "Flat": 1,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Fed",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 300,
+                                    "Min": 120
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            { // Else walk around
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kaygos/Spell_Kaygos_WalkToPoint",
+                        "At": {
+                            "$type": "RandomPointTargetSelector",
+                            "InRange": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 10,
+                                    "Min": 5
+                                }
+                            }
+                        }
+                    },
+                    { // Dummynode
+                        "$type": "DoForTime",
+                        "Time": {
+                            "$type": "CalcerMetric",
+                            "Calcer": {
+                                "$type": "CalcerRandom",
+                                "Max": 2.0,
+                                "Min": 0.5
+                            }
+                        },
+                        "Action": {
+                            "$type": "DummyNode"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

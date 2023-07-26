@@ -1,0 +1,42 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kvar_BattleIdle",
+  "Duration": 10.467,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepare",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepareType",
+          "Value": 1,
+        }    
+      ]
+    }
+
+  ]
+}

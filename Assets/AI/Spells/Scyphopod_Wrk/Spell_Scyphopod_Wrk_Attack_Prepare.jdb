@@ -1,0 +1,43 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Scyphopod_Wrk_Attack_Prepare",
+    "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "Duration": 1,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.2,
+            "AcceptedRange": 2.2,
+            "MoveType": "FollowPathToTarget",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepare",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepareType",
+                    "Value": 4
+                }
+            ]
+        },
+        {
+            "$type": "EffectPostVisualEvent",
+            "TriggerName": "/AI/Events/MobPrepareEvent"
+        }
+    ]
+}

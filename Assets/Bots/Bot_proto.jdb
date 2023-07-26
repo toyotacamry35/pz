@@ -1,0 +1,165 @@
+{
+    "$type": "LegionaryEntityDef",
+    "$vars": {
+        "MAIN_STRATEGY": {
+            "$type": "TemplateVariable",
+            "Type": "StrategyDef",
+            "Value": {
+                "$type": "Strategy",
+                "Plan": {
+                    "$type": "InputActionsDef",
+                    "InputActions": [
+                        "/UtilPrefabs/Input/Actions/AttackMelee"
+                    ]
+                }
+            }
+        }
+    },
+    //Определение активной области видимости бота (т.е. то что бот может воспринимать для своей логики. А так у него всё равно область видимости = 100, как у персонажа)
+    "Id": "33cdc0c5-49fc-4572-8067-480562bc99e9",
+    "CommonSenses": [
+        {
+            "$type": "SpatialKnowledgeSourceDef",
+            "Category": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+            "FeedName": "Vision",
+            "FeedRange": 30
+        }
+    ],
+    "LegionaryDef": {
+        "$type": "SpatialLegionary",
+        "ReuseExisting": true,
+        "LegionaryDef": {
+            "$type": "LegionaryDef",
+            "DefaultLegion": "/UtilPrefabs/AI/LegionTypes/Player",
+            "MainStrategy": "@MAIN_STRATEGY",
+            "KnowledgeSources": [
+                { //Знать о том, что в области видимости
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": "/AI/Defs/Knowledge/Visible",
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "Filter": {
+                        "$type": "True"
+                    }
+                },
+                { //Воспринимает всех Мобов как Ally
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": {
+                        "$type": "KnowledgeCategoryDef"
+                    },
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                    "Filter": {
+                        "$type": "Or",
+                        "Conditions": [
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Kso_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Alpha_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Merid_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Sci_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_War_Boss_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_Wrk_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Scyphoria_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Selwea_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Yutt_Legion"
+                            }
+                        ]
+                    }
+                },
+                { //Воспринимает всех Персонажей как Interest
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": {
+                        "$type": "KnowledgeCategoryDef"
+                    },
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "InterpretAsStat": "/AI/Defs/Memories/Interest",
+                    "Filter": {
+                        "$type": "IsLegionOfType",
+                        "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                    }
+                },
+                { //Воспринимает все Mineble ресурсы как FoodSource
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": {
+                        "$type": "KnowledgeCategoryDef"
+                    },
+                    "GetFrom": "/AI/Defs/Knowledge/Visible",
+                    "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                    "Filter": {
+                        "$type": "Or",
+                        "Conditions": [
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Bamboo"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Fungus"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/FoodSource"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Res/Rock"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Res/Salt"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Res/Silicon"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

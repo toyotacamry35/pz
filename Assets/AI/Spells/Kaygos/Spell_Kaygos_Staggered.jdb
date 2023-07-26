@@ -1,0 +1,34 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kaygos_Staggered",
+  "Duration": 1.1,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+    },
+    {
+      "$type": "MoveEffect",
+      "MoveType": "LookAt",
+      "AnimationBool": "Reaction"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "53a84cfe-edfb-4b00-b9c5-3b1c2764e535",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+  "Prefab": "Assets/AI/Prefabs/Corpses/Kaygos_Corpse",
+  "NameLs": {
+    "Key": "#l10n2895"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Kaygos_Corpse",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/KaygosCorpseKW",
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    },
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/KaygosCorpseNaturExpKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+      }
+    }
+  ]
+}

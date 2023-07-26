@@ -1,0 +1,30 @@
+{
+  "$type": "LegionaryEntityDef",
+  "$overrideVars": {
+    "LEGIONARY_TYPE": "./Sahrim_Perception",
+    "MAX_HEALTH": 15000,
+    "START_HEALTH": 15000,
+    "DAMAGE_DEFAULT": 350,
+    "RESISTANCE_SLASHING": 100,
+    "RESISTANCE_CRUSHING": 50,
+    "DAMAGE_TYPE": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "SENSES_RANGE": 40,
+    "FX_REACTIONS": "./Sahrim_FXEvents",
+    "PASSIVE_DAMAGE": 5,
+    "HEALTH_DEFAULT_REGEN": 10,
+    "REACTION_HANDLERS": "/AI/Defs/Mobs/_Prototype/Sahrim_Reactions",
+    "HIT_MATERIAL": "/UtilPrefabs/HitMaterials/Chitin"
+  },
+  "$proto": "/AI/Defs/Mobs/_Prototype/_Prototype_Mob",
+  "CorpseEntityDef": "./Sahrim_Corpse_Definition",
+  "Id" : "eabe69f1-53bc-455a-b19e-85d3ace331aa",
+  "OnZeroHealthSpell": "/AI/Spells/Sahrim/Spell_Sahrim_On_Death_Event",
+  "Prefab": "Assets/AI/Prefabs/Sahrim",
+  "MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/Sahrim_Locomotion",
+  "Bounds": {
+    "$type": "Capsule",
+    "Radius": 3,
+    "Height": 6,
+    "OffsetY": 2.4
+  }
+}

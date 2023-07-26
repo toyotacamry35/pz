@@ -1,0 +1,65 @@
+{
+    "$type": "Strategy",
+    
+    "Selectors": {
+        "Interest": { //some intetesting mob
+            "$type": "SelectAndRemember",
+            "$id": "Interest",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Interest",
+                "Filter": { //mob not Recently exploring
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemorizedStat": "/AI/Defs/Memories/RecentlyUsed",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoIf",
+        "Condition": { //if has interesting mob
+            "$type": "Has",
+            "Target": "$Interest"
+        },
+        "Action": {
+            "$type": "DoInSequence",
+            "Actions": [
+                { //go to interesting mob
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                    "At": "$Interest"
+                },
+                { //explore mob
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_LookAt",
+                    "At": "$Interest"
+                },
+                { // remember about exploring
+                    "$type": "RememberValue",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "Memory": {
+                        "$type": "Self"
+                    },
+                    "StatDef": "/AI/Defs/Memories/RecentlyUsed",
+                    "ModDef": {
+                        "$type": "StatModifier",
+                    },
+                    "Target": "$Interest",
+                    "Time": 30
+                }
+            ]
+        }
+    }
+}

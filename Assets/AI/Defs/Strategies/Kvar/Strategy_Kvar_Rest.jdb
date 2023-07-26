@@ -1,0 +1,128 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "REMEMBER_TIME": {
+            "Type": "float",
+            "Value": 30
+        }
+    },
+    "Selectors": {
+        "ChosenRestingGround": {
+            "$type": "SelectAndRemember",
+            "$id": "ChosenRestingGround",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/ChosenRestingGround"
+            }
+        },
+        "RestingGroundRestingPoint": {
+            "$type": "SelectAndRemember",
+            "$id": "RestingGroundRestingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/RestingGroundRestingPoint",
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "TargetSelectorDef": "$ChosenRestingGround"
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Has",
+                    "Not": true,
+                    "Target": "$ChosenRestingGround"
+                },
+                "Action": {
+                    "$type": "RememberValue",
+                    "Flat": 1,
+                    "Change": "Set",
+                    "Time": "@REMEMBER_TIME",
+                    "ModDef": {
+                        "$type": "StatModifier",
+                    },
+                    "Memory": {
+                        "$type": "TargetLegion",
+                        "TargetSelector": {
+                            "$type": "Self"
+                        }
+                    },
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "Category": "/AI/Defs/Knowledge/RestingGround"
+                    },
+                    "StatDef": "/AI/Defs/Memories/ChosenRestingGround"
+                }
+            },
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 45,
+                        "Min": 15
+                    }
+                },
+                "DoUntilEnd": false,
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+                },
+            },
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 55,
+                        "Min": 25
+                    }
+                },
+                "DoUntilEnd": false,
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Kvar/Spell_Kvar_Rest",
+                    "At": {
+                        "$type": "Self"
+                    }
+                },
+            },
+            { // Stay
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 5,
+                        "Min": 2
+                    }
+                },
+                "Action": {
+                    "$type": "DummyNode"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 8.0,
+                    "Not": true,
+                    "TargetSelectorDef": "$RestingGroundRestingPoint",
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_RunToPoint",
+                    "At": "$RestingGroundRestingPoint"
+                }
+            },
+        ]
+    }
+}

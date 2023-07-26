@@ -1,0 +1,267 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Enemy": {
+            "$type": "SelectAndRemember",
+            "$id": "Enemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 5,
+                            "TargetSelectorDef": "$Enemy"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 3.5,
+                            "TargetSelectorDef": "$Enemy"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "Jump_CD",
+                    "CooldownOnFail": 3.0,
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Min": 4.0,
+                            "Max": 6.0
+                        }
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kvar/Spell_Kvar_Attack_Jump",
+                        "At": "$Enemy"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 2,
+                            "TargetSelectorDef": "$Enemy"
+                        },
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 1.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Staggered",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "Back_CD",
+                    "CooldownOnFail": 4,
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Min": 4,
+                            "Max": 6
+                        }
+                    },
+                    "Action": {
+                        "$type": "Do",
+                        "ChanceToDo": 0.7,
+                        "ResultOnNotDoing": "Succeeded",
+                        "Action": {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kvar/Spell_Kvar_DodgeBack",
+                            "At": "$Enemy"
+                        }
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 2.5,
+                            "TargetSelectorDef": "$Enemy"
+                        },
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 2.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Staggered",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "Dash_CD",
+                    "CooldownOnFail": 2,
+                    "CooldownOnSuccess": 2.5,
+                    "Action": {
+                        "$type": "ChooseRandom",
+                        "Actions": [
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kvar/Spell_Kvar_DodgeRight",
+                                "At": "$Enemy"
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kvar/Spell_Kvar_DodgeLeft",
+                                "At": "$Enemy"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 1.8,
+                    "TargetSelectorDef": "$Enemy"
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kvar/Spell_Kvar_Attack_Right",
+                            "At": "$Enemy"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kvar/Spell_Kvar_Attack_Left",
+                            "At": "$Enemy"
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 8,
+                            "TargetSelectorDef": "$Enemy"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 4,
+                            "TargetSelectorDef": "$Enemy"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "Strafe_CD",
+                    "CooldownOnFail": 2,
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Min": 2,
+                            "Max": 4
+                        }
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "Do",
+                                "ChanceToDo": 1,
+                                "ResultOnNotDoing": "Succeeded",
+                                "Action": {
+                                    "$type": "ChooseRandom",
+                                    "Actions": [
+                                        {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Spell_Mob_CircleRight",
+                                            "At": "$Enemy"
+                                        },
+                                        {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Spell_Mob_CircleLeft",
+                                            "At": "$Enemy"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "$type": "Do",
+                                "ChanceToDo": 0.50,
+                                "ResultOnNotDoing": "Succeeded",
+                                "Action": {
+                                    "$type": "ChooseRandom",
+                                    "Actions": [
+                                        {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Spell_Mob_CircleRight",
+                                            "At": "$Enemy"
+                                        },
+                                        {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Spell_Mob_CircleLeft",
+                                            "At": "$Enemy"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 16,
+                    "TargetSelectorDef": "$Enemy"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_RunToTarget",
+                    "At": "$Enemy"
+                }
+            }
+        ]
+    }
+}

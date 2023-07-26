@@ -1,0 +1,25 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_WalkToTarget",
+  "Duration": 3.3,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.2,
+      "AcceptedRange": 0.5,
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtTarget",
+/*       "Modifier": "Run", */
+      "SpeedFactor": 1,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    }
+  ]
+}

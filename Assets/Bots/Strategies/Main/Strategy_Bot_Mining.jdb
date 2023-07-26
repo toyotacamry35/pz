@@ -1,0 +1,66 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "FoodSource": {
+            "$type": "SelectAndRemember",
+            "$id": "FoodSource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/FoodSource",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+                "$type": "Choose",
+                "Actions": [
+                    {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "IsInRange",
+                            "Range": 2,
+                            "TargetSelectorDef": "$FoodSource"
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "InputActionsDef",
+                                    "InputActions": [
+                                        "/UtilPrefabs/Input/Actions/AttackMelee"
+                                    ]
+                                },
+                                {
+                                    "$type": "MoveBotDef",
+                                    "TimeoutSeconds": 0.1,
+                                    "Target": {
+                                        "$type": "SelectAndRemember",
+                                        "Selector": {
+                                            "$type": "SelectKnown",
+                                            "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "$type": "MoveBotDef",
+                        "TimeoutSeconds": 3,
+                        "Target": {
+                            "$type": "SelectAndRemember",
+                            "Selector": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+                            }
+                        }
+                    }
+                ]
+            }
+}

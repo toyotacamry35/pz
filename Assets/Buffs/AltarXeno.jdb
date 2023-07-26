@@ -1,0 +1,80 @@
+{
+    "$type": "Altar",
+    "Id" : "a6ec11f4-1eb5-4830-b071-ed55ffc40917",
+    "NameLs": {
+      "Key": "#l10n505111"
+    },
+    "Stats": {
+        "$type": "Stats",
+        "Id" : "701588f4-69a8-4e07-99cd-08f3c3829bb5",
+        "Stats": [
+            {
+                "$type": "TimeStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                "LimitMaxDefault": 1000000,
+                "InitialValue": 1000000,
+                "IsBroadcasted": true
+            }
+        ]
+    },
+    "Sacrifices": [
+        {
+            "Quest": {
+                "$type": "QuestDef",
+                "Id" : "9ea040dc-b274-4fc7-bbdc-9ddb8850da39",
+                "Phases": [
+                  {
+                    "$type": "PhaseDef",
+                    "Id" : "77f07938-ce5c-413d-9927-2064c40b1ca4",
+                    "Counter": {
+                      "$type": "ItemsCounterDef",
+                      "Id" : "a93ce6f4-0b93-4912-9c95-af4075c35115",
+                      "Target": "/Inventory/Items/Consumables/RawFineMeat",
+                      "Count": 100
+                    }
+                  }
+                ]
+              },
+              "ObjectOnQuestFinish": "/UtilPrefabs/Res/Prototypes/Mounting/XenoBench_EntityObjectDef",
+              "BuffObjectOnStart": {
+                  "$type": "Buff",
+                  "Id" : "a50e9a6f-2d35-4f36-8c24-eb8b56b75b96",
+                  "Effects": [
+                      {
+                          "$type": "EffectCastImactOnEnd",
+                          "Impact": {
+                              "$type": "ImpactStopCurrentEvent",
+                              "Target": {
+                                  "$type": "SpellCaster"
+                              }
+                          }
+                      }
+                  ]
+              }
+        }
+    ],
+    "Prefab": "Assets/Content/Environment/Jungle/Trees/junTreeFlytrap/junTreeFlytrapClosed_altar",
+    "PrefabDef": {
+        "$type": "UnityGameObject",
+        "Components": [
+            {
+                "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+            },
+            {
+                "$type": "InteractiveDef",
+                "ReuseExisting": true,
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/UISpells/ContainerUIOpenSpell_XenoAltar"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

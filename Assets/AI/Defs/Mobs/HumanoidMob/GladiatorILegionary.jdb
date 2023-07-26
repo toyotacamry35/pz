@@ -1,0 +1,105 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/GladiatorI_Legion",
+        "MainStrategy":
+        //"./RaiderMeleeI_DefensiveRound",
+        //"./RaiderMeleeI_MainStrategy",
+        "./RaiderMeleeI_MainStrategy",
+        "KnowledgeSources": [
+            // Sensed as visible
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            // Players as threat
+            // {
+            //     "$type": "KnowledgeSourceTransformerDef",
+            //     "Category": {
+            //         "$type": "KnowledgeCategoryDef"
+            //     },
+            //     "GetFrom": "/AI/Defs/Knowledge/Visible",
+            //     "InterpretAsStat": "/AI/Defs/Memories/Threat",
+            //     "Filter": {
+            //         "$type": "IsLegionOfType",
+            //         "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+            //     }
+            // },
+            // Raider as threat
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/GladiatorII_Legion",
+                }
+            },
+        ],
+        "EventHandlers": [
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/NPCStaggerEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoWithCooldown",
+                        "CooldownOnFail": 0.50,
+                        "CooldownOnSuccess": 0.50,
+                        "CooldownName": "DefensiveRoundCD",
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "UseStrategy",
+                                    "Strategy": "./GladiatorI_DefensiveRound"
+                                },
+                            ]
+                        },
+                    },
+                },
+            },
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/NPCHeavyHitEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "RememberValue",
+                                "ModDef": {
+                                    "$type": "StatModifier"
+                                },
+                                "Change": "Add",
+                                "Flat": 1,
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/HeavyHitCount",
+                                "Time": 7.5
+                            },
+                            {
+                                "$type": "UseStrategy",
+                                "Strategy": "./GladiatorI_DefensiveRound"
+                            },
+                        ]
+                    },
+                }
+            },
+        ]
+    }
+}

@@ -1,0 +1,44 @@
+{
+  "$type": "LegionaryEntityDef",
+  "$overrideVars": {
+    "LEGIONARY_TYPE": "./NPC_SHN_Ralph_Perception",
+    "START_HEALTH": 1500,
+    "MAX_HEALTH": 1500,
+    "DAMAGE_DEFAULT": 300,
+    "INCOMING_DAMAGE_MOD": -1,
+    "INTERACTIVE_DEF": "./InteractiveDefForNPC",
+    "DIE_ANIMATION_NAME": "Die",
+    "REACTION_HANDLERS": "/UtilPrefabs/Prototypes/NPC_Reactions",
+    "FX_REACTIONS": "/Character/Events/FXEvents",
+    "FACTION": "/Inventory/Factions/NPC"
+  },
+  "$proto": "/AI/Defs/Mobs/_Prototype/_Prototype_Mob",
+  "CorpseEntityDef": "./NPC_SHN_Ralph_Corpse_Definition",
+  "Id": "33819fad-e6bc-46d7-885f-4b226535749c",
+  "Prefab": "Assets/AI/Prefabs/Dummy", // заменить
+  "MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/NPC_SHN_Guard_Locomotion",
+  "NameLs": {
+    "Key": "#l10n4687"
+  }, //Ральф
+  "HasNpcMarker": true,
+  "DefaultDoll": {
+    "Size": 22,
+    "DefaultItems": [
+      {
+        "Slot": "/UtilPrefabs/Slots/WearBody",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/ReinforcedJacket"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearLeg",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/CombatPants"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearFoot",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/CombatBoots"
+      }
+    ]
+  }
+}

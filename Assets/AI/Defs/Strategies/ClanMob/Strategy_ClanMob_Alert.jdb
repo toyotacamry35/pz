@@ -1,0 +1,105 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "NearestThreat": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestThreat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoIf",
+        "Action": {
+            "$type": "DoInSequence",
+            "Actions": [
+                {
+                    "$type": "RememberValue",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "Memory": {
+                        "$type": "TargetLegion",
+                        "TargetSelector": {
+                            "$type": "Self"
+                        }
+                    },
+                    "ModDef": {
+                        "$type": "StatModifierDef",
+                    },
+                    "StatDef": "/AI/Defs/Memories/Alerted",
+                    "Target": {
+                        "$type": "TargetLegion",
+                        "TargetSelector": {
+                            "$type": "Self"
+                        }
+                    },
+                    "Time": 15
+                },
+                {
+                    "$type": "CastSpell",
+                    "At": "$NearestThreat",
+                    "Spell": "/AI/Spells/ClanMob/Spell_ClanMob_Alert"
+                },
+                {
+                    "$type": "RememberValue",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "Memory": {
+                        "$type": "TargetLegion",
+                        "TargetSelector": {
+                            "$type": "Self"
+                        }
+                    },
+                    "ModDef": {
+                        "$type": "StatModifierDef",
+                    },
+                    "StatDef": "/AI/Defs/Memories/Enemy",
+                    "Target": "$NearestThreat",
+                    "Time": 15
+                }
+            ]
+        },
+        "Condition": {
+            "$type": "And",
+            "Conditions": [
+                {
+                    "$type": "Has",
+                    "Target": "$NearestThreat"
+                },
+                {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemorizedStat": "/AI/Defs/Memories/Alerted",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "TargetLegion",
+                                "TargetSelector": {
+                                    "$type": "Self"
+                                }
+                            },
+                            "TargetOfStat": {
+                                "$type": "TargetLegion",
+                                "TargetSelector": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

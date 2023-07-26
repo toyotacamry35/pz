@@ -1,0 +1,239 @@
+{
+    "$type": "Strategy",
+    /*  "Selectors": {
+        "ClosestTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "ClosestTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "RandomTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                //"Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 10,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Kso": {
+            "$type": "SelectAndRemember",
+            "$id": "Kso",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Roamers"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "ChooseRandom",
+        "WeightedActions": [
+            //regular attack
+            {
+                "$type": "WeightedAction",
+                "Weight": {
+                    "$type": "ConstantMetric",
+                    "Value": 50
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Move3d5",
+                            "At": "$ClosestTarget"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_AttackFarward",
+                            "At": "$ClosestTarget"
+                        },
+                        {
+                            "$type": "Do",
+                            "ChanceToDo": 0.3,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_AttackFarward",
+                                "At": "$ClosestTarget"
+                            },
+                            "ResultOnNotDoing": "Succeeded"
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "WeightedAction",
+                "Weight": 15,
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 7,
+                            "Min": 4
+                        }
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Move10d5",
+                        "At": "$ClosestTarget"
+                    },
+                    "DoUntilEnd": true
+                }
+            },
+            //stomp
+            {
+                "$type": "WeightedAction",
+                "Weight": 25,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "StompCooldown",
+                            "CooldownOnSuccess": 12,
+                            "CooldownOnFail": 12,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Stomp",
+                                "At": "$ClosestTarget"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "WeightedAction",
+                "Weight": 35,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "SpitCooldown",
+                            "CooldownOnSuccess": 10,
+                            "CooldownOnFail": 10,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Spit",
+                                "At": "$RandomTarget"
+                            }
+                        }
+                    ]
+                }
+            },
+            /*{ Scyphoria spawn disabled due to in-game issues
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoIf",
+                            "Condition": {
+                                "$type": "Not",
+                                "Condition": {
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": 5.5,
+                                    "Evaluator": {
+                                        "$type": "CollectionSumMetric",
+                                        "CollectionSelector": {
+                                            "$type": "SelectKnown",
+                                            //"MemoryCategory": "/AI/Defs/Memories/SymbiontScyforia",
+                                            "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                        },
+                                        "Metric": 1
+                                    }
+                                }
+                            },
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_SpawnScyphoria",
+                                        "At": {
+                                            "$type": "Self"
+                                        }
+                                    },
+                                    {
+                                        "$type": "SpawnLegionaryAndRememberIt",
+                                        "AsStat": "/AI/Defs/Memories/SymbiontScyphoria",
+                                        "Offset": {
+                                            "x": 0,
+                                            "y": 2.5,
+                                            "z": 3.5
+                                        },
+                                        "Prefab": "Assets/AI/Prefabs/Scyphoria_Sahrim"
+                                    },
+                                    {
+                                        "$type": "Do",
+                                        "ChanceToDo": 0.5,
+                                        "ResultOnNotDoing": "Succeeded",
+                                        "Action": {
+                                            "$type": "DoIf",
+                                            "Condition": {
+                                                "$type": "Not",
+                                                "Condition": {
+                                                    "$type": "EvaluatesToMoreThan",
+                                                    "Amount": 5.5,
+                                                    "Evaluator": {
+                                                        "$type": "CollectionSumMetric",
+                                                        "CollectionSelector": {
+                                                            "$type": "SelectKnown",
+                                                            //"MemoryCategory": "/AI/Defs/Memories/SymbiontScyphoria",
+                                                            "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                        },
+                                                        "Metric": 1
+                                                    }
+                                                }
+                                            },
+                                            "Action": {
+                                                "$type": "DoInSequence",
+                                                "Actions": [
+                                                    {
+                                                        "$type": "CastSpell",
+                                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_SpawnScyphoria",
+                                                        "At": {
+                                                            "$type": "Self"
+                                                        }
+                                                    },
+                                                    {
+                                                        "$type": "SpawnLegionaryAndRememberIt",
+                                                        "AsStat": "/AI/Defs/Memories/SymbiontScyphoria",
+                                                        "Offset": {
+                                                            "x": 0,
+                                                            "y": 2.5,
+                                                            "z": 3.5
+                                                        },
+                                                        "Prefab": "Assets/AI/Prefabs/Scyphoria_Sahrim"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    } */
+}

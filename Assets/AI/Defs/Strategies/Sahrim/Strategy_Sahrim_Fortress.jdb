@@ -1,0 +1,89 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Threat": { // Remember Threat
+            "$type": "SelectAndRemember",
+            "$id": "Threat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat"
+            }
+        },
+        "Kso": { // Remember Kso
+            "$type": "SelectAndRemember",
+            "$id": "Kso",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally"
+            }
+        }
+    },
+    "Plan": { // ftcd
+        "$type": "DoWithCooldown",
+        "CooldownName": "FortressCooldown",
+        "CooldownOnFail": 1,
+        "CooldownOnSuccess": {
+            "$type": "CalcerMetric",
+            "Calcer": {
+                "$type": "CalcerRandom",
+                "Max": 40,
+                "Min": 25
+            }
+        },
+        "Action": {
+            "$type": "DoInSequence",
+            "Actions": [
+                // /*{ // Summon scyphoria
+                //     "$type": "CastSpell",
+                //     "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Summon",
+                //     "At": "$Threat"
+                // },*/
+                // {
+                //     "$type": "DoForTime",
+                //     "Time": {
+                //         "$type": "CalcerMetric",
+                //         "Calcer": {
+                //             "$type": "CalcerRandom",
+                //             "Max": 3.55,
+                //             "Min": 3.33
+                //         }
+                //     },
+                //     "Action": {
+                //         "$type": "CastSpell",
+                //         "At": {
+                //             "$type": "Self"
+                //         },
+                //         "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startfortress"
+                //     },
+                //     "DoUntilEnd": true
+                // },
+                // {
+                //     "$type": "DoForTime",
+                //     "Time": {
+                //         "$type": "CalcerMetric",
+                //         "Calcer": {
+                //             "$type": "CalcerRandom",
+                //             "Max": 15,
+                //             "Min": 15
+                //         }
+                //     },
+                //     "Action": { // 
+                //         "$type": "CastSpell",
+                //         "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Fortressloop",
+                //         "At": {
+                //             "$type": "Self"
+                //         }
+                //     },
+                //     "DoUntilEnd": true
+                // },
+                // { // Stand up
+                //     "$type": "CastSpell",
+                //     "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Fortressend",
+                //     "At": {
+                //         "$type": "Self"
+                //     }
+                // }
+            ]
+        }
+    }
+}

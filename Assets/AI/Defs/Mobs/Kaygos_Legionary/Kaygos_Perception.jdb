@@ -1,0 +1,113 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Kaygos_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Kaygos/Strategy_Kaygos_Base",
+        "KnowledgeSources": [
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { // Perceive resources as FoodSource
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Fruit"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Unripe"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Sangvira"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            { // Charge when being attacked
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Enraged",
+                        "Time": 15
+                    }
+                }
+            },
+            { // Remember their Enemy
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "SameLegion",
+                            "Target": {
+                                "$type": "SelectEventTarget"
+                            }
+                        },
+                        "Action": {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "SelectEventSource"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Enemy",
+                            "Time": 10
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

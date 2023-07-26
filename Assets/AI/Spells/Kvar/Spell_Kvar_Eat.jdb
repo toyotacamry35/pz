@@ -1,0 +1,55 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_DestroyTarget",
+    "Duration": 12,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "AcceptedRange": 2.0,
+            "MoveType": "LookAt",
+            "Rotation": "LookAtTarget",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Basic",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BasicType",
+                    "Value": 2
+                }
+            ]
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 11.5,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "ImpactDieDef",
+                        "Target": {
+                            "$type": "SpellTargetDef"
+                        },
+                        "WhenToApply": "OnSuccess"
+                    }
+                ]
+            }
+        }
+    ]
+}

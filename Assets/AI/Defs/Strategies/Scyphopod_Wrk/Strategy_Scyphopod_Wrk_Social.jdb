@@ -1,0 +1,41 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Ally": { //other Scyphopod
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoIf",
+        "Condition": { //if has other Scyphopod
+            "$type": "Has",
+            "Target": "$Ally"
+        },
+        "Action": {
+            "$type": "DoWithCooldown",
+            "CooldownName": "SocialCooldown",
+            "CooldownOnFail": 1,
+            "CooldownOnSuccess": 60,
+            "Action": {
+                "$type": "DoInSequence",
+                "Actions": [
+                    { //go to Ally
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                        "At": "$Ally"
+                    },
+                    { //talk with ally
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Social",
+                        "At": "$Ally"
+                    }
+                ]
+            }
+        }
+    }
+}

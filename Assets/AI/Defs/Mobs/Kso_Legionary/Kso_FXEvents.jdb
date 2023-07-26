@@ -1,0 +1,44 @@
+{
+    "$type": "FXEvents",
+    "FXEvents": [
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "ON_HIT_SOUNDEFFECT": "KsoDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HitSoundFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "FX": "Assets/Content/FX/Creatures/Kso/PS_Kso_OnDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HardHitFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "FX": "Assets/Content/FX/Creatures/Kso/PS_Kso_OnDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_SimpleHitFX"
+        },
+        { // Attack
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/MobAttackEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFXWithTarget",
+                        "DestroyDelay": 10,
+                        "Shift": {
+                            "x": 0,
+                            "y": 1.39,
+                            "z": -1.092
+                        },
+                        "FX": "Assets/Content/FX/Creatures/Kso/Kso_Gas_FX"
+                    }
+                ]
+            }
+        }
+    ]
+}

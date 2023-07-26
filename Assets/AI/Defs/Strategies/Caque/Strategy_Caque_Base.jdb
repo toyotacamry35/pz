@@ -1,0 +1,126 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Threat": {
+            "$type": "SelectKnown",
+            "$id": "Threat",
+            "MemoryCategory": "/AI/Defs/Memories/Threat"
+        },
+        "Ally": {
+            "$type": "SelectKnown",
+            "$id": "Ally",
+            "MemoryCategory": "/AI/Defs/Memories/Ally"
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "RememberValue",
+                "ModDef": {
+                    "$type": "StatModifier",
+                },
+                "Memory": {
+                    "$type": "TargetLegion",
+                    "TargetSelector": {
+                        "$type": "Self"
+                    }
+                },
+                "Target": {
+                    "$type": "Self"
+                },
+                "StatDef": "/AI/Defs/Memories/CaqueChecker",
+                "Change": "Set",
+                "Flat": 1,
+                "Time": 100           
+            },
+            {
+                "$type": "Choose",
+                "Actions": [
+                    {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "EvaluatesToMoreThan",
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Alerted",
+                                "Target": {
+                                    "$type": "TargetLegion",
+                                    "TargetSelector": {
+                                        "$type": "Self"
+                                    }
+                                },
+                                "MemoryOfTarget": true,
+                                "TargetOfStat": {
+                                    "$type": "Self"
+                                }
+                            },
+                            "Amount": 0.5
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Caque/Spell_Caque_Alert",
+                                    "At": "$Ally"
+                                },
+                                {
+                                    "$type": "DummyNode",
+                                    "Time": 15
+                                },
+                                {
+                                    "$type": "RememberValue",
+                                    "Memory": {
+                                        "$type": "TargetLegion",
+                                        "TargetSelector": {
+                                            "$type": "Self"
+                                        }
+                                    },
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "StatDef": "/AI/Defs/Memories/Alerted",
+                                    "Change": "Set",
+                                    "Flat": 0,
+                                    "Time": 30,
+                                    "ModDef": {
+                                        "$type": "StatModifier",
+                                        "$id": "AlertMod",
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Caque/Spell_Caque_Alert",
+                                "At": "$Threat"
+                            },
+                            {
+                                "$type": "RememberValue",
+                                "Memory": {
+                                    "$type": "TargetLegion",
+                                    "TargetSelector": {
+                                        "$type": "Self"
+                                    }
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Alerted",
+                                "Change": "Set",
+                                "Flat": 1,
+                                "Time": 180,
+                                "ModDef": "$AlertMod"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

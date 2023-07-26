@@ -1,0 +1,204 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Worker": { // Perceive Worker
+            "$type": "SelectAndRemember",
+            "$id": "Worker",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Worker"
+            }
+        },
+        "NearestWorker": { // Perceive Nearest Worker
+            "$type": "SelectAndRemember",
+            "$id": "NearestWorker",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Worker",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestGuard": { // Perceive Nearest Ally
+            "$type": "SelectAndRemember",
+            "$id": "NearestGuard",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // CombatState 1 == DummyNode
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemoryOfTarget": true,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "MemorizedStat": "/AI/Defs/Memories/CombatState"
+                    }
+                },
+                "Action": {
+                    "$type": "Choose",
+                    "Actions": [
+                        { // Stay near
+                            "$type": "DoIf",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Not": true,
+                                "Range": 10,
+                                "TargetSelectorDef": "$Worker"
+                            },
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    { // Set time
+                                        "$type": "DoForTime",
+                                        "Time": {
+                                            "$type": "CalcerMetric",
+                                            "Calcer": {
+                                                "$type": "CalcerRandom",
+                                                "Max": 3,
+                                                "Min": 1
+                                            }
+                                        },
+                                        "Action": { // Come closer
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                                            "At": "$NearestWorker"
+                                        }
+                                    },
+                                    { // Stay
+                                        "$type": "DoForTime",
+                                        "Time": {
+                                            "$type": "CalcerMetric",
+                                            "Calcer": {
+                                                "$type": "CalcerRandom",
+                                                "Max": 3,
+                                                "Min": 1
+                                            }
+                                        },
+                                        "Action": {
+                                            "$type": "DummyNode"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        { // Set time
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 5,
+                                    "Min": 3
+                                }
+                            },
+                            "Action": {
+                                "$type": "DummyNode"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoIf", // CombatState 0 == Roam around
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "TargetOfStat": {
+                                "$type": "Self"
+                            },
+                            "MemorizedStat": "/AI/Defs/Memories/CombatState"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // Roam around for time
+                            "$type": "DoForTime",
+                            "Time": 10,
+                            "Action": { // Guard
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToPoint",
+                                "At": {
+                                    "$type": "RandomPointTargetSelector",
+                                    "BasisSelectorDef": "$NearestWorker",
+                                    "InRange": {
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 10,
+                                            "Min": 5
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        { // Move to Worker
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                            "At": "$NearestWorker"
+                        },
+                        { // Send event and set stat (CombatState == 0)
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_War_GuardEvent",
+                            "At": "$NearestGuard"
+                        },
+                        { // Set stat
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/CombatState",
+                            "Time": 20
+                        }
+                    ]
+                }
+            },
+            { // 3rd Job
+                "$type": "UseStrategy",
+                "Strategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DummyNode"
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,67 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kaygos_Sleep",
+  "Duration": 5.0,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "PredicateCompareStat",
+      "Target": {
+        "$type": "SpellTarget",
+      },
+      "Type": "Less",
+      "Value": 0.5,
+      "Policy": "OnStart",
+      "Stat": "/UtilPrefabs/Stats/Mobs/InUse"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Target": {
+        "$type": "SpellTarget",
+      },
+      "Summand": 1,
+      "StatName": "/UtilPrefabs/Stats/Mobs/InUse"
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": true,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "Basic_Sleep",
+      "UseAsInputToPlayer": false,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Speed": 0.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": null,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 1.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    }
+  ]
+}

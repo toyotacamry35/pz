@@ -1,0 +1,51 @@
+{
+    "$type": "Strategy",
+    "Selectors": { // Choose FoodSource
+        "FoodSource": {
+            "$type": "SelectAndRemember",
+            "$id": "FoodSource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            { // Come closer
+                "$type": "CastSpell",
+                "At": "$FoodSource",
+                "Spell": "/AI/Spells/Slimer/Spell_Slimer_WalkToTarget"
+            },
+            { // Eat
+                "$type": "CastSpell",
+                "At": "$FoodSource",
+                "Spell": "/AI/Spells/Slimer/Spell_Slimer_Eat"
+            },
+            { // Add stat
+                "$type": "RememberValue",
+                "Change": "Add",
+                "Flat": 1,
+                "ModDef": {
+                    "$type": "StatModifier",
+                },
+                "Memory": {
+                    "$type": "Self"
+                },
+                "Target": {
+                    "$type": "Self"
+                },
+                "StatDef": "/AI/Defs/Memories/Fed",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 200,
+                        "Min": 100
+                    }
+                }
+            }
+        ]
+    }
+}

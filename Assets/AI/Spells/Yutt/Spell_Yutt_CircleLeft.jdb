@@ -1,0 +1,43 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_CircleLeft",
+  "Duration": 0.533,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": true,
+      "KeepDistanceTreshold": 0.5,
+      "AcceptedRange": 0.5,
+      "MoveType": "StrafeAroundTarget",
+      "Rotation": "LookAtTarget",
+      "Modifier": "Run",
+      "SpeedFactor": 1.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": -1.5,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    }
+  ]
+}

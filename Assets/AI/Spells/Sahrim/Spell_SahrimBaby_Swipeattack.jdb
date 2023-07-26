@@ -1,0 +1,339 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Swipeattack",
+  "Duration": 3.8,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+          "Value": 6,
+        }
+      ]
+    }
+  ],
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 1.20,
+      "Spell": {
+        "$type": "SpellDef",
+        "Name": "Attack1",
+        "Duration": 0.05,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactInShape",
+            "Shape": {
+              "$type": "BoxShape",
+              "Position": {
+                "x": -1.25,
+                "y": 0,
+                "z": 2.5,
+              },
+              "Extents": {
+                "x": 1.25,
+                "y": 1,
+                "z": 2.5,
+              },
+              "CheckTargetOnly": true
+            },
+            "PredicateOnTarget": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateOfLegion",
+                    "OfLegion": "/AI/Defs/Legions/Mobs/SahrimBaby_Legion"
+                  }
+                },
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateOfLegion",
+                    "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                  }
+                }
+              ]
+            },
+            "WhenToApply": "OnStart",
+            "AppliedSpells": [
+              {
+                "$type": "Spell",
+                "AllowMultiple": true,
+                "Words": [
+                  {
+                    "$type": "ImpactAttackObjectDef",
+                    "Attacker": {
+                      "$type": "SpellCasterDef"
+                    },
+                    "Victim": {
+                      "$type": "SpellTargetDef"
+                    },
+                    "Attack": {
+                      "$type": "Attack",
+                      "$overrideVars": {
+                        "POWER_MOD": 17.45,
+                        "DAMAGE_MOD": 0.5
+                      },
+                      "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 1.35,
+      "Spell": {
+        "$type": "SpellDef",
+        "Name": "Attack1",
+        "Duration": 0.05,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactInShape",
+            "Shape": {
+              "$type": "BoxShape",
+              "Position": {
+                "x": 1.25,
+                "y": 0,
+                "z": 2.5,
+              },
+              "Extents": {
+                "x": 1.25,
+                "y": 1,
+                "z": 2.5,
+              },
+              "CheckTargetOnly": true
+            },
+            "PredicateOnTarget": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateOfLegion",
+                    "OfLegion": "/AI/Defs/Legions/Mobs/SahrimBaby_Legion"
+                  }
+                },
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateOfLegion",
+                    "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                  }
+                }
+              ]
+            },
+            "WhenToApply": "OnStart",
+            "AppliedSpells": [
+              {
+                "$type": "Spell",
+                "AllowMultiple": true,
+                "Words": [
+                  {
+                    "$type": "ImpactAttackObjectDef",
+                    "Attacker": {
+                      "$type": "SpellCasterDef"
+                    },
+                    "Victim": {
+                      "$type": "SpellTargetDef"
+                    },
+                    "Attack": {
+                      "$type": "Attack",
+                      "$overrideVars": {
+                        "POWER_MOD": 17.45,
+                        "DAMAGE_MOD": 0.5
+                      },
+                      "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 1.96,
+      "Spell": {
+        "$type": "SpellDef",
+        "Name": "Attack1",
+        "Duration": 0.05,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactInShape",
+            "Shape": {
+              "$type": "BoxShape",
+              "Position": {
+                "x": 1.25,
+                "y": 0,
+                "z": 2.5,
+              },
+              "Extents": {
+                "x": 1.25,
+                "y": 1,
+                "z": 2.5,
+              },
+              "CheckTargetOnly": true
+            },
+            "PredicateOnTarget": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateOfLegion",
+                    "OfLegion": "/AI/Defs/Legions/Mobs/SahrimBaby_Legion"
+                  }
+                },
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateOfLegion",
+                    "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                  }
+                }
+              ]
+            },
+            "WhenToApply": "OnStart",
+            "AppliedSpells": [
+              {
+                "$type": "Spell",
+                "AllowMultiple": true,
+                "Words": [
+                  {
+                    "$type": "ImpactAttackObjectDef",
+                    "Attacker": {
+                      "$type": "SpellCasterDef"
+                    },
+                    "Victim": {
+                      "$type": "SpellTargetDef"
+                    },
+                    "Attack": {
+                      "$type": "Attack",
+                      "$overrideVars": {
+                        "POWER_MOD": 17.45,
+                        "DAMAGE_MOD": 0.5
+                      },
+                      "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 2.15,
+      "Spell": {
+        "$type": "SpellDef",
+        "Name": "Attack1",
+        "Duration": 0.05,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactInShape",
+            "Shape": {
+              "$type": "BoxShape",
+              "Position": {
+                "x": -1.25,
+                "y": 0,
+                "z": 2.5,
+              },
+              "Extents": {
+                "x": 1.25,
+                "y": 1,
+                "z": 2.5,
+              },
+              "CheckTargetOnly": true
+            },
+            "PredicateOnTarget": {
+              "$type": "PredicateAnd",
+              "Predicates": [
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateOfLegion",
+                    "OfLegion": "/AI/Defs/Legions/Mobs/SahrimBaby_Legion"
+                  }
+                },
+                {
+                  "$type": "PredicateNot",
+                  "Value": {
+                    "$type": "PredicateOfLegion",
+                    "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                  }
+                }
+              ]
+            },
+            "WhenToApply": "OnStart",
+            "AppliedSpells": [
+              {
+                "$type": "Spell",
+                "AllowMultiple": true,
+                "Words": [
+                  {
+                    "$type": "ImpactAttackObjectDef",
+                    "Attacker": {
+                      "$type": "SpellCasterDef"
+                    },
+                    "Victim": {
+                      "$type": "SpellTargetDef"
+                    },
+                    "Attack": {
+                      "$type": "Attack",
+                      "$overrideVars": {
+                        "POWER_MOD": 17.45,
+                        "DAMAGE_MOD": 0.5
+                      },
+                      "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+        ]
+      }
+    },
+  ]
+}

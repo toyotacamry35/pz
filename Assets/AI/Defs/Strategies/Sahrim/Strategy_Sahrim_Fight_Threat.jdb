@@ -1,0 +1,176 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Threat": { // Remember Threat
+            "$type": "SelectAndRemember",
+            "$id": "Threat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+            }
+        },
+        "Kso": { // Remember Kso
+            "$type": "SelectAndRemember",
+            "$id": "Kso",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+            }
+        }
+    },
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef",
+        "SubNode": {
+            "$type": "Choose",
+            "Actions": [
+                { // Fortress strategy
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "CheckStat",
+                        "Operation": "Less",
+                        "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                        "Value": 6180
+                    },
+                    "Action": { // Use fortress strategy
+                        "$type": "UseStrategy",
+                        "Strategy": "./Strategy_Sahrim_Fortress"
+                    }
+                },
+                { // Melee Fight
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "IsInRange",
+                        "Range": 4.0,
+                        "TargetSelectorDef": "$Threat",
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Startle a herd
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startle_Event",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            },
+                            { // Stomp attack
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Stomp",
+                                "At": "$Threat"
+                            }
+                        ]
+                    }
+                },
+                { // Midrange Fight
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "And",
+                        "Conditions": [
+                            {
+                                "$type": "IsInRange",
+                                "Range": 7.0,
+                                "TargetSelectorDef": "$Threat",
+                            },
+                            {
+                                "$type": "IsInRange",
+                                "Range": 4.0,
+                                "TargetSelectorDef": "$Threat",
+                                "Not": true,
+                            }
+                        ]
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Startle a herd
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startle_Event",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            },
+                            {
+                                "$type": "ChooseRandom",
+                                "Actions": [
+                                    { // Basic attack
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Attack",
+                                        "At": "$Threat"
+                                    },
+                                    { // Swipe attack
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                                        "At": "$Threat"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                { // Ranged
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "And",
+                        "Conditions": [
+                            {
+                                "$type": "IsInRange",
+                                "Range": 17.0,
+                                "TargetSelectorDef": "$Threat",
+                            },
+                            {
+                                "$type": "IsInRange",
+                                "Range": 7.0,
+                                "TargetSelectorDef": "$Threat",
+                                "Not": true,
+                            }
+                        ]
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Startle a herd
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startle_Event",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            },
+                            {
+                                "$type": "ChooseRandom",
+                                "Actions": [
+                                    { // Ranged attack
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Rangedattack",
+                                        "At": "$Threat"
+                                    },
+                                    { // Come closer
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_RunToTarget",
+                                        "At": "$Threat"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // Startle a herd
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startle_Event",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        },
+                        { // Come closer
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_RunToTarget",
+                            "At": "$Threat"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

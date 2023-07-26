@@ -1,0 +1,45 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Kvar_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Caque/Strategy_Caque_Base",
+        "KnowledgeSources": [
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                    "$id": "ThreatCategory",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                    "$id": "AllyCategory",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                }
+            }
+        ]
+    }
+}

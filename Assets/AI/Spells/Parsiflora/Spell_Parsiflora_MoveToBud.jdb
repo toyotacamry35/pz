@@ -1,0 +1,38 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Parsiflora_MoveToBud",
+  "Duration": 4.0,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "EffectColliderIsTriggerDef",
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.2,
+      "AnimationBool": "Move_Run",
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtMoveDirection",
+      "Speed": 10.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 0.1,
+      "RotationTime": 0.25
+    }
+  ]
+}

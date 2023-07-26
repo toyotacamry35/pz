@@ -1,0 +1,66 @@
+{
+  "$type": "BuildRecipeDef",
+  "Id": "e2c1cfb5-69ff-4518-84d9-a08b3c662a42",
+  "OrderIndex": 4,
+  "BuildRecipeGroupDef": "/Building/BuildRecipeGroups/RoofsBRG",
+  "Tier": 2,
+  "Level": 0,
+  "BlueprintIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeConstructionSiteTierI",
+  "Icon": "Assets/UI/UISprites/Construction/Tier02/i_builderRoofCornerIntT02_80",
+  "Image": "Assets/UI/UISprites/Construction/Tier02/i_builderRoofCornerIntT02",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "DestructionPowerRequired":240,
+  "Type": "Building",
+  "TimerDef": {
+    "$type": "BuildTimerDef",
+    "BuildTime": 10.0,
+    "BuildTick": 1.0
+  },
+  "ElementDef": {
+    "$type": "BuildingElementDef",
+    "Type": "Center",
+    "Weight": 0.0,
+    "SupportWeight": 0.0,
+    "CanBuildOnGround": false,
+    "BlockFace": 208,
+    "BlockEdge": 36870,
+    "BlockEdgeDouble": 0,
+    "BlockEdgeRequired": 0,
+    "MinBlockEdgeCount": 2,
+    "HasSide": false
+  },
+  "Stats": {
+    "Health": 6000,
+    "PassiveDamage": 45.0
+  },
+  "Resource": {
+    "Resources": [
+      {
+        "ClaimCount": 15,
+        "ReclaimCount": 15,
+        "Item": "/Inventory/Items/Res/FungalShard"
+      },
+      {
+        "ClaimCount": 3,
+        "ReclaimCount": 3,
+        "Item": "/Inventory/Items/Weapons/Rootstick"
+      }
+    ]
+  },
+  "Visual": {
+    "HitPrefab": "Assets/Content/FX/Destruction/WallDamage/PS_Wall_Destruction_Hit",
+    "HitTime": 3.0,
+    "SelfDestructTime": 8.0,
+    "VersionsEnable": false
+  },
+  "Prefab": "Assets/Building/Tier02/Buildings/builderRoofSlopeCornerIntT02Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObject",
+  },
+  "NameLs": {
+    "Key": "#l10n48"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n49"
+  }
+}

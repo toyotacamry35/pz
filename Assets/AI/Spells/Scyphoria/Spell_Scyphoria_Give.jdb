@@ -1,0 +1,72 @@
+{
+  "$type": "SpellDef",
+  "Duration": 0.1,
+  "IsInfinite": false,
+  "AllowMultiple": true,
+  "DontShowProgress": true,
+  "OutlineColorIndex": 0,
+  "Words": [
+    {
+      "$type": "PredicateCompareStat",
+      "Type": "Less",
+      "Value": 0.5,
+      "Target": {
+        "$type": "SpellTarget"
+      },
+      "Stat": "/UtilPrefabs/Stats/Mobs/InUse"
+    },
+    {
+      "$type": "ImpactAddItemsDef",
+      "Items": [
+        "/Inventory/Items/Res/LifeEssence"
+      ],
+      "Count": 1,
+      "WhenToApply": "OnSuccess"
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Caster": {
+        "$type": "SpellTarget"
+      },
+      "Spell": "/AI/Spells/Scyphoria/Spell_Scyphoria_InUseBuff"
+    },
+    {
+      "$type": "ImpactCastSpell",
+      "Caster": {
+        "$type": "SpellTarget"
+      },
+      "Spell": "/AI/Spells/Scyphoria/Spell_Scyphoria_Die"
+    }
+    /*  {
+            "$type": "EffectChangeAccumulatedStat",
+            "Summand": 100,
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod"
+        },
+        {
+            "$type": "ImpactAttackObjectDef",
+            "Attacker": {
+                "$type": "SpellCasterDef"
+            },
+            "Victim": {
+                "$type": "SpellTargetDef"
+            },
+            "Attack": {
+                "$type": "Attack",
+                "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+            }
+        },
+        /*{                                    моб не проигрывает OnZeroHealthSpell при данном импакте, возможно нужно наладить.
+            "$type": "ImpactDieDef",
+            "Target": {
+                "$type": "SpellTarget"
+            },
+            "WhenToApply": "OnSuccess"
+        }*/
+  ],
+  "InteractionDescriptionLs": {
+    "Key": "#l10n3514"
+  }
+}

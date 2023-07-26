@@ -1,0 +1,65 @@
+{
+  "$type": "LegionaryEntityDef",
+  "$overrideVars": {
+    "LEGIONARY_TYPE": "./NPC_SHN_Guard_Perception",
+    "START_HEALTH": 1500,
+    "MAX_HEALTH": 1500,
+    "DAMAGE_DEFAULT": 300,
+    "INCOMING_DAMAGE_MOD": -1,
+    "INTERACTIVE_DEF": "./InteractiveDefForNPC",
+    "DIE_ANIMATION_NAME": "Die",
+    "REACTION_HANDLERS": "/UtilPrefabs/Prototypes/NPC_Reactions",
+    "FX_REACTIONS": "/Character/Events/FXEvents",
+    "FACTION": "/Inventory/Factions/NPC"
+  },
+  "$proto": "/AI/Defs/Mobs/_Prototype/_Prototype_Mob",
+  "CorpseEntityDef": "./NPC_SHN_Guard_Corpse_Definition",
+  "Id": "26da977f-e5de-4a89-9cf5-f8c3c30ee91b",
+  "Prefab": "Assets/AI/Prefabs/Dummy", // заменить
+  "MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/NPC_SHN_Guard_Locomotion",
+  "NameLs": {
+    "Key": "#l10n4684"
+  },
+  "DefaultDoll": {
+    "Size": 22,
+    "DefaultItems": [
+      /*Одежда*/
+      {
+        "Slot": "/UtilPrefabs/Slots/WearBody",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/HunterJacket"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearLeg",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/HunterPants"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearFoot",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/HunterBoots"
+      }
+      /*Броня*/,
+      {
+        "Slot": "/UtilPrefabs/Slots/ArmorHead",
+        "Count": 1,
+        "Item": "/Inventory/Items/Armor/MeridHelmet"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/ArmorArm",
+        "Count": 1,
+        "Item": "/Inventory/Items/Armor/MeridGreaves"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/ArmorBody",
+        "Count": 1,
+        "Item": "/Inventory/Items/Armor/MeridCuirass"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/ArmorLeg",
+        "Count": 1,
+        "Item": "/Inventory/Items/Armor/MeridGreaves"
+      }
+    ]
+  }
+}

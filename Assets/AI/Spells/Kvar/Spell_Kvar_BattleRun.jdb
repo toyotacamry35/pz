@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kvar_BattleRun",
+  "Duration": 1.0,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "AcceptedRange": 3.85,
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtTarget",
+      "Modifier": "Run",
+      "Speed": 8.0,
+      "SpeedFactor": 3.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "FloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MovementType",
+          "Value": 1.0,
+        }    
+      ]
+    }
+
+  ]
+}

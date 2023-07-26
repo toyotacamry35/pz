@@ -1,0 +1,37 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Merid_WalkToTarget",
+    "Duration": 2.0,
+    "IsInfinite": true,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 1,
+            "MoveType": "FollowPathToTarget",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        { // Отключает Колайдер Моба на время спела
+            "$type": "EffectColliderIsTriggerDef"
+        },
+        { // Отключает ХП бар Моба на время спела
+            "$type": "EffectShowImportantBadgeDef"
+        }
+   /*     {
+            "$type": "EffectPostVisualEvent",
+            "TriggerName": "/AI/Events/MobMoveEvent"
+        },
+        {
+            "$type": "EffectColliderIsTriggerDef"
+        }*/
+    ]
+}

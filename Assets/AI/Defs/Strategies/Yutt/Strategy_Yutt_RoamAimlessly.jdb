@@ -1,0 +1,95 @@
+//For use in other strategies
+{
+    "$type": "Strategy",
+    "$vars": {
+        "ROAM_RANGE": {
+            "Type": "float",
+            "Value": 12
+        },
+        "IDLE_TIME_MAX": {
+            "Type": "float",
+            "Value": 4.5
+        },
+        "IDLE_TIME_MIN": {
+            "Type": "float",
+            "Value": 1.5
+        }
+    },
+    "Selectors": {
+        "Vexillum": { // Perceive Vexillum
+            "$type": "SelectAndRemember",
+            "$id": "Vexillum",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Vexillum",
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "ChooseRandom",
+                "Actions": [
+                    {
+                        "$type": "DoForTime",
+                        "Time": 10,
+                        "Action": {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Yutt/Spell_Yutt_Walk0d5Point",
+                            "At": {
+                                "$type": "RandomPointTargetSelector",
+                                "InRange": "@ROAM_RANGE"
+                            },
+                            "PointTargetHasPriority": true
+                        },
+                        "DoUntilEnd": false
+                    },
+                    {
+                        "$type": "DoForTime",
+                        "Time": 10,
+                        "Action": {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5Point",
+                            "At": {
+                                "$type": "RandomPointTargetSelector",
+                                "InRange": "@ROAM_RANGE"
+                            },
+                            "PointTargetHasPriority": true
+                        },
+                        "DoUntilEnd": false
+                    }
+                ]
+            },
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": "@IDLE_TIME_MAX",
+                        "Min": "@IDLE_TIME_MIN"
+                    }
+                },
+                "Action": {
+                    "$type": "DummyNode"
+                },
+                "DoUntilEnd": true
+            },
+            { // Move closer to Vexillum
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 6,
+                    "Not": true,
+                    "TargetSelectorDef": "$Vexillum"
+                },
+                "Action": { // Come closer
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move3d5",
+                    "At": "$Vexillum"
+                }
+            }
+        ]
+    }
+}

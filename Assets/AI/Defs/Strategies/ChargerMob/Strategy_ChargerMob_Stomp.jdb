@@ -1,0 +1,53 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "AttackTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "StompTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Filter": {
+                    "$type": "IsInRange",
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    },
+                    "Range": 10
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoIf",
+        "Condition": {
+            "$type": "EvaluatesToMoreThan",
+            "Amount": 0.5,
+            "Evaluator": {
+                "$type": "CollectionSumMetric",
+                "CollectionSelector": {
+                    "$type": "SelectKnown",
+                    "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                    "Filter": {
+                        "$type": "IsInRange",
+                        "Range": 5,
+                        "TargetSelectorDef": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Metric": 1
+            }
+        },
+        "Action": {
+            "$type": "DoWithCooldown",
+            "CooldownName": "ChargeCooldown",
+            "CooldownOnFail": 12,
+            "CooldownOnSuccess": 12,
+            "Action": {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/ChargerMob/Spell_ChargerMob_Stomp",
+                "At": "$StompTarget"
+            }
+        }
+    }
+}

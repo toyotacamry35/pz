@@ -1,0 +1,50 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Ally": {
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Prey",
+                        "Filter": {
+                            "$type": "IsInRange",
+                            "Range": 10,
+                            "TargetSelectorDef": {
+                                "$type": "Self"
+                            }
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "/AI/Defs/Strategies/Scyphopod_Wrk/Strategy_Scyphopod_Wrk_Fight"
+                }
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Scyphopod_Wrk/Strategy_Scyphopod_Wrk_Patrol"
+            }
+        ]
+    }
+}

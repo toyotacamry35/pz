@@ -1,0 +1,76 @@
+{
+    "$type": "Altar",
+    "Id" : "6f991512-c96c-4b8b-9635-6a8f2f82b92f",
+    "Stats": {
+        "$type": "Stats",
+        "Id" : "1968a6e6-81f2-4ef5-a0bd-ef7a9d416241",
+        "Stats": [
+            {
+                "$type": "TimeStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                "LimitMaxDefault": 100000,
+                "InitialValue": 100000,
+                "IsBroadcasted": true
+            },
+        ]
+    },
+    "Sacrifices": [
+        {
+            "Quest": {
+                "$type": "QuestDef",
+                "Id" : "50d31c93-7c54-4177-8c4e-7b843a69b350",
+                "Phases": [
+                  {
+                    "$type": "PhaseDef",
+                    "Id" : "1c0c5911-3dfb-40e7-af02-a9f70622766d",
+                    "Counter": {
+                      "$type": "ItemsCounterDef",
+                      "Id" : "cac3fa8c-ba90-4882-8270-e69f32b80b33",
+                      "Target": "/Inventory/Items/Res/SangviraStem",
+                      "Count": 5
+                    }
+                  }
+                ]
+              },
+              "ObjectOnQuestFinish": "/SpawnSystem/Objects/Sanguira",
+              "BuffObjectOnStart": {
+                  "$type": "Buff",
+                  "Id" : "88a9954c-1fb4-4eda-9aa6-6ba46f949bc4",
+                  "Effects": [
+                      {
+                          "$type": "EffectCastImactOnEnd",
+                          "Impact": {
+                              "$type": "ImpactStopCurrentEvent",
+                              "Target": {
+                                  "$type": "SpellCaster"
+                              }
+                          }
+                      }
+                  ]
+              }
+        }
+    ],
+    "Prefab": "Assets/Buffs/Altar",
+    "PrefabDef": {
+        "$type": "UnityGameObject",
+        "Components": [
+            {
+                "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+            },
+            {
+                "$type": "InteractiveDef",
+                "ContextualActions": {
+                    "$type": "ContextualActionsDef",
+                    "SpellsByAction": {
+                        "/UtilPrefabs/Input/Actions/Interaction": {
+                            "1": {
+                                "$type": "ContextualActionDef",
+                                "Spell": "/UtilPrefabs/Spells/UISpells/ContainerUIOpenSpell"
+                            }
+                        },
+                    }
+                },
+            },
+        ]
+    }
+}

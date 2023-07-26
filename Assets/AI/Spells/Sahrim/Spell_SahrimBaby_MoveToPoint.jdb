@@ -1,0 +1,22 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kso_MoveToPoint",
+  "Duration": 2.0,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.2,
+      "AcceptedRange": 1.0,
+      "MoveType": "FollowPathToPosition",
+      "Rotation": "LookAtMoveDirection",
+/*       "Modifier": "Run", */
+      "SpeedFactor": 1.0,
+      "Vec3": {
+        "$type": "SpellTargetPoint"
+      }
+    }
+  ]
+}

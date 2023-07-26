@@ -1,0 +1,208 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RandomTarget18": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget18",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 18,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "RandomTarget6": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget6",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 6,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemyFront": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemyFront",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 16,
+                    "SectorBorderL": 90,
+                    "SectorBorderR": 90,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemyFrontClose": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemyFrontClose",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 6,
+                    "SectorBorderL": 90,
+                    "SectorBorderR": 90,
+                    "BasisSelectorDef": {
+                        "$type": "Self"
+                    },
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "ChargeTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "ChargeTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 45,
+                            "TargetSelectorDef": {
+                                "$type": "Self"
+                            }
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 12,
+                            "Not": true,
+                            "TargetSelectorDef": {
+                                "$type": "Self"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "CheckStat",
+                    "Operation": "Less",
+                    "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                    "Value": 7000
+                },
+                "Action": {
+                    "$type": "Choose",
+                    "Actions": [
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "FortressCooldown",
+                            "CooldownOnSuccess": 240,
+                            "CooldownOnFail": 240,
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_FortressStart",
+                                        "At": {
+                                            "$type": "Self"
+                                        }
+                                    },
+                                    {
+                                        "$type": "DoForTime",
+                                        "Time": {
+                                            "$type": "CalcerMetric",
+                                            "Calcer": {
+                                                "$type": "CalcerRandom",
+                                                "Max": 7,
+                                                "Min": 5
+                                            }
+                                        },
+                                        "Action": {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_FortressLoop",
+                                            "At": {
+                                                "$type": "Self"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_FortressEnd",
+                                        "At": {
+                                            "$type": "Self"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "$type": "UseStrategy",
+                            "Strategy": "./Strategy_Sahrim_CombatPhaseII"
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Sahrim_CombatPhaseI"
+            }
+        ]
+    }
+}

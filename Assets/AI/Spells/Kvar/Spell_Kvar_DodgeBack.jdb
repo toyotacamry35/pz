@@ -1,0 +1,58 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_DodgeBack",
+    "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "ClearsSlot": true,
+    "Duration": 1.5,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "MoveType": "StrafeAroundTarget",
+            "Rotation": "LookAtTarget",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "FixedDirection": {
+                "$type": "Vector3",
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Dodge",
+                    "Value": true
+                }
+            ]
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.4,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.3,
+                "Words": [
+                    {
+                        "$type": "EffectDirectMotion",
+                        "Mover": {
+                            "$type": "CurveMover",
+                            "Curve": "Assets/UtilPrefabs/Locomotion/Player/PlayerDodgeMotion",
+                            "Direction": {
+                                "$type": "SpellExplicitVector2",
+                                "x": -1,
+                                "y": 0
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

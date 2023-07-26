@@ -1,0 +1,29 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Trackmite_War_GuardEvent",
+  "Duration": 0.1,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactSendEvent",
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Trackmite_War_GuardEvent",
+      "From": {
+        "$type": "SpellCaster",
+      },
+      "Caster": {
+        "$type": "SpellCaster",
+      },
+      "EventTarget": {
+        "$type": "SpellTarget",
+      },
+      "WhenToApply": "OnStart"
+    }
+  ]
+}

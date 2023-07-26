@@ -1,0 +1,99 @@
+{
+    "$type": "FXEvents",
+    "$vars":{
+        "ON_SIMPLE_HIT_FX":{
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Creatures/Scyphoria/OnDamage/PS_Scyphoria_OnDamage"
+        },
+        "ON_HARD_HIT_FX":{
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Creatures/Scyphoria/OnDamage/PS_Scyphoria_OnDamage"
+        },
+        "ON_DESTROY_FX":{
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Creatures/Scyphoria/Death/PS_Scyphoria_Death_Aoe"
+        },
+        "ON_ATTACK_FX":{
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Creatures/Scyphoria/Attack/PS_Scyphoria_Attack"
+        },
+        "ON_HIT_SOUNDEFFECT":{
+            "Type": "string",
+            "Value": "ScyphoriaDamage"
+        }
+    },
+    "FXEvents": [
+        {
+            "$type": "TriggerFXRule",
+            "Predicate": {
+                "$type": "PredicateTrue",
+            },
+            "EventType": "/AI/Events/TakeDamageEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "@ON_HIT_SOUNDEFFECT"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$vars": {
+                "HARD_FX": {
+                    "Type": "GameObject",
+                    "Value": "@ON_HARD_HIT_FX"
+                }
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HardHitFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$vars": {
+                "FX": {
+                    "Type": "GameObject",
+                    "Value": "@ON_SIMPLE_HIT_FX"
+                }
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_SimpleHitFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "Predicate": {
+                "$type": "PredicateTrue",
+            },
+            "EventType": "/AI/Events/MobAttackEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFXWithTarget",
+                        "DestroyDelay": 5,
+                        "Shift": {
+                            "x": 0,
+                            "y": 1.4,
+                            "z": 0
+                        },
+                        "FX": "@ON_ATTACK_FX"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "Predicate": {
+                "$type": "PredicateTrue",
+            },
+            "EventType": "/AI/Events/MobDestroyEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFX",
+                        "DestroyDelay": 5,
+                        "FX": "@ON_DESTROY_FX"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "cc451588-9013-408f-a9e5-1739c460802b",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveContainerObj",
+  "Prefab": "Assets/UtilPrefabs/Prototypes/DeadPlayerPawn",
+  "NameLs": {
+    "Key": "#l10n5104"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_RaiderLowlifeI_Corpse",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/RaiderLowlifeICorpseKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 2
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    }
+  ]
+}

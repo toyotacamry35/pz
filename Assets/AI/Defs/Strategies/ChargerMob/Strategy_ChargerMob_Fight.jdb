@@ -1,0 +1,54 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "MAIN_ATTACK_SPELL": {
+            "Type": "SpellDef",
+            "Value": "/AI/Spells/ChargerMob/Spell_ChargerMob_Attack"
+        },
+        "MOVE_SPELL": {
+            "Type": "SpellDef",
+            "Value": "/UtilPrefabs/AI/NewMovingMobs/ChargerMob/Move3"
+        }
+    },
+    "Selectors": {
+        "AttackTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "AttackTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Action": {
+                    "$type": "CastSpell",
+                    "At": "$AttackTarget",
+                    "Spell": "@MOVE_SPELL"
+                },
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Not": true,
+                    "Range": 6,
+                    "TargetSelectorDef": "$AttackTarget"
+                }
+            },
+            {
+                "$type": "CastSpell",
+                "At": "$AttackTarget",
+                "Spell": "@MAIN_ATTACK_SPELL"
+            }
+        ]
+    }
+}

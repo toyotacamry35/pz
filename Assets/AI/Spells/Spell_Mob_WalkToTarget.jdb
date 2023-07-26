@@ -1,0 +1,24 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Mob_WalkToTarget",
+    "IsInfinite": true,
+    "Group": "/UtilPrefabs/Spells/Groups/MainActionSpellGroup",
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 1,
+            "MoveType": "FollowPathToTarget",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        }
+    ]
+}

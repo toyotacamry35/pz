@@ -1,0 +1,26 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id" : "62863652-be6b-43ab-9172-39ff565e0c5f",
+    "Prefab": "Assets/Content/Quest/ScyphopodSupressor/NPC_Cube",
+    "PrefabDef": {
+      "$type": "UnityGameObjectDef",
+      "Components": [
+        {
+          "$type": "InteractiveDef",
+          "ReuseExisting": true,
+          "ContextualActions": {
+            "$type": "ContextualActionsDef",
+            "SpellsByAction": {
+              "/UtilPrefabs/Input/Actions/Interaction": {
+                "1": {
+                  "$type": "ContextualActionDef",
+                  "Spell": "/UtilPrefabs/Spells/Dialog/3_Steppe/LongSearchQuest/LongSearchQuest_BackpackDialogStart"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+  

@@ -1,0 +1,34 @@
+{
+    //Определение активной области видимости бота (т.е. то что бот может воспринимать для своей логики. А так у него всё равно область видимости = 100, как у персонажа)
+    "$type": "LegionaryEntityDef",
+    "Id": "7cf8d881-93b3-4897-b934-de9e3b60b72c",
+    "CommonSenses": [
+        {
+            "$type": "SpatialKnowledgeSourceDef",
+            "Category": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+            "FeedName": "Vision",
+            "FeedRange": 10
+        }
+    ],
+
+    //Основные настройки
+    "LegionaryDef": {
+        "$type": "SpatialLegionary",
+        "ReuseExisting": true,
+        "LegionaryDef": {
+            "$type": "LegionaryDef",
+            "DefaultLegion": "/UtilPrefabs/AI/LegionTypes/Player",
+            "MainStrategy": "./Strategies/Antilopa/Main_Strategy",
+            "KnowledgeSources": [
+                {
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": "/AI/Defs/Knowledge/Visible",
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "Filter": {
+                        "$type": "True"
+                    }
+                }
+            ]
+        }
+    }
+}

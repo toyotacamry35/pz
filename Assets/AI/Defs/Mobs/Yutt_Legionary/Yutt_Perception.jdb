@@ -1,0 +1,452 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Yutt_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Yutt/Strategy_Yutt_Base",
+        "KnowledgeSources": [
+            { // know all visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Yutt_Legion"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Interest",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": {
+                        "$type": "Legion",
+                        "Kin": [
+                            "/AI/Defs/Legions/FoodSources/Gerophit_Fruit",
+                            "/AI/Defs/Legions/FoodSources/Gerophit_Unripe",
+                            "/AI/Defs/Legions/FoodSources/Sangvira"
+                        ]
+                    }
+                }
+            },
+            /*   { //know about Players loot
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Loot",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Other/Loot"
+                }
+            }, */
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Prey",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Selwea_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Merid_Legion"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_AlertNegative",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "ModDef": {
+                            "$type": "StatModifier"
+                        },
+                        "Change": "Set",
+                        "Flat": 1,
+                        "Memory": {
+                            "$type": "TargetLegion",
+                            "TargetSelector": {
+                                "$type": "Self"
+                            }
+                        },
+                        "Target": {
+                            "$type": "SelectEventSource"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Threat",
+                        "Time": 120
+                    }
+                }
+            },
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/AI/Events/Event_Aggro",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "ModDef": {
+                            "$type": "StatModifier"
+                        },
+                        "Change": "Add",
+                        "Flat": 1,
+                        "Memory": {
+                            "$type": "TargetLegion",
+                            "TargetSelector": {
+                                "$type": "Self"
+                            }
+                        },
+                        "Target": {
+                            "$type": "SelectEventSource"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Enemy",
+                        "Time": 60
+                    }
+                }
+            }
+        ]
+    }
+}
+/* { //remember Positive Event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_AlertPositive",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Flat": 1,
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "SelectEventSource"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Alerted",
+                        "Time": {
+                            "$type": "CalcerMetric",
+                            "Calcer": {
+                                "$type": "CalcerRandom",
+                                "Max": 90,
+                                "Min": 60
+                            }
+                        }
+                    }
+                }
+            },
+            { //remember Negative Event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_AlertNegative",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Flat": 1,
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Frightened",
+                        "Time": {
+                            "$type": "CalcerMetric",
+                            "Calcer": {
+                                "$type": "CalcerRandom",
+                                "Max": 75,
+                                "Min": 45
+                            }
+                        }
+                    }
+                }
+            },
+            { //Angry Yutt
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_LetsPlay",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "CastSpell",
+                                "At": {
+                                    "$type": "SelectEventSource"
+                                },
+                                "Spell": "/AI/Spells/Yutt/Spell_Yutt_Play_NoEvent"
+                            },
+                            {
+                                "$type": "RememberValue",
+                                "Change": "Set",
+                                "Flat": 1,
+                                "ModDef": {
+                                    "$type": "StatModifier",
+                                },
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Mischievous",
+                                "Time": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Max": 90,
+                                        "Min": 5
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Load",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Loaded",
+                        "Time": 9999
+                    }
+                }
+            },
+            {
+                "EventType": "SpellCastEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { //if  
+                                "$type": "CheckCondition",
+                                "Condition": {
+                                    "$type": "Not",
+                                    "Condition": {
+                                        "$type": "EvaluatesToMoreThan",
+                                        "Amount": 0.5,
+                                        "Evaluator": {
+                                            "$type": "RememberedValue",
+                                            "MemorizedStat": "/AI/Defs/Memories/Threat",
+                                            "Target": {
+                                                "$type": "TargetLegion",
+                                                "TargetSelector": {
+                                                    "$type": "Self"
+                                                }
+                                            },
+                                            "MemoryOfTarget": true,
+                                            "TargetOfStat": {
+                                                "$type": "SelectEventSource"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            { //if event doesn't from other Yutts
+                                "$type": "CheckCondition",
+                                "Condition": {
+                                    "$type": "Not",
+                                    "Condition": {
+                                        "$type": "SameLegion",
+                                        "Target": {
+                                            "$type": "SelectEventSource"
+                                        }
+                                    }
+                                }
+                            },
+                            { //remember about event source
+                                "$type": "RememberValue",
+                                "Target": {
+                                    "$type": "SelectEventSource"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Threat",
+                                "Time": 45,
+                                "Memory": {
+                                    "$type": "TargetLegion",
+                                    "TargetSelector": {
+                                        "$type": "Self"
+                                    }
+                                },
+                                "Change": "Set",
+                                "Flat": 1,
+                                "ModDef": {
+                                    "$type": "StatModifier",
+                                }
+                            },
+                            { //down Yutt Reputation
+                                "$type": "CastSpell",
+                                "At": {
+                                    "$type": "SelectEventSource"
+                                },
+                                "Spell": "/AI/Spells/Yutt/Spell_Yutt_RepDown"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Like",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "CheckCondition",
+                                "Condition": {
+                                    "$type": "Not",
+                                    "Condition": {
+                                        "$type": "EvaluatesToMoreThan",
+                                        "Amount": 0.5,
+                                        "Evaluator": {
+                                            "$type": "RememberedValue",
+                                            "MemorizedStat": "/AI/Defs/Memories/Threat",
+                                            "Target": {
+                                                "$type": "TargetLegion",
+                                                "TargetSelector": {
+                                                    "$type": "Self"
+                                                }
+                                            },
+                                            "MemoryOfTarget": true,
+                                            "TargetOfStat": {
+                                                "$type": "SelectEventSource"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "$type": "CheckCondition",
+                                "Condition": {
+                                    "$type": "Not",
+                                    "Condition": {
+                                        "$type": "EvaluatesToMoreThan",
+                                        "Amount": 0.5,
+                                        "Evaluator": {
+                                            "$type": "RememberedValue",
+                                            "MemorizedStat": "/AI/Defs/Memories/YuttLikeChecker",
+                                            "Target": {
+                                                "$type": "TargetLegion",
+                                                "TargetSelector": {
+                                                    "$type": "Self"
+                                                }
+                                            },
+                                            "MemoryOfTarget": true,
+                                            "TargetOfStat": {
+                                                "$type": "SelectEventSource"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "$type": "RememberValue",
+                                "Target": {
+                                    "$type": "SelectEventSource"
+                                },
+                                "StatDef": "/AI/Defs/Memories/YuttLikeChecker",
+                                "Time": 1,
+                                "Memory": {
+                                    "$type": "TargetLegion",
+                                    "TargetSelector": {
+                                        "$type": "Self"
+                                    }
+                                },
+                                "Change": "Set",
+                                "Flat": 1,
+                                "ModDef": {
+                                    "$type": "StatModifier",
+                                }
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "At": {
+                                    "$type": "SelectEventSource"
+                                },
+                                "Spell": "/AI/Spells/Yutt/Spell_Yutt_RepUp"
+                            },
+                            {
+                                "$type": "Do",
+                                "ChanceToDo": 0.25,
+                                "Action": {
+                                    "$type": "CastSpell",
+                                    "At": {
+                                        "$type": "SelectEventSource"
+                                    },
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_ShowApproval"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+} */

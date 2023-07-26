@@ -1,0 +1,49 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_ChargeMob_Collision",
+  "Duration": 0.001,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactAttackObjectDef",
+      "Attacker": {
+        "$type": "SpellCasterDef"
+      },
+      "Victim": {
+        "$type": "SpellTargetDef"
+      },
+      "Attack": {
+        "$type": "Attack",
+        "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+      }
+    },
+    /*
+{
+      "$type": "EffectPlayHitFxDef",
+      "Provocator": {
+        "$type": "SpellTargetDef"
+      },
+      "Target": {
+        "$type": "SpellCasterDef"
+      },
+      "MaxDistToTarget": 3.0,
+      "FxData": "Assets/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell",
+      "TargetIsParent": true,
+      "RotationFromMarker": true,
+      "UseDetach": false
+    },
+*/
+    /*{
+      "$type": "ImpactChangeTimeStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrent",
+      "Value": -100.0
+    },*/
+  ]
+}

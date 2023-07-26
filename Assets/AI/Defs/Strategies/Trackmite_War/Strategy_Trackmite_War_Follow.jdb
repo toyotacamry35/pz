@@ -1,0 +1,66 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Leader": { // Perceive Leader
+            "$type": "SelectAndRemember",
+            "$id": "Leader",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Leader"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Fight
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Enraged",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_War_Fight"
+                }
+            },
+            { // Stay near
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Not": true,
+                    "Range": 8,
+                    "TargetSelectorDef": "$Leader"
+                },
+                "Action": { // Come closer
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                    "At": "$Leader"
+                }
+            },
+            { // Guard
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToPoint",
+                "At": {
+                    "$type": "RandomPointTargetSelector",
+                    "BasisSelectorDef": "$Leader",
+                    "InRange": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 4,
+                            "Min": 2
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

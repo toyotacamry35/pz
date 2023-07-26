@@ -1,0 +1,36 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_BattleRun",
+  "Duration": 1.1,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "AcceptedRange": 2.5,
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtTarget",
+      "Modifier": "Run",
+      //"Speed": 5.0,
+      "SpeedFactor": 1.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "FloatParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MovementType",
+          "Value": 1.0,
+        }    
+      ]
+    }
+
+  ]
+}

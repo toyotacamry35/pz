@@ -1,0 +1,126 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Worker": { // Perceive Worker
+            "$type": "SelectAndRemember",
+            "$id": "Worker",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Worker"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Check AttackEvent
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Enemy"
+                    }
+                },
+                "Action": { // Call Reinforcements
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Askforhelp",
+                    "At": {
+                        "$type": "Self"
+                    }
+                }
+            },
+            { // Stay near
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Not": true,
+                    "Range": 20,
+                    "TargetSelectorDef": "$Worker"
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // Set time
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 3.5,
+                                    "Min": 2.5
+                                }
+                            },
+                            "Action": { // Come coser
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                "At": "$Worker"
+                            }
+                        },
+                        { // Stay
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 4.5,
+                                    "Min": 2.5
+                                }
+                            },
+                            "Action": { // Stay
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Idle",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            { //
+                "$type": "DoForTime",
+                "Time": 20,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // Guard
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                            "At": {
+                                "$type": "RandomPointTargetSelector",
+                                "BasisSelectorDef": "$Worker",
+                                "InRange": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Max": 20,
+                                        "Min": 15
+                                    }
+                                }
+                            }
+                        },
+                        { // Else stay
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 3.5,
+                                    "Min": 2.5
+                                }
+                            },
+                            "Action": { // Stay
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Idle",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

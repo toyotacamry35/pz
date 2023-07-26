@@ -1,0 +1,270 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Ally": {
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+                "$type": "Choose",
+                "Actions": [
+                    {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "IsInRange",
+                            "Range": 3,
+                            "TargetSelectorDef": "$Ally"
+                        },
+                        "Action": {
+                            "$type": "ChooseRandom",
+                            "WeightedActions": [
+                                {
+                                    "Weight": 4,
+                                    "Action": {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackMelee"
+                                                ]
+                                            },
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackMelee"
+                                                ]
+                                            },
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackMelee"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "Weight": 1,
+                                    "Action": {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "DurationSeconds": 0.5,
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/Block"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "Weight": 1,
+                                    "Action": {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/Dash"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "Weight": 2,
+                                    "Action": {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "InputActionsDef",
+                                                 "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/Dash",
+                                                    "/UtilPrefabs/Input/Actions/MoveLeftTrigger"
+                                                ]
+                                            },
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackDash"
+                                                ]
+                                            },
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackMelee"
+                                                ]
+                                            },
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackMelee"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "Weight": 2,
+                                    "Action": {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/Dash",
+                                                    "/UtilPrefabs/Input/Actions/MoveRightTrigger"
+                                                ]
+                                            },
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackDash"
+                                                ]
+                                            },
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackMelee"
+                                                ]
+                                            },
+                                            {
+                                                "$type": "MoveBotDef",
+                                                "TimeoutSeconds": 0.1,
+                                                "Target": {
+                                                    "$type": "SelectAndRemember",
+                                                    "Selector": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "$type": "InputActionsDef",
+                                                "InputActions": [
+                                                    "/UtilPrefabs/Input/Actions/AttackMelee"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "$type": "MoveBotDef",
+                        "TimeoutSeconds": 3,
+                        "Target": {
+                            "$type": "SelectAndRemember",
+                            "Selector": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Ally"
+                            }
+                        }
+                    }
+                ]
+            
+    }
+}

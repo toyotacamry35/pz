@@ -1,0 +1,68 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "MOVE_SPELL": {
+            "Type": "SpellDef",
+            "Value": "/UtilPrefabs/AI/NewMovingMobs/SimpleMove"
+        }
+    },
+    "Selectors": {
+        "CaquePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "CaquePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/CaquePoints"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoWithCooldown",
+        "Action": {
+            "$type": "DoIf",
+            "Action": {
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                        "$type": "CastSpell",
+                        "At": "$CaquePoint",
+                        "Spell": "@MOVE_SPELL"
+                    },
+                    {
+                        "$type": "CastSpell",
+                        "At": "$CaquePoint",
+                        "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_SpawnCaque"
+                    },
+                    {
+                        "$type": "SpawnLegionaryAndRememberIt",
+                        "AsStat": "/AI/Defs/Memories/CaqueChecker",
+                        "Offset": {
+                            "x": 2,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "Prefab": "Assets/AI/Prefabs/Other/Caque"
+                    }
+                ]
+            },
+            "Condition": {
+                "$type": "Not",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "CollectionSumMetric",
+                        "CollectionSelector": {
+                            "$type": "SelectKnown",
+                            "MemoryCategory": "/AI/Defs/Memories/CaqueChecker"
+                        },
+                        "Metric": 1
+                    }
+                }
+            }
+        },
+        "CooldownName": "CaqueSpawnCooldown",
+        "CooldownOnFail": 3,
+        "CooldownOnSuccess": 3
+    }
+}

@@ -1,0 +1,207 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RandomTarget12": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget12",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 12,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+            }
+        },
+    },
+    "Plan": {
+        "$type": "ChooseRandom",
+        "WeightedActions": [
+            //L
+            {
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                    ]
+                }
+            },
+            //LL
+            {
+                "$type": "WeightedAction",
+                "Weight": 200,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                    ]
+                }
+            },
+            //LLL
+            {
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                    ]
+                }
+            },
+            //LLLL
+            {
+                "$type": "WeightedAction",
+                "Weight": 300,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                    ]
+                }
+            },
+            //R
+            {
+                "$type": "WeightedAction",
+                "Weight": 300,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMeleeAlt",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMeleeAlt",
+                            "Target": "$NearestEnemy"
+                        },
+                    ]
+                }
+            },
+            //LR
+            {
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMeleeAlt",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMeleeAlt",
+                            //"BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                    ]
+                }
+            },
+            //LLR
+            {
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMeleeAlt",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "DoInputAction",
+                            "Trigger": "/UtilPrefabs/Input/Actions/AttackMeleeAlt",
+                            //"BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                            "Target": "$NearestEnemy"
+                        },
+                    ]
+                }
+            },
+        ]
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Merid_Digin",
+    "IsInfinite": false,
+    "Duration": 1.2,
+    "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "MoveType": "LookAt",
+            "Rotation": "LookAtTarget",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPoint"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Social"
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/SocialType",
+                    "Value": 2
+                }
+            ]
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.0,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.5,
+                "Words": [
+                    { // Отключает Колайдер Моба на время спела
+                        "$type": "EffectColliderIsTriggerDef"
+                    },
+                    { // Отключает ХП бар Моба на время спела
+                        "$type": "EffectShowImportantBadgeDef"
+                    }
+                ]
+            }
+        }
+    ]
+}

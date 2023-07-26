@@ -1,0 +1,93 @@
+{
+    //Определение активной области видимости бота (т.е. то что бот может воспринимать для своей логики. А так у него всё равно область видимости = 100, как у персонажа)
+    "$type": "LegionaryEntityDef",
+    "Id": "344b6535-f055-4e1f-b9c9-dff5510f550d",
+    "CommonSenses": [
+        {
+            "$type": "SpatialKnowledgeSourceDef",
+            "Category": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+            "FeedName": "Vision",
+            "FeedRange": 10
+        }
+    ],
+
+    //Основные настройки
+    "LegionaryDef": {
+        "$type": "SpatialLegionary",
+        "ReuseExisting": true,
+        "LegionaryDef": {
+            "$type": "LegionaryDef",
+            "DefaultLegion": "/UtilPrefabs/AI/LegionTypes/Player",
+            "MainStrategy": "./Strategies/Mob/Main_Strategy",
+            "KnowledgeSources": [
+                {
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": "/AI/Defs/Knowledge/Visible",
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "Filter": {
+                        "$type": "True"
+                    }
+                },
+
+                //Воспринимает всех Мобов как Ally
+                { 
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": {
+                        "$type": "KnowledgeCategoryDef"
+                    },
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                    "Filter": {
+                        "$type": "Or",
+                        "Conditions": [
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Kso_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Alpha_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Merid_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_War_Boss_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_War_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_Wrk_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Scyphoria_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Selwea_Legion"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Mobs/Yutt_Legion"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

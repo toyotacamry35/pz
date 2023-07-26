@@ -1,0 +1,49 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id": "cb9a4376-cb87-40fb-90e5-b6b642bb324d",
+    "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+    "Prefab": "Assets/AI/Prefabs/Corpses/Kso_Fawn_Corpse",
+    "LegionType": "/AI/Defs/Legions/Corpses/Kso_Corpse_Legion",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Kso_Fawn_Corpse",
+    "LifeSpanSec": 600,
+    "DoOnExpired": "Destroy",
+    "NameLs": {
+        "Key": "#l10n2896"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/KsoCorpseKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 7
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/KsoFawnCorpseNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

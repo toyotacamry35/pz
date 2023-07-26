@@ -1,0 +1,43 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "LOOK_SPELL": {
+            "Type": "SpellDef",
+            "Value": "/AI/Spells/ChargerMob/Spell_ChargerMob_LookAt10s"
+        }
+    },
+    "Selectors": {
+        "LookTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "LookTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWithCooldown",
+                "Action": {
+                    "$type": "CastSpell",
+                    "At": "$LookTarget",
+                    "Spell": "@LOOK_SPELL"
+                },
+                "CooldownName": "MyCoolCooldown",
+                "CooldownOnFail": 0,
+                "CooldownOnSuccess": 2
+            },
+            {
+                "$type": "CastSpell",
+                "At": {
+                    "$type": "RandomPointTargetSelector",
+                    "InRange": 5
+                },
+                "Spell": "/AI/Spells/ChargerMob/Spell_ChargerMob_LookAt5sPoint"
+            }
+        ]
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "$type": "LegionaryEntityDef",
+    "$overrideVars": {
+        "MAIN_STRATEGY": {
+            "$type": "Strategy",
+            "Plan": {
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                        "$type": "MoveBotDef",
+                        "TimeoutSeconds": 5,
+                        "Target": {
+                            "$type": "SelectAndRemember",
+                            "Selector": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Interest"
+                            }
+                        }
+                    },
+                    {
+                        "$type": "InputActionsDef",
+                        "InputActions": [
+                            "/UtilPrefabs/Input/Actions/AttackMelee"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "$proto": "./Bot_proto",
+    "Id": "4a74c5ac-d42b-47f0-8cf4-d025032dedb1"
+}

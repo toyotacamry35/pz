@@ -1,0 +1,48 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kaygos_DigOut",
+  "Duration": 3.333,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": true,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "Battle_Prepare_03",
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtMoveDirection",
+      "Speed": 0.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 2.5,
+      "RotationTime": 0.2
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    }
+  ]
+}

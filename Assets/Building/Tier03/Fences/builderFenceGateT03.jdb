@@ -1,0 +1,97 @@
+{
+  "$type": "BuildRecipeDef",
+  "Id": "7a49c5d3-9af7-40a2-8885-0d8fa569880b",
+  "OrderIndex": 0,
+  "BuildRecipeGroupDef": "/Building/BuildRecipeGroups/FencesBRG",
+  "Tier": 3,
+  "Level": 0,
+  "BlueprintIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeConstructionSiteTierI",
+  "Icon": "Assets/UI/UISprites/Construction/Tier03/IconFence2mini",
+  "Image": "Assets/UI/UISprites/Construction/Tier03/IconFence2",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "DestructionPowerRequired":290,
+  "Type": "Fence",
+  "TimerDef": {
+    "$type": "BuildTimerDef",
+    "BuildTime": 10.0,
+    "BuildTick": 1.0
+  },
+  "ElementDef": {
+    "$type": "FenceElementDef",
+    "Center": {
+      "$type": "Vector3",
+      "x": 0.0,
+      "y": 3.35,
+      "z": 0.0
+    },
+    "Extents": {
+      "$type": "Vector3",
+      "x": 1.0,
+      "y": 3.35,
+      "z": 8
+    },
+    "LinkDef": "/Building/Tier03/Fences/builderFencePillarT03",
+    "LinkPoints": [
+      {
+        "InitialLink": false,
+        "AddLink": true,
+        "X": 0.0,
+        "Y": 2.5,
+        "Z": -8.0
+      },
+      {
+        "InitialLink": false,
+        "AddLink": true,
+        "X": 0.0,
+        "Y": 2.5,
+        "Z": 8.0
+      }
+    ]
+  },
+  "Stats": {
+    "Health": 12000.0,
+    "PassiveDamage": 75.0
+  },
+  "Resource": {
+    "Resources": [
+      {
+        "ClaimCount": 1,
+        "ReclaimCount": 1,
+        "Item": "/Inventory/Items/Res/Pressed_leather_4"
+      },
+      {
+        "ClaimCount": 3,
+        "ReclaimCount": 3,
+        "Item": "/Inventory/Items/Res/FlimsyRope"
+      }
+    ]
+  },
+  "Interaction": {
+    "Enable": true,
+    "DefaultInteraction": 0,
+    "Interactions": [
+      {
+        "NextInteraction": 1
+      },
+      {
+        "NextInteraction": 0
+      }
+    ]
+  },
+  "Visual": {
+    "HitPrefab": "Assets/Content/FX/Destruction/WallDamage/PS_Wall_Destruction_MassiveHit",
+    "HitTime": 3.0,
+    "SelfDestructTime": 8.0,
+    "VersionsEnable": false
+  },
+  "Prefab": "Assets/Building/Tier03/Fences/builderFenceGateT03Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObject",
+  },
+  "NameLs": {
+    "Key": "#l10n94"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n95"
+  }
+}

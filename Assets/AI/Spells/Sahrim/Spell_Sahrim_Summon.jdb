@@ -1,0 +1,51 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Summon",
+  "Duration": 5.967,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactRaiseEvent",
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Sahrim_Summon",
+      "From": {
+        "$type": "SpellCaster",
+      },
+      "Caster": {
+        "$type": "SpellCaster"
+      },
+      "Radius": 30
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+          "Value": 8,
+        }
+      ]
+    }
+  ]
+}

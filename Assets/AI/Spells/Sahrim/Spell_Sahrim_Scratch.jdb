@@ -1,0 +1,40 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Scratch",
+  "Duration": 10.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Social",
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/SocialType",
+          "Value": 4,
+        }    
+      ]
+    } 
+  ]
+}

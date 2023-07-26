@@ -1,0 +1,110 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_Attack_Right",
+    "Duration": 1.5,
+    "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+   // "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "Words": [
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 5
+                }
+            ]
+        },
+        {
+            "$type": "EffectChangeAccumulatedStat",
+            "Summand": 0,
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod"
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.0,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.65,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "MoveEffectDef",
+                        "Enabled": true,
+                        "MoveType": "LookAt",
+                        "Rotation": "LookAtTarget",
+                        "Target": {
+                            "$type": "SpellTargetDef"
+                        },
+                        "Vec3": {
+                            "$type": "SpellTargetPointDef"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.6,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 1.3
+                            },
+                            "Extents": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            },
+                            "CheckTargetOnly": true
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "AppliedSpells": [
+                            "/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell"
+                            /*{
+                                "$type": "Spell",
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "POWER_MOD": 15
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    }
+                                ]
+                            }*/
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

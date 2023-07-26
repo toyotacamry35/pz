@@ -1,0 +1,33 @@
+{
+    "$type": "SpellDef",
+    "IsInfinite": true,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 6.5,
+            "MoveType": "FollowPathToTarget",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Modifier": "Run",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "FloatParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MovementType",
+                    "Value": 0.0
+                }
+            ]
+        }
+    ]
+}

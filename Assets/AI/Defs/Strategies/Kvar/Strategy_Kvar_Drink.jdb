@@ -1,0 +1,137 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "REMEMBER_TIME": {
+            "Type": "float",
+            "Value": 30
+        }
+    },
+    "Selectors": {
+        "ChosenWatersource": {
+            "$type": "SelectAndRemember",
+            "$id": "ChosenWatersource",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/ChosenWatersource"
+            }
+        },
+        "WatersourceDrinkingPoint": {
+            "$type": "SelectKnown",
+            "$id": "WatersourceDrinkingPoint",
+            "Category": "/AI/Defs/Knowledge/WatersourceDrinkingPoint",
+            "Filter": {
+                "$type": "IsInRange",
+                "Range": 20,
+                "TargetSelectorDef": "$ChosenWatersource"
+            },
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // 
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": "$WatersourceDrinkingPoint",
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoWhile",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Range": 1.8,
+                                "Not": true,
+                                "TargetSelectorDef": "$WatersourceDrinkingPoint"
+                            },
+                            "Action": { //
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                "At": "$WatersourceDrinkingPoint"
+                            },
+                        },
+                        { //
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kvar/Spell_Kvar_Drink",
+                            "At": "$WatersourceDrinkingPoint"
+                        },
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Slaked",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 1200,
+                                    "Min": 300
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Has",
+                    "Not": true,
+                    "Target": "$ChosenWatersource"
+                },
+                "Action": {
+                    "$type": "RememberValue",
+                    "Flat": 1,
+                    "Change": "Set",
+                    "Time": "@REMEMBER_TIME",
+                    "ModDef": {
+                        "$type": "StatModifier",
+                    },
+                    "Memory": {
+                        "$type": "TargetLegion",
+                        "TargetSelector": {
+                            "$type": "Self"
+                        }
+                    },
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "Category": "/AI/Defs/Knowledge/Watersource"
+                    },
+                    "StatDef": "/AI/Defs/Memories/ChosenWatersource"
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "Not": true,
+                    "TargetSelectorDef": "$ChosenWatersource"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_RunToPoint",
+                    "At": "$ChosenWatersource"
+                }
+            },
+        ]
+    }
+}

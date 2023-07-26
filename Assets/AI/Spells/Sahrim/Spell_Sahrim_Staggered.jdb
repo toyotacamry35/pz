@@ -1,0 +1,45 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Staggered",
+  "Duration": 2.367,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Reaction",
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/ReactionType",
+          "Value": 2,
+        }
+      ]
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+    }
+  ]
+}

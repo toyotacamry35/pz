@@ -1,0 +1,27 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/QuestObstacle_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/DummyStrategy",
+        "KnowledgeSources": [],
+        "EventHandlers": [
+            {
+                //Supressor activation
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/SupressorActivationEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "CastSpell",
+                        "At": {
+                            "$type": "Self"
+                        },
+                        "Spell": "/AI/Spells/Destroy"
+                    }
+                }
+            }
+        ]
+    }
+}

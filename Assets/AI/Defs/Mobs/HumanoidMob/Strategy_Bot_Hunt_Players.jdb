@@ -1,0 +1,90 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Interest": {
+            "$type": "SelectAndRemember",
+            "$id": "Interest",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Prey",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": "$Interest"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 3,
+                            "TargetSelectorDef": "$Interest"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "At": "$Interest",
+                    "Spell": {
+                        "$type": "Spell",
+                        "Words": [
+                            {
+                                "$type": "MoveEffectDef",
+                                "Enabled": true,
+                                "AcceptedRange": 2,
+                                "MoveType": "FollowPathToTarget",
+                                "Rotation": "LookAtTarget",
+                                "Modifier": "Run",
+                                "SpeedFactor": 3.0,
+                                "Target": {
+                                    "$type": "SpellTargetDef"
+                                },
+                                "Vec3": {
+                                    "$type": "SpellTargetPointDef"
+                                }
+                            },
+                        ]
+                    }
+                }
+            },
+            {
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                        "$type": "DoInputAction",
+                        "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                        "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                        "Target": "$Interest"
+                    },
+                    {
+                        "$type": "DoInputAction",
+                        "Trigger": "/UtilPrefabs/Input/Actions/AttackMelee",
+                        "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/Block",
+                        "Target": "$Interest"
+                    },
+                    {
+                        "$type": "DoInputAction",
+                        "Trigger": "/UtilPrefabs/Input/Actions/Block",
+                        "TimeToHold":2,
+                        "Target": "$Interest"
+                    }
+                ]
+            }
+        ]
+    }
+}

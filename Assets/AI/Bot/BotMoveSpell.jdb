@@ -1,0 +1,51 @@
+{
+  "$type": "SpellDef",
+  "SpellWrapperOriginal": "Assets/AI/Bot/BotMoveSpell",
+  "Name": "BotMoveSpell",
+  "Duration": 7200.0,
+  "IsInfinite": true,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "",
+      "AnimationSubType": "",
+      "AnimationSubTypeValue": 0,
+      "UseAsInputToPlayer": true,
+      "MoveType": "FollowPathToPosition",
+      "Rotation": "LookAtMoveDirection",
+      "Speed": 1.0,
+      "Target": null,
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 1.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.00
+    }
+  ]
+}

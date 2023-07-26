@@ -1,0 +1,68 @@
+using System.Threading.Tasks;
+using ColonyShared.SharedCode.Aspects.ManualDefsForSpells;
+using ColonyShared.SharedCode.InputActions;
+using Core.Environment.Logging.Extension;
+using GeneratedCode.DeltaObjects;
+using GeneratedCode.DeltaObjects.ReplicationInterfaces;
+using JetBrains.Annotations;
+using NLog;
+using SharedCode.EntitySystem;
+using SharedCode.Wizardry;
+
+namespace ColonyShared.GeneratedCode.Effects
+{
+    [UsedImplicitly, PredictableEffect]
+    public class EffectInputHandler : IEffectBinding<EffectInputHandlerDef>
+    {
+        private static readonly NLog.Logger Logger = LogManager.GetCurrentClassLogger();
+        
+        public async ValueTask Attach(SpellWordCastData cast, IEntitiesRepository repo, EffectInputHandlerDef def)
+        {
+            if (!cast.OnClientWithAuthority() && !cast.OnServerMaster())
+                return;
+ 
+            if (def.Handlers == null)
+                return;    
+                
+            using (var cnt = await repo.Get(cast.Caster.TypeId, cast.Caster.Guid))
+            {
+                var hasInputHandlers = cnt.Get<IHasInputActionHandlersClientFull>(cast.Caster.TypeId, cast.Caster.Guid, ReplicationLevel.ClientFull);
+                if (hasInputHandlers != null)
+                {
+                    hasInputHandlers.InputActionHandlers.LayersStack.ModifyLayer(cast.SpellId, def.Layer, layer =>
+                    {
+                        var causer = cast.WordCastId(def);
+                        foreach (var tuple in def.Handlers)
+                        {
+                            var ctx = new InputActionHandlerContext(currentSpell: def.BreakCurrentSpell ? cast.SpellId : SpellId.Invalid);
+                            layer.AddBinding(causer, tuple.Key, tuple.Value.Target, ctx);
+                        }
+                    });
+                }
+                else
+                    Logger.IfWarn()?.Message($"Using with incompatible caster | Def:{def} CasterId:{cast.Caster.Guid} CasterType:{cast.Caster.TypeId}").Write();
+            }
+        }
+
+        public async ValueTask Detach(SpellWordCastData cast, IEntitiesRepository repo, EffectInputHandlerDef def)
+        {
+            if (!cast.OnClientWithAuthority() && !cast.OnServerMaster())
+                return;
+
+            if (def.Handlers == null)
+                return;
+            
+            using (var cnt = await repo.Get(cast.Caster.TypeId, cast.Caster.Guid))
+            {
+                var hasInputHandlers = cnt.Get<IHasInputActionHandlersClientFull>(cast.Caster.TypeId, cast.Caster.Guid, ReplicationLevel.ClientFull);
+                if (hasInputHandlers != null)
+                {
+                    var causer = cast.WordCastId(def);
+                    hasInputHandlers.InputActionHandlers.LayersStack.ModifyLayer(cast.SpellId, def.Layer, layer => layer.RemoveBindings(causer));
+                }
+                else
+                    Logger.IfWarn()?.Message($"Using with incompatible caster | Def:{def} CasterId:{cast.Caster.Guid} CasterType:{cast.Caster.TypeId}").Write();
+            }
+        }
+    }
+}

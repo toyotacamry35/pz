@@ -1,0 +1,45 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "AttackTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "AttackTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat"
+            }
+        },
+        "Hub": {
+            "$type": "SelectAndRemember",
+            "$id": "Hub",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Hub",
+            }
+        },
+    },
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef", //наиболее приорететная стратегия
+        "SubNode": {
+            "$type": "Choose",
+            "Actions": [
+                {
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "IsInRange",
+                        "Not":true,
+                        "Range": 25,                        
+                        "TargetSelectorDef": "$Hub",                        
+                    },
+                    "Action": {
+                        
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_RunToPoint",
+                        "At": "$Hub"
+                      
+                    }
+                }
+            ]
+        }
+    }
+}

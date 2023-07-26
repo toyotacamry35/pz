@@ -1,0 +1,126 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Sahrim_Attack",
+    "Duration": 2.967,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "MoveType": "LookAt",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 7
+                }
+            ]
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 2.3,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "EffectPostVisualEvent",
+                        "TriggerName": "/AI/Events/SahrimSpewEvent"
+                    },
+                    {
+                        "$type": "ImpactForAllInBox",
+                        "AttackBoxes": [
+                            {
+                                "center": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 6.0
+                                },
+                                "extents": {
+                                    "x": 1.5,
+                                    "y": 2.0,
+                                    "z": 5.0
+                                }
+                            }
+                        ],
+                        "WhenToApply": "OnSuccess",
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Kso_Legion"
+                                    }
+                                },
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "AllowMultiple": true,
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "POWER_MOD": 27.45,
+                                                "DAMAGE_MOD": 1.0
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "$type": "Spell",
+                                "AllowMultiple": true,
+                                "Words": [
+                                    {
+                                        "$type": "ImpactInvokeTraumaDef",
+                                        "TraumaType": "NegEffSahrimSlow",
+                                        "WhenToApply": "OnSuccess",
+                                        "Target": {
+                                            "$type": "SpellTargetDef"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

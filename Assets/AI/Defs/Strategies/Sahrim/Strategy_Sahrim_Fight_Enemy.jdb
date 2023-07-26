@@ -1,0 +1,234 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Enemy": { // Remember Enemy
+            "$type": "SelectAndRemember",
+            "$id": "Enemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+            }
+        },
+        "Kso": { // Remember Kso
+            "$type": "SelectAndRemember",
+            "$id": "Kso",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+            }
+        }
+    },
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef",
+        "SubNode": {
+            "$type": "Choose",
+            "Actions": [
+                {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Sahrim_RangedRound"
+                },
+                {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoForTime",
+                            "Time": 2.95,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Stomp",
+                                "At": "$Enemy"
+                            },
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                            "At": "$Enemy"
+                        },
+                    ]
+                },
+                {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Spew",
+                    "At": "$Enemy"
+                },
+                {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Rangedattack",
+                    "At": "$Enemy"
+                },
+                {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Stomp",
+                    "At": "$Enemy"
+                },
+                {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                    "At": "$Enemy"
+                },
+                {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Charge2",
+                            "At": "$Enemy"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Chargefinish",
+                            "At": "$Enemy"
+                        },
+                    ]
+                },
+                // { // Fortress strategy
+                //     "$type": "DoIf",
+                //     "Condition": {
+                //         "$type": "CheckStat",
+                //         "Operation": "Less",
+                //         "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                //         "Value": 3000
+                //     },
+                //     "Action": { // Use fortress strategy
+                //         "$type": "UseStrategy",
+                //         "Strategy": "./Strategy_Sahrim_Fortress"
+                //     }
+                // },
+                // { // Melee Fight
+                //     "$type": "DoIf",
+                //     "Condition": {
+                //         "$type": "IsInRange",
+                //         "Range": 4.0,
+                //         "TargetSelectorDef": "$Enemy",
+                //     },
+                //     "Action": {
+                //         "$type": "DoInSequence",
+                //         "Actions": [
+                //             { // Startle a herd
+                //                 "$type": "CastSpell",
+                //                 "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startle_Event",
+                //                 "At": {
+                //                     "$type": "Self"
+                //                 }
+                //             },
+                //             { // Stomp attack
+                //                 "$type": "CastSpell",
+                //                 "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Stomp",
+                //                 "At": "$Enemy"
+                //             }
+                //         ]
+                //     }
+                // },
+                // { // Midrange Fight
+                //     "$type": "DoIf",
+                //     "Condition": {
+                //         "$type": "And",
+                //         "Conditions": [
+                //             {
+                //                 "$type": "IsInRange",
+                //                 "Range": 7.0,
+                //                 "TargetSelectorDef": "$Enemy",
+                //             },
+                //             {
+                //                 "$type": "IsInRange",
+                //                 "Range": 4.0,
+                //                 "TargetSelectorDef": "$Enemy",
+                //                 "Not": true,
+                //             }
+                //         ]
+                //     },
+                //     "Action": {
+                //         "$type": "DoInSequence",
+                //         "Actions": [
+                //             { // Startle a herd
+                //                 "$type": "CastSpell",
+                //                 "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startle_Event",
+                //                 "At": {
+                //                     "$type": "Self"
+                //                 }
+                //             },
+                //             {
+                //                 "$type": "ChooseRandom",
+                //                 "Actions": [
+                //                     { // Basic attack
+                //                         "$type": "CastSpell",
+                //                         "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Attack",
+                //                         "At": "$Enemy"
+                //                     },
+                //                     { // Swipe attack
+                //                         "$type": "CastSpell",
+                //                         "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                //                         "At": "$Enemy"
+                //                     }
+                //                 ]
+                //             }
+                //         ]
+                //     }
+                // },
+                // { // Ranged
+                //     "$type": "DoIf",
+                //     "Condition": {
+                //         "$type": "And",
+                //         "Conditions": [
+                //             {
+                //                 "$type": "IsInRange",
+                //                 "Range": 17.0,
+                //                 "TargetSelectorDef": "$Enemy",
+                //             },
+                //             {
+                //                 "$type": "IsInRange",
+                //                 "Range": 7.0,
+                //                 "TargetSelectorDef": "$Enemy",
+                //                 "Not": true,
+                //             }
+                //         ]
+                //     },
+                //     "Action": {
+                //         "$type": "DoInSequence",
+                //         "Actions": [
+                //             { // Startle a herd
+                //                 "$type": "CastSpell",
+                //                 "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startle_Event",
+                //                 "At": {
+                //                     "$type": "Self"
+                //                 }
+                //             },
+                //             {
+                //                 "$type": "ChooseRandom",
+                //                 "Actions": [
+                //                     { // Ranged attack
+                //                         "$type": "CastSpell",
+                //                         "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Rangedattack",
+                //                         "At": "$Enemy"
+                //                     },
+                //                     { // Come closer
+                //                         "$type": "CastSpell",
+                //                         "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_RunToTarget",
+                //                         "At": "$Enemy"
+                //                     }
+                //                 ]
+                //             }
+                //         ]
+                //     }
+                // },
+                // {
+                //     "$type": "DoInSequence",
+                //     "Actions": [
+                //         { // Startle a herd
+                //             "$type": "CastSpell",
+                //             "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Startle_Event",
+                //             "At": {
+                //                 "$type": "Self"
+                //             }
+                //         },
+                //         { // Come closer
+                //             "$type": "CastSpell",
+                //             "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_RunToTarget",
+                //             "At": "$Enemy"
+                //         }
+                //     ]
+                // }
+            ]
+        }
+    }
+}

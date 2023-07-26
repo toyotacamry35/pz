@@ -1,0 +1,35 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "TargetSelectorDef": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Threat"
+                    },
+                    "Range": 3
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "BudEvent_CD",
+                    "CooldownOnFail": 1.0,
+                    "CooldownOnSuccess": 5.0,
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Parsiflora/Spell_Bud_EventToMove",
+                        "At": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            },
+            {
+                "$type": "DummyNode"
+            }
+        ]
+    }
+}

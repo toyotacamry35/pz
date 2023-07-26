@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1118925048362220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4279501072408136}
+  m_Layer: 19
+  m_Name: HitZonesGeometricCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4279501072408136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118925048362220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4032650245167736}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1435405688074468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4032650245167736}
+  - component: {fileID: 54242994179450522}
+  - component: {fileID: 114848787183690918}
+  - component: {fileID: 5335370950550382819}
+  - component: {fileID: 114975489468805214}
+  - component: {fileID: 195518031022786298}
+  - component: {fileID: -7700190154620608579}
+  m_Layer: 19
+  m_Name: Kvar_Jungle
+  m_TagString: MobDangerous
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4032650245167736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435405688074468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_Children:
+  - {fileID: 4279501072408136}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54242994179450522
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435405688074468}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &114848787183690918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435405688074468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15783cd3213676468b83da6ea05e4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ego: {fileID: 0}
+  _viewPrefab: {fileID: 0}
+  _offset: {x: 0, y: 0, z: 0}
+  ClosestObserverDistance_DBG: 0
+  _relativeGo_DBG: {fileID: 0}
+  RealDist_DBG: 0
+  DELTA_Cell_DBG: {x: 0, y: 0, z: 0}
+  RelativeGo_Cell_DBG: {x: 0, y: 0, z: 0}
+  ThisMob_Cell_DBG: {x: 0, y: 0, z: 0}
+  DBG_TrackClose: 0
+  Dbg_PlayerMarkerGo: {fileID: 0}
+  Dbg_KvarMarkerGo: {fileID: 0}
+  SimLvl_Server: 
+  SimLvl_Cl: 
+  _: 0
+  Dbg_LogSimLvlChange: 0
+  _locomotionDebugTrail: {fileID: 114221576461505296, guid: d9f1ae24cd48f9045807fd68f641cf7a,
+    type: 3}
+  CurrLocoCoroutineCyclesPerSec: 0
+  CurrMoveActionsCoroutineCyclesPerSec: 0
+  DBG_Forced_DAMP_PZ_13761: 0
+--- !u!136 &5335370950550382819
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435405688074468}
+  m_Material: {fileID: 13400000, guid: f57c3a20b72f118409089a4755b207eb, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 2
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &114975489468805214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435405688074468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb70f8394f303e7449112fb49e2433af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ego: {fileID: 0}
+  _viewPrefab: {fileID: 1813414778442434, guid: 4f344e8e68a483b419089ca3dd6d62f9,
+    type: 3}
+  _offset: {x: 0, y: -0.1, z: 0}
+--- !u!195 &195518031022786298
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435405688074468}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 50
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 0
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 0
+--- !u!114 &-7700190154620608579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435405688074468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72756b2c40e83fd46aaabff4514ae025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ego: {fileID: 0}
+  SphereRadius: 4
+  HasPoint: 1
+  IsMoving: 1
+  IsDebug: 0
+  _predicateIgnoreGroup: {fileID: 0}
+--- !u!114 &114467948490843496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85771f8e1e128aa498c60c602217c494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

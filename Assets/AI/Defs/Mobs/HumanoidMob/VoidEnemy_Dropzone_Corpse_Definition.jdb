@@ -1,0 +1,29 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "1d1bfef8-052d-403c-9340-36c856a9a887",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveContainerObj",
+  "Prefab": "Assets/UtilPrefabs/Prototypes/DeadPlayerPawn",
+  "NameLs": {
+    "Key": "#l10n504671"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_NPC_SHN_VoidEnemy_Dropzone",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/VoidDropzoneEnemyCorpseKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 1
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    }
+  ]
+}

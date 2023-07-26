@@ -1,0 +1,78 @@
+{
+  "$type": "BuildRecipeDef",
+  "Id": "968c7252-2c33-4f8a-bfb7-190d326e1c52",
+  "OrderIndex": 0,
+  "BuildRecipeGroupDef": "/Building/BuildRecipeGroups/DoorsBRG",
+  "Tier": 1,
+  "Level": 0,
+  "BlueprintIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeConstructionSiteTierI",
+  "Icon": "Assets/UI/UISprites/Construction/Tier01/i_builderDoorT01_80",
+  "Image": "Assets/UI/UISprites/Construction/Tier01/i_builderDoorT01",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "DestructionPowerRequired":190,
+  "Type": "Building",
+  "TimerDef": {
+    "$type": "BuildTimerDef",
+    "BuildTime": 10.0,
+    "BuildTick": 1.0
+  },
+  "ElementDef": {
+    "$type": "BuildingElementDef",
+    "Type": "Wall",
+    "Weight": 0.0,
+    "SupportWeight": 0.0,
+    "CanBuildOnGround": false,
+    "BlockFace": 1,
+    "BlockEdge": 2321,
+    "BlockEdgeDouble": 16,
+    "BlockEdgeRequired": 16,
+    "MinBlockEdgeCount": 2,
+    "HasSide": false
+  },
+  "Stats": {
+    "Health": 1500,
+    "PassiveDamage": 18.0
+  },
+  "Resource": {
+    "Resources": [
+      {
+        "ClaimCount": 2,
+        "ReclaimCount": 2,
+        "Item": "/Inventory/Items/Res/Bone"
+      },
+      {
+        "ClaimCount": 10,
+        "ReclaimCount": 10,
+        "Item": "/Inventory/Items/Res/Stone"
+      }
+    ]
+  },
+  "Interaction": {
+    "Enable": true,
+    "DefaultInteraction": 0,
+    "Interactions": [
+      {
+        "NextInteraction": 1
+      },
+      {
+        "NextInteraction": 0
+      }
+    ]
+  },
+  "Visual": {
+    "HitPrefab": "Assets/Content/FX/Destruction/WallDamage/PS_Wall_Destruction_Hit",
+    "HitTime": 3.0,
+    "SelfDestructTime": 8.0,
+    "VersionsEnable": false
+  },
+  "Prefab": "Assets/Building/Tier01/Buildings/builderDoorT01Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObject",
+  },
+  "NameLs": {
+    "Key": "#l10n10"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n11"
+  }
+}

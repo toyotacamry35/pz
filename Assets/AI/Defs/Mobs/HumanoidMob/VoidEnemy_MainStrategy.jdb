@@ -1,0 +1,227 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "PULL_RANGE": {
+            "Type": "float",
+            "Value":30
+        },
+    },
+    "Selectors": {
+        "RandomTarget12": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget12",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 12,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+            }
+        },
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        },
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            //Pull
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Not": true,
+                    "Range": "@PULL_RANGE",
+                    "TargetSelectorDef": "$EvadePoint"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": {
+                        "$type": "SpellDef",
+                        "Duration": 8.0,
+                        "IsInfinite": true,
+                        "Words": [
+                            {
+                                "$type": "MoveEffectDef",
+                                "Enabled": true,
+                                "KeepDistance": false,
+                                "KeepDistanceTreshold": 2.0,
+                                "AcceptedRange": 0.2,
+                                "MoveType": "FollowPathToPosition",
+                                "Rotation": "LookAtMoveDirection",
+                                "Modifier": "Run",
+                                "SpeedFactor": 1.0,
+                                "Vec3": {
+                                    "$type": "SpellTargetPoint"
+                                }
+                            }
+                        ]
+                    },
+                    "At": "$EvadePoint"
+                }
+            },
+            //Engage
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 5.0,
+                            "TargetSelectorDef": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 2.5,
+                            "TargetSelectorDef": "$NearestEnemy",
+                            "Not": true
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "EngagementCD",
+                    "CooldownOnFail": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 6,
+                            "Min": 4
+                        }
+                    },
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 6,
+                            "Min": 4
+                        }
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "UseStrategy",
+                                "Strategy": "./VoidEnemy_EngagementAction"
+                            },
+                            {
+                                "$type": "UseStrategy",
+                                "Strategy": "./VoidEnemy_DisengagementAction"
+                            },
+                        ]
+                    },
+                },
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": "$NearestEnemy"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 2.5,
+                            "TargetSelectorDef": "$NearestEnemy"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "Choose",
+                    "Actions": [
+                        {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "Choose",
+                                    "Actions": [
+                                        {
+                                            "$type": "DoWithCooldown",
+                                            "CooldownName": "BackingCD",
+                                            "CooldownOnFail": 2,
+                                            "CooldownOnSuccess": 2,
+                                            "Action": {
+                                                "$type": "DoInSequence",
+                                                "Actions": [
+                                                    {
+                                                        "$type": "UseStrategy",
+                                                        "Strategy": "./VoidEnemy_MeleeRound"
+                                                    },
+                                                    {
+                                                        "$type": "Do",
+                                                        "ResultOnNotDoing": "Succeeded",
+                                                        "ChanceToDo": 0.5,
+                                                        "Action": {
+                                                            "$type": "UseStrategy",
+                                                            "Strategy": "./VoidEnemy_DisengagementAction"
+                                                        },
+                                                    },
+                                                    {
+                                                        "$type": "UseStrategy",
+                                                        "Strategy": "./VoidEnemy_NeutralAction"
+                                                    }                                                    
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "$type": "DoInSequence",
+                                            "Actions": [
+                                                {
+                                                    "$type": "UseStrategy",
+                                                    "Strategy": "./VoidEnemy_DisengagementAction"
+                                                },
+                                                {
+                                                    "$type": "UseStrategy",
+                                                    "Strategy": "./VoidEnemy_NeutralAction"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                               
+                            ]
+                        },
+                    ]
+                },
+            },
+            //Close distance
+            {
+                "$type": "CastSpell",
+                "At": "$NearestEnemy",
+                "Spell": "./Spell_NPC_MoveTarget2"
+            }
+        ]
+    }
+}

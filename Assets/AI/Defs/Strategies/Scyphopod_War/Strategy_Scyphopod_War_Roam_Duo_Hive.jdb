@@ -1,0 +1,201 @@
+{
+ "$type": "Strategy",
+     "Selectors": {
+        "Hive": { // Perceive Hive
+            "$type": "SelectAndRemember",
+            "$id": "Hive",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Hive"
+            }
+        },
+        "RoutePoint": { // Acquire the nearest route point available
+            "$type": "SelectKnown",
+            "$id": "RoutePoint",
+            "Category": "/AI/Defs/Knowledge/RoutePoint",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true,
+            "Filter": {
+                "$type": "Not",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/RecentlyUsed",
+                        "MemoryOfTarget": true,
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            }
+        },
+        "NearestGuard": { // Perceive Ally
+            "$type": "SelectAndRemember",
+            "$id": "NearestGuard",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    }, 
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // CombatState 1 == DummyNode
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemoryOfTarget": true,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "MemorizedStat": "/AI/Defs/Memories/CombatState"
+                    }
+                },
+                "Action": 
+                { // Set time
+                    "$type": "DoForTime",
+                    "Time": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 4.5,
+                            "Min": 2.5
+                        }
+                    },
+                    "Action": {
+                        "$type": "DummyNode"
+                    }
+                }
+            },
+
+            { "$type": "DoIf", // CombatState 0 == Move around
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "TargetOfStat": {
+                                "$type": "Self"
+                            },
+                            "MemorizedStat": "/AI/Defs/Memories/CombatState"
+                        }
+                    }
+                },
+                "Action": 
+                {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { //
+                          "$type": "DoForTime",
+                            "Time": 20, // 20 
+                        /* "$type": "DoWhile",
+                            "Condition": {
+                                "$type": "Has",
+                                "Target": "$RoutePoint"
+                            }, */
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                        "At": "$RoutePoint"
+                                    },
+                                    {
+                                        "$type": "RememberValue",
+                                        "Change": "Set",
+                                        "Flat": 1,
+                                        "Memory": {
+                                            "$type": "Self"
+                                        },
+                                        "ModDef": {
+                                            "$type": "StatModifier",
+                                        },
+                                        "StatDef": "/AI/Defs/Memories/RecentlyUsed",
+                                        "Target": "$RoutePoint",
+                                        "Time": 20 // 20
+                                    },
+                                    { // Else stay
+                                        "$type": "DoForTime",
+                                        "Time": {
+                                            "$type": "CalcerMetric",
+                                            "Calcer": {
+                                                "$type": "CalcerRandom",
+                                                "Max": 3.5,
+                                                "Min": 1.5
+                                            }
+                                        },
+                                        "Action": { // Stay
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Idle",
+                                            "At": {
+                                                "$type": "Self"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        { // Move to Hive
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                            "At": "$Hive"
+                        },
+                        { // Send event and set stat (CombatState == 0)
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_GuardEvent",
+                            "At": "$NearestGuard" 
+                        },
+                        { // Set stat
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/CombatState",
+                            "Time": 40 // 40
+                        },
+                    ]
+                }
+            },
+            { // 3rd Job
+                "$type": "UseStrategy",
+                "Strategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DummyNode"
+                    }
+                }
+            }
+        ]
+    }
+}

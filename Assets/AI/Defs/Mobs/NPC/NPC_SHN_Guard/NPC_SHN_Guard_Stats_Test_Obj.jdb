@@ -1,0 +1,39 @@
+{
+  "$type": "LegionaryEntityDef",
+  "$overrideVars": {
+    "LEGIONARY_TYPE": "./NPC_SHN_Guard_Perception",
+    "START_HEALTH": 1500,
+    "MAX_HEALTH": 1500,
+    "DAMAGE_DEFAULT": 300,
+    "INTERACTIVE_DEF": "./InteractiveDefForRalph_Test_Obj",
+    "DIE_ANIMATION_NAME": "Die",
+    "REACTION_HANDLERS": "/UtilPrefabs/Prototypes/NPC_Reactions",
+    "FX_REACTIONS": "/Character/Events/FXEvents"
+  },
+  "$proto": "/AI/Defs/Mobs/_Prototype/_Prototype_Mob",
+  "CorpseEntityDef": "./NPC_SHN_Guard_Corpse_Definition",
+  "Id" : "a34b5511-6990-485d-915e-f17e3e29fe56",
+  "Prefab": "Assets/AI/Prefabs/Dummy", // заменить
+  "MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/NPC_SHN_Guard_Locomotion",
+  "BankDef": "/UtilPrefabs/Banks/HubBank1",
+  "DefaultDoll": {
+    "Size": 22,
+    "DefaultItems": [
+      {
+        "Slot": "/UtilPrefabs/Slots/WearBody",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/HunterJacket"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearLeg",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/HunterPants"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearFoot",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/HunterBoots"
+      }
+    ]
+  }
+}

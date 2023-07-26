@@ -1,0 +1,43 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Prepare",
+  "Duration": 10.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+    {
+      "$type": "EffectPostVisualEvent",
+      "TriggerName": "/AI/Events/SahrimStompEvent"
+    },
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepare",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepareType",
+          "Value": 2,
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "$type": "BuildRecipeDef",
+  "Id": "4a44b427-73ff-485c-9e2c-52e06e26c6e0",
+  "OrderIndex": 0,
+  "BuildRecipeGroupDef": "/Building/BuildRecipeGroups/FencesBRG",
+  "Tier": 2,
+  "Level": 0,
+  "BlueprintIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeConstructionSiteTierI",
+  "Icon": "Assets/UI/UISprites/Construction/Tier02/i_builderGateT02_80",
+  "Image": "Assets/UI/UISprites/Construction/Tier02/i_builderGateT02",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "DestructionPowerRequired":240,
+  "Type": "Fence",
+  "TimerDef": {
+    "$type": "BuildTimerDef",
+    "BuildTime": 10.0,
+    "BuildTick": 1.0
+  },
+  "ElementDef": {
+    "$type": "FenceElementDef",
+    "Center": {
+      "$type": "Vector3",
+      "x": 0.0,
+      "y": 2.0,
+      "z": 0.0
+    },
+    "Extents": {
+      "$type": "Vector3",
+      "x": 0.3,
+      "y": 2.3,
+      "z": 2.0
+    },
+    "LinkDef": "/Building/Tier02/Fences/builderFencePillarT02",
+    "LinkPoints": [
+      {
+        "InitialLink": true,
+        "AddLink": true,
+        "X": 0.0,
+        "Y": 2.0,
+        "Z": -2.0
+      },
+      {
+        "InitialLink": true,
+        "AddLink": true,
+        "X": 0.0,
+        "Y": 2.0,
+        "Z": 2.0
+      }
+    ]
+  },
+  "Stats": {
+    "Health": 10000.0,
+    "PassiveDamage": 45.0
+  },
+  "Resource": {
+    "Resources": [
+      {
+        "ClaimCount": 15,
+        "ReclaimCount": 15,
+        "Item": "/Inventory/Items/Res/FungalShard"
+      },
+      {
+        "ClaimCount": 3,
+        "ReclaimCount": 3,
+        "Item": "/Inventory/Items/Weapons/Rootstick"
+      }
+    ]
+  },
+  "Interaction": {
+    "Enable": true,
+    "DefaultInteraction": 0,
+    "Interactions": [
+      {
+        "NextInteraction": 1
+      },
+      {
+        "NextInteraction": 0
+      }
+    ]
+  },
+  "Visual": {
+    "HitPrefab": "Assets/Content/FX/Destruction/WallDamage/PS_Wall_Destruction_MassiveHit",
+    "HitTime": 3.0,
+    "SelfDestructTime": 8.0,
+    "VersionsEnable": false
+  },
+  "Prefab": "Assets/Building/Tier02/Fences/builderFenceGateT02Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObject",
+  },
+  "NameLs": {
+    "Key": "#l10n62"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n63"
+  }
+}

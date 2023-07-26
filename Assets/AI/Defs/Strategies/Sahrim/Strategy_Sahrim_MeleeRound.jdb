@@ -1,0 +1,314 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "NearestEnemyFront": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemyFront",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    },
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 16,
+                    "SectorBorderL": 90,
+                    "SectorBorderR": 90,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    },
+                }
+            }
+        },
+        "NearestEnemyFrontClose": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemyFrontClose",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    },
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 6,
+                    "SectorBorderL": 90,
+                    "SectorBorderR": 90,
+                    "BasisSelectorDef": {
+                        "$type": "Self"
+                    },
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "ChargeTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "ChargeTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 45,
+                            "TargetSelectorDef": {
+                                "$type": "Self"
+                            }
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 15,
+                            "Not": true,
+                            "TargetSelectorDef": {
+                                "$type": "Self"
+                            }
+                        }
+                    ]
+                },
+            },
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+            }
+        },
+        "RandomTarget6": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget6",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 6,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+    },
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef",
+        "SubNode": {
+            "$type": "Choose",
+            "Actions": [
+                {
+                    "$type": "ChooseRandom",
+                    "WeightedActions": [
+                        //Stomp/60swipe/50swipe
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 120,
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "DoForTime",
+                                        "Time": 2.95,
+                                        "Action": {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Stomp",
+                                            "At": "$NearestEnemy"
+                                        },
+                                    },
+                                    {
+                                        "$type": "Do",
+                                        "ResultOnNotDoing": "Succeeded",
+                                        "ChanceToDo": 60,
+                                        "Action": {
+                                            "$type": "DoIf",
+                                            "Condition": {
+                                                "$type": "Has",
+                                                "Target": "$NearestEnemyFrontClose"
+                                            },
+                                            "Action": {
+                                                "$type": "DoForTime",
+                                                "Time": 2.55,
+                                                "Action": {
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                                                    "At": "$NearestEnemyFrontClose"
+                                                },
+                                            },
+                                        }
+                                    },
+                                    {
+                                        "$type": "Do",
+                                        "ResultOnNotDoing": "Succeeded",
+                                        "ChanceToDo": 60,
+                                        "Action": {
+                                            "$type": "DoIf",
+                                            "Condition": {
+                                                "$type": "Has",
+                                                "Target": "$NearestEnemyFrontClose"
+                                            },
+                                            "Action": {
+                                                "$type": "DoForTime",
+                                                "Time": 2.55,
+                                                "Action": {
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                                                    "At": "$NearestEnemyFrontClose"
+                                                },
+                                            },
+                                        }
+                                    },
+                                ]
+                            },
+                        },
+                        //Swipe/50Swipe
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 50,
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                                        "At": "$NearestEnemyFrontClose"
+                                    },
+                                    {
+                                        "$type": "Do",
+                                        "ResultOnNotDoing": "Succeeded",
+                                        "ChanceToDo": 50,
+                                        "Action": {
+                                            "$type": "DoIf",
+                                            "Condition": {
+                                                "$type": "Has",
+                                                "Target": "$NearestEnemyFrontClose"
+                                            },
+                                            "Action": {
+                                                "$type": "DoForTime",
+                                                "Time": 2.55,
+                                                "Action": {
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                                                    "At": "$NearestEnemyFrontClose"
+                                                },
+                                            },
+                                        }
+                                    },
+                                ]
+                            },
+                        },
+                        //Spew
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 100,
+                            "Action": {
+                                "$type": "DoWithCooldown",
+                                "CooldownName": "SpewCooldown",
+                                "Action": {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Spew",
+                                    "At": "$NearestEnemy"
+                                },
+                                "CooldownOnSuccess": 13,
+                                "CooldownOnFail": 13,
+                            }
+                        },
+                        //Charge
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 100,
+                            "Action": {
+                                "$type": "DoIf",
+                                "Condition": {
+                                    "$type": "Has",
+                                    "Target": "$ChargeTarget"
+                                },
+                                "Action": {
+                                    "$type": "DoWithCooldown",
+                                    "CooldownOnSuccess": 25,
+                                    "CooldownOnFail": 20,
+                                    "CooldownName": "ChargeCooldown",
+                                    "Action": {
+                                        "$type": "RememberValue",
+                                        "Flat": 1,
+                                        "StatDef": "/AI/Defs/Memories/Charged",
+                                        "Memory": {
+                                            "$type": "Self"
+                                        },
+                                        "Target": {
+                                            "$type": "Self"
+                                        },
+                                        "Change": "Set",
+                                    },
+                                },
+                            },
+                        },
+                        //Tentacles
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 50,
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Rangedattack",
+                                        "At": "$NearestEnemy"
+                                    },
+                                    {
+                                        "$type": "Do",
+                                        "ResultOnNotDoing": "Succeeded",
+                                        "ChanceToDo": 50,
+                                        "Action": {
+                                            "$type": "DoIf",
+                                            "Condition": {
+                                                "$type": "Has",
+                                                "Target": "$NearestEnemyFrontClose"
+                                            },
+                                            "Action": {
+                                                "$type": "DoForTime",
+                                                "Time": 2.55,
+                                                "Action": {
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Swipeattack",
+                                                    "At": "$NearestEnemyFrontClose"
+                                                },
+                                            },
+                                        }
+                                    },
+                                ]
+                            },
+                        }
+                    ],
+                },
+            ]
+        }
+    }
+}

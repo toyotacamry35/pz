@@ -1,0 +1,29 @@
+{
+  "$type": "InteractiveEntityDef",
+  "Id": "f322fc3c-ca79-4c0f-a997-28c65fbc1f97",
+  "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveContainerObj",
+  "Prefab": "Assets/UtilPrefabs/Prototypes/DeadPlayerPawn",
+  "NameLs": {
+    "Key": "#l10n504670"
+  },
+  "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_RaiderSpearI_Corpse",
+  "KnowledgeSelectors": [
+    {
+      "$type": "KnowledgeSelectorDef",
+      "Knowledge": "/Inventory/Knowledge/Corpses/RaiderMeleeICorpseKW",
+      "RewardPoints": [
+        {
+          "TechPoint": "/Inventory/Currencies/TechPointR1",
+          "Count": 16
+        }
+      ],
+      "Predicate": {
+        "$type": "PredicateKnowledgeDef",
+        "Caster": {
+          "$type": "SpellCasterDef"
+        },
+        "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+      }
+    }
+  ]
+}

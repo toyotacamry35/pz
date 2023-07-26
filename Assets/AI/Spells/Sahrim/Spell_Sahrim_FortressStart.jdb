@@ -1,0 +1,88 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Startfortress",
+  "Duration": 3.333,
+  "AllowMultiple": false,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtMoveDirection",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepare",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepareType",
+          "Value": 3,
+        }
+      ]
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 1500.0,
+      "UseClampMin": true,
+      "ClampMin": 1500.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 1500.0,
+      "UseClampMin": true,
+      "ClampMin": 1500.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 1500.0,
+      "UseClampMin": true,
+      "ClampMin": 1500.0
+    }
+  ]
+}

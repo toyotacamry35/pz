@@ -1,0 +1,1224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1002920361250608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4568097109717752}
+  - component: {fileID: 114771830719158204}
+  m_Layer: 0
+  m_Name: DS_HazeZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4568097109717752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002920361250608}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4235232945285264}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114771830719158204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002920361250608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c4d88750e81ac4c919b89df474788f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Context:
+    m_NightItem:
+      airScattering: 0
+      airHeightFalloff: 0.0001
+      hazeScattering: 0
+      hazeHeightFalloff: 0.0001
+      hazeScatteringDir: 0
+      hazeScatteringRatio: 0
+      fogOpacity02: 0.571
+      fogScattering: 8
+      fogExtinction: 0.21
+      fogHeightFalloff: 0.0252
+      fogDistance: 0
+      fogHeight: 33
+      fogScatteringDir: -0.439
+      fogAmbient: {r: 0.17644179, g: 0.42436245, b: 0.6132076, a: 0}
+      fogLight: {r: 0.0047169924, g: 0.59017766, b: 1, a: 0}
+      fogHorizon: {r: 0, g: 0, b: 0, a: 0}
+      fogColor: {r: 0, g: 0, b: 0, a: 0}
+      fogDensity: 0.00886
+      fogAlpha: 0.563
+      isCave: 0
+      caveAmbient: 0
+    m_ComplexItem:
+      m_DayName: 0
+      nightTimePercentBaked: 0.25
+      airScattering:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 3.6
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1376049
+            value: 2
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.18614246
+            value: 0.15
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.498503
+            value: 1.9613374
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.86765957
+            value: 0.2
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 3.6
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 3.5413241
+        parts: []
+      airHeightFalloff:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0025
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.0025
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.0025
+        parts: []
+      hazeScattering:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.068182565
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.14089254
+            value: 2
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.21676794
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.81897765
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.856689
+            value: 1.9978027
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95958084
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 1
+        parts: []
+      hazeHeightFalloff:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.005
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.041371338
+            value: 0.015004496
+            inSlope: 0.0003393851
+            outSlope: 0.0003393851
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.0841585
+            value: 0.015030517
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.13278237
+            value: 0.0015680346
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.28378057
+            value: 0.014816894
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.7090716
+            value: 0.015
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.83187896
+            value: 0.0012136231
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8835329
+            value: 0.005
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.005
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.008273175
+        parts: []
+      hazeScatteringDir:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.9
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0.9
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.9
+        parts: []
+      hazeScatteringRatio:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.7
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0.7
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.7
+        parts: []
+      fogOpacity02:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.9230213
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.33601046
+            value: 0.90570956
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.49927366
+            value: 0.8999126
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.5
+            value: 0.8999126
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7916667
+            value: 0.9058632
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.93585074
+            value: 0.92
+            inSlope: 0.1393324
+            outSlope: 0.1393324
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.5529237
+          - serializedVersion: 3
+            time: 1
+            value: 0.92302126
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.9229096
+        parts: []
+      fogScattering:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 3.77
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 3.77
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 3.77
+        parts: []
+      fogExtinction:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 5.3601575
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.23084669
+            value: 2.6708717
+            inSlope: -10.9147625
+            outSlope: -10.9147625
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.15459
+          - serializedVersion: 3
+            time: 0.5
+            value: 1.5577583
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6666667
+            value: 0.78
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7916667
+            value: 3.9342237
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 5.367157
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 5.334979
+        parts: []
+      fogHeightFalloff:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.016
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.07704847
+            value: 0.02177
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2
+            value: 0.017937053
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6646236
+            value: 0.0551
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8
+            value: 0.0167
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.9
+            value: 0.016817769
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.9981493
+            value: 0.016
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.016630853
+        parts: []
+      fogDistance:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.01
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.33601046
+            value: 0.03308282
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.49926758
+            value: 0.060085654
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.66248816
+            value: 0.069
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7916667
+            value: 0.023508307
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.98471177
+            value: 0.01
+            inSlope: -0.069974884
+            outSlope: -0.069974884
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.010148932
+        parts: []
+      fogHeight:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: -20
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.2
+            value: -20
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.66248816
+            value: 70
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8
+            value: -20
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: -20
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: -20
+        parts: []
+      fogScatteringDir:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.49925914
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.51384836
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0
+        parts: []
+      fogAmbient:
+        use: 0
+        gradient:
+          keys:
+          - colour: {r: 0, g: 0.06873317, b: 0.16037738, a: 1}
+            time: 0
+          - colour: {r: 0, g: 0.06873317, b: 0.16037738, a: 1}
+            time: 0.088887885
+          - colour: {r: 0.007164475, g: 0.073772974, b: 0.21698111, a: 1}
+            time: 0.12307553
+          - colour: {r: 0, g: 0.10400259, b: 0.4339623, a: 1}
+            time: 0.43014818
+          - colour: {r: 1.1774653, g: 1.5358536, b: 1.6981132, a: 1}
+            time: 0.47629085
+          - colour: {r: 0.578109, g: 1.6573979, b: 2.009166, a: 1}
+            time: 0.50142246
+          - colour: {r: 1.1239765, g: 1.3398138, b: 1.3773584, a: 1}
+            time: 0.5293992
+          - colour: {r: 0.25420007, g: 0.19607842, b: 0.5568628, a: 1}
+            time: 0.5527219
+          - colour: {r: 0.115686275, g: 0.14901961, b: 0.29803923, a: 1}
+            time: 0.8703728
+          - colour: {r: 0.056381255, g: 0.058312546, b: 0.066037714, a: 1}
+            time: 0.9142201
+          - colour: {r: 0, g: 0.06873317, b: 0.16037738, a: 1}
+            time: 1
+        color: {r: 0.1254902, g: 0.1882353, b: 0.3137255, a: 1}
+        parts: []
+      fogLight:
+        use: 1
+        gradient:
+          keys:
+          - colour: {r: 0, g: 0, b: 0, a: 1}
+            time: 0
+          - colour: {r: 0.08477215, g: 0.10895524, b: 0.14150941, a: 1}
+            time: 0.087878786
+          - colour: {r: 0.4991342, g: 1.1424627, b: 1.4142135, a: 1}
+            time: 0.11717172
+          - colour: {r: 0.8164055, g: 1.045782, b: 1.1291916, a: 1}
+            time: 0.14646465
+          - colour: {r: 1.4144977, g: 1.0654716, b: 0.88739717, a: 1}
+            time: 0.21313131
+          - colour: {r: 1.392965, g: 3.9509146, b: 6.2831616, a: 1}
+            time: 0.34646463
+          - colour: {r: 6.4156895, g: 4.7102656, b: 3.9135706, a: 1}
+            time: 0.5030303
+          - colour: {r: 6.4156895, g: 4.7102656, b: 3.9135706, a: 1}
+            time: 0.64444447
+          - colour: {r: 3.1069682, g: 2.9134932, b: 4.924577, a: 1}
+            time: 0.69595957
+          - colour: {r: 1.2023244, g: 1.086545, b: 1.7010664, a: 1}
+            time: 0.7848485
+          - colour: {r: 0.43173727, g: 0.5373352, b: 0.92452836, a: 1}
+            time: 0.8703728
+          - colour: {r: 0.14117648, g: 0.34509805, b: 0.61960787, a: 1}
+            time: 0.92424244
+          - colour: {r: 0.08477215, g: 0.10895524, b: 0.14150941, a: 1}
+            time: 0.9658123
+          - colour: {r: 0, g: 0, b: 0, a: 1}
+            time: 1
+        color: {r: 0.0152736455, g: 0.019630784, b: 0.025496164, a: 1}
+        parts: []
+      fogHorizon:
+        use: 1
+        gradient:
+          keys:
+          - colour: {r: 0.08477215, g: 0.10895524, b: 0.14150941, a: 1}
+            time: 0
+          - colour: {r: 0.07289071, g: 0.11420112, b: 0.16981131, a: 1}
+            time: 0.08826629
+          - colour: {r: 0.13267802, g: 0.43762764, b: 0.56700003, a: 1}
+            time: 0.123697124
+          - colour: {r: 1.3058786, g: 0.63480985, b: 0.28951082, a: 1}
+            time: 0.15656565
+          - colour: {r: 1.3275862, g: 1.0819888, b: 0.9556165, a: 1}
+            time: 0.23434344
+          - colour: {r: 1.3401165, g: 1.3401165, b: 1.3401165, a: 1}
+            time: 0.35252526
+          - colour: {r: 1.3401165, g: 1.3401165, b: 1.3401165, a: 1}
+            time: 0.50173867
+          - colour: {r: 1.3401165, g: 1.3401165, b: 1.3401165, a: 1}
+            time: 0.65050507
+          - colour: {r: 0.40906247, g: 0.39, b: 1, a: 1}
+            time: 0.7585859
+          - colour: {r: 1, g: 0.15294118, b: 0, a: 1}
+            time: 0.87474746
+          - colour: {r: 0.14117648, g: 0.34509805, b: 0.61960787, a: 1}
+            time: 0.8959596
+          - colour: {r: 0.08477215, g: 0.10895524, b: 0.14150941, a: 1}
+            time: 1
+        color: {r: 0.082640834, g: 0.10989626, b: 0.14658627, a: 1}
+        parts: []
+      fogColor:
+        use: 1
+        gradient:
+          keys:
+          - colour: {r: 0, g: 0, b: 0, a: 1}
+            time: 0
+          - colour: {r: 0.011612245, g: 0.012286487, b: 0.029556843, a: 1}
+            time: 0.10629251
+          - colour: {r: 0.090468146, g: 0.11206258, b: 0.1792453, a: 1}
+            time: 0.13232324
+          - colour: {r: 0.18934375, g: 0.19971874, b: 0.249, a: 1}
+            time: 0.17777778
+          - colour: {r: 0.4753076, g: 0.38748237, b: 0.5411765, a: 1}
+            time: 0.25454545
+          - colour: {r: 0.36129603, g: 1.123483, b: 1.5439999, a: 1}
+            time: 0.35353535
+          - colour: {r: 0, g: 1.1193213, b: 1.4980392, a: 1}
+            time: 0.4919192
+          - colour: {r: 0.4048533, g: 0.98717654, b: 1.4142135, a: 1}
+            time: 0.64747477
+          - colour: {r: 0.54565036, g: 0.8487894, b: 1.286657, a: 1}
+            time: 0.7030303
+          - colour: {r: 0.26078433, g: 0.23333333, b: 0.39019608, a: 1}
+            time: 0.7868687
+          - colour: {r: 0.05882353, g: 0.07450981, b: 0.14901961, a: 1}
+            time: 0.8756813
+          - colour: {r: 0.056381255, g: 0.058312546, b: 0.066037714, a: 1}
+            time: 0.9272736
+          - colour: {r: 0, g: 0, b: 0, a: 1}
+            time: 1
+        color: {r: 0.001729765, g: 0.0018302003, b: 0.0044028, a: 1}
+        parts: []
+      fogDensity:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0035
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.14914694
+            value: 0.0049234214
+            inSlope: -0.011879078
+            outSlope: -0.011879078
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.17338511
+          - serializedVersion: 3
+            time: 0.3
+            value: 0.0039997743
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.5
+            value: 0.002229982
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.9705498
+            value: 0.004109961
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0.0035
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.0035625668
+        parts: []
+      fogAlpha:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.96
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.10629251
+            value: 0.944
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.5102371
+            value: 0.96
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.969306
+            value: 0.571
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0.96026206
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.95904064
+        parts: []
+      isCave: 0
+      caveAmbient:
+        use: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.4
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.07606045
+            value: 0.4
+            inSlope: -7.830157
+            outSlope: -7.830157
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33627436
+          - serializedVersion: 3
+            time: 0.15339491
+            value: 0.4
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2445141
+            value: 0.5
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.32896835
+            value: 0.65
+            inSlope: 2.0981858
+            outSlope: 2.0981858
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5
+            value: 0.65
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6677747
+            value: 0.5437464
+            inSlope: -2.67754
+            outSlope: -2.67754
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 1
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.76796556
+            value: 0.45
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.827107
+            value: 0.45
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8910504
+            value: 1.2258608
+            inSlope: 6.0817466
+            outSlope: 6.0817466
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.23355973
+            outWeight: 1
+          - serializedVersion: 3
+            time: 1
+            value: 0.4
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        value: 0.6526731
+        parts: []
+  m_WaitingToLoad: {fileID: 0}
+  defaultPreset: {fileID: 11400000, guid: 279a034b0c4e1d14fa8cadda6314cd68, type: 2}
+--- !u!1 &1385695286195956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4235232945285264}
+  - component: {fileID: 114031794807320686}
+  m_Layer: 0
+  m_Name: DS_HazeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4235232945285264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385695286195956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 67.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4568097109717752}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114031794807320686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385695286195956}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497f0ef0b668ff74981a763d7fc5af99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current:
+    airScattering: 0
+    airHeightFalloff: 0
+    hazeScattering: 0
+    hazeHeightFalloff: 0
+    hazeScatteringDir: 0
+    hazeScatteringRatio: 0
+    fogOpacity02: 0
+    fogScattering: 0
+    fogExtinction: 0
+    fogHeightFalloff: 0
+    fogDistance: 0
+    fogHeight: 0
+    fogScatteringDir: 0
+    fogAmbient: {r: 0, g: 0, b: 0, a: 0}
+    fogLight: {r: 0, g: 0, b: 0, a: 0}
+    fogHorizon: {r: 0, g: 0, b: 0, a: 0}
+    fogColor: {r: 0, g: 0, b: 0, a: 0}
+    fogDensity: 0
+    fogAlpha: 0
+    isCave: 0
+    caveAmbient: 0
+  hazeColor: {r: 2.1415846, g: 1.9556541, b: 1.6014979, a: 1}
+  hazeIntensity: 0.65243
+  hazeDirectIntensity: 1
+  m_Time: 0.23712373
+  mainPreset: {fileID: 114771830719158204}
+  m_DebugGUIPosition: 2
+  m_NoiseLUT: {fileID: 11700000, guid: e5d468c82a19a13439dc72960dea97c1, type: 2}
+  m_ShowDebugGUI: 0

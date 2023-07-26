@@ -1,0 +1,83 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "InterestingStuff": { //some interesting resourse
+            "$type": "SelectAndRemember",
+            "$id": "InterestingStuff",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/InterestingStuff",
+                "Filter": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemorizedStat": "/AI/Defs/Memories/LookPoints",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoIf",
+        "Condition": { //if has some interesting resourse
+            "$type": "Has",
+            "Target": "$InterestingStuff"
+        },
+        "Action": {
+            "$type": "DoInSequence",
+            "Actions": [
+                { //go to resourse
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                    "At": "$InterestingStuff"
+                },
+                 /*{ // Open
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Open",
+                    "At": {
+                        "$type": "Self"
+                    }
+                },*/
+                { //explore resourse
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Explore",
+                    "At": "$InterestingStuff"
+                },
+                /*{ // Watch
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Look",
+                    "At": "$InterestingStuff"
+                },*/
+                { // remember about exploring
+                    "$type": "RememberValue",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "Memory": {
+                        "$type": "Self"
+                    },
+                    "StatDef": "/AI/Defs/Memories/LookPoints",
+                    "ModDef": {
+                        "$type": "StatModifier",
+                    },
+                    "Target": "$InterestingStuff",
+                    "Time": 30
+                },
+                /*{ // Close
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Close",
+                    "At": {
+                        "$type": "Self"
+                    }
+                },*/
+            ]
+        }
+    }
+}

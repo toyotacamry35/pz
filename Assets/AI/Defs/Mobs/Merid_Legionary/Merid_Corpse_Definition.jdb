@@ -1,0 +1,49 @@
+{
+    "$type": "InteractiveEntityDef",
+    "Id": "166c8d97-26d4-4a4c-ae9c-98b5a867d57b",
+    "PrefabDef": "/UtilPrefabs/Res/Prototypes/InteractiveKnowledgeObj",
+    "Prefab": "Assets/AI/Prefabs/Corpses/Merid_Corpse",
+    "LegionType": "/AI/Defs/Legions/Corpses/Merid_Corpse_Legion",
+    "DefaultLootTable": "/UtilPrefabs/Res/Prototypes/LootTables/Corpses/LootTable_Merid_Corpse",
+    "LifeSpanSec": 600,
+    "DoOnExpired": "Destroy",
+    "NameLs": {
+        "Key": "#l10n2899"
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/MeridCorpseKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 8
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "/Inventory/Knowledge/Corpses/MeridCorpseNaturExpKW",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ]
+}

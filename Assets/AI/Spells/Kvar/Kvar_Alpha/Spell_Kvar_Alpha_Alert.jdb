@@ -1,0 +1,34 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_Alpha_Alert",
+    "Duration": 2.5,
+    "Words": [
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Social"
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/SocialType",
+                    "Value": 1
+                }
+            ]
+        },
+        {
+            "$type": "ImpactRaiseTargetedEvent",
+            "Enabled": true,
+            "From": {
+              "$type": "SpellCaster"
+            },
+            "Target": {
+              "$type": "SpellCaster"
+            },
+            "Radius": 100,
+            "PathToEventStatisDataType": "/AI/Events/Event_Kvar_Alpha_Call",
+            "WhenToApply": "OnStart"
+        }
+    ]
+}

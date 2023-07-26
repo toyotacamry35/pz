@@ -1,0 +1,17 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            //Бежать в случайную точку в радиусе N метров до M секунд
+            {
+                "$type": "MoveBotDef",
+                "TimeoutSeconds": 3,
+                "Target": {
+                    "$type": "RandomPointTargetSelector",
+                    "InRange": 10
+                }
+            }
+        ]
+    }
+}

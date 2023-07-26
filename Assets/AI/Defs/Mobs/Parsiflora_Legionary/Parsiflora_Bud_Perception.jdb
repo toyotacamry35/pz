@@ -1,0 +1,33 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Parsiflora_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Parsiflora/Strategy_Parsiflora_Bud_Base",
+        "KnowledgeSources": [
+            { //know about all visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { //Player as Threat
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                }
+            }
+        ],
+        //Handlers
+        "EventHandlers": []
+    }
+}

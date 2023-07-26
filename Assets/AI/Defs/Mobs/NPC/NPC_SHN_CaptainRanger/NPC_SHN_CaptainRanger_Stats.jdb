@@ -1,0 +1,44 @@
+{
+  "$type": "LegionaryEntityDef",
+  "$overrideVars": {
+    "LEGIONARY_TYPE": "./NPC_SHN_CaptainRanger_Perception",
+    "START_HEALTH": 1500,
+    "MAX_HEALTH": 1500,
+    "DAMAGE_DEFAULT": 300,
+    "INCOMING_DAMAGE_MOD": -1,
+    "INTERACTIVE_DEF": "./InteractiveDefForNPC",
+    "DIE_ANIMATION_NAME": "Die",
+    "REACTION_HANDLERS": "/UtilPrefabs/Prototypes/NPC_Reactions",
+    "FACTION": "/Inventory/Factions/NPC"
+  },
+  "$proto": "/AI/Defs/Mobs/_Prototype/_Prototype_Mob",
+  "CorpseEntityDef": "./NPC_SHN_CaptainRanger_Corpse_Definition",
+  "Id": "c7ba74c5-faaf-42bc-83f0-164a9be3a69a",
+  "Prefab": "Assets/AI/Prefabs/Dummy", // заменить
+  "NameLs": {
+    "Key": "#l10n4683"
+  }, //Капитан Эванс
+  "HasNpcMarker": true,
+  "MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/NPC_SHN_Guard_Locomotion",
+  "DefaultDoll": {
+    "Size": 22,
+    "DefaultItems": [
+     
+      {
+        "Slot": "/UtilPrefabs/Slots/WearBody",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/ReinforcedJacket"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearLeg",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/CombatPants"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearFoot",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/CombatBoots"
+      }
+    ]
+  }
+}

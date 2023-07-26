@@ -1,0 +1,66 @@
+{
+  "$type": "BuildRecipeDef",
+  "Id": "0a4925f4-6df5-40a7-be84-50e3be3995f9",
+  "OrderIndex": 1,
+  "BuildRecipeGroupDef": "/Building/BuildRecipeGroups/BasesBRG",
+  "Tier": 1,
+  "Level": 0,
+  "BlueprintIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeConstructionSiteTierI",
+  "Icon": "Assets/UI/UISprites/Construction/Tier01/i_builderFloorCornerT01_80",
+  "Image": "Assets/UI/UISprites/Construction/Tier01/i_builderFloorCornerT01",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "DestructionPowerRequired":190,
+  "Type": "Building",
+  "TimerDef": {
+    "$type": "BuildTimerDef",
+    "BuildTime": 10.0,
+    "BuildTick": 1.0
+  },
+  "ElementDef": {
+    "$type": "BuildingElementDef",
+    "Type": "Center",
+    "Weight": 0.0,
+    "SupportWeight": 0.0,
+    "CanBuildOnGround": true,
+    "BlockFace": 118,
+    "BlockEdge": 223078,
+    "BlockEdgeDouble": 131072,
+    "BlockEdgeRequired": 131072,
+    "MinBlockEdgeCount": 4,
+    "HasSide": true
+  },
+  "Stats": {
+    "Health": 2000,
+    "PassiveDamage": 18.0
+  },
+  "Resource": {
+    "Resources": [
+      {
+        "ClaimCount": 2,
+        "ReclaimCount": 2,
+        "Item": "/Inventory/Items/Res/Bone"
+      },
+      {
+        "ClaimCount": 10,
+        "ReclaimCount": 10,
+        "Item": "/Inventory/Items/Res/Stone"
+      }
+    ]
+  },
+  "Visual": {
+    "HitPrefab": "Assets/Content/FX/Destruction/WallDamage/PS_Wall_Destruction_MassiveHit",
+    "HitTime": 3.0,
+    "SelfDestructTime": 8.0,
+    "VersionsEnable": false
+  },
+  "Prefab": "Assets/Building/Tier01/Buildings/builderFloorCornerT01Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObject",
+  },
+  "NameLs": {
+    "Key": "#l10n12"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n13"
+  }
+}

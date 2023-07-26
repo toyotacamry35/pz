@@ -1,0 +1,39 @@
+{
+    "$type": "FXEvents",
+    "FXEvents": [
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "ON_HIT_SOUNDEFFECT": "YuttDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HitSoundFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "FX": "Assets/Content/FX/Creatures/Yutt/OnDamage/PS_Yutt_OnDamage_Light"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HardHitFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "FX": "Assets/Content/FX/Creatures/Yutt/OnDamage/PS_Yutt_OnDamage_Light"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_SimpleHitFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/YuttDrinkEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceParentedFX",
+                        "FX": "Assets/Content/FX/Creatures/Yutt/Drink/PS_Yutt_Drink",
+                        "Parent": { "$type": "Value<string>", "Value": "Head_M" }
+                    }
+                ]
+            }
+        }
+    ]
+}

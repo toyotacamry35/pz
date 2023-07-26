@@ -1,0 +1,204 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        },
+        "Threat": {
+            "$type": "SelectAndRemember",
+            "$id": "Threat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Ally": {
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Alerted": {
+            "$type": "SelectAndRemember",
+            "$id": "Alerted",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Alerted",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 6.5,
+                            "SectorBorderL": -90,
+                            "SectorBorderR": 90,
+                            "TargetSelectorDef": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 3,
+                            "TargetSelectorDef": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "RememberValue",
+                            "ModDef": {
+                                "$type": "StatModifier"
+                            },
+                            "Change": "Set",
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "TargetLegion",
+                                "TargetSelector": {
+                                    "$type": "Self"
+                                }
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Alerted",
+                            "Time": 3
+                        },
+                        {
+                            "$type": "DoForTime",
+                            "Time": 3,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kso/Spell_Kso_RunFromTarget",
+                                "At": "$Threat"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 5,
+                    "TargetSelectorDef": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Alerted"
+                    }
+                },
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": 1.5,
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kso/Spell_Kso_RunFromTarget",
+                        "At": "$Alerted"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Not": true,
+                    "Range": 4,
+                    "TargetSelectorDef": "$Ally"
+                },
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": 2,
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                        "At": "$Ally"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 30,
+                            "TargetSelectorDef": "$EvadePoint"
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/FreeMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": 10,
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                        "At": "$EvadePoint"
+                    }
+                }
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+            }
+        ]
+    }
+}

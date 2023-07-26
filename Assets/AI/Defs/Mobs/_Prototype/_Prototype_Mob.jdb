@@ -1,0 +1,296 @@
+{
+    "$type": "LegionaryEntityDef",
+    "$vars": {
+        "DAMAGE_DEFAULT": {
+            "Type": "float",
+            "Value": 75
+        },
+        "DAMAGE_TYPE": {
+            "Type": "DamageTypeDef",
+            "Value": "/UtilPrefabs/DamageTypes/DTSlashing"
+        },
+        "HEALTH_DEFAULT_REGEN": {
+            "Type": "float",
+            "Value": 0.5
+        },
+        "IMPACT_FORCE": {
+            "Type": "float",
+            "Value": 5
+        },
+        "IS_GROUNDED_DFLT": {
+            "Type": "bool",
+            "Value": "true"
+        },
+        "LEGIONARY_TYPE": {
+            "Type": "SpatialLegionaryDef",
+            "Value": "/AI/Defs/Mobs/Kvar_Legionary/Kvar_Perception"
+        },
+        "MAX_HEALTH": {
+            "Type": "float",
+            "Value": 1250
+        },
+        "SENSES_RANGE": {
+            "Type": "float",
+            "Value": 20
+        },
+        "START_HEALTH": {
+            "Type": "float",
+            "Value": 1250
+        },
+        "SYNC_ROTATION_BY_NETWORK_TRANSFORM": {
+            "Type": "bool",
+            "Value": "false"
+        },
+        "CORPSE_ENTITY_DEF": {
+            "Type": "InteractiveEntityDef",
+            "Value": "./PlaceholderCorpseEntityDefinition"
+        },
+        "OBJECT_TYPE": {
+            "Type": "StatisticType",
+            "Value": "/Inventory/Statistic/ObjectType/Mob"
+        },
+        "FX_REACTIONS": {
+            "Type": "FXEvents",
+            "Value": "/AI/Events/DefaultMobFXEvents"
+        },
+        "PASSIVE_DAMAGE": {
+            "Type": "float",
+            "Value": 5
+        },
+        "INTERACTIVE_DEF": {
+            "Type": "InteractiveDef",
+            "Value": "./DummyInteractiveDef"
+        },
+        "DIE_ANIMATION_NAME": {
+            "Type": "string",
+            "Value": "Death"
+        },
+        "REACTION_HANDLERS": {
+            "Type": "ReactionsDef",
+            "Value": "/AI/Defs/Mobs/_Prototype/Mob_Reactions"
+        },
+        "RESISTANCE_CUTTING": {
+            "Type": "float",
+            "Value": 0
+        },
+        "RESISTANCE_SLASHING": {
+            "Type": "float",
+            "Value": 0
+        },
+        "RESISTANCE_CRUSHING": {
+            "Type": "float",
+            "Value": 0
+        },
+        "RESISTANCE_PIERCING": {
+            "Type": "float",
+            "Value": 0
+        },
+        "INCOMING_DAMAGE_MOD": {
+            "Type": "float",
+            "Value": 0
+        },
+        "FACTION": {
+            "Type": "Faction",
+            "Value": "/Inventory/Factions/Mob"
+        },
+        "HIT_MATERIAL": {
+            "Type": "HitMaterial",
+            "Value": "/UtilPrefabs/HitMaterials/Flesh"
+        }
+    },
+    "Id": "451a5b78-f4bd-4bfc-a1d3-01ec5edfffbf",
+    "CommonSenses": [
+        {
+            "$type": "SpatialKnowledgeSourceDef",
+            "Category": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+            "FeedName": "Vision",
+            "FeedRange": "@SENSES_RANGE"
+        }
+    ],
+    "Faction": "@FACTION",
+    "LegionaryDef": "@LEGIONARY_TYPE",
+    "Stats": {
+        "$type": "StatsDef",
+        "Id": "f0985e50-2b87-4d3e-a1e6-5a6c05345539",
+        "MeanTimeToCheckCalcers": 2,
+        "Stats": [
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/DodgeBlock",
+                "InitialValue": -0.5
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/Block/BlockActive",
+                "InitialValue": 0.0
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrentRegen",
+                "InitialValue": "@HEALTH_DEFAULT_REGEN",
+                "LimitMinDefault": 0
+            },
+            {
+                "$type": "TimeStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Health/HealthCurrent",
+                "ChangeRateStat": "/UtilPrefabs/Stats/Health/HealthCurrentRegen",
+                "LimitMaxDefault": "@MAX_HEALTH",
+                "InitialValue": "@START_HEALTH",
+                "IsBroadcasted": true
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Mobs/FreeMob",
+                "InitialValue": 0,
+                "LimitMinDefault": 0
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Mobs/PassiveMob",
+                "InitialValue": 0,
+                "LimitMinDefault": 0
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Mobs/InUse",
+                "InitialValue": 0,
+                "LimitMinDefault": 0,
+                "IsBroadcasted": true
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Mobs/Staggered",
+                "InitialValue": 0,
+                "LimitMinDefault": 0
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Mobs/DodgeRestricted",
+                "InitialValue": 0,
+                "LimitMinDefault": 0
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod",
+                "InitialValue": 0
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/DamageMods/MiningLootMultiplier",
+                "InitialValue": 1.0
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCutting",
+                "InitialValue": "@RESISTANCE_CUTTING"
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+                "InitialValue": "@RESISTANCE_SLASHING"
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+                "InitialValue": "@RESISTANCE_CRUSHING"
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+                "InitialValue": "@RESISTANCE_PIERCING"
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceGeneric",
+                "InitialValue": 0.0
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/DamageMods/IncomingDamageMod",
+                "InitialValue": "@INCOMING_DAMAGE_MOD"
+            },
+            {
+                "$type": "AccumulatedStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Combat/Stagger/Stability",
+                "InitialValue": 0.0
+            },
+            {
+                "$type": "TimeStatDef",
+                "StatResource": "/UtilPrefabs/Stats/Stamina/StaminaCurrent",
+                "ChangeRateCalcer": 10000,
+                "LimitMaxDefault": 10000000.0,
+                "InitialValue": 100000000.0,
+                "LimitMinDefault": 0
+            }
+        ]
+    },
+    "CorpseEntityDef": "@CORPSE_ENTITY_DEF",
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        "Damage": "@DAMAGE_DEFAULT",
+        "DamageType": "@DAMAGE_TYPE",
+        "HitMaterial": "@HIT_MATERIAL",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": "@PASSIVE_DAMAGE"
+            }
+        ]
+    },
+    "ObjectType": "@OBJECT_TYPE",
+    "BackwardDamageMultiplier": 1,
+    "ForwardDamageMultiplier": 1,
+    "SideDamageMultiplier": 1,
+    "DestructionPowerRequired": 1,
+    "ReactionHandlers": "@REACTION_HANDLERS",
+    "Prefab": "Assets/AI/Prefabs/Kvar",
+    "PrefabDef": {
+        "$type": "UnityGameObjectDef",
+        "Components": [
+            {
+                "$type": "DebugSpellDrawerDef"
+            },
+            {
+                "$type": "EntityGameObject"
+            },
+            {
+                "$type": "InvestigatorProxy"
+            },
+            {
+                "$type": "VisualEventProxy",
+                "Events": "@FX_REACTIONS"
+            },
+            {
+                "$type": "DirectMotionProducerDef",
+                "$id": "DirectMotionProducer"
+            },
+            {
+                //#Possible order matters: `Pawn` should precede `DeathResurrectHandlerDef`
+                "$type": "Pawn",
+                "$id": "Pawn",
+                "ReuseExisting": true,
+                "IsControlledByServer": true,
+                "IsGrounded": "@IS_GROUNDED_DFLT",
+                "SyncRotationByNetworkTransform": "@SYNC_ROTATION_BY_NETWORK_TRANSFORM",
+                "DirectMotionProducer": "$DirectMotionProducer"
+            },
+            {
+                "$type": "UnityComponentsFromDefProxyInitializerDef",
+                "NavMeshAgentStoppingDistance": 0.1
+            },
+            {
+                "$type": "MortalObjectComponentDef"
+            },
+            "@INTERACTIVE_DEF",
+            {
+                //#Possible order matters: `Pawn` should precede `DeathResurrectHandlerDef`
+                "$type": "DeathResurrectHandlerDef",
+                "PlayAnimation": "@DIE_ANIMATION_NAME"
+            },
+            {
+                "$type": "TmpPlugEntityApiEgoComponentRetransatorDef"
+            }
+        ]
+    },
+    "MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/Kvar_Locomotion", ///#PZ-6613: временная заплатка. Нужно убрать отсюда эту строку и добавить в файл "Xxx_Stats" кажд.моба такую же со ссылкой на его личн.файл настроек Locomotion.
+}

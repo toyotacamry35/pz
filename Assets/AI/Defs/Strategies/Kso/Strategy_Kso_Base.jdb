@@ -1,0 +1,336 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        },
+        "Threat": {
+            "$type": "SelectAndRemember",
+            "$id": "Threat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Alerted": {
+            "$type": "SelectAndRemember",
+            "$id": "Alerted",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Alerted",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 3,
+                            "InverseSector": true,
+                            "SectorBorderL": -90,
+                            "SectorBorderR": 90,
+                            "TargetSelectorDef": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        },
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 1.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Staggered",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "RememberValue",
+                            "ModDef": {
+                                "$type": "StatModifier"
+                            },
+                            "Change": "Set",
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "TargetLegion",
+                                "TargetSelector": {
+                                    "$type": "Self"
+                                }
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Alerted",
+                            "Time": 4
+                        },
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "Rage_CD",
+                            "CooldownOnFail": 2,
+                            "CooldownOnSuccess": 8,
+                            "Action": {
+                                "$type": "Do",
+                                "ChanceToDo": 0.75,
+                                "ResultOnNotDoing": "Succeeded",
+                                "Action": {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Kso/Spell_Kso_Attack_Rage",
+                                    "At": "$Threat"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 4,
+                                    "Min": 2
+                                }
+                            },
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kso/Spell_Kso_RunFromTarget",
+                                "At": "$Threat"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 3,
+                    "InverseSector": true,
+                    "SectorBorderL": -90,
+                    "SectorBorderR": 90,
+                    "TargetSelectorDef": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Threat"
+                    }
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "Kick_CD",
+                    "CooldownOnFail": 2.0,
+                    "CooldownOnSuccess": 4.0,
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kso/Spell_Kso_Attack_Kick",
+                        "At": "$Threat"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 7,
+                            "SectorBorderL": -90,
+                            "SectorBorderR": 90,
+                            "TargetSelectorDef": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 3,
+                            "TargetSelectorDef": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "RememberValue",
+                            "ModDef": {
+                                "$type": "StatModifier"
+                            },
+                            "Change": "Set",
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "TargetLegion",
+                                "TargetSelector": {
+                                    "$type": "Self"
+                                }
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Alerted",
+                            "Time": 2
+                        },
+                        {
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Min": 0.2,
+                                    "Max": 0.8
+                                }
+                            },
+                            "Action": {
+                                "$type": "DummyNode"
+                            }
+                        },
+                        {
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 4,
+                                    "Min": 2
+                                }
+                            },
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kso/Spell_Kso_RunFromTarget",
+                                "At": "$Threat"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 5,
+                    "TargetSelectorDef": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Alerted"
+                    }
+                },
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 2.5,
+                            "Min": 1.5
+                        }
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kso/Spell_Kso_RunFromTarget",
+                        "At": "$Alerted"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 30,
+                            "TargetSelectorDef": "$EvadePoint"
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CalcerMetric",
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "Calcer": {
+                                        "$type": "CalcerStat",
+                                        "Stat": "/UtilPrefabs/Stats/Mobs/FreeMob"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 12,
+                            "Min": 6
+                        }
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "DoForTime",
+                                "Time": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Min": 1.5,
+                                        "Max": 3
+                                    }
+                                },
+                                "Action": {
+                                    "$type": "DummyNode"
+                                }
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                                "At": "$EvadePoint"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+            }
+        ]
+    }
+}

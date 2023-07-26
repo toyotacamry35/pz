@@ -1,0 +1,39 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Merid_DestroyObject",
+  "Duration": 5.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactDieDef",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "WhenToApply": "OnSuccess",
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.2,
+      "AcceptedRange": 0.5,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Modifier": "Run",
+      "SpeedFactor": 0.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    }
+  ]
+}

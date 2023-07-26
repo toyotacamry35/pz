@@ -1,0 +1,91 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 15,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemy2": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy2",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Enemy2",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestThreat": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestThreat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoIf",
+        "Action": {
+            "$type": "Choose",
+            "Actions": [
+                {
+                    "$type": "CastSpell",
+                    "At": "$NearestEnemy",
+                    "Spell": "/AI/Spells/ClanMob/Spell_ClanMob_Retreat"
+                },
+                {
+                    "$type": "CastSpell",
+                    "At": "$NearestEnemy2",
+                    "Spell": "/AI/Spells/ClanMob/Spell_ClanMob_Slow"
+                },
+                {
+                    "$type": "CastSpell",
+                    "At": "$NearestThreat",
+                    "Spell": "/AI/Spells/ClanMob/Spell_ClanMob_CatchUp"
+                }
+            ]
+        },
+        "Condition": {
+            "$type": "EvaluatesToMoreThan",
+            "Amount": 0.5,
+            "Evaluator": {
+                "$type": "RememberedValue",
+                "MemorizedStat": "/AI/Defs/Memories/ClanMobCaster",
+                "Target": {
+                    "$type": "Self"
+                }
+            }
+        }
+    }
+}

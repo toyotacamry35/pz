@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1075849889237332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4307935739989304}
+  m_Layer: 19
+  m_Name: HitZonesGeometricCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4307935739989304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075849889237332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4990122090055278}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1465571681124344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4990122090055278}
+  - component: {fileID: 54228787704659906}
+  - component: {fileID: 114043935823781650}
+  - component: {fileID: -3392638081547183305}
+  - component: {fileID: 114165344449855162}
+  - component: {fileID: 195500290887452684}
+  - component: {fileID: 8632753615710600455}
+  m_Layer: 19
+  m_Name: Scyphopod_Wrk
+  m_TagString: MobDangerous
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4990122090055278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465571681124344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_Children:
+  - {fileID: 4307935739989304}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54228787704659906
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465571681124344}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &114043935823781650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465571681124344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15783cd3213676468b83da6ea05e4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ego: {fileID: 0}
+  _viewPrefab: {fileID: 0}
+  _offset: {x: 0, y: 0, z: 0}
+  ClosestObserverDistance_DBG: 0
+  _relativeGo_DBG: {fileID: 0}
+  RealDist_DBG: 0
+  DELTA_Cell_DBG: {x: 0, y: 0, z: 0}
+  RelativeGo_Cell_DBG: {x: 0, y: 0, z: 0}
+  ThisMob_Cell_DBG: {x: 0, y: 0, z: 0}
+  DBG_TrackClose: 0
+  Dbg_PlayerMarkerGo: {fileID: 0}
+  Dbg_KvarMarkerGo: {fileID: 0}
+  SimLvl_Server: 
+  SimLvl_Cl: 
+  _: 0
+  Dbg_LogSimLvlChange: 0
+  _locomotionDebugTrail: {fileID: 114221576461505296, guid: d9f1ae24cd48f9045807fd68f641cf7a,
+    type: 3}
+  CurrLocoCoroutineCyclesPerSec: 0
+  CurrMoveActionsCoroutineCyclesPerSec: 0
+  DBG_Forced_DAMP_PZ_13761: 0
+--- !u!136 &-3392638081547183305
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465571681124344}
+  m_Material: {fileID: 13400000, guid: f57c3a20b72f118409089a4755b207eb, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.55
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!114 &114165344449855162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465571681124344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb70f8394f303e7449112fb49e2433af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ego: {fileID: 0}
+  _viewPrefab: {fileID: 1526095692253710, guid: b498abe529c84d64b9a689873f6bf97e,
+    type: 3}
+  _offset: {x: 0, y: 0, z: 0}
+--- !u!195 &195500290887452684
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465571681124344}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.4
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 0
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &8632753615710600455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465571681124344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72756b2c40e83fd46aaabff4514ae025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ego: {fileID: 0}
+  SphereRadius: 3
+  HasPoint: 1
+  IsMoving: 1
+  IsDebug: 0
+  _predicateIgnoreGroup: {fileID: 0}
+--- !u!114 &114719174259312330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85771f8e1e128aa498c60c602217c494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

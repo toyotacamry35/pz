@@ -1,0 +1,53 @@
+{
+    //Определение активной области видимости бота (т.е. то что бот может воспринимать для своей логики. А так у него всё равно область видимости = 100, как у персонажа)
+    "$type": "LegionaryEntityDef",
+    "Id": "18129fad-50f8-4d55-978a-f80a6b74785b",
+    "CommonSenses": [
+        {
+            "$type": "SpatialKnowledgeSourceDef",
+            "Category": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+            "FeedName": "Vision",
+            "FeedRange": 10
+        }
+    ],
+
+    //Основные настройки
+    "LegionaryDef": {
+        "$type": "SpatialLegionary",
+        "ReuseExisting": true,
+        "LegionaryDef": {
+            "$type": "LegionaryDef",
+            "DefaultLegion": "/UtilPrefabs/AI/LegionTypes/Player",
+            "MainStrategy": "./Strategies/Player/Main_Strategy",
+            "KnowledgeSources": [
+                {
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": "/AI/Defs/Knowledge/Visible",
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "Filter": {
+                        "$type": "True"
+                    }
+                },
+
+                //Воспринимает всех Персонажей как Interest
+                { 
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": {
+                        "$type": "KnowledgeCategoryDef"
+                    },
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "InterpretAsStat": "/AI/Defs/Memories/Interest",
+                    "Filter": {
+                        "$type": "Or",
+                        "Conditions": [
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

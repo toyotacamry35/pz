@@ -1,0 +1,56 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_Play",
+  "Duration": 3.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Rotation": "LookAtTarget",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Social",
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/SocialType",
+          "Value": 5,
+        }    
+      ]
+    },
+    {
+      "$type": "ImpactSendEvent",
+      "EventTarget": {
+        "$type": "SpellTarget",
+      },
+      "Caster": {
+        "$type": "SpellCaster",
+      },
+      "From": {
+        "$type": "SpellCaster",
+      },
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_LetsPlay",
+      "WhenToApply": "OnStart"
+    }
+  ]
+}

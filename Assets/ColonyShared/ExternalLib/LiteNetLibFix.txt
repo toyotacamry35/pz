@@ -1,0 +1,13 @@
+File LiteNetLib\NetPeer.cs
+Sometime duplicates connection Ids
+
+line 197
+old version
+                _connectId = DateTime.UtcNow.Ticks;
+
+
+
+new version
+
+static Random Random = new Random(Guid.NewGuid().GetHashCode());
+_connectId = (long)Random.Next() << 32 | (0xffffffff & DateTime.UtcNow.Ticks);

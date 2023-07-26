@@ -1,0 +1,78 @@
+{
+  "$type": "BuildRecipeDef",
+  "Id": "ac97375d-151b-40fd-b6c5-7afd25dba0b8",
+  "OrderIndex": 3,
+  "BuildRecipeGroupDef": "/Building/BuildRecipeGroups/FencesBRG",
+  "Tier": 3,
+  "Level": 0,
+  "BlueprintIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeConstructionSiteTierI",
+  "Icon": "Assets/UI/UISprites/Construction/Tier03/IconFence3mini",
+  "Image": "Assets/UI/UISprites/Construction/Tier03/IconFence3",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "DestructionPowerRequired":290,
+  "Type": "Fence",
+  "TimerDef": {
+    "$type": "BuildTimerDef",
+    "BuildTime": 10.0,
+    "BuildTick": 1.0
+  },
+  "ElementDef": {
+    "$type": "FenceElementDef",
+    "Center": {
+      "$type": "Vector3",
+      "x": 0.0,
+      "y": 5.5,
+      "z": -0.5
+    },
+    "Extents": {
+      "$type": "Vector3",
+      "x": 3.0,
+      "y": 5.5,
+      "z": 3.5
+    },
+    "LinkDef": "/Building/Tier03/Fences/builderFencePillarT03",
+    "LinkPoints": [
+      {
+        "InitialLink": false,
+        "AddLink": false,
+        "X": 3.0,
+        "Y": 2.5,
+        "Z": 1.3
+      }
+    ]
+  },
+  "Stats": {
+    "Health": 16000,
+    "PassiveDamage": 75
+  },
+  "Resource": {
+    "Resources": [
+      {
+        "ClaimCount": 1,
+        "ReclaimCount": 1,
+        "Item": "/Inventory/Items/Res/Pressed_leather_4"
+      },
+      {
+        "ClaimCount": 3,
+        "ReclaimCount": 3,
+        "Item": "/Inventory/Items/Res/FlimsyRope"
+      }
+    ]
+  },
+  "Visual": {
+    "HitPrefab": "Assets/Content/FX/Destruction/WallDamage/PS_Wall_Destruction_MassiveHit",
+    "HitTime": 3.0,
+    "SelfDestructTime": 8.0,
+    "VersionsEnable": false
+  },
+  "Prefab": "Assets/Building/Tier03/Fences/builderFenceTowerLeftT03Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObject",
+  },
+  "NameLs": {
+    "Key": "#l10n98"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n99"
+  }
+}

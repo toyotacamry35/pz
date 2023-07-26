@@ -1,0 +1,86 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Kvar_Legion",
+        "MainStrategy": "./Main_Strategy",
+        "KnowledgeSources": [
+            { // know all visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { // Target to Attack
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Prey",
+                "Filter": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "SameLegion",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        },  
+                        {
+                            "$type": "Or",
+                            "Conditions": [
+                                {
+                                    "$type": "IsLegionOfType",
+                                    "LegionType": "/AI/Defs/Legions/Mobs/Selwea_Legion"
+                                },
+                                {
+                                    "$type": "IsLegionOfType",
+                                    "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                                },
+                                {
+                                    "$type": "IsLegionOfType",
+                                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                                }
+                            ]
+                        }
+                    ]   
+                }
+            },
+        ],
+        "EventHandlers": [
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/AI/Events/Event_Aggro",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "ModDef": {
+                            "$type": "StatModifier"
+                        },
+                        "Change": "Add",
+                        "Flat": 1,
+                        "Memory": {
+                            "$type": "TargetLegion",
+                            "TargetSelector": {
+                                "$type": "Self"
+                            }
+                        },
+                        "Target": {
+                            "$type": "SelectEventSource"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Enemy",
+                        "Time": 10
+                    }
+                }
+            }
+        ]
+    }
+}

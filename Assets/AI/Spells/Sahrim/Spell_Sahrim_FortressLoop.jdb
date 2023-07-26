@@ -1,0 +1,66 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Fortressloop",
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+          "Value": 3,
+        }
+      ]
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Health/HealthCurrentRegen",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 600.0,
+      "UseClampMin": true,
+      "ClampMin": 600.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceSlashing",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 300.0,
+      "UseClampMin": true,
+      "ClampMin": 300.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistanceCrushing",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 300.0,
+      "UseClampMin": true,
+      "ClampMin": 300.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStatDef",
+      "StatName": "/UtilPrefabs/Stats/Combat/DamageResistance/DamageResistancePiercing",
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "UseClampMax": true,
+      "ClampMax": 50.0,
+      "UseClampMin": true,
+      "ClampMin": 50.0
+    },
+  ]
+}

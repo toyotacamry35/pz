@@ -1,0 +1,164 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Prey": {
+            "$type": "SelectAndRemember",
+            "$id": "Prey",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Prey",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 6,
+                            "TargetSelectorDef": "$Prey"
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Not": true,
+                            "Range": 5,
+                            "TargetSelectorDef": "$Prey"
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoWithCooldown",
+                    "CooldownName": "Jump_CD",
+                    "CooldownOnFail": 2.0,
+                    "CooldownOnSuccess": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Min": 3.0,
+                            "Max": 4.0
+                        }
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_Attack_Jump",
+                        "At": "$Prey"
+                    }
+                }
+            },
+            /* {
+                            "$type": "DoIf",
+                            "Condition": {
+                                "$type": "Not",
+                                "Condition": {
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": 300,
+                                    "Evaluator": {
+                                        "$type": "CalcerMetric",
+                                        "Target": {
+                                            "$type": "SelectKnown",
+                                            "MemoryCategory": "/AI/Defs/Memories/Prey",
+                                            "InverseMetric": true,
+                                            "Metric": {
+                                                "$type": "RangeMetric",
+                                                "Target": {
+                                                    "$type": "Self"
+                                                }
+                                            }
+                                        },
+                                        "Calcer": {
+                                            "$type": "CalcerStat",
+                                            "Stat": "/UtilPrefabs/Stats/Health/HealthCurrent"
+                                        }
+                                    }
+                                }
+                            },
+                            "Action": {
+                                "$type": "DoWithCooldown",
+                                "CooldownName": "Kill_CD",
+                                "CooldownOnFail": 2.0,
+                                "CooldownOnSuccess": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Min": 5.0,
+                                        "Max": 5.0
+                                    }
+                                },
+                                "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_Attack_Bite",
+                                "At": "$Prey"
+                                }
+                            }
+                        },*/
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 2.6,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "Actions": [
+                        {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_Attack_Right",
+                                    "At": "$Prey"
+                                },
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_Attack_Left",
+                                    "At": "$Prey"
+                                }
+                            ]
+                        },
+                        
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "Hard_CD",
+                            "CooldownOnFail": 2.0,
+                            "CooldownOnSuccess": 6.0,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_Attack_Swipe",
+                                "At": "$Prey"
+                            }
+                        },
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "Tail_CD",
+                            "CooldownOnFail": 2.0,
+                            "CooldownOnSuccess": 4.0,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_Attack_Tail",
+                                "At": "$Prey"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_WalkToTarget",
+                "At": "$Prey"
+            }
+        ]
+    }
+}

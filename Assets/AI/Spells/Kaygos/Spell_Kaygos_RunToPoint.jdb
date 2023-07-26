@@ -1,0 +1,32 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kaygos_RunToPoint",
+  "Duration": 2.8,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.2,
+      "AnimationBool": "Move_Run",
+      "MoveType": "FollowPathToPosition",
+      "Rotation": "LookAtMoveDirection",
+      "Speed": 8.0,
+      "Vec3": {
+        "$type": "SpellTargetPoint",
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 0.5
+    }
+  ]
+}

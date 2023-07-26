@@ -1,0 +1,314 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Merid_Attack",
+    "Duration": 2.4,
+    "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "Words": [
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 1
+                }
+            ]
+        },
+        {
+            "$type": "EffectChangeAccumulatedStat",
+            "Summand": 0,
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod"
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.0,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.7,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "MoveEffectDef",
+                        "Enabled": true,
+                        "MoveType": "StrafeAroundTarget",
+                        "Rotation": "LookAtTarget",
+                        "SpeedFactor": 2.2,
+                        "Target": {
+                            "$type": "SpellTargetDef"
+                        },
+                        "FixedDirection": {
+                            "$type": "Vector3",
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 1.0
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.65,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.4,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "EffectDirectMotion",
+                        "Mover": {
+                            "$type": "CurveMover",
+                            "Curve": "Assets/UtilPrefabs/Locomotion/Player/PlayerDodgeMotion",
+                            "Direction": {
+                                "$type": "SpellExplicitVector2",
+                                "x": 1,
+                                "y": 0
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.35,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0
+                            },
+                            "Extents": {
+                                "x": 1.0,
+                                "y": 2.0,
+                                "z": 1.0
+                            },
+                            "CheckTargetOnly": true
+                        },
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Merid_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "POWER_MOD": 15
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "$type": "Spell",
+                                "AllowMultiple": true,
+                                "Words": [
+                                    {
+                                        "$type": "ImpactInvokeTrauma",
+                                        "Target": {
+                                            "$type": "SpellTarget"
+                                        },
+                                        "TraumaType": "NegEffBleed_Merid"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.55,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0
+                            },
+                            "Extents": {
+                                "x": 1.0,
+                                "y": 2.0,
+                                "z": 1.0
+                            },
+                            "CheckTargetOnly": true
+                        },
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Merid_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "POWER_MOD": 15
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "$type": "Spell",
+                                "AllowMultiple": true,
+                                "Words": [
+                                    {
+                                        "$type": "ImpactInvokeTrauma",
+                                        "Target": {
+                                            "$type": "SpellTarget"
+                                        },
+                                        "TraumaType": "NegEffBleed_Merid"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.7,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0
+                            },
+                            "Extents": {
+                                "x": 1.0,
+                                "y": 2.0,
+                                "z": 1.0
+                            },
+                            "CheckTargetOnly": true
+                        },
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Merid_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "POWER_MOD": 15
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "$type": "Spell",
+                                "AllowMultiple": true,
+                                "Words": [
+                                    {
+                                        "$type": "ImpactInvokeTrauma",
+                                        "Target": {
+                                            "$type": "SpellTarget"
+                                        },
+                                        "TraumaType": "NegEffBleed_Merid"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

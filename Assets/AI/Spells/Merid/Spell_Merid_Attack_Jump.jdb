@@ -1,0 +1,90 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_Attack_Jump",
+    "Duration": 1.6,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.1,
+            "AcceptedRange": 0.1,
+            "MoveType": "FollowPathToPosition",
+            "Rotation": "LookAtMoveDirection",
+            "Modifier": "Run",
+            "SpeedFactor": 1.0,
+            "Vec3": {
+                "$type": "SpellTargetPoint"
+            },
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "FixedDirection": {
+                "$type": "Vector3",
+                "x": 0,
+                "y": 10,
+                "z": 10
+            }
+        },
+        {
+            "$type": "EffectColliderIsTriggerDef"
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 1
+                }
+            ]
+        },
+        {
+            "$type": "EffectChangeAccumulatedStat",
+            "Summand": 0,
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod"
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.8,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "AllowMultiple": false,
+                "Words": [
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 1.3
+                            },
+                            "Extents": {
+                                "x": 0.7,
+                                "y": 1.0,
+                                "z": 0.7
+                            },
+                            "CheckTargetOnly": true
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "AppliedSpells": [
+                            "/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

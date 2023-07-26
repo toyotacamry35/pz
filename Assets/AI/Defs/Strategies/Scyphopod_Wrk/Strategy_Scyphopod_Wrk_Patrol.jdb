@@ -1,0 +1,85 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RoutePoint": {
+            "$type": "SelectKnown",
+            "$id": "RoutePoint",
+            "Category": "/AI/Defs/Knowledge/RoutePoint",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true,
+            "Filter": {
+                "$type": "Not",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/RecentlyUsed",
+                        "MemoryOfTarget": true,
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            }
+        },
+        "NearestGuard": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestGuard",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                "At": "$RoutePoint"
+            },
+            {
+                "$type": "RememberValue",
+                "Change": "Set",
+                "Flat": 1,
+                "Memory": {
+                    "$type": "Self"
+                },
+                "ModDef": {
+                    "$type": "StatModifier"
+                },
+                "StatDef": "/AI/Defs/Memories/RecentlyUsed",
+                "Target": "$RoutePoint",
+                "Time": 20
+            },
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 10,
+                        "Min": 5
+                    }
+                },
+                "Action": {
+                    "$type": "DummyNode"
+                }
+            }
+        ]
+    }
+}

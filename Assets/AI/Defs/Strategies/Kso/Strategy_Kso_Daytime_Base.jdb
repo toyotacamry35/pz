@@ -1,0 +1,79 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "RANGE": {
+            "Type": "float",
+            "Value": 15.0
+        },
+        "AMOUNT": {
+            "Type": "float",
+            "Value": 2.5
+        },
+    },
+    "Selectors": {
+        "Pasture": {
+            "$type": "SelectAndRemember",
+            "$id": "Pasture",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Pasture",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Move to pasture area
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": "@RANGE",
+                    "Not": true,
+                    "TargetSelectorDef": "$Pasture"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                    "At": "$Pasture"
+                }
+            },
+            { // Feeding
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": "@AMOUNT",
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "TargetOfStat": {
+                                "$type": "Self"
+                            },
+                            "MemorizedStat": "/AI/Defs/Memories/Fed"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kso_Eat"
+                }
+            },
+            
+            { // Else roam around
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+            }
+        ]
+    }
+}

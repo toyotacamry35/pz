@@ -1,0 +1,61 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Sleep",
+  "Duration": 3.333,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "PredicateCompareStat",
+      "Target": {
+        "$type": "SpellTarget",
+      },
+      "Type": "Less",
+      "Value": 0.5,
+      "Policy": "OnStart",
+      "Stat": "/UtilPrefabs/Stats/Mobs/InUse"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Target": {
+        "$type": "SpellTarget",
+      },
+      "Summand": 1,
+      "StatName": "/UtilPrefabs/Stats/Mobs/InUse"
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepare",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/BattlePrepareType",
+          "Value": 3,
+        }    
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Elections
+                "$type": "DoIf",
+                "Action": {
+                    "$type": "RememberValue",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "ModDef": {
+                        "$type": "StatModifierDef",
+                    },
+                    "StatDef": "/AI/Defs/Memories/Leader",
+                    "Target": {
+                        "$type": "Self"
+                    },
+                    "Time": 15
+                },
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CollectionSumMetric",
+                                    "CollectionSelector": {
+                                        "$type": "SelectKnown",
+                                        "MemoryCategory": "/AI/Defs/Memories/Leader"
+                                    },
+                                    "Metric": 1
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+
+            {
+                "$type": "DoIf",
+                "Action": { 
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_Wrk_Lead"
+                },
+                "Condition": 
+                {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Leader",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            },
+            
+            { // Fight
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Enraged",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": { 
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_Wrk_Fight"
+                }
+            },
+            
+            { // Else follow
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Trackmite_Wrk_Follow"
+            }
+        ]
+    }
+}

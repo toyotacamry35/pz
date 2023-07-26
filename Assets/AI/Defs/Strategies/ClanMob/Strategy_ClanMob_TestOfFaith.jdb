@@ -1,0 +1,39 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "DoIf",
+        "Action": {
+            "$type": "RememberValue",
+            "Change": "Set",
+            "Flat": 1,
+            "ModDef": {
+                "$type": "StatModifierDef",
+            },
+            "StatDef": "/AI/Defs/Memories/ClanMobCaster",
+            "Target": {
+                "$type": "Self"
+            },
+            "Time": 15
+        },
+        "Condition": {
+            "$type": "And",
+            "Conditions": [
+                {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "CollectionSumMetric",
+                            "CollectionSelector": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/ClanMobCaster"
+                            },
+                            "Metric": 1
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

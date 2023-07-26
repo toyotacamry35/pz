@@ -1,0 +1,26 @@
+{
+    "$type": "FXEvents",
+    "$vars":{
+        "ON_HIT_SOUNDEFFECT":{
+            "Type": "string",
+            "Value": "ScyphopodWarriorDamage"
+        }
+    },
+    "FXEvents": [
+        {
+            "$type": "TriggerFXRule",
+            "Predicate": {
+                "$type": "PredicateTrue",
+            },
+            "EventType": "/AI/Events/TakeDamageEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "@ON_HIT_SOUNDEFFECT"
+                    }
+                ]
+            }
+        }
+    ]
+}

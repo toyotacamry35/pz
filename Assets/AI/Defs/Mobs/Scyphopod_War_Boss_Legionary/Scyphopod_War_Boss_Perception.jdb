@@ -1,0 +1,210 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Scyphopod_War_Boss_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Scyphopod_War/Strategy_Scyphopod_War_Base",
+        "KnowledgeSources": [
+            { // Sensed == Visible
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { // Scyphopod_War == Ally
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_War_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_War_Boss_Legion"
+                        }
+                    ]
+                }
+            },
+            { // Scyphopod_Wrk == Worker
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Worker",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_Wrk_Legion"
+                }
+            },
+            { // Living Things = Threat
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            { // Send event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Call Reinforcements
+                        "$type": "DoWithCooldown",
+                        "CooldownOnFail": 1.0,
+                        "CooldownOnSuccess": 20.0,
+                        "CooldownName": "ReinforcementCooldown",
+                        "Action": { //
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Askforhelp",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        }
+                    }
+                }
+            },
+            { // Catch Wrk's call and investigate
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_Wrk_Askforhelp",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Alerted",
+                        "Time": 20
+                    }
+                }
+            },
+            { // Catch War's call
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_War_Askforhelp",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Enraged",
+                        "Time": 20
+                    }
+                }
+            },
+            { // Set stat and Guard
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_War_GuardEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 0,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/CombatState",
+                        "Time": 10
+                    }
+                }
+            },
+            { // Set stat and Fight
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_War_BattleEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 0,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/BattleStance",
+                        "Time": 10
+                    }
+                }
+            },
+            { // Remember their Enemy
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "SameLegion",
+                                "Target": {
+                                    "$type": "SelectEventSource"
+                                }
+                            }
+                        },
+                        "Action": {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "SelectEventSource"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Enemy",
+                            "Time": 60
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

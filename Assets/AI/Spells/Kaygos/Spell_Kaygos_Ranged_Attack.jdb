@@ -1,0 +1,95 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kaygos_Ranged_Attack",
+  "Duration": 4.167,
+  //Words
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "Battle_Attack_01",
+      "UseAsInputToPlayer": false,
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtTarget",
+      "Speed": 0.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": null,
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.5,
+      "RotationTime": 0.5,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    }
+  ],
+  "SubSpells": [
+    { // Box 0
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 1.55,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Attack_00",
+        "Name": "Attack_00",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactNearestInBox",
+            "AttackBoxes": [
+              {
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 7.0
+                },
+                "extents": {
+                  "x": 1.6,
+                  "y": 1.6,
+                  "z": 1.6
+                }
+              }
+            ],
+            "WhenToApply": "OnSuccess",
+            "AppliedSpells": [
+              "/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

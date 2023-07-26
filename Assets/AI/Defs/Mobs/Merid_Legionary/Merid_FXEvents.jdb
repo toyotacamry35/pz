@@ -1,0 +1,39 @@
+{
+    "$type": "FXEvents",
+    "FXEvents": [
+        { // Move Event
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/MobMoveEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFX",
+                        "DestroyDelay": 500,
+                        "FX": "Assets/Content/FX/Creatures/Merid/Trail/PS_Merid_Dust_Trail"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "ON_HIT_SOUNDEFFECT": "MeridDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HitSoundFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "FX": "Assets/Content/FX/Creatures/Merid/OnDamage/PS_Merid_OnDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HardHitFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "FX": "Assets/Content/FX/Creatures/Merid/OnDamage/PS_Merid_OnDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_SimpleHitFX"
+        }
+    ]
+}

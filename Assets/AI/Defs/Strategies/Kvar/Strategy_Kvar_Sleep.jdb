@@ -1,0 +1,82 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Lair": {
+            "$type": "SelectAndRemember",
+            "$id": "Lair",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/Lair"
+            }
+        },
+        "LairSleepingPoint": {
+            "$type": "SelectAndRemember",
+            "$id": "LairSleepingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/LairSleepingPoint",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "TargetSelectorDef": "$Lair"
+                },
+            }
+        },
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "Not": true,
+                    "TargetSelectorDef": "$Lair"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_RunToPoint",
+                    "At": "$Lair"
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 4.5,
+                    "TargetSelectorDef": "$LairSleepingPoint"
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "Do",
+                            "ChanceToDo": 0.25,
+                            "ResultOnNotDoing": "Succeeded",
+                            "Action": {
+                                "$type": "UseStrategy",
+                                "Strategy": "./Strategy_Kvar_SleepInLair"
+                            }
+                        },
+                        {
+                            "$type": "Do",
+                            "ChanceToDo": 0.35,
+                            "ResultOnNotDoing": "Succeeded",
+                            "Action": {
+                                "$type": "UseStrategy",
+                                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+                            }
+                        },
+                    ]
+                },
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Spell_Mob_RunToPoint",
+                "At": "$LairSleepingPoint",
+            },
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Kvar_Alert_Event",
+  "Duration": 0.15,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactSendEvent",
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Kvar_Alert_Event",
+      "From": {
+        "$type": "SpellCaster",
+      },
+      "Caster": {
+        "$type": "SpellCaster",
+      },
+      "EventTarget": {
+        "$type": "SpellTarget",
+      },
+      "WhenToApply": "OnSuccess"
+    }
+  ]
+}

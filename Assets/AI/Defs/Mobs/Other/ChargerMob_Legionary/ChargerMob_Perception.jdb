@@ -1,0 +1,62 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Other/ChargerMob_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/ChargerMob/Strategy_ChargerMob_Base",
+        "KnowledgeSources": [
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                    "$id": "ThreatCategory",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/Enemy",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "$ThreatCategory",
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 15,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/ChargeTarget",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "$ThreatCategory",
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        ]
+    }
+}

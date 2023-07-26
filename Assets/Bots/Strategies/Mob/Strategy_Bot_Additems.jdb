@@ -1,0 +1,227 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "CastSpell",
+                "Spell": {
+                    "$type": "SpellDef",
+                    "Words": [
+
+                        //Проверяем, что в инвентаре есть N свободных ячеек
+                        {
+                            "$type": "PredicateCheckItem",
+                            "Count": 40
+                        },
+                        
+                        /*
+                        * Добавляем айтемов
+                        */
+
+                        //Одежда
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterHat",
+                                "/Inventory/Items/Clothes/Headband"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterJacket",
+                                "/Inventory/Items/Clothes/ReinforcedJacket"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterGloves",
+                                "/Inventory/Items/Clothes/ReinforcedGloves"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterPants",
+                                "/Inventory/Items/Clothes/ReinforcedPants"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterBoots",
+                                "/Inventory/Items/Clothes/ReinforcedBoots"
+                            ]
+                        },
+
+                        //Броня
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Armor/MeridBracers",
+                                "/Inventory/Items/Armor/ScaleBracers"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Armor/MeridCuirass",
+                                "/Inventory/Items/Armor/ScaleCuirass"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Armor/MeridGreaves",
+                                "/Inventory/Items/Armor/ScaleGreaves"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Armor/MeridHelmet",
+                                "/Inventory/Items/Armor/ScaleHelmet"
+                            ]
+                        },
+
+                        //Оружие
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Weapons/New/Spear_1_1",
+                                "/Inventory/Items/Weapons/New/WarHammer_1_1",
+                                "/Inventory/Items/Weapons/New/Spear_1_2",
+                                "/Inventory/Items/Weapons/New/WarHammer_1_2",
+                                "/Inventory/Items/Weapons/New/Sword_1",
+                                "/Inventory/Items/Weapons/New/WarAxe_1",
+                                "/Inventory/Items/Weapons/New/Spear_2",
+                                "/Inventory/Items/Weapons/New/WarHammer_2",
+                                "/Inventory/Items/Weapons/New/Sword_2",
+                                "/Inventory/Items/Weapons/New/WarAxe_2"
+                            ]
+                        },
+
+                        /*
+                        * Надеваем айтема
+                        */
+                        
+                        //Одежда
+                        {
+                            "$type": "ImpactEquipItems",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterHat",
+                                "/Inventory/Items/Clothes/Headband"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactEquipItems",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterJacket",
+                                "/Inventory/Items/Clothes/ReinforcedJacket"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactEquipItems",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterGloves",
+                                "/Inventory/Items/Clothes/ReinforcedGloves"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactEquipItems",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterPants",
+                                "/Inventory/Items/Clothes/ReinforcedPants"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactEquipItems",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterBoots",
+                                "/Inventory/Items/Clothes/ReinforcedBoots"
+                            ]
+                        },
+
+                        //Броня
+                        {
+                            "$type": "ImpactEquipItems",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Armor/MeridBracers",
+                                "/Inventory/Items/Armor/ScaleBracers"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactEquipItems",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Armor/MeridCuirass",
+                                "/Inventory/Items/Armor/ScaleCuirass"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactEquipItems",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Armor/MeridGreaves",
+                                "/Inventory/Items/Armor/ScaleGreaves"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactEquipItems",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Armor/MeridHelmet",
+                                "/Inventory/Items/Armor/ScaleHelmet"
+                            ]
+                        },
+
+                        //Оружие
+                        {
+                            "$type": "ImpactEquipItems",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Weapons/New/Spear_1_1",
+                                "/Inventory/Items/Weapons/New/WarHammer_1_1",
+                                "/Inventory/Items/Weapons/New/Spear_1_2",
+                                "/Inventory/Items/Weapons/New/WarHammer_1_2",
+                                "/Inventory/Items/Weapons/New/Sword_1",
+                                "/Inventory/Items/Weapons/New/WarAxe_1",
+                                "/Inventory/Items/Weapons/New/Spear_2",
+                                "/Inventory/Items/Weapons/New/WarHammer_2",
+                                "/Inventory/Items/Weapons/New/Sword_2",
+                                "/Inventory/Items/Weapons/New/WarAxe_2"
+                            ]
+                        },
+                        
+                        /*
+                        * Берём оружие в руку, проходясь по всем слотам
+                        */
+
+                        {
+                            "$type": "ImpactUseSlots",
+                            "Slots": [
+                                "/UtilPrefabs/Slots/WeaponMassive1",
+                                "/UtilPrefabs/Slots/WeaponMassive2",
+                                "/UtilPrefabs/Slots/Weapon1",
+                                "/UtilPrefabs/Slots/Weapon2"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

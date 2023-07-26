@@ -1,0 +1,55 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Enemy": {
+            "$type": "SelectAndRemember",
+            "$id": "Enemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 40
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 2.5,
+                    "TargetSelectorDef": "$Enemy"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Scyphoria/Spell_Scyphoria_Attack",
+                    "At": "$Enemy"
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 15,
+                    "TargetSelectorDef": "$Enemy"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                "At": "$Enemy"
+                }
+            }
+        ]
+    }
+}

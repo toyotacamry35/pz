@@ -1,0 +1,185 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "ForagingPoint": { //place to eat
+            "$type": "SelectAndRemember",
+            "$id": "ForagingPoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/ForagingPoint"
+            }
+        },
+        "Food1": { //Gerophit
+            "$type": "SelectKnown",
+            "$id": "Food1",
+            "MemoryCategory": "/AI/Defs/Memories/FoodSource",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true
+        },
+        "Fruit": {
+            "$type": "SelectAndRemember",
+            "$id": "Fruit",
+            "Selector": "$Food1"
+        },
+        "Food2": { //Scyphoria Corpse
+            "$type": "SelectKnown",
+            "$id": "Food2",
+            "MemoryCategory": "/AI/Defs/Memories/FoodCorpse",
+            "Metric": {
+                "$type": "RangeMetric",
+                "Target": {
+                    "$type": "Self"
+                }
+            },
+            "InverseMetric": true
+        },
+        "Corpse": {
+            "$type": "SelectAndRemember",
+            "$id": "Corpse",
+            "Selector": "$Food2"
+        }
+    },
+    "Plan": {
+        "$type": "UseStrategy",
+        "Strategy": {
+            "$type": "StrategyDef",
+            "Plan": {
+                "$type": "Choose",
+                "Actions": [
+                    { //Eat fruits if possible
+                        "$type": "DoWhile",
+                        "Condition": {
+                            "$type": "Has",
+                            "Target": "$Food1"
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                { //go to fruit
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5",
+                                    "At": "$Fruit"
+                                },
+                                { //alert about fruit
+                                    "$type": "DoWithCooldown",
+                                    "CooldownName": "FruitCD",
+                                    "CooldownOnFail": 1.0,
+                                    "CooldownOnSuccess": 30.0,
+                                    "Action": {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Yutt/Spell_Yutt_AlertPositive",
+                                        "At": "$Fruit"
+                                    }
+                                },
+                                { //eat fruit
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_EatFruit",
+                                    "At": "$Fruit"
+                                },
+                                { //eatup for time
+                                    "$type": "RememberValue",
+                                    "Change": "Set",
+                                    "Flat": 1,
+                                    "ModDef": {
+                                        "$type": "StatModifier",
+                                    },
+                                    "Memory": {
+                                        "$type": "Self"
+                                    },
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "StatDef": "/AI/Defs/Memories/Sated",
+                                    "Time": {
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 300,
+                                            "Min": 180
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    { //Eat corpse if possible
+                        "$type": "DoWhile",
+                        "Condition": {
+                            "$type": "Has",
+                            "Target": "$Food2"
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                { //go to corpse
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5",
+                                    "At": "$Corpse"
+                                },
+                                { //eat corpse
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_EatCorpse",
+                                    "At": "$Corpse"
+                                },
+                                { //eatup for time
+                                    "$type": "RememberValue",
+                                    "Change": "Set",
+                                    "Flat": 1,
+                                    "ModDef": {
+                                        "$type": "StatModifier",
+                                    },
+                                    "Memory": {
+                                        "$type": "Self"
+                                    },
+                                    "Target": {
+                                        "$type": "Self"
+                                    },
+                                    "StatDef": "/AI/Defs/Memories/Sated",
+                                    "Time": {
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 300,
+                                            "Min": 180
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    { //Move to eat place
+                        "$type": "DoWhile",
+                        "Condition": {
+                            "$type": "IsInRange",
+                            "Range": 20,
+                            "Not": true,
+                            "TargetSelectorDef": "$ForagingPoint"
+                        },
+                        "Action": {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move3d5",
+                            "At": "$ForagingPoint"
+                        }
+                    },
+                    { //Roam in search
+                        "$type": "UseStrategy",
+                        "Strategy": {
+                            "$type": "Strategy",
+                            "$overrideVars": {
+                                "ROAM_RANGE": 15,
+                                "IDLE_TIME_MAX": 6,
+                                "IDLE_TIME_MIN": 3
+                            },
+                            "$proto": "./Strategy_Yutt_RoamAimlessly"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

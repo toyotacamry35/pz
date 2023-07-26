@@ -1,0 +1,34 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_RunToPoint",
+    "Duration": 2.0,
+    "IsInfinite": true,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": true,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 1,
+            "MoveType": "FollowPathToPosition",
+            "Rotation": "LookAtMoveDirection",
+            "SpeedFactor": 1.0,
+            "Vec3": {
+                "$type": "SpellTargetPoint"
+            }
+        },
+        { // Отключает Колайдер Моба на время спела
+            "$type": "EffectColliderIsTriggerDef"
+        },
+        { // Отключает ХП бар Моба на время спела
+            "$type": "EffectShowImportantBadgeDef"
+        }
+     /*   {
+            "$type": "EffectPostVisualEvent",
+            "TriggerName": "/AI/Events/MobMoveEvent"
+        },
+        {
+            "$type": "EffectColliderIsTriggerDef"
+        }*/
+    ]
+}

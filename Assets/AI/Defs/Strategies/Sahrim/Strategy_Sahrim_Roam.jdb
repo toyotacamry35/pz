@@ -1,0 +1,38 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            { // Walk around
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_MoveToPoint",
+                "At": {
+                    "$type": "RandomPointTargetSelector",
+                    "InRange": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 20,
+                            "Min": 15
+                        }
+                    }
+                },
+                /*"PointTargetHasPriority": true,*/
+            },
+            { // Stay
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Max": 11,
+                        "Min": 5
+                    }
+                },
+                "Action": {
+                    "$type": "DummyNode"
+                }
+            }
+        ]
+    }
+}

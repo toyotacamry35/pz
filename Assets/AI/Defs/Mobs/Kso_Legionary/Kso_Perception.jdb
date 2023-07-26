@@ -1,0 +1,452 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Kso_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Kso/Strategy_Kso_Base",
+        "KnowledgeSources": [
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Kso_Legion"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Merid_Legion"
+                        },
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/AI/Events/Event_Aggro",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "RememberValue",
+                                "ModDef": {
+                                    "$type": "StatModifier"
+                                },
+                                "Change": "Add",
+                                "Flat": 1,
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/Staggered",
+                                "Time": 1
+                            },
+                            {
+                                "$type": "DoWithCooldown",
+                                "CooldownName": "Gas_CD",
+                                "CooldownOnFail": 10.0,
+                                "CooldownOnSuccess": 10.0,
+                                "Action": {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Kso/Spell_Kso_Attack_Gas",
+                                    "At": {
+                                        "$type": "Self"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
+/*
+{
+    "$type": "SpatialLegionary",
+    "$vars": {
+        "STAT_REMEMBERING_TIME": {
+            "Type": "float",
+            "Value": 1.5
+        },
+        "AMOUNT": {
+            "Type": "float",
+            "Value": 0.5
+        },
+        "VALUE": {
+            "Type": "float",
+            "Value": 1.0
+        },
+        "RANGE": {
+            "Type": "float",
+            "Value": 10.0
+        },
+    },
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Kso_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Kso/Strategy_Kso_Base", // AI/Defs/Strategies/DummyStrategy
+        "KnowledgeSources": [
+            { // Perceive visible objects
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            { // Perceive Allies
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": { // Perceive Kso
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Kso_Legion"
+                }
+            },
+            { // Preceive Herdsman
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Herdsman",
+                "Filter": { // Perceive Sahrim
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                }
+            },
+            { // Perceive Foodsource
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        { // Perceive Bractus
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                        },
+                        { // Perceive Bractus
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                        },
+                        { // Perceive Bractus
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                        },
+                        { // Perceive Gerophit
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Fruit"
+                        },
+                        { // Perceive Gerophit
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Gerophit_Unripe"
+                        },
+                        { // Perceive Sangvira
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/FoodSources/Sangvira"
+                        }
+                    ]
+                }
+            },
+            { // Perceive Threats
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                    "$id": "ThreatCategory",
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Threat",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        { // Perceive Player
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        },
+                        { // Perceive Kvar Normal
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                        },
+                    ]
+                }
+            },
+            { // Target filtering
+                "$type": "KnowledgeSourceTransformerDef",
+                "InterpretAsStat": "/AI/Defs/Memories/NearestThreat",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef",
+                },
+                "GetFrom": "$ThreatCategory",
+                "Filter": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Or",
+                            "Conditions": [
+                                { // Perceive Player
+                                    "$type": "IsLegionOfType",
+                                    "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                                },
+                                { // Perceive Kvar Normal
+                                    "$type": "IsLegionOfType",
+                                    "LegionType": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                                },
+                            ]
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": "@RANGE",
+                            "TargetSelectorDef": {
+                                "$type": "Self"
+                            }
+                        }
+                    ]
+                },
+            },
+        ],
+        "EventHandlers": [
+            { // IMP-CRUTCH: I've added a temporary solution to playout the mobs' reactions to heavy attacks until we implement proper reactions
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/HeavyAttackTriggerEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": "@VALUE",
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/HeavyAttackTrigger",
+                        "Time": "@STAT_REMEMBERING_TIME"
+                    }
+                }
+            },
+            { // Stagger
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/AttackEventFace",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "Choose",
+                        "Actions": [
+                            { // Check stat
+                                "$type": "DoIf",
+                                "Condition": {
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": "@AMOUNT",
+                                    "Evaluator": {
+                                        "$type": "RememberedValue",
+                                        "MemoryOfTarget": true,
+                                        "Target": {
+                                            "$type": "Self"
+                                        },
+                                        "MemorizedStat": "/AI/Defs/Memories/HeavyAttackTrigger"
+                                    }
+                                },
+                                "Action": {
+                                    "$type": "DoInSequence",
+                                    "Actions": [
+                                        { // Reset stat
+                                            "$type": "RememberValue",
+                                            "Change": "Set",
+                                            "Flat": 0,
+                                            "Target": {
+                                                "$type": "Self"
+                                            },
+                                            "StatDef": "/AI/Defs/Memories/HeavyAttackTrigger",
+                                            "Time": 10
+                                        },
+                                        { // Stagger
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Kso/Spell_Kso_Staggered",
+                                            "At": {
+                                                "$type": "Self"
+                                            }
+                                        },
+                                    ]
+                                }
+                            },
+                            { // Else
+                                "$type": "Choose",
+                                "Actions": [
+                                    {
+                                        "$type": "DoIf",
+                                        "Condition": {
+                                            "$type": "IsInRange",
+                                            "Not": true,
+                                            "Range": 2.5,
+                                            "SectorBorderL": 65,
+                                            "SectorBorderR": -65,
+                                            "DebugDraw": false,
+                                            "TargetSelectorDef": {
+                                                "$type": "SelectKnown",
+                                                "MemoryCategory": "/AI/Defs/Memories/NearestThreat"
+                                            }
+                                        },
+                                        "Action": {
+                                            "$type": "Choose",
+                                            "Actions": [
+                                                { // Spit attack
+                                                    "$type": "CastSpell",
+                                                    "Spell": "/AI/Spells/Kso/Spell_Kso_Attack",
+                                                    "At": {
+                                                        "$type": "SelectKnown",
+                                                        "MemoryCategory": "/AI/Defs/Memories/NearestThreat",
+                                                    }
+                                                },
+                                            ]
+                                        },
+                                    },
+                                    { // Else
+                                        "$type": "Choose",
+                                        "Actions": [
+                                            {
+                                                "$type": "DoInSequence",
+                                                "Actions": [
+                                                    {
+                                                        "$type": "Do",
+                                                        "ChanceToDo": 0.35,
+                                                        "ResultOnNotDoing": "Succeeded",
+                                                        "Action": { // Gas attack
+                                                            "$type": "CastSpell",
+                                                            "Spell": "/AI/Spells/Kso/Spell_Kso_Gas",
+                                                            "At": {
+                                                                "$type": "Self"
+                                                            }
+                                                        },
+                                                    },
+                                                ]
+                                            },
+                                            {
+                                                "$type": "DoInSequence",
+                                                "Actions": [
+                                                    {
+                                                        "$type": "Do",
+                                                        "ChanceToDo": 0.35,
+                                                        "ResultOnNotDoing": "Succeeded",
+                                                        "Action": { // Kick attack
+                                                            "$type": "CastSpell",
+                                                            "Spell": "/AI/Spells/Kso/Spell_Kso_Kick",
+                                                            "At": {
+                                                                "$type": "Self"
+                                                            }
+                                                        },
+                                                    },
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            { // Alert Event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "SameLegion",
+                                "Target": {
+                                    "$type": "SelectEventSource"
+                                }
+                            }
+                        },
+                        "Action": { // Evasion event
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Kso/Spell_Kso_Alert_Event",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        },
+                    }
+                }
+            },
+            { // Fight avoidance event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Sahrim_Fighting",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            { // Flee
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Kso/Spell_Kso_RunToPoint",
+                                "At": {
+                                    "$type": "RandomPointTargetSelector",
+                                    "InRange": 30,
+                                },
+                            },
+                            { // Double-time
+                                "$type": "Do",
+                                "ChanceToDo": 0.85,
+                                "ResultOnNotDoing": "Succeeded",
+                                "Action": {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Kso/Spell_Kso_RunToPoint",
+                                    "At": {
+                                        "$type": "RandomPointTargetSelector",
+                                        "InRange": 30,
+                                    },
+                                },
+                            },
+                        ]
+                    }
+                }
+            },
+        ]
+    }
+}*/

@@ -1,0 +1,168 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Enemy": {
+            "$type": "IsInRange",
+            "Range": 12,
+            "TargetSelectorDef": {
+                "$type": "SelectKnown",
+                "$id": "CHOSEN_ROUTE_POINT",
+                "MemoryCategory": "/AI/Defs/Memories/ChosenRoutePoint",
+            }
+        },
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            //Select a route point if none is selected
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Evaluator": {
+                            "$type": "CollectionSumMetric",
+                            "CollectionSelector": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/ChosenRoutePoint",
+                                "Filter": {
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": 0.5,
+                                    "Evaluator": {
+                                        "$type": "RememberedValue",
+                                        "MemorizedStat": "/AI/Defs/Memories/ChosenRoutePoint",
+                                        "MemoryOfTarget": true,
+                                        "Target": {
+                                            "$type": "Self"
+                                        }
+                                    }
+                                }
+                            },
+                            "Metric": {
+                                "$type": "ConstantMetric",
+                                "Value":1
+                            }
+                        },
+                        "Amount": 0.5
+                    }
+                },
+                "Action": {
+                    "$type": "RememberValue",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "Category": "/AI/Defs/Knowledge/RoutePoint",
+                        // "Filter": {
+                        //     "$type": "Not",
+                        //     "Condition": {
+                        //         "$type": "EvaluatesToMoreThan",
+                        //         "Evaluator": {
+                        //             "$type": "ConstantMetric",
+                        //             "Value": 0.5,
+                        //         },
+                        //         "Amount": {
+                        //             "$type": "RememberedValue",
+                        //             "Target": {
+                        //                 "$type": "TargetLegion",
+                        //                 "TargetSelector": {
+                        //                     "$type": "Self"
+                        //                 }
+                        //             },
+                        //             "MemorizedStat": "/AI/Defs/Memories/VisitedRoutePoint"
+                        //         }
+                        //     }
+                        // },
+                        "Metric": {
+                            "$type": "RangeMetric",
+                            "Target": {
+                                "$type": "Self"
+                            },
+                        },
+                        "InverseMetric": true,
+                    },
+                    "Memory": {
+                        "$type": "TargetLegion",
+                        "TargetSelector": {
+                            "$type": "Self"
+                        }
+                    },
+                    "StatDef": "/AI/Defs/Memories/ChosenRoutePoint",
+                    "Time": 45
+                }
+            },
+            //Reset route point on reaching
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "TargetSelectorDef": "$CHOSEN_ROUTE_POINT",
+                    "Range": 6,
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        //Mark as visited
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/ChosenRoutePoint",
+                            },
+                            "Memory": {
+                                "$type": "TargetLegion",
+                                "TargetSelector": {
+                                    "$type": "Self"
+                                }
+                            },
+                            "StatDef": "/AI/Defs/Memories/VisitedRoutePoint",
+                            "Time": 89
+                        },
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 0,
+                            "Target": "$CHOSEN_ROUTE_POINT",
+                            "Memory": {
+                                "$type": "TargetLegion",
+                                "TargetSelector": {
+                                    "$type": "Self"
+                                }
+                            },
+                            "StatDef": "/AI/Defs/Memories/ChosenRoutePoint",
+                            "Time": 45
+                        },
+                    ]
+                }
+            },
+            //Go to chosen route point
+            {
+                "$type": "CastSpell",
+                "At": "$CHOSEN_ROUTE_POINT",
+                "Spell": {
+                    "$type": "Spell",
+                    "Words": [
+                        {
+                            "$type": "MoveEffectDef",
+                            "Enabled": true,
+                            "AcceptedRange": 3,
+                            "MoveType": "FollowPathToTarget",
+                            "Rotation": "LookAtMoveDirection",
+                            "Modifier": "Run",
+                            "SpeedFactor": 1.0,
+                            "Target": {
+                                "$type": "SpellTargetDef"
+                            },
+                            "Vec3": {
+                                "$type": "SpellTargetPointDef"
+                            },
+                        },
+                    ]
+                }
+            },
+        ]
+    }
+}

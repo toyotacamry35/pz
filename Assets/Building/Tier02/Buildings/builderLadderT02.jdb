@@ -1,0 +1,66 @@
+{
+  "$type": "BuildRecipeDef",
+  "Id": "25d874e2-9c34-40ee-b033-4eac9fa6813e",
+  "OrderIndex": 0,
+  "BuildRecipeGroupDef": "/Building/BuildRecipeGroups/StairsBRG",
+  "Tier": 2,
+  "Level": 0,
+  "BlueprintIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeConstructionSiteTierI",
+  "Icon": "Assets/UI/UISprites/Construction/Tier02/i_builderLadderT02_80",
+  "Image": "Assets/UI/UISprites/Construction/Tier02/i_builderLadderT02",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "DestructionPowerRequired":240,
+  "Type": "Building",
+  "TimerDef": {
+    "$type": "BuildTimerDef",
+    "BuildTime": 10.0,
+    "BuildTick": 1.0
+  },
+  "ElementDef": {
+    "$type": "BuildingElementDef",
+    "Type": "Center",
+    "Weight": 0.0,
+    "SupportWeight": 0.0,
+    "CanBuildOnGround": true,
+    "BlockFace": 64,
+    "BlockEdge": 20,
+    "BlockEdgeDouble": 0,
+    "BlockEdgeRequired": 0,
+    "MinBlockEdgeCount": 2,
+    "HasSide": false
+  },
+  "Stats": {
+    "Health": 6000,
+    "PassiveDamage": 45.0
+  },
+  "Resource": {
+    "Resources": [
+      {
+        "ClaimCount": 15,
+        "ReclaimCount": 15,
+        "Item": "/Inventory/Items/Res/FungalShard"
+      },
+      {
+        "ClaimCount": 3,
+        "ReclaimCount": 3,
+        "Item": "/Inventory/Items/Weapons/Rootstick"
+      }
+    ]
+  },
+  "Visual": {
+    "HitPrefab": "Assets/Content/FX/Destruction/WallDamage/PS_Wall_Destruction_MassiveHit",
+    "HitTime": 3.0,
+    "SelfDestructTime": 8.0,
+    "VersionsEnable": false
+  },
+  "Prefab": "Assets/Building/Tier02/Buildings/builderLadderT02Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObject",
+  },
+  "NameLs": {
+    "Key": "#l10n42"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n43"
+  }
+}

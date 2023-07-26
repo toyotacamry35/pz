@@ -1,0 +1,22 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Scyphopod_Wrk_Askforhelp",
+    "Duration": 0.1,
+    "AllowMultiple": false,
+    "Words": [
+        {
+            "$type": "ImpactSendEvent",
+            "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_Wrk_Askforhelp",
+            "From": {
+                "$type": "SpellCaster"
+            },
+            "Caster": {
+                "$type": "SpellCaster"
+            },
+            "EventTarget": {
+                "$type": "SpellTarget"
+            },
+            "WhenToApply": "OnSuccess"
+        }
+    ]
+}

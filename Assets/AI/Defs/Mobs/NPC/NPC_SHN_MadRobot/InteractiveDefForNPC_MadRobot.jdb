@@ -1,0 +1,37 @@
+{
+  "$type": "InteractiveEntityDef", //"Prefab": "Assets/Content/Quest/ScyphopodSupressor/NPC_Cube",
+  "Id": "4052a2cf-55b4-4efa-9907-a4fc1983b504",
+  "Prefab": "Assets/Content/Environment/Shared/Hub/HubYard/ATM_Gray",
+  "NameLs": {
+    "Key": "#l10n504087"
+  },
+  "PrefabDef": {
+    "$type": "UnityGameObjectDef",
+    "Components": [
+      {
+        "$type": "InteractiveDef",
+        "ReuseExisting": true,
+        "ContextualActions": {
+          "$type": "ContextualActionsDef",
+          "SpellsByAction": {
+            "/UtilPrefabs/Input/Actions/Interaction": {
+              /*
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Dialog/2_Desert/DesertRangerQuest/CaptainRanger_DialogStart"
+              },
+              "2": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Dialog/2_Desert/DesertRangerQuest/CaptainRanger_DialogQuestionsStart"
+              }*/
+              "1": {
+                "$type": "ContextualActionDef",
+                "Spell": "/UtilPrefabs/Spells/Dialog/MadRobot/MadRobot_DialogStart"
+               }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

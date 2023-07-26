@@ -1,0 +1,48 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Sahrim_Startle_Event",
+  "Duration": 0.2,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    {
+      "$type": "SubSpell",
+      "OffsetStart": 0.15,
+      "Spell": {
+        "$type": "SpellDef",
+        "Name": "Suicide_00",
+        "Duration": 0.5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactDieDef",
+            "Target": {
+              "$type": "SpellCasterDef"
+            },
+            "WhenToApply": "OnStart",
+          },
+        ]
+      }
+    },
+  ],
+  "Words": [
+    {
+      "$type": "ImpactRaiseEvent",
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Sahrim_Fighting",
+      "From": {
+        "$type": "SpellCaster"
+      },
+      "Caster": {
+        "$type": "SpellCaster"
+      },
+      "Radius": 30,
+    },
+  ]
+}

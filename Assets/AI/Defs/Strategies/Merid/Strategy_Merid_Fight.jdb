@@ -1,0 +1,88 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Enemy": {
+            "$type": "SelectAndRemember",
+            "$id": "Enemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "Choose",
+                "Actions": [
+                    {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "IsInRange",
+                            "Range": 3.5,
+                            "TargetSelectorDef": "$Enemy"
+                        },
+                        "Action": {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "ChooseRandom",
+                                    "Actions": [
+                                        {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Merid/Spell_Merid_Attack_R",
+                                            "At": "$Enemy"
+                                        },
+                                        {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Merid/Spell_Merid_Attack_L",
+                                            "At": "$Enemy"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "$type": "DoWhile",
+                                    "Condition": {
+                                        "$type": "IsInRange",
+                                        "Range": 7,
+                                        "TargetSelectorDef": "$Enemy"
+                                    },
+                                    "Action": {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Merid/Spell_Merid_DigIn",
+                                        "At": "$Enemy"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Merid/Spell_Merid_DigOut",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Merid/Spell_Merid_WalkToTarget",
+                                "At": "$Enemy"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

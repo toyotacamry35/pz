@@ -1,0 +1,53 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_AlertPositive",
+  "Duration": 1.833,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "MoveType": "LookAt",
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      }
+    },
+
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Social",
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/SocialType",
+          "Value": 10,
+        }    
+      ]
+    },
+
+    {
+      "$type": "ImpactSendEvent",
+      "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_AlertPositive",
+      "From": {
+        "$type": "SpellCaster",
+      },
+      "Caster": {
+        "$type": "SpellCaster",
+      },
+      "Radius": 35
+    }
+  ]
+}

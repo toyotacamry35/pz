@@ -1,0 +1,343 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RandomTarget18": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget18",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 18,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "RandomTarget6": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget6",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 6,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemyFront": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemyFront",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    },
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 16,
+                    "SectorBorderL": 90,
+                    "SectorBorderR": 90,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    },
+                }
+            }
+        },
+        "NearestEnemyFrontClose": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemyFrontClose",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    },
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 6,
+                    "SectorBorderL": 90,
+                    "SectorBorderR": 90,
+                    "BasisSelectorDef": {
+                        "$type": "Self"
+                    },
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "ChargeTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "ChargeTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+                "Filter": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 45,
+                            "TargetSelectorDef": {
+                                "$type": "Self"
+                            }
+                        },
+                        {
+                            "$type": "IsInRange",
+                            "Range": 12,
+                            "Not": true,
+                            "TargetSelectorDef": {
+                                "$type": "Self"
+                            }
+                        }
+                    ]
+                },
+            },
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            //Charge
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Charged",
+                        "MemoryOfTarget": true,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "TargetOfStat": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": 15,
+                    "DoUntilEnd": false,
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "RememberValue",
+                                "Change": "Remove",
+                                "StatDef": "/AI/Defs/Memories/Charged",
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Charge2",
+                                "At": "$ChargeTarget"
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Chargefinish",
+                                "At": "$NearestEnemy"
+                            }
+                        ]
+                    }
+                }
+            },
+            //No targets within 18m
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": "$RandomTarget18",
+                    "Not": true
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "WeightedActions": [
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 100,
+                            "Action": {
+                                "$type": "DoForTime",
+                                "Time": 8,
+                                "DoUntilEnd": false,
+                                "Action": {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Move4.5",
+                                    "At": "$NearestEnemy"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 100,
+                            "Action": {
+                                "$type": "RememberValue",
+                                "Flat": 1,
+                                "StatDef": "/AI/Defs/Memories/Charged",
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "Change": "Set"
+                            }
+                        }
+                    ]
+                }
+            },
+            //All targets are further than 6m
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": "$RandomTarget6",
+                    "Not": true
+                },
+                "Action": {
+                    "$type": "ChooseRandom",
+                    "WeightedActions": [
+                        //Execute ranged round
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 100,
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "UseStrategy",
+                                        "Strategy": "./Strategy_Sahrim_RangedRound"
+                                    },
+                                    {
+                                        "$type": "Do",
+                                        "ChanceToDo": 50,
+                                        "Action": {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Intimidate",
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        //Close distance
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 33,
+                            "Action": {
+                                "$type": "ChooseRandom",
+                                "WeightedActions": [
+                                    {
+                                        "$type": "WeightedAction",
+                                        "Weight": 100,
+                                        "Action": {
+                                            "$type": "DoForTime",
+                                            "Time": 8,
+                                            "DoUntilEnd": false,
+                                            "Action": {
+                                                "$type": "CastSpell",
+                                                "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Move4.5",
+                                                "At": "$NearestEnemy"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$type": "WeightedAction",
+                                        "Weight": 100,
+                                        "Action": {
+                                            "$type": "RememberValue",
+                                            "Flat": 1,
+                                            "StatDef": "/AI/Defs/Memories/Charged",
+                                            "Memory": {
+                                                "$type": "Self"
+                                            },
+                                            "Target": {
+                                                "$type": "Self"
+                                            },
+                                            "Change": "Set"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            //Execute MeleeRound
+            {
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                        "$type": "DoForTime",
+                        "Time": 3,
+                        "DoUntilEnd": false,
+                        "Action": {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Move4.5",
+                            "At": "$NearestEnemy"
+                        },
+                        "FailOnTimeout": false
+                    },
+                    {
+                        "$type": "UseStrategy",
+                        "Strategy": "./Strategy_Sahrim_MeleeRound"
+                    },
+                    {
+                        "$type": "Do",
+                        "ChanceToDo": 50,
+                        "Action": {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Intimidate",
+                            "At": "$RandomTarget6"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

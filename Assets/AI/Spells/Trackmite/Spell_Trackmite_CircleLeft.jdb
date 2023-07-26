@@ -1,0 +1,55 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Trackmite_CircleLeft",
+  "Duration": 1.333,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": true,
+      "KeepDistanceTreshold": 0.5,
+      "AnimationBool": "Move_Walk",
+      "UseAsInputToPlayer": false,
+      "MoveType": "StrafeAroundTarget",
+      "Rotation": "LookAtTarget",
+      "Speed": 4.9,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": -1.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 0.5,
+      "RotationTime": 0.1,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster",
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    }
+  ]
+}

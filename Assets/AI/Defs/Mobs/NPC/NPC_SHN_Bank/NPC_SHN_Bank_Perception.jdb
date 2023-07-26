@@ -1,0 +1,66 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/NPC/NPC_SHN_Bank_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/NPC/NPC_SHN_Guard/NPC_SHN_Guard_Base",//написать свою
+       
+       
+        "KnowledgeSources": [
+            { 
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {"$type": "True"}
+            },
+
+            { //записывает всех увиденных npc в союзники
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {"$type": "KnowledgeCategoryDef",},
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": 
+                {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/NPC/NPC_SHN_Guard_Legion",
+                }
+            }
+        ],
+
+        "EventHandlers": [
+            { ////remember sourse of attack event
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",// записываем атаковавшего
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "SameLegion",
+                            "Target": {
+                                "$type": "SelectEventTarget"
+                            }
+                        },
+                        "Action": {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "SelectEventSource"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Threat",
+                            "Time": 10
+                        }
+                    }
+                }
+            },
+        ]
+    }
+}

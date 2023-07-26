@@ -1,0 +1,56 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "PreferredTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "PreferredTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/PreferredTarget",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": { 
+        "$type": "DoWithCooldown",
+        "CooldownName": "Intimidate_Cooldown",
+        "CooldownOnFail": 30,
+        "CooldownOnSuccess": 60,
+        "Action": {
+            "$type": "DoInSequence",
+            "Actions": [
+                {
+                    "$type": "Do",
+                    "ChanceToDo": 0.45,
+                    "ResultOnNotDoing": "Succeeded",
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Kvar/Spell_Kvar_BattlePrepare",
+                        "At": "$PreferredTarget"
+                    },
+                }, 
+                {
+                    "$type": "ChooseRandom",
+                    "Actions": [
+                        { 
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_CircleLeft",
+                            "At": "$PreferredTarget"
+                        },
+                        { 
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Spell_Mob_CircleRight",
+                            "At": "$PreferredTarget"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

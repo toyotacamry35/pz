@@ -1,0 +1,91 @@
+{
+    "$type": "Strategy",
+    /* "Selectors": {
+        "ClosestTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "ClosestTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "RandomTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                //"Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 25,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            //summon sciphoria
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 8.5,
+                        "Evaluator": {
+                            "$type": "CollectionSumMetric",
+                            "CollectionSelector": {
+                                "$type": "SelectKnown",
+                                //"MemoryCategory": "/AI/Defs/Memories/SymbiontScyphoria",
+                                "MemoryCategory": "/AI/Defs/Memories/Ally"
+                            },
+                            "Metric": 1
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_SpawnScyphoria",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        },
+                        {
+                            "$type": "SpawnLegionaryAndRememberIt",
+                            "AsStat": "/AI/Defs/Memories/SymbiontScyphoria",
+                            "Offset": {
+                                "x": 0,
+                                "y": 2.5,
+                                "z": 3.5
+                            },
+                            "Prefab": "Assets/AI/Prefabs/Scyphoria_Sahrim"
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoForTime",
+                "Time": 5,
+                "Action": {
+                    "$type": "CastSpell",
+                    "At": "$ClosestTarget",
+                    "Spell": "/AI/Spells/Sahrim/Spell_Sahrim_Fortress"
+                }
+            }
+        ]
+    } */
+}

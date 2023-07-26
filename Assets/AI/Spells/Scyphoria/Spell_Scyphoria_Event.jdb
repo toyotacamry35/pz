@@ -1,0 +1,22 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Scyphoria_Event",
+    "Duration": 0.2,
+    "IsInfinite": false,
+    "AllowMultiple": true,
+    "DontShowProgress": false,
+    "OutlineColorIndex": 0,
+    "Words": [
+        {
+            "$type": "ImpactSendTargetedEvent",
+            "Caster": {
+              "$type": "SpellCaster"
+            },
+            "EventTarget": {
+              "$type": "SpellTarget"
+            },
+            "PathToEventStatisDataType": "/AI/Events/Event_Scyphoria_Chain",
+            "WhenToApply": "OnStart"
+          }
+    ]
+}

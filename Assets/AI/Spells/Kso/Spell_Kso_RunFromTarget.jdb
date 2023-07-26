@@ -1,0 +1,24 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kso_RunFromTarget",
+    "Duration": 10,
+    "Group": "/UtilPrefabs/Spells/Groups/AttackSpellGroup",
+    //"Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "MoveType": "StrafeAroundTarget",
+            "Rotation": "LookAtMoveDirection",
+            "Modifier": "Run",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "FixedDirection": {
+                "$type": "Vector3",
+                "x": 0.0,
+                "y": 0.0,
+                "z": -1.0
+            }
+        }
+    ]
+}

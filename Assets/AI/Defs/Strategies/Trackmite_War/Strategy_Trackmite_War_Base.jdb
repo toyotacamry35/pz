@@ -1,0 +1,130 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Elections
+                "$type": "DoIf",
+                "Action": {
+                    "$type": "RememberValue",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "ModDef": {
+                        "$type": "StatModifierDef",
+                    },
+                    "StatDef": "/AI/Defs/Memories/Leader",
+                    "Target": {
+                        "$type": "Self"
+                    },
+                    "Time": 15
+                },
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "CollectionSumMetric",
+                                    "CollectionSelector": {
+                                        "$type": "SelectKnown",
+                                        "MemoryCategory": "/AI/Defs/Memories/Leader"
+                                    },
+                                    "Metric": 1
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_War_Lead"
+                },
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Leader",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Alerted",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_War_Protect"
+                }
+            },
+            { // Fight
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Enraged",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_War_Fight"
+                }
+            },
+            { // Kill all Slimers
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Hostiles"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_War_Eliminate"
+                }
+            },
+            { // Guard
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Worker"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_War_Guard"
+                }
+            },
+            { // Else follow
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Trackmite_War_Follow"
+            }
+        ]
+    }
+}

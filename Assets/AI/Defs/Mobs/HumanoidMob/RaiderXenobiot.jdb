@@ -1,0 +1,206 @@
+{
+  "$type": "LegionaryEntityDef",
+  "$overrideVars": {
+    "LEGIONARY_TYPE": "./RaiderBerserkILegionary",
+    "DAMAGE_DEFAULT": 320,
+    "START_HEALTH": 3000,
+    "MAX_HEALTH": 3000,
+    "HEALTH_DEFAULT_REGEN": 10,
+    "SENSES_RANGE": 15,
+    "IMPACT_FORCE": 1,
+    "DIE_ANIMATION_NAME": "Die",
+    "FX_REACTIONS": "/Character/Events/FXEvents",
+    "REACTION_HANDLERS": "/UtilPrefabs/Prototypes/Character_Reactions",
+    "FACTION": "/Inventory/Factions/NPC",
+    "HIT_MATERIAL": "/UtilPrefabs/HitMaterials/Chitin"
+  },
+  "$proto": "/AI/Defs/Mobs/_Prototype/_Prototype_Mob",
+  "CorpseEntityDef": "./RaiderSpearI_Corpse_Definition",
+  "Id": "54e7994c-7035-46fe-b35d-e53ed017ccb1",
+  "Prefab": "Assets/UtilPrefabs/Prototypes/XenobiotNPCPawn",
+  "BodyType": "/UtilPrefabs/Res/Character/Bodies/HumanMaleBody",
+  "Colliders": [
+    {
+      "$type": "SphereShape",
+      "Position": {
+        "x": 0.0,
+        "y": 0.2,
+        "z": 0.0
+      },
+      "Radius": 0.4
+    },
+    {
+      "$type": "SphereShape",
+      "Position": {
+        "x": 0.0,
+        "y": 0.9,
+        "z": 0.0
+      },
+      "Radius": 0.5
+    },
+    {
+      "$type": "SphereShape",
+      "Position": {
+        "x": 0.0,
+        "y": 1.6,
+        "z": 0.0
+      },
+      "Radius": 0.3
+    }
+  ],
+  "AttackCollider": {
+    "$type": "WeaponColliderDef",
+    "DefaultCollider": {
+      "$type": "BoxShape",
+      "Position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "Extents": {
+        "x": 0.1,
+        "y": 0.1,
+        "z": 0.1
+      },
+      "CheckTargetOnly": true
+    },
+    "CustomColliders": {}
+  },
+  "MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/HumanoidMob_Locomotion",
+  "DefaultDoll": {
+    "Size": 22,
+    "DefaultItems": [
+      /* "/Inventory/Items/Clothes/New/Fire_protection_chest_1",*/
+      /*             "/Inventory/Items/Clothes/New/Fire_protection_feet_1",*/
+      /*             "/Inventory/Items/Clothes/New/Fire_protection_hands_1",*/
+      /*             "/Inventory/Items/Clothes/New/Fire_protection_head_1",*/
+      /*             "/Inventory/Items/Clothes/New/Fire_protection_legs_1"*/
+      /*             "/Inventory/Items/Armor/New/Armor_2_arms",*/
+      /*             "/Inventory/Items/Armor/New/Armor_2_chest",*/
+      /*             "/Inventory/Items/Armor/New/Armor_2_head",*/
+      /*             "/Inventory/Items/Armor/New/Armor_2_legs",*/
+      /* "/Inventory/Items/Clothes/Headband"*/
+      {
+        "Slot": "/UtilPrefabs/Slots/ArmorHead",
+        "Count": 1,
+        "Item": "/Inventory/Items/Armor/New/Armor_2_head"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/ArmorBody",
+        "Count": 1,
+        "Item": "/Inventory/Items/Armor/New/Armor_2_chest"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/ArmorArm",
+        "Count": 1,
+        "Item": "/Inventory/Items/Armor/New/Armor_2_arms"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/ArmorLeg",
+        "Count": 1,
+        "Item": "/Inventory/Items/Armor/New/Armor_2_legs"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearMask",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/RespiratoryMask"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearHead",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/Headband"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearBody",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/New/Fire_protection_chest_1"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearHand",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/New/Fire_protection_hands_1"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearLeg",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/New/Fire_protection_legs_1"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearFoot",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/New/Fire_protection_feet_1"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/Weapon1",
+        "Count": 1,
+        "Item": "/Inventory/Items/Weapons/FungalSpear"
+      }
+    ]
+  },
+  "InputActionHandlers": {
+    "/UtilPrefabs/Input/Layers/Base": {
+      "/UtilPrefabs/Input/Actions/DashForward": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Locomotion/DashForward",
+        "Parameters": [
+          {
+            "$type": "SpellParameterDirection2",
+            "X": 1
+          }
+        ]
+      },
+      "/UtilPrefabs/Input/Actions/DashBackward": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Locomotion/Dash",
+        "Parameters": [
+          {
+            "$type": "SpellParameterDirection2",
+            "X": -1
+          }
+        ]
+      },
+      "/UtilPrefabs/Input/Actions/DashLeft": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Locomotion/Dash",
+        "Parameters": [
+          {
+            "$type": "SpellParameterDirection2",
+            "Y": 1
+          }
+        ]
+      },
+      "/UtilPrefabs/Input/Actions/DashRight": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Locomotion/Dash",
+        "Parameters": [
+          {
+            "$type": "SpellParameterDirection2",
+            "Y": -1
+          }
+        ]
+      }
+    },
+    "/UtilPrefabs/Input/Layers/Weapon": {
+      "/UtilPrefabs/Input/Actions/AttackMelee": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_L"
+      },
+      "/UtilPrefabs/Input/Actions/AttackMeleeAlt": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_R"
+      },
+      "/UtilPrefabs/Input/Actions/AttackAirborne": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_Airborne"
+      },
+      "/UtilPrefabs/Input/Actions/AttackDash": {
+        "$type": "InputActionHandlerSpell",
+        "Spell": "/UtilPrefabs/Spells/Combat/Attacks/Attack_Unarmed_Dash"
+      },
+      "/UtilPrefabs/Input/Actions/Block": {
+        "$type": "InputActionHandlerSpellContinuous",
+        "Spell": "/UtilPrefabs/Spells/Combat/Block"
+      }
+    }
+  }
+}

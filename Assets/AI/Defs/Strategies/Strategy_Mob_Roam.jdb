@@ -1,0 +1,42 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "DoForTime",
+                "Time": {
+                    "$type": "CalcerMetric",
+                    "Calcer": {
+                        "$type": "CalcerRandom",
+                        "Min": 8,
+                        "Max": 15
+            
+                    }
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_Idle",
+                    "At": {
+                        "$type": "Self"
+                    }
+                },
+                "DoUntilEnd": true
+            },
+            {
+                "$type": "DoForTime",
+                "Time": 7,
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                    "At": {
+                        "$type": "RandomPointTargetSelector",
+                        "InRange": 30
+                    },
+                    "PointTargetHasPriority": true
+                },
+                "DoUntilEnd": false
+            }
+        ]
+    }
+}

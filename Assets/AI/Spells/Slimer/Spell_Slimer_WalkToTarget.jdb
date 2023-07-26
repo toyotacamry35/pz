@@ -1,0 +1,35 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Slimer_WalkToTarget",
+  "Duration": 5.0,
+  "IsInfinite": true,
+  "Words": [
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.2,
+      "AnimationBool": "Move_Walk",
+      "MoveType": "FollowPathToTarget",
+      "Rotation": "LookAtTarget",
+      "Speed": 2.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Vec3": {
+        "$type": "SpellTargetPointDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 0.2
+    }
+  ]
+}

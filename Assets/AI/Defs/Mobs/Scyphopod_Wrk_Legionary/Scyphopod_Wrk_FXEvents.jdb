@@ -1,0 +1,63 @@
+{
+    "$type": "FXEvents",
+    "$vars": {
+        "ON_SIMPLE_HIT_FX": {
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Creatures/Scyphopod_Wrk/OnDamage/PS_ScyphopodWrk_OnDamage"
+        },
+        "ON_HIT_SOUNDEFFECT": {
+            "Type": "string",
+            "Value": "ScyphopodWorkerDamage"
+        }
+    },
+    "FXEvents": [
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/TakeDamageEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "SoundEvent",
+                        "SoundEvent": "@ON_HIT_SOUNDEFFECT"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$vars": {
+                "FX": {
+                    "Type": "GameObject",
+                    "Value": "@ON_SIMPLE_HIT_FX"
+                }
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_SimpleHitFX"
+        },
+        /*         { // Prepare Attack
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/MobPrepareEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFXWithTarget",
+                        "DestroyDelay": 5,
+                        "FX": ""
+                    }
+                ]
+            }
+        },
+        { // Attack
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/MobAttackEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFXWithTarget",
+                        "DestroyDelay": 5,
+                        "FX": ""
+                    }
+                ]
+            }
+        }, */
+    ]
+}

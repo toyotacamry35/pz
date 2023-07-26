@@ -1,0 +1,289 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "RandomTarget12": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget12",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+                "Filter": {
+                    "$type": "IsInRange",
+                    "Range": 12,
+                    "TargetSelectorDef": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+            }
+        },
+    },
+    "Plan": {
+        "$type": "ChooseRandom",
+        //Strafe
+        "WeightedActions": [
+            {
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 2.5,
+                            "Min": 1.0,
+                        }
+                    },
+                    "Action": {
+                        "$type": "ChooseRandom",
+                        "Actions": [
+                            {
+                                "$type": "CastSpell",
+                                "At": "$NearestEnemy",
+                                "Spell": "./Spell_NPC_StrafeLeft"
+                            },
+                            {
+                                "$type": "CastSpell",
+                                "At": "$NearestEnemy",
+                                "Spell": "./Spell_NPC_StrafeRight"
+                            }
+                        ]
+                    }
+                },
+            },
+            //Counter
+            {
+                "$type": "WeightedAction",
+                "Weight": 50,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "CounterattackCD",
+                            "CooldownOnSuccess": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 12,
+                                    "Min": 5
+                                }
+                            },
+                            "CooldownOnFail": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 12,
+                                    "Min": 5
+                                }
+                            },
+                            "Action": {
+                                "$type": "ChooseRandom",
+                                "Actions": [
+                                    //Back-forth
+                                    {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/DashBackward",
+                                                "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                            {
+                                                "$type": "DoForTime",
+                                                "Time": 0.2,
+                                                "FailOnTimeout": false,
+                                                "Action": {
+                                                    "$type": "DoInputAction",
+                                                    "Trigger": "/UtilPrefabs/Input/Actions/DashForward",
+                                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                    "Target": "$NearestEnemy"
+                                                },
+                                            },
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                        ]
+                                    },
+                                    //Left
+                                    {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "DoForTime",
+                                                "Time": 0.55,
+                                                "FailOnTimeout": false,
+                                                "Action": {
+                                                    "$type": "DoInputAction",
+                                                    "Trigger": "/UtilPrefabs/Input/Actions/DashLeft",
+                                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                    "Target": "$NearestEnemy"
+                                                },
+                                            },
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                        ]
+                                    },
+                                    //Right
+                                    {
+                                        "$type": "DoInSequence",
+                                        "Actions": [
+                                            {
+                                                "$type": "DoForTime",
+                                                "Time": 0.55,
+                                                "FailOnTimeout": false,
+                                                "Action": {
+                                                    "$type": "DoInputAction",
+                                                    "Trigger": "/UtilPrefabs/Input/Actions/DashRight",
+                                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                    "Target": "$NearestEnemy"
+                                                },
+                                            },
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/AttackDash",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                        ]
+                                    },
+                                ]
+                            },
+                        },
+                    ]
+                }
+            },
+            //Walk back
+            {
+                "$type": "WeightedAction",
+                "Weight": 100,
+                "Action": {
+                    "$type": "DoForTime",
+                    "Time": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 2.5,
+                            "Min": 1.0,
+                        }
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "At": "$NearestEnemy",
+                        "Spell": "./Spell_NPC_KeepDistance5"
+                    },
+                },
+            },
+            //Dodge
+            {
+                "$type": "WeightedAction",
+                "Weight": 50,
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/DashBackward",
+                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                    "Target": "$NearestEnemy"
+                                },
+                                {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/DashLeft",
+                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                    "Target": "$NearestEnemy"
+                                },
+                                {
+                                    "$type": "DoInputAction",
+                                    "Trigger": "/UtilPrefabs/Input/Actions/DashRight",
+                                    "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                    "Target": "$NearestEnemy"
+                                },
+                            ]
+                        },
+                        {
+                            "$type": "ChooseRandom",
+                            "WeightedActions": [
+                                {
+                                    "$type": "WeightedAction",
+                                    "Weight": 300,
+                                    "Action": {
+                                        "$type": "DoForTime",
+                                        "Time": {
+                                            "$type": "CalcerMetric",
+                                            "Calcer": {
+                                                "$type": "CalcerRandom",
+                                                "Max": 1.25,
+                                                "Min": 0.75,
+                                            }
+                                        },
+                                        "Action": {
+                                            "$type": "ChooseRandom",
+                                            "Actions": [
+                                                {
+                                                    "$type": "CastSpell",
+                                                    "At": "$NearestEnemy",
+                                                    "Spell": "./Spell_NPC_StrafeLeftFront"
+                                                },
+                                                {
+                                                    "$type": "CastSpell",
+                                                    "At": "$NearestEnemy",
+                                                    "Spell": "./Spell_NPC_StrafeRightFront"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                },
+                                {
+                                    "$type": "WeightedAction",
+                                    "Weight": 100,
+                                    "Action": {
+                                        "$type": "ChooseRandom",
+                                        "Actions": [
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/DashLeft",
+                                                "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                            {
+                                                "$type": "DoInputAction",
+                                                "Trigger": "/UtilPrefabs/Input/Actions/DashRight",
+                                                "BreakOnTriggerWindow": "/UtilPrefabs/Input/Actions/AttackMelee",
+                                                "Target": "$NearestEnemy"
+                                            },
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                    ]
+                }
+            },
+        ]
+    }
+}

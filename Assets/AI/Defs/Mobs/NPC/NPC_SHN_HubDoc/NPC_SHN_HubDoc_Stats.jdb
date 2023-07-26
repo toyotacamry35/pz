@@ -1,0 +1,49 @@
+{
+  "$type": "LegionaryEntityDef",
+  "$overrideVars": {
+    "LEGIONARY_TYPE": "./NPC_SHN_HubDoc_Perception",
+    "START_HEALTH": 1500,
+    "MAX_HEALTH": 1500,
+    "DAMAGE_DEFAULT": 300,
+    "INCOMING_DAMAGE_MOD": -1,
+    "INTERACTIVE_DEF": "./InteractiveDefForNPC",
+    "DIE_ANIMATION_NAME": "Die",
+    "REACTION_HANDLERS": "/UtilPrefabs/Prototypes/NPC_Reactions",
+    "FX_REACTIONS": "/Character/Events/FXEvents",
+    "FACTION": "/Inventory/Factions/NPC"
+  },
+  "$proto": "/AI/Defs/Mobs/_Prototype/_Prototype_Mob",
+  "CorpseEntityDef": "./NPC_SHN_HubDoc_Corpse_Definition",
+  "Id": "55b4daa1-0c81-42ef-9325-3e814eb81ee2",
+  "Prefab": "Assets/AI/Prefabs/Dummy", // заменить
+  "MobLocomotion": "/UtilPrefabs/Locomotion/Mobs/Settings/NPC_SHN_Guard_Locomotion",
+  "NameLs": {
+    "Key": "#l10n4685"
+  }, //Доктор Тенуш
+  "HasNpcMarker": true,
+  "DefaultDoll": {
+    "Size": 22,
+    "DefaultItems": [
+      {
+        "Slot": "/UtilPrefabs/Slots/WearBody",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/LeatherJacket"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearHand",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/AdaptantGloves"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearLeg",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/LeatherPants"
+      },
+      {
+        "Slot": "/UtilPrefabs/Slots/WearFoot",
+        "Count": 1,
+        "Item": "/Inventory/Items/Clothes/LeatherBoots"
+      }
+    ]
+  }
+}

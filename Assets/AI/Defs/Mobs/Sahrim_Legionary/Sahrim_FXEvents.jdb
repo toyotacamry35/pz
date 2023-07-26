@@ -1,0 +1,82 @@
+{
+    "$type": "FXEvents",
+    "FXEvents": [
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "ON_HIT_SOUNDEFFECT": "SahrimDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HitSoundFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "FX":  "Assets/Content/FX/Creatures/Sahrim/OnDamage/PS_Sahrim_OnDamage"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_HardHitFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "$overrideVars": {
+                "FX": "Assets/Content/FX/Creatures/Sahrim/OnDamage/PS_Sahrim_OnDamage_Light"
+            },
+            "$proto": "/AI/Defs/Mobs/_Prototype/Mob_SimpleHitFX"
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/SahrimStompEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFXWithTarget",
+                        "DestroyDelay": 5,
+                        "Shift": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "FX": "Assets/Content/FX/Creatures/Sahrim/Sahrim_stompHit_FX"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/SahrimSpitEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFX",
+                        "RelativeToGameObject": true,
+                        "DestroyDelay": 5,
+                        "Shift": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "FX": "Assets/Content/FX/Impact/PS_Sahrim_Slime"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "TriggerFXRule",
+            "EventType": "/AI/Events/SahrimSpewEvent",
+            "OnEvent": {
+                "Caster": [
+                    {
+                        "$type": "PlaceUnparentedFX",
+                        "RelativeToGameObject": true,
+                        "DestroyDelay": 5,
+                        "Shift": {
+                            "x": 0,
+                            "y": 0.75,
+                            "z": 3
+                        },
+                        "FX": "Assets/Content/FX/Impact/PS_Sahrim_Slime_Big"
+                    }
+                ]
+            }
+        }
+    ]
+}

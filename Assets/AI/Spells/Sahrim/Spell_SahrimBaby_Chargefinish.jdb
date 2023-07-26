@@ -1,0 +1,210 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Sahrim_Chargefinish",
+    "Duration": 4.8,
+    "IsInfinite": false,
+    "AllowMultiple": false,
+    "DontShowProgress": false,
+    "OutlineColorIndex": 0,
+    "Words": [
+        {
+            "$type": "EffectDebugTint",
+            "Enabled": true,
+            "Color": {
+                "R": 0,
+                "G": 0,
+                "B": 1
+            }
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 2
+                }
+            ]
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "Spell": {
+                "$type": "Spell",
+                "Duration": 1.0,
+                "Words": [
+                    {
+                        "$type": "MoveEffectDef",
+                        "KeepDistance": false,
+                        "Enabled": true,
+                        "MoveType": "FollowPathToTarget",
+                        "Target": {
+                            "$type": "SpellTargetDef"
+                        },
+                        "Vec3": {
+                            "$type": "SpellTargetPointDef"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 1.0,
+            "Spell": {
+                "$type": "SpellDef",
+                "Words": [
+                    {
+                        "$type": "ImpactForAllInBox",
+                        "AttackBoxes": [
+                            {
+                                "center": {
+                                    "x": 0.0,
+                                    "y": 0.25,
+                                    "z": 2
+                                },
+                                "extents": {
+                                    "x": 1,
+                                    "y": 1,
+                                    "z": 1.7
+                                }
+                            }
+                        ],
+                        "WhenToApply": "OnStart",
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/SahrimBaby_Legion"
+                                    }
+                                },
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "AllowMultiple": true,
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "POWER_MOD": 27.45,
+                                                "DAMAGE_MOD": 0.6
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        // {
+        //   "$type": "SubSpell",
+        //   "Spell": {
+        //     "$type": "Spell",
+        //     "Duration": 1,
+        //     "SubSpells": [
+        //       {
+        //         "$type": "SubSpell",
+        //         "Periodic": true,
+        //         "Spell": {
+        //           "$type": "SpellDef",
+        //           "Duration": 0.2,
+        //           "Words": [
+        //             {
+        //               "$type": "ImpactForAllInBox",
+        //               "AttackBoxes": [
+        //                 {
+        //                   "center": {
+        //                     "x": 0.0,
+        //                     "y": 0.25,
+        //                     "z": 0.0
+        //                   },
+        //                   "extents": {
+        //                     "x": 1.75,
+        //                     "y": 1,
+        //                     "z": 2
+        //                   }
+        //                 }
+        //               ],
+        //               "WhenToApply": "OnStart",
+        //               "PredicateOnTarget": {
+        //                 "$type": "PredicateAnd",
+        //                 "Predicates": [
+        //                   {
+        //                     "$type": "PredicateNot",
+        //                     "Value": {
+        //                       "$type": "PredicateOfLegion",
+        //                       "OfLegion": "/AI/Defs/Legions/Mobs/SahrimBaby_Legion"
+        //                     }
+        //                   },
+        //                   {
+        //                     "$type": "PredicateNot",
+        //                     "Value": {
+        //                       "$type": "PredicateOfLegion",
+        //                       "OfLegion": "/AI/Defs/Legions/Mobs/Sahrim_Legion"
+        //                     }
+        //                   },
+        //                 ]
+        //               },
+        //               "AppliedSpells": [
+        //                 {
+        //                   "$type": "Spell",
+        //                   "AllowMultiple": true,
+        //                   "Words": [
+        //                     {
+        //                       "$type": "ImpactAttackObjectDef",
+        //                       "Attacker": {
+        //                         "$type": "SpellCasterDef"
+        //                       },
+        //                       "Victim": {
+        //                         "$type": "SpellTargetDef"
+        //                       },
+        //                       "Attack": {
+        //                         "$type": "Attack",
+        //                         "$overrideVars": {
+        //                           "POWER_MOD": 27.45,
+        //                           "DAMAGE_MOD": 0.2
+        //                         },
+        //                         "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+        //                       }
+        //                     }
+        //                   ]
+        //                 }
+        //               ]
+        //             },
+        //           ]
+        //         }
+        //       },
+        //     ]
+        //   }
+        // },
+    ]
+}

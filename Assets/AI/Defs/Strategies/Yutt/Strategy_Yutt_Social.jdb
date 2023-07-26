@@ -1,0 +1,60 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "MischiefPartner": {
+            "$type": "SelectAndRemember",
+            "$id": "MischiefPartner",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally"
+            }
+        }
+    },
+    "Plan": 
+    //Cause mischief 
+    {
+        "$type": "DoWhile",
+        "Condition": {
+            "$type": "Has",
+            "Target": "$MischiefPartner"
+        },
+        "Action": {
+            "$type": "DoInSequence",
+            "Actions": [
+                {
+                    "$type": "CastSpell",
+                    "At": "$MischiefPartner",
+                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move1d5"
+                },
+                {
+                    "$type": "CastSpell",
+                    "At": "$MischiefPartner",
+                    "Spell": "/AI/Spells/Yutt/Spell_Yutt_Play"
+                },
+                {
+                    "$type": "RememberValue",
+                    "Change": "Set",
+                    "Flat": 1,
+                    "ModDef": {
+                        "$type": "StatModifier",
+                    },
+                    "Memory": {
+                        "$type": "Self"
+                    },
+                    "Target": {
+                        "$type": "Self"
+                    },
+                    "StatDef": "/AI/Defs/Memories/Mischievous",
+                    "Time": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 90,
+                            "Min": 15
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

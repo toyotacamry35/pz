@@ -1,0 +1,66 @@
+{
+  "$type": "BuildRecipeDef",
+  "Id": "bcf53389-98ac-459d-b4a5-d6d204f5e887",
+  "OrderIndex": 6,
+  "BuildRecipeGroupDef": "/Building/BuildRecipeGroups/RoofsBRG",
+  "Tier": 1,
+  "Level": 0,
+  "BlueprintIcon": "Assets/UI/UISprites/IconRecepts/IconRecipeConstructionSiteTierI",
+  "Icon": "Assets/UI/UISprites/Construction/Tier01/i_BuilderRoofStubT01_80",
+  "Image": "Assets/UI/UISprites/Construction/Tier01/i_BuilderRoofStubT01",
+  "InventoryFiltrableType": "/Inventory/InventoryFiltrableType/Building",
+  "DestructionPowerRequired":190,
+  "Type": "Building",
+  "TimerDef": {
+    "$type": "BuildTimerDef",
+    "BuildTime": 10.0,
+    "BuildTick": 1.0
+  },
+  "ElementDef": {
+    "$type": "BuildingElementDef",
+    "Type": "Wall",
+    "Weight": 0.0,
+    "SupportWeight": 0.0,
+    "CanBuildOnGround": false,
+    "BlockFace": 1,
+    "BlockEdge": 4368,
+    "BlockEdgeDouble": 16,
+    "BlockEdgeRequired": 16,
+    "MinBlockEdgeCount": 2,
+    "HasSide": false
+  },
+  "Stats": {
+    "Health": 2000,
+    "PassiveDamage": 18.0
+  },
+  "Resource": {
+    "Resources": [
+      {
+        "ClaimCount": 2,
+        "ReclaimCount": 2,
+        "Item": "/Inventory/Items/Res/Bone"
+      },
+      {
+        "ClaimCount": 10,
+        "ReclaimCount": 10,
+        "Item": "/Inventory/Items/Res/Stone"
+      }
+    ]
+  },
+  "Visual": {
+    "HitPrefab": "Assets/Content/FX/Destruction/WallDamage/PS_Wall_Destruction_Hit",
+    "HitTime": 3.0,
+    "SelfDestructTime": 8.0,
+    "VersionsEnable": false
+  },
+  "Prefab": "Assets/Building/Tier01/Buildings/builderRoofStubT01Prefab",
+  "PrefabDef": {
+    "$type": "UnityGameObject",
+  },
+  "NameLs": {
+    "Key": "#l10n26"
+  },
+  "DescriptionLs": {
+    "Key": "#l10n27"
+  }
+}

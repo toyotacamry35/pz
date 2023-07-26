@@ -1,0 +1,87 @@
+{
+    "$type": "MineableEntityDef",
+    "$vars": {
+        "ON_SIMPLE_HIT_FX": {
+            "Type": "GameObject",
+            "Value": "Assets/Content/FX/Craft&Harvest/Default_Hit"
+        },
+        "KNOWLEDGE_1": {
+            "Type": "KnowledgeDef",
+            "Value": "/Inventory/Knowledge/Corpses/KvarCorpseKW"
+        },
+        "KNOWLEDGE_2":
+        {
+            "Type": "KnowledgeDef",
+            "Value": "/Inventory/Knowledge/Corpses/KvarCorpseNaturExpKW"
+        }
+    },
+    "Id" : "aa7a25eb-9b70-4180-a13a-7e5e3ad401b7",
+
+    "PrefabDef": {
+        "$type": "UnityGameObject",
+        "$overrideVars": {
+            "ON_SIMPLE_HIT_FX": "@ON_SIMPLE_HIT_FX"
+        },
+        "$proto": "/UtilPrefabs/Res/Prototypes/InteractiveMineableObj",
+    },    
+
+    /// --- MineableEntityDef: ---------------------------------------------
+
+    "Health": 1,
+    "DefaultDamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+    "FillerResourcePack": {                                                                         /// Can I ommit it here?
+        "ItemResource": "/Inventory/Items/Res/Scraps",
+        "Count": 0
+    },
+    "ObjectType": "/Inventory/Statistic/ObjectType/MineResource",
+    // --- IHasStatsDef: --------------------------------------------
+    "Stats": "/UtilPrefabs/Res/Prototypes/Mineables/MineableObjectStats",
+    
+    // --- Perhaps it's about passive damage to weapon: ---------------
+    "DefaultStats": {
+        "$type": "ItemSpecificStats",
+        ///expect I-d here
+        "DamageType": "/UtilPrefabs/DamageTypes/DTCrushing",
+        "Stats": [
+            {
+                "Stat": "/UtilPrefabs/Stats/Combat/ItemSpecificStats/PassiveDamage",
+                "Value": 5
+            }
+        ]
+    },
+    "KnowledgeSelectors": [
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "@KNOWLEDGE_1",
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research1KW"
+            }
+        },
+        {
+            "$type": "KnowledgeSelectorDef",
+            "Knowledge": "@KNOWLEDGE_2",
+            "RewardPoints": [
+                {
+                    "TechPoint": "/Inventory/Currencies/TechPointR1",
+                    "Count": 2
+                }
+            ],
+            "Predicate": {
+                "$type": "PredicateKnowledgeDef",
+                "Caster": {
+                    "$type": "SpellCasterDef"
+                },
+                "Knowledge": "/Inventory/Knowledge/Research/Research2KW"
+            }
+        }
+    ],
+
+    /// --- InneractiveEntityDef: ---------------------------------------------
+
+    "LifeSpanSec": 600,
+    "DoOnExpired": "Destroy"
+}

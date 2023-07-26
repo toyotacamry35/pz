@@ -1,0 +1,85 @@
+{
+    //Определение активной области видимости бота (т.е. то что бот может воспринимать для своей логики. А так у него всё равно область видимости = 100, как у персонажа)
+    "$type": "LegionaryEntityDef",
+    "Id": "e9e15a64-14a8-4595-8a78-f5637cc6cf8a",
+    "CommonSenses": [
+        {
+            "$type": "SpatialKnowledgeSourceDef",
+            "Category": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+            "FeedName": "Vision",
+            "FeedRange": 10
+        }
+    ],
+
+    //Основные настройки
+    "LegionaryDef": {
+        "$type": "SpatialLegionary",
+        "ReuseExisting": true,
+        "LegionaryDef": {
+            "$type": "LegionaryDef",
+            "DefaultLegion": "/UtilPrefabs/AI/LegionTypes/Player",
+            "MainStrategy": "./Strategies/Mining/Main_Strategy",
+            "KnowledgeSources": [
+                {
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": "/AI/Defs/Knowledge/Visible",
+                    "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                    "Filter": {
+                        "$type": "True"
+                    }
+                },
+
+                //Воспринимает все Mineble ресурсы как FoodSource
+                { 
+                    "$type": "KnowledgeSourceTransformerDef",
+                    "Category": {
+                        "$type": "KnowledgeCategoryDef"
+                    },
+                    "GetFrom": "/AI/Defs/Knowledge/Visible",
+                    "InterpretAsStat": "/AI/Defs/Memories/FoodSource",
+                    "Filter": {
+                        "$type": "Or",
+                        "Conditions": [
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Big"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Med"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Bractus_Small"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Bamboo"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/Fungus"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/FoodSources/FoodSource"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Res/Rock"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Res/Salt"
+                            },
+                            {
+                                "$type": "IsLegionOfType",
+                                "LegionType": "/AI/Defs/Legions/Res/Silicon"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

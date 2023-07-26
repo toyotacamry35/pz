@@ -1,0 +1,208 @@
+{
+    "$type": "SpatialLegionary",
+    "ReuseExisting": true,
+    "LegionaryDef": {
+        "$type": "LegionaryDef",
+        "DefaultLegion": "/AI/Defs/Legions/Mobs/Scyphopod_War_Legion",
+        "MainStrategy": "/AI/Defs/Strategies/Scyphopod_War/Strategy_Scyphopod_War_Base",
+        "KnowledgeSources": [
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": "/AI/Defs/Knowledge/Visible",
+                "GetFrom": "/UtilPrefabs/AI/KnowledgeCategories/SensedAgents",
+                "Filter": {
+                    "$type": "True"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Ally",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_War_Legion"
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Worker",
+                "Filter": {
+                    "$type": "IsLegionOfType",
+                    "LegionType": "/AI/Defs/Legions/Mobs/Scyphopod_Wrk_Legion"
+                }
+            },
+            {
+                "$type": "KnowledgeSourceTransformerDef",
+                "Category": {
+                    "$type": "KnowledgeCategoryDef"
+                },
+                "GetFrom": "/AI/Defs/Knowledge/Visible",
+                "InterpretAsStat": "/AI/Defs/Memories/Prey",
+                "Filter": {
+                    "$type": "Or",
+                    "Conditions": [
+                        {
+                            "$type": "IsLegionOfType",
+                            "LegionType": "/UtilPrefabs/AI/LegionTypes/Player"
+                        }
+                    ]
+                }
+            }
+        ],
+        "EventHandlers": [
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/AI/Events/Event_Aggro",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "ModDef": {
+                            "$type": "StatModifier"
+                        },
+                        "Change": "Add",
+                        "Flat": 1,
+                        "Memory": {
+                            "$type": "TargetLegion",
+                            "TargetSelector": {
+                                "$type": "Self"
+                            }
+                        },
+                        "Target": {
+                            "$type": "SelectEventSource"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Enemy",
+                        "Time": 10
+                    }
+                }
+            },
+            {
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_Wrk_Askforhelp",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier"
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "SelectEventSource"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Alerted",
+                        "Time": 10
+                    }
+                }
+            },
+           /* { // Catch War's call
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_War_Askforhelp",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 1,
+                        "ModDef": {
+                            "$type": "StatModifier",
+                        },
+                        "Memory": {
+                            "$type": "Self"
+                        },
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/Enraged",
+                        "Time": 20
+                    }
+                }
+            },
+            { // Set stat and Guard
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_War_GuardEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 0,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/CombatState",
+                        "Time": 10
+                    }
+                }
+            },
+            { // Set stat and Fight
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Scyphopod_War_BattleEvent",
+                "HandlerStrategy": {
+                    "$type": "Strategy",
+                    "Plan": { // Set stat
+                        "$type": "RememberValue",
+                        "Change": "Set",
+                        "Flat": 0,
+                        "Target": {
+                            "$type": "Self"
+                        },
+                        "StatDef": "/AI/Defs/Memories/BattleStance",
+                        "Time": 10
+                    }
+                }
+            },
+            { // Remember their Enemy
+                "EventType": "AIEvent",
+                "EventDef": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Yutt_Dislike",
+                "HandlerStrategy": {
+                    "$type": "StrategyDef",
+                    "Plan": {
+                        "$type": "DoIf",
+                        "Condition": {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "SameLegion",
+                                "Target": {
+                                    "$type": "SelectEventSource"
+                                }
+                            }
+                        },
+                        "Action": {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "SelectEventSource"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Enemy",
+                            "Time": 60
+                        }
+                    }
+                }
+            }*/
+        ]
+    }
+}

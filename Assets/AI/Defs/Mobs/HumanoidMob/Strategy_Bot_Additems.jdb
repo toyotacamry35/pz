@@ -1,0 +1,111 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "CastSpell",
+                "Spell": {
+                    "$type": "SpellDef",
+                    "Words": [
+
+                        //Проверяем, что в инвентаре есть N свободных ячеек
+                        {
+                            "$type": "PredicateCheckItem",
+                            "Count": 21
+                        },
+                        
+                        /*
+                        * Добавляем айтемов
+                        */
+
+                        //Одежда
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "Container": "Doll",
+                            "Slot":0,
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterHat",
+                                "/Inventory/Items/Clothes/Headband"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "Container": "Doll",
+                            "Slot":1,
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterJacket",
+                                "/Inventory/Items/Clothes/ReinforcedJacket"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "Container": "Doll",
+                            "ItemsBatchType": "OneOfItem",
+                            "Slot":2,
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterGloves",
+                                "/Inventory/Items/Clothes/ReinforcedGloves"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "Container": "Doll",
+                            "ItemsBatchType": "OneOfItem",
+                            "Slot":3,
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterPants",
+                                "/Inventory/Items/Clothes/ReinforcedPants"
+                            ]
+                        },
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "Container": "Doll",
+                            "Slot":4,
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Clothes/HunterBoots",
+                                "/Inventory/Items/Clothes/ReinforcedBoots"
+                            ]
+                        },
+
+                   
+
+                        //Оружие
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "Container": "Doll",
+                            "ItemsBatchType": "OneOfItem",
+                            "Slot":9,
+                            "Items": [
+                                // "/Inventory/Items/Weapons/FlintKnife",
+                                // "/Inventory/Items/Weapons/FungalSword",
+                                // "/Inventory/Items/Weapons/FungalSpear",
+                                // "/Inventory/Items/Weapons/Macuahuitl",
+                                // "/Inventory/Items/Weapons/FlintHammer",
+                                "/Inventory/Items/Weapons/FungalSword"
+                            ]
+                        },
+
+             
+                        /*
+                        * Берём оружие в руку, проходясь по всем слотам
+                        */
+
+                        {
+                            "$type": "ImpactUseSlots",
+                            "Slots": [
+                                "/UtilPrefabs/Slots/WeaponMassive1",
+                                "/UtilPrefabs/Slots/WeaponMassive2",
+                                "/UtilPrefabs/Slots/Weapon1",
+                                "/UtilPrefabs/Slots/Weapon2"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

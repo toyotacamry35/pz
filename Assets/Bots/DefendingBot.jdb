@@ -1,0 +1,70 @@
+{
+  "$type": "LegionaryEntityDef",
+  "$overrideVars": {
+    "MAIN_STRATEGY": {
+      "$type": "Strategy",
+      "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+          {
+            "$type": "CastSpell",
+            "Spell": {
+              "$type": "SpellDef",
+              "Words": [
+                {
+                  "$type": "PredicateCheckItem",
+                  "Count": 20
+                },
+                {
+                  "$type": "ImpactAddItemsDef",
+                  "Items": [
+                    "/Inventory/Items/Weapons/New/Sword_2"
+                  ]
+                },
+                {
+                  "$type": "ImpactEquipItems",
+                  "Items": [
+                    "/Inventory/Items/Weapons/New/Sword_2"
+                  ]
+                },
+                {
+                  "$type": "ImpactUseSlots",
+                  "Slots": [
+                    "/UtilPrefabs/Slots/WeaponMassive1",
+                    "/UtilPrefabs/Slots/WeaponMassive2",
+                    "/UtilPrefabs/Slots/Weapon1",
+                    "/UtilPrefabs/Slots/Weapon2"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "$type": "DoWhile",
+            "Condition": {
+              "$type": "True"
+            },
+            "Action": {
+              "$type": "DoInSequence",
+              "Actions": [
+                {
+                  "$type": "InputActionsDef",
+                  "DurationSeconds": 10,
+                  "InputActions": [
+                    "/UtilPrefabs/Input/Actions/Block"
+                  ]
+                },
+                {
+                  "$type": "DummyNode",
+                  "Time": 5
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$proto": "./Bot_proto",
+  "Id": "581ce318-0bf5-4fc6-a7ef-1126acec9ba7"
+}

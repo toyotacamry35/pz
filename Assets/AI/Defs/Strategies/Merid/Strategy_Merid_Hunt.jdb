@@ -1,0 +1,91 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Prey": {
+            "$type": "SelectAndRemember",
+            "$id": "Prey",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Prey",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef",
+        "SubNode": {
+            "$type": "DoInSequence",
+            "Actions": [
+                {
+                    "$type": "Choose",
+                    "Actions": [
+                        {
+                            "$type": "DoIf",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Range": 6,
+                                "TargetSelectorDef": "$Prey"
+                            },
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "ChooseRandom",
+                                        "Actions": [
+                                            {
+                                                "$type": "CastSpell",
+                                                "Spell": "/AI/Spells/Merid/Spell_Merid_Attack_R",
+                                                "At": "$Prey"
+                                            },
+                                            {
+                                                "$type": "CastSpell",
+                                                "Spell": "/AI/Spells/Merid/Spell_Merid_Attack_L",
+                                                "At": "$Prey"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "$type": "DoWhile",
+                                        "Condition": {
+                                            "$type": "IsInRange",
+                                            "Range": 10,
+                                            "TargetSelectorDef": "$Prey"
+                                        },
+                                        "Action": {
+                                           
+                                                "$type": "CastSpell",
+                                                "Spell": "/AI/Spells/Merid/Spell_Merid_DigIn",
+                                                "At": "$Prey"
+                                            
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "$type": "DoInSequence",
+                            "Actions": [
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Merid/Spell_Merid_DigOut",
+                                    "At": "$Prey"
+                                },
+                                {
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                                    "At": "$Prey"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

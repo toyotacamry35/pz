@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net471</TargetFrameworks>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DefineConstants>TRACE;DEBUG;COLONY_CLUSTER;ENABLE_NETWORK_STATISTICS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DefineConstants>TRACE;COLONY_CLUSTER;ENABLE_NETWORK_STATISTICS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\SharedCode\Scribe\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="CodeGeneration.Roslyn.Attributes">
+      <HintPath>CodeGeneration.Roslyn.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="GeneratorAnnotations">
+      <HintPath>GeneratorAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteNetLib">
+      <HintPath>ExternalLib\LiteNetLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.3.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>ExternalLib\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Prometheus.NetStandard, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a243e9817ba9d559">
+      <HintPath>ExternalLib\Prometheus.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>ExternalLib\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="HashedWheelTimer">
+      <HintPath>ExternalLib\HashedWheelTimer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="4.4.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.9.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.9.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />    
+    <PackageReference Include="NLog" Version="4.6.5" />
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" version="4.5.2" />
+    <PackageReference Include="System.Threading.Channels" version="4.6.0" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Cheats\Core.Cheats.csproj" />
+    <ProjectReference Include="..\Monitoring.Contract\Monitoring.Contract.csproj" />
+    <ProjectReference Include="..\ReactivePropsThreadSafe\ReactivePropsThreadSafe.csproj" />
+    <ProjectReference Include="..\ResourceSystemLoader\ResourceSystemLoader.csproj" />
+    <ProjectReference Include="..\ResourceSystem\ResourceSystem.csproj" />
+    <ProjectReference Include="..\Telemetry\Telemetry.csproj" />
+    <ProjectReference Include="..\Core.Environment\Core.Environment.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GeneratedCode\Generated" />
+    <Folder Include="GeneratedCode\Generated\DeltaObjects2" />
+  </ItemGroup>
+  <PropertyGroup>
+    <GeneratorOutputPath>$(MSBuildProjectDirectory)\GeneratedCode\Generated\DeltaObjects2\</GeneratorOutputPath>
+  </PropertyGroup>  
+  <Import Condition="$(DoNotGenerate)!='true'" Project="$(MSBuildProjectDirectory)\..\..\Tools\CodeGen2\CodeGeneration.Roslyn.BuildTime.targets" />
+</Project>

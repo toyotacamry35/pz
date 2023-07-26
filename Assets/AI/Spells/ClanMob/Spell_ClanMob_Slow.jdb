@@ -1,0 +1,69 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_ClanMob_Slow",
+  "Duration": 1.0,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [],
+  "Words": [
+    {
+      "$type": "ImpactInvokeTraumaDef",
+      "TraumaType": "NegEffClanMobSlow",
+      "Target": {
+        "$type": "SpellTargetDef"
+      }
+    },
+  /*  {
+      "$type": "MoveEffectDef",
+      "Id" : "7b9d5313-0543-481d-abea-ce7eb4e0dec2",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 1.0,
+      "AnimationBool": "",
+      "AnimationSubType": "",
+      "AnimationSubTypeValue": 0,
+      "UseAsInputToPlayer": false,
+      "MoveType": "MoveToInput",
+      "Rotation": "LookAtTarget",
+      "Speed": 0.0,
+      "Target": null,
+      "Vec3": null,
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "AcceptedRange": 1.0,
+      "RotationTime": 1.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    }, */
+    {
+      "$type": "EffectCreateGameObjectAtTargetDef",
+      "TargetToPlaceFxAtItsPosition": {
+        "$type": "SpellCasterDef"
+      },
+      "OptionalParentObj": {
+        "$type": "SpellCasterDef"
+      },
+      "LocalPosition": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "Prefab": "Assets/AI/Spells/ClanMob/CasterBanner"
+    }
+  ]
+}

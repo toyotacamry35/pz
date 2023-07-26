@@ -1,0 +1,399 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Slimer_Detonate",
+  "Duration": 1.533,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    { // SS0
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.1,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Detonation_00",
+        "Name": "Detonation_00",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactForAllInBox",
+            "AttackBoxes": [
+              {
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "extents": {
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
+                }
+              }
+            ],
+            "WhenToDo": "OnSuccess",
+            "PredicateOnTarget": {
+              "$type": "PredicateNot",
+              "Value": {
+                "$type": "PredicateOfLegion",
+                "OfLegion": "/AI/Defs/Legions/Mobs/Slimer_Legion"
+              }
+            },
+            "WhenToApply": "OnSuccess",
+            "AppliedSpells": [
+              "/UtilPrefabs/Spells/Combat/Attacks/AttackObjectSpell",
+            ]
+          }
+        ]
+      }
+    },
+    { // SS1
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.1,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Detonation_01",
+        "Name": "Detonation_01",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+            "Target": {
+              "$type": "SpellTarget",
+            },
+            // "type": "DeltaChange",
+            "Value": 10.0,
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/FullStop",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Summand": 1.0
+          }
+        ]
+      }
+    },
+    { // SS2
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.1,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Detonation_02",
+        "Name": "Detonation_02",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+            "Target": {
+              "$type": "SpellTarget",
+            },
+            // "type": "DeltaChange",
+            "Value": 15.0,
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/FullStop",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Summand": 1.0
+          }
+        ]
+      }
+    },
+    { // SS3
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.1,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Detonation_03",
+        "Name": "Detonation_03",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+            "Target": {
+              "$type": "SpellTarget",
+            },
+            // "type": "DeltaChange",
+            "Value": 20.0,
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/FullStop",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Summand": 1.0
+          }
+        ]
+      }
+    },
+    { // SS4
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.1,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Detonation_04",
+        "Name": "Detonation_04",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+            "Target": {
+              "$type": "SpellTarget",
+            },
+            // "type": "DeltaChange",
+            "Value": 25.0,
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/FullStop",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Summand": 1.0
+          }
+        ]
+      }
+    },
+    { // SS5
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.1,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Detonation_05",
+        "Name": "Detonation_05",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactChangeTimeStatDef",
+            "StatName": "/UtilPrefabs/Stats/NegativeFactors/Intoxication",
+            "Target": {
+              "$type": "SpellTarget",
+            },
+            // "type": "DeltaChange",
+            "Value": 30.0,
+            "WhenToApply": "OnSuccess"
+          },
+          {
+            "$type": "EffectChangeAccumulatedStatDef",
+            "StatName": "/UtilPrefabs/Stats/FullStop",
+            "Target": {
+              "$type": "SpellCaster",
+            },
+            "Summand": 1.0
+          }
+        ]
+      }
+    },
+    { // Chain Event
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.85,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Chain_Event",
+        "Name": "Chain_Event",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "InteractionDescription": "",
+        "DontShowProgress": false,
+        "Group": null,
+        "OutlineColorIndex": 0,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "ImpactRaiseEvent",
+            "PathToEventStatisDataType": "/UtilPrefabs/AI/PlaygroundMobs/EventTypes/Event_Slimer_Chain",
+            "From": {
+              "$type": "SpellCaster",
+            },
+            "Caster": {
+              "$type": "SpellCaster"
+            },
+            "Radius": 5.0
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectPostVisualEvent",
+      "TriggerName": "/AI/Events/MobAttackEvent"
+    },
+    {
+      "$type": "MoveEffectDef",
+      "Enabled": true,
+      "InverseMovement": false,
+      "KeepDistance": false,
+      "KeepDistanceTreshold": 0.5,
+      "AnimationBool": "Dodge_Back",
+      "UseAsInputToPlayer": false,
+      "MoveType": "StrafeAroundTarget",
+      "Rotation": "LookAtMoveDirection",
+      "Speed": 7.0,
+      "Target": {
+        "$type": "SpellTargetDef"
+      },
+      "Caster": {
+        "$type": "SpellCasterDef"
+      },
+      "FixedDirection": {
+        "$type": "Vector3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -8.5
+      },
+      "AcceptedRange": 3.5,
+      "RotationTime": 0.0,
+      "Levitate": false,
+      "ApplyHeightSpeedCurve": false,
+      "TargetHeightSpeed": 0.0,
+      "ApplyHeightCurve": false,
+      "TargetHeight": 0.0,
+      "Period": 0.0
+    }
+  ]
+}

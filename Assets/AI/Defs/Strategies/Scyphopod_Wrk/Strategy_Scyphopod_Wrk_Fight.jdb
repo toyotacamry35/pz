@@ -1,0 +1,124 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Prey": {
+            "$type": "SelectAndRemember",
+            "$id": "Prey",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Prey",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        },
+        "Ally": {
+            "$type": "SelectAndRemember",
+            "$id": "Ally",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Ally",
+                "InverseMetric": true,
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoWithCooldown",
+                "CooldownName": "Help_CD",
+                "CooldownOnFail": 1.0,
+                "CooldownOnSuccess": 9.0,
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Askforhelp",
+                    "At": "$Ally"
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 3,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Attack_Prepare",
+                            "At": "$Prey"
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Scyphopod_Wrk/Spell_Scyphopod_Wrk_Attack",
+                            "At": "$Prey"
+                        },                      
+                        {
+                            "$type": "DoIf",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Range": 4,
+                                "TargetSelectorDef": "$Ally"
+                            },
+                            "Action": {
+                                "$type": "ChooseRandom",
+                                "Actions": [
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Spell_Mob_CircleRight",
+                                        "At": "$Prey"
+                                    },
+                                    {
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Spell_Mob_CircleLeft",
+                                        "At": "$Prey"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 2.5,
+                                    "Min": 1.5
+                                }
+                            },
+                            "Action": {
+                                "$type": "DummyNode"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoWhile",
+                "Condition": { //если цель слишком далеко Pod прерывает движение к ней и завершает стратегию
+                    "$type": "IsInRange",
+                    "Range": 20,
+                    "TargetSelectorDef": "$Prey"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Spell_Mob_WalkToTarget",
+                    "At": "$Prey"
+                }
+            }
+        ]
+    }
+}

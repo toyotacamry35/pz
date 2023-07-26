@@ -1,0 +1,137 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_Alpha_Attack_Swipe",
+    "Duration": 2.0,
+    "Slot": "/UtilPrefabs/Spells/MainActionSlot",
+    "Words": [
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                    "Value": 3
+                }
+            ]
+        },
+        {
+            "$type": "EffectChangeAccumulatedStat",
+            "Summand": 0,
+            "Target": {
+                "$type": "SpellCaster"
+            },
+            "StatName": "/UtilPrefabs/Stats/Combat/DamageMods/OutgoingDamageMod"
+        }
+    ],
+    "SubSpells": [
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.3,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.75,
+                "Words": [
+                    {
+                        "$type": "MoveEffectDef",
+                        "Enabled": true,
+                        "KeepDistance": true,
+                        "KeepDistanceTreshold": 0.1,
+                        "AcceptedRange": 2.5,
+                        "MoveType": "FollowPathToTarget",
+                        "Rotation": "LookAtTarget",
+                        "Modifier": "Run",
+                        "SpeedFactor": 1.0,
+                        "Target": {
+                            "$type": "SpellTargetDef"
+                        },
+                        "Vec3": {
+                            "$type": "SpellTargetPointDef"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "SubSpell",
+            "OffsetStart": 0.7,
+            "Spell": {
+                "$type": "SpellDef",
+                "Duration": 0.1,
+                "Words": [
+                    {
+                        "$type": "ImpactInShape",
+                        "Shape": {
+                            "$type": "BoxShape",
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 2.1
+                            },
+                            "Extents": {
+                                "x": 1.0,
+                                "y": 1.2,
+                                "z": 1.2
+                            }
+                        },
+                        "WhenToApply": "OnSuccess",
+                        "PredicateOnTarget": {
+                            "$type": "PredicateAnd",
+                            "Predicates": [
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Kvar_Legion"
+                                    }
+                                },
+                                {
+                                    "$type": "PredicateNot",
+                                    "Value": {
+                                        "$type": "PredicateOfLegion",
+                                        "OfLegion": "/AI/Defs/Legions/Mobs/Kvar_Alpha_Legion"
+                                    }
+                                }
+                            ]
+                        },
+                        "AppliedSpells": [
+                            {
+                                "$type": "Spell",
+                                "AllowMultiple": true,
+                                "Words": [
+                                    {
+                                        "$type": "ImpactAttackObjectDef",
+                                        "Attacker": {
+                                            "$type": "SpellCasterDef"
+                                        },
+                                        "Victim": {
+                                            "$type": "SpellTargetDef"
+                                        },
+                                        "Attack": {
+                                            "$type": "Attack",
+                                            "$overrideVars": {
+                                                "POWER_MOD": 21
+                                            },
+                                            "$proto": "/UtilPrefabs/Spells/Combat/Attacks/_AttackDamageProto"
+                                        }
+                                    },
+                                    {
+                                        "$type": "ImpactInvokeTrauma",
+                                        "Target": {
+                                            "$type": "SpellTarget"
+                                        },
+                                        "TraumaType": "NegEffBleed2"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

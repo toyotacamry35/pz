@@ -1,0 +1,32 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Scyphopod_Wrk_Staggered",
+  "Duration": 0.1,
+  "IsInfinite": false,
+  "Words": [
+    {
+      "$type": "EffectAnimatorDef",
+      "Parameters": [
+        {
+          "$type": "BoolWithTriggerParameterDef",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Reaction",
+          "Value": true
+        },
+        {
+          "$type": "IntParameter",
+          "Parameter": "/UtilPrefabs/Res/AnimatorParameters/ReactionType",
+          "Value": 1,
+        }
+      ]
+    },
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/Staggered"
+    }
+  ],
+  "SubSpells": []
+}

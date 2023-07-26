@@ -1,0 +1,43 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Threat": {
+            "$type": "SelectAndRemember",
+            "$id": "Threat",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 2,
+                    "TargetSelectorDef": "$Threat"
+                },
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Kvar/Kvar_Alpha/Spell_Kvar_Alpha_Eat",
+                    "At": "$Threat"
+                }
+            },
+            {
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Spell_Mob_RunToTarget",
+                "At": "$Threat"
+            }
+        ]
+    }
+}

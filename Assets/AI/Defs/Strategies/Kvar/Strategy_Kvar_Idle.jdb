@@ -1,0 +1,129 @@
+{
+    "$type": "Strategy",
+    "$vars": {
+        "AMOUNT": {
+            "Type": "float",
+            "Value": 0.5
+        }
+    },
+    "Selectors": {
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+             { // Player reactions
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        { // Check Preferred Target
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/PreferredTarget"
+                            }
+                        },
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 3.0, // HALF-XENOBIOT
+                            "Evaluator": {
+                                "$type": "CalcerMetric",
+                                "Target": {
+                                    "$type": "SelectKnown",
+                                    "MemoryCategory": "/AI/Defs/Memories/PreferredTarget",
+                                    "InverseMetric": true,
+                                    "Metric": {
+                                        "$type": "RangeMetric",
+                                        "Target": {
+                                            "$type": "Self"
+                                        }
+                                    }
+                                },
+                                "Calcer": {
+                                    "$type": "CalcerStat",
+                                    "Stat": "/UtilPrefabs/Stats/PlayerFaction",
+                                }
+                            }
+                        },
+                    ]
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kvar_Intimidate"
+                }
+            },
+            { // Hunting
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": "@AMOUNT",
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "TargetOfStat": {
+                                "$type": "Self"
+                            },
+                            "MemorizedStat": "/AI/Defs/Memories/Sated"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kvar_Hunt"
+                }
+            },
+            { // Find a source of water
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": "@AMOUNT",
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "TargetOfStat": {
+                                "$type": "Self"
+                            },
+                            "MemorizedStat": "/AI/Defs/Memories/Slaked"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kvar_Drink"
+                }
+            },
+            { // Nighttime strategy
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "TimeIsWithinInterval",
+                        "Interval": {
+                            "$type": "InGameTimeInterval",
+                            "HourFrom": 5, // 8
+                            "HourTill": 23 // 20
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Kvar_Sleep"
+                }
+            },
+            { // Else move around
+                "$type": "UseStrategy",
+                "Strategy": "/AI/Defs/Strategies/Strategy_Mob_Roam"
+            },
+        ]
+    }
+}

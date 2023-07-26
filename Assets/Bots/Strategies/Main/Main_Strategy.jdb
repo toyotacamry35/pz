@@ -1,0 +1,88 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            
+            //Юзать спелл на восстановление человечности, чтобы боты не превращались в войдов
+            {
+                "$type": "DoWithCooldown",
+                "CooldownOnFail": 5.0,
+                "CooldownOnSuccess": 30.0,
+                "CooldownName": "Humming_Cooldown",
+                "Action": {
+                    "$type": "CastSpell",
+                    "Spell": "/UtilPrefabs/Spells/Consumables/MutagenZSpell",
+                    "At": {
+                        "$type": "Self"
+                    }
+                 }
+            },
+
+            //Если в инвентаре и на кукле бота есть N свободного места, то он добавляет айтема и одевается
+            {
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Bot_Additems"
+                    }
+                ]
+            },
+            
+            //Если рядом есть моб, то бот бежит атаковать его
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Bot_Hunt_Mobs"
+                }
+            },
+
+            //Если рядом есть mineble-ресурс, то бот бежит атаковать его
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/FoodSource"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Bot_Mining"
+                }
+            },
+
+            //Если рядом есть реальный игрок, то бот бежит атаковать его
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Interest"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Bot_Hunt_Players"
+                }
+            },
+            
+            //Если рядом вообще ничего и никого нет, то бот добавляет айтем, выкидывает его и бежит в случайную точку
+            {
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Bot_Antilopa"
+            }
+        ]
+    }
+}

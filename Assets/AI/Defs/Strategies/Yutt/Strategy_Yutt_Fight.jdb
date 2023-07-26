@@ -1,0 +1,133 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Enemy": {
+            "$type": "SelectAndRemember",
+            "$id": "Enemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 2,
+                    "TargetSelectorDef": "$Enemy"
+                },
+                "Action": {
+                    "$type": "DoWhile",
+                    "Condition": {
+                        "$type": "IsInRange",
+                        "Range": 5,
+                        "TargetSelectorDef": "$Enemy"
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Yutt/Spell_Yutt_Move0d5",
+                        "At": "$Enemy"
+                    }
+                }
+            },
+            {
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 5,
+                    "TargetSelectorDef": "$Enemy"
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Yutt/Spell_Yutt_Attack",
+                            "At": "$Enemy"
+                        },
+                        {
+                            "$type": "Do",
+                            "ChanceToDo": 0.5,
+                            "ResultOnNotDoing": "Succeeded",
+                            "Action": {
+                                "$type": "DoForTime",
+                                "Time": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Max": 1.5,
+                                        "Min": 1
+                                    }
+                                },
+                                "Action": {
+                                    "$type": "ChooseRandom",
+                                    "Actions": [
+                                        {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Yutt/Spell_Yutt_CircleRight",
+                                            "At": "$Enemy"
+                                        },
+                                        {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Yutt/Spell_Yutt_CircleLeft",
+                                            "At": "$Enemy"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "$type": "DoForTime",
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 2,
+                                    "Min": 0
+                                }
+                            },
+                            "Action": {
+                                "$type": "DummyNode"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$type": "DoInSequence",
+                "Actions": [
+                    {
+                        "$type": "DoForTime",
+                        "Time": {
+                            "$type": "CalcerMetric",
+                            "Calcer": {
+                                "$type": "CalcerRandom",
+                                "Max": 2,
+                                "Min": 0
+                            }
+                        },
+                        "Action": {
+                            "$type": "DummyNode"
+                        }
+                    },
+                    {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Spell_Mob_RunToTarget",
+                        "At": "$Enemy"
+                    }
+                ]
+            }
+        ]
+    }
+}

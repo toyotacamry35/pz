@@ -1,0 +1,41 @@
+{
+    "$type": "SpellDef",
+    "Name": "Spell_Kvar_Prepare",
+    "Duration": 2,
+    "Words": [
+        {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "MoveType": "LookAt",
+            "Rotation": "LookAtTarget",
+            "Target": {
+                "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+                "$type": "SpellTargetPointDef"
+            }
+        },
+        {
+            "$type": "ImpactCastSpell",
+            "Caster": {
+                "$type": "SpellTarget"
+            },
+            "Spell": "/AI/Spells/Kvar/Spell_Kvar_FreeMobBuff"
+        },
+        {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+                {
+                    "$type": "BoolWithTriggerParameterDef",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/Social",
+                    "Value": true
+                },
+                {
+                    "$type": "IntParameter",
+                    "Parameter": "/UtilPrefabs/Res/AnimatorParameters/SocialType",
+                    "Value": 5
+                }
+            ]
+        }
+    ]
+}

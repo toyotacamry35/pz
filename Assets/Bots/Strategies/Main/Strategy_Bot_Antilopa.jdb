@@ -1,0 +1,43 @@
+{
+    "$type": "Strategy",
+    "Plan": {
+        "$type": "DoInSequence",
+        "Actions": [
+            {
+                "$type": "CastSpell",
+                "Spell": {
+                    "$type": "SpellDef",
+                    "Words": [
+                        //Добавить один из предметов в N ячейку инвентаря в количестве M шт.
+                        {
+                            "$type": "ImpactAddItemsDef",
+                            "ItemsBatchType": "OneOfItem",
+                            "Items": [
+                                "/Inventory/Items/Res/Salt"
+                            ],
+                            "Container": "Inventory",
+                            "Count": 1,
+                            "Slot": 15
+                        },
+                        //Выкинуть предмет из N ячейки
+                        {
+                            "$type": "ImpactDropItem",
+                            "Container": "Inventory",
+                            "Count": 1,
+                            "Slot": 15
+                        }
+                    ]
+                }
+            },
+            //Бежать в случайную точку в радиусе N метров до M секунд
+            {
+                "$type": "MoveBotDef",
+                "TimeoutSeconds": 3,
+                "Target": {
+                    "$type": "RandomPointTargetSelector",
+                    "InRange": 10
+                }
+            }
+        ]
+    }
+}

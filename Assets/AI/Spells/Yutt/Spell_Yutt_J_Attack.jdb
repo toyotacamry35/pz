@@ -1,0 +1,198 @@
+{
+  "$type": "SpellDef",
+  "Name": "Spell_Yutt_J_Attack",
+  "Duration": 0.95,
+  "IsInfinite": false,
+  "AllowMultiple": false,
+  "SpellIcon": null,
+  "InteractionDescription": "",
+  "DontShowProgress": false,
+  "Group": null,
+  "OutlineColorIndex": 0,
+  "SubSpells": [
+    //Swing
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.0,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Swing",
+        "Name": "Swing",
+        "Duration": 0.3,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SpellIcon": null,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": false,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 5.0,
+            "MoveType": "StrafeAroundTarget",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "FixedDirection": {
+              "$type": "Vector3",
+              "x": -1.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
+      }
+    },
+    //Attack
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.3,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Attack",
+        "Name": "Attack",
+        "Duration": 0.1,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "MoveType": "LookAt",
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "Vec3": {
+              "$type": "SpellTargetPointDef"
+            }
+          },
+          {
+            "$type": "EffectAnimatorDef",
+            "Parameters": [
+              {
+                "$type": "BoolWithTriggerParameterDef",
+                "Parameter": "/UtilPrefabs/Res/AnimatorParameters/MobAttack",
+                "Value": true
+              },
+              {
+                "$type": "IntParameter",
+                "Parameter": "/UtilPrefabs/Res/AnimatorParameters/AttackType",
+                "Value": 2,
+              }
+            ]
+          },
+          {
+            "$type": "ImpactForAllInBox",
+            "AttackBoxes": [
+              {
+                "center": {
+                  "x": 0,
+                  "y": 0.0,
+                  "z": 6.5
+                },
+                "extents": {
+                  "x": 5.2,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            ],
+            "WhenToApply": "OnSuccess",
+            "PredicateOnTarget": {
+              "$type": "PredicateNot",
+              "Value": {
+                "$type": "PredicateOfLegion",
+                "OfLegion": "/AI/Defs/Legions/Mobs/Yutt_Legion"
+              }
+            },
+            "AppliedSpells": [
+              "/UtilPrefabs/Spells/Combat/Attacks/AttackObject_NOSTAGGERSpell",
+            ]
+          }
+        ]
+      }
+    },
+    //Backswing
+    {
+      "$type": "SubSpell",
+      "Mode": "StartAndDuration",
+      "OffsetStart": 0.4,
+      "AnchorLeft": 0.0,
+      "OffsetEnd": 0.0,
+      "AnchorRight": 0.0,
+      "Step": 0.0,
+      "CountPerDuration": 0,
+      "MustNotFail": false,
+      "OverridenDuration": 0.0,
+      "OverridenDurationPercent": 0.0,
+      "OverrideDuration": false,
+      "OverrideDurationPercent": false,
+      "Spell": {
+        "$type": "SpellDef",
+        "$id": "Backswing",
+        "Name": "Backswing",
+        "Duration": 0.5,
+        "IsInfinite": false,
+        "AllowMultiple": false,
+        "SubSpells": [],
+        "Words": [
+          {
+            "$type": "MoveEffectDef",
+            "Enabled": true,
+            "KeepDistance": false,
+            "KeepDistanceTreshold": 0.5,
+            "AcceptedRange": 5.0,
+            "MoveType": "StrafeAroundTarget",
+            "Rotation": "LookAtTarget",
+            "SpeedFactor": 1.0,
+            "Target": {
+              "$type": "SpellTargetDef"
+            },
+            "FixedDirection": {
+              "$type": "Vector3",
+              "x": -1.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Words": [
+    {
+      "$type": "EffectChangeAccumulatedStat",
+      "Summand": 1,
+      "Target": {
+        "$type": "SpellCaster"
+      },
+      "StatName": "/UtilPrefabs/Stats/Mobs/DodgeRestricted"
+    }
+  ]
+}

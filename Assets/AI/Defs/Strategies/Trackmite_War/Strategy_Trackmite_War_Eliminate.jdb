@@ -1,0 +1,146 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "Hostiles": { //
+            "$type": "SelectAndRemember",
+            "$id": "Hostiles",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Hostiles"
+            }
+        },
+        "AttackMarker": { // Perceive AttackMarker
+            "$type": "SelectAndRemember",
+            "$id": "AttackMarker",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/AttackMarker"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Mark their Target and come closer
+                "$type": "DoWhile",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 3.0,
+                    "TargetSelectorDef": "$Hostiles",
+                    "Not": true
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoWithCooldown",
+                            "CooldownName": "MarkCooldown",
+                            "CooldownOnFail": 8,
+                            "CooldownOnSuccess": 8,
+                            "Action": {
+                                "$type": "RememberValue",
+                                "Change": "Set",
+                                "Flat": 1,
+                                "ModDef": {
+                                    "$type": "StatModifier",
+                                },
+                                "Memory": {
+                                    "$type": "Self"
+                                },
+                                "Target": "$Hostiles",
+                                "StatDef": "/AI/Defs/Memories/AttackMarker",
+                                "Time": 15.0
+                            }
+                        },
+                        {
+                            "$type": "DoForTime",
+                            "Action": { // 
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                                "At": "$AttackMarker"
+                            },
+                            "Time": {
+                                "$type": "CalcerMetric",
+                                "Calcer": {
+                                    "$type": "CalcerRandom",
+                                    "Max": 3,
+                                    "Min": 1
+                                }
+                            }
+                        },
+                        {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                {
+                                    "$type": "DoForTime",
+                                    "Action": { // Circle R
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_CircleRight",
+                                        "At": "$AttackMarker"
+                                    },
+                                    "Time": { // Set time
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 3,
+                                            "Min": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "$type": "DoForTime",
+                                    "Action": { // Circle L
+                                        "$type": "CastSpell",
+                                        "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_CircleLeft",
+                                        "At": "$AttackMarker"
+                                    },
+                                    "Time": { // Set time
+                                        "$type": "CalcerMetric",
+                                        "Calcer": {
+                                            "$type": "CalcerRandom",
+                                            "Max": 3,
+                                            "Min": 1
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            { // If Slimer is near
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Range": 3,
+                    "TargetSelectorDef": "$AttackMarker"
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        { // Come closer
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                            "At": "$AttackMarker"
+                        },
+                        {
+                            "$type": "ChooseRandom",
+                            "Actions": [
+                                { // 
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Jump_Attack",
+                                    "At": "$AttackMarker"
+                                },
+                                { // 
+                                    "$type": "CastSpell",
+                                    "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Bite_Attack",
+                                    "At": "$AttackMarker"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

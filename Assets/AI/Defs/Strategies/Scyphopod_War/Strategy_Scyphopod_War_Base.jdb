@@ -1,0 +1,514 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "EvadePoint": {
+            "$type": "SelectAndRemember",
+            "$id": "EvadePoint",
+            "Selector": {
+                "$type": "SelectKnown",
+                "Category": "/AI/Defs/Knowledge/EvadePoint"
+            }
+        },
+        "Alerted": {
+            "$type": "SelectAndRemember",
+            "$id": "Alerted",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/Alerted",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                }
+            }
+        }
+    },
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef",
+        "SubNode": {
+            "$type": "Choose",
+            "Actions": [
+                {
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "And",
+                        "Conditions": [
+                            {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 0.5,
+                                "Evaluator": {
+                                    "$type": "RememberedValue",
+                                    "MemorizedStat": "/AI/Defs/Memories/BattleStance",
+                                    "Target": {
+                                        "$type": "Self"
+                                    }
+                                }
+                            },
+                            {
+                                "$type": "Or",
+                                "Conditions": [
+                                    {
+                                        "$type": "Has",
+                                        "Target": {
+                                            "$type": "SelectKnown",
+                                            "MemoryCategory": "/AI/Defs/Memories/Prey",
+                                            "Filter": {
+                                                "$type": "IsInRange",
+                                                "Range": 12,
+                                                "TargetSelectorDef": {
+                                                    "$type": "Self"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$type": "Has",
+                                        "Target": {
+                                            "$type": "SelectKnown",
+                                            "MemoryCategory": "/AI/Defs/Memories/Alerted",
+                                            "Filter": {
+                                                "$type": "IsInRange",
+                                                "Range": 50,
+                                                "TargetSelectorDef": {
+                                                    "$type": "Self"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "Action": {
+                        "$type": "DoInSequence",
+                        "Actions": [
+                            {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Open",
+                                "At": {
+                                    "$type": "Self"
+                                }
+                            },
+                            {
+                                "$type": "RememberValue",
+                                "Change": "Set",
+                                "Flat": 0,
+                                "Target": {
+                                    "$type": "Self"
+                                },
+                                "StatDef": "/AI/Defs/Memories/BattleStance",
+                                "Time": 1000
+                            }
+                        ]
+                    }
+                },
+                {
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "And",
+                        "Conditions": [
+                            {
+                                "$type": "Not",
+                                "Condition": {
+                                    "$type": "EvaluatesToMoreThan",
+                                    "Amount": 0.5,
+                                    "Evaluator": {
+                                        "$type": "RememberedValue",
+                                        "MemorizedStat": "/AI/Defs/Memories/BattleStance",
+                                        "Target": {
+                                            "$type": "Self"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "$type": "Has",
+                                "Target": {
+                                    "$type": "SelectKnown",
+                                    "MemoryCategory": "/AI/Defs/Memories/Prey",
+                                    "Filter": {
+                                        "$type": "IsInRange",
+                                        "Range": 15,
+                                        "TargetSelectorDef": {
+                                            "$type": "Self"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "Action": {
+                        "$type": "DoWhile",
+                        "Condition": {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Prey",
+                                "Filter": {
+                                    "$type": "IsInRange",
+                                    "Range": 35,
+                                    "TargetSelectorDef": {
+                                        "$type": "Self",
+                                        "FromSelf": "$EvadePoint"
+                                    }
+                                }
+                            }
+                        },
+                        "Action": {
+                            "$type": "UseStrategy",
+                            "Strategy": "/AI/Defs/Strategies/Scyphopod_War/Strategy_Scyphopod_War_Fight"
+                        }
+                    }
+                },
+                {
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "IsInRange",
+                        "Range": 6,
+                        "Not": true,
+                        "TargetSelectorDef": "$Alerted"
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Spell_Mob_RunToTarget",
+                        "At": "$Alerted"
+                    }
+                },
+                {
+                    "$type": "DoIf",
+                    "Condition": {
+                        "$type": "IsInRange",
+                        "Range": 4,
+                        "Not": true,
+                        "TargetSelectorDef": "$EvadePoint"
+                    },
+                    "Action": {
+                        "$type": "CastSpell",
+                        "Spell": "/AI/Spells/Spell_Mob_WalkToPoint",
+                        "At": "$EvadePoint"
+                    }
+                },
+                {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/BattleStance",
+                            "Time": 1000
+                        },
+                        {
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Close",
+                            "At": {
+                                "$type": "Self"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+/*   { // Check Enemy
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "Has",
+                    "Target": {
+                        "$type": "SelectKnown",
+                        "MemoryCategory": "/AI/Defs/Memories/Enemy"
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Scyphopod_War_Fight_Enemy"
+                }
+            },
+            { // Check Condition
+                "$type": "DoIf",
+                "Condition": { // 1
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 3.5,
+                            "TargetSelectorDef": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        },
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "Category": "/AI/Defs/Knowledge/Hive"
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoForTime",
+                            "Time": 0.5,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Idle",
+                                "At": {
+                                    "$type": "SelectKnown",
+                                    "MemoryCategory": "/AI/Defs/Memories/Threat"
+                                }
+                            }
+                        },
+                        { // Clear all stats
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 0,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/CombatState",
+                            "Time": 10
+                        },
+                        { // Set new stat
+                            "$type": "RememberValue",
+                            "Change": "Add",
+                            "Flat": 3.5, // Rapid reaction
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Infuriated",
+                            "Time": 10
+                        }
+                    ]
+                }
+            },
+            { // Check Condition
+                "$type": "DoIf",
+                "Condition": { // 2
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 25,
+                            "SectorBorderL": 90,
+                            "SectorBorderR": -90,
+                            "TargetSelectorDef": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        },
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "Category": "/AI/Defs/Knowledge/Hive"
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "DoForTime",
+                            "Time": 2.5,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Scyphopod_War/Spell_Scyphopod_War_Idle",
+                                "At": {
+                                    "$type": "SelectKnown",
+                                    "MemoryCategory": "/AI/Defs/Memories/Threat"
+                                }
+                            }
+                        },
+                        { // Clear all stats
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 0,
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/CombatState",
+                            "Time": 10
+                        },
+                        { // Set new stat
+                            "$type": "RememberValue",
+                            "Change": "Add",
+                            "Flat": 1.0,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": {
+                                "$type": "Self"
+                            },
+                            "StatDef": "/AI/Defs/Memories/Infuriated",
+                            "Time": 10
+                        }
+                    ]
+                }
+            },
+            { // Protect Wrk
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Alerted",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        }
+                    ]
+                },
+                "Action": { // Fight strategy
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Scyphopod_War_Fight"
+                }
+            },
+            { // Protect War
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/Enraged",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        },
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Threat"
+                            }
+                        }
+                    ]
+                },
+                "Action": { // Fight strategy
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Scyphopod_War_Fight"
+                }
+            },
+            { // Check Worker
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Worker"
+                            }
+                        },
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Ally"
+                            }
+                        }
+                    ]
+                },
+                "Action": { // Guard Duo strategy
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Scyphopod_War_Roam_Duo_Wrk"
+                }
+            },
+            { // Check Hive
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "Category": "/AI/Defs/Knowledge/Hive"
+                            }
+                        },
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Ally"
+                            }
+                        }
+                    ]
+                },
+                "Action": { // Guard Hive strategy
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Scyphopod_War_Roam_Duo_Hive"
+                }
+            },
+            { // Check Worker and Guard if there's no Ally nearby
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "Has",
+                            "Target": {
+                                "$type": "SelectKnown",
+                                "MemoryCategory": "/AI/Defs/Memories/Worker"
+                            }
+                        },
+                        {
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "Has",
+                                "Target": {
+                                    "$type": "SelectKnown",
+                                    "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": { // Guard Solo strategy
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Scyphopod_War_Roam_Solo_Wrk"
+                }
+            },
+            { // Else roam
+                "$type": "UseStrategy",
+                "Strategy": "./Strategy_Scyphopod_War_Roam_Solo"
+            }
+        ]
+    }
+}*/

@@ -1,0 +1,110 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "NearestEnemy": {
+            "$type": "SelectAndRemember",
+            "$id": "NearestEnemy",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Enemy",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "InverseMetric": true,
+            }
+        },
+        "RandomTarget": {
+            "$type": "SelectAndRemember",
+            "$id": "RandomTarget",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Threat",
+                "Shuffle": true,
+            }
+        },
+    },
+    "Plan": {
+        "$type": "HighFrequentlyUpdatedDef",
+        "SubNode": {
+            "$type": "Choose",
+            "Actions": [
+                {
+                    "$type": "ChooseRandom",
+                    "WeightedActions": [
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 100,
+                            "Action": {
+                                "$type": "DoInSequence",
+                                "Actions": [
+                                    {
+                                        "$type": "DoForTime",
+                                        "Time": 2.55,
+                                        "Action": {
+                                            "$type": "CastSpell",
+                                            "Spell": "/AI/Spells/Sahrim/Spell_SahrimBaby_Swipeattack",
+                                            "At": "$NearestEnemy"
+                                        },
+                                    },
+                                    {
+                                        "$type": "Do",
+                                        "ResultOnNotDoing": "Succeeded",
+                                        "ChanceToDo": 65,
+                                        "Action": {
+                                            "$type": "ChooseRandom",
+                                            "WeightedActions": [
+                                                {
+                                                    "$type": "WeightedAction",
+                                                    "Weight": 100,
+                                                    "Action": {
+                                                        "$type": "DoForTime",
+                                                        "Time": 2.55,
+                                                        "Action": {
+                                                            "$type": "CastSpell",
+                                                            "Spell": "/AI/Spells/Sahrim/Spell_SahrimBaby_Swipeattack",
+                                                            "At": "$NearestEnemy"
+                                                        },
+                                                    },
+                                                },
+                                                {
+                                                    "$type": "WeightedAction",
+                                                    "Weight": 100,
+                                                    "Action": {
+                                                        "$type": "CastSpell",
+                                                        "Spell": "/AI/Spells/Sahrim/Spell_SahrimBaby_Chargefinish",
+                                                        "At": "$NearestEnemy"
+                                                    },
+                                                }
+                                            ]
+                                        },
+                                    },
+                                ]
+                            },
+                        },
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 60,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_SahrimBaby_Chargefinish",
+                                "At": "$NearestEnemy"
+                            },
+                        },
+                        {
+                            "$type": "WeightedAction",
+                            "Weight": 60,
+                            "Action": {
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Sahrim/Spell_SahrimBaby_Rangedattack",
+                                "At": "$NearestEnemy"
+                            },
+                        },
+                    ],
+                },
+            ]
+        }
+    }
+}

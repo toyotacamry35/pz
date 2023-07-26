@@ -1,0 +1,244 @@
+{
+    "$type": "Strategy",
+    "Selectors": {
+        "AttackMarker": { // Perceive AttackMarker
+            "$type": "SelectAndRemember",
+            "$id": "AttackMarker",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/AttackMarker"
+            }
+        },
+        "InterestingStuff": {
+            "$type": "SelectAndRemember",
+            "$id": "InterestingStuff",
+            "Selector": {
+                "$type": "SelectKnown",
+                "InverseMetric": true,
+                "MemoryCategory": "/AI/Defs/Memories/InterestingStuff",
+                "Metric": {
+                    "$type": "RangeMetric",
+                    "Target": {
+                        "$type": "Self"
+                    }
+                },
+                "Filter": {
+                    "$type": "Not",
+                    "Condition": {
+                        "$type": "EvaluatesToMoreThan",
+                        "Amount": 0.5,
+                        "Evaluator": {
+                            "$type": "RememberedValue",
+                            "MemorizedStat": "/AI/Defs/Memories/RecentlyUsed",
+                            "MemoryOfTarget": true,
+                            "Target": {
+                                "$type": "Self"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Leader": { // Perceive Leader
+            "$type": "SelectAndRemember",
+            "$id": "Leader",
+            "Selector": {
+                "$type": "SelectKnown",
+                "MemoryCategory": "/AI/Defs/Memories/Leader"
+            }
+        }
+    },
+    "Plan": {
+        "$type": "Choose",
+        "Actions": [
+            { // Stay near their Leader
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "IsInRange",
+                    "Not": true,
+                    "Range": 5,
+                    "TargetSelectorDef": "$Leader"
+                },
+                "Action": { // Come closer
+                    "$type": "CastSpell",
+                    "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                    "At": "$Leader"
+                }
+            },
+            { // Fallback
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Frightened",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "Choose",
+                    "Actions": [
+                        { // Stay near their Leader
+                            "$type": "DoIf",
+                            "Condition": {
+                                "$type": "IsInRange",
+                                "Not": true,
+                                "Range": 8,
+                                "TargetSelectorDef": "$Leader"
+                            },
+                            "Action": { // Come closer
+                                "$type": "CastSpell",
+                                "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                                "At": "$Leader"
+                            }
+                        },
+                        { // Run
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_RunToPoint",
+                            "At": {
+                                "$type": "RandomPointTargetSelector",
+                                "InRange": {
+                                    "$type": "CalcerMetric",
+                                    "Calcer": {
+                                        "$type": "CalcerRandom",
+                                        "Max": 15,
+                                        "Min": 10
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            { // INTERACT
+                "$type": "DoWhile",
+                "Condition": { // If there is at least one untouched interactive object near their Leader
+                    "$type": "And",
+                    "Conditions": [
+                        {
+                            "$type": "IsInRange",
+                            "Range": 10,
+                            "TargetSelectorDef": "$InterestingStuff",
+                            "BasisSelectorDef": "$Leader"
+                        },
+                        { // And no more than 2 allies near it
+                            "$type": "Not",
+                            "Condition": {
+                                "$type": "EvaluatesToMoreThan",
+                                "Amount": 2,
+                                "Evaluator": {
+                                    "$type": "CollectionSumMetric",
+                                    "CollectionSelector": {
+                                        "$type": "SelectKnown",
+                                        "MemoryCategory": "/AI/Defs/Memories/Ally"
+                                    },
+                                    "Metric": 1
+                                }
+                            }
+                        },
+                        { // And stat is set
+                            "$type": "EvaluatesToMoreThan",
+                            "Amount": 0.5,
+                            "Evaluator": {
+                                "$type": "RememberedValue",
+                                "MemorizedStat": "/AI/Defs/Memories/ChosenLocation",
+                                "Target": {
+                                    "$type": "Self"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Action": {
+                    "$type": "DoInSequence",
+                    "Actions": [
+                        {
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "Target": "$InterestingStuff",
+                            "StatDef": "/AI/Defs/Memories/AttackMarker",
+                            "Time": 15.0
+                        },
+                        { // Come closer
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToTarget",
+                            "At": "$AttackMarker"
+                        },
+                        { // Interact
+                            "$type": "CastSpell",
+                            "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_Interact",
+                            "At": "$AttackMarker"
+                        },
+                        { // Mark as used
+                            "$type": "RememberValue",
+                            "Change": "Set",
+                            "Flat": 1,
+                            "Memory": {
+                                "$type": "Self"
+                            },
+                            "ModDef": {
+                                "$type": "StatModifier",
+                            },
+                            "StatDef": "/AI/Defs/Memories/RecentlyUsed",
+                            "Target": "$AttackMarker",
+                            "Time": 60
+                        }
+                    ]
+                }
+            },
+            { // Fight
+                "$type": "DoIf",
+                "Condition": {
+                    "$type": "EvaluatesToMoreThan",
+                    "Amount": 0.5,
+                    "Evaluator": {
+                        "$type": "RememberedValue",
+                        "MemorizedStat": "/AI/Defs/Memories/Enraged",
+                        "Target": {
+                            "$type": "Self"
+                        }
+                    }
+                },
+                "Action": {
+                    "$type": "UseStrategy",
+                    "Strategy": "./Strategy_Trackmite_Wrk_Fight"
+                }
+            },
+            { // Guard
+                "$type": "CastSpell",
+                "Spell": "/AI/Spells/Trackmite/Spell_Trackmite_WalkToPoint",
+                "At": {
+                    "$type": "RandomPointTargetSelector",
+                    "BasisSelectorDef": "$Leader",
+                    "InRange": {
+                        "$type": "CalcerMetric",
+                        "Calcer": {
+                            "$type": "CalcerRandom",
+                            "Max": 4,
+                            "Min": 2
+                        }
+                    }
+                }
+            },
+            { // 3rd Job
+                "$type": "UseStrategy",
+                "Strategy": {
+                    "$type": "Strategy",
+                    "Plan": {
+                        "$type": "DummyNode"
+                    }
+                }
+            }
+        ]
+    }
+}
